@@ -631,3 +631,35 @@
 <span class="irc-date">[23:27]</span> <span class="irc-black">&lt;thedood&gt; still on samsung for now</span><br />
 <span class="irc-date">[23:27]</span> <span class="irc-black">&lt;thedood&gt; i wasn't sure if cm's vold had s3c-sdhci addresses</span><br />
 <span class="irc-date">[23:28]</span> <span class="irc-black">&lt;gdanko&gt; k</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 245 seconds)</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-black">&lt;codeworkx&gt; yes thedood</span><br />
+<span class="irc-date">[23:31]</span> <span class="irc-black">&lt;codeworkx&gt; think its ok</span><br />
+<span class="irc-date">[23:31]</span> <span class="irc-black">&lt;codeworkx&gt; yes samsung vold</span><br />
+<span class="irc-date">[23:31]</span> <span class="irc-black">&lt;codeworkx&gt; aosp vold doesn't work with /devices/platform/s3c-sdhci.0/mmc_host/mmc0</span><br />
+<span class="irc-date">[23:31]</span> <span class="irc-black">&lt;thedood&gt; yeah that's what i thought</span><br />
+<span class="irc-date">[23:31]</span> <span class="irc-black">&lt;thedood&gt; codeworkx: you see how many times i type in the wrong channel now</span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;codeworkx&gt; ;-)</span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;thedood&gt; not even sure if we can</span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;thedood&gt; omfg</span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;thedood&gt; i just did it again</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;gdanko&gt; thedood: Lines 3-4 can go in build.prop, we can modify build/core/Makefile right?</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;thedood&gt; btw i pulled your alsa patches</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;thedood&gt; gdanko: i don't like modding build/core/Makefile</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;gdanko&gt; ok what approach would you take&gt;</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;thedood&gt; either push a system.prop</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;thedood&gt; or add it to cyanogen_device.mk</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;thedood&gt; add additional properties section</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;gdanko&gt; perfect</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;thedood&gt; so yeah i modded cyanogen_vibrant.mk</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-black">&lt;thedood&gt; fuck me</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-black">&lt;thedood&gt; that's not where i put it</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-brick">* thedood digs</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-black">&lt;gdanko&gt; i just pushed the vendor files for captivate</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-black">&lt;thedood&gt; ah ha</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;thedood&gt; i added it under PRODUCT_POROPERTY_OVERRIDES +=\</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;thedood&gt; ro.phone.storage_=1 \</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;thedood&gt; ro.additionalmounts=/mnt/emmc \</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;thedood&gt; in full_vibrant.mk in device/samsung/vibrant/</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;thedood&gt; <a href="http://teamdouche.pastebin.com/QYigjuJa">http://teamdouche.pastebin.com/QYigjuJa</a></span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;thedood&gt; there</span><br />
