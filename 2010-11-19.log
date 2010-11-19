@@ -252,3 +252,89 @@
 <span class="irc-date">[14:50]</span> <span class="irc-black">&lt;codeworkx&gt; modem.img ubi.img</span><br />
 <span class="irc-date">[14:52]</span> <span class="irc-black">&lt;thedood&gt; i don't always trust rhcp</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;thedood&gt;  fuuu</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;thedood&gt; what what's up with the .img files</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;Kaik541&gt; maybe they're getting away from bml layout stuff?</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;thedood&gt; would be sweet</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;codeworkx&gt; how to extract this shit? xD</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;coolya&gt; if the drivers would be OSS personally woul prefer that way over the htc way with compiled part layout</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;Kaik541&gt; mount -o loop blah.img ?</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;codeworkx&gt; filesystem type? xED</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;coolya&gt; -t vfat</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;Kaik541&gt; -t vfat ?</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;coolya&gt; when that does not work its not rfs</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;codeworkx&gt; wrong fs type, bad option</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;coolya&gt; hmm</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;Kaik541&gt; hmm</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;Kaik541&gt; -t yaffs2 ? -t ext3 ?</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;codeworkx&gt; unknown type yaffs2 xD</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;thedood&gt; i've tried mounting all kinds of ways</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;thedood&gt; just installed unyaffs</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;thedood&gt; it's not yaffs</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;izibi&gt; file says HIT archive data. any idea what that means?</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;codeworkx&gt; strings -&gt; ubifs</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;codeworkx&gt; oO</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;Kaik541&gt; successor to JFFS2</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;thedood&gt; yeah</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;Kaik541&gt; that's what htey use on the n900 according to wikipedia</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;coolya&gt; i had one</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;codeworkx&gt; mount -t ubifsv</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;thedood&gt; ah ha</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;coolya&gt; works?</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;codeworkx&gt; dont know</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;codeworkx&gt; did a strings ubi.img | grep fs</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;codeworkx&gt; sqlfs-mount</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;Kaik541&gt; The modern way of mounting UBIFS is mounting UBI volume character device nodes, e.g.:</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;Kaik541&gt; $ mount -t ubifs /dev/ubi0_0 /mnt/ubifs</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; wrong fs type</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; this image contains all partitions</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;coolya&gt; what password did you use to uncompress ?</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://www.linux-mtd.infradead.org/faq/ubifs.html#L_ubifs_extract">http://www.linux-mtd.infradead.org/faq/ubifs.html#L_ubifs_extract</a></span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; how does odin write this?</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;Kaik541&gt; samfirmware.com</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;thedood&gt; codeworkx: it doesn't</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;thedood&gt; dd from recovery</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;Kaik541&gt; or a new version of ODIN</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;thedood&gt; yeah</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, the extract process is just dd to a temp location</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; need a linux distro with ubifs support. fedora 11 live dvd xD</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;thedood&gt; git://git.infradead.org/mtd-utils.git</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;coolya&gt; ubuntu has ...</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;thedood&gt; fuuck</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;thedood&gt; woot</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;thedood&gt; built the tools</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-green">* KaikHole (~nertz@cpe-174-111-246-012.triad.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-navy">* Kaik541 (~nertz@cpe-174-111-246-012.triad.res.rr.com) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-green">* KaikHole is now known as Kaik541</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-green">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) has joined this channel.</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;thedood&gt; hate ubi already</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;Kaik541&gt; and we don't even have a device for it yet :P</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-navy">* coolya (~kolja@xdslcw157.osnanet.de) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;thedood&gt; don't care</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-green">* coolya (~kolja@xdslcw157.osnanet.de) has joined this channel.</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;codeworkx&gt; modprobe nandsim first_id_byte=0xec second_id_byte=0xd3 third_id_byte=0x51 fourth_id_byte=0x95</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;codeworkx&gt; for 1GB</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;codeworkx&gt; mknod /dev/mtd0 c 90 0</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;codeworkx&gt; dd if=ubi.img of=/dev/mtd0 bs=2048</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;codeworkx&gt; modprobe ubi mtd=0</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;codeworkx&gt; mount -t ubifs /dev/ubi0_0 /mnt/ubifs</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;codeworkx&gt; mount: Bad message</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;codeworkx&gt; DAMN</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;Kaik541&gt; you have mtd-tools installed?</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;Kaik541&gt; err mtd-utils</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;coolya&gt; mounting N900 was working :-(</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;Kaik541&gt; anybody got an n900 they could mount it with? :D</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;coolya&gt; i could mount my old n900 root fs ...</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;coolya&gt; but not the samsung one</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;izibi&gt; <a href="http://paste.pocoo.org/show/293697/">http://paste.pocoo.org/show/293697/</a> strange...</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;GuiPer&gt; samsung-firmwares.com</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;GuiPer&gt; sorry wrong paste :)</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;GuiPer&gt; not success mounting it?</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;coolya&gt; NOPE</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;izibi&gt; now i've got /dev/ubi0 but nothing like /dev/ubi0_0</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;thedood&gt; anyone get it mounted yet?</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;thedood&gt; i even made my own mtd utils</span><br />
