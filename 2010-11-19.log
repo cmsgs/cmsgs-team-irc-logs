@@ -9,3 +9,40 @@
 <span class="irc-date">[11:00]</span> <span class="irc-brown">-ChanServ- [#__topsecret__] SGS-CM6 developers and testers only pls. Others could be kickbanned if not contributing to the channel's function.</span><br />
 <span class="irc-date">[11:00]</span> <span class="irc-green">* ChanServ sets mode +o cmsgsteam-logger</span><br />
 <span class="irc-date">[11:01]</span> <span class="irc-black">&lt;gdanko&gt; ok im gonna flash real quick</span><br />
+<span class="irc-date">[11:04]</span> <span class="irc-black">&lt;gdanko&gt; hmm /data is a read only filesystem</span><br />
+<span class="irc-date">[11:04]</span> <span class="irc-black">&lt;gdanko&gt; off</span><br />
+<span class="irc-date">[11:04]</span> <span class="irc-black">&lt;gdanko&gt; odd</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;gdanko&gt; E/installd( 2385): cannot create dir '/data/data/com.noshufou.android.su': Read-only file system</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;gdanko&gt; lemme check init.rc</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-anthony.freenode.net- *** Looking up your hostname...</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-anthony.freenode.net- *** Checking Ident</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-anthony.freenode.net- *** No Ident response</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-anthony.freenode.net- *** Found your hostname</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-red">[frigg VERSION]</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-green">* cmsgsteam-logger (~PircBot@cmsgs.com) has joined this channel.</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-green">* Topic is 'SGS CM6 developers and testers (and other kernel and android hackers) - <a href="http://www.cmsgs.com/'">http://www.cmsgs.com/'</a></span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-green">* Set by atinm|nite!~atin@unaffiliated/atinm on Fri Oct 29 22:39:24 GMT-05:00 2010</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-ChanServ- [#__topsecret__] SGS-CM6 developers and testers only pls. Others could be kickbanned if not contributing to the channel's function.</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-green">* ChanServ sets mode +o cmsgsteam-logger</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-anthony.freenode.net- *** Looking up your hostname...</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-anthony.freenode.net- *** Checking Ident</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-anthony.freenode.net- *** No Ident response</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-anthony.freenode.net- *** Found your hostname</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-anthony.freenode.net- *** Looking up your hostname...</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-anthony.freenode.net- *** Checking Ident</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-anthony.freenode.net- *** No Ident response</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-anthony.freenode.net- *** Found your hostname</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-red">[frigg VERSION]</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-green">* cmsgsteam-logger (~PircBot@cmsgs.com) has joined this channel.</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-green">* Topic is 'SGS CM6 developers and testers (and other kernel and android hackers) - <a href="http://www.cmsgs.com/'">http://www.cmsgs.com/'</a></span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-green">* Set by atinm|nite!~atin@unaffiliated/atinm on Fri Oct 29 22:39:24 GMT-05:00 2010</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-brown">-ChanServ- [#__topsecret__] SGS-CM6 developers and testers only pls. Others could be kickbanned if not contributing to the channel's function.</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-green">* ChanServ sets mode +o cmsgsteam-logger</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm&gt; hrm..</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;gdanko&gt; mount rfs /dev/block/mmcblk0p2 /data nosuid nodev check=no</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;gdanko&gt; mount rfs /dev/block/mmcblk0p2 /data nosuid nodev noatime nodiratime errors=continue nobh data=writeback barrier=0 noauto_da_alloc</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;gdanko&gt; some of the options may be ext4-specific so its more than just s/ext4/rfs/g</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-black">&lt;codeworkx&gt; mount rfs /dev/block/mmcblk0p2 /data nosuid nodev</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-black">&lt;codeworkx&gt; or to be sure: mount rfs /dev/block/mmcblk0p2 /data rw nosuid nodev</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;gdanko&gt; ok</span><br />
