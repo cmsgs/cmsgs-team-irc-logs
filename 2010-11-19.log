@@ -47,3 +47,30 @@
 <span class="irc-date">[11:09]</span> <span class="irc-black">&lt;codeworkx&gt; or to be sure: mount rfs /dev/block/mmcblk0p2 /data rw nosuid nodev</span><br />
 <span class="irc-date">[11:10]</span> <span class="irc-black">&lt;gdanko&gt; ok</span><br />
 <span class="irc-date">[11:13]</span> <span class="irc-navy">* GuiPer_ (c3fa8fd4@gateway/web/freenode/ip.195.250.143.212) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[11:21]</span> <span class="irc-black">&lt;atinm&gt; ok, I guess logger is up again</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;atinm&gt; need to talk to thedood - right now it will upload the logs to github</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;atinm&gt; so need a cron job on cmsgs.com to download them every hour or so and put into the /var/www/logs directory so the website can see them.</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;gdanko&gt; codeworkx: still no luck</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://pastebin.gdanko.net/426">http://pastebin.gdanko.net/426</a></span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-green">* Kaik541 (~nertz@cpe-174-111-246-012.triad.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[11:29]</span> <span class="irc-black">&lt;codeworkx&gt; gdanko, see if /cache is mounted</span><br />
+<span class="irc-date">[11:29]</span> <span class="irc-black">&lt;codeworkx&gt; type "mount"</span><br />
+<span class="irc-date">[11:29]</span> <span class="irc-black">&lt;gdanko&gt; it was mounted but i could not su and w/o su i couldnt list its contents</span><br />
+<span class="irc-date">[11:30]</span> <span class="irc-black">&lt;gdanko&gt; cd /cache failed with permission denied</span><br />
+<span class="irc-date">[11:30]</span> <span class="irc-black">&lt;codeworkx&gt; you've taken my init.rc?</span><br />
+<span class="irc-date">[11:30]</span> <span class="irc-black">&lt;gdanko&gt; yes</span><br />
+<span class="irc-date">[11:30]</span> <span class="irc-black">&lt;gdanko&gt; i used the entire initramfs from your repo</span><br />
+<span class="irc-date">[11:30]</span> <span class="irc-black">&lt;codeworkx&gt;  and /system/xbin/su ?</span><br />
+<span class="irc-date">[11:30]</span> <span class="irc-black">&lt;gdanko&gt; with the ext4 changes</span><br />
+<span class="irc-date">[11:30]</span> <span class="irc-black">&lt;gdanko&gt; yes su is present</span><br />
+<span class="irc-date">[11:30]</span> <span class="irc-black">&lt;codeworkx&gt; run it?</span><br />
+<span class="irc-date">[11:31]</span> <span class="irc-black">&lt;gdanko&gt; yes, segfault</span><br />
+<span class="irc-date">[11:31]</span> <span class="irc-black">&lt;codeworkx&gt; i'm able to ls /cache without su</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;codeworkx&gt; drwxrwx--x    4 system   cache         4096 Nov 19 05:44 cache</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;codeworkx&gt; drwxrwx--x    4 system   cache         4096 Nov 19 05:44 .</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;codeworkx&gt; drwxr-xr-x   18 root     root             0 Nov 19 17:21 ..</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;codeworkx&gt; lrwxrwxrwx    1 root     root            20 Nov 19 04:36 dalvik-cache -&gt; /dbdata/dalvik-cache</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;codeworkx&gt; -rw-r--r--    1 app_17   app_17     1529836 Nov 19 04:41 downloadfile.apk</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;codeworkx&gt; drwxrwx---    2 root     root          4096 Nov 14 23:58 lost+found</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;codeworkx&gt; drwxrwx---    2 system   cache         4096 Nov 19 17:21 recovery</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;gdanko&gt; ok gimme a few.. i will try once more</span><br />
