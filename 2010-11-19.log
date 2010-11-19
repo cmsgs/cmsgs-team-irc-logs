@@ -338,3 +338,134 @@
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;izibi&gt; now i've got /dev/ubi0 but nothing like /dev/ubi0_0</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;thedood&gt; anyone get it mounted yet?</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;thedood&gt; i even made my own mtd utils</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;thedood&gt; and can't see the fs type</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;coolya&gt;   510.452119] UBI error: validate_ec_hdr: bad VID header offset 4096, expected 512</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;codeworkx&gt;     * ubinfo - provides information about UBI devices and volumes found in the system;</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;codeworkx&gt;     * ubiattach - attaches MTD devices (which describe raw flash) to UBI and creates corresponding UBI devices;</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;codeworkx&gt;     * ubidetach - detaches MTD devices from UBI devices (the opposite to what ubiattach does);</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;codeworkx&gt;     * ubimkvol - creates UBI volumes on UBI devices;</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;codeworkx&gt;     * ubirmvol - removes UBI volumes from UBI devices;</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;codeworkx&gt;     * ubiupdatevol - updates UBI volumes; this tool uses the UBI volume update feature which leaves the volume in "corrupted" state if the update was interrupted; additionally, this tool may be used to wipe out UBI volumes;</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;codeworkx&gt;     * ubicrc32 - calculates CRC-32 checksum of a file with the same initial seed as UBI would use;</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;codeworkx&gt;     * ubinize - generates UBI images;</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;codeworkx&gt;     * ubiformat - formats empty flash, erases flash and preserves erase counters, flashes UBI images to MTD devices;</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;codeworkx&gt;     * mtdinfo - reports information about MTD devices found in the system.</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;codeworkx&gt; sudo ubinfo /dev/mtd0</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;codeworkx&gt; libubi: error!: "/dev/mtd0" has major:minor 90:0, but this does not correspond to any existing UBI device or volume</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;codeworkx&gt; ubinfo: error!: "/dev/mtd0" does not correspond to any UBI device or volume</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;coolya&gt; lol samsfirmware says: "- RFS (Also Galaxy S use this so more Lag)"</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;Kaik541&gt; they saw "btrfs" and "vfat" and assumed rfs</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;thedood&gt; oh i have them too</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;Kaik541&gt; but I wonder if it's actually btrfs</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;GuiPer&gt; i guess you need to separate the multiple volumes...</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;GuiPer&gt; into individual parts</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;thedood&gt; it better not be btrfs</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;coolya&gt; maybe its only one Meego image ... for n900 ... the size would match and they use btrfs for user data</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;Kaik541&gt; well I'm looking at what samfirmware is using to describe it</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;thedood&gt; i just need a nandsim</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;Kaik541&gt; and I see node/leaf</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;Kaik541&gt; which makes more sense for btrfs than rfs</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;Kaik541&gt; does samsung have any interest in meego?</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; after i've written the ubi image to my mtd device</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; sudo ubiformat /dev/mtd0</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; ubiformat: mtd0 (nand), size 1073741824 bytes (1024.0 MiB), 8192 eraseblocks of 131072 bytes (128.0 KiB), min. I/O size 2048 bytes</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; libscan: scanning eraseblock 8191 -- 100 % complete</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; ubiformat: 5500 eraseblocks have valid erase counter, mean value is 1</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; ubiformat: 1360 corrupted erase counters</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; ubiformat: warning!: 1332 of 8192 eraseblocks contain non-ubifs data</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; ubiformat: continue? (yes/no)  y</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; ubiformat: warning!: only 5500 of 8192 eraseblocks have valid erase counter</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; ubiformat: mean erase counter 1 will be used for the rest of eraseblock</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; ubiformat: continue? (yes/no)  y</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; ubiformat: use erase counter 1 for all eraseblocks</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; ubiformat: formatting eraseblock 8191 -- 100 % complete</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 1332 of 8192 eraseblocks contain non-ubifs data</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;codeworkx&gt; think we have to split it xD</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;thedood&gt; wtf</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;GuiPer&gt; probably /system is UBI and part is btrfs or something...</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;codeworkx&gt; 2.6.34 kernel</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;GuiPer&gt; extracted it?</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;codeworkx&gt; strings xD</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;coolya&gt; XMM61XX_REV40 - modem</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;codeworkx&gt; uhh theres a libasound</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;codeworkx&gt; thats fine</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;codeworkx&gt; need some samsung email adresses? xD</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;thedood&gt; lol</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;GuiPer&gt; can you try to cat the mtd0?</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;GuiPer&gt; you can see clearly spaces between the volumes..</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;codeworkx&gt; NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOo</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;codeworkx&gt; icon_samsungapps.png</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;codeworkx&gt; com.samsung.calendarUI.ALARM</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;GuiPer&gt; :(</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;izibi&gt; why is there so much debian stuff in ubi.img?</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-navy">* noobnl (~noob@unaffiliated/noobnl) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;coolya&gt; the only google strings in it are: <a href="http://pastebin.com/JEERiVJG">http://pastebin.com/JEERiVJG</a></span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;codeworkx&gt; ok, s5pc110 is ok, sgx540, too</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;coolya&gt;  * Motion Eye video4linux driver for Sony Vaio PictureBookH</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;coolya&gt; wtf</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;GuiPer&gt; try to flash it :D</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-green">* noobnl (~noob@host-174-22-220-24.midco.net) has joined this channel.</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-navy">* noobnl (~noob@host-174-22-220-24.midco.net) Quit (Changing host)</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-green">* noobnl (~noob@unaffiliated/noobnl) has joined this channel.</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;codeworkx&gt; Major=I9200XXJK-20101103;</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;codeworkx&gt; GT-I9200o</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;codeworkx&gt; M:I9200XXUI1_P</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;codeworkx&gt; O:MN(GT-I9200);VER(%s/</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;codeworkx&gt; GT-I9200o</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;codeworkx&gt; GT-I9200 (</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;codeworkx&gt; yeah, flash it xD</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;GuiPer&gt; :D:D</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;codeworkx&gt;  /mnt/movifs/system</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;izibi&gt; try it. i'm pretty sure it won't work :D</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;codeworkx&gt; wtf</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;GuiPer&gt; for sure not, we need pit etc</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;GuiPer&gt; and i dont think odin will deal with it, it's not a tar file</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;coolya&gt; odin will send it an boot loader will write it :-D</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;coolya&gt; but then you have fun :-D</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;codeworkx&gt; simply write this image to bml0</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;codeworkx&gt; will work</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;gdanko&gt; codeworkx: yeah oddly the symlinks work as soon as i flash the kernel made with the cm initramfs</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;codeworkx&gt; then you'll have a new Samsung GT-Ibrick1</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;GuiPer&gt; no more lag at least :)</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;codeworkx&gt; and no battery drain</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;coolya&gt; the lags will be gone forever</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;codeworkx&gt; no gps bugs</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-navy">* Kaik541 (~nertz@cpe-174-111-246-012.triad.res.rr.com) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;coolya&gt; no fucked up alsa</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;codeworkx&gt; no fucking samsung bootlogo</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;codeworkx&gt; w00t alsa</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;codeworkx&gt; i'll have to go</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;codeworkx&gt; alsa hates me</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;GuiPer&gt; some success with it?</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;coolya&gt; i'll look at gps</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;codeworkx&gt; don't know. didn't try the latest changes because of I9200</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;gdanko&gt; how to get rid of at&amp;t logo in boot.bin :P :)</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;coolya&gt; build libgps on my own lets see whats happening</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;codeworkx&gt; flash new bootloader</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;GuiPer&gt; can i help you somehow?</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;codeworkx&gt; try to fix bluetooth xD</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;GuiPer&gt; anything i can investigate? nothing to do...</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;codeworkx&gt; or wifi tethering</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;GuiPer&gt; something easy :)</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;codeworkx&gt; wifi tethering</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-green">* Kaik541 (~nertz@cpe-174-111-246-012.triad.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;GuiPer&gt; will take a look then but</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;Kaik541&gt; oh hey logger is back</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;gdanko&gt; i'd like to create a bootloader with a generic samsung or android logo</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;Kaik541&gt; to get rid of that glaring AT&amp;T icon?</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;codeworkx&gt; try flashing i9000 bootloader xD</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;gdanko&gt; what is goldfish?</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;codeworkx&gt; my goldfish!</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;gdanko&gt; how codeworkx how did you get adb shell to always log as root?</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;Kaik541&gt; the only thing we need to change to get rid of the AT&amp;T screen is param.lfs</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;Kaik541&gt; ro.secure=0 ?</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;codeworkx&gt; yeah</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;gdanko&gt; oh in build.prop?</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;gdanko&gt; err default.prop</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;codeworkx&gt; def</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;gdanko&gt; ya build was a typo</span><br />
