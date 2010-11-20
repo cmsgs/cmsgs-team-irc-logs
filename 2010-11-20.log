@@ -111,3 +111,30 @@
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;codeworkx&gt; said success but the damn unendless folder is still there</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;codeworkx&gt; and fsck goes totally crazy</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Unhelpful&gt; maybe try mkdosfs (or is it mkfs.msdos?)</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;thedood&gt; do you have something crazy in your init.rc that symlinks the folders?</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;Unhelpful&gt; if you see impossible filesystem contents, something is wrong w the filesystem. and if they're still there after a format program says it worked, it lied to you.</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;Unhelpful&gt; thedood: vfat doesn't even have symlinks...</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;thedood&gt; speaking of wrong</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;thedood&gt; /dev/block/vold/179:9    14.9G      9.8G      5.1G  66% /mnt/sdcard</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;thedood&gt; /dev/block/vold/179:9    13.0G      3.6G      9.5G  27% /mnt/secure/asec</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;thedood&gt; /dev/block/vold/179:1    13.0G      3.6G      9.5G  27% /mnt/emmc</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;thedood&gt; /dev/block/vold/179:1    13.0G      3.6G      9.5G  27% /mnt/secure/asec</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;thedood&gt; ^^^ that shit is wrrrroooooong</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;Unhelpful&gt; rfs does, but mmcblk0p1 should not be mounted as rfs.</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;Unhelpful&gt; thedood: that's what bind mounts look like in df...</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;thedood&gt; why is it bind mounting asec twice?</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;thedood&gt; also...where would it be doing that</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;Unhelpful&gt; that i don't know. :)</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;Unhelpful&gt; just saying, a bind mount looks munt like another mount of the same filesystem</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;Unhelpful&gt; or can in the right utilities, anyway.</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;thedood&gt; oh oh oh</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;thedood&gt; i see my problem</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;Unhelpful&gt; oh?</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;thedood&gt; well</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;thedood&gt; maybe</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;thedood&gt; sammy does to asec's</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;thedood&gt; two*</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;Unhelpful&gt; makes... perfect... sense? :/</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;codeworkx&gt; -&gt; /system/xbin/busybox mkdosfs /dev/block/mmcblk0p1 mkdosfs: lseek: Value too large for defined data type</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;Unhelpful&gt; hah, wtf. fdisk and make sure the partition table is valid?</span><br />
