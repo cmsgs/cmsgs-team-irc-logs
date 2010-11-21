@@ -240,3 +240,29 @@
 <span class="irc-date">[19:57]</span> <span class="irc-black">&lt;codeworkx&gt; ./base/include/media/mediarecorder.h:    AUDIO_ENCODER_DEFAULT = 0,</span><br />
 <span class="irc-date">[19:57]</span> <span class="irc-black">&lt;codeworkx&gt; haha</span><br />
 <span class="irc-date">[19:58]</span> <span class="irc-brick">* Unhelpful assumes somebody is responsible for assigning IDs to codecs? :P</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;codeworkx&gt; if (ac-&gt;ae == AUDIO_ENCODER_DEFAULT)</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;codeworkx&gt;         ac-&gt;ae = AUDIO_ENCODER_AMR_NB;</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-brick">* Unhelpful weeps</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-navy">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) Quit (Ping timeout: 245 seconds)</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;codeworkx&gt; lets use AUDIO_ENCODER_AAC</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;codeworkx&gt; the only one which is possible except AMR</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;Unhelpful&gt; depends... what's the AAC encoder? iirc faac (and anything based on it) is pretty bad...</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;noobnl&gt; this iis used in kies</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;noobnl&gt; vendor/samsung/GT-I9000/proprietary/bin/drexe:system/bin/drexe \</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;noobnl&gt;  it a data router</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://en.wikipedia.org/wiki/Advanced_Audio_Coding">http://en.wikipedia.org/wiki/Advanced_Audio_Coding</a></span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;noobnl&gt; 	vendor/samsung/SPH-D700/proprietary/bin/npsmobex:system/bin/npsmobex \ are you sure we need this?</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;codeworkx&gt; delete it</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: i know what AAC is, i'm asking about the implementation. the only open-source encoder i know of is faac, and it has something of a reputation for being poor compared to others.</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;codeworkx&gt; its part of opencore</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://www.opencore.net/">http://www.opencore.net/</a></span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://www.opencore.net/files/Android_AAC_Encoder_Package.pdf">http://www.opencore.net/files/Android_AAC_Encoder_Package.pdf</a></span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;noobnl&gt; this is the powervr related</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;noobnl&gt;     vendor/samsung/GT-I9000/proprietary/lib/libglslcompiler.so:system/lib/libglslcompiler.so \</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;noobnl&gt;     vendor/samsung/GT-I9000/proprietary/lib/libsrv_init.so:system/lib/libsrv_init.so \</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;noobnl&gt;     vendor/samsung/GT-I9000/proprietary/lib/libsrv_um.so:system/lib/libsrv_um.so</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;codeworkx&gt; Fraunhofer SW AAC encoder library in binary form on Android</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;codeworkx&gt; OpenMAX SW AAC encoder component in source form</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-green">* Kaik541 (~nertz@cpe-174-111-246-012.triad.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-green">* forcystos (~forcystos@adsl-85-40-239.mco.bellsouth.net) has joined this channel.</span><br />
