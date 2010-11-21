@@ -116,3 +116,87 @@
 <span class="irc-date">[14:52]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="http://code.google.com/p/samsung-gt-i9000-cyanogenmod/issues/attachmentText?id=99&amp;aid=5869188533858904494&amp;name=logcat.txt&amp;token=015f625904e3390999576068b5953a3c">http://code.google.com/p/samsung-gt-i9000-cyanogenmod/issues/attachmentText?id=99&amp;aid=5869188533858904494&amp;name=logcat.txt&amp;token=015f625904e3390999576068b5953a3c</a></span><br />
 <span class="irc-date">[14:52]</span> <span class="irc-black">&lt;GuiPer&gt; check the log there</span><br />
 <span class="irc-date">[14:55]</span> <span class="irc-navy">* birdman (~bird@24.246.130.106) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;codeworkx&gt; yes remove it, think i've added this yesterday?</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;codeworkx&gt; btw: <a href="http://code.google.com/p/android/issues/detail?id=12678&amp;q=alsa_sound&amp;colspec=ID%20Type%20Status%20Owner%20Summary%20Stars">http://code.google.com/p/android/issues/detail?id=12678&amp;q=alsa_sound&amp;colspec=ID%20Type%20Status%20Owner%20Summary%20Stars</a></span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;codeworkx&gt; damn alsa.. or should i say damn samsung?</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer, i've enabled some debugging at alsa.</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; ok. SoundRecorder is working. but when i record eg 3 sec the record is much longer and damn slow</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; wtf</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;codeworkx&gt; D/ALSAModule( 2385): Set CAPTURE PCM format to S16_LE (Signed 16 bit Little Endian)</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;codeworkx&gt; D/ALSAModule( 2385): Using 1 channel for CAPTURE.</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;codeworkx&gt; D/ALSAModule( 2385): Set CAPTURE sample rate to 16000 HZ</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;codeworkx&gt; D/ALSAModule( 2385): Buffer size: 4096</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;codeworkx&gt; D/ALSAModule( 2385): Latency: 256000</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;codeworkx&gt; I/ALSAModule( 2385): Initialized ALSA CAPTURE device AndroidRecord</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-green">* CAP3775 is now known as awiaI9000test</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;GuiPer&gt; shitty samsung :(</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;GuiPer&gt; btw alsa is not compiling now :)</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;GuiPer&gt; syncing again</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;GuiPer&gt; some problem with latency?</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;GuiPer&gt; what you think?</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;codeworkx&gt; hmm</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;GuiPer&gt; it's the only one that looks related...</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; on cm6 soundrecorder, ringdroid is going to use 16000 HZ. On Samsung Rom it's 44100</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; WHY?</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; dont know. need an audio pro</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; :-)</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;GuiPer&gt; humm, this may look strange</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;GuiPer&gt; but curio?</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;GuiPer&gt; he was giving some deep look at audio thing...</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;GuiPer&gt; maybe he can somehow help</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;codeworkx&gt; resync please</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;codeworkx&gt;  :-)</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;GuiPer&gt; some changes there</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;GuiPer&gt; should be solved</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;GuiPer&gt; try to see how ringdroid calls the alsa system</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;GuiPer&gt; how the reply from this one</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;GuiPer&gt; why they choose 16 instead of 44</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;codeworkx&gt; ./base/media/libmedia/AudioSystem.cpp:uint32_t AudioSystem::gPrevInSamplingRate = 16000;</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;GuiPer&gt; and changing it to 44? destroys everything? :D</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;codeworkx&gt; will try</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;codeworkx&gt; if this works i'll drink much beer</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;GuiPer&gt; so maybe after all I'll be able to help little bit more</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;GuiPer&gt; i'll be on training, but i'm taking my personal laptop</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;GuiPer&gt; let us know if it works</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;GuiPer&gt; :)</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;codeworkx&gt; flashing</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;codeworkx&gt; DAMN SHIT</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;codeworkx&gt; D/ALSAModule( 2385): Set CAPTURE PCM format to S16_LE (Signed 16 bit Little Endian)</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;codeworkx&gt; D/ALSAModule( 2385): Using 1 channel for CAPTURE.</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;codeworkx&gt; D/ALSAModule( 2385): Set CAPTURE sample rate to 16000 HZ</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;codeworkx&gt; D/ALSAModule( 2385): Buffer size: 4096</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;codeworkx&gt; D/ALSAModule( 2385): Latency: 256000</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;codeworkx&gt; I/ALSAModule( 2385): Initialized ALSA CAPTURE device AndroidRecord</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;GuiPer&gt; maybe ringdroid is rquesting 16000?</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;GuiPer&gt; since this value is acceptable</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;GuiPer&gt; and before it was not?</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;GuiPer&gt; i thing this changes are on leshaks thing</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;codeworkx&gt; 16000 is not working on voicesearch too. but 441000 works fine</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;codeworkx&gt; but cant force soundrecorder to use 441000</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;GuiPer&gt; hummm</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;GuiPer&gt; const uint32_t inputSamplingRates[] = {</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;GuiPer&gt;         16000, 44100</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;GuiPer&gt; }</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;GuiPer&gt; try to remove 16000?</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;GuiPer&gt; what happens?</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;codeworkx&gt; voicesearch uses 44100 then and is working</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;codeworkx&gt; but all other recording apps are crashing</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;codeworkx&gt; 16000 is no problem</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;codeworkx&gt; but the records are damn slow</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;codeworkx&gt; but why?</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;codeworkx&gt; latency?</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;GuiPer&gt; i would say so...</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-green">* neldar (~neldar@dsl23-147.pool.bitel.net) has joined this channel.</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;- *neldar* Bot Sentry eingeschalten:  Sie werden jetzt ignoriert!  Ihre Nachricht wird übermittelt wenn sie die folgenden Fragen innerhalb von 10 Minuten richtig beantworten:  Wie buchstabieren sie die Zahl 10?</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;codeworkx&gt; ok</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;codeworkx&gt; it seems that our "soundcard" only supports 44100</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;codeworkx&gt; other samplerates would result in slow records</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;coolya&gt; what about hardcoding sample rate as workaround ?</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;GuiPer&gt; i would try it...</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;codeworkx&gt; i'll remove all except 44100</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;codeworkx&gt; i think samsung did that too</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;codeworkx&gt; damn crap phone xD</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;codeworkx&gt; why i'm not able to use a really bad samplerate? xD</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;codeworkx&gt; why i must use high quality?</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;codeworkx&gt; i love bad samplerates</span><br />
