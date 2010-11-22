@@ -263,3 +263,27 @@
 <span class="irc-date">[20:43]</span> <span class="irc-black">&lt;Unhelpful&gt; ahahahah, i forgot to unset ro.secure so that i could have root shell for adb :/</span><br />
 <span class="irc-date">[20:56]</span> <span class="irc-black">&lt;gdanko&gt; oops :P</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;thedeanius&gt; does the continuum source drop have anything useful?</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-brick">* Unhelpful retreats to the safety of cog for now :P</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-green">* jt1134 is now known as martyotaku</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-green">* martyotaku is now known as jt1134</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: i'd have to modify this to convert *back*, wouldn't i?</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-green">* jt1134 is now known as jt|ZOMGFoodTime</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-navy">* birdman (~bird@24.246.130.106) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: I would imagine so. :)</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-green">* birdman (~bird@24.246.130.106) has joined this channel.</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;codeworkx&gt; convert back? xD</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;gdanko&gt; codeworkx: is the basic premise: copy the files to sdcard, convert filesystem, copy back?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: erm, yes, to have a phone where everything works? on my last attempt building from cm_sgs there was a *lot* not working.</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;codeworkx&gt; use nandroid restore</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;Unhelpful&gt; um... that won't reformat as rfs?</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;codeworkx&gt; use diskdump</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;codeworkx&gt; to make a backup</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;codeworkx&gt; and after testing dump back</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;codeworkx&gt; or try using rfs at updater-script as param</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;GuiPer&gt; codeworkx: news on alsa??</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;codeworkx&gt; using aosp alsa now. samdroid seems to be crippled</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;codeworkx&gt; made some changes but didn't test.</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;codeworkx&gt; will take some sleep now</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;codeworkx&gt; if you want, compile it and try voicesearch + have a look at logcat. and after this try soundrecorder + have a look at logcat</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;codeworkx&gt; voicesearch should be 8000hz and working. soundrecorder should be AMR-WB at 16000HZ and working xD</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;codeworkx&gt; Fileheader and real sampleRate must be the same on 3gpp files recorded</span><br />
