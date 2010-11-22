@@ -162,3 +162,23 @@
 <span class="irc-date">[16:42]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[17:34]</span> <span class="irc-green">* vikas776 (7aa16f65@gateway/web/freenode/ip.122.161.111.101) has joined this channel.</span><br />
 <span class="irc-date">[17:47]</span> <span class="irc-green">* Kaik541 (~nertz@cpe-174-111-246-012.triad.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: it's worked for me, but i need to use dalvik.vm.dexopt-data-only=1 in build.prop. symlink from cache/dalvik-cache to another directory didn't work for me, and /cache itself is too small for the system dalvik cache.</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, wait, you're using that and it's still fussing about failures populating the cache? :(</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-green">* GuiPer (~GuiPer@142.Red-88-23-252.staticIP.rima-tde.net) has joined this channel.</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: I have both of those set.</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;Unhelpful&gt; weird. that was what fixed it for me :(</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: I added "dalvik.vm.dexopt-data-only=1" to full_captivate.mk, built it and everything built ok.. the option was set in build.prop.</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;gdanko&gt; I also have the symlink set</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;Unhelpful&gt; if you have that in build.prop you should need no symlink</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;gdanko&gt; oh one or the other?</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;gdanko&gt; and one weird thing is</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;gdanko&gt; brb</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-green">* jt|sleepyface is now known as jt1134</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-green">* neldar (~neldar@dsl25-237.pool.bitel.net) has joined this channel.</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;- *neldar* Bot Sentry eingeschalten:  Sie werden jetzt ignoriert!  Ihre Nachricht wird übermittelt wenn sie die folgenden Fragen innerhalb von 10 Minuten richtig beantworten:  Wie buchstabieren sie das Ergebnis (Zahl) aus 10 geteilt durch zwei?</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: I will try again.</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;gdanko&gt; What DOESN'T work on Captivate at this time?</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;gdanko&gt; GPS wasnt working and nor was Camera.</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;thedeanius&gt; hi</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-navy">* GuiPer (~GuiPer@142.Red-88-23-252.staticIP.rima-tde.net) Quit (Quit: GuiPer)</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-green">* GuiPer (~GuiPer@142.Red-88-23-252.staticIP.rima-tde.net) has joined this channel.</span><br />
