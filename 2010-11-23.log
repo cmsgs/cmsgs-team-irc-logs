@@ -223,3 +223,30 @@
 <span class="irc-date">[17:06]</span> <span class="irc-black">&lt;thedood&gt; more like you need to merge in changes from cmfroyo</span><br />
 <span class="irc-date">[17:06]</span> <span class="irc-black">&lt;thedood&gt; i can look at it after work</span><br />
 <span class="irc-date">[17:21]</span> <span class="irc-black">&lt;gdanko&gt; rats</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-green">* skeeterslint (~skeetersl@c-71-192-215-99.hsd1.ma.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-navy">* birdman (~bird@24.246.130.106) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;Unhelpful&gt; thedood: what exactly do i need to do? all i did was sync from cm_sgs.</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;thedood&gt; Unhelpful: what's probably happening is you're missing changes from the packages we forked</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;Unhelpful&gt; thedood: as in changes in "upstream" cm?</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;thedood&gt; yeah</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;thedood&gt; wehn the cmsgs repos were made they didn't track upstream</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;thedood&gt; i'm syncing on my mac now</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;Unhelpful&gt; see-this-is-what's-wrong-with-repo :/</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;Unhelpful&gt; this wouldn't happen if the project was *one* git repository :P</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;thedood&gt; that's impossible</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;thedood&gt; what's wrong is how we forked the project</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;thedood&gt; what's scary is someo of our commits</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;thedood&gt; may break the main branch</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;thedood&gt; so i hope shit merges cleanly</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-green">* coolya (~kolja@xdslca103.osnanet.de) has joined this channel.</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;Unhelpful&gt; *impossible*? only because upstream isn't git, afaik there's nothing stopping a git repository from being as large as this project. but google needed their own vcs, so we're stuck with it. :P</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-green">* cob (~conrado@swan.dds.nl) has joined this channel.</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;thedood&gt; but upstream is git</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;cob&gt; hello</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;thedood&gt; repo is just a shit ton of gits</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;thedood&gt; unless i'm way off</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;Unhelpful&gt; thedood: yes, it is, but it's a bunch of gits and a silly xml manifest. that is something different from one git repo - if upstream were truly a single repository we'd never have been able to mix-and-match upstream and forked portions of it, which i imagine is how we got in this mess.</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;cob&gt; does anyone here do their kernel work on windows? (I'm normally on Linux myself, but due to having broken the wifi tethering and not having a fixed internet connection out here in this tropical island I can't get internet on Linux, because of Kies)</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm just not sure what the *benefit* of this is, aside from being able to create an eventually-broken repository where only certain subtrees of the whole project are forked.</span><br />
