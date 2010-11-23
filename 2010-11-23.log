@@ -130,3 +130,82 @@
 <span class="irc-date">[14:58]</span> <span class="irc-black">&lt;gdanko&gt; these guys LOVE perl here so i kinda have to use it.</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;Unhelpful&gt; actually might've been 3rd or 4th now i think of it. by high school it was the iigs and macs were starting to be more popular in education than the ii line.</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;gdanko&gt; we had a handful of macs in HS, mostly the //e</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;gdanko&gt; I coded recreationally on a C64 in high school</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;gdanko&gt; pain in the butt, C64 basic</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;codeworkx&gt; C64 was incredible</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;gdanko&gt; oh absolutely</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;gdanko&gt; codeworkx: Jack Tramiel signed my VIC20 user guide</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;Unhelpful&gt; apple 2 forever, lol. yah, you stopped hearing that after mac lc or so.</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;codeworkx&gt; brb, rebooting</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) Quit (Quit: ~ Trillian Astra - www.trillian.im ~)</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;gdanko&gt; I am hooked on Boardwalk Empire</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;gdanko&gt; I appreciate that much of it is historically accurate as well.</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;gdanko&gt; Sometimes I hate regex</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-brick">* Unhelpful hopes this build comes off better than last night's</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;gdanko&gt; if my haystack is: lid806173468hs1el1</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;gdanko&gt; if ($value =~ /^lid(\d+)/) { should catch the first set of numbers</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;gdanko&gt; perl says no</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;gdanko&gt; bastards</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;Unhelpful&gt; erm, does =~ have to match the *whole* string to match?</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;gdanko&gt; no afaik it can match partial</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;gdanko&gt; let me try to put the entire in there</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-brick">* Unhelpful still thinks python is better ;)</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;gdanko&gt; I have 10,000 perl coders here. I don't want to create civil unrest.</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;gdanko&gt; if ($value =~ /^lid([0-9]+)hs([0-9])el([0-9])/) {</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;gdanko&gt; still failed</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;gdanko&gt; i will use good old quanetic's tester</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;Unhelpful&gt; ah, it seems to be about context. :)</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;gdanko&gt; it seems to be about me stuffing my size 10 in perl's behind :P :)</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;gdanko&gt; quanetic's regex tester said i am correct :P</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;Unhelpful&gt; no no, you're doing fine, it's just that your needle is assigned to $1 :)</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;Unhelpful&gt; see here: <a href="http://perldoc.perl.org/perlretut.html#Extracting-matches">http://perldoc.perl.org/perlretut.html#Extracting-matches</a></span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;gdanko&gt; hmm ive always done it that way</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;Unhelpful&gt; per that $value will just get a true/false assignment - but i assume it's the entire match in string context, and apparently it can be evaluated to the matched subexpressions in list context.</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;Unhelpful&gt; perl is way too much magic for my tastes, stuff like this is why i don't like it. :P</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;gdanko&gt; i know but you have to follow the herd here :P</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;gdanko&gt; if i write a tool in some language others dont use often then they cannot modify it easily</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;gdanko&gt; the aurthor of PHP works here</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;gdanko&gt; author</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;Unhelpful&gt; where's here again? i assumed you meant CM, but there's python in there already :P</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;gdanko&gt; no at work :)</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;gdanko&gt; Yahoo</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;gdanko&gt; odd</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;gdanko&gt; i cut the code out on its own</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;gdanko&gt; matched fine</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-navy">* noobnl (~noob@unaffiliated/noobnl) Quit (Ping timeout: 245 seconds)</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-green">* izibi (~julian@unaffiliated/izibi) has joined this channel.</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-green">* noobnl (~noob@host-174-22-220-24.midco.net) has joined this channel.</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-navy">* noobnl (~noob@host-174-22-220-24.midco.net) Quit (Changing host)</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-green">* noobnl (~noob@unaffiliated/noobnl) has joined this channel.</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;gdanko&gt; Aha!</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;gdanko&gt; something weird going on when assigning $value</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;gdanko&gt; if i add $value = "lid806173468hs1el1" right before the regex I get a match.</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;Unhelpful&gt; erm, yes, the string to match against needs to be in $value first, doesn't it?</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;gdanko&gt; well check this</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;gdanko&gt; Before modification, value=lid806173468hs1el1.</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;gdanko&gt; After modification, value=lid806173468hs1el1.</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;gdanko&gt; Match</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;gdanko&gt; code looks like this</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;gdanko&gt; $value = trim("both", $2);</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;gdanko&gt; if ($key eq "ylm") {</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm pretty sure i said this is why i hate perl. ;)</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;gdanko&gt; if ($value =~ /lid(\d+)hs(\d)el(\d)/) {</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;gdanko&gt; so the key value pair is stripped via regex</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;gdanko&gt; i am going to test something</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;gdanko&gt; -bash-3.2$ ./udbproxy-tester.pl</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;gdanko&gt; No match. lid806173468hs1el1 does not equal lid806173468hs1el1</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;gdanko&gt; thats the output</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;gdanko&gt; how the heck are the different</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-brick">* gdanko is going to pimp slap perl</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;gdanko&gt; aha</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;gdanko&gt; one of them has special characters somewhere</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;gdanko&gt; `echo lid806173468hs1el1 &gt; ~/a`;</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;gdanko&gt;                                 `echo $value &gt; ~/b`;</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;gdanko&gt; i get diff filesizes</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;gdanko&gt; b is 5 bytes larger</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;gdanko&gt; ahh yes</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;gdanko&gt; the Yahoo! UDB keys are delimited by control characters</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;gdanko&gt; arrrrrrgh</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;gdanko&gt; lid^B806173468^Ahs^B1^Ael^B1</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;gdanko&gt; it looks like this in a text editor</span><br />
