@@ -6,3 +6,23 @@
 <span class="irc-date">[0:40]</span> <span class="irc-green">* jt1134 (~jt1134@c-71-207-226-80.hsd1.al.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[0:50]</span> <span class="irc-green">* skeeterslint is now known as skeeter|away</span><br />
 <span class="irc-date">[0:51]</span> <span class="irc-navy">* skeeter|away (~skeetersl@c-71-192-215-99.hsd1.ma.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-green">* skeeterslint (~skeetersl@c-71-192-215-99.hsd1.ma.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;Unhelpful&gt; also we should *not* be using data=writeback or barrier=0 :P</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-navy">* skeeterslint (~skeetersl@c-71-192-215-99.hsd1.ma.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-green">* skeeterslint (~skeetersl@c-71-192-215-99.hsd1.ma.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;noobnl&gt; make: *** [out/target/common/obj/JAVA_LIBRARIES/core_intermediates/classes.dex] Killed</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;noobnl&gt; make: *** Waiting for unfinished jobs....</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;noobnl&gt;  memory?  not enough memory?</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;Unhelpful&gt; both of these options increase the chance that files will be left in an inconsistent state after crash or power loss - and afaik there's no proper umount etc on shutdown, it's *always* pretty much sync;poweroff;</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;Unhelpful&gt; noobnl: ask dmesg, but my first thought is that it's an OOM kill, yeah.</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;noobnl&gt; oom?</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;Unhelpful&gt; Out Of Memory, sorry. :)</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;noobnl&gt; [264860.511213] Out of memory: kill process 21031 (make) score 1977511 or a child</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;noobnl&gt; [264860.511222] Killed process 23721 (java)</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;noobnl&gt;  look like i was right!</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;Unhelpful&gt; the kernel has a, um, system for selecting something to kill when there's been an allocation failure.</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;Unhelpful&gt; often it works pretty well ;)</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;noobnl&gt;  it didn't kill the memory leak</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;noobnl&gt; fu kernel</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;noobnl&gt;  i have no swap</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;noobnl&gt;  wtf</span><br />
