@@ -250,3 +250,105 @@
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;Unhelpful&gt; thedood: yes, it is, but it's a bunch of gits and a silly xml manifest. that is something different from one git repo - if upstream were truly a single repository we'd never have been able to mix-and-match upstream and forked portions of it, which i imagine is how we got in this mess.</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;cob&gt; does anyone here do their kernel work on windows? (I'm normally on Linux myself, but due to having broken the wifi tethering and not having a fixed internet connection out here in this tropical island I can't get internet on Linux, because of Kies)</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm just not sure what the *benefit* of this is, aside from being able to create an eventually-broken repository where only certain subtrees of the whole project are forked.</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;thedood&gt; Unhelpful: i'm not sure what the benefit of cmsgs was either</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;Unhelpful&gt; of repo, you mean?</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;thedood&gt; google uses repo and gerrit to track multiple projects</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;thedood&gt; us forking cyanogen is what caused this</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;thedood&gt; and our dirty patches</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;thedood&gt; that probably (definitly) won't merge</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, i get that. what i'm saying is that forking a pure-git, single-repository project could not have resulted in this situation.</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;Unhelpful&gt; won't merge automatically or are horrid and can't *be* merged?</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;thedood&gt; won't merge automatically</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;thedood&gt; it wasn't too horrid</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;thedood&gt; i'm about to track what projects we forked so far</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;Unhelpful&gt; i can understand *why* we want our own public repository, actually - to share work-in-progress changes that aren't committed upstream yet.</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;thedood&gt; but we should really work on commiting</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;cob&gt; to feed the hype... don't do it.</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;thedood&gt; because the projects we forked are like, serious business</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; where's your problem?</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;thedood&gt; build, device/samsung, frameworks/base, and system/core</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;thedood&gt; no wonder shit breaks</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; is frameworks/base up2date at cmsgs?</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;thedood&gt; probalby not</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;thedood&gt; wait</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;Unhelpful&gt; i can *sort of* understand why repo, because it allows subprojects to be maintained separately... the trouble is that for many of them (opencore?) this is clearly not being done.</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;thedood&gt; unless someone added these upstreams</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;thedood&gt; cause i didn't</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;codeworkx&gt; coolya and me are merging mainline changes as often as we can</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;coolya&gt; hi</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;Unhelpful&gt; thedood: can we even get the branches on github to auto-track their upstream sources? that would mean merging w/o interaction, or else just having an auto-tracking branch that we would still have to merge manually.</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;thedood&gt; o.O</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;thedood&gt; frameworks/base is pretty out of date</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;thedood&gt; Unhelpful: i don't know the git fu to make that work</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;codeworkx&gt; frameworks/base has to merged manually</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;codeworkx&gt; because of our damn samsung changes</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;Unhelpful&gt; thedood: it would have to be something on github's end, unless one of us wants to add the upstream repositories as remotes, merge them manually, and push them up.</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;Unhelpful&gt; i think that's what we need anyway.</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;thedood&gt; we've been merging manually and pushing up</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't really think we *have* any other choice but to do that, and try to get things committed upstream.</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;thedood&gt; they won't take our framework hacks</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;thedood&gt; i'm not sure how that's gonna work</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;Unhelpful&gt; well, how *should* we do it to make it committable?</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;thedood&gt; i'm not sure yet</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;thedood&gt; the problem is how samsung addresses things</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;thedood&gt; we're hacking in samsung changes</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;thedood&gt; we may need to go back and hack them back out</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; we're doing same shit samsung did</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;thedood&gt; yeah</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;cob&gt; I've recently bought a GT-I9000B, its my first android phone. I've been reading up on Android kernel / utils porting and development for the past week. I'm somewhat reluctant to flash any ROM on it as its my only internet. I have been looking for reports of Flashing XXJPM on it and still have tethering working, but haven't found anything. Anyone know if its safe enough for me to do it?</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;cob&gt; (also, installing ROM manager broke my wifi tethering ;(</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;thedood&gt; koush and i were talking about this</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;Unhelpful&gt; well, if cm ever wants to have proper galaxy s support, they're going to have to support the samsung vendor binaries *somehow*. what's the clean way?</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;thedood&gt; we have to just get a working product</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;thedood&gt; then go from there</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;codeworkx&gt; do a clean rewrite of all samsung stuff xD</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;thedood&gt; yeah</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;coolya&gt; currently we are doing that ... but we could do the most things easily generic that they on't break</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;thedood&gt; or make a local branch for samsung devices</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;thedood&gt; that's coming after 6.12</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;thedood&gt; err 6.1</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;thedood&gt; we're breaking out htc/moto/sammy</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;thedood&gt; because the fm radio stuff broke moto and so on</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;Kaik541&gt; if they're gonna break anyway, why do you want to merge sammy stuff into the mainline?</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;thedood&gt; i don't</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;coolya&gt; but the biggest problem is RIL i think because i need to change some things in the phone factory</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-green">* kernelzilla (~patrick@174-17-86-134.phnx.qwest.net) has joined this channel.</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;coolya&gt; so that the props can control which RIL implementation is used</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;codeworkx&gt; we should go with cmsgs and merging mainline stuff into it every week/day</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;thedood&gt; that's all we can do for now</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: can we conditionally select one at compile time? do we really need one binary that will work for all hardware?</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;thedood&gt; copy files overwites binaries</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;thedood&gt; that's what it is for</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;thedood&gt; which binary is the issue</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;coolya&gt; binaries are easy with overwrites</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;coolya&gt; but i think about framework base</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;codeworkx&gt; should be possible in vendor blobs file to choose depending on device</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;thedood&gt; yeah, not sure how we're gonna deal with framework</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;thedood&gt; that's our biggest hangup</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;cob&gt; sorry chk0v, I'm eager to get started on helping develop... won't make too much more noise</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;thedood&gt; we should submit the changes we made to build</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;thedood&gt; the one that detects [space]</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) Quit (Quit: ~ Trillian Astra - www.trillian.im ~)</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;coolya&gt; if i can get much time on the weekend ill sort ort how to manage with RIL in framework with props</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;thedood&gt; and get that back to tracking cyanogenmod and not cmsgs</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;Unhelpful&gt; the problem's not the vendor blobs, but that they need a different implementation in framework :/</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;thedood&gt; i wish i understood what was happening there</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Unhelpful&gt; so we either need to select a different implementation at runtime or at compile time, based on the target.</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;thedood&gt; is it something we can fix</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;thedood&gt; or is samym fucking us</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;coolya&gt; ill do some dependency injection stuff at runtime to select the proper implementation</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;coolya&gt; all the ril stuff is instantiated in the phonefactory where we can look at props an select the right class to create</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;coolya&gt; if no class supplied in props just use the standard implementation</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;coolya&gt; would only be some class.fromName stuff to do that</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;Unhelpful&gt; thedood: aiui basically their rild doesn't communicate *quite* the same way as aosp/cm expects. we just need to do the right thing in framework to work with it.</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;Unhelpful&gt; we don't precisely know what the "right thing" is for all cases, though, yet?</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;Unhelpful&gt; who was working on the baksmali disassembly for the samsung framework?</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;thedood&gt; what?</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-brick">* Unhelpful seems to recall that somebody had disassembled the samsung framework to see what it does in response to some of the nonstandard messages from rild</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;coolya&gt; i have done it</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;Unhelpful&gt; how much of what we need to do have you figured out? i got the impression from what was checked in so far that things were just placeholders to note the magical-samsung-states, for the most part.</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-navy">* Kaik541 (~nertz@cpe-174-111-246-012.triad.res.rr.com) Quit (Ping timeout: 245 seconds)</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-navy">* awiaI9000test (~darkBiLLy@232.36.222.87.dynamic.jazztel.es) Quit (Quit: � IRcap � 8.5 �)</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;cob&gt; man, 40KB/s download speeds T_T an hour till I brick my phone</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-green">* GuiPer (~GuiPer@20.Red-79-157-129.dynamicIP.rima-tde.net) has joined this channel.</span><br />
