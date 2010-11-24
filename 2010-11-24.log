@@ -231,3 +231,32 @@
 <span class="irc-date">[15:27]</span> <span class="irc-green">* gdanko is now known as gdanko|gone</span><br />
 <span class="irc-date">[15:30]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) has joined this channel.</span><br />
 <span class="irc-date">[15:50]</span> <span class="irc-navy">* shad0wf0x (~shad0w@d149-67-84-103.try.wideopenwest.com) Quit (Quit: ~ Trillian Astra - www.trillian.im ~)</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx, are you checking anything into cmsgs?</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;nitam|work&gt; I don't see any checkins ..</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;codeworkx&gt; still testing</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;nitam|work&gt; like for the boardconfig</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;codeworkx&gt; no still testing</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;codeworkx&gt; if its ok, we'll push it to cmsgs</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;codeworkx&gt; but at the moment some things are broken</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;nitam|work&gt; gdanko|gone: but aren't yo</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;codeworkx&gt; my repo on git is very experimental ;-)</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;nitam|work&gt; you using CM/bootable_recovery?</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;nitam|work&gt; that;s what cmsgs repo uses</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;codeworkx&gt; we've implemented kernel-flash into recovery</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;codeworkx&gt; using bmlwrite</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;nitam|work&gt; oh, CM doesn't have that in the latest version? I thought that was why wes changed from my recovery to CM's</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;nitam|work&gt; because CM's is now using bml</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;nitam|work&gt; bmlutils</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;codeworkx&gt; its funny to choose zImage from sdcard xD</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;nitam|work&gt; we do not want to use bmlwrite - we can make this work inside of recovery itself.</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;nitam|work&gt; if we implement bmlutils correctly.</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;nitam|work&gt; that's what I did in my bootable/recovery</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;nitam|work&gt; but the real way to make it work is to let it work with both mtdutils and bmlutils while I just took out the mtdutil calls</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;nitam|work&gt; I was going to work with Unhelpful on that.</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;nitam|work&gt; and then wes said koush did it already and moved to using CM's bootable/recovery</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;nitam|work&gt; and I asked him whether he'd tested to see if it works because I didn't see how it could work on kernel images</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;nitam|work&gt; and he said he hadn't tested it . . .</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;nitam|work&gt; so now I want to go back to my version . . .</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;nitam|work&gt; I am going to make this go so wes cannot write to the dang repo :)</span><br />
