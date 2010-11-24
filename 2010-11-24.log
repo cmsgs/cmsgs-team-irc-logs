@@ -327,3 +327,87 @@
 <span class="irc-date">[20:30]</span> <span class="irc-black">&lt;gdanko&gt; i grabbed them and built anew</span><br />
 <span class="irc-date">[20:30]</span> <span class="irc-black">&lt;gdanko&gt; no errors.. have not yet flashed the build tho</span><br />
 <span class="irc-date">[20:58]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has left this channel.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-green">* Kaik541 (~nertz@174.111.246.12) has joined this channel.</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;GuiPer&gt; coolya news on gps?</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;GuiPer&gt; i was able to get a lock :)</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;GuiPer&gt; even without internet on phone so something is working</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;coolya&gt; it should work but it may drain the battery</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;coolya&gt; needs testing</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;GuiPer&gt; it didn't report me satellites</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;GuiPer&gt; but maybe gps test problem</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;coolya&gt; start and stop it from statusbar</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;GuiPer&gt; i got lock, but didn't say that the sattelites were fixed</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;coolya&gt; it the symbol there ?</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;coolya&gt; in the notification bar?</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;GuiPer&gt; yep yep, got the lock</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;coolya&gt; k</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;GuiPer&gt; but gps test reported 0 sattelites fixed, even with lock</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;GuiPer&gt; is it normal?</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;coolya&gt; no that should work, it worked for me this morning</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;coolya&gt; when i was drivin to work</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;GuiPer&gt; it was ok? kept the signal without major problems?</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;GuiPer&gt; ill try it better later</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;coolya&gt; yes it was</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;coolya&gt; im figuring out some thinks right now how i can get the libgps to open the socket only when it should supply gpsdata</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;GuiPer&gt; if i turn on the item is supplying all the time?</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;coolya&gt; currently its open when the libgps gets initialed thats when you activate it from the notification bar or settings</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;GuiPer&gt; ahah</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;GuiPer&gt; :/</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;GuiPer&gt; need to keep it off</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;coolya&gt; git to root shel and type 'stop glgps'</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;coolya&gt; this will stop the samsung gpsd</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;GuiPer&gt; and them item only? is not enough?</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;GuiPer&gt; just clicking on it?</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;coolya&gt; no</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-green">* KaikHole (~nertz@cpe-174-111-246-012.triad.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;coolya&gt; libgps has no permission to start services</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;coolya&gt; so its started during init</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;GuiPer&gt; and then we need to stop it manually</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;coolya&gt; currently yes</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;GuiPer&gt; thanks</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;GuiPer&gt; tethering no success :(:(</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;coolya&gt; but the glgps stops working if the other side closes the socket</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;GuiPer&gt; I did some required changes and it broke wifi...</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;GuiPer&gt; wpa supplicant</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;coolya&gt; wpa supplicant dies as i have seen on newer builds :-D</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;GuiPer&gt; #WIFI_DRIVER_FW_AP_PATH := "/system/etc/wifi/bcm4329_aps.bin"</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;GuiPer&gt; because of this line...</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;GuiPer&gt; (i guess) compiling it now</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-navy">* Kaik541 (~nertz@174.111.246.12) Quit (Ping timeout: 245 seconds)</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;GuiPer&gt; and this line is just used on 2 places on code</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;GuiPer&gt; fuck!</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;GuiPer&gt; if you uncomment it, as softap needs it</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;GuiPer&gt; it breaks wpa</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;GuiPer&gt; i really dont understand :(</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;GuiPer&gt; grrr</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-green">* KaikHole is now known as Kaik541</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;coolya&gt; samsung is so crappy</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;coolya&gt; damn</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;coolya&gt; i think their libgps is doing just the exact thing mine does</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;coolya&gt; the only thing they do more then mine is, controlling the glgps over another socket</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-green">* jt|cigBRB is now known as jt1134</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;GuiPer&gt; it doesn't surprise me...</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;GuiPer&gt; :(</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-navy">* Kaik541 (~nertz@cpe-174-111-246-012.triad.res.rr.com) Quit (Ping timeout: 245 seconds)</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-navy">* magoteI9000test (~magoteI90@a79-169-106-110.cpe.netcabo.pt) Quit ()</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;GuiPer&gt; codeworkx problems are continuing :(</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;codeworkx&gt; hmm?</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; k, off for a bit</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;GuiPer&gt; getting out of mem</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;codeworkx&gt; you mean wpa?</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;GuiPer&gt; in the boot</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;GuiPer&gt; nop :(</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;nitam|work&gt; hopefully will be able to test tonight and work this weekend</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;GuiPer&gt; it just gets stuck on cyanogem image...</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;GuiPer&gt; looping</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;GuiPer&gt; and no more memory on device</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;codeworkx&gt; logat?</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;GuiPer&gt; some leak :(</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;codeworkx&gt; logcat -&gt; pastebin</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="http://pastebin.com/HL70BtZN">http://pastebin.com/HL70BtZN</a></span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;GuiPer&gt; nothing special</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;GuiPer&gt; but it just runs out of memory</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;GuiPer&gt; top give mes 220 mb on system_service or something like this</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;GuiPer&gt; strange :(:(</span><br />
