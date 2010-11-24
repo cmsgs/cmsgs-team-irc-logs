@@ -190,3 +190,44 @@
 <span class="irc-date">[14:45]</span> <span class="irc-black">&lt;gdanko&gt; Damn AT&amp;T :)</span><br />
 <span class="irc-date">[14:54]</span> <span class="irc-black">&lt;gdanko&gt; &lt;project path="bootable/recovery" name="codeworkx/android_bootable_recovery" remote="github" /&gt;</span><br />
 <span class="irc-date">[14:54]</span> <span class="irc-black">&lt;gdanko&gt; mnita|work: Which repo did you init? I am still getting codeworkx' stuff./</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;GuiPer&gt; anyone having problems with codeworkx repo?</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;gdanko&gt; I am. bootable/recovery.</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;GuiPer&gt; im saying just to checkout :)</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;GuiPer&gt; the repo</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;GuiPer&gt; yncing work tree:  64% (136/212)  Traceback (most recent call last):</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;GuiPer&gt;   File "/home/guilherme/android/system/.repo/repo/main.py", line 235, in &lt;module&gt;</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;GuiPer&gt;     _Main(sys.argv[1:])</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: which repo are you using?</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;gdanko&gt; codeworkx!</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-navy">* neldar (~neldar@dsl-217-172-110.pool.bitel.net) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;codeworkx&gt; brb</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) Quit (Quit: WeeChat 0.3.2)</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-navy">* DJRichie (~djrichier@i.love.kingklick.org) Quit (*.net *.split)</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;codeworkx&gt; re</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;gdanko&gt; howdy codeworkx.. seeing a bunch of bootable/recovery errors when I pull from your repo :(</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;codeworkx&gt; its working fine here</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;codeworkx&gt; you have to update your boardconfig</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;codeworkx&gt; we did some changes</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;gdanko&gt; ok tell me what i need to do, plz...</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;gdanko&gt; would you msg me? i have to take off for a bit.. i will change them upon return. :)</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-green">* DJRichie (~djrichier@i.love.kingklick.org) has joined this channel.</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;GuiPer&gt; here also</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;GuiPer&gt; just some problems with new nmea thing but solved</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;GuiPer&gt; try to delete folder device</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;GuiPer&gt; rm -rf device</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;GuiPer&gt; do the repo sync</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="https://github.com/cmsgs/android/blob/froyo/default.xml">https://github.com/cmsgs/android/blob/froyo/default.xml</a></span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;GuiPer&gt; and then between lunch and make do a rm -rf $OUT</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;GuiPer&gt; lunch cyanogen_galaxys-eng</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;GuiPer&gt; rm -rf $OUT</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;GuiPer&gt; make -j`grep 'processor' /proc/cpuinfo | wc -l`</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;gdanko&gt; thats where we're pulling from mnita|work?</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;gdanko&gt; awesome thanks</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;gdanko&gt; codeworkx: please let me know which boardconfig changes i need to make so i can update</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;gdanko&gt; bbiab</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-green">* gdanko is now known as gdanko|gone</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) has joined this channel.</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-navy">* shad0wf0x (~shad0w@d149-67-84-103.try.wideopenwest.com) Quit (Quit: ~ Trillian Astra - www.trillian.im ~)</span><br />
