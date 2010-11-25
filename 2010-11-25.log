@@ -210,3 +210,28 @@
 <span class="irc-date">[15:40]</span> <span class="irc-black">&lt;atinm&gt; use the froyo branch for one</span><br />
 <span class="irc-date">[15:41]</span> <span class="irc-black">&lt;atinm&gt; for some reason when I sync, I am not on the froyo branch</span><br />
 <span class="irc-date">[15:43]</span> <span class="irc-black">&lt;atinm&gt; wtf . . . brb</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;atinm&gt; anonymous: why anon?</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;atinm&gt; we're talking "work" :)</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;atinm&gt; anyway - did you figure out recovery bmlutils and what I changed?</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;thedood&gt; because logging is evil</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm&gt; well, yes. but useful for a development channel!</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm&gt; tho Kaik really needs to remember this is being logged ;)</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;atinm&gt; I had to read thru his drunken partying while reading thru last nights logs ;)</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;atinm&gt; yeah - I noticed you were not stopping him :)</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;atinm&gt; ok, checked in cmsgs/android_bootable_recovery</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;atinm&gt; this should "just work".</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;atinm&gt; to restore kernel. the current CM version won't.</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;atinm&gt; I also added Reboot Download - because just Reboot Recovery from recovery isn't as useful as being also able to get into Download mode from recovery.</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;atinm&gt; repo sync tho gets confused because we've gone from having our manifest point to our own android_bootable_recovery to pointing to CM's and back to ours</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;atinm&gt; where ours is now a clone of CM's plus my mods.</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;atinm&gt; so I just rm -rf bootable/recovery and then did a repo sync.</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;atinm&gt; that seemed to fixed bootable/recovery</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;atinm|away&gt; gone for a bit..</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;atinm|away&gt; let me know if anyone runs into problems with recovery not being able to write the kernel to bml7</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
