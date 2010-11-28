@@ -82,3 +82,13 @@
 <span class="irc-date">[12:03]</span> <span class="irc-black">&lt;atinm|away&gt; as in the device trees.</span><br />
 <span class="irc-date">[12:03]</span> <span class="irc-black">&lt;atinm|away&gt; and reboot download support shouldn't be hard to make target specific</span><br />
 <span class="irc-date">[12:28]</span> <span class="irc-green">* cob__ is now known as cob</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: the tricky part about that is that a switch statement is used to figure which item was selected, by index. could make the case values an enum instead of literals, that's probably the cleanest way.</span><br />
+<span class="irc-date">[13:09]</span> <span class="irc-black">&lt;atinm|away&gt; yeah - I was just looking at it after my comment above and realized not so simple :)</span><br />
+<span class="irc-date">[13:09]</span> <span class="irc-black">&lt;atinm|away&gt; and now kid is up . . . so gone for a bit</span><br />
+<span class="irc-date">[13:10]</span> <span class="irc-brick">* Unhelpful tries a glorious hack that probably isn't the nice way to do this even if it *does* work.</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;Unhelpful&gt; ah, yeah, guess that wouldn't work. enum is clearest, all we would need to do is put an #ifdef around the menu entry and the enum value corresponding to the download option.</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;atinm|away&gt; are they ok with #ifdefs?</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;atinm|away&gt; crap, have to go</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;Unhelpful&gt; how *else* would we make it optional? :(</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;Unhelpful&gt; that's-how-you-do-it-in-c ;</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|away&gt; yeah . . . that's the only way it could work.</span><br />
