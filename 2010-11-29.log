@@ -123,3 +123,61 @@
 <span class="irc-date">[19:34]</span> <span class="irc-black">&lt;Kaik541&gt; everyone seems to have stress coming their way</span><br />
 <span class="irc-date">[19:34]</span> <span class="irc-black">&lt;Kaik541&gt; what happened to holiday season being good times/relaxing?</span><br />
 <span class="irc-date">[19:43]</span> <span class="irc-green">* jt|FOOD (~jt1134@c-71-207-226-80.hsd1.al.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-green">* gdanko (~gdanko@nat/yahoo/x-khatcrjhvnjzgrug) has joined this channel.</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;gdanko&gt; hmmm</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;gdanko&gt; build/core/product_config.mk:190: *** _nic.PRODUCTS.[[vendor/cyanogen/products/cyanogen_ace.mk]]: "vendor/cyanogen/products/cyanogen_ace.mk" does not exist.  Stop.</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;gdanko&gt; ** Don't have a product spec for: 'cyanogen_captivate'</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;gdanko&gt; ** Do you have the right repo manifest?</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;skeeterslint&gt; i had that last night</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;skeeterslint&gt; then once you download the device files for that its gonna complain about an nvidia device</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;gdanko&gt; well lame</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;gdanko&gt; how do we remove those</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;skeeterslint&gt; then once thats all done it will still not wanna run lunch</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;gdanko&gt; I thought we could remove from vendor/cyanogen/products/blah.mk</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;gdanko&gt; then itd work</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;skeeterslint&gt; i tried that</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;skeeterslint&gt; so i added all the device files it wanted and i still get this</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;skeeterslint&gt; Which would you like? [generic-eng] 40</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;skeeterslint&gt; build/core/product_config.mk:199: *** No matches for product "cyanogen_epic".  Stop.</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;skeeterslint&gt; ** Don't have a product spec for: 'cyanogen_epic'</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;skeeterslint&gt; ** Do you have the right repo manifest?</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;skeeterslint&gt; skeeterslint@skeeterslint-desktop:~/devfolder/cmfroyo$</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;gdanko&gt; yep</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;gdanko&gt; i wanna know who broke it :)</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;codeworkx&gt; hate tethering, hate alsa, hate samsung</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;gdanko&gt; haha</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;gdanko&gt; in the hospital now</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;gdanko&gt; w/wife</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;gdanko&gt; damn</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;Kaik541&gt; gdanko: thought the baby wasn't due till Weds</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;gdanko&gt; oh remove their devices from the manifest?</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;codeworkx&gt; we have to merge mainline changes every day</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;gdanko&gt; coming early</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;gdanko&gt; i blame samsung</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;codeworkx&gt; you can simply merge cmsgs with my repo if i havent done before you. ;-)</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;Kaik541&gt; that sounded way dirtier than you meant it to</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;gdanko&gt; can os x mount system.img?</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;Kaik541&gt; anonymous: bow chicka bow wow</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;Kaik541&gt; gdanko: I think so</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;gdanko&gt; i need a file and not near linux</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;Kaik541&gt; I feel like mount -o loop still works in OS X since it's darwin</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;gdanko&gt; Password:</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;gdanko&gt; mount: -o loop: option not supported</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;Kaik541&gt; then again, I could be wrong</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;Kaik541&gt; well, doesn't osx have a native mounting operation? can't you open it in disk utility?</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;codeworkx&gt; wtf is osx?</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;codeworkx&gt; its something to eat?</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;gdanko&gt; Mac OS X</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;codeworkx&gt; thats still existing?</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;gdanko&gt; apparently so</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;Kaik541&gt; it's relatively popular in the US</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;Kaik541&gt; especially in the northeast and west coast</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;codeworkx&gt; wtf</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;gdanko&gt; codeworkx: im at the hospital, no access to linux now.</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;Kaik541&gt; OS X accounts for something like 20% of the commercial desktop users I think, and I wouldn't be surprised to find the vast majority of them are in the US</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;codeworkx&gt; on normal hardware or on bad apple hardware?</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;Kaik541&gt; apple hardware</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;Kaik541&gt; legally, it's the only thing OS X can run on (though that's completely artificial, I'm dual-booting windows 7 and os x on my netbook)</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-navy">* Kaik541 (~nertz@cpe-174-111-246-012.triad.res.rr.com) Quit (Ping timeout: 255 seconds)</span><br />
