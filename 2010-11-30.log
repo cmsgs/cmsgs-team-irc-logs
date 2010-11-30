@@ -1,1 +1,39 @@
 <span class="irc-date">[0:00]</span> <span class="irc-green">* noobnl (~noob@host-174-22-220-24.midco.net) has joined this channel.</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-navy">* noobnl (~noob@host-174-22-220-24.midco.net) Quit (Changing host)</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-green">* noobnl (~noob@unaffiliated/noobnl) has joined this channel.</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;atinm|away&gt; skeeterslint: you have access to write to android_device_samsung_vibrant on cmsgs</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;atinm|away&gt; so  you can just add it as a remote and push to it</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;skeeterslint&gt; yeah i been trying to figure out how to do it</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;skeeterslint&gt; git is a pretty new thing for me</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;atinm|away&gt; go into the directory</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;atinm|away&gt; git remote add cmsgs git@github.com:cmsgs/android_device_samsung_vibrant.git</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;atinm|away&gt; and then you should be able to push to cmsgs</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;skeeterslint&gt; ah ok thank you</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;atinm|away&gt; tho you first have to handle merges etc if you have any</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;skeeterslint&gt; i was wondering if i had to add it first</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;atinm|away&gt; git pull from it, then push.</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;atinm|away&gt; pull, merge, push</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;skeeterslint&gt; although i don't need to be added to the vibrant repo just the epic one</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;atinm|away&gt; oh, your pull request was going to vibrant</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;skeeterslint&gt; i was trying to get noobnl to tell me how to do it but thats worse then pulling teeth</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;atinm|away&gt; :)</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;skeeterslint&gt; yeah i think i mighta clicked the wrong repo</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;skeeterslint&gt; was late and noobnl had me confused</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;atinm|away&gt; you already have access to the epic.</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;atinm|away&gt; so same deal</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;atinm|away&gt; git remote add cmsgs git@github.com:cmsgs/android_device_samsung_epic.git</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;skeeterslint&gt; ok thanks</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;atinm|away&gt; and the pull, you'll have merges most probably - figure that out and the push to it</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;atinm|away&gt; <a href="http://cheat.errtheblog.com/s/git/">http://cheat.errtheblog.com/s/git/</a></span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;atinm|away&gt; that's what I use to for quick reference on git</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;atinm|away&gt; git help remote etc works pretty well too</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;atinm|away&gt; but sometimes you don't know what command you are looking for :)</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;skeeterslint&gt; yeah git seems to be a pretty indepth tool</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;atinm|away&gt; it is like totally awesome :)</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;atinm|away&gt; (even though I argued for using bzr at work...)</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;atinm|away&gt; figured it is easier than git for normal usage.</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;atinm|away&gt; in a work setting when everyone is in the same location.</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;atinm|away&gt; so I spend a lot of time typing "git diff" and then having to type bzr diff at work since it seems my fingers got trained to use git a lot quicker than using bzr</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;rwicl|work&gt; git ftw</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-navy">* neldar (~neldar@dsl-217-173-87.pool.bitel.net) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;skeeterslint&gt; git's letters are closer togther on the keyboard :)</span><br />
