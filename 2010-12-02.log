@@ -247,3 +247,54 @@
 <span class="irc-date">[21:22]</span> <span class="irc-black">&lt;GuiPer&gt; going to windows to test usb tetherin</span><br />
 <span class="irc-date">[21:27]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 245 seconds)</span><br />
 <span class="irc-date">[21:56]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) Quit (Quit: WeeChat 0.3.2)</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-green">* noobnl (~noob@unaffiliated/noobnl) has joined this channel.</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;GuiPer&gt; so no usb tethering :(</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;GuiPer&gt; everything looks ok, just windows does not find any new device...</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;GuiPer&gt; or linux</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;coolya&gt;  maybe we are missing the right usb settings in the kernel</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;coolya&gt; we can look after that on the weekend</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;GuiPer&gt; can try to diff both configs</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;GuiPer&gt; got them here</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;GuiPer&gt; :)</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;coolya&gt; would be great</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;coolya&gt; ill have to go to bed now, have to get up at 6 in the morning</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;GuiPer&gt; good night and thanks for your help today :)</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;coolya&gt; but i updated the gps issue on the tracker an posted a download link for debug build</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;coolya&gt; thanks :-) and thank you for you work ;-)</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;GuiPer&gt; should check it</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;GuiPer&gt; my gps does not get a fix :(</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;coolya&gt; those gps chips are strange</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;coolya&gt; hopefully i can get some more info about the chip next week</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;coolya&gt; an we may write the complete driver from scratch</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;GuiPer&gt; think i found problem in kernel :)</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;GuiPer&gt; should be easy, lets try</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;GuiPer&gt; no make clean on kernel, hope its ok</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;coolya&gt; should be ok</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;GuiPer&gt; not really :(</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;GuiPer&gt; does not help..</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;GuiPer&gt; it was something about tethering there</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;GuiPer&gt; but no luck</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;GuiPer&gt; D/UsbController( 2387): Usb RNDIS start</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;GuiPer&gt; something abou tthis</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;coolya&gt; im not sure</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;coolya&gt; have not looked into the hole tethering thing</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;GuiPer&gt; D/Tethering( 2535): sendTetherStateChangedBroadcast 0, 1, 0</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;GuiPer&gt; W/ApplicationContext( 2535): Unable to create files directory</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;GuiPer&gt; D/WriteApps( 2535): Error: java.lang.NullPointerException</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;GuiPer&gt; D/Tethering( 2535): MasterInitialState.processMessage what=1</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;GuiPer&gt; :(</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;GuiPer&gt; also this error all the time..</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;coolya&gt; :-(</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;GuiPer&gt; its the eject part :(</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;coolya&gt; i would love to help you but ill need to sleep now ;-)</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;GuiPer&gt; sure sure</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;GuiPer&gt; me too dont worry</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;GuiPer&gt; :)</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;coolya&gt; gn8</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-navy">* coolya (~kolja@xdslcg215.osnanet.de) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-navy">* noobnl (~noob@unaffiliated/noobnl) Quit ()</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-navy">* jeagoss (jef@i.kanged.kingklick.org) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-green">* jeagoss (jef@i.kanged.kingklick.org) has joined this channel.</span><br />
