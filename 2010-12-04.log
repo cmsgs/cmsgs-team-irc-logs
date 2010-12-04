@@ -1,0 +1,103 @@
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;atinm&gt; yeah . . . going into each subdir and then using git on it is a pain</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;atinm&gt; codeworkx: any idea where the libipt_* and libext_* functions are defined?</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;gdanko&gt; successful build</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;codeworkx&gt; hmm no</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;atinm&gt; gdanko: wtf. I cant</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;gdanko&gt; hmmmm</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;gdanko&gt; i pulled cmsgs</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;gdanko&gt; what is your latest error</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;atinm&gt; lemme do it again</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://pastie.org/1345982">http://pastie.org/1345982</a></span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;gdanko&gt; and i did that git pull</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;gdanko&gt; coolya mentioned</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;atinm&gt; and lots of other libipt_* things</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm&gt; gdanko: yeah - I merged CM</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm&gt; and checked that in so we don't need to do the pull (I think)</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm&gt; hrm, it is getting frameworks again</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm&gt; maybe it works this time</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;gdanko&gt; may be the case</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;atinm&gt; frick. no.</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;gdanko&gt; hmmmmmm</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;gdanko&gt; is your build dying?</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;gdanko&gt; ive had it look like it was complete but have errors up above</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;atinm&gt; yeah, mine is dying</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;gdanko&gt; weird</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://pastie.org/1346008">http://pastie.org/1346008</a></span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;gdanko&gt; i did repo sync</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;gdanko&gt; then i did the git pull coolya mentioned</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;gdanko&gt; ran the build, got the libcamera errors</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;atinm&gt; ok, where it iptables.</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;gdanko&gt; updated the extract</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;gdanko&gt; re-ran and saw success</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;atinm&gt; ugh.</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;atinm&gt; I guess I should just see where iptables is, maybe that'll tell me something</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-brick">* Unhelpful wonders why we should need anything samsung for iptables - it's very standard linux software.</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;Unhelpful&gt; ...that they've presumably screwed up for us.</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;gdanko&gt; hmm i am not seeing those errors</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;atinm&gt; screw it - make clean</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;gdanko&gt; i ended up doing that too :)</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;codeworkx&gt; external/iptables</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;atinm&gt; ok, guess that is it for the night ;)</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;atinm&gt; codeworkx: yes, found that. most probably some objects were hanging around</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-brick">* Unhelpful is currently rsync'ing a checkout he did on his home server, because github checkouts *always* time out here</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;atinm&gt; well, I hope so anyway</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;gdanko&gt; i am gonna flash this bad boy</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;atinm&gt; k :)</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;atinm&gt; my build is going to take a while...</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-navy">* gdanko (~gdanko@nat/yahoo/x-bibuiejniqtguzxw) Quit (Quit: This computer has gone to sleep)</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-green">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;atinm&gt; gah . . . my computer's fan is trying to make it fly like a helicopter...</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;atinm&gt; I guess the compile is heating up the cpus</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;atinm&gt; gdanko: how do you flash this? I haven't flashed anything but kernel till now.</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;atinm&gt; or anyone</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;atinm&gt; this is make .img files?</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;atinm&gt; making</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;gdanko&gt; nandroid the img</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;gdanko&gt; and then heimdall the kernel</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;gdanko&gt; atinm: copy the system.img to /mnt/sdcard/clockworkmod/backup/cm6</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;gdanko&gt; then busybox md5sum *img &gt; nandroid,md5</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;gdanko&gt; back the badboy up and nandroid restore</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;coolya&gt; i wrote some script that does all the work for you</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;gdanko&gt; be back in a few.. getting ethan a treat.. hes been traumatized.</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;gdanko&gt; coolya: me too :) system.sh</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;coolya&gt; i could post it on pastebin if you want</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm&gt; coolya: yeah, please</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;gdanko&gt; yea lemme see yours</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;gdanko&gt; but mind automates it</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;coolya&gt; it reboots into recovery, transfersfiles and restors</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;coolya&gt; give me a second</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; pastie it, maybe we need another repo for utils like this.</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;coolya&gt; <a href="http://pastebin.com/Cj6yZE94">http://pastebin.com/Cj6yZE94</a></span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;gdanko&gt; atinm: yes agree</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm&gt; git://github.com/cmsgs/utilities.git</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;gdanko&gt; atinm: I have an extract-files generator that makes this kind of stuff much easier :)</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;coolya&gt; yeah :-)</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; coolya: check it into that repo :)</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;gdanko&gt; i will</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;gdanko&gt; be back in an hour or so</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; and gdanko</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;gdanko&gt; gotta take ethan for a treat</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;coolya&gt; i will do</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; k, have fun :)</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;gdanko&gt; and i cleaned up repack-zImage</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;gdanko&gt; make it halt on error</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;gdanko&gt; and be more intelligent about which toolchain youre using</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; k, check it into git@github.com:cmsgs/initramfs-utils.git</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;gdanko&gt; k</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm&gt; just gave you write access</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;gdanko&gt; k</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;coolya&gt; its up</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm&gt; great, thanks</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm&gt; I'm still building . . .</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;coolya&gt; and this is the one and only real phone benchmark :-D <a href="https://github.com/coolya/vpenis">https://github.com/coolya/vpenis</a></span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;atinm&gt; lol</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;coolya&gt; <a href="http://forum.xda-developers.com/showthread.php?t=853104&amp;highlight=vpenis">http://forum.xda-developers.com/showthread.php?t=853104&amp;highlight=vpenis</a> posted it on xda some time ago to point at those numbers that say nothing about the phone</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm&gt; we need a conversion to inches (or feet!) for americans. ;)</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;coolya&gt; a friend is building an apk for that with some fancy anymation and result page ;-)</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;atinm&gt; my build is still only on libwebcore</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; I think I'm going to take a break - back later</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;coolya&gt; yes webkit take a long time</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;coolya&gt; k ill go to slepp know</span><br />
