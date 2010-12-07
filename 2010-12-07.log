@@ -644,3 +644,41 @@
 <span class="irc-date">[21:51]</span> <span class="irc-black">&lt;Unhelpful&gt; 64-bit values, or dividers that can not be determined constant at runtime, will call libgcc's very crappy integer division routine.</span><br />
 <span class="irc-date">[21:53]</span> <span class="irc-black">&lt;coolya&gt; :-) k thanks for that kernel lesson</span><br />
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: I will reflash, hold on.</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: good luck, we're heading out for dinner here</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;gdanko&gt; see ya</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-green">* wArri` (~dave.will@rrcs-72-45-254-78.nys.biz.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-navy">* wArri (~dave.will@rrcs-72-45-254-78.nys.biz.rr.com) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;gdanko&gt; Only logcat errors I see are gps driver</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;gdanko&gt; nothing to indicate a network error</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;gdanko&gt; i will re-flash shortly and see if I can figure it out.</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;gdanko&gt; So anyway.. I can flash, no more FCs.. I get the 3-4 network bars, all grayed out with a little "+" sign at the top of the icon.</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;gdanko&gt; re-flashing to get that output</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: got a second? some more questions</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;gdanko&gt; he is off to dinner</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;gdanko&gt; cm6 booting</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;coolya&gt; k</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;gdanko&gt; will check ps</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;gdanko&gt; gps still busted?</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;gdanko&gt; the signal strength indicator has a small "x" about the leftmost bar</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;gdanko&gt; emmc not showing</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;gdanko&gt; ~ # ps w | grep rild</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;gdanko&gt;  3122 radio     8216 S    /system/bin/rild -l /system/lib/libsec-ril.so -- -d /dev/ttyS0</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;gdanko&gt;  3132 root      1524 S    grep rild</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;gdanko&gt; service ril-daemon /system/bin/rild -l /system/lib/libsec-ril.so -- -d /dev/ttyS0</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;gdanko&gt;     socket rild stream 660 root radio</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;gdanko&gt;     socket rild-debug stream 660 radio system</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;gdanko&gt; is this correct?</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;gdanko&gt; anything else I can check?</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;gdanko&gt; phone says no service</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;coolya&gt; looks good</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;coolya&gt; what dose logcat -b radio say ?</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;gdanko&gt; i am rebooting will tell you soon</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;gdanko&gt; coolya: <a href="http://pastebin.gdanko.net/434">http://pastebin.gdanko.net/434</a></span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-navy">* coolya (~kolja@xdslu139.osnanet.de) Quit (Ping timeout: 265 seconds)</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;gdanko&gt; rats coolya's gone</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 245 seconds)</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;gdanko&gt; D/PHONE   ( 2619): mCallRingDelay=3000</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;gdanko&gt; W/GSM     ( 2619): Can't open /system/etc/voicemail-conf.xml</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;gdanko&gt; W/GSM     ( 2619): Can't open /system/etc/spn-conf.xml</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-green">* coolya (~kolja@xdslu139.osnanet.de) has joined this channel.</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;gdanko&gt; coolya: <a href="http://pastebin.gdanko.net/434">http://pastebin.gdanko.net/434</a></span><br />
