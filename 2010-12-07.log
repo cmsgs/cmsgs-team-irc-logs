@@ -300,3 +300,66 @@
 <span class="irc-date">[12:22]</span> <span class="irc-navy">* neldar (~neldar@dsl24-36.pool.bitel.net) Quit (Quit: Leaving.)</span><br />
 <span class="irc-date">[13:52]</span> <span class="irc-green">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) has joined this channel.</span><br />
 <span class="irc-date">[13:52]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-green">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) has joined this channel.</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;gdanko&gt; hey guys, do I need a pit file to use heimdall if I have all the rfs images?</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-green">* izibi (~julian@unaffiliated/izibi) has joined this channel.</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;dasunsrule32&gt; gdanko: I don't believe so</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;dasunsrule32&gt; I have flashed without the pit</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;gdanko&gt; what do you put in the "secondary" field?</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;gdanko&gt; I have the following files:</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;gdanko&gt; boot.bin</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;gdanko&gt; cache.rfs</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;gdanko&gt; dbdata.rfs</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;gdanko&gt; factoryfs.rfs</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;gdanko&gt; modem.bin</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;gdanko&gt; param.lfs</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;gdanko&gt; Sbl.bin</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;gdanko&gt; zImage-ji6-2e</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;gdanko&gt; I would guess sbl.bin since it's the only one that doesn't fit elsewhere. :)</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; I don't know that you nee to use the sbl.bin</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; never flashe that before</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;gdanko&gt; what is sbl.bin?</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; I am reaching, but I thought that was your imei, etc</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;gdanko&gt; aha</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; the buttons too</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;gdanko&gt; aha</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; "unlocks" them</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;gdanko&gt; sbl=secondary boot loader</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;gdanko&gt; so that is the "secondary"</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; yes</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; you shouldn't need too</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;gdanko&gt; excellent</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; just the modem, dbdata (if you did an ext4 lagfix such as voodoo),</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;gdanko&gt; no stock</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;dasunsrule32&gt; otherwise don't flash the dbdata</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;gdanko&gt; i am using it to restore a stock ji6</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;gdanko&gt; when i flash CM6 i end up having to odin restore and i dont wanna boot to windows</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;dasunsrule32&gt; then, cache, fatory, zimage</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;dasunsrule32&gt; and modem</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;dasunsrule32&gt; use the pit with those</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;gdanko&gt; pit?</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;dasunsrule32&gt; pit_512</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;dasunsrule32&gt; or 512_pit</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;dasunsrule32&gt; file</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;gdanko&gt; i have download an archive that has all of these rfs images</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;gdanko&gt; i dont have a pit</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;dasunsrule32&gt; one sec</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;gdanko&gt; i thought i dont need a pit file</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;dasunsrule32&gt; it basically tells the phone how to partition from my understanding, but heimdall can't format at the moment</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; so I gues it doesn't matter :p</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; just flash</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; :)</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;gdanko&gt; well if ive specified the partitions, doesn't it just block copy them?</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; with what you are doing, yea, sort of like norton ghost</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;dasunsrule32&gt; an image that is restoring</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;gdanko&gt; yep</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;dasunsrule32&gt; <a href="http://www.justanotherdev.slackdev.com/s1_odin_20100512.rar">http://www.justanotherdev.slackdev.com/s1_odin_20100512.rar</a></span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;dasunsrule32&gt; that has the pit file in the archive</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;dasunsrule32&gt; extract it, and use --pit to point to the target file</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;gdanko&gt; i can safely rename the pit file yes?</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;gdanko&gt; i cant imagine i would</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;gdanko&gt; anonymous: I am trying to :)</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;gdanko&gt; i've had to odin restore after flashing cm6 so im setting up a perl script to restore ji6 via heimdall</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;gdanko&gt; im not sure what the pit is for.</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;gdanko&gt; so im asking :P</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-brick">* dasunsrule32 slaps anonymous -- wake up</span><br />
