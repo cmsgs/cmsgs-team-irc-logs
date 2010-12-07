@@ -560,3 +560,87 @@
 <span class="irc-date">[20:55]</span> <span class="irc-brick">* Unhelpful tries to test something for his dns problem</span><br />
 <span class="irc-date">[20:55]</span> <span class="irc-black">&lt;coolya&gt; i hate linux kernel and its linker :_D</span><br />
 <span class="irc-date">[20:57]</span> <span class="irc-brick">* Unhelpful is coming to hate android and all its anti-linux-isms</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;gdanko&gt; who doesn't? :-)</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;Unhelpful&gt; "we'll replace most of /etc w/ something kind of like our own implementation of windows registry" :P</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;coolya&gt; why does my kernel no convert int into double? im getting some linker error if i try</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;gdanko&gt; nooooooooooooooooooo</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: get an iPhone or Windows 7 phone :P</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;gdanko&gt; has radio been un-f'd in the repo yet? :)</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-green">* noobnl (~noob@unaffiliated/noobnl) has joined this channel.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;gdanko&gt; hi noobnl</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;GuiPer&gt; coolya i got into that problem</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;GuiPer&gt; it's not available in the toolchain?</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: um, floats are illegal in-kernel.</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;Unhelpful&gt; iirc.</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;coolya&gt; hmm k</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;Unhelpful&gt; and i'm not saying iphone on win7 will make that better. just that i was hoping to find something more familiar as i have done linux dev in the past.</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;Unhelpful&gt; what do you need floats for, anyway?</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: was joking :P</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;coolya&gt; need to convert the adc from the light value to an lux value</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: so? ;)</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;Unhelpful&gt; use fixed-point math. you should *anyway* because it's faster.</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;coolya&gt; i hate this c crap  :-D</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;Unhelpful&gt; you prefer what, php? ;P</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;GuiPer&gt; anyway you need to return double</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;GuiPer&gt; the libsensors just accept back a double*</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;coolya&gt; no</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;GuiPer&gt; i tried a lot of other things without success..</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;GuiPer&gt; try it... i could see /dev/light various acd values in char format</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;coolya&gt; it parses the data from the sysfs file as double</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;GuiPer&gt; but sensor applications could not interpret it</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: what, they expect a kernel function to return an ieee double? or do you mean it's a float value in a text representation, ie "0.15" etc :P</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;GuiPer&gt; 	double lux_val;</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;rhcp_&gt; so did anyone check out the eguene github?</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;GuiPer&gt; 	lux_val = StateToLux(cur_state);</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;GuiPer&gt; 	//printk("GP2A: light_read(): cur_state = %d\n",cur_state);</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;GuiPer&gt; 	put_user(lux_val, lux);</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;coolya&gt; that code is bad</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: yes, but "cur_state" comes from where?</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;coolya&gt; its int</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;coolya&gt; what we want to do is &lt;int from adc&gt; * &lt;some magic value&gt; and return that</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;Unhelpful&gt; that doesn't sound hard.</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;coolya&gt; if yyou write the line about the linker will kill you</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;coolya&gt; if the second value is not an int</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;Unhelpful&gt; but the result is supposed to be an int?</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;coolya&gt; there is no need to have the result an double it can be int</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;coolya&gt; as the post comma value are not interesting</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;gdanko&gt; ok CM came up.. no radio</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;gdanko&gt; arg</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: ok, so, what's &lt;some magic value&gt;? ;)</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;coolya&gt; i want to try 7.5</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, it looks like something is setting net.&lt;interface&gt;.dns1</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;gdanko&gt; W/Database( 2837): Reached MAX size for compiled-sql statement cache for database /data/data/com.android.providers.media/databases/external-52b21607.db; i.e., NO space for this sql statement in cache: SELECT _id, _data, mini_thumb_magic FROM images WHERE (_id = 45). Please change your sql statements to use '?' for bindargs, instead of using actual values</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;Unhelpful&gt; is this a samsung extension? because afaict not setting net.dns1 == no work for me</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;coolya&gt; the modem driver sets the prob</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;coolya&gt; prop</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm. is some userspace thing expected to copy it to net.dnsX?</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;Unhelpful&gt; because afaict, what the bionic libresolv does is to check net.dnsX, and also net.&lt;pid&gt;.dnsX.</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;coolya&gt; the mobiledatastatetracker</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, well, this seems to be the origin of my network problems.</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;coolya&gt; or connectivity service i'm not 100% sure</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;Unhelpful&gt; if i set net.dns1 manually i can browse. i built straight from cmsgs source, with binaries extracted from JI6 factoryfs.rfs. any ideas?</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;gdanko&gt; I cannot scan for networks in this build.</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: 'ps w | grep rild' output?</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: try &lt;val&gt; * 15 / 2 :)</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;GuiPer&gt; tricky :D</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;coolya&gt; give it a try :-D</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;Unhelpful&gt; you need to learn to work fixed-point if you're going to do this kind of thing in-kernel :)</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;GuiPer&gt; anyone interested on BLN?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;GuiPer&gt; i could give it a try</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;GuiPer&gt; should be easy</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;coolya&gt; works :-)</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;coolya&gt; normaly i'm not coding that low level :-D</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;coolya&gt; i'll keep that in mind</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;GuiPer&gt; let us know if it wors</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;GuiPer&gt; *works, you got a nice application my sensors</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;GuiPer&gt; i'm using it for debug</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;Unhelpful&gt; fyi dividers that are powers of two are nearly free. also fixed dividers if both values in the operation are 32-bit.</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;Unhelpful&gt; the latter is *slightly* less free, it's a 64-bit multiply and maybe a shift-add.</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;Unhelpful&gt; 64-bit values, or dividers that can not be determined constant at runtime, will call libgcc's very crappy integer division routine.</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;coolya&gt; :-) k thanks for that kernel lesson</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: I will reflash, hold on.</span><br />
