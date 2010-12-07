@@ -408,3 +408,85 @@
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-brick">* Unhelpful doesn't *really* want to have to look at the source for bionic's resolver :(</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; hah, funny guy</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;Unhelpful&gt; WELL, this looks as though it promises answers: #else /* !ANDROID_CHANGES - IGNORE resolv.conf in Android */</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: anyluck with your latest build?</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: dns fails.</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;Unhelpful&gt; apparently i need to not look @ resolv.conf as android doesn't use it...</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;gdanko&gt; arrr</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-brick">* Unhelpful really can't understand why a company that apparently hates linux design so much decided to use linux as a base :P</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;gdanko&gt; can heimdall wipe /data for you? i still have crap in /data after flashing</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;Unhelpful&gt; can't you just boot recovery and use fat.format to wipe it?</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;gdanko&gt; sure</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;gdanko&gt; Writing a script to flash the stock rom back after cm6 install</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;gdanko&gt; so i dont need odin</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;dasunsrule32&gt; hmm...vmware on my android phone? <a href="http://www.buzzbox.com/gadget/MyBuzzBox/preview/work-play-on-a-single-phone-lg-teams-up-with-vmware-to-deploy-an/?clusterId=2636318&amp;id=18456733&amp;topic=android:vmware">http://www.buzzbox.com/gadget/MyBuzzBox/preview/work-play-on-a-single-phone-lg-teams-up-with-vmware-to-deploy-an/?clusterId=2636318&amp;id=18456733&amp;topic=android:vmware</a></span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;gdanko&gt; anonymous: fair enough. i will upload this script to utils as is</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;dasunsrule32&gt; anonymous: I thought that if you applied the factoryrfs image, it would wipe /data</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;dasunsrule32&gt; using heimdall</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;dasunsrule32&gt; ;)</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;gdanko&gt; anonymous: easy to repack an rfs image?</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;gdanko&gt; oh then toss su and superuser in</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;gdanko&gt; good idea</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;dasunsrule32&gt; time to compile heimdall 1.1.0 :p</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;gdanko&gt; whats new?</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;dasunsrule32&gt;     * The inclusion of Heimdall Frontend.</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;dasunsrule32&gt;     * Galaxy Tab support.</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;dasunsrule32&gt;     * Simplified driver installation mechanism for Windows (zadig.exe).</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;dasunsrule32&gt;     * Better flashing progress feedback for non-verbose mode.</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;dasunsrule32&gt;     * Repartitioning.</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;dasunsrule32&gt;     * Removed the PIT file requirement when not repartitioning.</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;dasunsrule32&gt;     * Fixed the flashing progress bar on the phone/tab itself.</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;dasunsrule32&gt;     * Added the ability to flash the EFS, the recovery image and the backup copy of the secondary bootloader. It is intentional that only the recovery image is available from Heimdall Frontend.</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;dasunsrule32&gt; :D</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;dasunsrule32&gt; hooray!</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;dasunsrule32&gt; anonymous: I only use windows in a vm, so it doesn't work so well :p</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;dasunsrule32&gt; it does, but it's annoying reconnecting my phone all the time</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;gdanko&gt; anonymous: which dist?</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;dasunsrule32&gt; here's the link: <a href="http://goo.gl/w2SDy">http://goo.gl/w2SDy</a></span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;dasunsrule32&gt; he uses git now</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-brick">* dasunsrule32 hates git</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;Unhelpful&gt; dasunsrule32: if you apply factoryfs.rfs it will replace the contents of /system. no more.</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;dasunsrule32&gt; or here: <a href="http://forum.xda-developers.com/showthread.php?t=755265">http://forum.xda-developers.com/showthread.php?t=755265</a></span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;dasunsrule32&gt; Unhelpful: ok</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: thats fine. As long as I can avoid Odin I will be happy.</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;Unhelpful&gt; the .rfs files are raw filesystem images to flash to the devices</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;dasunsrule32&gt; Download the binaries here: <a href="http://goo.gl/9Org">http://goo.gl/9Org</a></span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;Unhelpful&gt; the JI6 image includes ones for /system, /dbdata, and /cache - the last two are empty</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;Unhelpful&gt; you could probably flash a few KiB of NULLs and get init to format /data for you ;)</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;dasunsrule32&gt; Is there a way to change it so GPS will stay on when the screens is off</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-brick">* dasunsrule32 can't wait for the new Maps and OFFLINE CACHING! Downloading Arizona to my phone!</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;gdanko&gt; FYI <a href="https://github.com/cmsgs/utilities/blob/master/restore-stock-rom.pl">https://github.com/cmsgs/utilities/blob/master/restore-stock-rom.pl</a></span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;dasunsrule32&gt; bleh, python lol</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-brick">* dasunsrule32 slaps gdanko</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;gdanko&gt; shut up!</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;dasunsrule32&gt; :D</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;gdanko&gt; better than useless odin!</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-brick">* dasunsrule32 wave @ gdanko</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;dasunsrule32&gt; ok, you got me there, that's why there is heimdall :p</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;dasunsrule32&gt; heeh</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;dasunsrule32&gt; hehe</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;gdanko&gt; yes but too much typing :) better i type one command</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;gdanko&gt; wasnt there some problem with heimdall and os x?</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;dasunsrule32&gt; yea</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;dasunsrule32&gt; it's notated on one of the links above</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;dasunsrule32&gt; looks like it was fixed, it was crossed out</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;gdanko&gt; ok i'll build it</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;gdanko&gt; hot dog</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;gdanko&gt; make install on libusb errors</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;gdanko&gt; [08:42:23 root@savtest-lm libusb-1.0]# make install</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;gdanko&gt; Making install in libusb</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;gdanko&gt; test -z "/usr/local/lib" || .././install-sh -c -d "/usr/local/lib"</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;gdanko&gt; /bin/sh: .././install-sh: Permission denied</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;gdanko&gt; make[2]: *** [install-libLTLIBRARIES] Error 126</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;gdanko&gt; make[1]: *** [install-am] Error 2</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;gdanko&gt; make: *** [install-recursive] Error 1</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;gdanko&gt; aww piss</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;gdanko&gt; lame</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;gdanko&gt; ok</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;gdanko&gt; fair enough</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;gdanko&gt; ill install</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;gdanko&gt; ok installed!</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;gdanko&gt; is there an easy way to convert a system.img to factoryfs.rfs?</span><br />
