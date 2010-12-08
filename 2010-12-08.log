@@ -134,3 +134,61 @@
 <span class="irc-date">[16:01]</span> <span class="irc-navy">* noobnl (~noob@unaffiliated/noobnl) Quit ()</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;gdanko&gt; hey thedood</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;thedood&gt; bloop</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;gdanko&gt; It seems my lack of radio is a kernel problem</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;thedood&gt; whaaaa</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;gdanko&gt; When I boot with a kernel using codeworkx initramfs my modem goes into a boot loop. If I flash the stock 3e kernel I can get radio up.</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;gdanko&gt; It doesnt work of course, but it comes up.</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;thedood&gt; ZOMG GINGERBREAD</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;thedood&gt; <a href="http://forum.xda-developers.com/showthread.php?t=861658">http://forum.xda-developers.com/showthread.php?t=861658</a></span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;thedood&gt; gdanko: send me pastebins of the init.rc and init.platform.rc</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;gdanko&gt; ok let me get those</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;gdanko&gt; where is init.platform.rc</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;thedood&gt; it's not .platform</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;thedood&gt; platform = your proc</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;thedood&gt; spc110 or whatever</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;gdanko&gt; oh hahaha sorry</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://pastebin.gdanko.net/435">http://pastebin.gdanko.net/435</a></span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://pastebin.gdanko.net/436">http://pastebin.gdanko.net/436</a></span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;gdanko&gt; the file /system/etc/init.smdkc110.sh doesnt exist</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;gdanko&gt; thedood: I pulled from <a href="https://github.com/codeworkx/galaxys-cyanogenmod-initramfs">https://github.com/codeworkx/galaxys-cyanogenmod-initramfs</a> and changed the ext4 mounts to rfs.</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;thedood&gt; service ril-daemon /system/bin/rild -l /system/lib/libsec-ril.so -- -d /dev/ttyS0 socket rild stream 660 root radio socket rild-debug stream 660 radio system user root group radio cache inet misc audio</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;thedood&gt; i have a feeling that's gonna be what the problem is</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;thedood&gt; but it looks...right</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;gdanko&gt; it does</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;gdanko&gt; can you get radio on cm?</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;thedood&gt; tbh i haven't tried today</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;thedood&gt; i was trying to get the latest vibrant rom rooted</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;thedood&gt; and messed up my phone</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;gdanko&gt; whoops</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;thedood&gt; yeah</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;gdanko&gt; have you recovered?</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;thedood&gt; i can</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;thedood&gt; just been busy</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;thedood&gt; service ril-daemon /system/bin/rild</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;thedood&gt; try making it just that</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;thedood&gt; we do all the libsec-ril stuff in build.prop</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;gdanko&gt; yep</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;gdanko&gt; its that way in the stock kernel</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;gdanko&gt; when its that way</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;thedood&gt; right</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;thedood&gt; it works</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;gdanko&gt; i can connect to at&amp;t</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;gdanko&gt; but</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;thedood&gt; what kernel are you using?</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;gdanko&gt; i cant call out, cant hang up</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;thedood&gt; yeahhhh</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;gdanko&gt; ji6-2e</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;thedood&gt; i only can with eugene's rom right now</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;thedood&gt; :(</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;thedood&gt; make calls</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;thedood&gt; and i haven't had time to dissect what he did</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;gdanko&gt; where is codeworkx when you need him!?</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-navy">* shad0wf0x (~shad0w@d149-67-84-103.try.wideopenwest.com) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;gdanko&gt; I IM'd coolya</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-green">* rhcp_ is now known as rhcp</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-navy">* rhcp (rhcp@matrix.efnet.net) Quit (Changing host)</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-green">* rhcp (rhcp@unaffiliated/rhcp) has joined this channel.</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;gdanko&gt; morning rhcp</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;gdanko&gt; thedood: FYI here is my modem boot loop <a href="http://pastebin.gdanko.net/434">http://pastebin.gdanko.net/434</a></span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
