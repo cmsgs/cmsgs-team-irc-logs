@@ -79,3 +79,22 @@
 <span class="irc-date">[5:55]</span> <span class="irc-navy">* rhcp_ (~rhcp@matrix.efnet.net) Quit (*.net *.split)</span><br />
 <span class="irc-date">[5:55]</span> <span class="irc-navy">* kmobs (~kmobs@you.got.kanged.net) Quit (*.net *.split)</span><br />
 <span class="irc-date">[5:59]</span> <span class="irc-green">* kmobs (~kmobs@you.got.kanged.net) has joined this channel.</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-black">&lt;Unhelpful&gt; that's how it sets the regex that it uses to validate interfaces as the "upstream" interface for tethering.</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-green">* izibi (~julian@unaffiliated/izibi) has joined this channel.</span><br />
+<span class="irc-date">[6:04]</span> <span class="irc-black">&lt;Unhelpful&gt; i think i found it. :D</span><br />
+<span class="irc-date">[6:08]</span> <span class="irc-green">* DJRichie (~djrichier@i.love.kingklick.org) has joined this channel.</span><br />
+<span class="irc-date">[6:11]</span> <span class="irc-black">&lt;Unhelpful&gt; regex is stored in device/samsung/captivate/overlay/frameworks/base/core/res/res/values/config.xml :D</span><br />
+<span class="irc-date">[6:12]</span> <span class="irc-green">* rhcp_ (rhcp@matrix.efnet.net) has joined this channel.</span><br />
+<span class="irc-date">[6:13]</span> <span class="irc-black">&lt;Unhelpful&gt; *that* one will need a rebuild to fix :/</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;Unhelpful&gt; interestingly the wifi iface it tethers via isn't eth0 but wl0.1 - i've seen a similar setup on broadcom wifi hardware on routers that support multiple virtual interfaces, and it makes me wonder if we should leave eth0 valid as an upstream interface - can you then use the phone via usb tethering to connect your devices lacking wifi, or perhaps to provide an ap w/ different security than the one that it connects to?</span><br />
+<span class="irc-date">[6:23]</span> <span class="irc-green">* thedood is now known as thedood|away</span><br />
+<span class="irc-date">[6:27]</span> <span class="irc-green">* ciwrl is now known as ciwrl|Fringe</span><br />
+<span class="irc-date">[6:39]</span> <span class="irc-black">&lt;gdanko&gt; sorry was away working on another project</span><br />
+<span class="irc-date">[6:39]</span> <span class="irc-black">&lt;gdanko&gt; my baby is still in the hosp :(</span><br />
+<span class="irc-date">[6:40]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: so when we tether a new interface is created, wl0.1?</span><br />
+<span class="irc-date">[6:41]</span> <span class="irc-black">&lt;gdanko&gt; my son had 3 unsuccessful spinal taps</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-navy">* rhcp_ (rhcp@matrix.efnet.net) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[6:52]</span> <span class="irc-green">* rhcp_ (rhcp@matrix.efnet.net) has joined this channel.</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;gdanko&gt; hi rhcp_</span><br />
+<span class="irc-date">[6:57]</span> <span class="irc-navy">* rhcp_ (rhcp@matrix.efnet.net) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[6:58]</span> <span class="irc-black">&lt;gdanko&gt; KFC is highly disturbing</span><br />
