@@ -16,3 +16,11 @@
 <span class="irc-date">[2:34]</span> <span class="irc-navy">* neldar (~neldar@dsl-217-161-79.pool.bitel.net) Quit (Quit: Leaving.)</span><br />
 <span class="irc-date">[3:09]</span> <span class="irc-green">* forcystos (62553b3d@gateway/web/freenode/ip.98.85.59.61) has joined this channel.</span><br />
 <span class="irc-date">[3:37]</span> <span class="irc-navy">* forcystos (62553b3d@gateway/web/freenode/ip.98.85.59.61) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-green">* rhcp is now known as rhcp_</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-navy">* noobnl (~noob@unaffiliated/noobnl) Quit ()</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, i have some fixes for bootable/recovery. raw bml read/write is broken (segfaults) and restore is aborted for images that don't contain boot.img</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-black">&lt;Unhelpful&gt; also tether seems to be not-quite-right, interface setup is fine but the forwarding and nat rules don't use the correct interface - it looks like the wrong interface is used for the "WAN" side of these connections, it's trying to forward packets to eth0 when it should be sending them via pdp0. i *assume* the same thing is happening in usb tether, i was only able to troubleshoot it for wifi tether because i could still use ADB</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;Unhelpful&gt; just pushed commits for the former problem :)</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-green">* forcystos (62553b3d@gateway/web/freenode/ip.98.85.59.61) has joined this channel.</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;Unhelpful&gt; looks like maybe the latter problem and my internet issuse might be fixable with a property :D</span><br />
