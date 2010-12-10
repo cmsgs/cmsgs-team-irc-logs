@@ -24,3 +24,58 @@
 <span class="irc-date">[4:36]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@christiantechsaz.com) has joined this channel.</span><br />
 <span class="irc-date">[4:57]</span> <span class="irc-green">* forcystos (62553b3d@gateway/web/freenode/ip.98.85.59.61) has joined this channel.</span><br />
 <span class="irc-date">[4:58]</span> <span class="irc-black">&lt;Unhelpful&gt; looks like maybe the latter problem and my internet issuse might be fixable with a property :D</span><br />
+<span class="irc-date">[5:03]</span> <span class="irc-green">* jt1134 (~jt1134@c-71-207-226-80.hsd1.al.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[5:06]</span> <span class="irc-navy">* forcystos (62553b3d@gateway/web/freenode/ip.98.85.59.61) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[5:06]</span> <span class="irc-green">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[5:19]</span> <span class="irc-green">* thedood is now known as thedood|away</span><br />
+<span class="irc-date">[5:22]</span> <span class="irc-navy">* rhcp_ (rhcp@unaffiliated/rhcp) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[5:32]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: hey, you need to add some properties to fix up the dns issue... i'll push them up when i'm sure i have the right value.</span><br />
+<span class="irc-date">[5:32]</span> <span class="irc-green">* rhcp_ (~rhcp@matrix.efnet.net) has joined this channel.</span><br />
+<span class="irc-date">[5:32]</span> <span class="irc-green">* thedood|away is now known as thedood</span><br />
+<span class="irc-date">[5:32]</span> <span class="irc-black">&lt;Unhelpful&gt; but i have mobiledata.interfaces=pdp0,eth0  in build.prop and no more dns issue</span><br />
+<span class="irc-date">[5:32]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: awesome.. dhows your bluetooth</span><br />
+<span class="irc-date">[5:33]</span> <span class="irc-black">&lt;Unhelpful&gt; i am unsure about including eth0, though - is this property supposed to be interfaces we might use for WAN, or only cell network interfaces?</span><br />
+<span class="irc-date">[5:33]</span> <span class="irc-black">&lt;Unhelpful&gt; i have nothing to test bluetooth with :/</span><br />
+<span class="irc-date">[5:33]</span> <span class="irc-black">&lt;Unhelpful&gt; i need to figure out how it sets up iptables for tether, it's setting up rules w/ eth0 as the WAN interface, which is wrong and doesn't work.</span><br />
+<span class="irc-date">[5:33]</span> <span class="irc-black">&lt;gdanko&gt; i tried reoriented kernel sources that are supposed to have fixed bluetooth but still get static</span><br />
+<span class="irc-date">[5:34]</span> <span class="irc-black">&lt;gdanko&gt; ppp0 is your tether if no?</span><br />
+<span class="irc-date">[5:34]</span> <span class="irc-black">&lt;gdanko&gt; ppp0 is wan i'd think</span><br />
+<span class="irc-date">[5:34]</span> <span class="irc-black">&lt;Unhelpful&gt; pdp0 is the cell data interface</span><br />
+<span class="irc-date">[5:34]</span> <span class="irc-black">&lt;gdanko&gt; well you can tether with eth0 off, eth0 is wifi i think.</span><br />
+<span class="irc-date">[5:35]</span> <span class="irc-black">&lt;gdanko&gt; ever see this error....revision froyo in manifests not found</span><br />
+<span class="irc-date">[5:35]</span> <span class="irc-black">&lt;Unhelpful&gt; the problem is that it's trying to route packets from my computer *to the internet* via eth0.</span><br />
+<span class="irc-date">[5:35]</span> <span class="irc-black">&lt;gdanko&gt; hmmm</span><br />
+<span class="irc-date">[5:35]</span> <span class="irc-black">&lt;gdanko&gt; where are the routres defined?</span><br />
+<span class="irc-date">[5:35]</span> <span class="irc-black">&lt;gdanko&gt; routes</span><br />
+<span class="irc-date">[5:35]</span> <span class="irc-black">&lt;Unhelpful&gt; where does it decide what's the WAN interface when setting up forwarding? i don't know.</span><br />
+<span class="irc-date">[5:37]</span> <span class="irc-black">&lt;gdanko&gt; the route config would determine that i would imagine</span><br />
+<span class="irc-date">[5:37]</span> <span class="irc-black">&lt;gdanko&gt; one sec</span><br />
+<span class="irc-date">[5:37]</span> <span class="irc-black">&lt;Unhelpful&gt; *what* route config?</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;Unhelpful&gt; the *regular linux* routing table has pdp0 as the default route</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;gdanko&gt; yes</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;Unhelpful&gt; but the iptables packet forwarding is trying to set up w/ eth0 as the default route, and that won't work at all.</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;gdanko&gt; i'd imagine android linux would use ppp0 unless eth0 is active</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;gdanko&gt; sure</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;Unhelpful&gt; well, it might if i were trying to share the wifi via tether?</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;gdanko&gt; right</span><br />
+<span class="irc-date">[5:39]</span> <span class="irc-black">&lt;Unhelpful&gt; so, the question is what sets up iptables for forwarding, and where/how does it make its decisions?</span><br />
+<span class="irc-date">[5:39]</span> <span class="irc-black">&lt;gdanko&gt; normal iptables or samsung iptables?</span><br />
+<span class="irc-date">[5:40]</span> <span class="irc-black">&lt;Unhelpful&gt; either of those is just a utility that does what you tell it to do. who decides what to tell it? :P</span><br />
+<span class="irc-date">[5:40]</span> <span class="irc-black">&lt;gdanko&gt; har har</span><br />
+<span class="irc-date">[5:40]</span> <span class="irc-black">&lt;gdanko&gt; i know but i am curious</span><br />
+<span class="irc-date">[5:40]</span> <span class="irc-black">&lt;gdanko&gt; ok hold brb</span><br />
+<span class="irc-date">[5:41]</span> <span class="irc-black">&lt;Unhelpful&gt; so, something gives iptables some rules to install when tethering is enabled. what does that? :(</span><br />
+<span class="irc-date">[5:42]</span> <span class="irc-black">&lt;gdanko&gt; well i was doing some reading</span><br />
+<span class="irc-date">[5:42]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://groups.google.com/group/android-kernel/browse_thread/thread/7e4a64560415eef5">http://groups.google.com/group/android-kernel/browse_thread/thread/7e4a64560415eef5</a></span><br />
+<span class="irc-date">[5:44]</span> <span class="irc-black">&lt;gdanko&gt; they wouldnt hard code this crap somewhere would they.. hm</span><br />
+<span class="irc-date">[5:46]</span> <span class="irc-navy">* DJRichie (~djrichier@i.love.kingklick.org) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[5:48]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@christiantechsaz.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[5:48]</span> <span class="irc-navy">* rhcp_ (~rhcp@matrix.efnet.net) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[5:49]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: that thread is not really useful.</span><br />
+<span class="irc-date">[5:49]</span> <span class="irc-black">&lt;Unhelpful&gt; but no, they probably hardcoded a default value and try to fetch a property - that's what it does for mobiledata.interfaces</span><br />
+<span class="irc-date">[5:50]</span> <span class="irc-green">* rhcp_ (~rhcp@matrix.efnet.net) has joined this channel.</span><br />
+<span class="irc-date">[5:52]</span> <span class="irc-black">&lt;gdanko&gt; ok another idea.. brb</span><br />
+<span class="irc-date">[5:55]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm: mUpstreamIfaceRegexs = context.getResources().getStringArray(com.android.internal.R.array.config_tether_upstream_regexs);</span><br />
+<span class="irc-date">[5:55]</span> <span class="irc-navy">* rhcp_ (~rhcp@matrix.efnet.net) Quit (*.net *.split)</span><br />
+<span class="irc-date">[5:55]</span> <span class="irc-navy">* kmobs (~kmobs@you.got.kanged.net) Quit (*.net *.split)</span><br />
+<span class="irc-date">[5:59]</span> <span class="irc-green">* kmobs (~kmobs@you.got.kanged.net) has joined this channel.</span><br />
