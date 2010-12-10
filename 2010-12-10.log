@@ -202,3 +202,68 @@
 <span class="irc-date">[17:19]</span> <span class="irc-green">* skeeterslint (~skeetersl@c-71-192-215-99.hsd1.ma.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[17:25]</span> <span class="irc-green">* jt1134 (~jt1134@c-71-207-226-80.hsd1.al.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[17:51]</span> <span class="irc-navy">* rhcp_ (rhcp@matrix.efnet.net) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-green">* rhcp_ (rhcp@matrix.efnet.net) has joined this channel.</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-navy">* rhcp_ (rhcp@matrix.efnet.net) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;gdanko&gt; how do we set the default shell in cm6?</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;gdanko&gt; i know its bash but where is it being set</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-green">* coolya (~kolja@xdslcq047.osnanet.de) has joined this channel.</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-navy">* skeeterslint (~skeetersl@c-71-192-215-99.hsd1.ma.comcast.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;dasunsrule32&gt; I thought it was sh</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;gdanko&gt; it is</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;dasunsrule32&gt; you have to /usr/bin/bash</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;dasunsrule32&gt; or sbin</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;gdanko&gt; cm is using bash</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;dasunsrule32&gt; i can't remember off the top of my head :p</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;gdanko&gt; i wanna know how its done</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;dasunsrule32&gt; it has bash, but I didn't think it was actually using it</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;dasunsrule32&gt; o.O</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;gdanko&gt; tab completion is bash, no? :)</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;dasunsrule32&gt; it can be done in sh too i believe</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;gdanko&gt; i built bash 4.1 with support for bashrc, bash_profile in /mnt/sdcard/bash</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;dasunsrule32&gt; that is just a package and some scripts</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;gdanko&gt; wanna set it as default</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;gdanko&gt; cm does build bash</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;gdanko&gt; i think i saw it in the manifest</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;dasunsrule32&gt; ok</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;dasunsrule32&gt; maybe look here: <a href="http://forum.xda-developers.com/showthread.php?t=537827">http://forum.xda-developers.com/showthread.php?t=537827</a></span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;dasunsrule32&gt; ;)</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;gdanko&gt; thats a hack :P</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;gdanko&gt; its defaults to sh</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;gdanko&gt; i have an idea.. brb</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; :D</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; hey, you wanted a way</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; ;)</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;gdanko&gt; Not MacGyver way!</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; You're right, I think it does default to bash now, started in 6</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; now that i am thinking about it</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;gdanko&gt; but where :)</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; haven't used cm in awhile</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;gdanko&gt; maybe service console</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;dasunsrule32&gt; since i got vibrant :p</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;dasunsrule32&gt; possibly</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; Maybe do this in init.rc? export SHELL /system/bin/bash</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; :D</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;gdanko&gt; i did that</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;gdanko&gt; upon running adb shell i would be kicked out of adb</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;gdanko&gt; not gonna work</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;gdanko&gt; trying something else</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; ok</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;dasunsrule32&gt; as far as I understand, if you change it, things that are calling the built in sh, things will break. You made these changes in your compiled build?</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;gdanko&gt; hmmm</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;dasunsrule32&gt; check /system/etc/userinit.sh?</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;dasunsrule32&gt; I thought there was some stuff about bash in there</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;dasunsrule32&gt; init.d/userinit.sh</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; gdanko: I know you probably know this :p buttt...: grep -ir bash /system/etc/</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; :D</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;gdanko&gt; yes</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;gdanko&gt; :P</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; :)</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;gdanko&gt; grep -ilr bash /system/etc/*</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; or strings /system/etc/ |grep -ir bash</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; :D</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; wheee</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;gdanko&gt; find . -type f -exec strings {} \; | grep -ir bash</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;gdanko&gt; nothing interesting</span><br />
