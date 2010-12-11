@@ -283,3 +283,18 @@
 <span class="irc-date">[21:44]</span> <span class="irc-black">&lt;coolya&gt; RIL.java is the file to go</span><br />
 <span class="irc-date">[21:44]</span> <span class="irc-navy">* forcystos (62553b3d@gateway/web/freenode/ip.98.85.59.61) Quit (Quit: Page closed)</span><br />
 <span class="irc-date">[22:06]</span> <span class="irc-green">* noobnl (~noob@unaffiliated/noobnl) has joined this channel.</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-green">* forcystos (62553b3d@gateway/web/freenode/ip.98.85.59.61) has joined this channel.</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;forcystos&gt; is the about phone stuff working properly in i9000 or other gsms? the //Samsung fucked up here is especially peculiar lol</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;coolya&gt; yes its working</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;coolya&gt; but we have problems with some carries</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;coolya&gt; we are not 100% sure what causes it</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;forcystos&gt; so it varies by carrier, not just whether it's CDMA/GSM?</span><br />
+<span class="irc-date">[23:44]</span> <span class="irc-black">&lt;coolya&gt; not sure about CDMA i can't test it as my phone is GSM</span><br />
+<span class="irc-date">[23:45]</span> <span class="irc-black">&lt;coolya&gt; i have done the changes to ril to get GSM working</span><br />
+<span class="irc-date">[23:46]</span> <span class="irc-black">&lt;forcystos&gt; where should I make changes then?</span><br />
+<span class="irc-date">[23:48]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@christiantechsaz.com) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;coolya&gt; you will need to figure out what data the modem sends to the user space an then adjust the function that parses it, in the RIL.java</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@christiantechsaz.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-black">&lt;forcystos&gt; where is the data parsed for GSM so I can compare? because I already know what the data is, and the function that parses it, I just don't know what to put since I don't see anything similar or related</span><br />
