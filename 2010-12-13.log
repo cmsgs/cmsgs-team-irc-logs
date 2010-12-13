@@ -40,3 +40,21 @@
 <span class="irc-date">[19:34]</span> <span class="irc-green">* coolya (~kolja@xdslo145.osnanet.de) has joined this channel.</span><br />
 <span class="irc-date">[19:53]</span> <span class="irc-navy">* coolya (~kolja@xdslo145.osnanet.de) Quit (Ping timeout: 240 seconds)</span><br />
 <span class="irc-date">[20:07]</span> <span class="irc-green">* coolya (~kolja@xdslcb177.osnanet.de) has joined this channel.</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;gdanko&gt; howdy</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;gdanko&gt; Hmm I built vim from source but when I run it in my shell I get file not found</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;gdanko&gt; [21:22:33 /]# vim</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;gdanko&gt; bash: /system/bin/vim: No such file or directory</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;coolya&gt; you build it with android.mk ?</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;coolya&gt; if not you will have to link it static, because android uses bionic and not libc</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;gdanko&gt; i did not use android.mk. i linked it statically though.</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;gdanko&gt; i built it the same way i built busybox and bash</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;gdanko&gt; i had to build ncusrses for arm too</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;gdanko&gt; my build line looks like this: vim_cv_memcpy_handles_overlap=no vim_cv_bcopy_handles_overlap=no vim_cv_memmove_handles_overlap=no vim_cv_stat_ignores_slash=no vim_cv_getcwd_broken=no vim_cv_tty_group=world vim_cv_terminfo=yes LDFLAGS="-L/android_build/ncurses_arm/lib" CFLAGS="-I/android_build/ncurses_arm/lib" vim_cv_toupper_broken=yes ARCH=arm CC=arm-none-linux-gnueabi-gcc ./configure --host=arm-eabi --with-tlib=ncurses --prefix=/andro</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;gdanko&gt; id_build/arm_vim</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;gdanko&gt; hm I think I have it fixed now</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;gdanko&gt; yep: LDFLAGS="-L/android_build/ncurses_arm/lib -static" CFLAGS="-I/android_build/ncurses_arm/lib -static"</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-green">* atinm (~amalaviya@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;atinm&gt; hrm.</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;atinm&gt; this looks like a netsplit?</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;gdanko&gt; ok vim works but syntax highlighting does not.. arrrr</span><br />
