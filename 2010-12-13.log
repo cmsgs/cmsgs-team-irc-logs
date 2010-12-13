@@ -58,3 +58,22 @@
 <span class="irc-date">[21:46]</span> <span class="irc-black">&lt;atinm&gt; hrm.</span><br />
 <span class="irc-date">[21:46]</span> <span class="irc-black">&lt;atinm&gt; this looks like a netsplit?</span><br />
 <span class="irc-date">[21:50]</span> <span class="irc-black">&lt;gdanko&gt; ok vim works but syntax highlighting does not.. arrrr</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-green">* noobnl (~noob@unaffiliated/noobnl) has joined this channel.</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-navy">* atinm (~amalaviya@unaffiliated/atinm) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: -mandroid will take care of *most* of what you need ;)</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;gdanko&gt; mandroid?</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;Unhelpful&gt; yes. or use this: <a href="http://pastie.org/1374473">http://pastie.org/1374473</a></span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;Unhelpful&gt; depending on where your ndk is installed, of course. :)</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;gdanko&gt; right.</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;gdanko&gt; ok leme try that now :D</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: do you know where CM configures bash as the default shell for console sessions?</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;Unhelpful&gt; i didn't know it *did*?</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;gdanko&gt; if i adb shell i believe i am in bash :)</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;gdanko&gt; and bash is present, as is /system/etc/bash</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;gdanko&gt; I don't imagine it'd be installed but not set as default shell.</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;Unhelpful&gt; ah, well, afaik adbd doesn't read the shell to use from a config.</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;gdanko&gt; perhaps its the console service that fires up the shell</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;Unhelpful&gt; i looked into this a while ago, the path is, or was, hard-coded in adbd.</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;gdanko&gt; hmm interesting</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;gdanko&gt; i'd think export SHELL= would work</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;Unhelpful&gt; doubt it. :)</span><br />
