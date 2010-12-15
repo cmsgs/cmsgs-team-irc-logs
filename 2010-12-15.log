@@ -7,3 +7,114 @@
 <span class="irc-date">[4:15]</span> <span class="irc-navy">* neldar (~neldar@dsl107-149.pool.bitel.net) Quit (Disconnected by services)</span><br />
 <span class="irc-date">[4:15]</span> <span class="irc-black">&lt;- *neldar1* Bot Sentry eingeschalten:  Sie werden jetzt ignoriert!  Ihre Nachricht wird übermittelt wenn sie die folgenden Fragen innerhalb von 10 Minuten richtig beantworten:  How do you spell the result of ten div_ided by 2?</span><br />
 <span class="irc-date">[4:25]</span> <span class="irc-green">* skeeterslint (~skeetersl@c-71-192-215-99.hsd1.ma.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[5:05]</span> <span class="irc-green">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[5:23]</span> <span class="irc-black">&lt;gdanko&gt; oooooh</span><br />
+<span class="irc-date">[5:23]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://android.git.kernel.org/?p=kernel/samsung.git">http://android.git.kernel.org/?p=kernel/samsung.git</a></span><br />
+<span class="irc-date">[5:24]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: hey, by "phone" do you mean voice, or just radio in general?</span><br />
+<span class="irc-date">[5:24]</span> <span class="irc-black">&lt;jt1134&gt; gdanko, some good things in there :)</span><br />
+<span class="irc-date">[5:25]</span> <span class="irc-black">&lt;Unhelpful&gt; i've never had voice calling working, only data and sms.</span><br />
+<span class="irc-date">[5:25]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: yep... i cannot make calls</span><br />
+<span class="irc-date">[5:25]</span> <span class="irc-black">&lt;Unhelpful&gt; but you can w/ your kernel?</span><br />
+<span class="irc-date">[5:25]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: if I build from i9000 source and use jk3 i can</span><br />
+<span class="irc-date">[5:25]</span> <span class="irc-black">&lt;gdanko&gt; jt1134: I am grabbing it :D</span><br />
+<span class="irc-date">[5:26]</span> <span class="irc-black">&lt;Unhelpful&gt; i can't make calls either, it hangs connecting, there is no audio, and i can't hang up and have to reboot.</span><br />
+<span class="irc-date">[5:26]</span> <span class="irc-black">&lt;jt1134&gt; gdanko, there's lots of driver specific stuff that's already in the kernel drops</span><br />
+<span class="irc-date">[5:26]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: for some reason, slicing and dicing the kernel upset it.</span><br />
+<span class="irc-date">[5:26]</span> <span class="irc-black">&lt;jt1134&gt; but some of the upstream improvements are interesting</span><br />
+<span class="irc-date">[5:26]</span> <span class="irc-black">&lt;jt1134&gt; Unhelpful, which device are you on? gsm?</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: exactly. I am told xcal's 2.1.6+ reoriented sources are good so I am going to try and build from there. I hear tell bluetooth headset works.</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: i doubt that's the cause. more likely something in our cm6 userspace is compatible w/ i9k/vibrant but not w/ captivate.</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: yeah that is more likely the case.</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-black">&lt;Unhelpful&gt; hence your i9k kernel working and my ji6-derived one not :(</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-black">&lt;Unhelpful&gt; if he has BT audio working that's everything working *except* our fancy audio filter.</span><br />
+<span class="irc-date">[5:28]</span> <span class="irc-black">&lt;gdanko&gt; then if his kernel works we can put the audio filter in there and be set.. i hope</span><br />
+<span class="irc-date">[5:28]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm curious as to how much good the a1026 actually does for voice quality. i don't hear vibrant users griping for it, nor reoriented-on-captivate users complaining of lost quality.</span><br />
+<span class="irc-date">[5:28]</span> <span class="irc-black">&lt;Unhelpful&gt; jt1134: captivate.</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: we don't have source for a1026 for froyo afaik.</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;jt1134&gt; Unhelpful, figured. have the same "can't hang up call" issues here, but I can hear things though :)</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;Unhelpful&gt; possibly the driver from the eclair kernel could be ported... but i don't know.</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;jt1134&gt; on cdma fascinate, though</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;Unhelpful&gt; jt1134: i only tried to call voice mail. never heard anything.</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: I thought it a fix was macgyvered in.</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;jt1134&gt; so you guys have no audio at all?</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: the only fix i'm aware of is to use a non-captivate modem file :P</span><br />
+<span class="irc-date">[5:30]</span> <span class="irc-black">&lt;Unhelpful&gt; jt1134: no, i have audio but no voice calling.</span><br />
+<span class="irc-date">[5:30]</span> <span class="irc-black">&lt;jt1134&gt; ah ok</span><br />
+<span class="irc-date">[5:30]</span> <span class="irc-black">&lt;Unhelpful&gt; notification audio works fine.</span><br />
+<span class="irc-date">[5:30]</span> <span class="irc-black">&lt;jt1134&gt; are you compiling non-secure ril binaries or using prebuilts?</span><br />
+<span class="irc-date">[5:31]</span> <span class="irc-black">&lt;Unhelpful&gt; afaik we have no choice but to use the proprietary rild?</span><br />
+<span class="irc-date">[5:31]</span> <span class="irc-black">&lt;jt1134&gt; really?</span><br />
+<span class="irc-date">[5:31]</span> <span class="irc-black">&lt;jt1134&gt; I have major issues using all prebuilts (disclaimer: cmda + eclair)</span><br />
+<span class="irc-date">[5:31]</span> <span class="irc-black">&lt;Unhelpful&gt; my understanding is that rild is radio-hardware-specific, so unless the AOSP one knows how to talk to our radio...</span><br />
+<span class="irc-date">[5:31]</span> <span class="irc-black">&lt;jt1134&gt; I *have* to build rild/libril/libreference-ril</span><br />
+<span class="irc-date">[5:31]</span> <span class="irc-black">&lt;gdanko&gt; brb</span><br />
+<span class="irc-date">[5:32]</span> <span class="irc-black">&lt;jt1134&gt; outbound calls work (with audio) and data works if I fire off pppd_runner by hand</span><br />
+<span class="irc-date">[5:33]</span> <span class="irc-black">&lt;Unhelpful&gt; jt1134: interesting. i thought that we couldn't build an rild from AOSP or CM that could talk to our radio.</span><br />
+<span class="irc-date">[5:33]</span> <span class="irc-black">&lt;jt1134&gt; Unhelpful, worksforme!</span><br />
+<span class="irc-date">[5:33]</span> <span class="irc-black">&lt;jt1134&gt; :)</span><br />
+<span class="irc-date">[5:33]</span> <span class="irc-black">&lt;jt1134&gt; you guys have a froyo leak to work off of right?</span><br />
+<span class="irc-date">[5:33]</span> <span class="irc-black">&lt;Unhelpful&gt; if we *can* that would be a huge help as i believe we could then not have to deal with samsung mods to rild&lt;-&gt;framework communications?</span><br />
+<span class="irc-date">[5:34]</span> <span class="irc-black">&lt;jt1134&gt; yeah</span><br />
+<span class="irc-date">[5:34]</span> <span class="irc-black">&lt;jt1134&gt; it's nice to compile things instead of kang them :)</span><br />
+<span class="irc-date">[5:34]</span> <span class="irc-black">&lt;gdanko&gt; jt1134: intereting.</span><br />
+<span class="irc-date">[5:34]</span> <span class="irc-black">&lt;jt1134&gt; have you guys not tried it that way?</span><br />
+<span class="irc-date">[5:35]</span> <span class="irc-black">&lt;jt1134&gt; only takes a few minutes to build those few binaries ;)'</span><br />
+<span class="irc-date">[5:35]</span> <span class="irc-black">&lt;gdanko&gt; jt1134: When I built AOSP, I could connect to AT&amp;T and get signal bars. WiFI, SMS, MMS worked. Phone and 3G did not.</span><br />
+<span class="irc-date">[5:35]</span> <span class="irc-black">&lt;gdanko&gt; that was using rild from source.</span><br />
+<span class="irc-date">[5:35]</span> <span class="irc-black">&lt;jt1134&gt; hmmm</span><br />
+<span class="irc-date">[5:35]</span> <span class="irc-black">&lt;jt1134&gt; so you get everything but audio by using prebuilts?</span><br />
+<span class="irc-date">[5:36]</span> <span class="irc-black">&lt;gdanko&gt; i had to disable alsa or the builds would fail</span><br />
+<span class="irc-date">[5:36]</span> <span class="irc-black">&lt;Unhelpful&gt; jt1134: so what radio-related binaries *are* you using?</span><br />
+<span class="irc-date">[5:37]</span> <span class="irc-black">&lt;Unhelpful&gt; you mentioned rild, libril, libreference-ril. should i still be copying libsec-ril and libsecril-client?</span><br />
+<span class="irc-date">[5:37]</span> <span class="irc-black">&lt;skeeterslint&gt; gdanko when you rebuild an initram do you use the same Zimage that you pulled the initram frm when you repack it?</span><br />
+<span class="irc-date">[5:37]</span> <span class="irc-black">&lt;gdanko&gt; skeeterslint: yep</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;jt1134&gt; Unhelpful, prelinking libsecril-client.so, using prebuilt libsec-ril40.so, and rilclient-test</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;jt1134&gt; building the reset</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;jt1134&gt; *rest</span><br />
+<span class="irc-date">[5:39]</span> <span class="irc-black">&lt;jt1134&gt; Unhelpful, libril,libreference-ril, and rild are the only things built from aosp</span><br />
+<span class="irc-date">[5:39]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, i'll give that a try :D</span><br />
+<span class="irc-date">[5:40]</span> <span class="irc-black">&lt;gdanko&gt; do we even NEED libreference-ril?</span><br />
+<span class="irc-date">[5:40]</span> <span class="irc-black">&lt;gdanko&gt; ugh brain fart.. i didnt say that :)</span><br />
+<span class="irc-date">[5:40]</span> <span class="irc-black">&lt;jt1134&gt; gdanko, you are forgiven ;)</span><br />
+<span class="irc-date">[5:42]</span> <span class="irc-black">&lt;gdanko&gt; i am curious about these kernel sources</span><br />
+<span class="irc-date">[5:43]</span> <span class="irc-black">&lt;Unhelpful&gt; jt1134: and i assume you then use a stock cm RIL.java in frameworks?</span><br />
+<span class="irc-date">[5:43]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: they're not much good to us i suspect, unless they have v2.6.32.9-for-samsung in them</span><br />
+<span class="irc-date">[5:44]</span> <span class="irc-black">&lt;jt1134&gt; Unhelpful, not positive if I've modified RIL.java or not</span><br />
+<span class="irc-date">[5:44]</span> <span class="irc-black">&lt;Unhelpful&gt; we're still stuck with rfs and j4fs, and we can't really get rid of the latter unless we can write our own bootloader...</span><br />
+<span class="irc-date">[5:44]</span> <span class="irc-black">&lt;jt1134&gt; had to much hackery to get things "working" with eclair</span><br />
+<span class="irc-date">[5:44]</span> <span class="irc-black">&lt;jt1134&gt; <a href="https://github.com/jt1134/platform_frameworks_base/commits/eclair/">https://github.com/jt1134/platform_frameworks_base/commits/eclair/</a></span><br />
+<span class="irc-date">[5:44]</span> <span class="irc-black">&lt;jt1134&gt; mostly stuff pulled from froyo and backported from cmsgs frameworks</span><br />
+<span class="irc-date">[5:45]</span> <span class="irc-black">&lt;Unhelpful&gt; ah, ok.</span><br />
+<span class="irc-date">[5:46]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm not really sure which of the ril components are responsible for the protocol used, and whether we would still need the modified RIL.java :/</span><br />
+<span class="irc-date">[5:46]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: While you're raining on my parade I suspect you're right. On the other hand it take sonly 5 min to build a kernel.</span><br />
+<span class="irc-date">[5:48]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: sorry about the rain. i *want* to have sources that are appropriate to *all* of captivate's hardware but it's unlikely until samsung releases or leaks a source for captivate, or else releases source for the proprietary modules.</span><br />
+<span class="irc-date">[5:49]</span> <span class="irc-black">&lt;Unhelpful&gt; really what they *should* give us is a binary blob with the guts and a gpl file that interfaces that to the kernel. this is what is generally required for license compatibility, and it's what ati and nvidia do.</span><br />
+<span class="irc-date">[5:49]</span> <span class="irc-green">* jt1134 is now known as jt|SleepALOT</span><br />
+<span class="irc-date">[5:50]</span> <span class="irc-black">&lt;skeeterslint&gt; wow how much do you have to strip out before it will let you repack it?it keeps telling me the initram is bigger then the stock initram</span><br />
+<span class="irc-date">[5:51]</span> <span class="irc-black">&lt;Unhelpful&gt; skeeterslint: you shouldn't need to strip *out* anything unless you added things - assuming you started with the stock initram :P</span><br />
+<span class="irc-date">[5:51]</span> <span class="irc-black">&lt;skeeterslint&gt; i syarted stock added the cm lines and the lines we need and took out what i thought i needed to balance things out</span><br />
+<span class="irc-date">[5:52]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: Oh I know. Once they give us 2.2 we'll have what we need shortly thereafter. :)</span><br />
+<span class="irc-date">[5:52]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: yes, but *probably* not the ability to rebuild rfs and j4fs :(</span><br />
+<span class="irc-date">[5:53]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: yeah I hear you there.</span><br />
+<span class="irc-date">[5:53]</span> <span class="irc-black">&lt;Unhelpful&gt; skeeterslint: which device? the JI6 leak for captivate ships with uncompressed initramfs, and there's very little in it, but by compressing i was able to shoehorn in all of cm recovery and a couple of new utilities i've been working on.</span><br />
+<span class="irc-date">[5:54]</span> <span class="irc-black">&lt;skeeterslint&gt; the epic it is a compressed initram</span><br />
+<span class="irc-date">[5:55]</span> <span class="irc-black">&lt;skeeterslint&gt; should i cpio it first then try to rebuild it?</span><br />
+<span class="irc-date">[5:55]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: ji6 stock is "3e"?</span><br />
+<span class="irc-date">[5:55]</span> <span class="irc-black">&lt;gdanko&gt; skeeterslint: no you dont need to</span><br />
+<span class="irc-date">[5:55]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: if you mean recovery, ji6 stock kernel does not contain the recovery - it's in /system</span><br />
+<span class="irc-date">[5:56]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: Oooh okay.</span><br />
+<span class="irc-date">[5:56]</span> <span class="irc-black">&lt;gdanko&gt; i still need to find out how these guys make bash default</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;Unhelpful&gt; skeeterslint: if you still can't make things fit you might try making the cpio archive yourself and compressing with 7z -mfb=258 -mpass=15 a initramfs.cpio.gz initramfs.cpio</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;jt|SleepALOT&gt; gdanko, hack adbd ;)</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;jt|SleepALOT&gt; 2 line hack ;)</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;skeeterslint&gt; i found my problem</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko: i'm telling you it's defined in adbd at compile-time unless they changed it. :P</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;skeeterslint&gt; it was a supid user problem</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;gdanko&gt; jt|SleepALOT: ok show me the 2 lines and i will rebuilt adbd :)</span><br />
+<span class="irc-date">[5:58]</span> <span class="irc-black">&lt;jt|SleepALOT&gt; ok</span><br />
+<span class="irc-date">[5:58]</span> <span class="irc-black">&lt;jt|SleepALOT&gt; sec</span><br />
+<span class="irc-date">[5:58]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: I can't remember everything I read in here. :P</span><br />
+<span class="irc-date">[5:58]</span> <span class="irc-black">&lt;jt|SleepALOT&gt; gdanko, <a href="https://github.com/project-voodoo/android_system_core/commit/235e6f4843082660572f353c2cbfbef48e7131ab">https://github.com/project-voodoo/android_system_core/commit/235e6f4843082660572f353c2cbfbef48e7131ab</a></span><br />
+<span class="irc-date">[5:58]</span> <span class="irc-black">&lt;jt|SleepALOT&gt; sure that's not bash, but you get the point ;)</span><br />
+<span class="irc-date">[5:58]</span> <span class="irc-black">&lt;jt|SleepALOT&gt; been using bash as default for some time now :)</span><br />
+<span class="irc-date">[5:59]</span> <span class="irc-black">&lt;jt|SleepALOT&gt; ./sleep_time!</span><br />
