@@ -118,3 +118,43 @@
 <span class="irc-date">[5:58]</span> <span class="irc-black">&lt;jt|SleepALOT&gt; sure that's not bash, but you get the point ;)</span><br />
 <span class="irc-date">[5:58]</span> <span class="irc-black">&lt;jt|SleepALOT&gt; been using bash as default for some time now :)</span><br />
 <span class="irc-date">[5:59]</span> <span class="irc-black">&lt;jt|SleepALOT&gt; ./sleep_time!</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-black">&lt;gdanko&gt; i get the point :)</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;skeeterslint&gt; whats the name of the outputed zImage? franken.img?</span><br />
+<span class="irc-date">[6:02]</span> <span class="irc-black">&lt;gdanko&gt; no zImage</span><br />
+<span class="irc-date">[6:02]</span> <span class="irc-black">&lt;gdanko&gt; if you dont see a reference to zImage</span><br />
+<span class="irc-date">[6:02]</span> <span class="irc-black">&lt;gdanko&gt; then it failed somewhere</span><br />
+<span class="irc-date">[6:02]</span> <span class="irc-black">&lt;gdanko&gt; ive been waiting for atinm to give me write access to initramfs utils</span><br />
+<span class="irc-date">[6:02]</span> <span class="irc-black">&lt;gdanko&gt; I improved repack</span><br />
+<span class="irc-date">[6:03]</span> <span class="irc-black">&lt;gdanko&gt; oh! its in cmsgs now</span><br />
+<span class="irc-date">[6:03]</span> <span class="irc-black">&lt;gdanko&gt; ill update it</span><br />
+<span class="irc-date">[6:05]</span> <span class="irc-black">&lt;gdanko&gt; skeeterslint: wanna try my repack?</span><br />
+<span class="irc-date">[6:05]</span> <span class="irc-black">&lt;skeeterslint&gt; yeah i'll pull down you changes</span><br />
+<span class="irc-date">[6:06]</span> <span class="irc-black">&lt;gdanko&gt; let me see if i can write to it on cmsgs</span><br />
+<span class="irc-date">[6:07]</span> <span class="irc-black">&lt;gdanko&gt; skeeterslint: brb checking out from cmsgs</span><br />
+<span class="irc-date">[6:07]</span> <span class="irc-black">&lt;skeeterslint&gt; ooo i found more stupid user problem this time it might actaully work</span><br />
+<span class="irc-date">[6:09]</span> <span class="irc-black">&lt;gdanko&gt; i love stupid user problems</span><br />
+<span class="irc-date">[6:11]</span> <span class="irc-black">&lt;skeeterslint&gt; hmmm once it gets to the part where it needs the kernel source its not finding files that are there</span><br />
+<span class="irc-date">[6:11]</span> <span class="irc-black">&lt;gdanko&gt; hold on</span><br />
+<span class="irc-date">[6:13]</span> <span class="irc-navy">* neldar1 (~neldar@dsl-217-167-48.pool.bitel.net) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;gdanko&gt; skeeterslint: <a href="https://github.com/cmsgs/initramfs-utils/blob/master/repack-zImage.sh">https://github.com/cmsgs/initramfs-utils/blob/master/repack-zImage.sh</a></span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;gdanko&gt; aww piss thats not the one.. let me login to work, its there.</span><br />
+<span class="irc-date">[6:15]</span> <span class="irc-black">&lt;gdanko&gt; this one still works. the one at work is better.</span><br />
+<span class="irc-date">[6:15]</span> <span class="irc-black">&lt;gdanko&gt; brb gotta vpn on</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-navy">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) Quit (Ping timeout: 265 seconds)</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-green">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;gdanko&gt; ok im back.</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;gdanko&gt; previously the toolchain version was hard coded. i fixed that too.</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;skeeterslint&gt; do i need to actaully build a kernel with the source i am using first?</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;skeeterslint&gt; so there are files in the source tree?</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;gdanko&gt; ummm i think so</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;Unhelpful&gt; skeeterslint: i believe you can get by with just configuring it.</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: atinm suggested i build one but who knows</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;skeeterslint&gt; well is looks for vmlinux so i would think i would need to build one</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;skeeterslint&gt; i'll try it though</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;gdanko&gt; cant hurt to build one tho</span><br />
+<span class="irc-date">[6:30]</span> <span class="irc-black">&lt;gdanko&gt; but overall it works pretty well :)</span><br />
+<span class="irc-date">[6:30]</span> <span class="irc-black">&lt;gdanko&gt; i am gonna hit the sheets</span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-black">&lt;gdanko&gt; i gotta be up at 4:45</span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-black">&lt;gdanko&gt; I will try xcalibur's 2.2.1 tomorrow, see if it works like people claim.</span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-black">&lt;gdanko&gt; gnite :)</span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-navy">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) Quit (Quit: This computer has gone to sleep)</span><br />
