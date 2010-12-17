@@ -214,3 +214,173 @@
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;gdanko&gt; <a href="https://github.com/supercurio/nexuss_initramfs">https://github.com/supercurio/nexuss_initramfs</a></span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm&gt; so we need to know whether the gps chip, the sound chip etc are the same and then we can figure out how to just port it to our phones</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm&gt; is that what dood was talking about? he is using their kernel?</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;gdanko&gt; this i dont know</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;gdanko&gt; but what i know is</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;gdanko&gt; people were booting it but framebuffer doesnt work</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;gdanko&gt; FB is not in the kernel</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;atinm&gt; k.</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;atinm&gt; I see wm8994_samsung</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;atinm&gt; let me see what that has</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;atinm&gt; for sound</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;gdanko&gt; mine is different</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://pdadb.net/index.php?m=specs&amp;id=2430&amp;c=samsung_sgh-i897_galaxy_s_captivate">http://pdadb.net/index.php?m=specs&amp;id=2430&amp;c=samsung_sgh-i897_galaxy_s_captivate</a></span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;gdanko&gt; same audio chip</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://pdadb.net/index.php?m=pdacomparer">http://pdadb.net/index.php?m=pdacomparer</a></span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;gdanko&gt; very few differences</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;atinm&gt; tho that doesn't say anything about the echo cancellation chip for either</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;atinm&gt; so we might have to use the modem.bin from the nexus s if we use the nexus s kernel</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;atinm&gt; is anyone working on getting the nexus s kernel working on our phones? this seems right up unhelpful's alley while I am not working on this</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;atinm&gt; maybe we can get the source, hack in the pieces we need from the 2.2 kernel/libs to get it working.</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;gdanko&gt; atinm: curio is</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;gdanko&gt; atinm: that was my thoughts</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm&gt; curio focuses on i9000 - unhelpful is one of us captivate folks :)</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;gdanko&gt; atinm: are you a cappy too?</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm&gt; I'll start on that too when I start to feel a little better from the meds</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;gdanko&gt; what meds?</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm&gt; my usual - I get interferon shots that make me really sick on friday</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;gdanko&gt; why is that?</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;gdanko&gt; dmesg on the device is interesting</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;atinm&gt; I have hepatitis c acquired from a blood transfusion as a child. that is why I had to have a liver transplant.</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;gdanko&gt; [14569.479597] [USB:UMS] Buf+8:SAMSUNG GT-I9000        0000</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;gdanko&gt; oh ok but you are ok now?</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;atinm&gt; and now the virus is attacking the new liver. so these anti-virals are keeping it suppressed</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;atinm&gt; but the side-effects are really hard</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;gdanko&gt; [ 7452.512043] [ wm8994_aries.c (audio_power,280) ] AUDIO POWER COMPLETED : 1</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;gdanko&gt; [ 7452.542819] done.</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;atinm&gt; you're running i9000 code on the cappy?</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;gdanko&gt; no!</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;gdanko&gt; thats what is weird</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm&gt; so I get the shots on thursday night and am sick all night and usually till today evening</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm&gt; and then another shot on monday morning that makes me sick by monday night. so lying in bed and typing</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;atinm&gt; so can't look at code right now</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;gdanko&gt; oh that stinks</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;atinm&gt; the nexus s release is encouraging. lets see what we can do with the code.</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;atinm&gt; for our phones</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;atinm&gt; any idea what the nexus s defconfig is?</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;atinm&gt; and what samsung's model number is for it?</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;gdanko&gt; thats what i asked someone to get</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;gdanko&gt; let me ask again</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm&gt; looks like it might be herring_defconfig</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm&gt; since they also added a wm8994_herring.c</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm&gt; that seems to go with wm8994_samsung.c</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;gdanko&gt; yes you build using herring</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;gdanko&gt; I am trying someone to do: adb shell "getprop ro.product.device"</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-navy">* izibi_ (~julian@nrbg-d9323a3f.pool.mediaWays.net) Quit (Quit: Reconnecting)</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-green">* izibi (~julian@unaffiliated/izibi) has joined this channel.</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;atinm&gt;  288 CONFIG_BCM4329_FW_PATH="/vendor/firmware/fw_bcm4329.bin"</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;atinm&gt; 289 CONFIG_BCM4329_NVRAM_PATH="/vendor/firmware/nvram_net.txt"</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;atinm&gt; well, that willbe needed I guess</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;atinm&gt; no mention of the A1029 in the defconfig</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;gdanko&gt; you on curio's git?</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;atinm&gt; which is the crap chip we have</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;atinm&gt; no, on nexus s</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;gdanko&gt; oh the kernel config yes its there</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;atinm&gt; hrm, looking at the initramfs now</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;atinm&gt; mount yaffs2 mtd@system /system ro remount</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;atinm&gt; so they have mtd now?</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;gdanko&gt; yep</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;gdanko&gt; /dev/block/mtd*</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://pastie.org/1383560">http://pastie.org/1383560</a></span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://pastie.org/1382842">http://pastie.org/1382842</a></span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;atinm&gt; so what happened to bml? they created mtd drivers? or is it different hardware? I haven't paid attention</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;gdanko&gt; i think thats still unknown</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;atinm&gt; CONFIG_MTD_ONENAND_SAMSUNG=y</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;atinm&gt; need unhelpful to decipher this. :)</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;gdanko&gt; thats in herring?</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;gdanko&gt; Isnt OneNAND the opensource nand?</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;gdanko&gt; no its samsung</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;codeworkx&gt; they've created new drivers</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;gdanko&gt; for the NS?</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;codeworkx&gt; but if we wanna use on sgs, we have to change bootloader</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;gdanko&gt; boot.bin?</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;codeworkx&gt; no one wants to play with it</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;codeworkx&gt; you can brick your phone very easy</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;atinm&gt; and of course, no one released the bootloader code</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;gdanko&gt; was BL code for nexus 1 released?</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;atinm&gt; I don't think so</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;gdanko&gt; if we used NS boot.bin, modem.bin, and modified the kernel to support anything specific, whats the possibility of using the rom?</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;atinm&gt; I don't think anyone has the courage to try it :)</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;atinm&gt; I don't</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;atinm&gt; not boot.bin</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;gdanko&gt; atinm: AT&amp;T will replace a phone w/o question</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;gdanko&gt; I took a phone in and they looked at it and gave me a new one</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;atinm&gt; you do it ;)</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;gdanko&gt; atinm: they are already willing to send me a new device because of the problems ive been having</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;atinm&gt; but first lets make sure we have everything</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;gdanko&gt; let me arrange for them to send me a new one.. when the new one arrives i will try to flash the old one before sending back :D</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;atinm&gt; so they created mtd devices for their onenand</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;gdanko&gt; yes</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;atinm&gt; but nothing forces us to use it - we can stick with bml, if we pull in the code for that</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;gdanko&gt; codeworkx: what the link to the ext4 upgrade script? i want to upgrade. :)</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;atinm&gt; and modify the init.rc</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;gdanko&gt; that would be fine, too.</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;gdanko&gt; mtd versus bml is the least of our worries.</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;atinm&gt; yes - just going thru to see what all I notice at first look</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;gdanko&gt; of course :)</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;gdanko&gt; still wondering why I have that I9000 thing in dmesg</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;codeworkx&gt; github.com/codeworkx/update</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;gdanko&gt; thanks</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;atinm&gt; no fair, it has colored leds!</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;gdanko&gt; hahaha yes</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;gdanko&gt; codeworkx: i can make an update.zip out of this and convert my fs?</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;codeworkx&gt; no problem to stay on 2.6.32.9</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;codeworkx&gt; yes you can</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-green">* awiaI9000test (~darkBiLLy@25.36.222.87.dynamic.jazztel.es) has joined this channel.</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;gdanko&gt; great</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;codeworkx&gt; copy zImage and /system to it, compress, sign</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;gdanko&gt; oh add my /system to whats is in there</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;gdanko&gt; and my kernel image</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;gdanko&gt; ok</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;atinm&gt; maybe I don't understand how yaffs2 works - the init.rc says mount yaffs2 for /system and /data</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;atinm&gt; but your pastie says they were mounted ext4</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;gdanko&gt; this paste was the stock</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;gdanko&gt; i think they did some things to get root</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;gdanko&gt; but ext4 is default</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;gdanko&gt; this was before they had the init.rc</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;codeworkx&gt; ext4 is default for gingerbread</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;atinm&gt; so the init.rc on curio's github is not stock?</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;atinm&gt; or am I misreading it...</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm&gt;     # Mount /system rw first to give the filesystem a chance to save a checkpoint</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm&gt;     mount yaffs2 mtd@system /system</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm&gt;     mount yaffs2 mtd@system /system ro remount</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm&gt;     mount yaffs2 mtd@userdata /data nosuid nodev</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;gdanko&gt; I have not viewed it.. been busy. But myunderstanding is that this is stock ext4</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm&gt; that's what the init.rc has</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;gdanko&gt; ill ask him</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;gdanko&gt; ah hes offline</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;atinm&gt; poke Unhelpful</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;gdanko&gt; im not sure why he put yaffs there</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;gdanko&gt; i saw him asking how to make yaffs FS in the irc</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;atinm&gt; so we think that isn't the stock init.rc?</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;gdanko&gt; i think someone dumped a stock init.rc</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;atinm&gt; so we have the zImage for it so we can dump it ourselves?</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;gdanko&gt; want the boot.img?</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;atinm&gt; do</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;gdanko&gt; i have one du mped directly</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;atinm&gt; oh, they used boot.img?</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;gdanko&gt; yes</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;gdanko&gt; i have boot.img, recovery.img, system.img</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;atinm&gt; cool - different from the rest of the phones.</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;atinm&gt; but standard for android</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;gdanko&gt; but the system.img is cat /dev/something &gt; /sdcard/system.imb</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;gdanko&gt; lots of zeros</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;gdanko&gt; i wonder if i can trim the fat on that bad boy</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;atinm&gt; I don't know what the .img file format is but we should be able to dump the initramfs from it</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;atinm&gt; from the boot.img</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;gdanko&gt; oh we can.</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;gdanko&gt; let me get you links</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;codeworkx&gt; normally img files on android are yaffs2</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://forum.xda-developers.com/showthread.php?t=875184">http://forum.xda-developers.com/showthread.php?t=875184</a></span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;gdanko&gt; yep</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;gdanko&gt; unyaffs</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;gdanko&gt; or mount it loop</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;codeworkx&gt; gimme boot.img</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;gdanko&gt; its there codeworkx</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://forum.xda-developers.com/showthread.php?t=875184">http://forum.xda-developers.com/showthread.php?t=875184</a></span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;codeworkx&gt; k</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://project-voodoo.org/downloads/nexus-s-dumps/mtdblock2_boot.img.gz">http://project-voodoo.org/downloads/nexus-s-dumps/mtdblock2_boot.img.gz</a></span><br />
