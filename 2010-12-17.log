@@ -384,3 +384,108 @@
 <span class="irc-date">[17:56]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://forum.xda-developers.com/showthread.php?t=875184">http://forum.xda-developers.com/showthread.php?t=875184</a></span><br />
 <span class="irc-date">[17:56]</span> <span class="irc-black">&lt;codeworkx&gt; k</span><br />
 <span class="irc-date">[17:56]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://project-voodoo.org/downloads/nexus-s-dumps/mtdblock2_boot.img.gz">http://project-voodoo.org/downloads/nexus-s-dumps/mtdblock2_boot.img.gz</a></span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-navy">* izibi (~julian@unaffiliated/izibi) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;atinm&gt; curio doesn't actually have nexus s working on sgs does he?</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;codeworkx&gt; it says "broken image file"</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; he created a branch for the initramfs - a voodoo branch</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; maybe that's just the starting point - he'll modify it to use ext4 or something because we cannot use mtd if mtd depends on bootloader work</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-green">* izibi (~julian@unaffiliated/izibi) has joined this channel.</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;gdanko&gt; hmmm i thought all of this was tested</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;gdanko&gt; there is also the zimage and ramdisk broken off</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://project-voodoo.org/downloads/nexus-s-dumps/mtdblock2_boot.img-kernel">http://project-voodoo.org/downloads/nexus-s-dumps/mtdblock2_boot.img-kernel</a></span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://project-voodoo.org/downloads/nexus-s-dumps/mtdblock2_boot.img-ramdisk.gz">http://project-voodoo.org/downloads/nexus-s-dumps/mtdblock2_boot.img-ramdisk.gz</a></span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;gdanko&gt; this is a filesystem dump</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://www.multiupload.com/ZFK4133AL0">http://www.multiupload.com/ZFK4133AL0</a></span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;gdanko&gt; codeworkx: did you try to unyaffs?</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;codeworkx&gt; yes, broken</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;gdanko&gt; damn</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://android-dls.com/files/linux/split_bootimg.zip">http://android-dls.com/files/linux/split_bootimg.zip</a></span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;atinm&gt; try this.</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;atinm&gt; on the bootimg</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;atinm&gt; hrm, the mtdblock2_boot.img.gz doesn't unzip</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;atinm&gt; gunzip</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;gdanko&gt; mine did</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;atinm&gt; ok, just used the img that was posted on xda</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;atinm&gt; and that worked</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;gdanko&gt; 2.3 coming to AOSP as we speak</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;gdanko&gt; unyaffs worked?</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;gdanko&gt; it failed here</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;atinm&gt; no, split</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;gdanko&gt; oh hehe</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;atinm&gt; .img isn't a yaffs2 image</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;gdanko&gt; aha</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;gdanko&gt; what is it</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://android-dls.com/wiki/index.php?title=HOWTO:_Unpack%2C_Edit%2C_and_Re-Pack_Boot_Images">http://android-dls.com/wiki/index.php?title=HOWTO:_Unpack%2C_Edit%2C_and_Re-Pack_Boot_Images</a></span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;atinm&gt; it is basically a gzip</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;atinm&gt; the boot.img that is</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;gdanko&gt; "-Even though Nexus S is designed to be suitable for AOSP work, there</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;gdanko&gt; are some caveats. I very strongly recommend against trying to use</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;gdanko&gt; Nexus S for anything related to AOSP at the moment. Trying to unlock</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;gdanko&gt; or use your Nexus S for AOSP work could easily turn it into a Nexus B</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;gdanko&gt; (where B means ?brick?); I have two of those, they?re not very useful.</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;gdanko&gt; I?ll send some guidelines about what is currently possible once I?ve</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;gdanko&gt; finished pushing the source code."</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;atinm&gt; where is that from?</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;gdanko&gt; <a href="http://androidcommunity.com/android-2-3-gingerbread-being-pushed-to-aosp-now-20101217/">http://androidcommunity.com/android-2-3-gingerbread-being-pushed-to-aosp-now-20101217/</a></span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;gdanko&gt; does the AOSP community try to add drivers for proprietary crap the way a standard linux does?</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;gdanko&gt; eg; nvidia on a pc</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;atinm&gt; I think they only get the ones that the kernel proper gets</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;atinm&gt; at least, for the chips we're interested in, I haven't seen open source drivers yet</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;gdanko&gt; kind of lame</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;atinm&gt; (A1029 and the BCM chip being the ones I care about)</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;gdanko&gt; which is 1029&gt;</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;atinm&gt; the audience sound chip captivate has</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;atinm&gt; the screws us up when trying to use the modem from the 9000</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;atinm&gt; I wonder what he means by AOSP + brick.</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;atinm&gt; I thought the whole point was nexus s == aosp</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;gdanko&gt; thats what i thought</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;codeworkx&gt; gingerbread sources inc</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;codeworkx&gt; nice</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;gdanko&gt; yep</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://groups.google.com/group/android-building/browse_thread/thread/91172a81604c8a0?pli=1">https://groups.google.com/group/android-building/browse_thread/thread/91172a81604c8a0?pli=1</a></span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;atinm&gt; hey - just realized, wonder what init code they are using! :)</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;gdanko&gt; <a href="https://groups.google.com/group/android-building/browse_thread/thread/91172a81604c8a0?pli=1">https://groups.google.com/group/android-building/browse_thread/thread/91172a81604c8a0?pli=1</a></span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;atinm&gt; since this init is not going to be forcing any partitions to be rfs</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;codeworkx&gt; hmm. sgs kernel with ns sound</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;codeworkx&gt; hope it boots xD</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;gdanko&gt; codeworkx: where did you find this one</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;codeworkx&gt; compiled</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;gdanko&gt; i dunno if framebuffer is fixed</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;gdanko&gt; oh sgs kernel. yeah you should be ok</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;codeworkx&gt; sgs kernel with ns sound^</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;gdanko&gt; yea saw.. sorry at work too</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;atinm&gt; what is wrong with the framebuffer?</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;atinm&gt; I thought the sgs and cappy were similar there</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;gdanko&gt; i read the ns kernel has not enabled it</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;gdanko&gt; look at the config we have now and comapre to herring</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;atinm&gt; I will - I think it is time I got out of bed</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;atinm&gt; feeling motivated. that usually helps me feel stronger</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;atinm&gt; will log on from other box</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;gdanko&gt; ok</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-navy">* atinm (~atinm@unaffiliated/atinm) Quit (Quit: atinm)</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;codeworkx&gt; uhhh, that was not goot xD</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;codeworkx&gt; good</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;gdanko&gt; hahaha</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;gdanko&gt; oops</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;gdanko&gt; man i build this busybox with almost every applet. I like it!</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;atinm&gt; back in a few - cloning the kernel source for nexus</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;gdanko&gt; ok</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;atinm&gt; its going to take a while</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;gdanko&gt; oh y eah.. took me 40 min</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; cloning from supercurio's copy - don't want to this the android open source side right now</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; will clone the real tree later</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;atinm&gt; realized after I started that I was going to the open source site which they told us to lay off for bit while they uploaded nexus s platform code :)</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;gdanko&gt; yes hahaha</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm&gt; surprised there isn't a mirror on github</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm&gt; there should be - maybe I'm not looking at the right place</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;gdanko&gt; "I'll be creating a tagged version of 2.3 which will match the exact</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;gdanko&gt; code that is used on Nexus S.</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;gdanko&gt; I'll also be creating a new branch for gingerbread, which will mirror</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;gdanko&gt; the development branch that's been used by Google engineers.</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;gdanko&gt; Finally, that gingerbread branch will be merged with the master</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;gdanko&gt; branch, which is essentially a very large contribution to AOSP.</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;gdanko&gt; JBQ "</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;gdanko&gt; this is very good</span><br />
