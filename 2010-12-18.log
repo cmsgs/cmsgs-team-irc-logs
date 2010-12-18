@@ -202,3 +202,48 @@
 <span class="irc-date">[1:58]</span> <span class="irc-black">&lt;Unhelpful&gt; erm, i talked to him about my failure w/ reoriented, but that was before i noticed that the modem file i used was much, much too small. :)</span><br />
 <span class="irc-date">[1:59]</span> <span class="irc-green">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) has joined this channel.</span><br />
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;Unhelpful&gt; i'd like to integrate my stuff for extracting  proprietary files from factoryfs.rfs, but given that you might have a .zip instead, maybe support in extract-files.sh to copy files from a directory would make more sense, along with an unpack-rfs.sh script that would create such a directory?</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;gdanko&gt; i used a cp</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;gdanko&gt; but same concept</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;Unhelpful&gt; right, well, right now i've just modified extract-files.sh to do the extraction itself... that's not actually too bad, i guess. :P</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;Unhelpful&gt; i guess really we could just unpack the entire factoryfs.rfs to vendor/samsung/captivate/proprietary, and add a file there to tell extract-files.sh not to touch the contents. extract-files.sh would be reduce to just producing the .mk files in that case.</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;atinm|away&gt; bleah - good night, still not 100%</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;birdman&gt; re-syncing</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;birdman&gt; i broke something</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-green">* birdman is now known as birdman-bbl</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-green">* Kaik541 (~nertz@cpe-174-111-246-012.triad.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;noobnl&gt; cdma radio on cm6 is awsome souce</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;noobnl&gt; !</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;noobnl&gt; everything works except for playback issued</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;noobnl&gt;  video won't play</span><br />
+<span class="irc-date">[2:25]</span> <span class="irc-black">&lt;noobnl&gt; anyone help?</span><br />
+<span class="irc-date">[2:25]</span> <span class="irc-black">&lt;Unhelpful&gt; with video? i think coolya was working on that, and cursing samsung... :/</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;noobnl&gt; cdma radio wasn't hard</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;noobnl&gt; we just had provisioning issues</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;noobnl&gt; video not working?</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;noobnl&gt;  on all galxy s?</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;noobnl&gt; Unhelpful</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;Unhelpful&gt; i have captivate... video playback is not so good, there's something wrong w/ the colors, it's jerky, eventually it crashes.</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;noobnl&gt; no video here</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;noobnl&gt;  but sound is working</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;jt1134&gt; anyone get home/search keys working with aosp?</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;Unhelpful&gt; sound works for me, some media players crash on trying to play audio files, though.</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-green">* rjmjr69 (~Administr@adsl-85-21-219.mco.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-black">&lt;Kaik541&gt; I disappear for a week or so and CDMA radio is working</span><br />
+<span class="irc-date">[2:43]</span> <span class="irc-black">&lt;Kaik541&gt; it seems my absence makes you guys work better :P</span><br />
+<span class="irc-date">[2:44]</span> <span class="irc-black">&lt;noobnl&gt; ore/binary.mk:29: *** external/stlport: ndk version root does not exist: prebuilt/ndk/android-ndk-r4/linux/platforms/android-8/arch-arm.  Stop.</span><br />
+<span class="irc-date">[2:44]</span> <span class="irc-black">&lt;noobnl&gt; wtf!?</span><br />
+<span class="irc-date">[2:44]</span> <span class="irc-black">&lt;noobnl&gt;  fu</span><br />
+<span class="irc-date">[2:45]</span> <span class="irc-black">&lt;noobnl&gt;  gingerbread</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: go away for another week so we can get the captivate to print money. ;)</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful: I'm tempted to at this point since it seems to pay off for you guys</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;noobnl&gt; i fucking print money</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;Kaik541&gt; you're a nintendo wii?</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;noobnl&gt; no</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;noobnl&gt; ipoo4</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: that was the DS, wasn't it? :P</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful: might as well be both, we're constantly sold out of the wii to this day at work</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;Kaik541&gt; we haven't had one new or used week stay in the store for more than a day and a half in the past two months</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;Kaik541&gt; wii*</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;Kaik541&gt; the system is over four years old, how are we still not able to have stock?</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;gdanko&gt; Unhelpful: any luck?</span><br />
