@@ -930,3 +930,60 @@
 <span class="irc-date">[17:41]</span> <span class="irc-navy">* jt1134 (~jt1134@c-71-207-226-80.hsd1.al.comcast.net) Quit (Remote host closed the connection)</span><br />
 <span class="irc-date">[17:55]</span> <span class="irc-green">* gdanko_ (~gdanko@67.72.118.219) has joined this channel.</span><br />
 <span class="irc-date">[17:57]</span> <span class="irc-black">&lt;atinm&gt; dang it . . . where is the damn transformation code for the orientation</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;atinm&gt; frick. different chip on NS vs Captivate (and even SGS I assume)</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;atinm&gt; akm8975 on NS yamaha on captivate (and SGS, vibrant and others too I think)</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;atinm&gt; and it looks like the akm8975 is both compass and orientation</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;atinm&gt; yamaha is just orientation and then there is the smb380 that is the accelerometer</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;atinm&gt; crap/</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;coolya&gt; yes ... saw the akm8975 fist on the sources of the GT-I9008</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;atinm&gt; and then there is the optical sensor</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;atinm&gt; oh good - that is the same</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;coolya&gt; hmm mmc broken .35 kernel :-(</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;coolya&gt; but the driver is different</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;atinm&gt; gp2a - just been moved to drivers/input/misc for NS</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;coolya&gt; yes but its different</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;coolya&gt; but we have userspace sources :-)</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;atinm&gt; the optical sensor?</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;atinm&gt; is it not the same chip?</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;coolya&gt; it ise but the interface to user space is different</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;coolya&gt; the one on SGS sends lux values, the ns one sends raw data from the sensor</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;atinm&gt; what looks at the data?</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;atinm&gt; lights.default.so?</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;coolya&gt; sensros</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;coolya&gt; sensors.&lt;blah&gt;.so</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-green">* Kaik541 (~nertz@cpe-174-111-246-012.triad.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;coolya&gt; and my rewritten driver is more accurete then the one in aosp :-D</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;atinm&gt; so I could just pull in yamaha and smb380 drivers</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;atinm&gt; and I guess your gp2a</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;coolya&gt; es</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;coolya&gt; sry my y is fucked up :-D</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;atinm&gt; k, lemme get the first two</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;coolya&gt; damn i need the mmc fixes :-(</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;coolya&gt; won't seed internal / external SD</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;coolya&gt; see</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;Kaik541&gt; people are chomping at the bit for supercurio's gingerbread preview</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;Kaik541&gt; I mean, it looks fast, but nothing is working... why get so excited?</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;coolya&gt; and its only copied binaries from ns ...</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;coolya&gt; can't get movinand working with .35 kernel</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;birdman-aosp&gt; coolya, im starting to hate cdma - I/CallNotifier( 2279): CallNotifier: rejecting incoming call: device isn't provisioned</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;Kaik541&gt; he says his kernel doesn't even support RFS, that could be part of the reason it isn't working since /efs needs it for at least first boot</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;coolya&gt; but i should see the internal sd card</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;coolya&gt; device won't appear in /dev/block</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; is NS kernel .35?</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;atinm&gt; frick, it is.</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;atinm&gt; wonder if it will still load the loadable modules we don't have code for</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;coolya&gt; don't think so</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;coolya&gt; abi should have changed</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;atinm&gt; don't we still need the fsr.ko?</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;atinm&gt; and fsr_stl.ko</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;Kaik541&gt; who was it that was trying to get samsung to release rfs source? jeagoss ?</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm&gt; and maybe even j4fs.ko and rfs_glue.ko too</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;gdanko_&gt; yes NS = .35</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;coolya&gt; j4fs? we should have j4fs source ?</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm&gt; yes, sorry.</span><br />
