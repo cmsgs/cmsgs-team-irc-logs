@@ -1151,3 +1151,76 @@
 <span class="irc-date">[20:27]</span> <span class="irc-black">&lt;rhcp&gt; lol</span><br />
 <span class="irc-date">[20:57]</span> <span class="irc-navy">* gdanko (~gdanko@67.72.118.219) Quit (Ping timeout: 276 seconds)</span><br />
 <span class="irc-date">[21:01]</span> <span class="irc-green">* gdanko (~gdanko@67.72.118.219) has joined this channel.</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-green">* jt1134 (~jt1134@c-71-207-226-80.hsd1.al.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;atinm&gt; who here is working on the .35 kernel?</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;atinm&gt; vs who here is working on .32 + gingerbread?</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;atinm&gt; codeworkx: what have you run into?</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;atinm&gt; I am giving up on .35 for now - I don't have a way to solve the bml/stl vs mtd issue</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;coolya&gt; currently i'm on 32</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;atinm&gt; ok - good. I think that's the best way forward</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;atinm&gt; for now anyway - until we get maybe another code drop for our phones with .35</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;atinm&gt; or our phones become obsolete and we buy new ones</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;atinm&gt; more likely the latter . . .</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;coolya&gt; i think we can live with 32 ... if it will work</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;atinm&gt; it "should"</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;atinm&gt; that's why I'm asking what ppl who are trying .32 + gingerbread are running into</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;atinm&gt; graphics was the first one I heard</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;codeworkx&gt; 32 gives strange graphic errors</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;codeworkx&gt; screen is flickering and then crashes</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;atinm&gt; anything useful in logcat etc?</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;atinm&gt; ah . . . hrm.</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;codeworkx&gt; not really</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;atinm&gt; which .so files are you using?</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;atinm&gt; the ones from NS /system/vendor/lib?</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;coolya&gt; but i think that was only mismatching libs</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm&gt; it sounds like it - .35 libs were built with a different compiler I think</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm&gt; like gingerbread is</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm&gt; gingerbread defaults to the 4.4.3 - I thought my .32 was 4.3.1 or something</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm&gt; but I might be wrong - still, version numbers might have changed</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;atinm&gt; 4.3.4 for .32 - at least, that is what I was running</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;atinm&gt; I guess I should start building .32 with the 4.4.3 compiler like gingerbread is</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;atinm&gt; and try that.</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;atinm&gt; oh wait . . we're repacking</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;atinm&gt; shit.</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;atinm&gt; anyone know which version samsung used?</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;atinm&gt; for the froyo kernels?</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;coolya&gt; dunno</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-navy">* gdanko (~gdanko@67.72.118.219) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;codeworkx&gt; codesourcery 2009-q3</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;codeworkx&gt; noneabi</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;codeworkx&gt; ginger uses 4.3.3 eabi</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;codeworkx&gt; you have to make some changes if you switch</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;codeworkx&gt; at makefile for cypress touchkey</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;atinm&gt; mine seemed to go to 4.4.3</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;atinm&gt; I didn't change anything</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;atinm&gt; just did make and it went to 4.4.3</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;coolya&gt; 4.4.3 mine too</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;atinm&gt; ok, froyo on captivate was 4.4.1</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;atinm&gt; (cat /proc/version on the phone)</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-navy">* Kaik541 (~nertz@cpe-174-111-246-012.triad.res.rr.com) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;atinm&gt; so maybe we should at least build gingerbread with 4.4.1 if we want to use the .32 kernel</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;atinm&gt; what does your phone say coolya/codeworkx?</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;coolya&gt; no stock firmware here for about 2 month :-D</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;atinm&gt; well, use whatever version of gcc your kernel was built with :)</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;atinm&gt; so do a cat /proc/version on the phone to see which you need</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm&gt; or if you are building your own kernel (since you have SGS...!), use the same for both</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm&gt; I guess 4.4.3 for both</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm&gt; I will have to go down to 4.4.1 for gingerbread</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm&gt; since captivate is stuck on repacking kernels</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm&gt; unless I use the reorient I guess</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm&gt; which I can - screw it, I'll use that too.</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;codeworkx&gt; need my nexus s. then i can flash my sgs as often as i want</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;coolya&gt; okay playing with 35 is not that safe ...</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;coolya&gt; it could kill you onenand ...</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;atinm&gt; k - building reorient kernel for captivate with 4.4.3</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;atinm&gt; .32 kernel</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;atinm&gt; coolya: did you try using the same compiler for both gingerbread and kernel</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;atinm&gt; to see if that helps the lib mismatch if that is what it is?</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;coolya&gt; i always build my kernel with a different version</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;atinm&gt; try the same :)</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;coolya&gt; even when i used cm</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;coolya&gt; and it worked</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;atinm&gt; can't hurt tho. but the bigger mismatch could be between versions of libs themselves</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-green">* gdanko (~gdanko@67.72.118.219) has joined this channel.</span><br />
