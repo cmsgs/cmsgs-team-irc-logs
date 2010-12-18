@@ -868,3 +868,43 @@
 <span class="irc-date">[14:56]</span> <span class="irc-black">&lt;atinm&gt; or FB?</span><br />
 <span class="irc-date">[14:57]</span> <span class="irc-black">&lt;codeworkx&gt; gingerbread and .32 kernel</span><br />
 <span class="irc-date">[14:57]</span> <span class="irc-black">&lt;atinm&gt; oh - I thought you mean framebuffer</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-green">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-green">* gdanko_ (~gdanko@67.72.118.219) has joined this channel.</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-navy">* gdanko_ (~gdanko@67.72.118.219) Quit (Client Quit)</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-green">* gdanko_ (~gdanko@67.72.118.219) has joined this channel.</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-navy">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-green">* gdanko_ (~gdanko@67.72.118.219) has left this channel.</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-green">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;birdman-aosp&gt; coolya, you there?</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;coolya&gt; es</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;birdman-aosp&gt; coolya, did you ever have a problem with incoming calls where the phone rings but the call answer dialog doesnt come up?</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;birdman-aosp&gt; thats basically the final issue with the fascinate</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;birdman-aosp&gt; that, and for some reason the end call button does nothing</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;coolya&gt; yes at the very beginning we had that issue</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;birdman-aosp&gt; do you remember how you fixed it?</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;coolya&gt; let me check the source</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;gdanko&gt; greetingsd</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;coolya&gt; hi gdanko</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;birdman-aosp&gt; coolya, ok thanks :D</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;coolya&gt; birdman-aosp: <a href="http://review.cyanogenmod.com/#patch,sidebyside,827,1,telephony/java/com/android/internal/telephony/SamsungRIL.java">http://review.cyanogenmod.com/#patch,sidebyside,827,1,telephony/java/com/android/internal/telephony/SamsungRIL.java</a></span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;coolya&gt;  @Override protected Object</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;coolya&gt; 			606	    responseCallList(Parcel p) {</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;coolya&gt; is the function that handles incomming calls</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;birdman-aosp&gt; ahh</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;birdman-aosp&gt; you guys created a .java file for samsung?</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;birdman-aosp&gt; hahaa</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;coolya&gt; i submitted it to mainline</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;coolya&gt; there for i did that</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;birdman-aosp&gt; this is just ril.java tho right? with your changes i mean</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;birdman-aosp&gt; ok</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;birdman-aosp&gt; so really i just gotta add the @Override protected part</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;coolya&gt; no</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;coolya&gt; you can copy the RIL.java from our repo</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;coolya&gt; the extra file is only for mainline</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;birdman-aosp&gt; its weird...ive got most of your changes...but apparently not all</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;birdman-aosp&gt; coolya, the github repo doesnt have it...</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;birdman-aosp&gt; is there another one?</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;birdman-aosp&gt; (im looking at cmsgs)</span><br />
