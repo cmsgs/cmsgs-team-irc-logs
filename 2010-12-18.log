@@ -987,3 +987,156 @@
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;gdanko_&gt; yes NS = .35</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;coolya&gt; j4fs? we should have j4fs source ?</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm&gt; yes, sorry.</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;atinm&gt; but fsr for stl</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-navy">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm&gt; do we need rfs for efs?</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;gdanko_&gt; atinm: i can tell you in a sec</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;coolya&gt; stl and bml we will need</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;coolya&gt; but i can see the .35 detects the onenand right</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;gdanko_&gt; /dev/block/mtdblock6 /efs yaffs2 rw,nosuid,nodev,relatime 0 0</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;atinm&gt; yah - but we can't use mtd</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm&gt; but I guess someone tried ext4 on it too</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;gdanko_&gt; can we put yaffs?</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;gdanko_&gt; afai this is a stock layout</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;gdanko_&gt; <a href="http://pastie.org/1382842">http://pastie.org/1382842</a></span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm&gt; or yaffs - it is the underlying device we don't know.</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;atinm&gt; since efs is stl - so we need fsr.ko and fsr_stl.ko</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;Kaik541&gt; gdanko_: you have nexus s?</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;atinm&gt; same for cache</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;gdanko_&gt; no Kaik541 I was working with curio and k0mpresed on rooting</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;Kaik541&gt; ah alright, I know you've been longing over one, figured you might keep your captivate and get a nexus s to have both :P</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;gdanko_&gt; no id rather have a nexus one</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;atinm&gt; cache and efs are stl - which requires fsr.ko and fsr_stl.ko</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;gdanko_&gt; no at&amp;t model</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;gdanko_&gt; for NS</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;atinm&gt; so we're fooked.</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;atinm&gt; what is curio doing?</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;coolya&gt; maybe we can get mtd working</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;atinm&gt; is he using NS kernel?</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;atinm&gt; or maybe force loading the .ko then</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;coolya&gt; hes only unsing movinand</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;coolya&gt; he chroots to the /data partition</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;coolya&gt; where he copied all the stuff  from the partiotons before ...</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;atinm&gt; well crap.</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;coolya&gt; ++</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;coolya&gt; i can see that the kernel detects the onenand chip right, so we might geht mtd working</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;atinm&gt; I thought the issue was the bootloader</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;coolya&gt; yes i think so</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;atinm&gt; tho I am unclear about how this works.</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;coolya&gt; not 100% sure</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm&gt; the bootloader loads its own shit and so why does it care whether the linux kernel has mtd... someone has to explain this to me :)</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm&gt; it was said like it was obvious - so I'm just being dense.</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;coolya&gt; fsr_bml_load_partition: pi-&gt;nNumOfPartEntry = 12</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;coolya&gt; partitions loading success</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;coolya&gt; board partition information update.. source: 0x0</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;coolya&gt; .Done.</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;coolya&gt; read 1 units.</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;coolya&gt; ==== PARTITION INFORMATION =</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;coolya&gt; and then it prints the partitions layout ...</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;coolya&gt; that is what i see from serial console form the bootloader</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;atinm&gt; ok, so the bootloader expects bm l..</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;atinm&gt; which we knew actually.</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;atinm&gt; what driver corresponds to bml?</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;atinm&gt; fsr.ko?</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;atinm&gt; ok, just read up on this . . . so we're screwed unless we can get the bootloader working on our phones</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;atinm&gt; which is unlikely</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;atinm&gt; I wonder if we can insmod -f fsr.ko</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm&gt; doubt it if version changed..</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm&gt; so I'm stumped.</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;coolya&gt; <a href="https://dl.dropbox.com/u/4077110/bootlog.txt">https://dl.dropbox.com/u/4077110/bootlog.txt</a></span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;coolya&gt; that what a boot looks like from the serial console</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;atinm&gt; nice</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;atinm&gt; I so wish they'd just open source the bootloader!</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;atinm&gt; tho one would need a jtag to be able to build it for each phone.</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;atinm&gt; gdanko_: NS implemented MTD devices which we don't have and our bootloader depends on bml and stl it seems</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;atinm&gt; while the NS bootloader knows MTD devices</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;atinm&gt; so we can't just use the NS kernel</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;gdanko_&gt; crikey</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;atinm&gt; so even though we have the driver code, and it would work - but only if we knew that the bootloader from the NS worked on our phones ;)</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;atinm&gt; and no one is willing to sacrifice their phone</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;coolya&gt; if i would have jtag i would try :-D</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm&gt; because not only does the bootloader need to work, we have to have a compatible kernel too</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;gdanko_&gt; atinm: I am going to call AT&amp;T now to order a new captivate</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;gdanko_&gt; they promised me a replacement because of my ongoing problems</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;gdanko_&gt; one it arrives i will flash the bootloader</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;atinm&gt; so now I'm thinking we go back to using the .32 kernel</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;gdanko_&gt; to the old one :)</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;atinm&gt; and try to make that work with the gingerbread release</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;gdanko_&gt; im sure we can get the .32 kernel to work</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;coolya&gt; yes is think we can</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;atinm&gt; yeah - given that we have code for both.</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;coolya&gt; got some problems with graphics when using it</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;atinm&gt; just wasted the day on this tho</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm&gt; coolya: what is your status? what are you using?</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm&gt; .32 kernel + gingerbread on SGS?</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;coolya&gt; tring that</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;coolya&gt; but looks like we will ran in some graphic problems</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;coolya&gt; but haven't looked at the closer</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;gdanko_&gt; i am catching up here.. has anyone done a full build yet?</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;gdanko_&gt; great</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;gdanko_&gt; no real issue?</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;coolya&gt; on building ?</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;gdanko_&gt; yea</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;coolya&gt; you can use my repo</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; yeah, I built too</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;gdanko_&gt; im sycing from kernel.org as we speak.. whats different?</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;coolya&gt; <a href="https://github.com/coolya/android">https://github.com/coolya/android</a></span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;atinm&gt; tho I didn't change anything</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;gdanko_&gt; in yours coolya</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;coolya&gt; nothing</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;atinm&gt; except some make files</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;gdanko_&gt; oh hahaha</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;atinm&gt; because I had to for 32 bit</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;coolya&gt; we just added a divice for galaxys</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;atinm&gt; as my linux pc is old and 32 bit</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;gdanko_&gt; sure</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;gdanko_&gt; i had nothing but build errors building on 64 bit</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;atinm&gt; what did you pull?</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;gdanko_&gt; so i made my home system 32 bit with a kernel that supports lots of mem</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;atinm&gt; gingerbread requires 64 bit now</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;gdanko_&gt; oh this was cm, atinm. I converted to 32 bit awhile back.</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;gdanko_&gt; i have to have a 64 bit OS to build it???</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;atinm&gt; so I had to muck with the makefiles to make it build on 32 bit</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;gdanko_&gt; ahhhhhh</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;gdanko_&gt; dang</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;atinm&gt; the main.mk checks and stops on 32 bit</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;atinm&gt; and then libclearsilver doesn't build unless you change all the Android.mk files underneath</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;atinm&gt; external/lib/clearsilver/</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;atinm&gt; for now I just built NS</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;atinm&gt; haven't modified the captivate device yet</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;atinm&gt; wanted to make sure everything built first :)</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;atinm&gt; coolya: anything else besides graphics?</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;atinm&gt; (not that graphics is trivial . . . just want to know the scope)</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;coolya&gt; can't get any further as system_server crashes because of that</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;gdanko_&gt; i cant believe have to convert back to 64 :(</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;atinm&gt; ah dang</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;atinm&gt; gdanko_: at least you can</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;atinm&gt; my machine is really old - like maybe 2004</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;atinm&gt; so it is a 32 bit machine</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;atinm&gt; might even be older - more like 2000 or 2002</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;gdanko_&gt; how are you building then?</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;atinm&gt; so I had to muck with the make files</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;gdanko_&gt; brb</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;atinm&gt; modified build/core/main.mk and commented out the check for 64 bit</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;gdanko_&gt; oh i can do that</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;atinm&gt; and then modified all the external/clearsilver/*/Android.mk files</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;atinm&gt; to commend out the LOCAL_CFLAGS = -m64 and LOCAL_LDFLAGS = -m64</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;atinm&gt; got warnings on that</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;atinm&gt; but it converted a ptr to a jlong which is 64 bits</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;gdanko_&gt; bah more trouble to do that over and over</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;gdanko_&gt; i will install 64 bit.. grrrr</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;atinm&gt; it is 4 files</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;atinm&gt; but yeah, you're better off just going to 64 bit</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;gdanko_&gt; yeah</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;gdanko_&gt; pity some utils i use are not 64 bit capable or do not have 64 bit packages</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;atinm&gt; well, they changed init so that the devices aren't hardcoded anymore</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;atinm&gt; they come from ueventd.rc and ueventd.herring.rc</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;atinm&gt; which is cool - as long as we fix it to have our devices</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;atinm&gt; which are similar - but our compass isn't there</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-navy">* coolya (~kolja@xdslcs065.osnanet.de) Quit (Ping timeout: 265 seconds)</span><br />
