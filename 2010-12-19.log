@@ -165,3 +165,52 @@
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm|night&gt; we'll just end up with another called gingerbread soon</span><br />
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm|night&gt; and be using that</span><br />
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;noobnl&gt; yup lol</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;atinm|night&gt; Unhelpful: ah. and you and gdanko have CM the same?</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;atinm|night&gt; I tell you - I'm skipping over the whole froyo thing and going straight to gingerbread - we have real code for gingerbread that works on very similar hardware from samsung</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|night: well, we might've synced at different times - but he's been using reoriented and lost voice calls after he tried a kernel i uploaded.</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;atinm|night&gt; much better than struggling with froyo.</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;atinm|night&gt; ok, g'nite now</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;gdanko_&gt; Unhelpful: let me build one at work</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;gdanko_&gt; wont take long</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;gdanko_&gt; oh i found it</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-navy">* fenfir (~zach@r74-192-97-47.tyrdcmta01.tylrtx.tl.dh.suddenlink.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;gdanko_&gt; lemme download it</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;Unhelpful&gt; gdanko_: ok... if it works i'd like your .config so i can do local builds :)</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-green">* atinm|night changes topic to 'SGS CyanogenMod developers and testers (and other kernel and android hackers) - <a href="http://www.cmsgs.com/'">http://www.cmsgs.com/'</a></span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;gdanko_&gt; roger</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-brick">* gdanko_ wants an a-ok pad</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-green">* fenfir (~zach@r74-192-97-47.tyrdcmta01.tylrtx.tl.dh.suddenlink.net) has joined this channel.</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;gdanko_&gt; Unhelpful: i am on vpn so i have to email it to you</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;gdanko_&gt; address?</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-green">* Da_G]NARF[ (~gabe@75-142-223-115.static.rvsd.ca.charter.com) has joined this channel.</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; Hi guys, i'm looking to do some work on Nexus S -&gt; Captivate port. Pretty hard to get a reply in #NSdev, is there anyone coordinating the project so I can get a problem tagged to me and not duplicate work? thanks</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;coolya&gt; <a href="https://github.com/coolya/android">https://github.com/coolya/android</a></span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; thanks</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; i heard you're working on the gps coolya, is the problem that the char device isn't exposing the MEIF data to userspace?</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; or is it a problem with the glgps daemon? it doesn't seem to be changed from JPU</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; other than minor alterations, it works fine with the proper jupiter.xml</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;coolya&gt; i won't get MEIF data from the chip ... samsung changed to much. I just can get data from glgps</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-brick">* Unhelpful has no problem running the glgps daemon on captivate, but system_server dies if i try to actually use GPS, and the phone ends up in an unusable state until reboot. :/</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;coolya&gt; yes i worked around that</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; ok. i'll work on getting MEIF output</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;coolya&gt; wrote a lib that passes the data from glgps so we have control</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; wait, glgps is exposing data but not the char device?</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; glgps reads from the char device?</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; (i thought)</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;coolya&gt; glgps reds from the first uart of the s3c</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; ahh, we don't have any source for it right</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;coolya&gt; what is connected to the modem, what talks the chip, its no the i2c char device chip that nokia uses</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;coolya&gt; glgps even talks to the ril for assitent part</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; yeah, the ril bits i saw from the debug output on the daemon</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; it reads ephemeris info from the nvram too</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-navy">* izibi (~julian@unaffiliated/izibi) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; i'm syncing up to your repo right now, off to grab a cofe</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; then i'll start hammering</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;coolya&gt; i'll sleep now ...</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;coolya&gt; night</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;Da_G]NARF[&gt; enjoy :)</span><br />
+<span class="irc-date">[2:39]</span> <span class="irc-black">&lt;gdanko_&gt; Unhelpful: sent</span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-green">* rjmjr69 (~Administr@adsl-85-21-219.mco.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-navy">* coolya (~kolja@xdslx069.osnanet.de) Quit (Ping timeout: 265 seconds)</span><br />
+<span class="irc-date">[2:59]</span> <span class="irc-green">* forcystos (62553939@gateway/web/freenode/ip.98.85.57.57) has joined this channel.</span><br />
