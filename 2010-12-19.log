@@ -337,3 +337,44 @@
 <span class="irc-date">[10:33]</span> <span class="irc-black">&lt;atinm&gt; ok - that would be very interesting :)</span><br />
 <span class="irc-date">[10:36]</span> <span class="irc-black">&lt;coolya&gt; ok if i don't touch anything before 0x32000000 it should be ok ... hopefully :-D</span><br />
 <span class="irc-date">[10:52]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm&gt; hey coolya, codeworkx - your device/samsung/galaxys isn't what you are actually testing is it?</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm&gt; the one in coolya's github</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm&gt; it looks like a copy of crespo with some mods</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;coolya&gt; it is</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm&gt; ok, so I could start with that for captivate too</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm&gt; modifying galaxys to captivate</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;codeworkx&gt; yes, create it on your git and i'll include it</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm&gt; yes, working on it now :</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;atinm&gt; did you guys check in what got created from extract-files.sh into the android_vendor_samsung_galaxys?</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;atinm&gt; or is that something that you modified yourself?</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-black">&lt;atinm&gt; brb</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-black">&lt;coolya&gt; we copied the files from nexus s dump first</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-black">&lt;coolya&gt; and the replaced some with the stuff from froyo</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;coolya&gt; woohoo, today is a good day: (12:23:43) koush: clockwork will now automagically convert rfs to ext4 on sgs</span><br />
+<span class="irc-date">[11:37]</span> <span class="irc-black">&lt;atinm&gt; nice!</span><br />
+<span class="irc-date">[11:43]</span> <span class="irc-black">&lt;atinm&gt; ok, copied your device/samsung/galaxys and vendor/samsung/galaxys to captivate</span><br />
+<span class="irc-date">[11:45]</span> <span class="irc-black">&lt;atinm&gt; tho how does that really work, the conversion in clockwork</span><br />
+<span class="irc-date">[11:45]</span> <span class="irc-black">&lt;atinm&gt; since init.rc has to know about it too</span><br />
+<span class="irc-date">[11:46]</span> <span class="irc-black">&lt;atinm&gt; or does he install a new kernel/initramfs too</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;noobnl&gt;  i think the detection</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;noobnl&gt;  does that</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;atinm&gt; you mean he is using voodoo or something like that?</span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;atinm&gt; scripts that do the detection etc before init.rc?</span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;atinm&gt; guess I can look myself</span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;coolya&gt; it backup rfs to a image and when your restore you can diside if just copy it out of the image or write the ext image to the partition i think</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;noobnl&gt;   process_volumes();</span><br />
+<span class="irc-date">[11:52]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[11:52]</span> <span class="irc-black">&lt;atinm&gt; but init.rc still has to be different</span><br />
+<span class="irc-date">[11:52]</span> <span class="irc-black">&lt;atinm&gt; can't use the default which has rfs</span><br />
+<span class="irc-date">[11:52]</span> <span class="irc-black">&lt;noobnl&gt; hm</span><br />
+<span class="irc-date">[11:52]</span> <span class="irc-black">&lt;noobnl&gt;  i don't know</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;atinm&gt; interesting :)</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;noobnl&gt; yup there need to be option</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;noobnl&gt; ..</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;noobnl&gt;  not force user</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-black">&lt;coolya&gt; fingers crossed testin mtd mapping xD</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-black">&lt;atinm&gt; good luck :)</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-black">&lt;coolya&gt; hmm 50/50 chance is the a 4 256k block gab between every partiotion or not ?</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
