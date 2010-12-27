@@ -191,3 +191,41 @@
 <span class="irc-date">[15:55]</span> <span class="irc-black">&lt;atinm&gt; I guess I could figure out what cmsgs's one is</span><br />
 <span class="irc-date">[15:55]</span> <span class="irc-black">&lt;atinm&gt; because cmsgs does it too.</span><br />
 <span class="irc-date">[15:55]</span> <span class="irc-black">&lt;coolya&gt; ok</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-brick">* Unhelpful has no progress :P</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;atinm&gt; ok.. :) me neither.</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;atinm&gt; only coolya and codeworkx seem to have kept working from what I can tell tho I do see some pull requests etc from some others</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;atinm&gt; I'm updating my repo, then work on recovery.</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: did you check in all your changes to froyo recovery?</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;atinm&gt; I am thinking of merging our cwm with the current cwm on cyanogen</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;atinm&gt; or maybe just pulling in theirs to see what of ours we still want and what they already implemented</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/CyanogenMod/android_bootable_recovery/tree/gingerbread">https://github.com/CyanogenMod/android_bootable_recovery/tree/gingerbread</a></span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;codeworkx&gt; koush included a rfs conversion and some funny things</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;codeworkx&gt; have a look at history</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;codeworkx&gt; but we've no rfs :-)</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;codeworkx&gt; no need for conversion</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;atinm&gt; yeah, I read that he had and so want to see what he is actually doing because it requires a change to the initramfs so he must also be installing a kernel now</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;atinm&gt; which we don't want :)</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;codeworkx&gt; what change at initramfs you mean? did i miss something?</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;atinm&gt; oh, just when he converts from rfs to ext4, it would mean needing a different init.rc</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;atinm&gt; and we don't need any of the conversion code anyway</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;atinm&gt; looking in his commits.</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;codeworkx&gt; btw. did you have a look at uevent?</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/coolya/gingerbread-galaxys-initramfs/blob/2.6.35/ueventd.aries.rc">https://github.com/coolya/gingerbread-galaxys-initramfs/blob/2.6.35/ueventd.aries.rc</a></span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;atinm&gt; already see that there is code that is assuming bml8 can be backed up</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;codeworkx&gt; its out of init binary now</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;atinm&gt; I did, looks pretty close to what we cant I think.</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;atinm&gt; want</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;codeworkx&gt; thats very fine</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;codeworkx&gt; we can use init binary from source ;-)</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;atinm&gt; and yes, it is out of the binary. our problem was that we didn't know what devices were in the binary so we still have to figure out what to put in the .rc - so we might still run into issues</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;atinm&gt; tho I am hoping we now know the devices</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;atinm&gt; and all device specific code is out of the init</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;atinm&gt; the init binary</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: all the fixes i made to froyo recovery got checked in</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm&gt; great, thanks.</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm&gt; looking thru koush's commits to gingerbread recovery</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;Unhelpful&gt; mostly they were related to breakages in backup/restore for bootables - trying to backup/restore partitions not used by the platform, trying to restore bootables that were not part of the backup, etc.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm&gt; k, and the snprintf bug where I forgot to put in the buffer :)</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;Unhelpful&gt; ah, yeah, that one ;)</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;atinm&gt; ah the poor pigeons . . . there is a line of pigeons outside our window because this side of the building is slightly protected from the wind</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;atinm&gt; they're like clinging to the ledge and keep getting blown off</span><br />
