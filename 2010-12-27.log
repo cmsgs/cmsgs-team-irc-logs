@@ -279,3 +279,40 @@
 <span class="irc-date">[19:33]</span> <span class="irc-black">&lt;hceylan__&gt; sorry to bother</span><br />
 <span class="irc-date">[19:53]</span> <span class="irc-black">&lt;hceylan__&gt; coolya: yes building now... once again I am sorry...</span><br />
 <span class="irc-date">[19:54]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;hceylan__&gt; coolya: can I ask a question if you got a minute?</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;coolya&gt; for sure</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;hceylan__&gt; I see there is 'full' versions of the devices</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;hceylan__&gt; AFAIK CM has 'make bacon' which creates the zip package...</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;hceylan__&gt; How do I apply the binaries to the device with your repo?</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;hceylan__&gt; apply=flash</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;coolya&gt; currently the build system is not able to create valid update.zips</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;coolya&gt; not for the sgs</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;hceylan__&gt; I see...</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;hceylan__&gt; OK thx</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;coolya&gt; i'm not sure if you just can apply the kernel and things like that to an SGT without reviewing them</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;coolya&gt; it mappes the oneNAND flash by adresses not by the pit file samsung does</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;hceylan__&gt; coolya: I'll see what I can then....</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;coolya&gt; so we ignore the layout from the pit in ther linux kernel completly, the samsung FSR aka BLM stuff uses that to map the flash</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;coolya&gt; but its closed source so we wanted to get rid of it</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;hceylan__&gt; How is your progress on SGS? I see that much of the hw of SGT is same as SGS</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;hceylan__&gt; if you're close, then I am close :)</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;coolya&gt; the layout is only tested on SGS devices, so we need a mapping for the SGT</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;coolya&gt; but i have no clue about the SGT :-(</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;hceylan__&gt; That's what I am here and got this week to kill time with this new toy</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;hceylan__&gt; Do you somehow know koush?</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;hceylan__&gt; He's got a kernel running on my SGT now.</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;hceylan__&gt; I cannot get some information from him</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;hceylan__&gt; only if I could get his kernel stuff....</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;hceylan__&gt; AFAIK, samsung uses a different boot.img structure then standard android</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;hceylan__&gt; And that's why you guys have initram-utils project guess</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;hceylan__&gt; but this doesn't work on the boot.img I extracted from SGT via CW Backup</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;hceylan__&gt; cannot locate the signature bits to extract bits.</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;hceylan__&gt; So I am guessing samsung uses a different layout for SGT then in SGS</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;coolya&gt; i must admit i never used it, it was created for he models that we were missing the kernel sources</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;hceylan__&gt; but somehow (As koush can issue a kernel) he should have some information on that...</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;coolya&gt; and i am working on the GT-I9000 what kernel sources where published</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;hceylan__&gt; coolya: I see</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;hceylan__&gt; coolya: Are you guys working professionally or a bunch of enthusiaists</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;hceylan__&gt; I mean on SGSCM project</span><br />
