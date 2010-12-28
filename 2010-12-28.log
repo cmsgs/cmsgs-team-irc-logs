@@ -234,3 +234,37 @@
 <span class="irc-date">[20:38]</span> <span class="irc-black">&lt;codeworkx&gt; only thing is bcm4329.ko at system/modules</span><br />
 <span class="irc-date">[20:48]</span> <span class="irc-green">* hceylan (~hceylan@213.248.153.186) has joined this channel.</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;codeworkx&gt; WE GOT CWM3.0.0!!</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;coolya&gt; yeah :-D</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;dasunsrule32&gt; hola</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-brick">* dasunsrule32 waves @ #__topsecret__</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;dasunsrule32&gt; gingerbread, me hungry :p</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-green">* birdman (48942cd5@gateway/web/freenode/ip.72.148.44.213) has joined this channel.</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;birdman&gt; hey coolya you here?</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;birdman&gt; i had a question about this commit <a href="https://github.com/jt1134/platform_frameworks_base/commit/5f5b8cf950c2004a65d0f4bc4d276c4db5894c79">https://github.com/jt1134/platform_frameworks_base/commit/5f5b8cf950c2004a65d0f4bc4d276c4db5894c79</a> which i think was originally yours. i was wondering if you know how cdma is handled now :)</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;coolya&gt; oh this is complety wrong at that place ...</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;coolya&gt; it breaks int processing</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;coolya&gt; it got in with some merge</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;coolya&gt;   private Object</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;coolya&gt;     responseSignalStrength(Parcel p) {</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;coolya&gt; is the function that processes the signal</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;coolya&gt; you can delete the code for signal handling from  private Object</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;coolya&gt;     responseInts(Parcel p) {</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;dasunsrule32&gt; hmmm...adw ex is nice</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;dasunsrule32&gt; 15 minute return policy sucks</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-brick">* dasunsrule32 slaps Google</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;dasunsrule32&gt; codeworkx: via rom manager?</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;codeworkx&gt; hmm?</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;codeworkx&gt; no via SAUCECODE!</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;dasunsrule32&gt; ah lol</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;dasunsrule32&gt; :)</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;dasunsrule32&gt; supports ext4 now?</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;dasunsrule32&gt; :D</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;dasunsrule32&gt; WOOT!</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;dasunsrule32&gt; ya think it will work with voodoo?</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;dasunsrule32&gt; 5</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;dasunsrule32&gt; I may build it</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;birdman&gt; coolya: oh yeah...i noticed that</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;birdman&gt; i removed it already</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;birdman&gt; coolya: that explains why when i removed it dbm started to show up :)</span><br />
