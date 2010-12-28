@@ -39,3 +39,31 @@
 <span class="irc-date">[15:12]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
 <span class="irc-date">[15:44]</span> <span class="irc-green">* neldar (~neldar@dsl-217-161-157.pool.bitel.net) has joined this channel.</span><br />
 <span class="irc-date">[15:44]</span> <span class="irc-black">&lt;- *neldar* Bot Sentry eingeschalten:  Sie werden jetzt ignoriert!  Ihre Nachricht wird übermittelt wenn sie die folgenden Fragen innerhalb von 10 Minuten richtig beantworten:  How do you spell the result of ten div_ided by 2?</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;atinm&gt; hey coolya|away codeworkx - how is 2.6.35 coming?</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;atinm&gt; and does your build actually try to use that kernel?</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;atinm&gt; right now your repo is pointing at the source that looks like it is the nexus s (plus your changes to support SGS)</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;atinm&gt; but since the captivate has a different orientation, we actually need branches</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;atinm&gt; I'll fork yours and start modifying for captivate</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; no need for branches</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; captivate orientation is already in</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; CONFIG_SAMSUNG_CAPTIVATE</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm&gt; ok - just noticed that you have different build scripts</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm&gt; and different defconfigs</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm&gt; great</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; aries_captivate_defconfig</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; already done</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm&gt; great - thanks :)</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;codeworkx&gt; but without recovery its a little bit tricky</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;codeworkx&gt; flash kernel, erase_image system, adb push system</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;atinm&gt; yes yes . . . I'm working on it, but wanted to make sure there were no holes left :)</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;codeworkx&gt; set permissions manually</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-green">* skeeterslint (~skeetersl@c-71-192-215-99.hsd1.ma.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;hceylan&gt; atinm: I have build an ota zip file for SGT</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;hceylan&gt; but I get "script aborted" error when I apply the zip</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;hceylan&gt; do samsung devices support ota zips?</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;atinm&gt; how are you trying to install it?</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;hceylan&gt; using standrad CM 'make bacon' - copy onto sdcard - install from CW Recovery...</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;hceylan&gt; atinm: do you guys use that program what was it called heim sth?</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm&gt; we do use heimdall</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;hceylan&gt; OK, I'll learn to use heimdall</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;hceylan&gt; is it supported on linux?</span><br />
