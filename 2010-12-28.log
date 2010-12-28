@@ -214,3 +214,23 @@
 <span class="irc-date">[19:53]</span> <span class="irc-black">&lt;codeworkx&gt; looks good i think</span><br />
 <span class="irc-date">[19:53]</span> <span class="irc-black">&lt;codeworkx&gt; give it a try</span><br />
 <span class="irc-date">[19:55]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;hceylan&gt; codeworkx: sorry to bug you all the time...</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;hceylan&gt; but one last question, do I just put *only* the zImage but nothing else into the tar and odin that?</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;hceylan&gt; and is that supposed to update the boot.img / recover.img or ???</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;atinm&gt; zImage is just the kernel+initramfs</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;atinm&gt; so heimdall flash --kernel zImage will only flash the kernel</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;atinm&gt; (you have to be in download mode to flash the kernel)</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;hceylan&gt; oh ok thanks atinm</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;hceylan&gt; and I am guessing that's enough?</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;hceylan&gt; no *.ko?</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;codeworkx&gt; if you want to use odin just tar the zimage and flash as pda</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;hceylan&gt; ok thx guys</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;atinm&gt; the .ko files would have to be in initramfs and your init.rc will need to insmod the ones that are needed</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;hceylan&gt; ok brb</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-navy">* hceylan (~hceylan@213.248.153.186) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;codeworkx&gt; we need no .ko at init</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;codeworkx&gt; only thing is bcm4329.ko at system/modules</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-green">* hceylan (~hceylan@213.248.153.186) has joined this channel.</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;codeworkx&gt; WE GOT CWM3.0.0!!</span><br />
