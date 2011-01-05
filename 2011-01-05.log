@@ -56,3 +56,33 @@
 <span class="irc-date">[19:20]</span> <span class="irc-black">&lt;coolya&gt; saw that in the log but hes not here :-(</span><br />
 <span class="irc-date">[19:45]</span> <span class="irc-green">* jt1134 (~jt1134@c-71-207-226-80.hsd1.al.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[19:56]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;codeworkx&gt; atinm, how is cm7 running on cap?</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm&gt; I haven't tried at all - been too swamped with other non-android stuff. was hoping gdanko and/or unhelpful have been working!</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;gdanko&gt; atinm: I have been sick with a chest infection so I am pretty much out of it</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;atinm&gt; the earliest I'll be able to get back to this is tomorrow evening</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;atinm&gt; and then I'll do another merge with the galaxys stuff you two have down</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;atinm&gt; done</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;atinm&gt; and then see how the cappy does</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;atinm&gt; I started to merge today but am struggling with some other unrelated issues</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;atinm&gt; relocation R_X86_64_32S against `a local symbol' can not be used when making a shared object; recompile with -fPIC</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-navy">* GuiPer (~GuiPer@94.230.144.39) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;atinm&gt; like that.</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;atinm&gt; which has nothing to do with android - but everything to do with linux . . .</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;atinm&gt; so if any of you know what that error means, let me know :)</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;codeworkx&gt; does it break build=?</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;atinm&gt; nah - this is work stuff. where we use linux as well</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;atinm&gt; (but until I can solve it, I cannot distract myself with android while builds happen ;) )</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-green">* birdman-bbl (~Steven@adsl-072-148-044-213.sip.rmo.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;UberPinguin&gt; atinm: Anything stopping you from adding -fPIC to the CFLAGS?</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;atinm&gt; the stupid thing is that it is building with -fPIC . .</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;UberPinguin&gt; Oh..</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;UberPinguin&gt; er hm</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;atinm&gt; I use gcc to build each .o with -fPIC.</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;atinm&gt; then I use ld -r --export-dynamic to build a .a</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;atinm&gt; with all the .o files</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;atinm&gt; and then finally am building an .so that uses that .a</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;atinm&gt; and that is where it falls apart.</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;UberPinguin&gt; I've never tried to do it by hand, but then I'm not a programmer</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;atinm&gt; brb - going to go ping some coworkers since this is work related ;)</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-navy">* magote (~magote@a79-169-106-110.cpe.netcabo.pt) Quit ()</span><br />
