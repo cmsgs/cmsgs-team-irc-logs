@@ -24,3 +24,33 @@
 <span class="irc-date">[11:12]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
 <span class="irc-date">[11:23]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
 <span class="irc-date">[11:23]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[13:27]</span> <span class="irc-black">&lt;birdman&gt; codeworkx, you here?</span><br />
+<span class="irc-date">[13:30]</span> <span class="irc-black">&lt;codeworkx&gt; yep</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-black">&lt;birdman&gt; do the exact mappings of the mtd partitions in the .35 kernel matter?</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-black">&lt;birdman&gt; as long as its not overwriting the bootloaders</span><br />
+<span class="irc-date">[13:53]</span> <span class="irc-black">&lt;codeworkx&gt; you can change it, but be careful xD</span><br />
+<span class="irc-date">[13:53]</span> <span class="irc-black">&lt;codeworkx&gt; if you overwrite bootloaders, you're fucked up</span><br />
+<span class="irc-date">[13:53]</span> <span class="irc-black">&lt;birdman&gt; yeah i think im past that terrible pain xD</span><br />
+<span class="irc-date">[13:53]</span> <span class="irc-black">&lt;birdman&gt; for some reason tho, my kernel will only boot into recovery</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;codeworkx&gt; on which device you are working?</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;birdman&gt; do i need to use a boot.img format to write to it?</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;birdman&gt; fascinate</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;birdman&gt; the cdma one</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;codeworkx&gt; which init binary you're using?</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;codeworkx&gt; which ramdisk?</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;birdman&gt; the one in coolya's github</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;codeworkx&gt; ah ok</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;birdman&gt; the gingerbread one</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;codeworkx&gt; we dont work with boot.img</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;birdman&gt; do i need to make my own init binary?</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;codeworkx&gt; no it should work on all galaxy s devices</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;birdman&gt; i write the zimage to the kernel and the recovery partitions? or just one?</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;codeworkx&gt; maybe your bootmodes are different?</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;codeworkx&gt; only to kernel partition</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;codeworkx&gt; recovery partition is useless</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;birdman&gt; bootmode=2 is my recovery</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;birdman&gt; if i delete recovery.rc...it'll try to boot android</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/coolya/android_device_samsung_galaxys/blob/master/core/init/init.c#L711">https://github.com/coolya/android_device_samsung_galaxys/blob/master/core/init/init.c#L711</a></span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;codeworkx&gt; sure that 2 is recovery?</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;codeworkx&gt; then it should work</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;codeworkx&gt; but if 2 is normalboot then that would explain it</span><br />
