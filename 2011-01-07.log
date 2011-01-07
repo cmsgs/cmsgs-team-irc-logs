@@ -54,3 +54,44 @@
 <span class="irc-date">[13:58]</span> <span class="irc-black">&lt;codeworkx&gt; sure that 2 is recovery?</span><br />
 <span class="irc-date">[13:58]</span> <span class="irc-black">&lt;codeworkx&gt; then it should work</span><br />
 <span class="irc-date">[13:58]</span> <span class="irc-black">&lt;codeworkx&gt; but if 2 is normalboot then that would explain it</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;codeworkx&gt; what happens when you use 3 button for recovery?</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;birdman&gt; same thing</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;birdman&gt; goes to recovery</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;codeworkx&gt; hmm</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;codeworkx&gt; add some debugging there <a href="https://github.com/coolya/android_device_samsung_galaxys/blob/master/core/init/init.c#L711">https://github.com/coolya/android_device_samsung_galaxys/blob/master/core/init/init.c#L711</a></span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;birdman&gt; actually</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;birdman&gt; if i dont write the zimage to recovery</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;birdman&gt; it has the old stock recovery instaed of cwm</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;birdman&gt; and the button press works</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;codeworkx&gt; clear the recovery partition</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;codeworkx&gt; we dont use it</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;birdman&gt; how do i clear it?</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;codeworkx&gt; erase_image recovery</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;codeworkx&gt; just flash zImage with odin or heimdall</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;codeworkx&gt; thats enough</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;codeworkx&gt; oh wait</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;codeworkx&gt; on cap and fascinate bootloader will have a look at recovery partition on 3 button mode</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;birdman&gt; thats what ive been doing, but i gotta wipe this recovery.img</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;birdman&gt; now that i did press the 3 button mode recovery...i cant escape it</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;codeworkx&gt; ok</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;codeworkx&gt; on boot partition you dont need recovery stuff</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;codeworkx&gt; on recovery partition you need it</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;birdman&gt; ok...but then how do i get out of recovery? xD</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;birdman&gt; oh wait</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;birdman&gt; i get it</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;birdman&gt; codeworkx, im still trapped in recovery :(</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;birdman&gt; codeworkx, its like the kernel doesnt clear the bootmode</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;birdman&gt; when it reboots</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;birdman&gt; codeworkx, how did you get the values you had for kernel and recovery before?</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;codeworkx&gt; from coolya</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;codeworkx&gt; usb&lt;-&gt;serial converter</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;codeworkx&gt; to talk with the bootloader</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;birdman&gt; eww....</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;birdman&gt; i think the reason im having problems is because odin writes the kernel to a specific spot on the nand</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;birdman&gt; and its getting all mixed up</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;birdman&gt; ok, dumped the kernel and recovery partitions</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;birdman&gt; recovery is FF'd out</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;birdman&gt; mtd0 starts with 0.Droid</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;birdman&gt; hmm</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;birdman&gt; yeah its deffinatly doing that</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;birdman&gt; great....</span><br />
