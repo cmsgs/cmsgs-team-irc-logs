@@ -140,3 +140,32 @@
 <span class="irc-date">[18:39]</span> <span class="irc-black">&lt;birdman&gt; my bootmode is always 2 with this kernel</span><br />
 <span class="irc-date">[18:50]</span> <span class="irc-black">&lt;coolya&gt; thats bad ... then you bootloader parses that to the kernel all the time :-(</span><br />
 <span class="irc-date">[18:51]</span> <span class="irc-black">&lt;coolya&gt; who raped korg?</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;birdman&gt; i reverted to touchwiz fine</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;birdman&gt; so the stock kernel source works</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;birdman&gt; coolya, how important is the exact position of the partitions?</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;birdman&gt; should i have them exactly the same as the pit file? or does it not matter?</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;coolya&gt; don't really matter, as long as you don't touch the adresses where the bootloader lives</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;coolya&gt; we can read / write every address on the oneNAND with 2.6.35</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;birdman&gt; and if i write a kernel with heimdal...that wouldnt mess anything up would it?</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;coolya&gt; no it wouldn't i flash kernels with himdall everytime</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;coolya&gt; do you have that bootmode on samsung roms too ?</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;coolya&gt; may be you did a reboot recvoery from samsung kernel an flashed an ota from the recovery? it would be possible that the samsung kernel wrote the bootmode to param.lfs and it is not reset by the bootloader so it is passed all the time</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;birdman&gt; should i be mounting param.lfs?</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;birdman&gt; or does it not matter?</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;coolya&gt; we can't mount it with 2.6.35, j4fs is closed source</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;birdman&gt; you can mount it with ext2 :)</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;coolya&gt; if it breaks you will end with a stone in stead of a phone :-D</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;birdman&gt; yeahhh</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;coolya&gt; bootloader reads it befor it reads the buttons ... it that fails you can't go to download mode</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;birdman&gt; well im trying to get exact partition stuff from the pit file</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;birdman&gt; becuase we dont have a lot of the partitions you guys do</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;coolya&gt; but we don't really need param.lfs</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;coolya&gt; you can modify the partions in the samsung.c in drivers/mtd/onenand</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;coolya&gt; i had some pit generation stuff on github there you can see what the file looks like if you want</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;coolya&gt; is just a simple compiled c file</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;coolya&gt; i added the lower partitio addresses as a comment to the onenand mapping so that you can map them, but didn't put them in to protect stupid users from killing the phone</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-green">* TCMAN-web (8b5ffb16@gateway/web/freenode/ip.139.95.251.22) has joined this channel.</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;birdman&gt; yeah i saw that, no real need to map them unless your in recovery anyways</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;birdman&gt; i think somethings up with this pit file tho</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;birdman&gt; according to the simplified c when applied to this pit my modem.bin is only 2 pages</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
