@@ -14,3 +14,43 @@
 <span class="irc-date">[11:46]</span> <span class="irc-black">&lt;atinm&gt; hrm, no codeworkx or coolya..</span><br />
 <span class="irc-date">[11:46]</span> <span class="irc-black">&lt;atinm&gt; prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/../lib/gcc/arm-eabi/4.4.3/../../../../arm-eabi/bin/ld: out/target/product/captivate/obj/EXECUTABLES/updater_intermediates/install.o: in function FormatFn:bootable/recovery/updater/install.c:236: error: undefined reference to 'reset_ext4fs_info'</span><br />
 <span class="irc-date">[11:46]</span> <span class="irc-black">&lt;atinm&gt; prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/../lib/gcc/arm-eabi/4.4.3/../../../../arm-eabi/bin/ld: out/target/product/captivate/obj/EXECUTABLES/updater_intermediates/install.o: in function FormatFn:bootable/recovery/updater/install.c:237: error: undefined reference to 'make_ext4fs'</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;atinm&gt; making captivate duplicate galaxys device tree and vendor tree again and see what happens</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm&gt; crap. same.</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm&gt; somehow system/extras/ext4_utils is not being pulled into recovery</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;atinm&gt; hrm - clean and rebuild made it build. I guess I had an older object sitting around that was referencing ext4</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;coolya&gt; atinm:</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;coolya&gt; i'm back</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;atinm&gt; hey</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;coolya&gt; hi</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;atinm&gt; I seem to be making better progress after I recopied the galaxys device and vendor trees and cleaned</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;atinm&gt; now it is building</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;coolya&gt; ok</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;atinm&gt; I need write access to bootable/recovery</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;atinm&gt; I modified it to also add download mode</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;atinm&gt; I guess I can check it into cmsgs too</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;atinm&gt; once captivate starts building/working close to what galaxys is, we should go back to cmsgs and create gingerbread branches there and work there so we can collaborate more easily</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;coolya&gt; i'll give you rights on my repo</span><br />
+<span class="irc-date">[12:47]</span> <span class="irc-black">&lt;atinm&gt; for now I am ok with working on your repo because you are the busiest of us :)</span><br />
+<span class="irc-date">[12:47]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[12:48]</span> <span class="irc-black">&lt;atinm&gt; cool! it is signing the zip for captivate cyanogen!</span><br />
+<span class="irc-date">[12:48]</span> <span class="irc-black">&lt;atinm&gt; guess it built :)</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;atinm&gt; have to get permission from wife to break my phone now :)</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;atinm&gt; can't flash unless she is ok with me being unavailable!</span><br />
+<span class="irc-date">[12:50]</span> <span class="irc-black">&lt;coolya&gt; how is the thing with the lawsuit?</span><br />
+<span class="irc-date">[12:50]</span> <span class="irc-black">&lt;coolya&gt; is the captivate gsm ?</span><br />
+<span class="irc-date">[12:52]</span> <span class="irc-black">&lt;atinm&gt; yes, gsm</span><br />
+<span class="irc-date">[12:53]</span> <span class="irc-black">&lt;atinm&gt; the other side caved and gave back the money to us</span><br />
+<span class="irc-date">[12:53]</span> <span class="irc-black">&lt;atinm&gt; I was very forceful ;)</span><br />
+<span class="irc-date">[12:53]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[12:53]</span> <span class="irc-black">&lt;noobnl&gt; lol</span><br />
+<span class="irc-date">[12:54]</span> <span class="irc-black">&lt;atinm&gt; so phone is allowed to be borked again</span><br />
+<span class="irc-date">[12:54]</span> <span class="irc-black">&lt;atinm&gt; but have to confirm! :)</span><br />
+<span class="irc-date">[12:54]</span> <span class="irc-black">&lt;noobnl&gt;  i cannot figuree iout the damn bug in the  calls it happens in stock rp,</span><br />
+<span class="irc-date">[12:54]</span> <span class="irc-black">&lt;noobnl&gt;  i cannot figuree iout the damn bug in the  calls it happens in stock rom</span><br />
+<span class="irc-date">[12:54]</span> <span class="irc-black">&lt;noobnl&gt; *</span><br />
+<span class="irc-date">[12:54]</span> <span class="irc-black">&lt;noobnl&gt;  leaked*</span><br />
+<span class="irc-date">[12:55]</span> <span class="irc-black">&lt;noobnl&gt;  it must be sammy problem</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;atinm&gt; coolya: guess you gave me write access</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;atinm&gt; coolya: I just pushed - it is dirty, requires BOARD_HAS_DOWNLOAD_MODE in the BoardConfig for the phones that have download mode</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;atinm&gt; so I added that to captivate, you may want to add that to galaxys</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;coolya&gt; ok :-)</span><br />
