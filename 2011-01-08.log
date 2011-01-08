@@ -343,3 +343,38 @@
 <span class="irc-date">[21:24]</span> <span class="irc-black">&lt;atinm&gt; pain in the ass . . . the melfas driver is the old style driver</span><br />
 <span class="irc-date">[21:49]</span> <span class="irc-black">&lt;atinm&gt; ok, lets see . . . hacked it into the .35 kernel</span><br />
 <span class="irc-date">[21:54]</span> <span class="irc-black">&lt;atinm&gt; no good . .</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;atinm&gt; wtf.</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;atinm&gt; started workign!</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;coolya&gt; yeah :-)</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;atinm&gt; and I even have bars :)</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;atinm&gt; tho I think it is lying about the bars :)</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;coolya&gt; why ?</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;atinm&gt; ah ... wrong modem</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;atinm&gt; was using the captivate one</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;atinm&gt; frick. sound is fuxked of course</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;atinm&gt; mic is working, but receive is not</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;atinm&gt; need a different asound.conf I think</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;atinm&gt; weird ..</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;atinm&gt; now it's gone back to not working with the keypad!</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;atinm&gt; wtf ..</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;atinm&gt; ok, how is /sdcard supposed to mount?</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;atinm&gt; vold?</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;atinm&gt; if I understand what is going on, the cypress-touchkey that the gt-i9000 and the melfas-touchkey that captivate uses have different addresses</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;coolya&gt; vold is a little bit fucked up ad it turn totally craz when you configure 2 cards</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;atinm&gt; or something - basically writes to i2c for the keypad aren't working</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;atinm&gt; so the touchkeys don't seem to behave right.</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;atinm&gt; tho now I am thinking it is actually the graphics.</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;atinm&gt; because when I press the power button, the keys light up</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;atinm&gt; but the screen remains blank</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;atinm&gt; yeah...</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;atinm&gt; the screen remains blank, but the keys light up</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;atinm&gt; no . . . not any more. it is fuxking random now ... argh!!</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;atinm&gt; I guess I could try porting the melfas keypad</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;coolya&gt; you can enable frambuffer debug in the config to see whats going on</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;coolya&gt; S3C_FB_DEBUG i guess</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;coolya&gt; they are enabled in the galaxys config for investigation</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;atinm&gt; ok, rebuilding with that</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; seems to be trying to wake fb2</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; &lt;7&gt;[   62.292522] s3cfb s3cfb: [fb2] turn on</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;atinm&gt; but it just calls early suspend because the cypress-touchkey can't write to i2c on wake</span><br />
