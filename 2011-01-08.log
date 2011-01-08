@@ -122,3 +122,20 @@
 <span class="irc-date">[14:23]</span> <span class="irc-black">&lt;atinm|away&gt; I think I also have to do some other stuff with Kconfigs - brb</span><br />
 <span class="irc-date">[14:32]</span> <span class="irc-green">* neldar (~neldar@dsl21-104.pool.bitel.net) has joined this channel.</span><br />
 <span class="irc-date">[14:32]</span> <span class="irc-black">&lt;- *neldar* Bot Sentry eingeschalten:  Sie werden jetzt ignoriert!  Ihre Nachricht wird übermittelt wenn sie die folgenden Fragen innerhalb von 10 Minuten richtig beantworten:  How do you spell the result of ten div_ided by 2?</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;atinm&gt; how do I make a backup of my efs partition and also modem.bin?</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;atinm&gt; dd if=/dev/block/stl3 of=/sdcard/efs.img should do it?</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;atinm&gt; (this is on froyo)</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;UberPinguin&gt; That should work.  It'll give you an image of whatever is on stl3.</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;atinm&gt; hmm, or does codeworkx/coolya mean cp /efs to sdcard when making a backup of efs</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;atinm&gt; codeworkx: coolya: do you want me to do a cp or a dd when backing up/restoring efs?</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;atinm&gt; and change ownership of the files on restore back to 1001 1001?</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;coolya&gt; you just can cp it in, owern doesn't need to be changed</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;atinm&gt; ok, so I just did a cp -ar /efs /sdcard</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;atinm&gt; and it seems to have copied efs to /sdcard/efs - but ownership and permissions seem to have changed. how do you do it?</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;coolya&gt; when you boot it should mount /efs as yaffs and you can copy it there</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;coolya&gt; but you have to write a modem to mtdblock5 before the ril will come up</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;coolya&gt; just write some modem.bin with dd to it</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;atinm&gt; yes, I copied the modem.bin too</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
