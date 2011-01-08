@@ -139,3 +139,135 @@
 <span class="irc-date">[17:57]</span> <span class="irc-black">&lt;coolya&gt; just write some modem.bin with dd to it</span><br />
 <span class="irc-date">[17:57]</span> <span class="irc-black">&lt;atinm&gt; yes, I copied the modem.bin too</span><br />
 <span class="irc-date">[17:57]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;atinm&gt; we're never going to get bluetooth working without kernel source for .35 for captivate . . .</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;atinm&gt; too painful to merge in the codecs needed from .32 to .35</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;atinm&gt; I'm going to postpone that until I am at the same state as galaxys</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;atinm&gt; hmm, can't get into recovery</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;atinm&gt; just showing the Kanged bootscreen. adb can get to shell tho</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;codeworkx&gt; echo 1 &gt;&gt; /dev/graphics/fb3</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;atinm&gt; now its just blank :)</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;atinm&gt; how do you get into recovery?</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;atinm&gt; adb reboot recovery won't go into it..</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;codeworkx&gt; try fb 0-5 xD</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;codeworkx&gt; we've a graphics problem</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;codeworkx&gt; have a look at /tmp/recovery.log</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;codeworkx&gt; if its there, recovery is up but not shown</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;atinm&gt; hrm, no /tmp . . . mounts are <a href="http://pastie.org/1440603">http://pastie.org/1440603</a></span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;codeworkx&gt;  /tmp is a folder</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;atinm&gt; but I haven't even managed to format anything yet because I am not in recovery yet</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;codeworkx&gt; should be created by recovery.rc</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;atinm&gt; but /tmp isn't there. let me check the .rc</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;atinm&gt; I guess recovery didn't start at all or at least, recovery.rc didn't run</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;atinm&gt; because mkdir /tmp is there but no /tmp in ls</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://pastie.org/1440606">http://pastie.org/1440606</a></span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;coolya&gt; adb reboot recovery won't work</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;coolya&gt; any reboot download or recovery won't work</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;coolya&gt; with kernel 2.6.35</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;coolya&gt; just button combo can bring you to download or recovery</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;atinm&gt; how do you get into recovery - I know how to get to download with 3 button</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;atinm&gt; not recovery tho :)</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;codeworkx&gt; 3 button</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;codeworkx&gt; vol up home power</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;codeworkx&gt; on sgs</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;atinm&gt; aha - same :)</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;atinm&gt; cool, 3.0 recovery.</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;atinm&gt; now to format</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;atinm&gt; E:no misc partition - is that normal?</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;codeworkx&gt; we've no</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;atinm&gt; adb push system/ /system</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;atinm&gt; urk</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;atinm&gt; ok - lets see :)</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;codeworkx&gt; releasetools/ota_captivate.sh ;-)</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;codeworkx&gt; its easier</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;atinm&gt; which modem do you guys use? XXJ?</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;atinm&gt; since I have to use the same as I'm using the galaxy kernel</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;codeworkx&gt; i'm using JPY</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;coolya&gt; i'm using JPM codeworkx jpy</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;atinm&gt; but not jpp?</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;atinm&gt; I just have the jpm and jpp .bins</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;atinm&gt; guess I'll use jpm too</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;coolya&gt; any froyo modem should work, but that are two we have tested so far</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;atinm&gt; k, I'll just use jpm so I have the same as at least one of you :)</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;atinm&gt; wtf ... my sdcard got formatted?</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;atinm&gt; shit - it is clean ..</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;atinm&gt; or maybe it was never mounted</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;atinm&gt; hrm</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;atinm&gt; phew :)</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;atinm&gt; E/FramebufferNativeWindow(  737): couldn't open framebuffer HAL (No such device)</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;coolya&gt; oh</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;coolya&gt; can you look in /system/vendor/bin</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;coolya&gt; maybe the files are missing +x</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;coolya&gt; there is the pvrinit service that sets up graphics</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;atinm&gt; yup</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;atinm&gt; ok, reboot again :)</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;coolya&gt; i really have to write down such things :-)</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;atinm&gt; codeworkx actually did - i forgot to do all three bin dirs :)</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;coolya&gt; hmm i think i'll write some guy who bloged about the compass chip we have on our phone an ask him if he can give me the datasheet</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;atinm&gt; woo -- bootlog</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;atinm&gt; bootlogo</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;atinm&gt; ohmigod.</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;atinm&gt; icons! :)</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;atinm&gt; and gone ...</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;coolya&gt; crashed ?</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;atinm&gt; no, just screen blanked</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;atinm&gt; logcat is still going</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;atinm&gt; E/MetadataRetrieverClient(   72): failed to extract an album art</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;atinm&gt; D/SurfaceFlinger(  111): About to give-up screen, flinger = 0x8e9f8</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;atinm&gt; E/MetadataRetrieverClient(   72): failed to extract an album art</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;coolya&gt; i think codeworkx hat something at the beginning.</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;coolya&gt; codeworkx: ping</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;atinm&gt; directory not found /data/media</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;atinm&gt; tho I don't think that is it</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;codeworkx&gt; ping pong</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;atinm&gt; E/MetadataRetrieverClient(   72): failed to extract an album art</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;atinm&gt; I/power   (  111): *** set_screen_state 0</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;atinm&gt; I/GPSButton(  223): Update State</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;atinm&gt; D/SurfaceFlinger(  111): About to give-up screen, flinger = 0x8e9f8</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; I/GPSButton(  223): Update State</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; D/KeyguardViewMediator(  111): wakeWhenReadyLocked(26)</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; I/power   (  111): *** set_screen_state 1</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; D/SurfaceFlinger(  111): Screen about to return, flinger = 0x8e9f8</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; E/MetadataRetrieverClient(   72): failed to extract an album art</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; and then it goes back to state 0</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;codeworkx&gt; hmm</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;codeworkx&gt; hab this while playing with framebuffer</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;codeworkx&gt; had^</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;codeworkx&gt; did you compile android for cap?</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; the screen was working - I had the cool gingerbread screen</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;atinm&gt; and it was showing icons etc and then after a little while it went to sleep</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;codeworkx&gt; or used galaxys?</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;atinm&gt; and cannot wake since.</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;atinm&gt; I compiled for captivate</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;codeworkx&gt; compare your device tree</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;codeworkx&gt; liboverlay</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;codeworkx&gt; boardconfig</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;codeworkx&gt; BOARD_USE_OVERLAY</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;codeworkx&gt; or something</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;codeworkx&gt; i'm sure you can simply copy ours and rename to captivate ;-)</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; ithat's what I did ;)</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;codeworkx&gt; today?</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; I copied the whole vendor and device trees</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; and modified to say captivate</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; today</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; this morning</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;codeworkx&gt; bah github is fucked up</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; uses_overlay := true</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/atinm/android_device_samsung_captivate/blob/gingerbread/BoardConfig.mk#L57">https://github.com/atinm/android_device_samsung_captivate/blob/gingerbread/BoardConfig.mk#L57</a></span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;codeworkx&gt; should be ok</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;codeworkx&gt; dmesg?</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm&gt; rebooting.</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm&gt; sec</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm&gt; k .. cm7 bootlogo ...</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;atinm&gt; and icons :)</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;atinm&gt; ok, back to having a screen again. and I can go into app drawer, see the settings/about phone</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;atinm&gt; and it does say 2.3.1</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm&gt; no radio or wifi tho</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;codeworkx&gt; lock screen und release</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;codeworkx&gt; maybe polling problem</span><br />
