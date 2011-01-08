@@ -54,3 +54,21 @@
 <span class="irc-date">[12:58]</span> <span class="irc-black">&lt;atinm&gt; coolya: I just pushed - it is dirty, requires BOARD_HAS_DOWNLOAD_MODE in the BoardConfig for the phones that have download mode</span><br />
 <span class="irc-date">[12:58]</span> <span class="irc-black">&lt;atinm&gt; so I added that to captivate, you may want to add that to galaxys</span><br />
 <span class="irc-date">[12:59]</span> <span class="irc-black">&lt;coolya&gt; ok :-)</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm&gt; add gingerbread branch to cmsgs/bootable/recovery and checked in the same code</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm&gt; and gave you access to it too</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm&gt; so you *can* change android/default.xml and refer to cmsgs/android_bootable_recovery</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;atinm&gt; as 3 or more ppl start working on a repo, we should move it back to cmsgs - for now only android_bootable_recovery on cmsgs has a gingerbread branch and it matches yours.</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;atinm&gt; off for a bit - hi codeworkx</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;codeworkx&gt; hi</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm&gt; I'll  be back . . . need to understand more about keypad stuff</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm&gt; and what I need to make different from galaxys</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm&gt; if anything</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;atinm&gt; I thought galaxys and captivate were very similar except for orientation and sound</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm&gt; back in a bit.</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;codeworkx&gt; atinm <a href="https://github.com/coolya/android_bootable_recovery/commit/9d1be9c09e812da68daa3a6e6048f6ecdc2a98bb">https://github.com/coolya/android_bootable_recovery/commit/9d1be9c09e812da68daa3a6e6048f6ecdc2a98bb</a></span><br />
+<span class="irc-date">[13:51]</span> <span class="irc-black">&lt;codeworkx&gt; you had an error in your code. case 1 exists twice if board has no download mode. would break all other devices. and the excessive usage if IFDEF makes the code unreadable.</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;atinm|away&gt; I guess I can just avoid #ifdef like everything else does</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;atinm|away&gt; because partition sd card, fix permissions and partition internal sd card etc don't use #ifdef either</span><br />
