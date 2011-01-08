@@ -72,3 +72,53 @@
 <span class="irc-date">[13:51]</span> <span class="irc-black">&lt;codeworkx&gt; you had an error in your code. case 1 exists twice if board has no download mode. would break all other devices. and the excessive usage if IFDEF makes the code unreadable.</span><br />
 <span class="irc-date">[13:58]</span> <span class="irc-black">&lt;atinm|away&gt; I guess I can just avoid #ifdef like everything else does</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;atinm|away&gt; because partition sd card, fix permissions and partition internal sd card etc don't use #ifdef either</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;atinm|away&gt; the problem is that ther eis no other way to do it. it is ugly, but because not everything has download mode, there has to be an ifdef.</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;atinm|away&gt; I'll fix the error tho</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;codeworkx&gt; download mode would not work without touching param.lfs</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;codeworkx&gt; i'll not touch it</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;atinm|away&gt; how to we get into download mode now? I thought it was just bootmode=3</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;codeworkx&gt; 3 button</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;codeworkx&gt; but reboot download or reboot recovery wont work</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;codeworkx&gt; you have to write the next desired bootmode to param.lfs</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;atinm|away&gt; something changed there between froyo and gingerbread? we cannot pass bootmode anymore?</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;codeworkx&gt; the kernel ;-)</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;atinm|away&gt; I understand that - I mean, in passing bootmodes. we can't pass that anymore?</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;codeworkx&gt; without writing to param.lfs there seems to be no way</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;atinm|away&gt; because reboot recovery is still there, and that is just bootmode=2</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;codeworkx&gt; but it doesnt work</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;atinm|away&gt; ah, ok.</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;atinm|away&gt; then download won't either until we futz with passing params</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;atinm|away&gt; so then we should take out reboot recovery too . . .</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;atinm|away&gt; which puts us back in ifdef crap.</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;atinm|away&gt; I guess it'll just do a reboot.</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;atinm|away&gt; is bootmode not being passed at all now?</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;codeworkx&gt; no, be compatible with mainline</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;codeworkx&gt; our goal is to bring all stuff back into mainline</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;atinm|away&gt; when we do get (if) param.lfs working to pass bootmode, we would want both recovery and download for sgs</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;codeworkx&gt; but we'll not touch param.lfs</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;atinm|away&gt; and just as there are other #ifdefs in there, we could have one for download mode</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;codeworkx&gt; if its fucked up, you can throw your phone away</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;atinm|away&gt; true. do we just give up on samsung ever releasing gingerbread for our phones? :)</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;codeworkx&gt; they'll release it</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;codeworkx&gt; february/march i think</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;atinm|away&gt; alright - moving it to the bottom is fine, at least it would be easier to manage</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;atinm|away&gt; and if we ever have param.lfs w/ gingerbread that is blessed by samsung, we could use it</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;codeworkx&gt; but we're still not able to handel bootmodes xD</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;codeworkx&gt; yes maybe</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;atinm|away&gt; but for now it is as bad as reboot recovery, but no worse :)</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;codeworkx&gt; you're forced to use 3 button combo at the moment</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;codeworkx&gt; but it's not bad at all</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;atinm|away&gt; yeah - that is why I liked being able to go straight to download from recovery - was easier, but I can handle either.</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;atinm|away&gt; the ppl who don't have 3 button are few</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;atinm|away&gt; if any - I think that problem was a hardware bug on some phones</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;codeworkx&gt; so samsung has to fix it</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;codeworkx&gt; its not our problem ;-)</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;codeworkx&gt; is your phone running cm7?</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;atinm|away&gt; not yet, I'm futzing in the kernel right now to make sure I have all the sound stuff</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;atinm|away&gt; then I flash - most probably later in the afternoon</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;atinm|away&gt; (it is morning here)</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;atinm|away&gt; for some reason, changing aries_captivate_defconfig is messing up</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;atinm|away&gt; I think I also have to do some other stuff with Kconfigs - brb</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-green">* neldar (~neldar@dsl21-104.pool.bitel.net) has joined this channel.</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;- *neldar* Bot Sentry eingeschalten:  Sie werden jetzt ignoriert!  Ihre Nachricht wird übermittelt wenn sie die folgenden Fragen innerhalb von 10 Minuten richtig beantworten:  How do you spell the result of ten div_ided by 2?</span><br />
