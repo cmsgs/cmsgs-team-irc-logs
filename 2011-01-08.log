@@ -271,3 +271,57 @@
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm&gt; no radio or wifi tho</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;codeworkx&gt; lock screen und release</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;codeworkx&gt; maybe polling problem</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;atinm&gt; bah, won't wake up</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm&gt; D/KeyguardViewMediator(  111): wakeWhenReadyLocked(26)</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm&gt; I/power   (  111): *** set_screen_state 1</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm&gt; D/SurfaceFlinger(  111): About to give-up screen, flinger = 0x8e9f8</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm&gt; D/SurfaceFlinger(  111): Screen about to return, flinger = 0x8e9f8</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm&gt; I/power   (  111): *** set_screen_state 0</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm&gt; D/SurfaceFlinger(  111): About to give-up screen, flinger = 0x8e9f8</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm&gt; I/GPSButton(  216): Update State</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;codeworkx&gt; dmesg</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://pastie.org/1440697">http://pastie.org/1440697</a></span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;atinm&gt; i2c write error</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm&gt; hmm ... cypress_touchkey_driver. let me check what .32 did on captivate</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;coolya&gt; i think its in mach-aries.c maybe some changed adresses</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;coolya&gt; or gpio</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;atinm&gt; yes, that's what it seems like</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; hmm</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;coolya&gt; arch/arm/mach-s5pv210/</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; enable debug at kernel</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; look at galaxys defconfig</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;atinm&gt; CONFIG_TOUCHSCREEN_MXT224?</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;atinm&gt; the .32 for captivate had CONFIG_TOUCHSCREEN_QT602240=y</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;codeworkx&gt; is your touchscreen working?</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm&gt; yeah (why I don't  know ;) )</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;codeworkx&gt; use it like it is</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;codeworkx&gt; your cap is now a nexus s</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;codeworkx&gt; if you want to use adb at windows</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;codeworkx&gt; make sure to install nexus s usb drivers xD</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;coolya&gt; windows is unsupported :-D</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;atinm&gt; good. I don't own any windows machines</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;atinm&gt; well, I own a vista machine that is always shutdown..</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;coolya&gt; damn only enabling i2c debug sucks :-D i only see touchscreen traffic</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm&gt; ok, what all debug should I turn on. i2c debug, samsung pm debug</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm&gt; that must be it</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-navy">* Pedlar (~mkoenig@vps4590.inmotionhosting.com) Quit (*.net *.split)</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-green">* Pedlar (~mkoenig@vps4590.inmotionhosting.com) has joined this channel.</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm&gt; shit, now I can't get into download mode...</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;coolya&gt; oO</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; phew ..</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; got it ..</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://pastie.org/1440767">http://pastie.org/1440767</a></span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;atinm&gt; definitely an i2c problem . . .</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;atinm&gt; it can read i2c-10 0x20</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;atinm&gt; but not write</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;atinm&gt; going to go poke around</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-navy">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;atinm&gt; can't get into download mode again.</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;atinm&gt; damn it.</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;atinm&gt; it always goes into recovery instead...</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;atinm&gt; weird, it won't even stay power off if it is plugged in</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;atinm&gt; just autoboots if plugged in</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
