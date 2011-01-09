@@ -378,3 +378,18 @@
 <span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; seems to be trying to wake fb2</span><br />
 <span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; &lt;7&gt;[   62.292522] s3cfb s3cfb: [fb2] turn on</span><br />
 <span class="irc-date">[22:59]</span> <span class="irc-black">&lt;atinm&gt; but it just calls early suspend because the cypress-touchkey can't write to i2c on wake</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;atinm&gt; so something finally tells it to go back into suspend</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;atinm&gt; funny, my cypress-touchkey rev changes with each boot ;)</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;atinm&gt; guess we should say it doesn't work ;)</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;atinm&gt; I think I have to port the melfas-touchkey from .32 to .35</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;atinm&gt; and of course, the i2c driver interface changed</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;atinm&gt; so it is a rewrite.</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;atinm&gt; not sure what I did to make it work - it was working.</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;atinm&gt; and then I rebooted</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;atinm&gt; and it stopped!</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;atinm&gt; and has never worked since.</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;atinm&gt; maybe it accidentally hit the correct address . . .</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-black">&lt;atinm&gt; now all reads and writes are failing to the touchkey i2c address</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 240 seconds)</span><br />
