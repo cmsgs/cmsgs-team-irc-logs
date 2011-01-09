@@ -52,3 +52,24 @@
 <span class="irc-date">[12:47]</span> <span class="irc-black">&lt;atinm&gt; that I didn't find in the tree</span><br />
 <span class="irc-date">[12:54]</span> <span class="irc-navy">* neldar (~neldar@dsl-217-160-24.pool.bitel.net) Quit (Quit: Leaving.)</span><br />
 <span class="irc-date">[12:57]</span> <span class="irc-black">&lt;coolya&gt; thats bad :-(</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm&gt; yeah - sucks. so close.</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm&gt; I was able to boot up, even use the home/back/menu keys</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm&gt; but power button turns off and then won't wake</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;atinm&gt; the question is - is power and volume part of the melfas or qt drivers or is that something else?</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;coolya&gt; no this are hardwre buttons that are connected to a gpio</span><br />
+<span class="irc-date">[13:09]</span> <span class="irc-black">&lt;atinm&gt; so maybe we're not so bad and the drivers we have will do something</span><br />
+<span class="irc-date">[13:09]</span> <span class="irc-black">&lt;atinm&gt; because I can use the touchkeys</span><br />
+<span class="irc-date">[13:09]</span> <span class="irc-black">&lt;atinm&gt; and they light up etc</span><br />
+<span class="irc-date">[13:09]</span> <span class="irc-black">&lt;atinm&gt; and I can use the screen</span><br />
+<span class="irc-date">[13:10]</span> <span class="irc-black">&lt;atinm&gt; actually, the problem seems to be that when power button is pressed to wake, the cypress has trouble writing to i2c for wake</span><br />
+<span class="irc-date">[13:10]</span> <span class="irc-black">&lt;coolya&gt; maybe only the gpio for power is wrong?</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;atinm&gt; possible. but it will turn off fine</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;atinm&gt; just wake is a problem.</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;atinm&gt; and it sees the wake</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;atinm&gt; it is when it then tries to wake the screen that things hang</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;atinm&gt; and no wake happens</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-black">&lt;atinm&gt; going back to froyo to see what the drivers are doing</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-black">&lt;atinm&gt; need to build the reorient kernel</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-black">&lt;atinm&gt; haven't succeeded in that yet.</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-black">&lt;atinm&gt; not sure which defconfig to use</span><br />
+<span class="irc-date">[13:22]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
