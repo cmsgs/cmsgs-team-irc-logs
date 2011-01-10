@@ -120,3 +120,15 @@
 <span class="irc-date">[19:55]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
 <span class="irc-date">[19:55]</span> <span class="irc-black">&lt;UberPinguin&gt; ..Will it break anything if I just disable s3c?.. Since we're not on an s3c SoC afaict</span><br />
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;UberPinguin&gt; Meh, can't. s5p* selects s3c</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;UberPinguin&gt; Looks like arch/arm/plat-s3c/include/plat/pm-core.h  is also #included but missing</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;UberPinguin&gt; These aren't even Samsung files, they're from Simtec. argh.</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;coolya&gt; never had such errors ... were did you get the source from ?</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;UberPinguin&gt; kernel.org</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;coolya&gt; and you want to build 2.6.32 for epic ?</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;coolya&gt; arn't there source from samsung ?</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;UberPinguin&gt; Samsung haven't published it yet; the s5pc1xx stuff is already in mainline, so I thought I'd give it a shot and see what happened.</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;coolya&gt; there is alot of platform code, you may just build a GT-I9000 kernel and give it a try? or are there any major changes ?</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;UberPinguin&gt; I don't think there are</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;UberPinguin&gt; All the phone-specific stuff is proprietary anyway afaik, so we'd just be loading the modules pulled from DK28</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;UberPinguin&gt; Hm, looks like plat-s3c was moved to mach-s3c some time ago</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Quit: thedeanius)</span><br />
