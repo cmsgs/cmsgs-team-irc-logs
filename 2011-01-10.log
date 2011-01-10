@@ -33,3 +33,49 @@
 <span class="irc-date">[14:58]</span> <span class="irc-black">&lt;atinm&gt; nor the touchscreen qs22something</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;atinm&gt; the .36 kernel on mainline has these or somethign close but backporting didn't quite work due to missing firmware I think</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;atinm&gt; and so I have to port them myself</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm&gt; I was able to get it to work when I think it still had firmware loaded from a 2.2 boot</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm&gt; but only happened once</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;gdanko_&gt; hmmm</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm&gt; there are going to be problems I'm sure - I wasn't able to get too far without the power button working to wake</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm&gt; I will check in what I have</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm&gt; when I get  home or later today if I can still ssh from work to my home machine</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm&gt; so you can at least get to where I am</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm&gt; but it was cool to see a gingerbread screen etc :)</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;atinm&gt; we're close - and coolya and codeworkx have it a lot farther along</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;atinm&gt; codeworkx is using that as his phone so it is usable</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;atinm&gt; tho I don't know the details of what does and does not work</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;gdanko_&gt; what DOESNT work?</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;atinm&gt; since I'm stuck in captivate hell</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;gdanko_&gt; im ready to ditch at&amp;t i tell you what</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;atinm&gt; power button doesn't wake the phone (the screen) and it looks like an i2c write error in the cypress-touchkey driver</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;atinm&gt; when it tries to write something to wake</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;atinm&gt; cypress-touchkey is what the galaxys and the nexus phones use</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;atinm&gt; but captivate uses melfas-touchkey</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;gdanko_&gt; but stuff like camera, snesors, etc are all good?</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;atinm&gt; which doesn't exist on our phone</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;gdanko_&gt; damn it why does at&amp;t have to do everything differently</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;atinm&gt; I didn't get that far because I hit the power issue very fast.</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;atinm&gt; I was able to make a phone call</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;atinm&gt; and receive a phone call</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;atinm&gt; but had the wrong modem so sound was garbled and when I installed the new modem, I wasn't able to get the network up anymore</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;atinm&gt; and then got distracted by the whole touchscreen and keyboard and wake issues</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;atinm&gt; since those are fundamental</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;gdanko_&gt; but for codeworkx is all of that working?</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;atinm&gt; so maybe you could work on the android side and I work on the kernel unless you want to work on the kernel too :)</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;atinm&gt; I think so</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;atinm&gt; well, not sure about camera</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;atinm&gt; hopefully he or coolya will come in soon</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;gdanko_&gt; this is interesting. for being so close HW-wise, this has been quite the uphill battle.</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;atinm&gt; just different enough to be painful.</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;atinm&gt; without datasheets.</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;gdanko_&gt; yep</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;gdanko_&gt; i am eyeing an atrix :-)</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;gdanko_&gt; in addition to the captivate</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;atinm&gt; the mxt224 seems to be close enough to the qs whatever because the touchscreen works - I can hit icons and even the buttons work. it is just power that seems broken so it is possible it is just some gpio but that i2c write failure in cypress-touchkey makes me think it is a combination of things</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm&gt; I can't go to anything else - can't really justify it.</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm&gt; if anything, I like the captivate because it is a challenge :)</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm&gt; tho there is a thin line between challenge and frustrating right now</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;gdanko_&gt; yep</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;gdanko_&gt; i have sworn off of samsung phones</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;gdanko_&gt; hardware is nice but they think they know what's best and clearly do not</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;atinm&gt; back later -- work</span><br />
