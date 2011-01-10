@@ -86,3 +86,37 @@
 <span class="irc-date">[18:02]</span> <span class="irc-green">* skeeterslint (~skeetersl@c-71-192-215-99.hsd1.ma.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[18:36]</span> <span class="irc-green">* jt1134 (~jt1134@c-71-207-226-80.hsd1.al.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[18:49]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-green">* jt1134 is now known as jt|snowballfight</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;UberPinguin&gt; Anyone have the Nexus S kernel source downloaded?</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-navy">* magote (~magote@a79-169-106-110.cpe.netcabo.pt) Quit ()</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;coolya&gt; sure</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;UberPinguin&gt; Does it contain arch/arm/plat-s3c/include/mach/regs-clock.h ?</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;UberPinguin&gt; damn</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;coolya&gt; bit it will be in s5p i guess</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;UberPinguin&gt; Yes, I have that; but the kernel build is also looking for it in s3c</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;coolya&gt; .32 kernel ?</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;UberPinguin&gt; Oh, d'oh</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;UberPinguin&gt; I gave the wrong plat</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;UberPinguin&gt; er path</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;coolya&gt; xD</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;UberPinguin&gt; Does it contain arch/arm/plat-s3c/include/plat/regs-clock.h ?</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;UberPinguin&gt; (yes, 32.9 kernel)</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;UberPinguin&gt; bugger</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;coolya&gt; there is no plar-s3c</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;coolya&gt; plat</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;coolya&gt; <a href="https://github.com/coolya/android_kernel_samsung/tree/android-samsung-2.6.35/arch/arm">https://github.com/coolya/android_kernel_samsung/tree/android-samsung-2.6.35/arch/arm</a></span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;UberPinguin&gt; thanks</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;UberPinguin&gt; Oh, interesting</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;UberPinguin&gt; hmm</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;coolya&gt; for what are u missing that file?</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;UberPinguin&gt; I'm trying to build a 32.9 kernel for the Epic, and the build is failing because that file is missing</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;coolya&gt; hmm</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;UberPinguin&gt; It wasn't present at all in 2.6.29, so I'm not sure why it's looking for it in 2.6.32.9</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;UberPinguin&gt; biab, have to go out into the shop</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;UberPinguin&gt; arch/arm/plat-s3c/pm.c:27: fatal error: mach/regs-clock.h: No such file or directory   # This is the error, btw</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;UberPinguin&gt; ..Will it break anything if I just disable s3c?.. Since we're not on an s3c SoC afaict</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;UberPinguin&gt; Meh, can't. s5p* selects s3c</span><br />
