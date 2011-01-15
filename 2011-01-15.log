@@ -1,0 +1,74 @@
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;birdman&gt; coolya, what should i look into for fixing this? is the kernel not clearing bootmode= or is the sbl just hating life?</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;coolya&gt; if you have different partitions for recovery the "normal" kernel can ignore the bootmode i guess, but if the sbl load the other one till you flash .29 its bad</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;birdman&gt; how bad is bad? :(</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;birdman&gt; dont tell me i have to wait for samsung :(</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;coolya&gt; the problem is that they might do that reset magic in the init what is closed source</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;coolya&gt; have you flashed the same kernel to both partitions ?</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;birdman&gt; yup</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;birdman&gt; same issue</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;coolya&gt; hm</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;birdman&gt; coolya, does the galaxys bootloader support the /misc partition bootmode= format?</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;coolya&gt; can we confirm some how which kernel it loads? the one from the boot partition or recovery</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;birdman&gt; if bootmode=2 it always boots the recovery partition</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;birdman&gt; if bootmode= is not found, then it boots the regular one</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;coolya&gt; do you use the init binary from galaxy s ?</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;birdman&gt; yes</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;coolya&gt; with the same initramfs for both kernel?</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;birdman&gt; yup</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;coolya&gt; then it could be that it loads the normal kernel and that that kernel sees the bootmode and load the recovery</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;birdman&gt; i tried removing the recovery stuff from the android kernel, but that didnt do anything</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;birdman&gt; it still boots the recovery kernel</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;coolya&gt; hmm okay</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;coolya&gt; that really really bad</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;birdman&gt; ive thought up a work around...but it would be a pain in the ass to implement</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;birdman&gt; and you could never do button press to get into recovery</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;coolya&gt; yes we could make the kernel ignore the buttons and store some magic file or similar that we read at boot</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;coolya&gt; some "misc" partition light :-D</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;birdman&gt; yeah thats what i was going to do :P</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;coolya&gt; that was my thought for adding adb reboot recovery support again, too :-D</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;coolya&gt; but we might use something like the last_kmsg thing</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;coolya&gt; that stors that in the ram</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;coolya&gt; just reserver 1k at a physical address</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;coolya&gt; and write some magic value there</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;coolya&gt; read it in init</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;coolya&gt; and if it hase some magic value go to recovery</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;birdman&gt; and recovery clears that magic value</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;birdman&gt; on reboot</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;coolya&gt; we can set it in the reboot handler</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;coolya&gt; oh wait</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;coolya&gt; there is magic for something like  that</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;birdman&gt; there is?</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;coolya&gt; they store the bootmode is some register on nexus s</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;coolya&gt; we might just read that value</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;birdman&gt; is that the problem with my phone? they store the value there but its not clearing it?</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;coolya&gt; hmm i'm not sure if the samsung bootload reads that value</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;coolya&gt; could look at the bootloader clear as may disassembler license only supports elf binaries :-D</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-brown">-barjavel.freenode.net- *** Looking up your hostname...</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-brown">-barjavel.freenode.net- *** Checking Ident</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-brown">-barjavel.freenode.net- *** No Ident response</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-brown">-barjavel.freenode.net- *** Found your hostname</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-green">* cmsgsteam-logger (~PircBot@cmsgs.com) has joined this channel.</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-green">* Topic is 'SGS CyanogenMod developers and testers (and other kernel and android hackers) - <a href="http://www.cmsgs.com/'">http://www.cmsgs.com/'</a></span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-green">* Set by atinm|night!~atin@unaffiliated/atinm on Sun Dec 19 02:05:32 GMT 2010</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-brown">-ChanServ- [#__topsecret__] SGS-CM6 developers and testers only pls. Others could be kickbanned if not contributing to the channel's function.</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-green">* ChanServ sets mode +o cmsgsteam-logger</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;birdman&gt; coolya, ps: init from eclair does work</span><br />
+<span class="irc-date">[11:23]</span> <span class="irc-black">&lt;birdman&gt; but using the eclair init doesnt fix anything</span><br />
+<span class="irc-date">[11:26]</span> <span class="irc-black">&lt;coolya&gt; can echo to it ?</span><br />
+<span class="irc-date">[11:34]</span> <span class="irc-black">&lt;birdman&gt; apparently not</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;birdman&gt;  /drivers/misc/fsa9480.c in .35 and /drivers/usb/gadget/fsa9480_i2c.c in .29</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;birdman&gt; thats what creates that interface</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;birdman&gt; thats what the samsung init uses to communicate bootmode</span><br />
+<span class="irc-date">[11:36]</span> <span class="irc-black">&lt;birdman&gt; im nearly 100% sure of it</span><br />
+<span class="irc-date">[11:49]</span> <span class="irc-black">&lt;birdman&gt; hmmm maybe thats not it</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;birdman&gt; interestingly enough...there appears to be a way to boot galaxy s phones off of usb</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;birdman&gt;  usbstatus = usbon | jigusbon | jigusboff |MicroJigUSBOnStatus | MicroJigUSBOffStatus;</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;coolya&gt; yes i use them to get serial console over usb to the bootloader and kernel</span><br />
+<span class="irc-date">[11:54]</span> <span class="irc-black">&lt;birdman&gt; can i do that? :P maybe it'll tell me where bootmode gets stored</span><br />
+<span class="irc-date">[11:54]</span> <span class="irc-black">&lt;coolya&gt; you will need some resistors and a 3.3V usb to serial converter ;-)</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-black">&lt;birdman&gt; so i need to make a serial to micro usb cable?</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[11:56]</span> <span class="irc-black">&lt;coolya&gt; oh no, it is usinf tty signals</span><br />
+<span class="irc-date">[11:56]</span> <span class="irc-black">&lt;coolya&gt; normal pc will use higher voltage 5V signals</span><br />
