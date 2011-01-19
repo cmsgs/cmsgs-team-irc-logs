@@ -139,3 +139,45 @@
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;UberPinguin&gt; :p</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;coolya&gt; you need a tty usb converter</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;coolya&gt; the 5v of a normal one will fry your phone</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;UberPinguin&gt; Though.. since my phone is currently on RFS, I guess the lack of RFS support would explain why it won't boot</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;coolya&gt; but it shouldn't loop</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;coolya&gt; i should hang after init</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;UberPinguin&gt; Ah. It doesn't get that far; it also locks up if you plug it in while the phone is off, and the battery logo gets stuck on the screen and corrupted</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;coolya&gt; maybe removing anything from init.rc then adb will bring you a step forward</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;UberPinguin&gt; Back on the USB adapter for a sec; the one I have right now takes a full-size USB port on one end, and provides a RS-232 Serial port on the other.  I use it with Cisco terminal cables.</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;UberPinguin&gt; Guess I need one with a microUSB</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-green">* Kaos_ (~Kaos@2001:470:1f05:8cf:230:67ff:fe4c:1c3f) has joined this channel.</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;coolya&gt; gimmie a second there was some info on xda how to do</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;coolya&gt; <a href="http://forum.xda-developers.com/showpost.php?p=9259956&amp;postcount=26">http://forum.xda-developers.com/showpost.php?p=9259956&amp;postcount=26</a></span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;birdman&gt; UberPinguin, for mknod i have to have some kernel code to support it right? can i really just create it out of thin air?</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;UberPinguin&gt; birdman: You can create the nodes; whether they will be functional will depend on the kernel code.  But we have the DPRAM/OneDRAM code, so I don't think that part is a problem.</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;UberPinguin&gt; coolya: Thanks</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;UberPinguin&gt; birdman: It probably should be handled in udev, but I don't know how to write the rules for that</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-navy">* magote (~magote@a79-169-106-110.cpe.netcabo.pt) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-green">* magote (~magote@a79-169-106-110.cpe.netcabo.pt) has joined this channel.</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;UberPinguin&gt; coolya: <a href="http://garr.me/?p=315">http://garr.me/?p=315</a>  Looks like an interesting augmentation of the instructables article</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;coolya&gt; if you supply the resistor value the sgs will power up and the usb port will turn into a uart which the bootloaders and kernel print to</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;coolya&gt; you can enter serial console on the bootloader if you hammer the enter key fast enough ;-)</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;UberPinguin&gt; haha</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;UberPinguin&gt; This'll be very handy, thank you; has your .35 kernel been tested on an Epic yet?</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;coolya&gt; nope afaik not</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;birdman&gt; a quick scan of libsec-ril.so in a hex editor reveals a lot of cdma stuff...</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-green">* skeeterslint (~skeetersl@c-71-192-215-99.hsd1.ma.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-green">* ciwrl|away is now known as ciwrl</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;Kaos_&gt; Any of you guys had problems with the touchscreen when using samsung's stock libhardware?</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-navy">* birdman (~Steven@137.sub-75-200-179.myvzw.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;coolya&gt; is there really anything related to TS in libhw ?</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;Kaos_&gt; I wouldn't have thought so.</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;Kaos_&gt; TS works fine with my CM6 hardware lib, but not samsungs.</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;Kaos_&gt; GPS works in samsungs, but not CM6.</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;Kaos_&gt; It detects and loads the TS keylayouts with BOTH libs...</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;coolya&gt; didn't have any kind of that issue on GT-I9000 even with samsung hw lib at the beginning of dev</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;Kaos_&gt; :/ Yeah, and Jt1134 has it working fine in AOSP.</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;Kaos_&gt; just doesn't want to play nice with my build of CM6 for some reason...</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;UberPinguin&gt; coolya: Woot. Got to the KANGED bootscreen; loop after that, but expected since no RFS driver</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;coolya&gt; ;-)</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;UberPinguin&gt; hm no ADB, though</span><br />
