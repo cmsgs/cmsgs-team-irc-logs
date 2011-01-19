@@ -181,3 +181,42 @@
 <span class="irc-date">[20:55]</span> <span class="irc-black">&lt;UberPinguin&gt; coolya: Woot. Got to the KANGED bootscreen; loop after that, but expected since no RFS driver</span><br />
 <span class="irc-date">[20:56]</span> <span class="irc-black">&lt;coolya&gt; ;-)</span><br />
 <span class="irc-date">[20:56]</span> <span class="irc-black">&lt;UberPinguin&gt; hm no ADB, though</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;UberPinguin&gt; Guess I'll have to bite the bullet and hop onto ext4</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-navy">* Deodexed (~deodexed@alldroid/admin/Deodexed) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;coolya&gt; it shouldn't loop even if it can't mount anything</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-green">* Deodexed (~deodexed@alldroid/admin/Deodexed) has joined this channel.</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;UberPinguin&gt; ok. I'm doing a second build with an init.rc that *should* just start adb and nothing else</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;coolya&gt; you can remove the "critical" services from the init.rc</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;coolya&gt; and leaf adb in it</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="http://paste.pocoo.org/show/323513/">http://paste.pocoo.org/show/323513/</a>  is the speshul init.rc I set up</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;UberPinguin&gt; er no</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;UberPinguin&gt; wrong one</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="http://paste.pocoo.org/show/323518/">http://paste.pocoo.org/show/323518/</a>  THAT one</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;UberPinguin&gt; Hm, still loops without starting adb</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;coolya&gt; i think you will need the rest that is in "on boot" just remove the sevices not all the code above them</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;UberPinguin&gt; Oh, ok</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;UberPinguin&gt; Nada, just loops.</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;UberPinguin&gt; The blue LED comes on, but nothing on adb</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;UberPinguin&gt; I'll order the parts to build that cable :)</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;UberPinguin&gt; coolya: Did you need the ExtUSB Breakout Board, too?  Or just the UARTSB ?</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;coolya&gt; i have a breakout boar from sparkfun for the micro usb</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-green">* thedood is now known as ElDuderino</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-green">* ElDuderino is now known as w00tr00t</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-green">* w00tr00t is now known as eldood</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="http://www.sparkfun.com/products/9614">http://www.sparkfun.com/products/9614</a>  &lt;-- Like this?</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;coolya&gt; there is a one with male connector</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;coolya&gt; <a href="http://www.sparkfun.com/products/10031">http://www.sparkfun.com/products/10031</a></span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;coolya&gt; thats what i own</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;UberPinguin&gt; Ahh</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-green">* eldood is now known as thedood|n1</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-green">* thedood|n1 is now known as thedude|away</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-green">* thedude|away is now known as thedudeTM_</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-green">* thedudeTM_ is now known as eldude</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-green">* eldude is now known as eldood</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;coolya&gt; night guys</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Ping timeout: 265 seconds)</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;UberPinguin&gt; night coolya|away</span><br />
