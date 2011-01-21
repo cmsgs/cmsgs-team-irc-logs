@@ -35,3 +35,50 @@
 <span class="irc-date">[21:33]</span> <span class="irc-black">&lt;TCMAN-web&gt; is there any place with dump of Nexus S rom, including gl drivers etc? have gl driver sources been released?</span><br />
 <span class="irc-date">[21:34]</span> <span class="irc-black">&lt;TCMAN-web&gt; it looks like some flags in gralloc.h have changed from froyo to gingerbread and binary gralloc library cannot be used with cm7</span><br />
 <span class="irc-date">[21:52]</span> <span class="irc-green">* Froz3n (561e16a5@gateway/web/freenode/ip.86.30.22.165) has joined this channel.</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;Froz3n&gt; WOOO</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;Froz3n&gt; Finally got CM7 working</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;TCMAN-web&gt; Froz3n: on what?</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;TCMAN-web&gt; what gl driver did you use?</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;Froz3n&gt; TCMAN-web: Just the CM7 test for i9000</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;Froz3n&gt; No dev stuff ;)</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;Froz3n&gt; sorry :S</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;TCMAN-web&gt; hmm, could you post link to the zipfile/image? i have hell of a time getting it to work on my galaxytab because of gralloc changes from froyo</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;TCMAN-web&gt; hmm, i see there is some stuff in coolya's depot</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-green">* jt1134 is now known as jt|f00d</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-navy">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;Froz3n&gt; anyone know how to restore efs?</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;Froz3n&gt; I got modem working but I have the wrong imei etc</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;Froz3n&gt; I got the folder with all of its contents</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;coolya&gt; just copy the files and don'T forget the hidden ones</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;Froz3n&gt; that didnt work :(</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;Froz3n&gt; I copied the whole /efs folder onto my computer previously with root explorer and then adb pushed it back</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;Froz3n&gt; it shows signal strength and baseband</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;Froz3n&gt; etc</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;Froz3n&gt; JPY</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;Froz3n&gt; any idea? :(</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;coolya&gt; when did you pushe it, in recovery?</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;Froz3n&gt; yes</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;Froz3n&gt; should I delete it and try again?</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;coolya&gt; are ther files starting with . in the folder on you pc ?</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;Froz3n&gt; yes</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;Froz3n&gt; .imei, .nv_data.bak etc</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;Froz3n&gt; they dont show up on the phone though I dont think</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;Froz3n&gt; only .nv_state is there</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;Froz3n&gt; coolya: any idea?</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;coolya&gt; wipe the partition and try again :-)</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;coolya&gt; go to recovery, unmount efs if it isn't</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;coolya&gt; run erase_image efs</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;coolya&gt; reboot, mount it and push the files back</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;Froz3n&gt; wooo</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;Froz3n&gt; I just deleted it with root explorer</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;Froz3n&gt; pushed it from desktop</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;Froz3n&gt; and it worked =D</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;Froz3n&gt; thanks man :)</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;coolya&gt; ok that might work :-D</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;Froz3n&gt; Its awesome fast as well</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;coolya&gt; good ;-)</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;Froz3n&gt; Great work</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;Froz3n&gt; another donation in a week for you :P</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;coolya&gt; but freespace on yaffs2 is a bit tricky</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;Froz3n&gt; yeah I had that issue when doing that command</span><br />
