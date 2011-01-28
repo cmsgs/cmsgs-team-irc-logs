@@ -101,3 +101,109 @@
 <span class="irc-date">[21:58]</span> <span class="irc-black">&lt;gregounech&gt; Okay i'm gonna reflash</span><br />
 <span class="irc-date">[21:58]</span> <span class="irc-black">&lt;gregounech&gt; want me to reflash only 2701 nightly</span><br />
 <span class="irc-date">[21:58]</span> <span class="irc-black">&lt;gregounech&gt; or kernel as well ?</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;gregounech&gt; codeworkx ?</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;codeworkx&gt; ya?</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;codeworkx&gt; only kernel</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;codeworkx&gt; oh, i've not uploaded a single kernel</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;codeworkx&gt; extract the zip, and repack the zImage (tar)</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;codeworkx&gt; then flash with heimdall/odin</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-green">* wArri (~dave.will@rrcs-72-45-254-78.nys.biz.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;gregounech&gt; I take the zImage in the update 2701 ?</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;gregounech&gt; then rename the file to tar ?</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;gregounech&gt; that's all ?</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;codeworkx&gt; tar the zImage</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;codeworkx&gt; at linux</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;codeworkx&gt; not at windows</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;gregounech&gt; ok</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;gregounech&gt; I'll switch to Ubuntu then</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;gregounech&gt; be back in 1 min</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;UberPinguin&gt; coolya: ping</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;codeworkx&gt; :-P</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;codeworkx&gt; coolya: pong</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;coolya&gt; pong :-D</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-green">* Gregounech_ (6dd2d1b9@gateway/web/freenode/ip.109.210.209.185) has joined this channel.</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;Gregounech_&gt; Allright here I am</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-navy">* gregounech (6dd2d1b9@gateway/web/freenode/ip.109.210.209.185) Quit (Ping timeout: 265 seconds)</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;Gregounech_&gt; I need to use the tar command right ? Sorry, i'm a linux noob</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;UberPinguin&gt; coolya: <a href="https://github.com/coolya/cyanogenmod_initramfs">https://github.com/coolya/cyanogenmod_initramfs</a>   Is this a froyo-targeted initramfs?</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;coolya&gt; UberPinguin: yes</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;UberPinguin&gt; OK, thanks</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;UberPinguin&gt; Oh.. does it do any ext4 stuff? Or is it still RFS?</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;coolya&gt; it is ext4 for all but efs</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;UberPinguin&gt; Gregounech_: tar vczf somefile.tar.gz &lt;sourcedirectory&gt;   Will create a tar archive from &lt;sourcedirectory&gt; named somefile.tar, and gzip that into somefile.tar.gz</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;Gregounech_&gt; ok</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;Gregounech_&gt; thx</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;UberPinguin&gt; v=verbose, c=create, z=gzip, f=filename follows</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;Gregounech_&gt; Hum, error, still creates a tar file but with nothing in it</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;UberPinguin&gt; Please paste the exact line you used</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;Gregounech_&gt; did tar vzcf kernel.tar.gz home/greg/zImage</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;Gregounech_&gt; that should work no ,</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;Gregounech_&gt; ?</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;UberPinguin&gt; FRom what directory did you execute that?</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;UberPinguin&gt; Also, gziping the zImage will not gain you anything.  It's already compressed.</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;UberPinguin&gt; Gregounech_: Maybe I need to backtrack a moment.  What are you attempting to achieve?</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;Gregounech_&gt; get zImage to a tar file</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;Gregounech_&gt; to flash it on Odin</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;UberPinguin&gt; OK. Where is the zImage located, relative to where you are right now?</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;Gregounech_&gt; And i'm new to Linux, so I just launched the terminal from the applications menu</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;UberPinguin&gt; Tell me what "pwd" says</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;Gregounech_&gt; home/greg/zImage</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;Gregounech_&gt; pwd ?</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;Gregounech_&gt; greg@greg-System-Product-Name:~ this ,</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;Gregounech_&gt; ?</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;UberPinguin&gt; No, but that tells me what i wanted anyway</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;UberPinguin&gt; tar cf kernel.tar zImage</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;Gregounech_&gt; ok</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;Gregounech_&gt; worked</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;Gregounech_&gt; thanks</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;Gregounech_&gt; so I can flash this on Odin now right ,</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;Gregounech_&gt; ?</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;UberPinguin&gt; That part I don't know, I've never tried to flash a self-packed tar via Odin.</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;UberPinguin&gt; You could flash just the zImage using Heimdall</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;Gregounech_&gt; That's what codeworkx suggested me</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;UberPinguin&gt; Are you on a 32-bit or a 64-bit Ubuntu installation?</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;Gregounech_&gt; oh really</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;Gregounech_&gt; 64</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;UberPinguin&gt; OK, then the precombiled Heimdall binaries will work for you</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;UberPinguin&gt; er precompiled*</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;Gregounech_&gt; I dl this one ? <a href="https://github.com/downloads/Benjamin-Dobell/Heimdall/heimdall_1.1.1-1_amd64.deb">https://github.com/downloads/Benjamin-Dobell/Heimdall/heimdall_1.1.1-1_amd64.deb</a></span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;Gregounech_&gt; Or the tar.gz one ,</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;Gregounech_&gt; ?</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;UberPinguin&gt; The deb; also get the frontend one.</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;Gregounech_&gt; I downloaded the 6.4Mb tar.gz file, extracted it, seems like frontend + deb is in this one</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;UberPinguin&gt; hm ok</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;Gregounech_&gt; ok i installed both</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;Gregounech_&gt; launched frontend right</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;Gregounech_&gt; then I need to choose zImage and just go ,</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;Gregounech_&gt; ?</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;UberPinguin&gt; Put the zImage on the kernel section, and let it fly</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;Gregounech_&gt; ok</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;UberPinguin&gt; (phone has to be in Download Mode and connected to the computer first, of course)</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;Gregounech_&gt; yeah</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="http://paste.pocoo.org/show/328521/">http://paste.pocoo.org/show/328521/</a>  If I can get these 4 lines resolved..</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;Gregounech_&gt; flash done</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;UberPinguin&gt; Give it a boot</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;Gregounech_&gt; in fact I could have done that on windows nope ,</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;Gregounech_&gt; ?</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;Gregounech_&gt; yeah</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;Gregounech_&gt; boots fine</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-navy">* kernelzilla (~patrick@174-17-86-122.phnx.qwest.net) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;UberPinguin&gt; I believe there is a Heimdall for Windows, yeah; but I don't think Odin will take just the naked zImage.</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;Gregounech_&gt; gonna see if I still have crashes because of wifi then</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;Gregounech_&gt; yeah there is Heimdall for windows</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;Gregounech_&gt; so I could have done that with Heimdall on windows</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;UberPinguin&gt; However, in Linux you aren't contending with bugs in Samsung's driers</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;UberPinguin&gt; er drivers</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;Gregounech_&gt; yep</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;Gregounech_&gt; samsung does driers as well ^^</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;UberPinguin&gt; hahah</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;Gregounech_&gt; well I'm switching to Windows again, be back in a sec</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-navy">* Gregounech_ (6dd2d1b9@gateway/web/freenode/ip.109.210.209.185) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-green">* riggnix (RggnX@91-118-56-69.dynamic.adsl-line.inode.at) has joined this channel.</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-green">* Gregounech (6dd2d1b9@gateway/web/freenode/ip.109.210.209.185) has joined this channel.</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;Gregounech&gt; I'm back</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;Gregounech&gt; Did you overclock your i7 2600k codeworkx ?</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;Gregounech&gt; Oh, I saw the answer three tweets after sorry.</span><br />
