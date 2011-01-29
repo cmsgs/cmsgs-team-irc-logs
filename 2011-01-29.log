@@ -108,3 +108,67 @@
 <span class="irc-date">[15:52]</span> <span class="irc-navy">* zimmbi (~Adium@cable-static-242-48.eblcom.ch) Quit (Ping timeout: 276 seconds)</span><br />
 <span class="irc-date">[15:52]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;codeworkx&gt; after my new build is ready i'll upload it</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;zimmbi1&gt; difference from -ota and -update files?</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;zimmbi1&gt; stuck in a loop -  android.database.sqlite.SQLiteException: no such table: android_metadata</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;zimmbi1&gt; can't flash any files from recovery - E: no misc partition</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;coolya&gt; you can ignore that error</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;zimmbi1&gt; but i can't flash the modem</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;coolya&gt; you try to flash a update.zip from samsung kernel ?</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;coolya&gt; that won't work</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;zimmbi1&gt; i try to flash XXJPY_Modem.zip</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;zimmbi1&gt; hmm ok</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;coolya&gt; that will try to write to the bml stuff that is not there in our kernel</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;coolya&gt; mtd5 is the modem partition</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;zimmbi1&gt; i've flashes efsbackup then initial-kernel with odin, then initial.zip and then reboot, now it doesn't boot up</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;coolya&gt; you can use dd to write a modem there</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;coolya&gt; you did a wipe ?</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;zimmbi1&gt; followed the instructions - format system, data and cache</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;zimmbi1&gt; should i do a wipe too?</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;coolya&gt; data format is the same like wipe :-)</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;zimmbi1&gt; dd if=/sdcard/modem.bin of=/dev/mtd/mtd5</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;zimmbi1&gt; right?</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;coolya&gt; if think is should be /dev/block/mtd5&lt;blah&gt; or something</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;zimmbi1&gt; mtdblock5</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;zimmbi1&gt;  /dev/block/mtdblock5</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;zimmbi1&gt; do i need to do that or is a modem already included in initial?</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;Gregounech&gt; codeworkx told me everything is included</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;coolya&gt; nur suer but it should boot without modem</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;Gregounech&gt; in initial</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;Gregounech&gt; oh 29/01 update</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;codeworkx&gt; still uploading</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;Gregounech&gt; ok</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;Gregounech&gt; what's fixed ?</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;codeworkx&gt; dont flash any modem. it's all included</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;zimmbi1&gt; ok</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;Gregounech&gt; You have optic fiber ? Cause you're uploading super quickly.</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;codeworkx&gt; follow instructions on readme? xD</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;codeworkx&gt; docsis</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;zimmbi1&gt; yes i do</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;zimmbi1&gt; boot logo loop</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;zimmbi1&gt; now done a wipe</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;zimmbi1&gt; it's up now</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;Gregounech&gt; Yeah still fast</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;Gregounech&gt; I have 250KB/s dl, 40KB/s up :(</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;codeworkx&gt; 4MB/s down, 200kb/s up</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;coolya&gt; 6MB/s down, 1.2MB/s up :-D</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;codeworkx&gt; wtf</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;zimmbi1&gt; is the kernel included in update packages or do i need to flash them too?</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;Gregounech&gt; <a href="http://img709.imageshack.us/img709/4875/fuuuuuuuuuuuu.jpg">http://img709.imageshack.us/img709/4875/fuuuuuuuuuuuu.jpg</a></span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;codeworkx&gt; it's included</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;Gregounech&gt; ^^</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;Gregounech&gt; update done uploading right ?</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;Gregounech&gt; I can download it now</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;Gregounech&gt; What is fixed in this release codeworkx ?</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;codeworkx&gt; touchkey feedback</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;Gregounech&gt; cool</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;codeworkx&gt; merged mainline stuff the whole day</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;codeworkx&gt; maybe some new cool features</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;codeworkx&gt; tested 29 initial package on brothers phone. works fine</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;Gregounech&gt; ok</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;Gregounech&gt; gonna flash the update package now</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;zimmbi1&gt; MD5 (cm7-galaxys-update-20110129.zip) = bfd64a3fc38b38532600d72ef21b32af</span><br />
