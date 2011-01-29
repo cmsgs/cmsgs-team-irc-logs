@@ -1,0 +1,49 @@
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;codeworkx&gt; this crappy bootloader doesn't like the android magic (header) at boot.img. so i simply cut it off xD</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;codeworkx&gt; but i'm sure we'll solve this</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;codeworkx&gt; best way: kill this bootloader</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="http://paste.pocoo.org/show/328543/">http://paste.pocoo.org/show/328543/</a>    Based on that snippet, one would expect that setting CONFIG_ONEDRAM_DGSINFO and/or CONFIG_ONEDRAM_READ_FSR would result in those headers being included, right?</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;UberPinguin&gt; But, instead, I get <a href="http://paste.pocoo.org/show/328521/">http://paste.pocoo.org/show/328521/</a></span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;codeworkx&gt; hehe</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;UberPinguin&gt; Also, I had to modify the includes because they were pointing at the wrong locations &gt;_&lt;</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;UberPinguin&gt; I sincerely believe that Samsung publishes broken sources to appear GPL-compliant without actually providing useful data.</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;codeworkx&gt; at JPM sources they deleted some folders (rfs) but didn't clean the makefiles xD</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;UberPinguin&gt; Yeah, same in JPX</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;codeworkx&gt; next device = HTC</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;UberPinguin&gt; I had to make some dummy makefiles to get distclean to run :p</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;codeworkx&gt; did that too xD</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;UberPinguin&gt; I've never worked with HTC's sources; are they reasonably complete?</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;codeworkx&gt; our nexus s sources are really clean compared to JPX</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;UberPinguin&gt; hm</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;UberPinguin&gt; Yeah, but I don't think the Nexus S sources have what's needed for the CDMA/WiMAX phones to work.</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;codeworkx&gt; dont know</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;codeworkx&gt; if i plug my i9000 to my computer, windows says "Nexus S" xD</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;UberPinguin&gt; lol</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;codeworkx&gt; but doesn't matter. it's working fine xD</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;UberPinguin&gt; Guess I'll see if I can get something built from an NS checkout, then. I think I'm going to give up on JPX being worth a damn.</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;codeworkx&gt; give it a try</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/coolya/android_kernel_samsung">https://github.com/coolya/android_kernel_samsung</a></span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/coolya/gingerbread-galaxys-initramfs">https://github.com/coolya/gingerbread-galaxys-initramfs</a></span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-navy">* jeagoss (jef@i.kanged.kingklick.org) Quit (Quit: leaving)</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;UberPinguin&gt; I'd like to build a froyo kernel, though</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;UberPinguin&gt; My phone doesn't have a working gingerbread yet</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;codeworkx&gt; royo is out xD</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;codeworkx&gt; froyo is damn old</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;codeworkx&gt; froyo is like ms dos 6.2</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;UberPinguin&gt; lol</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;UberPinguin&gt; Testing it is much simpler on my phone, because I can just bounce back and forth between kernels</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;codeworkx&gt; think we should make a video of gingerbread on sgs</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;UberPinguin&gt; I don't have to flash an entire experimental ROM</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;codeworkx&gt; it's not experimental. using it since christmas as daily</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;UberPinguin&gt; Yeah, but my phone has major differences ;)</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;UberPinguin&gt; The Epic is the redheaded stepchild of Galaxy S</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;codeworkx&gt; then fix it</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;codeworkx&gt; i'll go to bed. cya</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;UberPinguin&gt; gnite</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-green">* jeagoss (jef@i.kanged.kingklick.org) has joined this channel.</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-green">* Pedlar (~mkoenig@vps4590.inmotionhosting.com) has left this channel.</span><br />
