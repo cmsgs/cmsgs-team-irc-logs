@@ -283,3 +283,32 @@
 <span class="irc-date">[19:46]</span> <span class="irc-black">&lt;Gregounech&gt; so it should be allright afterwards</span><br />
 <span class="irc-date">[19:47]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
 <span class="irc-date">[19:52]</span> <span class="irc-green">* Wout (~Wout@s53758cbd.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;Gregounech&gt; So the actual wifi sleep stuff should be fixed now ?</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;coolya&gt; we don't fix bugs, we only add some :-P</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;Gregounech&gt; OK</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;Gregounech&gt; ^^</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;jscurtu&gt; Hi every one... my wifi is fucked ip :-) I should of read this before going on my own ... I compiled a update with ota_galaxys.sh and kernel faild to install.. this is known I guess</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;codeworkx&gt; no, it works fine</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;jscurtu&gt; hmmm .. than I wonder what could have gone wrong.. I am compiling again and will see</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;codeworkx&gt; build a new kernel and flash it using odin</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;codeworkx&gt; after this your updates will work</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;jscurtu&gt; yeah I'll go for that</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;codeworkx&gt; or do a cat /proc/mtd</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;codeworkx&gt; and you'll see that your boot partition is named "kernel" and you're trying to flash to a partition named "boot"</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;codeworkx&gt; that will not work</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;jscurtu&gt; let me check that out...</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;jscurtu&gt; you are right</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;jscurtu&gt; its kernel</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;jscurtu&gt; so do I just change the updater script to "kernel" ?</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;codeworkx&gt; flash a new kernel using odin</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;codeworkx&gt; it's easier</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;jscurtu&gt; sure.... but if I understand correct then this changed for future builds right?</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;coolya&gt; the partition is renamed in the current source</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;coolya&gt; it will work like a charm in the future ;-)</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;Wout&gt; does the new partition naming require a wipe? or can I flash the new kernel and update 29b?</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;Wout&gt; on top of my current 27 build</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;coolya&gt; can do that without wipe</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;Wout&gt; k,thx</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;jscurtu&gt; codeworkx, can this cause Nandroid to fail ?  because I am not able to do a nandroid backup..</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-green">* noobnl|m (~noobnl@unaffiliated/noobnl) has joined this channel.</span><br />
