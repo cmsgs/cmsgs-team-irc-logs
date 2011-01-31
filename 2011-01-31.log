@@ -112,3 +112,87 @@
 <span class="irc-date">[20:53]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
 <span class="irc-date">[20:54]</span> <span class="irc-black">&lt;zimmbi1&gt; ok i see what i can do, cu tomorrow</span><br />
 <span class="irc-date">[20:54]</span> <span class="irc-navy">* zimmbi1 (~Adium@cable-static-242-48.eblcom.ch) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-green">* birdman (~Steven@24.246.130.106) has joined this channel.</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;birdman&gt; coolya, do i have to wipe a newly made mtd partition before i can mount it?</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;birdman&gt; im having troubles getting my mtdpartitions mounted in a .32 kernel</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;coolya&gt; yes you have to run erase_image &lt;partition name&gt; e.g. system</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;coolya&gt; you are running mtd on .32? :-)</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;birdman&gt; do i have to format it as yaffs2 or will that be done for me?</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;birdman&gt; coolya, yup :)</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;coolya&gt; yaffs will format it when there is no fs</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;birdman&gt; coolya, using the stock mtd's that it seems to have set up automagically</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;birdman&gt; i dont quite trust them tho</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;birdman&gt; /dev/block # cat /proc/mtd</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;birdman&gt; dev:    size   erasesize  name</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;birdman&gt; mtd0: 00040000 00040000 "misc"</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;birdman&gt; mtd6: 14800000 00040000 "userdata"</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;birdman&gt; /dev/block # uname -r</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;birdman&gt; 2.6.32.9</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;birdman&gt; /dev/block #</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;birdman&gt; strangely it gave me a misc partition :o</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;birdman&gt; i wonder if my bootloader supports that...</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;coolya&gt; birdman: you can mount param.lfs as ext2 ?</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;coolya&gt; had no luck when i did it</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;birdman&gt; ive done it before, in .29, but i think i had to keep the param.ko module</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;birdman&gt; /dev/block # erase_image /dev/block/mtdblock4</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;birdman&gt; can't find /dev/block/mtdblock4 partition/dev/block #</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;coolya&gt; hmm i noticed on .32 when you try to mount something and it is going wron it mounts param.lfs at that place</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;coolya&gt; mtd4 dosen show in proc/mtd ?</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;birdman&gt; it does</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;birdman&gt; and its there</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;birdman&gt; but erase_image cant find it...</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;coolya&gt; then you have to do erase_image &lt;name from /proc/mtd&gt;</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;birdman&gt; cannot find mtd4</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;birdman&gt; oh there we go</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;birdman&gt; now how to i mount it? :P</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;birdman&gt; mount -t yaffs2 /dev/block/mtdblock4 /system doesnt work</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;birdman&gt; says "no such device"</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-green">* jt1134 (~jt1134@c-71-207-226-80.hsd1.al.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;coolya&gt; can you cd to /system ?</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;birdman&gt; well thats shady, rebooted the phone after erase_image and my kernel is apparently gone....</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;birdman&gt; hurray for download mode</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;birdman&gt; maybe i shouldnt trust these shady mtd partitions</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;coolya&gt; if we could see the addresses where the pratitions start</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;coolya&gt; we could see whats mapped where</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;birdman&gt; its all there in the code</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;birdman&gt; ill pastebin the stock mtd partition layout</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;birdman&gt; its kinda weird</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;birdman&gt; coolya, <a href="http://pastebin.com/Dfe8JAus">http://pastebin.com/Dfe8JAus</a></span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;coolya&gt; wooooo</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;coolya&gt; that is dangerous :-D</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;coolya&gt; what partition did you erase ?</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;birdman&gt; system</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;birdman&gt; 4</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;birdman&gt; my phones ok...booting up now after a complete heimdall restore</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;coolya&gt; yes is should be but it is very near to the sbl</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;birdman&gt; im gonna just use the ones i had set up in .35</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;coolya&gt; are you sure that they are right? the values looked very high to me when i looked at you source</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;birdman&gt; yeah, pretty sure</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;birdman&gt; however, it looks like my board doesn't isn't supposed to have its modem in a mtd partition...userdata goes till the end</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;birdman&gt; and that layout is from s5pc110.c</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;coolya&gt; damn github webinterface is broken for me :-(</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;birdman&gt; :(</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;coolya&gt; your /system is ~390MB ?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;birdman&gt; hold on ill get exact sizes in a second</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;birdman&gt; attempting to change the mtd partitions seems to have broken it :/</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;birdman&gt; the kernel that is</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;birdman&gt; <a href="http://pastebin.com/wKA7ziEh">http://pastebin.com/wKA7ziEh</a></span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;birdman&gt; coolya, ^^</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-green">* Clust3r_ (~Clust3r@gateway.area-hosting.com) has joined this channel.</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;coolya&gt; hmm</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;birdman&gt; i dont think 256K pages are supported by this code...that may be why</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;birdman&gt; i fail...lol</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;birdman&gt; the first 512K is bootloader stuff right?</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;coolya&gt; es</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;birdman&gt; so - 		.offset		= (512*SZ_1K), should be safe right?</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;birdman&gt; to start recovery at?</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;coolya&gt; that is the PBL</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;coolya&gt; then there is SBL and param.lfs stuff</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;codeworkx&gt; erase_image system</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;birdman&gt; ahhh</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;codeworkx&gt; erase_image boot</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;codeworkx&gt; erase_image misc</span><br />
