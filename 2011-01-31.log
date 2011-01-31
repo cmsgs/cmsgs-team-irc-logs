@@ -196,3 +196,87 @@
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;birdman&gt; ahhh</span><br />
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;codeworkx&gt; erase_image boot</span><br />
 <span class="irc-date">[22:00]</span> <span class="irc-black">&lt;codeworkx&gt; erase_image misc</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;codeworkx&gt; and so on</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;birdman&gt; :)</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;codeworkx&gt; flash_image system system.img</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;codeworkx&gt; fyi</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-navy">* jt1134 (~jt1134@c-71-207-226-80.hsd1.al.comcast.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-green">* jt1134 (~jt1134@c-71-207-226-80.hsd1.al.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@christiantechsaz.com) Quit (Ping timeout: 265 seconds)</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;birdman&gt; coolya, so the recovery partition actually starts quite a ways down then</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;birdman&gt; codeworkx, can i use flash_image to flash a zimage?</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;coolya&gt; kernel should start at .offset		= (72*SZ_256K),</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;coolya&gt; if the layout is the same as the GT-I9000</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;birdman&gt; i know it starts there, but when i set that up...it got all pissy and wouldnt start adb</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;codeworkx&gt; try it</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;codeworkx&gt; our bootloader likes it</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;codeworkx&gt; flash_image boot zImage</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;codeworkx&gt; at updater script you can use write_raw_image to write the zImage to boot</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;nitam|work&gt; I miss being able to play with my phone...</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;nitam|work&gt; but very hard to get motivated with the captivate is like a step-child for Samsung.</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;birdman&gt; it would help if i compiled yaffs2 into my kernel...</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;nitam|work&gt; I wish Samsung would just dump all the code they have, and let us port gingerbread rather than trying to do it themselves</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;nitam|work&gt; just dump the drivers damn it ...</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;nitam|work&gt; we can do the rest.</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;birdman&gt; coolya, -&gt; /dev/block/mtdblock2 on /system type yaffs2 (ro,relatime)</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-brick">* birdman jumps around for joy :)</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;coolya&gt; yeah :-D</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;birdman&gt; bet i can adb push an entire android filesystem into here now and it'll boot? :)</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;nitam|work&gt; birdman: which model phone?</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;birdman&gt; mnita|work, fascinate</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;coolya&gt; birdman: yes but you have adjust some permissions on the bin and vendor/bin folder to make files executable</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;nitam|work&gt; that does it . . . captivate sucks and captivate developers are lazy ;)</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;birdman&gt; coolya, yupps :)</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-navy">* jt1134 (~jt1134@c-71-207-226-80.hsd1.al.comcast.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;birdman&gt; mnita|work, could be worse</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;birdman&gt; you could have an epic</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;nitam|work&gt; right now it looks like unhelpful and gdanko have given up on porting cm7/gingerbread to captivate.</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;nitam|work&gt; and so have i.</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;codeworkx&gt; atinm, some people at sgs cm forums are playing with gingerbread on cap</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;nitam|work&gt; link?</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;nitam|work&gt; need to know where they are at.</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;nitam|work&gt; I was able to boot, but then things don't work right (no wake etc)</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;nitam|work&gt; and it looks like driver issues</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://forum.cyanogenmod.com/topic/14168-gt-i9000-cm7-work-in-progress/">http://forum.cyanogenmod.com/topic/14168-gt-i9000-cm7-work-in-progress/</a></span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;codeworkx&gt; they've used se i9000 stuff, so i created a captivate repo</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/coolya/android">https://github.com/coolya/android</a></span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;codeworkx&gt; follow this readme</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;codeworkx&gt; and after you've built kernel + android you can use releasetools/initial_captivate.sh</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;codeworkx&gt; to create something flashable</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;codeworkx&gt; here are the scripts we're using: <a href="https://github.com/coolya/release-tools">https://github.com/coolya/release-tools</a></span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;nitam|work&gt; yes, I used those too when I was able to boot. no changes to the kernel source?</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;codeworkx&gt; efsbackup -&gt; new kernel -&gt; initial update -&gt; boot and have fun</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;birdman&gt; ive got a bowl of bootloops</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-green">* jt1134 (~jt1134@c-71-207-226-80.hsd1.al.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;nitam|work&gt; my problem was not being able to wake screen with power button, i2c errors in touchkey driver</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;nitam|work&gt; I'll try again.</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;codeworkx&gt; yes give it a try</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;codeworkx&gt; hope it works and you're motivated again to support us on this shit. lets pwn samsung</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;coolya&gt; codeworkx found out something about the screen problem on the weekend</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;codeworkx&gt; MDNIE causes the screen to sleep forever ;-)</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;nitam|work&gt; ah, ok - maybe that will help</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;nitam|work&gt; my screen was definitely asleep  :)</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;codeworkx&gt; if mdnie is enabled and the screen goes off, it will never wake up</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;codeworkx&gt; but i've disabled mdnie on the defconfigs</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;codeworkx&gt; now</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;codeworkx&gt; so you can build as it is</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;codeworkx&gt; should work fine</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;nitam|work&gt; and kdebug was dumping error writing to some i2c address on the touchkey (0x20 was the address)</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;nitam|work&gt; and I thought I had to go port the melfas-touchkey driver and was totally discouraged and stopped.</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;nitam|work&gt; I'll try again. have to repo sync etc again :)</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;birdman&gt; coolya, turns out the j4fs module cant be loaded when mtd is enabled</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;birdman&gt; so there must be some workaround to get param.lfs mounted</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;Unhelpful&gt; no,i juts haven't been working on anything at present. :P</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;coolya&gt; ok who is the lucky guy that has to reverse engineer ? :-D</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;nitam|work&gt; Unhelpful: me neither. well, I have - I cloned a poker stats tracking repo and have been doing some development in python related to that ;)</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;Unhelpful&gt; well if codeworkx is right maybe atinm doesn't have a keyboard driver problem at all ;)</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-brick">* Unhelpful has meant to work on audiomangler next. for a while now. :P</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, that's what I'm hoping. the other captivate users on the thread would have seen it</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;nitam|work&gt; so right now my github is all android + a poker database ;)</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;nitam|work&gt; well, log on from home later..</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-green">* nitam|work (work@work.com) has left this channel.</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;birdman&gt; coolya, thats you :)</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
