@@ -63,3 +63,21 @@
 <span class="irc-date">[16:52]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.68.78) has joined this channel.</span><br />
 <span class="irc-date">[16:53]</span> <span class="irc-green">* atinm (~amalaviya@unaffiliated/atinm) has joined this channel.</span><br />
 <span class="irc-date">[16:53]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-navy">* birdman (~Steven@24.246.130.106) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-green">* zimmbi (~Adium@cable-static-242-48.eblcom.ch) has joined this channel.</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-navy">* zimmbi (~Adium@cable-static-242-48.eblcom.ch) Quit (Client Quit)</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;knowsnotmuch&gt; codeworkx, just an update - did a data wipe and the home key works just fine now</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;codeworkx&gt; strange</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;knowsnotmuch&gt; and with it returned my lockscreen too</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;knowsnotmuch&gt; i thought lockscreen would be part of framework and i tried re-running the update.zip... but it didnt fix it. data wipe did</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;knowsnotmuch&gt; codeworkx, on another problem i have - any known issues with cwm recovery? i had a backup from the 1st install i made (i think 29th version) - i tried to restore /data from it but it reported md5 mismatch</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;knowsnotmuch&gt; even normal restore didnt work...</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;knowsnotmuch&gt; i will try again with this kernel..</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;knowsnotmuch&gt; but just want to check if there are any known issues</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;codeworkx&gt; yes, md5 checksums are not written</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;codeworkx&gt; dont know why</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;knowsnotmuch&gt; ok...</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;codeworkx&gt; have a look at recovery sources</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;codeworkx&gt; maybe you'll find the problem</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;knowsnotmuch&gt; not a dev... but will certainly give it a shot soon... perhaps tomorrow :)</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/CyanogenMod/android_bootable_recovery/blob/gingerbread/nandroid.c#L206">https://github.com/CyanogenMod/android_bootable_recovery/blob/gingerbread/nandroid.c#L206</a></span><br />
