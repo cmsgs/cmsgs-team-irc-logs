@@ -44,3 +44,92 @@
 <span class="irc-date">[2:57]</span> <span class="irc-black">&lt;KhasMek&gt; I thought you wrote it, but the comment confused me, lol.</span><br />
 <span class="irc-date">[2:58]</span> <span class="irc-black">&lt;KhasMek&gt; I've been looking at your BoardConfig.mk, it looks like it should be pretty compatible for me.</span><br />
 <span class="irc-date">[2:59]</span> <span class="irc-black">&lt;KhasMek&gt; going to try and compile voodoo recovery onto my kernel instead of CWM 3.0.0.5</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; cool</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; what is the version of CWM in CyanogenMod repo now? Maybe I should pull the latest</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;KhasMek&gt; not sure, I napped the version from your repo</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;KhasMek&gt; lol</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;KhasMek&gt; think it's the same though</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;KhasMek&gt; I haven't heard of any new updates to it.</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; ok</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; after i will integrate new kernel i will probably start hacking on recovery a little</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;KhasMek&gt; nice</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; at least to fix the basics</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; like installing gapps so noobs will stop bitching</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;KhasMek&gt; Yeah, I want to get the standard voodoo options into my kernel now that I have the kernel itself totally stable.</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; which samsung release do you use for your kernel?</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;KhasMek&gt; but I'm also sick of having a CWM recovery that I can't flash zips with.</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;KhasMek&gt; i800/VZW</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i see</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; update1 brought whole bunch of goodies and little newer wifi driver</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;KhasMek&gt; Yeah, I'm not sure if those will work for me, but I'm not unsure either</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i have checked my cleaned up update1 kernel in my github and i am switchinng my cm7 for tab to use it</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;KhasMek&gt; nice</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i started with vanilla 2.6.32 tree from kernel.org, branched it at 2.6.32.9, then applied international and international update 1 releases to it and then fixed little makefile fuckups</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;KhasMek&gt; did you have to rebuild the initramfs that much to boot CM?</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;KhasMek&gt; or vanilla even?</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; eventually  i will cherry pick some changes from later 2.6.32.10 etc into this kernel too</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;KhasMek&gt; I want to build AOSP 2.2 for it.</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;KhasMek&gt; damn, nice man.</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; my initramfs is a fusion of JK5 initramfs, galaxys cm6 initrams and bunch of my changes</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;KhasMek&gt; nice</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; now i have gingerbread init and ueventd based device initialization</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;KhasMek&gt; yeah, I noticed that earlier.</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;KhasMek&gt; I'm hoping I don't have to do too much initially to get AOSP booting cause I'm learning as I go.</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;KhasMek&gt; but, I'm also doing it so I learn, so either way I guess I win.</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; heh</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; why aosp instead of cm7?</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; cm has all the goodness of aosp and more</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;KhasMek&gt; eh.</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;KhasMek&gt; TBH, I haven't run that much CM. What I have run, I've really really liked.</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;KhasMek&gt; it has all kinds of maddness options of kickassness</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;KhasMek&gt; but AOSP is smoother IMO, and I'm building it for myself. I don't need options out the ear.</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;KhasMek&gt; I think it will be much easier to start with too.</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; smoother?</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;KhasMek&gt; I don't know, it just works better for me.</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;KhasMek&gt; I'm not talkin shit about CM at all. just choosing to start with AOSP.</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;KhasMek&gt; I can always change, or not, in the future.</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; sure</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; its just AOSP probably needs many fixes to get it running on cdma devices</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;KhasMek&gt; you think?</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; well, noobnl was checking in whole bunch of fixes even into our fork of frameworks</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; so aosp -&gt; cyanogenmod -&gt; cmsgs</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; if i were you  i would start from noobnls samsung/device/epic and my samsung/device/galaxytab</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;KhasMek&gt; I'm using the i500's aosp as reference.</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i dont know about RIL, you can try using RIL extracted from your ROM or maybe from the epic that he is using too</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; maybe you can coax it to do voice calls ;-)</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;KhasMek&gt; yeah, I hadn't actually thought about that, lol.</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; do you have any alternative modems for vzw tab?</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;KhasMek&gt; haven't checked.</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;KhasMek&gt; well, no</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;KhasMek&gt; not flashable ones.</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;KhasMek&gt; I doubt vzw has touched the things since they released them.</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; did anyone try to backup the stock one and try flashing modem from epic or something?</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;KhasMek&gt; every time myself or anyone else that I know of tried dumping the modem from the tab it was bad.</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; the gsm modem images seem to be quite interchangeable, how is it in cmda world?</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; ah bummer</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;KhasMek&gt; yeah</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; and there are no leaked cdma roms on samfirmwares?</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;KhasMek&gt; otherwise I would try without hesitation, but there hasn't even been a leaked stock modem dump or anything.</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;KhasMek&gt; naw they just have the p1000 and i987</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; well, i just like gsm devices since i can use them anywhere in the world</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;KhasMek&gt; for sure</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; not to mention whole ESN crap verizon and sprint are doing and blacklisting devices</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;KhasMek&gt; lol</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;KhasMek&gt; I just kinda wish I could flash euro firmware and it would just brick the radio, lol.</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;KhasMek&gt; I don't care about the radio.</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;KhasMek&gt; cell radio*</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; yeah, i think it should be doable to build more or less working cdma rom</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i just dont have device or time to do it</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;KhasMek&gt; Yeah, well, I got nothing else to do.</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;KhasMek&gt; gotta love github for that reason.</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;KhasMek&gt; always something to read and learn.</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;KhasMek&gt; are you still repo syncing?</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; no, it finally finished, rebuiling the tree now</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;KhasMek&gt; nice</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;KhasMek&gt; i'm still doing it.</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;KhasMek&gt; got gun bros though</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;KhasMek&gt; check it out on your tab if it's functional atm.</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; effin pipes are clogged ;-(</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;KhasMek&gt; it's a sick game.</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;KhasMek&gt; totally clogged. need to get some draino up in dem.</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; or coca cola ;-)</span><br />
