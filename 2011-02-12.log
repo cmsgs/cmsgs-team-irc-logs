@@ -603,3 +603,40 @@
 <span class="irc-date">[20:56]</span> <span class="irc-black">&lt;coolya&gt; birdman-laptop: where ?</span><br />
 <span class="irc-date">[20:58]</span> <span class="irc-black">&lt;birdman-laptop&gt; <a href="http://git.denx.de/cgi-bin/gitweb.cgi?p=u-boot/u-boot-samsung.git;a=tree">http://git.denx.de/cgi-bin/gitweb.cgi?p=u-boot/u-boot-samsung.git;a=tree</a></span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-navy">* ytt3r (~evanwilli@adsl-88-105-214.asm.bellsouth.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-green">* ytt3r (~evan@adsl-88-105-214.asm.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;coolya&gt; looks like there is only some "generic S5PV210" board support :-(</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;birdman-laptop&gt; theres some s5pc110 stuff too</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;birdman-laptop&gt; get a jtag set up xD</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;krizzz&gt; is there a simple thing just to upload kernel zimage?</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;birdman-laptop&gt; heimdall is simplest</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;krizzz&gt; if i have to upload new kernel with update.zip everytime this is not going to be fun</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;birdman-laptop&gt; krizzz, heimdall lets you upload a zImage straight to phone</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;birdman-laptop&gt; without update.zip</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;birdman-laptop&gt; it uploads it directly to your kernel partition</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;birdman-laptop&gt; on next boot it will try to boot from your new kernel</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;krizzz&gt; going to give it a try</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;krizzz&gt; hey i fixed the crash for the cyanogenmod settings cpu freq</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;ytt3r&gt; oh really? how?</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;krizzz&gt; just added this here to kernel</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;krizzz&gt; <a href="https://github.com/CyanogenMod/cm-kernel/commit/fec86f92cf6431d09d3e5dac700d2f2c64c0bcff#L0L103">https://github.com/CyanogenMod/cm-kernel/commit/fec86f92cf6431d09d3e5dac700d2f2c64c0bcff#L0L103</a></span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;krizzz&gt; in  arch/arm/mach-s5pv210/cpu-freq.c</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;ytt3r&gt; I'll take a look... thanks</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;krizzz&gt; well actually not really fixed :) but at least it doesnt crash anymore</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;krizzz&gt; i can't change anything</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;krizzz&gt; but sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies is now there and thus the app doesnt crash</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;birdman-laptop&gt; krizzz, i bet you have to edit a few more kernel things to get it fully working</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-navy">* uberushaximus (~uberushax@2001:470:1f11:c4c:225:d3ff:fe46:9fab) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;ytt3r&gt; atinm: I need to be added as a collaborator on your android_kernel_samsung repository</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;atinm&gt; sec</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;atinm&gt; I have to go for a bit</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;atinm&gt; youre added</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;ytt3r&gt; thanks</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-navy">* atinm (~atin@unaffiliated/atinm) Quit (Quit: atinm)</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;krizzz&gt; i guess the problem is simply that this app is not sudo</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;krizzz&gt; anyone knows if this is supposed to work in CM?</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;krizzz&gt; ok the files in /sys dont have permissions for write</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;krizzz&gt; anyone knows if the CM does setup that somewhere?</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;coolya&gt; krizzz: you can set up the perm where the cpufreq_freq_attr_scaling_available_freqs is declared</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;krizzz&gt; coolya, i am a bit of a noob :)</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-navy">* birdman-laptop (~Steven@72.sub-75-225-67.myvzw.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;coolya&gt; just grep out where it is declared then you should be able to set the perm right</span><br />
