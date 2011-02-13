@@ -509,3 +509,18 @@
 <span class="irc-date">[21:58]</span> <span class="irc-black">&lt;h8rift&gt; :)</span><br />
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;atinm&gt; what is the file that shows the last dmesg?</span><br />
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;atinm&gt; .. /proc/last_dmesg?</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;atinm&gt; .. ah /proc/last_kmsg</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-navy">* birdman (~Steven@24.246.130.106) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;atinm&gt; h8rift: techmik67: do you guys not get the random reboot?</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;atinm&gt; my phone randomly reboots, seems related to wifi</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;ytt3r&gt; it is related</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;ytt3r&gt; if you set wifi to never sleep, the random reboots seem to stop</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;atinm&gt; but for some reason my printks are not showing</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;atinm&gt; it happens when wifi is set to suspend, it goes in and fails due to an uninitialized variable</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;atinm&gt; and if I could just see my printks I could make it work ...</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;atinm&gt; I thought CONFIG_DRIVER_DEBUG=y was all I needed to get printk to work</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;ytt3r&gt; check if it's not set anywhere else, that's what tripped us up other times</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;ytt3r&gt; or unset, if that makes any sense</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;atinm&gt; ok, lets see if I can make it crash more reliably by checking the null pointer earlier</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;atinm&gt; if it crashes, maybe I'll see why it is null . . .</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-navy">* ytt3r (~evan@adsl-88-105-214.asm.bellsouth.net) Quit (Quit: I have a good reason to leave.)</span><br />
