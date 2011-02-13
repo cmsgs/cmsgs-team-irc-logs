@@ -274,3 +274,45 @@
 <span class="irc-date">[15:56]</span> <span class="irc-black">&lt;atinm&gt; i just booted with a new brcm4329.ko with printks to see what is causing the reboot for real</span><br />
 <span class="irc-date">[15:56]</span> <span class="irc-black">&lt;atinm&gt; but can go back</span><br />
 <span class="irc-date">[15:58]</span> <span class="irc-black">&lt;atinm&gt; does yours boot up?</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; my phone is completely dissasembled xD</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; not usable at the moment</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://img703.imageshack.us/i/hacksungbootlogo.png/">http://img703.imageshack.us/i/hacksungbootlogo.png/</a></span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;atinm&gt; well, let me see what I get</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;atinm&gt; W/PackageManager(  156): System package com.google.android.gsf has changed from uid: 10044 to 10040; old data erased</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;atinm&gt; lots of those in logcat</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm&gt; interesting</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm&gt; D/Sensors (  156): Sensor: Accel is enabled, going to take care of it, count: 64</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm&gt; D/Sensors (  156): Sensor: Accel read quited, count: 63, acceldata Ready: 1, compassData Ready = 1109518</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm&gt; D/Sensors (  156): Sensor: Read events was called with count: 64</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm&gt; D/Sensors (  156): Sensor: Compass read quited, count: 64</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm&gt; lots and lots of those, continuously</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;coolya&gt; GuiPer ping ping you are the sensor master xD</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;atinm&gt; I think maybe the teamhacksung libsensors for captivate isn't the latest</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;atinm&gt; diff is showing the full file diff . . . pain in the fucking ass.</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;atinm&gt; yeah, not the latest</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm&gt; just accept the "full file" checkin, its the line endings.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm&gt; to see real diff you have to do git diff -w</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm&gt; until this version is committed</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;coolya&gt; ok</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;ytt3r&gt; where in the kernel is the boot screen?</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;ytt3r&gt; I think we need to change it to generic Samsung Galaxy S rather than GT-I9000</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;atinm&gt; yeah, that would be nice. you look into that - I would really like just that S we see on captivate.</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;coolya&gt; there is a headder in fb driver folder</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;coolya&gt; that has a array with raw data</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;atinm&gt; no ... god!</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;ytt3r&gt; fb driver folder?</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;coolya&gt; framebuffer</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;atinm&gt; which dir is that?</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;coolya&gt; driver/vidoe i guess</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;coolya&gt; need go, i'll be back in a bit</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;atinm&gt; shit, still the accel</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;atinm&gt; I *think* I am using the correct captivate BoschYamaha.cpp and sensors.h now</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;atinm&gt; going to make otapackage and see</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;atinm&gt; oh, codeworkx - did you fix crespo in teamhacksung to put the ifdef crespo in all the Android.mk files?</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;codeworkx&gt; crespo is from cm repos</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;codeworkx&gt; should push this to mainline</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm&gt; wonder how cyanogen ppl are building ...</span><br />
