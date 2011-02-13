@@ -389,3 +389,47 @@
 <span class="irc-date">[17:55]</span> <span class="irc-black">&lt;GuiPer&gt; but because magnetic reads are not good, we never finished it 100%</span><br />
 <span class="irc-date">[17:56]</span> <span class="irc-black">&lt;atinm&gt; ah. ok, I get it now (been looking at the code for Bosch, Smb</span><br />
 <span class="irc-date">[17:57]</span> <span class="irc-black">&lt;atinm&gt; so on captivate we are getting EVENT_TYPE_ACCEL_X when it is y that needs to be changed?</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;atinm&gt; looking to see how to change smb380 for captivate, basically the BoschYamaha.cpp accel stuff should match up, right?</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;GuiPer&gt; to exchange axis you need to go to kernel side</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;atinm&gt; the hack fix was to change BoschYamaha.cpp to handle Y for ACCEL_X and X for ACCEL_Y</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;GuiPer&gt; better than go to kernel I would say...</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;atinm&gt; but need to do the same on smb380</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;atinm&gt; if I want to go back to that</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;GuiPer&gt; my net fall down</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;GuiPer&gt; :S</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;atinm&gt; so BoschYamaha is an attempt to replace Smb380Sensor.cpp, CompassSensor.cpp and GyroSensor.cpp?</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;GuiPer&gt; only the first 2 :)</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;GuiPer&gt; GyroSensor is Nexus S stuff</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;GuiPer&gt; we dont really have it</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;atinm&gt; and we don't use GyroSensor.cpp at all</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;GuiPer&gt; the reason we are joining them, it's because we need to combine both information to compute orientation (azimuth etc)</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;GuiPer&gt; using Euler</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;atinm&gt; yeah, except that compass is crap</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;GuiPer&gt; it was the easiest way :(</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;GuiPer&gt; something is missing :S:S</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;GuiPer&gt; i dont know what...</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;GuiPer&gt; well brb</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;atinm&gt; hmm, why is the home key not doing anything</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;codeworkx&gt; hmm. a wipe solves the problem</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;codeworkx&gt; theres still a problem with the keypad</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;magote&gt; samsung didn't learn anything from google, from what I'm seeing with their presentation :X</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;coolya&gt; they want to be apple 2 ...</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;codeworkx&gt; hope htc or some other manufactures will do better</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;coolya&gt; encrypted device ... i say fuck you samsung</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;magote&gt; the other brands I guess we'll only see updated HW with the qualcomm and tegra2</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;atinm&gt; where is this presentation?</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;coolya&gt; <a href="http://www.samsungunpacked.com/html/stream.html">http://www.samsungunpacked.com/html/stream.html</a></span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm&gt; oh, just saw it</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;coolya&gt; i don't want to work for samsung ...</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;UberPinguin&gt; Encrypted device?</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;coolya&gt; yep looks like</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;UberPinguin&gt; Expound pleace</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;UberPinguin&gt; Can't listen here, no speakers</span><br />
