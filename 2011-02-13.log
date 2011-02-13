@@ -7,3 +7,72 @@
 <span class="irc-date">[0:33]</span> <span class="irc-black">&lt;Yangtse&gt; i ask if i canmount sdcard as ext4</span><br />
 <span class="irc-date">[0:34]</span> <span class="irc-black">&lt;Yangtse&gt; <a href="http://forum.xda-developers.com/showthread.php?t=889471">http://forum.xda-developers.com/showthread.php?t=889471</a></span><br />
 <span class="irc-date">[0:37]</span> <span class="irc-green">* birdman (~Steven@24.246.130.106) has joined this channel.</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.5.78) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-green">* dtq (4b8401e7@gateway/web/freenode/ip.75.132.1.231) has joined this channel.</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;dtq&gt; could someone help me out if they have time.</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;dtq&gt; I have a quick question.</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; i have been telling you what to do</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;dtq&gt; I got confused with the other guy talking.</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;dtq&gt; but I did find the directory with kernel in it.</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;dtq&gt; I did not copy it to android/system.</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;dtq&gt; I initiated the build command.</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;dtq&gt; and it is currenly building.</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;dtq&gt; is that okay to do?</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;techmik67&gt; we'll see =)</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;dtq&gt; well after I build where do I find them and make them so they are flashable?</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;techmik67&gt; releasetools</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;dtq&gt; how do I find that?</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;dtq&gt; do I use GUI for that?</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;dtq&gt; or terminal?</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;techmik67&gt; releasetools will be created by the build... if you are watching it build now, when its don just cd releasetools</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;dtq&gt; the build of the kernel?</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;dtq&gt; or ROM?</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;techmik67&gt; no the rom</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;dtq&gt; okay the ROM is done.</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;techmik67&gt; did you build the kernel?</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;dtq&gt; Does the ROM and kernel need to be in the same folder?</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;dtq&gt; yes.</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;dtq&gt; kernel is done.</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;techmik67&gt; and what dir are you in?</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;dtq&gt; but it is not set up in same dir as instructions.</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;dtq&gt; ~kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;techmik67&gt; cd</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;dtq&gt; okay.</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;techmik67&gt; cd ~/releasetools</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;techmik67&gt; i meant that</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;dtq&gt; okay.</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;techmik67&gt; ./initial_captivate.sh</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;techmik67&gt; then when its done</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;techmik67&gt; ./efsbackup_captivate.sh</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;techmik67&gt; and</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;techmik67&gt; ./ota_captivate.sh</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;techmik67&gt; you are on cm7 already?</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;dtq&gt; yes.</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;dtq&gt; I9000</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;dtq&gt; cm7</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;dtq&gt; button mapping wrong.</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;dtq&gt; orientation wrong.</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;techmik67&gt; then hold up a sec and lemme check something</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://forum.cyanogenmod.com/topic/15275-gt-i9000-cyanogenmod-7-we-love-bugs-version-20110203/">http://forum.cyanogenmod.com/topic/15275-gt-i9000-cyanogenmod-7-we-love-bugs-version-20110203/</a></span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;techmik67&gt; follow the "upgrading from earlier release"</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;dtq&gt; where do I find the files I just created?</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;dtq&gt; and what do they look like?</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;techmik67&gt; ~/out/target/product/captivate</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;dtq&gt; did not work.</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;techmik67&gt; just run the ota</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;dtq&gt; ota?</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;dtq&gt; is that the kernel?</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;techmik67&gt; what didnt work?</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;dtq&gt; I just did all 3 release tools.</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;dtq&gt; and they all worked.</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;dtq&gt; but now what do I do?</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;techmik67&gt; ~/out/target/product/captivate</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;dtq&gt; that did not work.</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;dtq&gt; okay I am in the directory.</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;dtq&gt; now what?</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;dtq&gt; the .zips all I need?</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;techmik67&gt; i'm telling you where they are</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;dtq&gt; are the .zips all I need?</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;techmik67&gt; you need the zips and your kernel</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;dtq&gt; where is the kernel?</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;techmik67&gt; kernel/samsung/2.6.35/arch/arm/boot</span><br />
