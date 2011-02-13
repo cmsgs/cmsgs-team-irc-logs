@@ -316,3 +316,76 @@
 <span class="irc-date">[16:55]</span> <span class="irc-black">&lt;codeworkx&gt; should push this to mainline</span><br />
 <span class="irc-date">[16:58]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm&gt; wonder how cyanogen ppl are building ...</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;atinm&gt; accel is pegging the gpu</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;atinm&gt; cpu</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm&gt; D/Sensors (  147): Sensor: Accel is enabled, going to take care of it, count: 64</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm&gt; D/Sensors (  147): Sensor: Accel read quited, count: 63, acceldata Ready: 1, compassData Ready = 1109606</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm&gt; D/Sensors (  147): Sensor: Read events was called with count: 64</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm&gt; D/Sensors (  147): Sensor: Compass read quited, count: 64</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm&gt; the compassDataReady = 1109606 is wrong . . . the if statement checked for == 1</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm&gt; GuiPer: you there?</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;atinm&gt; i even initialized compassDataReady in the constructor but it is still 1109606, so there is someone else writing over it</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;atinm&gt; memory corruption type thing</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;atinm&gt; since nothing actually assigns anything but 1 or 0 to it</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;GuiPer&gt; i am here now</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;GuiPer&gt; sorry</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;GuiPer&gt; any problems with accel?</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;atinm&gt; seems to be in some sort of infinite loop, takes over the cpu</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;GuiPer&gt; new BoschYamaha is not 100% done</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;GuiPer&gt; because compass does not work</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;GuiPer&gt; me and coolya started it, but then because of compass problems we stopped</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;atinm&gt; yeah, I think what is going on tho is that compassDataReady is always 0 and so processOrientation() isn't being called</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;GuiPer&gt; its normal</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;GuiPer&gt; Orientation should only be called</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;atinm&gt; orientation is working tho</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;GuiPer&gt; wait wait</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;GuiPer&gt; screen orientation is one thing, it just depends on accelerometer sensor</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;atinm&gt; does it not need processOrientation() to get called?</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;GuiPer&gt; then we got 4 types of sensors, accel, magnetic, gyro and "orientation"</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;GuiPer&gt; accel give us acceleration in 3 axis relative to the center of earth, screen orientation just depends on it</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;GuiPer&gt; magnetic sensor just reads the force of the magnetic field</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;GuiPer&gt; magnetic sensor alone does nothing, at most can be used to detect metal thing in a wall or something</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://pastie.org/1559857">http://pastie.org/1559857</a></span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;atinm&gt; I'm getting that forever, and it hangs the cpu</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;GuiPer&gt; then you got orientation sensor, that needs information from compass and accel</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;GuiPer&gt; and process azimuth, yaw and pitch</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;GuiPer&gt; but needs data from both sensors to work</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;GuiPer&gt; is it more clear? it means that to process orientation (azimuth, yaw, etc), not screen orientation we need data from both compass and accelerometer</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;GuiPer&gt; and some complex math</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;GuiPer&gt; is it more clear?</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;GuiPer&gt; your problem may be just excessive debug</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;atinm&gt; yeah seems like it</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;GuiPer&gt; in worst case you can go back for SMB380.cpp</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;GuiPer&gt; the version with just accelerometer</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;GuiPer&gt; but coolya disable that</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;GuiPer&gt; 1 week ago or so</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;atinm&gt; nah, we know BoschYamaha was helping orientation. something happened since to break it on the teamhacksung tree</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;atinm&gt; brb, let me see something</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;GuiPer&gt; don't mistake orientation from sreen and "orientation" driver</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;atinm&gt; I don't get why compassDataReady would be some huge number.</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;GuiPer&gt; it's different things</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;atinm&gt; it should only be 0 or 1...</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;GuiPer&gt; it shoudn't...</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;GuiPer&gt; BoschYamaha is a hack driver...</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;GuiPer&gt; just use SMB380.cpp and it will be working perfectly</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;GuiPer&gt; it's just orientation</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;GuiPer&gt; ups, just accelerometer</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;GuiPer&gt; BoschYamaha is 3 in 1 :( and API is not ready for it</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm&gt; hmph.</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm&gt; k, brb</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;GuiPer&gt; priority is fix magnetic compass reading, then we can finalize userspace :(</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;atinm&gt; so of the files in libsensors</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;atinm&gt; we don't use CompassSensor.cpp, GyroSensor.cpp and Smb380Sensor.cpp</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;atinm&gt; and seem to have replaced them with BoschYamaha.cpp</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;atinm&gt; correct?</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;GuiPer&gt; Gyro we never used</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;GuiPer&gt; yep, everything is now in BoschYamaha.cpp</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;GuiPer&gt; but it's hacky :S</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;GuiPer&gt; because we need to combine Magnetic reads and Accerometer reads to get Orientation data, the processOrientation funcction</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;GuiPer&gt; but because magnetic reads are not good, we never finished it 100%</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;atinm&gt; ah. ok, I get it now (been looking at the code for Bosch, Smb</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;atinm&gt; so on captivate we are getting EVENT_TYPE_ACCEL_X when it is y that needs to be changed?</span><br />
