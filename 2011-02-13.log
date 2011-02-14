@@ -524,3 +524,42 @@
 <span class="irc-date">[22:45]</span> <span class="irc-black">&lt;atinm&gt; ok, lets see if I can make it crash more reliably by checking the null pointer earlier</span><br />
 <span class="irc-date">[22:46]</span> <span class="irc-black">&lt;atinm&gt; if it crashes, maybe I'll see why it is null . . .</span><br />
 <span class="irc-date">[22:52]</span> <span class="irc-navy">* ytt3r (~evan@adsl-88-105-214.asm.bellsouth.net) Quit (Quit: I have a good reason to leave.)</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;h8rift&gt; i do not</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;h8rift&gt; i do not use wifi often. i also set wifi sleep to "never"</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;atinm&gt; that's why :)</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;atinm&gt; if it wasn't never, it would</span><br />
+<span class="irc-date">[23:49]</span> <span class="irc-green">* Yangtse (~Yangtse@117.136.5.76) has joined this channel.</span><br />
+<span class="irc-date">[23:50]</span> <span class="irc-black">&lt;GuiPer&gt; atinm: compare with the aries defconfig</span><br />
+<span class="irc-date">[23:50]</span> <span class="irc-black">&lt;GuiPer&gt; me and codeworkx fixed it  partially removing a mmc scan</span><br />
+<span class="irc-date">[23:50]</span> <span class="irc-black">&lt;GuiPer&gt; before it was much worst</span><br />
+<span class="irc-date">[23:50]</span> <span class="irc-black">&lt;GuiPer&gt; mmcrescan or similar</span><br />
+<span class="irc-date">[23:50]</span> <span class="irc-black">&lt;GuiPer&gt; on the mach_aries_</span><br />
+<span class="irc-date">[23:54]</span> <span class="irc-black">&lt;atinm&gt; what do I need to change?</span><br />
+<span class="irc-date">[23:54]</span> <span class="irc-black">&lt;GuiPer&gt; we don't know :S</span><br />
+<span class="irc-date">[23:54]</span> <span class="irc-black">&lt;atinm&gt; I put in checks for -&gt;card null, and return an error if it is</span><br />
+<span class="irc-date">[23:54]</span> <span class="irc-black">&lt;atinm&gt; so it doesn't crash</span><br />
+<span class="irc-date">[23:54]</span> <span class="irc-black">&lt;atinm&gt; did you do something in the defconfig on galaxy?</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;GuiPer&gt; mostly on mach_aries</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="https://github.com/coolya/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/mach-s5pv210/mach-aries.c">https://github.com/coolya/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/mach-s5pv210/mach-aries.c</a></span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;GuiPer&gt; the initial port was done by coolya</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;GuiPer&gt; but it was 1-2 mistakes</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;atinm&gt; that's the same file for us, so any fixes there would be in here too</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="https://github.com/coolya/android_kernel_samsung/blob/7de54db9305bb4ce9ad31ca441b5fe849c38cb80/arch/arm/mach-s5pv210/mach-aries.c">https://github.com/coolya/android_kernel_samsung/blob/7de54db9305bb4ce9ad31ca441b5fe849c38cb80/arch/arm/mach-s5pv210/mach-aries.c</a></span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;GuiPer&gt; ups</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;GuiPer&gt; it is...</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;GuiPer&gt; this commit fixed it</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="https://github.com/coolya/android_kernel_samsung/commit/7de54db9305bb4ce9ad31ca441b5fe849c38cb80">https://github.com/coolya/android_kernel_samsung/commit/7de54db9305bb4ce9ad31ca441b5fe849c38cb80</a></span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;GuiPer&gt; partially</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;GuiPer&gt; before it was much worst!</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;GuiPer&gt; every sleep in wifi was crash, now it's not every sleep</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-black">&lt;GuiPer&gt; i would try to kang again things from herring, relative to WiFi</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-black">&lt;GuiPer&gt; maybe coolya missed something</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-black">&lt;atinm&gt; well, I just went into bcmsdh_sdmmc.c and put in checks :)</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-black">&lt;atinm&gt; and return error if the damn thing is null</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-black">&lt;GuiPer&gt; problem should be in mach_aries :(</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-black">&lt;atinm&gt; rather than try to dereference it</span><br />
+<span class="irc-date">[23:59]</span> <span class="irc-black">&lt;GuiPer&gt; maybe some lost mmc3... we dont have mmc3 like nexus s</span><br />
+<span class="irc-date">[23:59]</span> <span class="irc-black">&lt;GuiPer&gt; or mm2 dont remember</span><br />
+<span class="irc-date">[23:59]</span> <span class="irc-black">&lt;GuiPer&gt; it's GPS on Nexus S, on our device its different</span><br />
+<span class="irc-date">[23:59]</span> <span class="irc-black">&lt;GuiPer&gt; *mmc2</span><br />
