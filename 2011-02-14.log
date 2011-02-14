@@ -280,3 +280,109 @@
 <span class="irc-date">[19:55]</span> <span class="irc-black">&lt;techmik67&gt; mnita|work: <a href="https://github.com/coolya/android_device_samsung_galaxys/commit/40f8daf2a68c00bcc91bc44e71144477dac47a01">https://github.com/coolya/android_device_samsung_galaxys/commit/40f8daf2a68c00bcc91bc44e71144477dac47a01</a></span><br />
 <span class="irc-date">[19:56]</span> <span class="irc-black">&lt;techmik67&gt; mnita|work: my device/samsung/captivate/SecCameraHWInterface.cpp still hasnt been cahnged</span><br />
 <span class="irc-date">[19:56]</span> <span class="irc-black">&lt;techmik67&gt; changed</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; that shouldn't matter.</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; the commit</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; it is debugging stuff</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;techmik67&gt; something is up.... i lost camera with this update version</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;nitam|work&gt; just put that line in and see if it comes back</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;techmik67&gt; therer were changes when i syced, i saw that</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;nitam|work&gt; shouldn't matter tho - coolya?</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;coolya&gt; what ?</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;nitam|work&gt; LOG_NDEBUG 0 isn't actually necessary is it?</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;coolya&gt; no just for LOGV output</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;nitam|work&gt; k</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;nitam|work&gt; the changes you made to the BoardConfig.mk for galaxys</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;nitam|work&gt; do those need to be replicated to captivate? I don't know which device is which</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;techmik67&gt; i made the 2 changes and camera worked</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;nitam|work&gt; V4L2_DEVICE used to be /dev/video0, you changed yours to video1</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;coolya&gt; yes you will need to do that</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;coolya&gt; that will make lq video work and semi working camera</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;techmik67&gt; i took a pic and video</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;techmik67&gt; short vid =)</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;coolya&gt; it will crash on shooting pictures and there is a lot of noise in the picture</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;techmik67&gt; gotcha</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;nitam|work&gt; ok, I duplicated those changes and techmik has them</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;nitam|work&gt; techmik, did you add just the LOG_NDEBUG change as well and see if it worked (it shouldn't but what the hell)</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;nitam|work&gt; I didn't change anything else really.</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;techmik67&gt; i have the 2 changes... the debug, and the boardconfig</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;nitam|work&gt; and it works?</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;techmik67&gt; 102 instead of 012</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;techmik67&gt; flashing newest build</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-green">* uberusha1imus (~uberushax@2001:470:1f11:c4c:225:d3ff:fe46:9fab) has joined this channel.</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;techmik67&gt; if people want to donate, where should i be directing them?</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-navy">* uberushaximus (~androirc@71-13-134-35.dhcp.ftbg.wi.charter.com) Quit (Read error: No route to host)</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;nitam|work&gt; the /mnt/.lfs/logo_ATNT.jpg is the AT&amp;T boot screen - guess we can change that too sometime.</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;nitam|work&gt; but I don't particularly care about that one.</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;nitam|work&gt; dunno - do coolya/codeworkx have a donate link? I think I saw one</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;techmik67&gt; i cant remeber where i saw it</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://forum.cyanogenmod.com/topic/15275-gt-i9000-cyanogenmod-7-we-love-bugs-version-20110205/">http://forum.cyanogenmod.com/topic/15275-gt-i9000-cyanogenmod-7-we-love-bugs-version-20110205/</a></span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=3N9W7K94QCZKL">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=3N9W7K94QCZKL</a></span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;techmik67&gt; cool</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;techmik67&gt; thx</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;nitam|work&gt; I just point ppl at <a href="http://donatelife.net/">http://donatelife.net/</a></span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;techmik67&gt; i the other channel someone wanted to donate "...to you guys.."</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;nitam|work&gt; coolya/codeworkx link is best since they've put in the most on gingerbread</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;techmik67&gt; i pointed to the 1st link you sent</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;nitam|work&gt; sounds good</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;nitam|work&gt; tell me whether the camera worked</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;nitam|work&gt; I think it must be something else that broke instead</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;techmik67&gt; almost done</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;nitam|work&gt; did it tell you what it updated?</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;nitam|work&gt; besides those files?</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-navy">* uberusha1imus (~uberushax@2001:470:1f11:c4c:225:d3ff:fe46:9fab) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;techmik67&gt; when i synced? it said there were a few updates that flew by...</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;nitam|work&gt; I know some stuff changed in BoardConfig.mk but those had to do with recovery</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;techmik67&gt; last nite i went to coolya's page, a=dded the boardconfig and cpp changes to captivte (the kernel change was there already) and built and camera was as described</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;techmik67&gt; mounts and storage is different... i notice...</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;techmik67&gt; i hate when the phone wants to be used as a phone while i'm trying to work on it !! How dare you call me!! =P</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;techmik67&gt; finally booting</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;nitam|work&gt; I don't know what could be different if it doesn't work ...</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;techmik67&gt; really, i only changed those 2 files last nite</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;techmik67&gt; removed the //</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;techmik67&gt; from cpp</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;techmik67&gt; and changed the order of the video #s in BoardConfig.mk</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;techmik67&gt; boot seems to take loger on the "kanged" screen</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;techmik67&gt; longer</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;nitam|work&gt; btw, want you to try one thing</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;ytt3r&gt; saw what you said, I have access</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-brick">* ytt3r =understudy</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;techmik67&gt; hi ytt3r</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;ytt3r&gt; I'm back, BTW</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="https://github.com/atinm/linux-captivate/blob/i897_t959_work/drivers/video/samsung/logo_rgb24_wvga_landscape.h">https://github.com/atinm/linux-captivate/blob/i897_t959_work/drivers/video/samsung/logo_rgb24_wvga_landscape.h</a></span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;nitam|work&gt; no</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;nitam|work&gt; sec</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="https://github.com/atinm/linux-captivate/blob/i897_t959_work/drivers/video/samsung/logo_rgb24_wvga_portrait.h">https://github.com/atinm/linux-captivate/blob/i897_t959_work/drivers/video/samsung/logo_rgb24_wvga_portrait.h</a></span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;nitam|work&gt; save your current logo file and replace with this one</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;nitam|work&gt; and try rebuilding the kernel and see if you get the generic S</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;nitam|work&gt; rather than the i9000 screen</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;nitam|work&gt; it might not work/build - I haven't checked to make sure the files are really identical</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;nitam|work&gt; it is just the captivate .29 wvga logo</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;nitam|work&gt; and I figure they couldn't have changed the types etc needed</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;nitam|work&gt; the logo is just compiled into the kernel, and to modify requires modifying that byte array</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;nitam|work&gt; which is a pain and the generic screen is pretty harmless</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;nitam|work&gt; so I figure we can just use it for all the non-9000 ones</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;nitam|work&gt; coolya can go add the Kanged ;)</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;nitam|work&gt; did you just use a c program or python script to convert a bitmap to a byte array?</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;ytt3r&gt; I'm not bad with photoshop, I might do a little photo editing :)</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;coolya&gt; wrote a little java program, because i didn't like the bitmap handling in python</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; k, guess we can take any image and put it thru that java program.</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;nitam|work&gt; jsut want a generic non model specific image</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;coolya&gt; yep shoul only be the size of the screen</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;coolya&gt; that would be nice, just Galaxy S screen maybe</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;nitam|work&gt; right, the captivate screen is just a big S</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;nitam|work&gt; no galaxy even.</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;nitam|work&gt; a swish like S</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-green">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;nitam|work&gt; so a swish like S with a cyanogenmod or something under it in small letters on the lower right at an angle like the Kanged.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;techmik67&gt; i cant find the file to change.....</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;nitam|work&gt; look in drivers/video/samsung/</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;nitam|work&gt; in the kernel</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;techmik67&gt; drivers</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;techmik67&gt; thx</span><br />
