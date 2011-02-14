@@ -1,0 +1,44 @@
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;atinm&gt; pain in the butt.</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;GuiPer&gt; if you have time try this mach_aries</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="https://github.com/coolya/android_kernel_samsung/blob/7de54db9305bb4ce9ad31ca441b5fe849c38cb80/arch/arm/mach-s5pv210/mach-aries.c">https://github.com/coolya/android_kernel_samsung/blob/7de54db9305bb4ce9ad31ca441b5fe849c38cb80/arch/arm/mach-s5pv210/mach-aries.c</a></span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;GuiPer&gt; just replace current ones</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;GuiPer&gt; and give it a try</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;GuiPer&gt; maybe no bug on it :) the problem of that one is gpio configurations... some boards you need to enable bluetooth before wifi, to turn on wifi</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;GuiPer&gt; but i guess no bug</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;atinm&gt; the latest on the repo is with this fix, right?</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;GuiPer&gt; different fix</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;GuiPer&gt; :S</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;GuiPer&gt; we removed a couple of coolya things</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;GuiPer&gt; and went back to herring</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;atinm&gt; ah</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;GuiPer&gt; try the version i sent you :) its still coolya port, then me and codeworkx reverted something</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;GuiPer&gt; just replace mach_aries with this one <a href="https://github.com/coolya/android_kernel_samsung/raw/7de54db9305bb4ce9ad31ca441b5fe849c38cb80/arch/arm/mach-s5pv210/mach-aries.c">https://github.com/coolya/android_kernel_samsung/raw/7de54db9305bb4ce9ad31ca441b5fe849c38cb80/arch/arm/mach-s5pv210/mach-aries.c</a></span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;GuiPer&gt; old coolya port, with inital crash fix</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;GuiPer&gt; maybe we should clean up MMC3 there</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;GuiPer&gt; we dont really have it</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;atinm&gt; this one uses yamaha instead of yas529</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;GuiPer&gt; true shit :S</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;GuiPer&gt; well worst case no compass..</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;GuiPer&gt; no big deal :( if it works we can merge it</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;atinm&gt; back in a bit</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;GuiPer&gt; i can try tomorrow,, its 1am here</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;atinm&gt; I will have to stop on this too</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;atinm&gt; lets see if just gettingaround a null reference by returning error works :)</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;atinm&gt; tho it isn't the root cause</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;GuiPer&gt; good luck :)</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;GuiPer&gt; maybe ytt3r our techmik can give it a try</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;GuiPer&gt; :)</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;GuiPer&gt; well good night</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;techmik67&gt; i'll be happy to sync, build and test.... just say when</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm|away&gt; its a pain, not sure what to give you right now :)</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm|away&gt; crap! rebooted anyway</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-green">* ytt3r (~evan@adsl-88-105-214.asm.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm|away&gt; frack, frick, f@#$</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;ytt3r&gt; I'm not that bad :P</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm|away&gt; jeez, how could it have got there . ..</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm|away&gt; have to look at this later.</span><br />
