@@ -154,3 +154,45 @@
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;GuiPer_&gt; i guess we turn on GPS, BT and something more just to enable wifi</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;GuiPer_&gt; :S</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;nitam|work&gt; that's what froyo was based on I think, so we should be able to use it</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;nitam|work&gt; but of course, we don't know what is connected to what - we have to just look at source for that</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;GuiPer_&gt; <a href="https://github.com/coolya/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/mach-s5pv210/mach-smdkv210.c">https://github.com/coolya/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/mach-s5pv210/mach-smdkv210.c</a></span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;GuiPer_&gt; <a href="https://github.com/coolya/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/mach-s5pv210/mach-aries.c">https://github.com/coolya/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/mach-s5pv210/mach-aries.c</a></span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;GuiPer_&gt; this one</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;nitam|work&gt; yeah</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;nitam|work&gt; how was that created?</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;nitam|work&gt; by basically duplicating mach-herring and comparing with mach-whatever from froyo source?</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;GuiPer_&gt; line 3915</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;GuiPer_&gt; yep, coolya did it</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;GuiPer_&gt; but then me and codeworkx kanged some things back from herring</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;GuiPer_&gt; so it's a big mix</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;GuiPer_&gt; something is wrong about wifi, im sure of it :(</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;codeworkx&gt; i've simply copied mach-herring, named it mach-aries and renamed some strings herring -&gt; aries xD</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;GuiPer_&gt; but coolya did some merge i guess</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;GuiPer_&gt; because for example wifi things are half from .32 half from .35</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: is teamhacksung android_kernel_samsung the same as coolya android_kernel_samsung now?</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;nitam|work&gt; k</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;GuiPer_&gt; codeworkx: tried the I9000B kernel on our SGS?</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;codeworkx&gt; no, why? xD</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;GuiPer_&gt; the guy jjsilva who mantains it looks good</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;GuiPer_&gt; he did some strange changes to GPIO configuration</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;codeworkx&gt; i know</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;GuiPer_&gt; any idea why?</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;codeworkx&gt; someone should have a look at</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;GuiPer_&gt; give it a try :P</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;codeworkx&gt; on i9000b the i9000 kernels are not working because of wifi, bt and so on</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;GuiPer_&gt; where can i find him? I'm portuguese language would be not an issue</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;GuiPer_&gt; really?</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;GuiPer_&gt; but he changed a couple of GPIO's...</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;codeworkx&gt; he's gone offline</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;codeworkx&gt; will tell him</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;codeworkx&gt; he should join</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;codeworkx&gt; irc</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;GuiPer_&gt; notice their board is different revision</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;GuiPer_&gt; but he changed way to much i owuld say</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;codeworkx&gt; maybe he changed something we've missed</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;GuiPer_&gt; that's my hope :)</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;GuiPer_&gt; nice finding</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;GuiPer_&gt; . /sys/kernel/debug # cat gpio</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;GuiPer_&gt; ill give a try at WiFi</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;GuiPer_&gt; somebody with Nexus S here?</span><br />
