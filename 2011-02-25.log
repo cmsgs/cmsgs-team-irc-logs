@@ -938,3 +938,118 @@
 <span class="irc-date">[20:50]</span> <span class="irc-black">&lt;techmik67&gt; we gotta kill my pastie in te topic of the other channel</span><br />
 <span class="irc-date">[20:50]</span> <span class="irc-black">&lt;techmik67&gt; out of date instructions</span><br />
 <span class="irc-date">[20:50]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;techmik67&gt; atinm: or Kaik541 <a href="http://www.pastie.org/1607511">http://www.pastie.org/1607511</a> ?</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;techmik67&gt; cool</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;atinm&gt; then build kernel, copy the files to device/samsung/captivate</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;techmik67&gt; then lunch, or .build/envsetup?</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;atinm&gt; and then build rom</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;techmik67&gt; afte rom i mean</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;atinm&gt; build rom == . build/envsetup, lunch, make</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;techmik67&gt; making newe pastier for other channel topic</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;techmik67&gt; thx</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;atinm&gt; what channel?</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;Kaik541&gt; there's a cappy specific channel sorta</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;techmik67&gt; #cmsgs</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;atinm&gt; ah</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;Kaik541&gt; but we shoudl wait until atinm pushes a known "good" kernel to teamhacksung</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;evaluate&gt; if anyone has the time, could you please have a look at this and tell if it this would be acceptable: <a href="http://pastebin.com/EWaQpZYp">http://pastebin.com/EWaQpZYp</a> ?</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;techmik67&gt; preparing the pastie</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;Kaik541&gt; and just let people build ROM without having to build kernel</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;Kaik541&gt; only build kernel if they want to</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;atinm&gt; thedood - what's up with cmsgs.com?</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;atinm&gt; did it die?</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;evaluate&gt; this fixes a couple of warnings while compiling the kernel...</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;atinm&gt; we don't put comments with names in the kernel commits, the commit msg has it</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;evaluate&gt; atinm, this is just so you can better see what has been done. If this was acceptable, I could completely remove the unneeded parts...</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;atinm&gt; but otherwise they look fine to me if they really are unused. run them by coolya</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;atinm&gt; and send a pull request to  him</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;evaluate&gt; atinm, the changes are untested yet and not complete (there are a couple more warnings that I could remove). After that I'll flash the kernel to see if there are no obvious problems and then I could create a final patch</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;evaluate&gt; until now I've only tested if those fixes really remove the warnings and if the kernel still compiles fine, didn't flash it yet to the device</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;Kaik541&gt; well I'm building the ROM from atinm now with the kernel from teamhacksung and initramfs from coolya... let's see how this goes in about an hour</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;atinm&gt; thedood: ignore - I just rebooted mysql and lighttpd and it is back up</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;Kaik541&gt; cmsgs was down earlier, but it's back up</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;atinm&gt; yeah, just brought it back up</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;atinm&gt; let me know how the builds/flash go</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;atinm&gt; I can't do it now - still building everything (I built the wrong damn repo!)</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;atinm&gt; and kid is going nuts,</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;Kaik541&gt; oh wow, forgot to grab ROM manager...</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;Kaik541&gt; &lt;-- is noob</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;atinm&gt; cooped up indoors because of rain after having spent the last couple of weeks outdoors swimming in the ocean ...</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;atinm&gt; so he's not adjusting well</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;uberushaximus&gt; build failed :(</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;atinm|away&gt; uberushaximus: what model?</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;atinm|away&gt; and which repo</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;uberushaximus&gt; Captivate on teamhacksung</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;atinm|away&gt; wha</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;atinm|away&gt; hrm</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;Kaik541&gt; something got killed upstream according to codeworkx/coolya</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;coolya&gt; hm ?</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;Kaik541&gt; sorry, codeworkx/birdman</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;Kaik541&gt; I always lump you and codeworkx together by accident :P</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;atinm|away&gt; my build it working..</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;atinm|away&gt; where did it fail?</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;atinm|away&gt; can you pastie?</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-brick">* coolya is now totally confused</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;Kaik541&gt; coolya: birdman and codeworkx were talking about something being broken upstream that was preventing a build and they were waiting for someone to fix it</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;atinm|away&gt; coolya: there seems to have been a 2.3.3 upstream</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;atinm|away&gt; that broke something</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;atinm|away&gt; but I don't know what</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;atinm|away&gt; and I haven't seen it fail yet</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;atinm|away&gt; so don't know details right now</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;atinm|away&gt; uberushaximus: can you pastie the error?</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;coolya&gt; ahh k</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: it's not broken. teamhacksung repo works fine</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;thedood&gt; laaaame</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;Kaik541&gt; oh ok</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;thedood&gt; i was all like 'hey this is rad, look at those sgs guys go'</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: yes, swapping the event type constants would work, i didn't notice that those defines were in sensors.h. i may have an idea how to get calibrated gyro data out of samsung firmware to compare, so that i can have non-speculative values for that, too ;)</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;thedood&gt; then i saw 'donate to US'</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;thedood&gt; and cried</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;codeworkx&gt; Gyro?</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;atinm|away&gt; the US is going bankrupt -- good to donate ;)</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;atinm|away&gt; (I have no idea what you're really talking about :) )</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;Kaik541&gt; neither do I</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;atinm|away&gt; hey unhelpful</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: Gyro? the SGS doesn't have one. Only accl is used for orientation. The Gyro was only there because i was lazy and didn't remove the cpp</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;coolya&gt; its not used</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: OH! that's good to know. :P</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;uberushaximus&gt; <a href="http://www.pastie.org/1607583">http://www.pastie.org/1607583</a> atinm|away</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;Unhelpful&gt; so, having calibrated mag and accel nicely to produce the same filtered values, why is the derived orientation so very very screwy?</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;coolya&gt; if the accl reports right orient should work</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;coolya&gt; it was working on Galaxy S before we hat the mag working</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: orientation as it portrait vs landscape mode?</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;Kaik541&gt; heh, CM7 for Vibrant makes the news sites, but not i9000?</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: no, absolute orientation of the device in space. try sky map, it tracks very poorly.</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://www.androidcentral.com/cyanogenmod-7-test-release-samsung-vibrant">http://www.androidcentral.com/cyanogenmod-7-test-release-samsung-vibrant</a></span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;atinm|away&gt; ah</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;uberushaximus&gt; I couldn't get voodoo sound to apply correctly to the kernel</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;uberushaximus&gt; when I tried it a few days ago</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;atinm|away&gt; Kaik541: hildenbrand sounds familiar..</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;Kaik541&gt; it's coolya, it's juts funny that i9k didn't get a response</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;atinm|away&gt; is there an daniel hildenbrand on the forums?</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;Kaik541&gt; no wait</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;Unhelpful&gt; also orientation reports correct pitch/roll but compass heading is wrong. even though raw mag sensor data has the axes and their directions matched to jf6 :(</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;Kaik541&gt; I see that name all over the google issues list</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: better you than me looking at this since you seem to know what you're doing there :)</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;Unhelpful&gt; it may be that getting orientation *entirely* right would really need gyro - the accel sensor can't really distinguish acceleration from changes in orientation wrt gravity :/</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;atinm|away&gt; (looking here with half a mind - kid is running roughshod over both parents right now)</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-green">* KaikHole (~nertz@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-navy">* Kaik541 (~nertz@cpe-66-68-164-213.austin.res.rr.com) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-green">* KaikHole is now known as Kaik541</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;techmik67&gt; ok, i followed this and am now building..... <a href="http://www.pastie.org/1607622">http://www.pastie.org/1607622</a></span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Kaik541&gt; build error =/</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Kaik541&gt; pretty sure it's the same one uber got</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;UberPinguin&gt; ?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Kaik541&gt; uberushaximus not UberPinguin</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;UberPinguin&gt; ah uberushaximus</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;atinm|away&gt; we'll let coolya fix it ;)</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;atinm|away&gt; send him the pastie</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://pastie.org/1607692">http://pastie.org/1607692</a> coolya</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;coolya&gt; gimmi some time</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;Kaik541&gt; no worries, not in any rush</span><br />
