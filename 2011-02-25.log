@@ -878,3 +878,63 @@
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; atinm: should i be syncing from atinm/androit.git -b gingerbread? or no branch when i init?</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;atinm&gt; -b gingerbread</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; hmmm.....i cant build</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;techmik67&gt;  duh</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;Kaik541&gt; so atinm, I build the kernel first then drop it into system/device/samsung/captivate and replace the zImage there and then lunch and we're good?</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;techmik67&gt; . build/envstep</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;atinm&gt; copy the .ko files too</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;atinm&gt; drivers/net/tun.ko drivers/net/wireless/brcm4329/brcm4329.ko fs/cifs/cifs.ko</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;Kaik541&gt; right, thanks</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;Kaik541&gt; definitely forgot to bring over the .ko files last time which is why my wifi is dead right now</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;techmik67&gt; hacksung for kernel source?</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;Kaik541&gt; and coolya for initramfs</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;techmik67&gt; thx</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-navy">* birdman (~Steven@24.246.130.106) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;coolya&gt; roflcopper quadrant from a 10.1 Gtab <a href="http://twitpic.com/43op8v">http://twitpic.com/43op8v</a></span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;coolya&gt; samsung fails that hard once again</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: I love the new bootlogo :-)</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;Kaik541&gt; glad you like it</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;Kaik541&gt; the bgi red KANGED was starting to hurt my eyes :O</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;uberushaximus&gt; are the non-captivate targets failing to build?</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;coolya&gt; vibrant just build fine some sec ago</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;uberushaximus&gt; alright, trying cap again</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;Kaik541&gt; uberushaximus: where are you building from?</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;uberushaximus&gt; teamhacksung</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;Kaik541&gt; I built from there last night just fine</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;uberushaximus&gt; argh, seriously? I was having trouble</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;atinm&gt; the problem started this morning</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;atinm&gt; tho I just succeeded too</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;atinm&gt; so not sure anymore :)</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;atinm&gt; rebuilding</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;techmik67&gt; i am having trouble with the kernel and initramfs</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;evaluate&gt; is this normal when building the kernel: "WARNING: modpost: Found 7 section mismatch(es)." ?</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;atinm&gt; what kind of trouble?</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;atinm&gt; evaluate: yes</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;evaluate&gt; ok :-)</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;ytt3r|desktop&gt; I'm off for all of tonight</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;ytt3r|desktop&gt; see you tomorrow</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;techmik67&gt; sec, may have it</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;techmik67&gt; i'm confused with mixing the kernel, initramfs, and rom sources but building them..... i MAY have it working now......</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;Kaik541&gt; build kernel first, drop it into teamhacksung's device/samsung/captivate as well as the appropriate .ko files</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;Kaik541&gt; build ROM</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;techmik67&gt; remember ny noobish-ness..... repo init -u from atinm..... then, to get the kernel and initramfs.......</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;atinm&gt; yes, then build kernel</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;techmik67&gt; i'm sure i did this part wrong</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;Kaik541&gt; I think he's confused about how to build the kernel outside of the method from coolya's repo</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;atinm&gt; repo init, repo sync, then git clone android_kernel_samsung in kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;techmik67&gt; so i did do it right.....</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;atinm&gt; and git clone gingerbread_captivate_initramfs in device/samsung/captivate</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;techmik67&gt; clone the other 2</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;techmik67&gt; karnel and initramfs</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;atinm&gt; and build kernel</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;techmik67&gt; kernel*</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;techmik67&gt; yupyup</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm&gt; then copy arch/arm/boot/zImage to device/samsung/captivate</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;techmik67&gt; it was the clone part that i was confused about</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm&gt; and drivers/net/tun.ko, drivers/net/wireless/bcm4329/bcm4329.ko fs/cifs/cifs.ko there as well</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm&gt; then build the ROM</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;techmik67&gt; git it</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;techmik67&gt; we gotta kill my pastie in te topic of the other channel</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;techmik67&gt; out of date instructions</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 276 seconds)</span><br />
