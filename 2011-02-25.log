@@ -757,3 +757,58 @@
 <span class="irc-date">[17:39]</span> <span class="irc-black">&lt;uberushaximus&gt; evaluate: what happens?</span><br />
 <span class="irc-date">[17:40]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure if it's really the permissions, but I can't really explain it. I can't send anything from my laptop to my phone through bluetooth</span><br />
 <span class="irc-date">[17:42]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;uberushaximus&gt; I'm not currently in cyanogenmod, but phone -&gt; computer works for me</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;evaluate&gt; uberushaximus, well, I'm not really sure what the problem is, I have reflashed now and it seems to work fine, it's awkward though that for example I can't open the file /efs/imei/bt.txt in a text editor for example.</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;evaluate&gt; Anyway, where should the kernel sources normally be residing when I try to compile them, it seems they need to be somewhere under the android source folder...</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;uberushaximus&gt; argh, failed to build again</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;evaluate&gt; are there any docs on how to build the galaxys kernel from source?</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;atinm&gt; its just a linux kernel - make should do it.</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;coolya&gt; evaluate: no where because the kernel is not part of the normal android build process, but you can check it out to android/kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;atinm&gt; where are you pulling the kernel from?</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;evaluate&gt; atinm, I got it from github.com/teamhacksung/android_kernel_galaxys/</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;evaluate&gt; coolya, ok, let me try to move it there...</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;coolya&gt; an then there are some magic scripts in there that should do the make job easily</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;evaluate&gt; btw, the error I got was: <a href="http://pastebin.com/Rc27WeBd">http://pastebin.com/Rc27WeBd</a></span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;evaluate&gt; coolya, yeah, I actually executed ./build_galaxys.sh</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;atinm&gt; you should checkout the gingerbread_galaxy_initramfs to device/samsung/kernel/samsung/galaxys/initramfs/data it looks like</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;evaluate&gt; also, I tried searching for that directory that is mentioned in the error, I couldn't find it though...</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;atinm&gt; that is also not part of the android sources</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;atinm&gt; well, check it out to device/samsung/kernel/samsung/galaxys/initramfs</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;atinm&gt; I think data is part of the repo</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;evaluate&gt; atinm, I fount the repo you mentioned here: <a href="https://github.com/coolya/gingerbread-galaxys-initramfs">https://github.com/coolya/gingerbread-galaxys-initramfs</a> , should this do it?</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;atinm&gt; yes, I think so</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;evaluate&gt; ok, thank you very much! :-)</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;atinm&gt; what are you using as the source of your android tree</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;atinm&gt; what repo?</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;uberushaximus&gt; lol I love recaptcha <a href="http://goo.gl/l5xl7">http://goo.gl/l5xl7</a></span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;evaluate&gt; atinm, well, I fetched github.com/teamhacksung/android.git if that's what you mean...</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;atinm&gt; android_kernel_samsung and gingerbread_galaxys_initramfs should do it</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;evaluate&gt; atinm, according to this: <a href="http://forum.cyanogenmod.com/topic/15513-gt-i9000-cyanogenmod-7-developer-thread/">http://forum.cyanogenmod.com/topic/15513-gt-i9000-cyanogenmod-7-developer-thread/</a></span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;atinm&gt; those are android build instructions.</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;atinm&gt; kernel has to be done separately</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;atinm&gt; but you should be fine</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;evaluate&gt; I know, I just wasn't sure where I need to put the sources for the kernel...</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;evaluate&gt; because it also seems to use stuff from the android sources...</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;evaluate&gt; anyway, I guess I figured it out now.</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;Kaik541&gt; atinm: <a href="http://dl.dropbox.com/u/10640272/galaxys-cyanogen.png">http://dl.dropbox.com/u/10640272/galaxys-cyanogen.png</a> is what the bootlogo looks like</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;atinm&gt; cool, I like that - codeworkx?</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;codeworkx&gt; yeah, it's nice</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;codeworkx&gt; coolya: ping <a href="http://dl.dropbox.com/u/10640272/galaxys-cyanogen.png">http://dl.dropbox.com/u/10640272/galaxys-cyanogen.png</a></span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://dl.dropbox.com/u/10640272/logo_rgb24_wvga_portrait.h">http://dl.dropbox.com/u/10640272/logo_rgb24_wvga_portrait.h</a></span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Kaik541&gt; that's the new .h file for it</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;coolya&gt; send me a pull request please!</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; Kaik doesnt' have a repo</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;Kaik541&gt; I tihnk it's up on techmik's somewhere</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; let me see if I can do it.</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; (that is, whether I have an updated repo)</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;coolya&gt; it's just because i want to keep the credits to that work to you :-)</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;Kaik541&gt; well thanks, but I'm not worried about credit for something that small :)</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; eh, its going to be our bootlogo - you might as well clone coolya's repo and replace that file, commit, push and send a request ;)</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-green">* h8rift (h8rift@ip68-111-114-81.fv.ks.cox.net) has joined this channel.</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;Kaik541&gt; haha fine</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: you have a github account ?</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;Kaik541&gt; yeah I beleive so</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;coolya&gt; if yes i can use --author</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;Kaik541&gt; yeah it's just Kaik541</span><br />
