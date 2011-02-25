@@ -18,3 +18,71 @@
 <span class="irc-date">[0:55]</span> <span class="irc-black">&lt;Unhelpful&gt; ugh, hate all these download sites :(</span><br />
 <span class="irc-date">[0:56]</span> <span class="irc-black">&lt;Kaik541&gt; oh I just assumed it built the kernel because I was just testing to see if my machine was borked when I built from there, didn't think to check if it was a binary kernel</span><br />
 <span class="irc-date">[0:58]</span> <span class="irc-black">&lt;Unhelpful&gt; there's a saying about assuming things that i won't repeat because it is so *dreadfully* stupid</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-green">* thedood is now known as w00tr00t</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-brick">* Unhelpful says some nasty words in his head</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;Kaik541&gt; I just say them outloud to the empty air</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;Kaik541&gt; which really confuses my roommates</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;Unhelpful&gt; it's not very empty here, i'm at work. :P</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;Kaik541&gt; but then they'll learn you're the crazy person they shouldn't mess with</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;Kaik541&gt; it's a win-win</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;Unhelpful&gt; we had a crazy person you shouldn't mess with. he had to leave. :P</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;Kaik541&gt; I'm trying so very hard to pass on the office-shooting-up comments</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;Unhelpful&gt; working at a place with a zero-tolerance policy regarding workplace violence, or any verbal threats thereof, is nice when the crazy guy finally says something :)</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-green">* ytt3r is now known as ytt3r|laptop</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;thedeanius&gt; Hi</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-brick">* Unhelpful is now running a browser on a machine with a more reliable connection so that he can then rsync the file from there :/</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;thedeanius&gt; vibrant w00t!</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;thedeanius&gt; thanks coolya|away</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful: in atinm's/techmik's repo, techmik67 pointed out to me that the init.rc has a "waitmmc" script that should wait until mmcblk0p2 is available before mounting it</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: should that maybe be brought over to teamhacksung?</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;Kaik541&gt; I assume so, as my first kernel was built off of atinm's and did not have the bug</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;Unhelpful&gt; also that's basically what the "wait" mount option does, it has a fixed timeout but it causes init to wait until the device exists.</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;Unhelpful&gt; are there any aries devices w/ *no* internal mmc? i think epic?</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;Kaik541&gt; epic, yes</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;Unhelpful&gt; so maybe the script should go in device/samsung/common/aries, since practically everything else will need it?</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;Kaik541&gt; it's located in device/samsung/galaxys/initramfs/data/sbin/mmcwait.sh and executed from init.rc and techmik says somewhere else, but I'm not sure where</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-green">* ytt3r|laptop is now known as ytt3r</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-green">* designfears is now known as desfea|lapdesk</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;Kaik541&gt; and yeah, every device except epic will need it, so I guess it makes sense to merge it</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, but i wonder if just using the wait mount option might be the clean way to do it - waiting for a device is already supported in init, after all.</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;Kaik541&gt; well if it worked for you, I don't see why not except you said it could timeout right?</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;Kaik541&gt; I suppose this way will never time out, though lead to some very long/confusing boots</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;Kaik541&gt; oh and that reminds me, I remember reading in this channel once that people were having really long boot times at one point and /data was taking a long time to backup in nandroid... possibly related? (though I think that got fixed somehow)</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;Kaik541&gt; this was before atinm left on vacation I think</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: is hanging *really* better? ;)</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;Unhelpful&gt; well, we could mount /data *just in recovery* with -o noload,data=writeback :)</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;Kaik541&gt; heh</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;Unhelpful&gt; also i'm not clear on why we use noauto_da_alloc - it doesn't harm performance in most cases and makes atomic rename work as expected (at some small cost in this case)</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;Kaik541&gt; there was a discussion about this at one point on xda I think</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;Kaik541&gt; and I think it all came down to "supercurio uses noauto_da_alloc in voodoo"</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://forum.xda-developers.com/showpost.php?p=9448857&amp;postcount=54">http://forum.xda-developers.com/showpost.php?p=9448857&amp;postcount=54</a></span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;Unhelpful&gt; oh. well i can't really see why he would, either. :P</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;Unhelpful&gt; it really really won't give performance gains except in cases where it costs safety :P</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;Kaik541&gt; so basically it's battery life vs. expecting sihtty apps</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;Unhelpful&gt; not really. seriously it will not impact battery life or speed for "correct" behavior, and the behavior it fixes isn't as shitty or uncommon as you think. sync-on-close is a common assumption, and renames are *supposed* to be atomic, so open(tmpfile);write(tmpfile);close(tmpfile);rename(tmpfile,realfile) is actually not really so terribly horrid.</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;Kaik541&gt; well like people in this thread said, it's not terribly noticeable one way or the other, so I don't think it would hurt to change that mount option</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;Unhelpful&gt; it's very noticeable if a crash happens right after something does this ;)</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;techmik67&gt; Kaik541: i think i got it</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;Kaik541&gt; so from an enduser standpoint, it's probably fine, though I'm clueless about how wear and tear will effect our phones</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;techmik67&gt; there was no mmcwait.sh in my repo =P</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;Kaik541&gt; ha, weird, mine has it</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;Kaik541&gt; well my local sync I mean</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;Unhelpful&gt; and this is in a thread called: [HOWTO] Convert ext4 partitions to No-Journaling mode</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;Kaik541&gt; I didn't say they were smart people, just that there was a discussion on it :)</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;Kaik541&gt; but hardcore was the OP and weighing in heavily so I gave it a little bit of credence</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;Unhelpful&gt; the OP's *original idea* is terrible, though. :)</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;Kaik541&gt; not gonna argue against that :D</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;Unhelpful&gt; just saying, it argues against following his advice in general</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;desfea|lapdesk&gt; holy textwalls kaikman</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;Kaik541&gt; desfea|lapdesk: you're welcome</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; oh, i forgot to ask... why can i receive, but not send texts?</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;Kaik541&gt; because you touch yourself at night</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; did i miss that?</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;desfea|lapdesk&gt; imissutouchinme</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful: I'm gonna say you do whatever you want because I trust your ability to know how a kernel works WAY more than I trust my own</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-brick">* Unhelpful wonders about using ubifs for the onenand partitions... but getting there looks like work. :P</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;Unhelpful&gt; also it looks like it guarantees consitency but you may lose the last few seconds if you don't umount and sync before shutdown</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-green">* kalpik_ (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
