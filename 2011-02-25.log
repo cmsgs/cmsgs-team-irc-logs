@@ -1053,3 +1053,167 @@
 <span class="irc-date">[21:49]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://pastie.org/1607692">http://pastie.org/1607692</a> coolya</span><br />
 <span class="irc-date">[21:51]</span> <span class="irc-black">&lt;coolya&gt; gimmi some time</span><br />
 <span class="irc-date">[21:51]</span> <span class="irc-black">&lt;Kaik541&gt; no worries, not in any rush</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;evaluate&gt; quick question. In the kernel, in file drivers/media/video/ce147.c, shouldn't line 2899 ( if(object_tracking = OT_START) ) actually look like: if(object_tracking == OT_START) ?</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;techmik67&gt; stupid question... these instructions make the ota update.... to make initial....?</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;atinm|away&gt; no, update</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;techmik67&gt; or should we tell people to d/l the released i9000 build you have out there?</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;techmik67&gt; i'm asking wht we tell people who show up NOT already on cm7</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;Kaik541&gt; going from i9000 initial to cappy update doesn't work by default</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;techmik67&gt; oh, right.... duh, i knew that....</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;techmik67&gt; (3 hrs of sleep in 2 days)</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;Kaik541&gt; we could provide a package that changes their build.prop to say captivate</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;techmik67&gt; just seems crazy to make people build 2x</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;techmik67&gt; from different sources</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;Kaik541&gt; well if they build an initial off of coolya's</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;Kaik541&gt; it should be mostly in sync</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;techmik67&gt; true</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;techmik67&gt; you want cm7? it aint ez......</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;Kaik541&gt; but it doesn't *need* to be easy right now</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;techmik67&gt; thats what i mean =P</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;Kaik541&gt; once atinm puts out a public initial package it won't matter</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;techmik67&gt; k, will stick to the double pastie's</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;Kaik541&gt; just make sure to include at the top of the ota method that you must already be on CM7 (and a Captivate version) to install it by default</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://www.pastie.org/1607622">http://www.pastie.org/1607622</a></span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;Kaik541&gt; hahaha I like that the other pastie it points to</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;Kaik541&gt; is a picture of a grill</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;techmik67&gt; ?</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;techmik67&gt; oops</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;Kaik541&gt; go to the link on line 3</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;techmik67&gt; there</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;techmik67&gt; fixed</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;Kaik541&gt; yep good</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;techmik67&gt; cool</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;Kaik541&gt; or juts say flash the i9000 version and modify your build.prop to work and pray for the best :P</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;techmik67&gt; will post in topic other channel when tested</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;atinm|away&gt; I just want to prove that this is working ... taking forever!</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;Kaik541&gt; tell me if you get that java exception</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;evaluate&gt; is there a specific person in charge of the kernel?</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;atinm|away&gt; coolya really, tho each device has someone who is overseeing their device as well</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;atinm|away&gt; sgs == coolya</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;Kaik541&gt; I think both atinm and coolya manage it for the most part</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;evaluate&gt; ok. coolya: In the kernel, in file drivers/media/video/ce147.c, shouldn't line 2899 ( if(object_tracking = OT_START) ) actually look like: if(object_tracking == OT_START) ?</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;evaluate&gt; :-)</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;atinm|away&gt; I am not really doing anything in the kernel right now, it is all coolya as far as I'm concerned :)</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;evaluate&gt; I got a warning on that line and it looks really wrong to me...</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;atinm|away&gt; right now I know of nothing captivate specific that is being worked on in the kernel</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, I tihnk Unhelpful is trying to work that out for the most part</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;atinm|away&gt; evaluate: sec</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;evaluate&gt; sure :-)</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;coolya&gt; i'm the kernel bitch :-D</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, that should be ==</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;coolya&gt; it should be == but noone is using that right now</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;evaluate&gt; cool. So warnings are useful after all :-p</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;atinm|away&gt; evaluate is building with -Wall</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;atinm|away&gt; or something :)</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;evaluate&gt; coolya, I guess it doesn't hurt if it's getting fixed though, does it? :-)</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;coolya&gt; xD</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;coolya&gt; it doesn't</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-brick">* evaluate hates warnings</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;atinm|away&gt; &lt;-- ignores warnings in code that hasn't been touched in a while :)</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;Kaik541&gt; &lt;--- just ignores them as long as they don't error out</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;atinm|away&gt; as it frequently falls in the fixing what ain't broken bin.</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm|away&gt; but good if someone else fixes them ;)</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm|away&gt; Kaik541: no failure yet</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm|away&gt; still going...</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;Kaik541&gt; mine took about an hour for the error to pop up</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;atinm|away&gt; so mine will take 4</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;atinm|away&gt; old machine</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;evaluate&gt; well, maybe it's just me, but I really like a clean output. That way, when there's a warning I know that something's wrong :-)</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;atinm|away&gt; evaluate: fix it -- we're cool with that! :)</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://fixitfixitfixit.ytmnd.com/">http://fixitfixitfixit.ytmnd.com/</a></span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;Kaik541&gt; that ytmnd makes me laugh so hard</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;Kaik541&gt; I could stare at it for hours</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;coolya&gt; fixitfix.it</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;coolya&gt; <a href="http://fixitfix.it">http://fixitfix.it</a></span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;Kaik541&gt; HAHAHA</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;uberushaximus&gt; hahah</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;uberushaximus&gt; winz</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;Kaik541&gt; I was not expecting that</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread codeworkx * 34e8757 (1 files in 1 dirs): aries-keypad.kl: home button on galaxys is not virtual - <a href="http://bit.ly/hSDRJE">http://bit.ly/hSDRJE</a></span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;uberushaximus&gt; I really would like to build from the teamhacksung repo if possible</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;codeworkx&gt; which device?</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;uberushaximus&gt; Captivate</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;codeworkx&gt; should work</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;codeworkx&gt; hopefully</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: it is the java thing that is breaking them</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;coolya&gt; jdl crashed</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;uberushaximus&gt; that's what coolya has been saying all day ;)</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;coolya&gt; jdk</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;codeworkx&gt; wtf?</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;atinm|away&gt; yeah :)</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;codeworkx&gt; i synced and did a build</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;codeworkx&gt; 10 mins ago</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;atinm|away&gt; mine seems to be going too</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;uberushaximus&gt; codeworkx: for what target?</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;codeworkx&gt; galaxys</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;codeworkx&gt; new bootlogo = +100</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;Kaik541&gt; I'm glad everyone likes it</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;codeworkx&gt; atinm, which buttons are touchkeys at cap?</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;Kaik541&gt; menu, home, back, search</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;codeworkx&gt; all touch?</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, no physical buttons on our device</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;Kaik541&gt; besides power/volume</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread codeworkx * ac533ab (1 files in 1 dirs): added keylayout file for aries-keypad - <a href="http://bit.ly/f3Izy3">http://bit.ly/f3Izy3</a></span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;codeworkx&gt; HACKSUNG!</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;coolya&gt; wtf</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;codeworkx&gt; hacksung?</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread codeworkx * 4f0e03b (4 files in 1 dirs): updated kernel - <a href="http://bit.ly/gureXY">http://bit.ly/gureXY</a></span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;codeworkx&gt; ahh</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;uberushaximus&gt; <a href="http://www.pastie.org/1607583">http://www.pastie.org/1607583</a></span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;uberushaximus&gt; I was getting this erron on build</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;Kaik541&gt; we're both getting the same java error</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;Kaik541&gt; in different places</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;techmik67&gt; when?</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;techmik67&gt; been an hour into build...</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;codeworkx&gt; it's not the repo. it's your machine which fails</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;Kaik541&gt; yeah</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;codeworkx&gt; something with your java sdk</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;uberushaximus&gt; I've built fine before though</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;Kaik541&gt; yeah I'm wondering if mine is outdated or something because we're reporting different java versions</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;codeworkx&gt; is there a initial package for captivate out?</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;uberushaximus&gt; No, nobody has been allowed to build :)</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;Kaik541&gt; nope, I'm not sure if atinm wanted to release on yet</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;techmik67&gt; i'm on ubuntu 11.04 and i apt-get update/upgrade every day</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;Kaik541&gt; I'm on 10.10, haven't updated in a few days</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: think it doesn't matter. they're using the i9000 build xD</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;Kaik541&gt; oh I know, but I wasn't about to release something that wasn't mine :P and atinm was on vacation so it's up to you guys/him if one's gonna be released now</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;codeworkx&gt; but atinm should do it and maintain the thread xD</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-brick">* uberushaximus is updating his buildbox</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;Kaik541&gt; yeah I just ran sudo aptitude to make sure nothing's out of date, but no update to java</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;codeworkx&gt; sudo add-apt-repository ppa:sun-java-community-team/sun-java6</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;codeworkx&gt;     sudo apt-get update</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;codeworkx&gt;     sudo apt-get install git-core gnupg flex bison gperf libsdl-dev libesd0-dev libwxgtk2.6-dev squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev sun-java6-jdk pngcrush g++-multilib lib32z1-dev lib32ncurses5-dev lib32readline5-dev gcc-4.3-multilib g++-4.3-multilib</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;Kaik541&gt; yeah I'm running the one from that ppa</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;Kaik541&gt; and I've built successfully before, dunno it's weird</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;techmik67&gt; I HAVE A ZIP!!!!</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;techmik67&gt; woohoo</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, definitely gotta be my machine</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;codeworkx&gt; is there a kernel with cwm recovery out for captivate?</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;codeworkx&gt; speedmod?</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;Kaik541&gt; cwm3 or 2.5?</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;Kaik541&gt; there are no cwm3 kernels for captivate =/</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;Kaik541&gt; but there are plenty of ones with ext4 for the first kernel</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;Kaik541&gt; and I used speedmodk13c I believe</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;techmik67&gt; damn</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;techmik67&gt; reorient wrong</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;techmik67&gt; internal storage 0</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;Kaik541&gt; o.O</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;techmik67&gt; we need to look at where atinms was right before he left</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;techmik67&gt; cause we had orient therer</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;techmik67&gt; there</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;Kaik541&gt; internal storage should work though</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;techmik67&gt; wifi works</span><br />
