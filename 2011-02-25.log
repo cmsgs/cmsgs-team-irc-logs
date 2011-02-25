@@ -583,3 +583,88 @@
 <span class="irc-date">[13:50]</span> <span class="irc-black">&lt;evaluate&gt; does cmsgsteam-logger create logs of the channel convos? and if yes, are they publicly available?</span><br />
 <span class="irc-date">[13:56]</span> <span class="irc-black">&lt;evaluate&gt; also, I couldn't find the sources for the kernel in the android.git. Am I right in the assumption that they are being kept in the 'android_kernel_samsung' repo?</span><br />
 <span class="irc-date">[13:58]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Quit: WeeChat 0.3.4)</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-green">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-navy">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;atinm|away&gt; evaluate: yes, to both</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;atinm|away&gt; <a href="http://www.cmsgs.com/">http://www.cmsgs.com/</a></span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;atinm|away&gt; one of the links is to the logs</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;atinm|away&gt; and sources are under android_kernel_samsung</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;atinm|away&gt; kernel</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;atinm|away&gt; techmik, it synced now</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;atinm|away&gt; and atinm gingerbread repo did that is</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;atinm|away&gt; need to do kernel separately</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;evaluate&gt; atinm|away, cool. Thanks! :-)</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;evaluate&gt; btw, can you guys send stuff from your computer to your phone?</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure if this is just me, but I had a couple of problems that I think might be related, I'll try to explain. Firstly, when trying to send stuff from my computer to my phone I always got errors like "Service not available" or "Unknows response".</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;evaluate&gt; I then tried looking into the /efs folder with "Root Explorer". Funny thing is I could see the file /efs/imei/bt.txt but when opening it it looked just like an empty file (I couldn't see any text in it). After copying it to my sdcard I could open it and see the content.</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;evaluate&gt; The second thing that was awkward was that the addresses from the files bt.txt and bt_addr differed and I think that shouldn't be the case, should it?</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-green">* gdanko (~gdanko@nat/yahoo/x-pqqbvzgwplqujazr) has joined this channel.</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;atinm|away&gt; techmik, what repo are you using for the kernel?</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;atinm|away&gt; and initramfs?</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;techmik67&gt; still syncing from you right now</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;atinm|away&gt; evaluate: over bluetooth?</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;atinm|away&gt; I actually haven't tried.</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;techmik67&gt; i was taking from coolya gingerbread_initramfsa_galaxys and copying to cap</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;atinm|away&gt; wouldn't be surprised if bluetooth is not working</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-black">&lt;evaluate&gt; atinm|away, yeah, tried sending a file from my computer to my device and it wasn't working. The first time I tried it though it worked, just after that I couldn't get it to work anymore.</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-black">&lt;atinm|away&gt; I usually just use adb to put stuff on my phone - never even use the automount usb</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-black">&lt;evaluate&gt; I suspect it might have to do with those files in the /efs folder...</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-black">&lt;atinm|away&gt; what are you trying to put?</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;atinm|away&gt; if you just need the file there, you can use adb instead</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;evaluate&gt; whatever, tried with zip files, apks, nothing worked...</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;atinm|away&gt; if you are testing bluetooth, then go for it :)</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;atinm|away&gt; I haven't tried, so can't help</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;evaluate&gt; atinm|away, ohh, I know that, I managed to get it onto the phone anyway, was just trying to debug this...</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;atinm|away&gt; haven't looked at bluetooth at all - maybe others have</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;atinm|away&gt; techmik, repo sync from me isn't goin gto get the kernel or initramfs</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;atinm|away&gt; those you'll have to build separately, and put the zImage, tun.ko, brcm.ko and cifs.ko in the device/samsung/captivate directory</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;atinm|away&gt; before you build the OTA</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx - hi</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;codeworkx&gt; hi</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;atinm|away&gt; just got back last night, so catching up</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;atinm|away&gt; how is teamhacksung - is it building/working?</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;codeworkx&gt; make otapackage and go</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;atinm|away&gt; awesome</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;atinm|away&gt; good.</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;atinm|away&gt; techmik, I have my repo pointing at teamhacksung stuff except for android_device_samsung_captivate while we debug this</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;atinm|away&gt; so we should basically be in sync.</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;atinm|away&gt; and I'll push the z axis change to teamhacksung android_device_samsung_captivate so everything is the same</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;atinm|away&gt; after we confirm things are working</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;codeworkx&gt; atinm, we've moved common stuff</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;codeworkx&gt; to device/samsung/common</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;codeworkx&gt; and captivate reorientation is already done</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;atinm|away&gt; k, I saw something.</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;codeworkx&gt; for sensors</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;atinm|away&gt; let me take a look to see if we got everything</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: <a href="https://github.com/techmik/android_kernel_samsung/raw/android-samsung-2.6.35/drivers/video/samsung/logo_rgb24_wvga_portrait.h.kaik">https://github.com/techmik/android_kernel_samsung/raw/android-samsung-2.6.35/drivers/video/samsung/logo_rgb24_wvga_portrait.h.kaik</a></span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;atinm|away&gt; can you take a look at this bootlogo</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;atinm|away&gt; (rename to .h of course)</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;atinm|away&gt; and see if we can just make this the common bootlogo for all the phones</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;codeworkx&gt; whats this?</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;atinm|away&gt; it is generic.</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;atinm|away&gt; no model names</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Quit: WeeChat 0.3.4)</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;atinm|away&gt; Kaik541 made it - I haven't actually looked at it</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;atinm|away&gt; Kaik541: what does it look like?</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;atinm|away&gt; or techmik since you've seen it</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;codeworkx&gt; need this bootlogo: <a href="http://www.kan.gd/static/duck256.png">http://www.kan.gd/static/duck256.png</a></span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;atinm|away&gt; :)</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;atinm|away&gt; we should be able to - coolya's java program should do it</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;atinm|away&gt; I think kaik's is basically just samsung and cyanogenmod</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;atinm|away&gt; right guys?</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-navy">* evaluate (~cristi@unaffiliated/evaluate) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;atinm|away&gt; techmik, so the final reorient is pos,neg,pos?</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;atinm|away&gt; did that also entail a change to YamahaBosch.cpp?</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;atinm|away&gt; or to underlying drivers?</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx, so ignore the android_device_samsung_captivate/galaxys etc?</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;atinm|away&gt; or do we still have stuff that needs to be in there</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;atinm|away&gt; ah yes</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;atinm|away&gt; we do</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-black">&lt;atinm|away&gt; just the actual common stuff is moved</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-navy">* gdanko (~gdanko@nat/yahoo/x-pqqbvzgwplqujazr) Quit (Quit: Computer has gone to sleep)</span><br />
