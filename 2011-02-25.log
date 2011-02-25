@@ -140,3 +140,39 @@
 <span class="irc-date">[4:59]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm not really sure how best to go about making sure i handle it correctly. i suppose that *maybe* the samsung aosp sources might help.</span><br />
 <span class="irc-date">[4:59]</span> <span class="irc-black">&lt;Unhelpful&gt; no idea! quite possibly not!</span><br />
 <span class="irc-date">[5:00]</span> <span class="irc-black">&lt;uberushaximus&gt; do you mean Nexus S aosp or Galaxy S open source?</span><br />
+<span class="irc-date">[5:00]</span> <span class="irc-black">&lt;uberushaximus&gt; I'd think the former might be more useful but I'm not in the know</span><br />
+<span class="irc-date">[5:00]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[5:01]</span> <span class="irc-black">&lt;Unhelpful&gt; either. the kernel stores, but does not use, a transform matrix for sensor data - the only use is to present it to userspace when asked via an IOCTL.</span><br />
+<span class="irc-date">[5:01]</span> <span class="irc-black">&lt;Unhelpful&gt; presumably samsung's code works the same on all galaxy s devices, and reads the matrix from the kernel to find out how the sensor is oriented.</span><br />
+<span class="irc-date">[5:04]</span> <span class="irc-black">&lt;Unhelpful&gt; unfortunately it looks as though the nexus s source works esentially like ours. :/</span><br />
+<span class="irc-date">[5:10]</span> <span class="irc-green">* ciwrl|around is now known as ciwrl|undead</span><br />
+<span class="irc-date">[5:17]</span> <span class="irc-black">&lt;Unhelpful&gt; look at that, nothing remotely useful in samsung sources. :P</span><br />
+<span class="irc-date">[5:17]</span> <span class="irc-black">&lt;Kaik541&gt; surprised?</span><br />
+<span class="irc-date">[5:18]</span> <span class="irc-black">&lt;Unhelpful&gt; no, but i'm not sure where *else* to go.</span><br />
+<span class="irc-date">[5:18]</span> <span class="irc-black">&lt;Kaik541&gt; well here's my go to advice that I always give people in times of hardship</span><br />
+<span class="irc-date">[5:18]</span> <span class="irc-black">&lt;Kaik541&gt; "break down and cry"</span><br />
+<span class="irc-date">[5:20]</span> <span class="irc-black">&lt;Unhelpful&gt; uhuh. that's incredibly helpful!</span><br />
+<span class="irc-date">[5:20]</span> <span class="irc-brick">* Unhelpful wishes that firefox sync played w/ android browser.</span><br />
+<span class="irc-date">[5:20]</span> <span class="irc-black">&lt;Kaik541&gt; I never said it was good advice</span><br />
+<span class="irc-date">[5:20]</span> <span class="irc-black">&lt;Unhelpful&gt; or that chrome-to-phone worked w/ firefox, i guess.</span><br />
+<span class="irc-date">[5:20]</span> <span class="irc-navy">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) Quit (Quit: Computer has gone to sleep)</span><br />
+<span class="irc-date">[5:21]</span> <span class="irc-black">&lt;Kaik541&gt; chrome to phone does</span><br />
+<span class="irc-date">[5:21]</span> <span class="irc-black">&lt;Kaik541&gt; foxtophone</span><br />
+<span class="irc-date">[5:21]</span> <span class="irc-black">&lt;Kaik541&gt; I use it all the time, works great</span><br />
+<span class="irc-date">[5:23]</span> <span class="irc-black">&lt;Unhelpful&gt; also that the "uri handler registration" model that android uses (and very nicely when it comes to apps for special handling of sites and services) played nicer w/ alternate web browsers.</span><br />
+<span class="irc-date">[5:23]</span> <span class="irc-black">&lt;Unhelpful&gt; ie, open up non-defaut browser, click link, it opens in default browser. or if you don't set a default it asks which browser evry time you click a link.</span><br />
+<span class="irc-date">[5:24]</span> <span class="irc-black">&lt;Kaik541&gt; yeah that bugs me</span><br />
+<span class="irc-date">[5:24]</span> <span class="irc-black">&lt;Kaik541&gt; I wish there was a way to... I can't think of a better word... "sandbox" each browser experience</span><br />
+<span class="irc-date">[5:25]</span> <span class="irc-black">&lt;Unhelpful&gt; doesn't firefox deal w/ this by just not asking the OS about URLs?</span><br />
+<span class="irc-date">[5:25]</span> <span class="irc-black">&lt;Kaik541&gt; it does if you open the link outside of a browser</span><br />
+<span class="irc-date">[5:25]</span> <span class="irc-black">&lt;Unhelpful&gt; of course, *that* fails too, because i might *want* a url to take me out of the browser to the youtube, listen, or nytimes apps.</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: obviously the OS gets dibs for links opened outside a browser, or rather, the application does (it could decide to handle the URI itself)</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;Unhelpful&gt; which i *think* is what firefox is doing. or at least, links in firefox open in firefox.</span><br />
+<span class="irc-date">[5:35]</span> <span class="irc-green">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[5:37]</span> <span class="irc-navy">* gdanko (~gdanko@99-33-178-151.lightspeed.simica.sbcglobal.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[5:40]</span> <span class="irc-green">* dasunsrule32 (d1b56d94@gateway/web/freenode/ip.209.181.109.148) has joined this channel.</span><br />
+<span class="irc-date">[5:40]</span> <span class="irc-black">&lt;dasunsrule32&gt; coolya|away: my laptop died, I see you got your vibrant in :p</span><br />
+<span class="irc-date">[5:42]</span> <span class="irc-black">&lt;Kaik541&gt; I always wonder what people mean when they say stuff like "my laptop died"</span><br />
+<span class="irc-date">[5:43]</span> <span class="irc-navy">* dasunsrule32 (d1b56d94@gateway/web/freenode/ip.209.181.109.148) Quit (Client Quit)</span><br />
+<span class="irc-date">[5:43]</span> <span class="irc-black">&lt;Kaik541&gt; I guess he didn't want to tell me</span><br />
+<span class="irc-date">[5:59]</span> <span class="irc-black">&lt;uberushaximus&gt; teamhacksung is broken :/</span><br />
