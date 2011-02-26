@@ -124,3 +124,90 @@
 <span class="irc-date">[0:51]</span> <span class="irc-black">&lt;techmik67&gt; gotcha</span><br />
 <span class="irc-date">[0:52]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://www.pastie.org/1607622">http://www.pastie.org/1607622</a> instructions for the other channel.... critiques?</span><br />
 <span class="irc-date">[0:54]</span> <span class="irc-black">&lt;evaluate&gt; btw, did anyone try to format their external SD card to ext4? Would that work on CM7?</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm|away&gt; techmik67: line 74 should be cd ~/android/system/device/samsung/captivate/initramfs</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;uberushaximus&gt; atinm|away: place as in where heimdall flashes it to</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;techmik67&gt; thx</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;techmik67&gt; done</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;atinm|away&gt; uberushaximus: yes, same</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;uberushaximus&gt; I don't have the zip for backing up efs anymore</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;techmik67&gt; at the end, after git pull, do they need to get rommanager again? or just jump to .build/envsetup.sh?</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;atinm|away&gt; just go</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-green">* designfears (~design@cpe-184-57-163-79.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;techmik67&gt; updated pastie to i think finalkl version</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;techmik67&gt; final*</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;techmik67&gt; making</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: it's not a real mount option, it's implemented in init.</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;atinm|away&gt; ah - what is the syntax? you can fix it</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;atinm|away&gt; (trying to put kid to bed)</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: i already have it fixed locally, i'm just trying to deal w/ sensors.aries first.</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;atinm|away&gt; k</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;Unhelpful&gt; why are kernel and initramfs not in the teamhacksung manifest, btw?</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;atinm|away&gt; they could - you'll have to ask codeworkx :)</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;atinm|away&gt; they used to be</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;atinm|away&gt; he took them out, not sure why really</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;Unhelpful&gt; well, teamhacksung is supposed to be a "for-upstream" branch, right? stuff we want to be ready to merge?</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;atinm|away&gt; yes</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;Unhelpful&gt; is there a reason that device-specific kernels or initramfs contents are not wanted upstream?</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;Unhelpful&gt; or maybe i should just ask codeworkx why ;P</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;atinm|away&gt; maybe they do it differently on other devices than samsung?</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;atinm|away&gt; but yes, ask him :)</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;Unhelpful&gt; aaaaargh why is PRODUCT_DEVICE not set?</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-brick">* techmik67 woill happily test anything you need......</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;techmik67&gt; will*</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: right now the issue seems to be that PRODUCT_DEVICE is used to set the CFLAGS for libsensors, and is somehow not set.</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;Unhelpful&gt; and this was working yesterday! wtf. :(</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;atinm|away&gt; huh..</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;Unhelpful&gt; yes?</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;atinm|away&gt; I think this file changed recently - sec.</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;atinm|away&gt; guess you can always use ifeq ($(TARGET_DEVICE),captivate)</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;atinm|away&gt; instead</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;atinm|away&gt; like is normal</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;atinm|away&gt; the space before captivate looks fishy</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;atinm|away&gt; I forget but I think that space actually counts</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;atinm|away&gt; but we use TARGET_DEVICE everywhere else in android.mk files to figure out which we're on</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;atinm|away&gt; that's how we differentiate between galaxys, captivate, crespo etc so maybe this should be the same</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-brick">* Unhelpful doesn't actually know what's normal? :P</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;Unhelpful&gt; i am not an android developer. no, really. there is a lot i do not know about this buildsystem.</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;atinm|away&gt; to me normal just means "that's how the other Android.mk files do it" ;)</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;atinm|away&gt; so instead of that PRODUCT_DEVICE line, change it to ifeq ($(TARGET_DEVICE),captivate)</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;atinm|away&gt; and try again</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;atinm|away&gt; we know TARGET_DEVICE is set</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;atinm|away&gt; you could also try removing the space before captivate because PRODUCT_DEVICE should be set too</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, no, i verified via make -p that it's not ;)</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;atinm|away&gt; well, that's not right now</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;atinm|away&gt; then</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;atinm|away&gt; full_captivate.mk sets it</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah... but make -p says something rather different.</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;atinm|away&gt; trying to remember where else we do stuff - we overrode it in froyo somewhere</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;atinm|away&gt; you did envsetup and lunch, right?</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;atinm|away&gt; you must have..</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-navy">* designfears (~design@cpe-184-57-163-79.cinci.res.rr.com) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;Unhelpful&gt; yes. i've cleaned and resetup the environment repeatedly.</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;atinm|away&gt; cyanogen_captivate.mk sets it in vendor/cyanogen as well</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;atinm|away&gt; it should be set! ;)</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;Unhelpful&gt; ...</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;atinm|away&gt; what does your env have for TARGET_PRODUCT</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;Unhelpful&gt; what make -p shows is this: PRODUCTS.vendor/cyanogen/products/cyanogen_captivate.mk.PRODUCT_DEVICE := captivate</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;atinm|away&gt; after lunch</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;Unhelpful&gt; and this: PRODUCT_DEVICE :=</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;Unhelpful&gt; so apparently that variable is made local in some fashion?</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;atinm|away&gt; where the hell did the second one come from ..</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-green">* designfears (~design@cpe-184-57-163-79.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;Unhelpful&gt; dunno. but using TARGET_DEVICE made it work. :)</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;atinm|away&gt; good enough for me ;)</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;atinm|away&gt; back later</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread Andrew Mahone * eba95c0 (3 files in 1 dirs): Remove GyroSensor changes as we don't have one, move all changes into sensors.h by swaping axis mapping there. ...</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread Andrew Mahone * 38dbe0b (1 files in 1 dirs): Fix test for captivate target in libsensors. ...</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread Andrew Mahone * 1979c5f (5 files in 3 dirs): Merge git://github.com/teamhacksung/android_device_samsung_common into gingerbread ...</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread commits 16400bc...1979c5f - <a href="http://bit.ly/eWv86m">http://bit.ly/eWv86m</a></span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;Unhelpful&gt; and there we go :P</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm|away&gt; :)</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;atinm|away&gt; you might also need to undo the BoschYamaha.cpp change I made</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;atinm|away&gt; since I was swapping there</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm|away&gt; <a href="https://github.com/teamhacksung/android_device_samsung_common/commit/9e4dd2d774f8a7ea653c8840c2bf4fb456abc87e">https://github.com/teamhacksung/android_device_samsung_common/commit/9e4dd2d774f8a7ea653c8840c2bf4fb456abc87e</a></span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;Unhelpful&gt; that should be part of the "move all changes" commit.</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;Unhelpful&gt; *should*</span><br />
