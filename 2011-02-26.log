@@ -301,3 +301,24 @@
 <span class="irc-date">[4:56]</span> <span class="irc-black">&lt;techmik67&gt; l iterally knwo nothing about code, i cut and paste</span><br />
 <span class="irc-date">[4:57]</span> <span class="irc-black">&lt;techmik67&gt; and is this the file where "onn fs" should have the commented lines in it?</span><br />
 <span class="irc-date">[4:57]</span> <span class="irc-black">&lt;techmik67&gt; mounts</span><br />
+<span class="irc-date">[5:03]</span> <span class="irc-black">&lt;Unhelpful&gt; mount ext4 /dev/block/mmcblk0p2 /data wait nosuid nodev noatime nodiratime journal_async_commit,auto_da_alloc &lt;- just use that :P</span><br />
+<span class="irc-date">[5:05]</span> <span class="irc-green">* Yangtse (~Yangtse@117.136.5.72) has joined this channel.</span><br />
+<span class="irc-date">[5:06]</span> <span class="irc-black">&lt;techmik67&gt; ah, i see....jst add the wait</span><br />
+<span class="irc-date">[5:06]</span> <span class="irc-black">&lt;Yangtse&gt; gapps-gb-20110225-signed.zip</span><br />
+<span class="irc-date">[5:06]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful: and shouldn't we remove exec /sbin/mmcwait.sh from init.rc if we do that?</span><br />
+<span class="irc-date">[5:06]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: doesn't really matter, but yes, having both is redundant.</span><br />
+<span class="irc-date">[5:07]</span> <span class="irc-black">&lt;Unhelpful&gt; but mount wait shouldn't actually wait at all if the device is there already.</span><br />
+<span class="irc-date">[5:07]</span> <span class="irc-black">&lt;Kaik541&gt; I just want to ensure the "wait" option is actually doing what we want it to, so I'm gonna remove it just to be safe</span><br />
+<span class="irc-date">[5:08]</span> <span class="irc-black">&lt;techmik67&gt; Kaik541: its in recover.rc too</span><br />
+<span class="irc-date">[5:09]</span> <span class="irc-black">&lt;Kaik541&gt; right, removing it there too</span><br />
+<span class="irc-date">[5:11]</span> <span class="irc-black">&lt;techmik67&gt; if this works i just gotta find out y no orientation fix on mine.....</span><br />
+<span class="irc-date">[5:11]</span> <span class="irc-black">&lt;techmik67&gt; btw - using it does stuff bootlogo</span><br />
+<span class="irc-date">[5:12]</span> <span class="irc-black">&lt;Kaik541&gt; heh, my clean one is default now :)</span><br />
+<span class="irc-date">[5:12]</span> <span class="irc-black">&lt;techmik67&gt; i know</span><br />
+<span class="irc-date">[5:12]</span> <span class="irc-black">&lt;Kaik541&gt; no more kanged woo</span><br />
+<span class="irc-date">[5:12]</span> <span class="irc-black">&lt;techmik67&gt; i added it does stuuf one locally</span><br />
+<span class="irc-date">[5:23]</span> <span class="irc-green">* thedood is now known as thedood|away</span><br />
+<span class="irc-date">[5:40]</span> <span class="irc-black">&lt;techmik67&gt; ok, i added all yuor fixes, Unhelpful, locally, and am building</span><br />
+<span class="irc-date">[5:46]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.5.72) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[5:52]</span> <span class="irc-black">&lt;techmik67&gt; orientatio fixed, camera works but when you view the pic it is rotated 90 degrees, but i still have no data</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
