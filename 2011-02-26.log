@@ -322,3 +322,41 @@
 <span class="irc-date">[5:46]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.5.72) Quit (Quit: Bye)</span><br />
 <span class="irc-date">[5:52]</span> <span class="irc-black">&lt;techmik67&gt; orientatio fixed, camera works but when you view the pic it is rotated 90 degrees, but i still have no data</span><br />
 <span class="irc-date">[5:57]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[6:06]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67: werid, I just built and data works fine but no rotation</span><br />
+<span class="irc-date">[6:06]</span> <span class="irc-black">&lt;techmik67&gt; i figure out why</span><br />
+<span class="irc-date">[6:06]</span> <span class="irc-black">&lt;techmik67&gt; figured</span><br />
+<span class="irc-date">[6:06]</span> <span class="irc-black">&lt;techmik67&gt; go to teamhacksung</span><br />
+<span class="irc-date">[6:07]</span> <span class="irc-black">&lt;Kaik541&gt; I got rid of waitmmc.sh btw... the "wait" mount command seems to work great</span><br />
+<span class="irc-date">[6:07]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/Unhelpful/android_device_samsung_common/commit/d2046eeb9d4ac49861a77a214c5d1cb59fa545ff">https://github.com/Unhelpful/android_device_samsung_common/commit/d2046eeb9d4ac49861a77a214c5d1cb59fa545ff</a></span><br />
+<span class="irc-date">[6:09]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67: Unhelpful already merged that into teamhacksung though</span><br />
+<span class="irc-date">[6:09]</span> <span class="irc-black">&lt;techmik67&gt; wow... it didnt work for me....it didnt come thru when i synced atin, so i had to manually add</span><br />
+<span class="irc-date">[6:10]</span> <span class="irc-black">&lt;Kaik541&gt; well when I try to repo sync, it's bitching about how I changed android_device_samsung_captivate</span><br />
+<span class="irc-date">[6:10]</span> <span class="irc-black">&lt;Kaik541&gt; because of adding the initramfs there</span><br />
+<span class="irc-date">[6:11]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[6:11]</span> <span class="irc-black">&lt;techmik67&gt; new kernel attempt booting</span><br />
+<span class="irc-date">[6:11]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: you need to commit and merge from upstream, or else stash. :P</span><br />
+<span class="irc-date">[6:11]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful: I'll be honest with you... wut?</span><br />
+<span class="irc-date">[6:11]</span> <span class="irc-black">&lt;Kaik541&gt; git is not my friend :(</span><br />
+<span class="irc-date">[6:13]</span> <span class="irc-black">&lt;Unhelpful&gt; repo makes git harder and more complex than it needs to be.</span><br />
+<span class="irc-date">[6:15]</span> <span class="irc-black">&lt;Kaik541&gt; I've just never been much of a "git" user until three weeks ago</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;Unhelpful&gt; so, add a generic "pre_reboot_cleanup" hook, or a specifc one for umounting filesystems nicely? i'm thinking the former.</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;Kaik541&gt; I think the only problem with your wanting to implement ubifs is that it won't be mainline compatible (unless I'm mistaken?)</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-green">* thedood|away is now known as thedood</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: how not, exactly?</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;Kaik541&gt; I always assumed the mainline required yaffs2/ext4 stuff but the fuck do I know? I could very likely be wrong about it</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;Unhelpful&gt; "requires" how?</span><br />
+<span class="irc-date">[6:23]</span> <span class="irc-black">&lt;Unhelpful&gt; the main issue i see is that ubifs has to either be mounted sync w/ a performance penalty, or will lose the last few seconds on poweroff. *we should be umounting before shutdown anyway*.</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;Kaik541&gt; like I said, I could easily be wrong, that was just my understanding of things</span><br />
+<span class="irc-date">[6:30]</span> <span class="irc-black">&lt;Unhelpful&gt; again, what do you mean.</span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-black">&lt;Kaik541&gt; I was always under the impression that being in the mainline required ext4/yaffs2 to be part of things for 2.3... I can't recall where I got this mindset, but I also admit that I don't know if that's a fact</span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[6:32]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[6:32]</span> <span class="irc-black">&lt;Unhelpful&gt; oh. well nobody said ubi support had to be merged upstream. :P</span><br />
+<span class="irc-date">[6:32]</span> <span class="irc-black">&lt;Unhelpful&gt; i thought you meant in terms of "in some way something will stop working but i don't really know how"</span><br />
+<span class="irc-date">[6:32]</span> <span class="irc-black">&lt;Kaik541&gt; oh no, not at all</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;Kaik541&gt; just that if you were to supply a kernel with ubifs that it would have to be as an alternative "non-cm" kernel or whatever</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;Unhelpful&gt; not everything i do is for upstream merge. ;)</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;Kaik541&gt; I think we were both just confusing each other for focusing on the wrong part of the sentence :P</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;Kaik541&gt; we've got it sorted now</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[6:42]</span> <span class="irc-green">* techmik is now known as techmik_laptop</span><br />
