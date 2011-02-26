@@ -1,0 +1,126 @@
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;coolya&gt; i would like it if you don't edit in the non device specific drivers like plat-samsung stuff. that will break if I ever want to merge upstream patches. But the rest like s3cfb and ce147 stuff it's all ok.</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;evaluate&gt; coolya, sorry, don't really know yet how all of the repos are linked and where we're supposed to edit and where not. If you want I could make separate patches so you can apply directly upstream (or should these be sent directly to the CM repo?)</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;coolya&gt; ifI have really much freetime i might pull some 2.6.36 or .2.6.38 stuff in there from the google common kernel. But thats currentlly just a dream :-D</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;coolya&gt; it's all fine with your changes there will be tonns of merge conflicts anyway :-D</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;evaluate&gt; hmm, hold on just a second. I seem to get an error when I try to enable wifi. Let me debug this for a second.</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;coolya&gt; you need to push the module</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;coolya&gt; from the kernel build to /system/modul</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;coolya&gt; it needs to be the one from the same build as the kernel</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: so should i go ahead and rework that w/ all the changes in sensors.h?</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;evaluate&gt; ohh</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: i would like it if you would do that</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;evaluate&gt; I just flashed the zImage with heimdall.</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;coolya&gt; i won't be here tomorrow so, codeworkx will have to merge stuff tomorrow :-P</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: 'k, i'll look @ that before i go back to ubi ;)</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;coolya&gt; i will have a weekend without android, internet and computers :-D</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Unhelpful&gt; so i can just revert the gyro changes, we don't even have one? :/</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;Yangtse&gt; i hate 2year without internet and computers.</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.5.83) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-brick">* Unhelpful is curious... why do we need to invert orientation, which is a derived value?</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;Unhelpful&gt; erm, invert one axis of it, rather. ;)</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;atinm|away&gt; techmik67: I need to commit a change to get reorient back</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://www.codeworkx.de/download/cyanogenmod/cm7-captivate-initial-package.zip">http://www.codeworkx.de/download/cyanogenmod/cm7-captivate-initial-package.zip</a></span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-green">* Yangtse (~Yangtse@117.136.5.83) has joined this channel.</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: we've no gyroscope</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;evaluate&gt; coolya, ok, after flashing the .ko files now everything seems fine from what I can tell.</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: right, just checking :)</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread atinm * 9e4dd2d (2 files in 1 dirs): Captivate specific reorient stuff for messed up axis. ...</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread atinm * 16400bc (3 files in 2 dirs): Merge branch 'gingerbread' of git://github.com/teamhacksung/android_device_samsung_common into gingerbread</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread commits 4830dbd...16400bc - <a href="http://bit.ly/goQ5kP">http://bit.ly/goQ5kP</a></span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;atinm|away&gt; techmik67: now try</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;atinm|away&gt; coolya/codeworkx, can you add unhelpful to teamhacksung</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.5.83) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;atinm|away&gt; he's going to be more useful than me :)</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: ...did you just add conflicts i will need to merge? :(</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-green">* Yangtse (~Yangtse@117.136.5.83) has joined this channel.</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;Unhelpful&gt; ...i am? :P</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;atinm|away&gt; I hope not!</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;atinm|away&gt; I've just put captivate reorient stuff to last known good :)</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;atinm|away&gt; the commit was how it was when it worked for correct portrait/landscape for captivate.</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;atinm|away&gt; and we lost the changes</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: i've added you to teamhacksung</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;atinm|away&gt; on teamhacksung so just put them back. real cleanup involves kernel I think</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm not really sure how the kernel will help here?</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;atinm|away&gt; I was told that the driver was returning x and y swapped on captivate</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;atinm|away&gt; that's why the BoschYamaha.cpp has an ifdef for captivate</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: it does, but i believe that this is simply a result of the sensor being in a different orientation with regard to the screen.</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm|away&gt; where event_type_accel_x actually sets y</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya had a good suggestion though, and i can actually limit the changes to sensors.h :)</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm|away&gt; or rather, that is the end result and that when we get event_type_accel_x, we really need to set the y</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm|away&gt; ok, then you can undo the BoschYamaha.cpp ifdef - would really rather not have it!</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;evaluate&gt; do you guys need me to do anything else for that patch to be implemented or will coolya|away look at it when he'll be back?</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: sensors.h maps sensor-specific X/Y/Z event types to input layer event types - so we just change the mapping there.</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm|away&gt; ah. I didn't look too closely at the code - I was told what worked and I put it in ;)</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm|away&gt; so I'm glad you actually grok it!</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;Unhelpful&gt; i didn't look too closely at first, so i actually did the same thing and created duplicate, ifdef'd code in BoschYamaha.cpp :/</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;Unhelpful&gt; so, it looks like camera is woring on teamhacksung on captivate. touch-to-focus is not, and also captivate thinks it has two cameras.</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm|away&gt; well, it is there now so techmik67 can build it and stop feeling bad :)</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;techmik67&gt; yay! =)</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm|away&gt; once captivate is back to not being off 90 degrees, he's off the hook ;)</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;codeworkx&gt; touch2focus comes with cm7.1</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;codeworkx&gt; it's not working on my DHD too</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: you going to pull the initramfs into teamhacksung?</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|away&gt; gingerbread_*_initramfs repos?</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;codeworkx&gt; i'll do it tomorrow</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;codeworkx&gt; need some sleep</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|away&gt; I think right now everything can almost be on just teamhacksung</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.5.83) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;techmik67&gt; building new version</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread atinm * 37729e6 (4 files in 1 dirs): Latest kernel modules. ...</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread atinm * 2f2b868 (0 files in 0 dirs): Merge branch 'gingerbread' of git://github.com/teamhacksung/android_device_samsung_captivate into gingerbread ...</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread commits 4f0e03b...2f2b868 - <a href="http://bit.ly/hFh3dn">http://bit.ly/hFh3dn</a></span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm|away&gt; weird... we have the same commits from both me and codeworkx on that</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;codeworkx&gt; i've updated the kernel today xD</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;codeworkx&gt; with a working initramfs</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;codeworkx&gt; with mmcwait</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm|away&gt; I added the aries-keypad and then you did as well :)</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm|away&gt; ah - that was it.</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm|away&gt; crap.</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-navy">* uberushaximus (~uberushax@71-13-134-35.dhcp.ftbg.wi.charter.com) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;codeworkx&gt; doesn't matter. will redo tomorrow</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;codeworkx&gt; good night, i'm out</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;techmik67&gt; night</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: you were going to change it so that mmcwait wasn't needed</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-green">* uberushaximus (~uberushax@71-13-134-35.dhcp.ftbg.wi.charter.com) has joined this channel.</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;atinm|away&gt; but I looked and didnt' see a wait option on mount</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;atinm|away&gt; so I didn't do anything</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Quit: Get MacIrssi - <a href="http://www.sysctl.co.uk/projects/macirssi/)">http://www.sysctl.co.uk/projects/macirssi/)</a></span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread atinm * 4af8fa4 (1 files in 1 dirs): zImage with initramfs that includes mmcwait etc. ... - <a href="http://bit.ly/fByrJM">http://bit.ly/fByrJM</a></span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; wakey wakey ...</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; :) ... waiting for teamhacksung bot to wake up</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;uberushaximus&gt; it's not connected yet</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, must be on a timer</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; anyway - updated the kernel in device/samsung/captivate</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; techmik67: you can try again :)</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; hopefully initramfs should be fine now</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;uberushaximus&gt; kernel is still in the same place right?</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; place as in?</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; teamhacksung/android_samsung_kernel</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; and put it in the top level kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; with the initramfs in device/samsung/captivate (for captivate)</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; for whatever reason, I'm not having trouble building.</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; versions of something or other I'm sure.</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; tired ...</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://www.pastie.org/1608254">http://www.pastie.org/1608254</a></span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; reset --hard in there</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; you copied the files when you built the kernel</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; and device/samsung/captivate has them too</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; you did correct, it is just that when you pull, it'll always conflict</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; its to save ppl who dont' want to build the kernel - but the ones who do have the extra step of cleaning up :)</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;techmik67&gt; gotcha</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://www.pastie.org/1607622">http://www.pastie.org/1607622</a> instructions for the other channel.... critiques?</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;evaluate&gt; btw, did anyone try to format their external SD card to ext4? Would that work on CM7?</span><br />
