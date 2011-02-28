@@ -60,3 +60,78 @@
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;Unhelpful&gt; if you're thinking of HT logical cores, they don't really count for so much. i don't think of my i7 as being 8-core.</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;evaluate&gt; Might be that two of the cores are virtual ones. I've heard something like that before, didn;t get much into it tbqh</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;Unhelpful&gt; 2 cores. says right there. ;)</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, always used this to get the number of cores: <a href="http://pastebin.com/unuRXv0g">http://pastebin.com/unuRXv0g</a></span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;evaluate&gt; guess that doesn't fly with modern processors anymore :-p\</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;Unhelpful&gt; the thing about hyperthreading is that each pair of logical cores only actually has one set of hardware for executing the instructions. you don't get nearly double the performance, and it can get very close to being worth nothing depending on the workload.</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, i get something much like that, but CPU benchmarks don't run much faster on "eight" cores than on four. :/</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;Unhelpful&gt; might also be that you're tuning x264 too hard. some of the options are *very* expensive in decoding time for tiny improvements in quality/bitrate :/</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;evaluate&gt; I'm usually converting them with vlc and just changing the resolution, nothing really fancy...</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm, does vlc automatically set the number of threads to use?</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;Unhelpful&gt; Wout`: which GB update, btw?</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;Wout`&gt; Unhelpful: samsung is said to be coming out with a 2.3 firmware update in march</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;Unhelpful&gt; i still haven't seen an official 2.2 update :P</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;Wout`&gt; Which phone? :P</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;Unhelpful&gt; captivate :(</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;Wout`&gt; ah</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;Wout`&gt; Blame your carrier. My i9000 has had 2.2 for months</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;Wout`&gt; not that it was any good</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;evaluate&gt; well, if we get the drivers and stuff for a single model, we could work with that and adapt it to work with all models, couldn't we?</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;Wout`&gt; even with 2.1.1, compared to CM7 it's laggy</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;evaluate&gt; Yeah, CM7 got pretty nice with recent updates</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;evaluate&gt; only thing that still bugs me and makes me think of switching back for now, is the huge battery drain</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;Unhelpful&gt; Wout`: yes, well, samsung hasn't been willing to abandon rfs in their firmwares. ;)</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;Wout`&gt; evaluate: I'm averaging between 18-22hours on the current build, which is just about manageable</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;Wout`&gt; Unhelpful: yeah :/ stubborn bunch. Anyway, just want them to release sources to their 2.3 rom so codeworkx and coolya|away can strip out all the stuff we need and optimize CM7 ;)</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, yeah, I get pretty good average too, the thing that I don't like about it though is that it's unpredictable...</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-brick">* Unhelpful wonders where exactly samsung's divx and mkv magic lives... i mean, there are libraries w/ divx and mkv in the name, but the stagefright libraries don't appear to reference those at all.</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;evaluate&gt; I mean, with 2.2.1 with speedmod, I could go to sleep with 5% battery and still be sure that the alarm clock goes off in the morning, whereas with this I'm afraid even with 25% in the evening (since in one night I had around 20% drop...)</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;Wout`&gt; Unhelpful: according to this thread: <a href="http://forum.xda-developers.com/showthread.php?t=784270">http://forum.xda-developers.com/showthread.php?t=784270</a></span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;Wout`&gt; GalaxyS/linux-2.6.29/drivers/media/video/samsung/mfc40</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;Wout`&gt; GalaxyS/linux-2.6.29/drivers/media/video/samsung/mfc50</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;Unhelpful&gt; ...ok?</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;Wout`&gt; those are the hw-accelerated video codecs according to that thread</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;Wout`&gt; dont know if its true, for I am a n00b</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;Unhelpful&gt; those are the kernel components.</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm talking about the userspace ones.</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;Wout`&gt; ah</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;Unhelpful&gt; looks like libmediaplayerservice, libmtp, libomx_sharedlibrary all mention divx, wmv, or mkv somewhere..</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, ever heard of ZN7android16VolumeCustomizerC1Ev ? :-)</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;Unhelpful&gt; um, should i have?</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;evaluate&gt; was just curios. I have tried to replace some of the libraries in CM with 2.2.1 ones (to get call recording to work) and have ended up with an error that said some library can't find ZN7android16VolumeCustomizerC1Ev ...</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;evaluate&gt; and I have no friggin idea what that means. :-p</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;Unhelpful&gt; OH! that would be a symbol name. :)</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;evaluate&gt; tried grepping for it in the samsung source code, but couldn't find anything...</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;Unhelpful&gt; it wouldn't be in the source code. :)</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;evaluate&gt; but where?</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;Unhelpful&gt; C++, unlike C, allows functions with the same name but different call signatures. how does this *really* work? they actually have different names. ;)</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;Unhelpful&gt; the compiler encodes the call signature in the name, so instead of multiple versions of the same function, you have different functions.</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;evaluate&gt; god damn c++</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;evaluate&gt; should've been called c--</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;Unhelpful&gt; oh don't blame C++. :P</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;evaluate&gt; well, if I'd blame myself that would make me look stupid, so I'm not going to do _that_...</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;Unhelpful&gt; anyway, nm --demangle will decode these :)</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, ok, thanks :-)</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;Unhelpful&gt; so that you see: 00040b11 T android::VolumeCustomizer::VolumeCustomizer(int, bool)</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;Unhelpful&gt; the one you were looking at appears to be: 00040b49 T android::VolumeCustomizer::VolumeCustomizer()</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;evaluate&gt; and is that one in the CM libs?</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;evaluate&gt; (I didn't look yet)</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;Unhelpful&gt; found it by finding the address of the mangled symbol, then finding the same address in the list of demangled symbols.</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;Unhelpful&gt; huh? i found that in a samsung froyo firmware :)</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;evaluate&gt; ohh</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;evaluate&gt; Guess I'll have to copy that over to CM if it isn't there. I liked call recording on stock FW...</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;Unhelpful&gt; *but*! knowing the proper name of the function will make it easier to find - it looks to me like it's namespace android, class VolumeCustomizer, method VolumeCustomizer() - that would be a default constructor method.</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;Unhelpful&gt; surely implementing call recording on CM couldn't be so hard?</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;Unhelpful&gt; or you could try one of these? <a href="http://www.appbrain.com/search?q=call+recording">http://www.appbrain.com/search?q=call+recording</a></span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, that doesn't work.</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;evaluate&gt; Well, the apps actually work, but without support from the libraries, they will record the other end from the microphone too, which will result in a very low quality.</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-black">&lt;evaluate&gt; That's why I need to port the libraries of a specific 2.2.1 version over (there was a single version that had software support for 2-way recording, can't recall which one it was though).</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;evaluate&gt; Some exotic one from china or whatever, where there are no laws :-p</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;Unhelpful&gt; ick. if android actually used alsa's normal libraries this would be easy :P</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;evaluate&gt; I don't think codeworkx or coolya will like the idea of having call recording support in the repo though, so I'd have to create a fork or something... :-\</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;Unhelpful&gt; *sigh* android - "it's linux, jim, but not as we know it."</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;evaluate&gt; hehe</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;evaluate&gt; at some point I thought about porting some stuff from debian-arm over to it. Like bash and stuff like that.</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;evaluate&gt; Didn't get too deep into that idea though since I had exams at school.</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-black">&lt;codeworkx&gt; hi</span><br />
