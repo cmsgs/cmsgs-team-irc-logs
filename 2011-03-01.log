@@ -148,3 +148,46 @@
 <span class="irc-date">[2:22]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
 <span class="irc-date">[2:26]</span> <span class="irc-green">* ciwrl (ciwrl@pool-173-79-49-151.washdc.fios.verizon.net) has joined this channel.</span><br />
 <span class="irc-date">[2:59]</span> <span class="irc-brick">* uberushaximus sucks at git</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;uberushaximus&gt; I tried to pull changes from the upstream android_vendor_cyanogen, but git seem to know that it pulled changes</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;uberushaximus&gt; doesn't seem to know</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;uberushaximus&gt; did I need to do a fetch or make a branch or something?</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;Unhelpful&gt; uberushaximus: what did you do, exactly?</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;uberushaximus&gt; cd'd into android/system/vendor/cyanogen, did a git pull of the upstream repo and then tried to commit</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;Unhelpful&gt; you shouldn't need to commit after pull?</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;Unhelpful&gt; pull merges.</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;uberushaximus&gt; trying to push to my repo didn't do anything, it said "No changes to commit"</span><br />
+<span class="irc-date">[3:06]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, crap. did you commit *to a local branch* before you pulled?</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm guessng no?</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;uberushaximus&gt; No, so I need to *make* a branch prior to that?</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;uberushaximus&gt; and by local you mean *my* fork?</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, here's what probably happened: repo made a branchless checkout of the upstream branch, you committed to that, then pull made it go away.</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;uberushaximus&gt; I reversed it by doing another repo sync after rming the dir</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;Unhelpful&gt; so, *first* do git branch --track &lt;remote&gt;/&lt;remotebranch&gt;, i assume github/gingerbread</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;uberushaximus&gt; Unhelpful: at ~/android/system or in the directory I'm making changes to?</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;uberushaximus&gt; I'm assuming the latter</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, and sorry, that should be "checkout" rather than "branch"</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;uberushaximus&gt; Neato</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;Unhelpful&gt; so in vendor/cyanogen, do git checkout --track github/gingerbread</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;Unhelpful&gt; you'll then have a local branch that tracks the remote gingerbread branch.</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;Unhelpful&gt; now, i'm imagining you had some committed changes that seem to have disappeared?</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;uberushaximus&gt; No, I didn't personally make any, and I know they're in the other branch</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;uberushaximus&gt; I need the tl;dr version to git pull to a branch though</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;Unhelpful&gt; you know they're in what branch?</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;uberushaximus&gt; wait I lied, I only have one branch now, because the dir was branchless before, got it</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;uberushaximus&gt; and checkout makes the directory revert to the original</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;uberushaximus&gt; Hm, well I'm not too sure I know how to properly edit the build prop for our targets anyway</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;uberushaximus&gt; <a href="https://github.com/CyanogenMod/android_vendor_cyanogen/commit/b0c4128ba02bcb95ea2c1236dcb25731bf500f5f">https://github.com/CyanogenMod/android_vendor_cyanogen/commit/b0c4128ba02bcb95ea2c1236dcb25731bf500f5f</a></span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;uberushaximus&gt; and there's one other commit before that <a href="https://github.com/CyanogenMod/android_vendor_cyanogen/commit/6e808591db37237db94b8e2414e74a2054bea475">https://github.com/CyanogenMod/android_vendor_cyanogen/commit/6e808591db37237db94b8e2414e74a2054bea475</a></span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;Unhelpful&gt; well, wait asec, i know the gitfu to get your lost branchless commits back :)</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;Unhelpful&gt; so, restored w/ ubifs, success. only trouble was the first time it restored my not-ubi-capable kernel from the backup ;)</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-green">* Jeremih is now known as ShaunoftheDead</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;dalingrin&gt; word of warning....2.3.3 is causing problems for people with SGX</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;dalingrin&gt; probably won't effect galaxy S</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, not used to recovery restoring kernel, are you? :P</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;Unhelpful&gt; rild is crashing, time to look for modems i guess</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-navy">* ShaunoftheDead (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-black">&lt;Unhelpful&gt; apparently symlink is not sufficient, i actually had to add two zero-length mtd partitions so that mtd5r would be the radio partition.but it works!</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;Unhelpful&gt; uberushaximus: ok, so, what you need to do is use git reflog</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;uberushaximus&gt; Unhelpful: I didn't need that but thanks for reminding me</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;Unhelpful&gt; it will list *all* changes to repository state, including checkouts. you can use it to get commit IDs for lost revisions, and you can then merge or cherry-pick them if they haven't been purged. :)</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;Unhelpful&gt; reflog is awesome and has saved my bacon many times.</span><br />
