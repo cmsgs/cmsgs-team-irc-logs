@@ -1094,3 +1094,119 @@
 <span class="irc-date">[15:58]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
 <span class="irc-date">[15:58]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread codeworkx * c8c2110 (4 files in 1 dirs): kanged 2.3.3 libaudio changes from crespo - <a href="https://github.com/teamhacksung/android_device_samsung_common/commit/c8c2110d6bcac25eb151acb7543fe53154d29c17">https://github.com/teamhacksung/android_device_samsung_common/commit/c8c2110d6bcac25eb151acb7543fe53154d29c17</a></span><br />
 <span class="irc-date">[15:58]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, when you're done, if you have the time I'd have a small question. When changes are made upstream (with upstream I mean cyanogen for example) is github set up in such a way that it "imports" the changes automatically into teamhacksung or do you have to manually import the changes?</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;uberushaximus&gt; evaluate: it depends on what git repo it's in</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; manually</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; oh no</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; we're using cyanogen repos</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; except for device specific stuff</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;uberushaximus&gt; in that we pull partially from upstream and partially hand-merge</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;evaluate&gt; so the cyanogen stuff get synced automatically, right&gt;?</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;evaluate&gt; I mean the non-device-specific stuff</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;uberushaximus&gt; anywhere you don't see "teamhacksung" is upstream <a href="https://github.com/teamhacksung/android/blob/f3d1ff16caefcee29a23cff318056ee65b9bedaf/default.xml">https://github.com/teamhacksung/android/blob/f3d1ff16caefcee29a23cff318056ee65b9bedaf/default.xml</a></span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;evaluate&gt; got it. Thanks for the explanations!</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-brick">* evaluate saves link</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;evaluate&gt; uberushaximus, are you familiar with repo?</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;uberushaximus&gt; somewhat, what are you trying to do?</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;evaluate&gt; uberushaximus, I was wondering if it's possible (well, I bet it is, I just don't know how to do it) to have something like a local branch with changes to the code. So that I can have for example some changes to the code but still be able to sync seemlessly when there are changes in teamhacksung</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;evaluate&gt; If I could use git commands that would be pretty simple, but since I'm not familiar at all with repo, I have no idea how I could do it...</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_samsung_common: gingerbread codeworkx * 557e171 (24 files in 2 dirs): kanged 2.3.3 proprietary stuff - <a href="http://bit.ly/hT9hh9">http://bit.ly/hT9hh9</a></span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;uberushaximus&gt; I'm fairly sure doing it with git commands is safe, have a look at this page though <a href="http://source.android.com/source/git-repo.html">http://source.android.com/source/git-repo.html</a></span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;evaluate&gt; uberushaximus, I've already seen that, but since the synced folder with repo doesn't have any .git folder in it, I just get errors when trying to execute git stuff...</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;mikebeecham&gt; just so you know...never, ever follow #__topsecret__ on twitter!</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;mikebeecham&gt; I just had to go through 53 tweets</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;mikebeecham&gt; phew!</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, lol</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;codeworkx&gt; k, pushed all stuff</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;codeworkx&gt; lets build and see what happens xD</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-navy">* birdman-zzzz (~Steven@adsl-072-148-044-213.sip.rmo.bellsouth.net) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-brick">* evaluate syncs</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;mikebeecham&gt; evaluate, dont get me wrong...I LOVE twitter, but I would really get square eyes looking at the cm tweets :D</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;nitam|work&gt; chek0v: actually, teamhacksung is the repo in use now</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;mikebeecham&gt; codeworkx, great work on the rom - Installed today and LOVE it!</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;chek0v&gt; mnita|work: ya i see that now ;P</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://cmsgs.com/mediawiki/index.php?title=Building_from_Source">http://cmsgs.com/mediawiki/index.php?title=Building_from_Source</a></span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, you don't need to read them. You just know that people are working and that is a good thing :-)</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-green">* riggnix (~RggnX@91.119.3.232) has joined this channel.</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;codeworkx&gt; damn slow vm. compiling kernel takes 80 secs</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;chek0v&gt; yeah dude i gave up on that shit</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;chek0v&gt; io in vbox is so slow, took hours to build</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;codeworkx&gt; i'm using vmware</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;chek0v&gt; why not just build locally</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;codeworkx&gt; then i have to reboot into ubuntu xD</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;chek0v&gt; ah</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;chek0v&gt; heh</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;codeworkx&gt; and cannot play while building</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;nitam|work&gt; mikebeecham: cmsgsteam's us ;)</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, well, use ubuntu as you main OS, then you don't have to reboot</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;evaluate&gt; and gaming is for 14 year olds anyway :-p</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;codeworkx&gt; and how to play black ops on ubuntu?</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;nitam|work&gt; black ops? c'mon - play poker with me instead.</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;codeworkx&gt; sometimes i need some pew pew</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;nitam|work&gt; pokerstars.com</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;nitam|work&gt; or fulltiltpoker.com ;)</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; bring money.</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;evaluate&gt; and if you lose you can shoot him... :-p</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; (tho I've just been playing freeroll tournaments)</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;mikebeecham&gt; mnita|work, thanks for spamming my twitter inbox ;)</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; mikebeecham: it tells you we're working here ;)</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;mikebeecham&gt; but good to know that work is ongoing...cant wait for a flashable 2.3.3</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;mikebeecham&gt; mnita|work, I wouldnt have it any other way :D</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;nitam|work&gt; getting back to evaluate - repo is a veneer on git.</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;nitam|work&gt; the dirs underneath are actually git repos.</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;nitam|work&gt; if you look at the default.xml - you'll see which ones are pointing at cyanogenmod directly</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;nitam|work&gt; and which we've forked</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;nitam|work&gt; the ones we've forked you'll have to pull into yourself. the others we just get what's upstream</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;nitam|work&gt; you'd just add a remote to the upstream repo and pull from it and it will merge into your local</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;nitam|work&gt; when you pull</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;mikebeecham&gt; may I ask...how often are new versions (2.3.2, 2.3.3, etc) released?  Is it "as and when" or regularly?</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; then you go thru the merge conflicts, test to make sure things are still working, commit.</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; and send a pull request.</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;mikebeecham&gt; versions that I can flash through cwm</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;stickpin&gt; wow! so many fixes... :D</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; we aren't releasing any flashable things right now - not really.</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;stickpin&gt; compiling now....</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;mikebeecham&gt; mnita|work, ah ok</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; we're asking only developers to try this out right now</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;mikebeecham&gt; is this more a dev room?</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;mikebeecham&gt; should I be here?</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; only ppl who can help us fix.</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; yes.</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;mikebeecham&gt; ahhh ok, didnt realise.  Sorry!</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; this is a developers only room (and some others who we've allowed to hang out)</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;codeworkx&gt; this is a totally damn secret, hidden pew pew pew devz only lol room</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;mikebeecham&gt; lol</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; because they act as great testers for testing our code - especially me when I just build and tell em to test before I test myself ;)</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;mikebeecham&gt; ok, I'm a UI designer for Android...so probably not much use to you</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, ok, got it. No idea why I've never noticed the damn .git folders before...</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-green">* mikebeecham (~mikebeech@92.17.210.133) has left this channel.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;codeworkx&gt; mikebeecham: create a nice theme for adw</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;nitam|work&gt; ah well - wonder how he found us</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;nitam|work&gt; we're like top secret and stuff.</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;nitam|work&gt; black ops.</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;nitam|work&gt; (pew pew)</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;nitam|work&gt; tho I prefer the ka-ching that the poker clients do ;)</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;chek0v&gt; sorry i have a twitter acct</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;chek0v&gt; and im just like</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;chek0v&gt; #CMSGSTEAM</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;chek0v&gt; JOIN IT</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;chek0v&gt; TODAY!</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;evaluate&gt; so that's why everyone found us...</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;ohayden&gt; speaking of pew pew</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;ohayden&gt; <a href="http://www.switched.com/2011/02/27/game-literally-makes-you-go-pew-pew">http://www.switched.com/2011/02/27/game-literally-makes-you-go-pew-pew</a></span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;ohayden&gt; lulz</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;nitam|work&gt; .kick chek0v</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-187.static.twtelecom.net) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;chek0v&gt; dont dew it</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.1.100.adsl.012.net.il) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-green">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) has joined this channel.</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 codeworkx * 33926ba (6 files in 1 dirs): ARM: aries: double framebuffer size - <a href="http://bit.ly/hp42bE">http://bit.ly/hp42bE</a></span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 codeworkx * fbb1e7f (1 files in 1 dirs): include mach/cpu-freq-v210.h - <a href="http://bit.ly/euYz26">http://bit.ly/euYz26</a></span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
