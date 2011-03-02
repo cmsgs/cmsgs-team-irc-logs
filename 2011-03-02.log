@@ -301,3 +301,47 @@
 <span class="irc-date">[10:46]</span> <span class="irc-black">&lt;evaluate&gt; so yeah, it should work fine (didn't test it yet)</span><br />
 <span class="irc-date">[10:48]</span> <span class="irc-black">&lt;stickpin&gt; will do clean install... initial one... will see if it fixed...</span><br />
 <span class="irc-date">[10:55]</span> <span class="irc-green">* designfears (~jayp@32.145.129.197) has joined this channel.</span><br />
+<span class="irc-date">[11:01]</span> <span class="irc-brick">* evaluate slaps designfears </span><br />
+<span class="irc-date">[11:08]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, little help. If I add new source files, I only need to add them to Android.mk so that they are included in the make, right?</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-black">&lt;Unhelpful&gt; yes</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;evaluate&gt; cool</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-brick">* evaluate compiles</span><br />
+<span class="irc-date">[11:23]</span> <span class="irc-black">&lt;evaluate&gt; btw, this would have to go to upstream (cyanogenmod) if it 's to be implemented, right?</span><br />
+<span class="irc-date">[11:41]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, any way that you know of to only rebuild a binary? (Like vold for example), without recreating the whole OTA package?</span><br />
+<span class="irc-date">[11:43]</span> <span class="irc-black">&lt;Unhelpful&gt; did you try looking at help? :)</span><br />
+<span class="irc-date">[11:43]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, there is a help?</span><br />
+<span class="irc-date">[11:43]</span> <span class="irc-black">&lt;evaluate&gt; where? :-p</span><br />
+<span class="irc-date">[11:43]</span> <span class="irc-black">&lt;Unhelpful&gt; ...type help. :)</span><br />
+<span class="irc-date">[11:43]</span> <span class="irc-black">&lt;evaluate&gt; in the repo root?</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-black">&lt;evaluate&gt; also, that seems to give me the 'bash' help manual...</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-black">&lt;evaluate&gt; not really what I was looking for...</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-black">&lt;Unhelpful&gt; any time after setting up the build environment.</span><br />
+<span class="irc-date">[11:45]</span> <span class="irc-black">&lt;Unhelpful&gt; if it doesn't, you haven't run envsetup.sh in the current shell.</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;evaluate&gt; ok, I hope 'mm' or 'mmm' does the trick...</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;evaluate&gt; thanks! :-)</span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;Unhelpful&gt; most of those commands only work after running envsetup.sh, btw.</span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;stickpin&gt; buttons mapping is wrong...</span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;stickpin&gt; wrong wrong wrong...</span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;stickpin&gt; buttons somewhere on the screen... :))</span><br />
+<span class="irc-date">[11:49]</span> <span class="irc-black">&lt;evaluate&gt; stickpin, yup, also noticed that on the latest source</span><br />
+<span class="irc-date">[11:49]</span> <span class="irc-black">&lt;stickpin&gt; anyway to fix it?</span><br />
+<span class="irc-date">[11:49]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, yup, noticed. Thing is I have a script to compile everything automatically so I obviously forgot to run that...</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;evaluate&gt; stickpin, let me see if there's a way to jump back to a proper state</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;stickpin&gt; witch file need to edit?</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;stickpin&gt; ok found arch/arm/mach-s5pv210/mach-aries.c</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;evaluate&gt; stickpin, you don't need to edit anything</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;evaluate&gt; that's why there's git</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;evaluate&gt; you can jump to a previous state with git, let me check real quick</span><br />
+<span class="irc-date">[11:56]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.1.100.adsl.012.net.il) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[11:56]</span> <span class="irc-black">&lt;evaluate&gt; cd kernel/samsung/2.6.35 &amp;&amp; git checkout bb0c99584c6b806e5e8d4bb654bfd2539764893d</span><br />
+<span class="irc-date">[11:56]</span> <span class="irc-black">&lt;evaluate&gt; should do the trick</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-brick">* evaluate slaps Ping timeout</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-green">* stickpin (~stickpin@80.178.1.100.adsl.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.1.100.adsl.012.net.il) Quit (Client Quit)</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-black">&lt;evaluate&gt; &lt;evaluate&gt; cd kernel/samsung/2.6.35 &amp;&amp; git checkout bb0c99584c6b806e5e8d4bb654bfd2539764893d</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-black">&lt;evaluate&gt; &lt;evaluate&gt; should do the trick</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-green">* stickpin (~stickpin@80.178.1.100.adsl.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-black">&lt;stickpin&gt; anyone know proper value for cappy buttons? x,y,w,h?</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;evaluate&gt; DAMNIT!!!</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;evaluate&gt; stickpin, <a href="http://pastebin.com/Na9PtCdB">http://pastebin.com/Na9PtCdB</a></span><br />
+<span class="irc-date">[11:59]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, last question for today: Any idea why I get this if I run 'mm' in system/vold: <a href="http://pastebin.com/NyGGCj1Y">http://pastebin.com/NyGGCj1Y</a> ?</span><br />
