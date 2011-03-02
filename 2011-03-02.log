@@ -222,3 +222,39 @@
 <span class="irc-date">[8:34]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
 <span class="irc-date">[8:42]</span> <span class="irc-green">* enl_ (5270c4ce@gateway/web/freenode/ip.82.112.196.206) has joined this channel.</span><br />
 <span class="irc-date">[8:55]</span> <span class="irc-navy">* enl_ (5270c4ce@gateway/web/freenode/ip.82.112.196.206) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[9:20]</span> <span class="irc-black">&lt;Unhelpful&gt; bah, recovery.img depends on the kernel for some reason, so i'm thinking we can't really hope to get the build system to build the initramfs and then the kernel. but we *can* build initramfs, then build kernel, then build OTA, from a script. :D</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, I already wrote a script myself to build the kernel and then the ota. Not sure about the initramfs though</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-black">&lt;evaluate&gt; I don't know how that one is built...</span><br />
+<span class="irc-date">[9:32]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: well, it took some minor changes to core makefiles so that it doesn't remove init.aries.rc and other needed things from the recovery image, but basically out/target/product/&lt;device&gt;/root is already pretty close to being a proper initramfs, we just need to close the gp.</span><br />
+<span class="irc-date">[9:32]</span> <span class="irc-black">&lt;Unhelpful&gt; gap.</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, is there something wrong with the initramfs we currently have?</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, its recovery binaries are already out of sync, and there's no reason that keeping them *in* sync should be a manual process.</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;evaluate&gt; Where are the recovery binaries from? Samsung?</span><br />
+<span class="irc-date">[9:39]</span> <span class="irc-black">&lt;Unhelpful&gt; ...no, they're build targets for CM. look in the sources, they're in bootable/recovery.</span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-black">&lt;evaluate&gt; ohh, so we just need to rebuild this before for the other stuff, just like we do with the kernel, right?</span><br />
+<span class="irc-date">[9:42]</span> <span class="irc-black">&lt;Unhelpful&gt; that's the idea, yeah.</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;Scepterr&gt; hey Unhelpful</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;Unhelpful&gt; hey</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;Scepterr&gt; hows it going</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-brick">* Unhelpful wonders why we have an overlay for init...</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;Unhelpful&gt; well enough</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;Scepterr&gt; loaded up cm7 on my vibrant</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;Unhelpful&gt; oooooh, the bootmode. :(</span><br />
+<span class="irc-date">[9:47]</span> <span class="irc-black">&lt;Yangtse&gt; xwjv1</span><br />
+<span class="irc-date">[9:47]</span> <span class="irc-black">&lt;Yangtse&gt; go</span><br />
+<span class="irc-date">[9:47]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.5.65) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-black">&lt;Wout`&gt; damn, thats a lot of github activity</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-brick">* Unhelpful wonders if it's even remotely safe to sync yet :P</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-green">* enlightened (5270c4ce@gateway/web/freenode/ip.82.112.196.206) has joined this channel.</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-black">&lt;Scepterr&gt; fresh build of vibrant doesnt boot</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;Wout`&gt; compiled from repo?</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;Scepterr&gt; yah</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;Wout`&gt; they just merged in lots of 2.3.3 stuff</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;Scepterr&gt; yah</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;Wout`&gt; dont know if they cleaned it up yet</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;Wout`&gt; and if its supposed to work</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;Scepterr&gt; its good on nonsamsung</span><br />
+<span class="irc-date">[9:56]</span> <span class="irc-black">&lt;evaluate&gt; Scepterr, it works on SGS too. Could you run an 'adb logcat' and get an error log?</span><br />
+<span class="irc-date">[9:56]</span> <span class="irc-black">&lt;Scepterr&gt; ahh then its probably just vibrant, ill flash and grab log in a few</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm, where are things on captivate?</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, since you're more familiar with the code than me. If I wanted to make the vold daemon support ext4 formatted cards, where would I start?</span><br />
