@@ -258,3 +258,46 @@
 <span class="irc-date">[9:56]</span> <span class="irc-black">&lt;Scepterr&gt; ahh then its probably just vibrant, ill flash and grab log in a few</span><br />
 <span class="irc-date">[9:57]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm, where are things on captivate?</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, since you're more familiar with the code than me. If I wanted to make the vold daemon support ext4 formatted cards, where would I start?</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;Unhelpful&gt; i can promise i am not more familiar than you with *that* code :)</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;evaluate&gt; I found where the source code for the daemon resides, I'm just not sure how exactly it works and what would need to be changed.</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;evaluate&gt; ok, let's see if I can break this... :-p</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure though why noone has thought of adapting the vold daemon yet to work with ext4</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;evaluate&gt; Hmm, there are some functions to check and mount the fat partition. I wonder if I can duplicate these and adapt them to work with ext4...</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;evaluate&gt; Then in the mount function I can just check if the inserted SD is fat or ext4 and execute the proper function</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;evaluate&gt; *said evaluate while knowing he will eventually fail miserably*</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;Unhelpful&gt; probably because they want their sdcard to work w/ windows.</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;evaluate&gt; f*ck windows</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;Unhelpful&gt; personally i think cifs or nfs export over the usb network device is more interesting - that way host and device access needn't be exclusive.</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-navy">* TCMAN-dmg (~Dominik@99-103-196-195.lightspeed.sntcca.sbcglobal.net) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-green">* TCMAN-dmg (~Dominik@99-103-196-195.lightspeed.sntcca.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;evaluate&gt; I still want my SD in ext4</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;evaluate&gt; media checker takes ages and I really suspect that's because of the damn FAT FS</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;Unhelpful&gt; a quick check suggests that vold is pretty much designed around VFAT :/</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, I will try to undesign it :-p</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;Unhelpful&gt; and i will cheer from the sideline while you beat your head on a brick wall. :)</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;Scepterr&gt; evaluate: <a href="http://cmsgsteam.pastebin.com/FfYfDMMH">http://cmsgsteam.pastebin.com/FfYfDMMH</a></span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;evaluate&gt; Like I said, it has some functions like Fat::check and Fat::doMount which do the jobs. I hope I can create equivalents of those for ext4</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;evaluate&gt; Scepterr, hmm, looks like some libs are borked</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;evaluate&gt; actually, there appearantly are only 3 functions that are FS specific (at least from what I've seen untill now). Fat::check, Fat::doMount and Fat::format. All of them in Fat.cpp</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;evaluate&gt; Isn't ext4 support supposed to be integrated in 2.3.3?</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;evaluate&gt; I can only find e2fsck, which is supposed to onyl work with Ext2/Ext3 FSs</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;evaluate&gt; s/onyl/only/</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: what really bothers me is that the Fat class is referenced *explicitly, by name* in the other files. it's not one of several similar classes that can do the work, it's not even the only one in a system that selects the class based on the filesystem. :/</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;Unhelpful&gt; um...</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;Unhelpful&gt; there isn't a separate e4fsck. :)</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, but does e2fsck also support Ext4? From what I see, it only seems to support Ext2/Ext3...</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: look at the e2fsck man page for any recent version...</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, <a href="http://linux.die.net/man/8/e2fsck">http://linux.die.net/man/8/e2fsck</a> for example says: e2fsck - check a Linux ext2/ext3 file system</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;evaluate&gt; Let's try to run it against an Ext4 partition and see what it does :-p</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-green">* stickpin (~stickpin@80.178.1.100.adsl.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;evaluate&gt; ok, so this seems to work: <a href="http://pastebin.com/YuA3Zfw7">http://pastebin.com/YuA3Zfw7</a> . That's good!</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;Unhelpful&gt; then clearly theirs is not recent enough. e2fsck - check a Linux ext2/ext3/ext4 file system</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;evaluate&gt; The one in the android system seems to work, so that's a good thing, no need for any extra tools... :-)</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;evaluate&gt; Now onto adapting the code...</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;stickpin&gt; guys buttons mapping fixed?</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;evaluate&gt; stickpin, coolya|away restored the old driver this morning</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;evaluate&gt; or a couple of hours ago if you don't live near UTC</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;evaluate&gt; so yeah, it should work fine (didn't test it yet)</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;stickpin&gt; will do clean install... initial one... will see if it fixed...</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-green">* designfears (~jayp@32.145.129.197) has joined this channel.</span><br />
