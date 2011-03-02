@@ -419,3 +419,147 @@
 <span class="irc-date">[14:58]</span> <span class="irc-black">&lt;chek0v&gt; or this problem</span><br />
 <span class="irc-date">[14:58]</span> <span class="irc-black">&lt;chek0v&gt; just took a look since i popped in</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;chek0v&gt; but include/linux/firmware.h has the prototype and whatnot</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;codeworkx&gt; request firmware reads the firmware file</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;chek0v&gt; does it not place a ptr to that data in struct fimrware</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;chek0v&gt; and couldnt you then write that data to disc</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;chek0v&gt; so just patch a kernel to boot and dump the fw, give it to someone who didnt get the bad flash</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;codeworkx&gt; the firmware update reads contents from system/vendor/firmware/cypress-touchkey.bin</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;codeworkx&gt; and writes it</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;codeworkx&gt; we have to do it the other way</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;chek0v&gt; yeah, you need to read the firmware</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;chek0v&gt; and write ti to disc....</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;codeworkx&gt; if this is possible at all</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;chek0v&gt; codeworkx: ya</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;chek0v&gt; i dont see why request_firmware isnt going to work</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-green">* atinm (~amalaviya@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;codeworkx&gt; it's not like reading from an hdd</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;chek0v&gt; although the error message suggests its taking a file on disc for fw</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;chek0v&gt; hang on dude</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;chek0v&gt; are you telling me with a apointer to the firmware data</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;chek0v&gt; and the size of the firmware data</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;chek0v&gt; you cant take that raw data, and simply write it to disc arbitrarily</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;chek0v&gt; it seems to me this function is requesting the firmware on the chipset, and that the chipset is going to send it</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;chek0v&gt; and so that fi you had a fresh device and ran request_firmware() you would wind up with a struct firmware pointing to the beginning of data (const u8 *data)</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;chek0v&gt; and a numer of pages</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;chek0v&gt; am i making any sense here?</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-green">* riggnix (~yaaic@46.124.103.152) has joined this channel.</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-green">* atinm (~amalaviya@unaffiliated/atinm) has left this channel.</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;chek0v&gt; beueller?</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;chek0v&gt; hello?</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;chek0v&gt; aight then</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;chek0v&gt; back to work</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-green">* atinm (~amalaviya@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-navy">* atinm|night (~atin@unaffiliated/atinm) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-green">* evaluate (~cristi@unaffiliated/evaluate) has joined this channel.</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-green">* birdman (~Steven@209.60.78.149) has joined this channel.</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, atinm hi there</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;codeworkx&gt; hi</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;codeworkx&gt; dacht ich mir auch</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;codeworkx&gt; oops</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;evaluate&gt; I have a problem. I accidentally flashed the non-working-button kernel and now I can't get them to work anymore. I also tried the 22.02 and the 25.02 updates, they fixed the screen but the touchkeys still aren't working. Is there a way to fix this without flashing a stock om with repartition and all that stuff?</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, wrong window :-p</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;codeworkx&gt; ya</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: your touchkeys are dead?</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;evaluate&gt; yup</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;codeworkx&gt; the controller doesn't send data anymore</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;codeworkx&gt; o stock firmware its fucked up too</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;codeworkx&gt; flashed jm9</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;evaluate&gt; hope they're not dead for good...</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;codeworkx&gt; -.-</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;codeworkx&gt; in this state, they're dead</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;codeworkx&gt; maybe we can dump the original firmware</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;codeworkx&gt; and flash back</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;codeworkx&gt; coolya will have a look at it</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, you mean there's really no way to get them working again?</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;evaluate&gt; isn't the code for those in the kernel?</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;codeworkx&gt; nope</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;evaluate&gt; shit</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;evaluate&gt; this sucks!</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;evaluate&gt; I WANT MEH BUTTONS BACK!!!</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-brick">* evaluate cries</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;stickpin&gt; evaluate what is your device?</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;evaluate&gt; stickpin, GT-i9000</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;stickpin&gt; ouch</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-green">* riggnix (~yaaic@46.124.103.152) has left this channel.</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;evaluate&gt; I really don't want to send my device to samsung. That'll take ages.</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;evaluate&gt; shit. shit. shit</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;evaluate&gt; <a href="http://fixitfixitfixit.ytmnd.com/">http://fixitfixitfixit.ytmnd.com/</a> !!!</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, btw, how did you flash your stock FW? With heimdall? Doesn't that fix it either?</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;chek0v&gt; coolya|away: ping me when you get in</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;chek0v&gt; coolya|away: RE: this button issue</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;evaluate&gt; chek0v, tell us!</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;chek0v&gt; i already discussed it with cw</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;evaluate&gt; ohh</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;chek0v&gt; idk what his feedback was, ill talk bout with coolya and see if he wants to code it</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;chek0v&gt; its not a revelation or anything, someone just needs to write a patched kernel to dump the firmware from somebodies good device</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;evaluate&gt; chek0v, which firmware do you mean? Where is this code normally residing?</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;chek0v&gt; in the melfas/cypress chipset</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;chek0v&gt; in the kernel that has the issue, it included some new code to upload firmware to the touchkey chipset</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;codeworkx&gt; coolya will have a look at it today</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;chek0v&gt; ya</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;codeworkx&gt; but he's at work</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;chek0v&gt; was it his commit</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;chek0v&gt; anyway</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;chek0v&gt; w/e should be able ot get it sorted.</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-black">&lt;evaluate&gt; Just make a new update and make it get the firmware and send it to you through mail automatically :-p</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;evaluate&gt; Soertd.</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;evaluate&gt; Sorted.*</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, if I patch vold so that it is able to handle ext formatted SD cards, would this code have to be sent upstream (to cyanogenmod)?</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;codeworkx&gt; only if you want</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;evaluate&gt; ok</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;codeworkx&gt; but then you've to use gerrit</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;codeworkx&gt; code review</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;evaluate&gt; By playing with vold today a bit, I've noticed that it's also responsible for the mounting of the SD cards to the computer. Maybe we can manage to also patch it to be able to handle 2 SDs...</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;codeworkx&gt; vold does handle booth sds</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;codeworkx&gt; vold isn't the problem</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;evaluate&gt; also, regarding the fucked buttons. Does the code to dump the button FW need to be in the kernel? Can't it be just some script or something?</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;chek0v&gt; evaluate: yeah so thats where im not clear</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;chek0v&gt; i cant see the final include that holds the function to use here</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;chek0v&gt; assuming all the necessary functions are exposed by the kernel, then yeah</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;chek0v&gt; you could write a standalone .c</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-brick">* evaluate looks throguh last night's commits</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;chek0v&gt; hold</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-brick">* evaluate holds</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;chek0v&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/ece6245d8ce96ecc1fb5103b172432f6672fc43b">https://github.com/teamhacksung/android_kernel_samsung/commit/ece6245d8ce96ecc1fb5103b172432f6672fc43b</a></span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;chek0v&gt; thyats the shit that broke it</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;chek0v&gt; startiung at 236</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;chek0v&gt; and im saying use the function at 266, request_firmware()</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;chek0v&gt; which if i understand correctly should populate the struc tfirmware</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;chek0v&gt; with a ptr to the fw data</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;chek0v&gt; as well as a num of pages</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;chek0v&gt; which should facilitate a write to disc, and subsequent use of update_firmware() to push someones original fw back up</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;chek0v&gt; dig it</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;chek0v&gt; ?</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;evaluate&gt; wait, let me see what request_firmware does. I can't understand it like this.</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;chek0v&gt; ya idk wher eth actual code for request_firmware() is</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;chek0v&gt; im just looking at firmware.h</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;chek0v&gt; and drawing some inferences</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;chek0v&gt; bgut if you ahve the repo sync'd you can find it easye nough</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;chek0v&gt; and if ou look at it int he context of the first commit i pasted</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;chek0v&gt; its updating the firmware</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;chek0v&gt; then fetching it and comparing the size</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-green">* thedood (~thedood@got.kanged.by.teamdouche.net) has joined this channel.</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;chek0v&gt;   if (fw-&gt;size != FW_SIZE) {</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;chek0v&gt; and the size of the firmware data</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;chek0v&gt; -#define FW_SIZE 8192</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 codeworkx * 6ca597d (1 files in 1 dirs): aries: re-enable cypress and make it possible to switch to virtual keys by define - <a href="http://bit.ly/ffq4yl">http://bit.ly/ffq4yl</a></span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;chek0v&gt; evaluate: pastebin the request_firmware code when u find it</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;codeworkx&gt; request firmware reads the firmware file and stores it in kernel memory</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;codeworkx&gt; real flashing is done in cypress-firmware file</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;chek0v&gt; ya code we dont carea bout flash though</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;chek0v&gt; we only care about being able to get someones non-fucked firmware</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;codeworkx&gt; but request_firmware only reads a file to kernel memory</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;chek0v&gt; codeworkx: where is the code</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;codeworkx&gt; look at documentation/firmware</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;codeworkx&gt; or something like this</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;chek0v&gt; because yeah, the 2nd param is the name</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;chek0v&gt; which is a filename on disc, used also by update</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;chek0v&gt; anyway</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;evaluate&gt; chek0v, kernel/samsung/2.6.35/Documentation/firmware_class/README might be interesting</span><br />
