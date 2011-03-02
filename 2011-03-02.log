@@ -78,3 +78,49 @@
 <span class="irc-date">[5:56]</span> <span class="irc-black">&lt;Yangtse&gt; where is 2.3.3?</span><br />
 <span class="irc-date">[5:58]</span> <span class="irc-black">&lt;Yangtse&gt; all on xwjv1?</span><br />
 <span class="irc-date">[5:59]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[6:05]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; hmm, i think recent AOSP pull into media provider fixed it, so i just need to recompile</span><br />
+<span class="irc-date">[6:06]</span> <span class="irc-black">&lt;Unhelpful&gt; are there other targets that build their kernels via the build system? and how do they do it?</span><br />
+<span class="irc-date">[6:07]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; do you guys know where are the .32 sources codeworkx got this radio code from? <a href="https://github.com/uberushaximus/android_kernel_samsung/commit/6d0f47cae3eb406d334343f4f6e2d93c89736782">https://github.com/uberushaximus/android_kernel_samsung/commit/6d0f47cae3eb406d334343f4f6e2d93c89736782</a></span><br />
+<span class="irc-date">[6:12]</span> <span class="irc-navy">* uberushax (~uberushax@2001:470:1f11:c4c:b607:f9ff:fe03:f050) Quit (Ping timeout: 272 seconds)</span><br />
+<span class="irc-date">[6:15]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[6:16]</span> <span class="irc-navy">* dasunsrule32 (~quassel@christiantechsaz.com) Quit (Quit: Going into the abyss....)</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.5.71) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-green">* Yangtse (~Yangtse@117.136.5.65) has joined this channel.</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;stickpin&gt; good morning all...</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;stickpin&gt; so, any luck with touch buttons? :)</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;Unhelpful&gt; no luck w/ merging kernel build into the rest of the build system :/</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;Unhelpful&gt; well, *some* luck, i think we can ditch the initramfs repo, i can get the build system to produce a good initramfs. :)</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;stickpin&gt; Unhelpful, you know if coolya got his vibrant buttons back?</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;Unhelpful&gt; sure don't. :)</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;stickpin&gt; sure don't?</span><br />
+<span class="irc-date">[6:27]</span> <span class="irc-black">&lt;Unhelpful&gt; i sure don't know. :)</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;stickpin&gt; intresting what changed in 2.3.3 that messing touch buttons...</span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-green">* evaluate (~cristi@unaffiliated/evaluate) has joined this channel.</span><br />
+<span class="irc-date">[6:32]</span> <span class="irc-black">&lt;evaluate&gt; morning everyone</span><br />
+<span class="irc-date">[6:32]</span> <span class="irc-black">&lt;stickpin&gt; gmorning evaluate</span><br />
+<span class="irc-date">[6:50]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[6:52]</span> <span class="irc-black">&lt;coolya&gt; stickpin: a new firmware ... that killed my button controller</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: any idea how you might unstick it?</span><br />
+<span class="irc-date">[6:54]</span> <span class="irc-black">&lt;coolya&gt; i will diable alle the security checks this evening because it failed when it check if a part of the firware was writte correctly</span><br />
+<span class="irc-date">[6:54]</span> <span class="irc-black">&lt;coolya&gt; an hope that it will work</span><br />
+<span class="irc-date">[6:54]</span> <span class="irc-black">&lt;coolya&gt; because it canceled flashing, as it thought something was going wrong</span><br />
+<span class="irc-date">[6:54]</span> <span class="irc-black">&lt;Unhelpful&gt; ah. so you're hoping a complete reflash will fix it?</span><br />
+<span class="irc-date">[6:54]</span> <span class="irc-black">&lt;coolya&gt; but i will revert the complete driver to our old one right now</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;coolya&gt; hopefully</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;stickpin&gt; coolya i can check if my controller is updated?</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;coolya&gt; if it is working its all good</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;Unhelpful&gt; do you have any idea how kernel builds are handled for other targets? i can get the build system to build an initramfs for captivate, but can't figure out how to integrate building a kernel w/ that initramfs to incorporate into the ota package.</span><br />
+<span class="irc-date">[6:56]</span> <span class="irc-black">&lt;coolya&gt; codeworkx is the python master who wrote the release tools scripts that hook into the build system</span><br />
+<span class="irc-date">[6:56]</span> <span class="irc-brick">* coolya hates python :-D</span><br />
+<span class="irc-date">[6:57]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[6:58]</span> <span class="irc-black">&lt;Unhelpful&gt; i was more asking if you knew if there was any standard AOSP or CM method for building kernels as part of the release :/</span><br />
+<span class="irc-date">[6:58]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[6:58]</span> <span class="irc-black">&lt;coolya&gt; but androidX86 has one</span><br />
+<span class="irc-date">[6:58]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;coolya&gt; the created a kernel.mk to build the kernel as part of the normal build process</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Kolja Dummann * ece6245 (1 files in 1 dirs): cypress: back to good old driver - <a href="http://bit.ly/gk6PVe">http://bit.ly/gk6PVe</a></span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
