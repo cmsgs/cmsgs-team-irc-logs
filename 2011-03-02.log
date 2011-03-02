@@ -1065,3 +1065,210 @@
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;uberushaximus&gt; techmik67: so you synced teamhacksung's kernel today and built it along with your rom?</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-green">* zimmbi (~Adium@80-219-7-154.dclient.hispeed.ch) has joined this channel.</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;uberushaximus&gt; and touchkeys are working?</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;techmik67&gt; yes indeed</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;codeworkx&gt; uberushaximus: on which device you are?</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;evaluate&gt; did anyone try this: <a href="http://forum.xda-developers.com/showthread.php?t=963637">http://forum.xda-developers.com/showthread.php?t=963637</a> ?</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;evaluate&gt; it seems stock samsung has a code to do touchkey FW update, I'm still on CM7 though</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;evaluate&gt; if anyone has flashed back to stock, could you test this?</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-green">* thedood is now known as thedood|away</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-navy">* designfears (~jayp@32.145.129.197) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-green">* thedood|away is now known as thedood</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;uberushaximus&gt; codeworkx: captivate</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;evaluate&gt; OR, could we see what that '*#*#2663#*#*' points to and if it uses some server to download the FW from?</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;evaluate&gt; maybe we can grab the address and download the fucking firmware from there...</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;codeworkx&gt; i'll give it a try</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;Unhelpful&gt; chek0v: i'm pretty sure request_firmware is a kernel mechanism for asking userspace to send a firmware.</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, keep us updated :-p</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, btw, I've read through some of the same problems people had on xda, and they say you have to be on an official FW for your phone version, or else it'll bork the keys (just like we have right now)</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;coolya&gt; i will try it on vibrant after i flashed the current build xD</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;evaluate&gt; ok</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;coolya&gt; i &lt;3 my nook color and would even love it more if the DSP would be working :-D</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-brick">* evaluate loved his menu and back buttons :-(</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;coolya&gt; i can give you buttons for that in the status bar</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;codeworkx&gt; lol</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;codeworkx&gt; worked!</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;evaluate&gt; well yeah, that's be a solution, but not a permanent one :-p</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;coolya&gt; lol?</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;codeworkx&gt; lol</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;evaluate&gt; that'd*</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;evaluate&gt; I just hope that that solution works, or else I won't be able to sleep tonight...</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;evaluate&gt; btw, do you guys have any idea where the stuff for this codes is residing in the samsung firmware? I can have a look at that and maybe see where the FW is coming from...</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;coolya&gt; someone will have to run wireshark xD</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;coolya&gt; i can log all packages with pfsens on my router</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;codeworkx&gt; unbrickable!!!!</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;evaluate&gt; coolya, wouldn't it be more elegant to search for this in the samsung source? :-p</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, please tell me it worked</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, the going back to stock and doing the touchkey update combo worked?</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;evaluate&gt; I'm dying here, please tell me it worked!!!</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;coolya&gt; try it :-P</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;coolya&gt; and get stunned xD</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://kan.gd/13k">http://kan.gd/13k</a></span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;evaluate&gt; shit, shit, shit, fuck!!!</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, woo happy day</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;codeworkx&gt; lol</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, tried on vibrant yet?</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;evaluate&gt; WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;codeworkx&gt; sgs = unbrickable</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;coolya&gt; downloading KM6 right now</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;coolya&gt; KA6 i mean</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;evaluate&gt; ok guys, could you make an update to the kernel so that I don't have to go to stock again? :-p</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;evaluate&gt; pretty please?</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;coolya&gt; evaluate: it is reverted</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;coolya&gt; since this morning</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;codeworkx&gt; lets go back to cm7</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;evaluate&gt; coolya, well, my keys are still bricked :-p</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;coolya&gt; on stock they work ?</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;evaluate&gt; coolya, didn't try stock yet</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;coolya&gt; do it :-P</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;evaluate&gt; well...</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;evaluate&gt; ok then...</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;coolya&gt; i will kang it from the samsung firmware later to see whats in there xD</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;Wout`&gt; site</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-green">* birdman (~Steven@209.60.78.141) has joined this channel.</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;uberushaximus&gt; wow, you guys lucked out</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;evaluate&gt; ok, does anyone have any idea where the code for that 'program' is residing in the samsung source code? I would really like to avoid flashing to stock right now...</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, so incredibly awesome</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;evaluate&gt; noone thanked me for finding it... :-p</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;Kaik541&gt; evaluate, I thanked you in the captivate thread :P</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;coolya&gt; we will have to do some ida pro disassembler action for that ... firmware update for is .so native code</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, ohh common, I was just kidding :-p</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;evaluate&gt; coolya, no, I mean if we get the source from opensource.samsung.com, shouldn't we be able to find the code for this in there?</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;Kaik541&gt; evaluate, haha, I just wanted to share for anyone with a Cappy and the issue, just figured I should say it isn't my fix... you found it, codeworkx tested it</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;coolya&gt; evaluate: they don't do that in the kernel</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: THANK YOU!!!</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;coolya&gt; its not open source</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;evaluate&gt; coolya, ohh, the rest isn't open source?</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, lol, welcome! :-)</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;zimmbi&gt;  /datadata always full, that's really bad, any chance to change partition size?</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;codeworkx&gt; &gt; 70 Apps ?</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;evaluate&gt; zimmbi, there would be 2 ways. 1 the risky 2 the easy, but might not work, which do you prefer?</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;codeworkx&gt; sgs = phone, not a fileserver</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;coolya&gt; rofl</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;GuiPer&gt; codeworkx or evaluate, congrats on the solution for fixing the touch keys!!</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;evaluate&gt; zimmbi, the risky is to get the source code for the pit file and change the size of the partition to anything you like. The risk is to brick your phone. 2 would be to delete the folder and make a symlink to a larger partition like /data for example, but I didn't test this so it might not work</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;evaluate&gt; "never give up" is my motto :-p</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;coolya&gt; zimmbi: look at ther kenel driver/mtd/onenand/</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;evaluate&gt; and I'm not talking about rickrolling</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zimmbi&gt; why /datadata is not as big as in the original roms?</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zimmbi&gt; on samsung roms 300 apps are no problems</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;codeworkx&gt; lol</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zimmbi&gt; now i'm running out of space with 200</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;Kaik541&gt; who needs 300 apps</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;coolya&gt; rofl</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;codeworkx&gt; omfg</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;Kaik541&gt; who needs 200 apps</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;coolya&gt; lmao</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;uberushaximus&gt; who needs apps</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zimmbi&gt; i've installed &gt; 200 apps</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;evaluate&gt; I have like 10 installed, lol</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;evaluate&gt; zimmbi, get a laptop for fucks sake. Seriously!</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zimmbi&gt; :)</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zimmbi&gt; hmm but</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zimmbi&gt; on samsung rom it's possible</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zimmbi&gt; with cm7 not</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zimmbi&gt; that's bad</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;codeworkx&gt; zimmbi: your sgs is a smartphone. no fileserver or something. only install apps you really need and use. and not all you can find</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;Kaik541&gt; I have CLOSE to 50 including gapps</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zimmbi&gt; lol but</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zimmbi&gt; 200 mbs</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zimmbi&gt; mb</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;evaluate&gt; zimmbi, read what I wrote earlier. There are 2 possibilities. You like the blue or the red pill?</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;codeworkx&gt; samsung rom is laggy, cm7 not ???</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;codeworkx&gt; how can that be possible?</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;zimmbi&gt; yes i love cm7</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;zimmbi&gt; but i don't love the /datadata partition ;)</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;coolya&gt; look at /cache</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;codeworkx&gt; on such devices, there are some limitations like internal memory</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;zimmbi&gt; i take the red pill ;)</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;coolya&gt; zimmbi: why?</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;zimmbi&gt; but</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;codeworkx&gt; datadata is nice for performance</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;Kaik541&gt; whoa how is my /cache half full</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;zimmbi&gt; i have 1.5gb internal space free!</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;coolya&gt; it the thing that make the sgs a bit faster ... you don't want to have sqlite on mivinand ;-)</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;zimmbi&gt; but not on /datadata</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;coolya&gt; movinand</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;zimmbi&gt; i don't care where /datadata is if it's big enough</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;coolya&gt; you will...</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, /cache is mostly used for market downloads. It emptys itself when you try downloading an app that needs more space then you currently have free in /cache.</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;zimmbi&gt; even google earth takes more than 10mb</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;codeworkx&gt; if datadata is on movinand, phone is damn slow like on samsung roms</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;Kaik541&gt; evaluate, I had a lot of dead downloads in there, figured it out :)</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, normally it should empty itself, no need to empty it manually.</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, only when it needs the space, saw the downloaded updates for gmail and market in there</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;ytt3r&gt; &lt;junkTzu&gt; are you guys uncommenting this line in the mach-aries.c file? //#define ENABLE_VIRTUAL_KEYS 1</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;zimmbi&gt; speed for me on samsung roms with ext4 was ok</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;codeworkx&gt; ytt3r: no, dont do this xD</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;zimmbi&gt; so i don't care where it is</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;ytt3r&gt; lol OK</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;zimmbi&gt; how to change?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Wout`&gt; zimmbi: then stick with a samsung rom</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Wout`&gt; easy</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;codeworkx&gt; ytt3r: it emulates touchkeys using the touchscreen</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;zimmbi&gt; no ;)</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, well, when it doesn't need the space you don't need to care... :-p</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;zimmbi&gt; i love cm7 ;)</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;zimmbi&gt; but 200mb simple is not enough</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Wout`&gt; it is what it is</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;codeworkx&gt; zimmbi: it's enough for 98% of all users</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Kaik541&gt; evaluate, yeah, didn't remove anything, was just noticing why is all</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;zimmbi&gt; hmmm</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;Wout`&gt; either you get the superior rom without 200+ apps installed</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;Wout`&gt; or use samsungs rom if you want to download half of market</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;codeworkx&gt; zimmbi: only install apps you're really using often</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;evaluate&gt; zimmbi, please fucking read what I wrote earlier if you want a solution.</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;evaluate&gt; or 2.</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;zimmbi&gt; ok evaluate i take the red pill tell me ;)</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;evaluate&gt; evaluate&gt; zimmbi, the risky is to get the source code for the pit file and change the size of the partition to anything you like. The risk is to brick your phone. 2 would be to delete the folder and make a symlink to a larger partition like /data for example, but I didn't test this so it might not work</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;zimmbi&gt; i will test it tomorrow maybe</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;zimmbi&gt; but with the symlink method</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: let's retry the nexus s touchkey firmware</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, I still have it, lol</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;evaluate&gt; I'm too lazy to reflash right now. It's 23:45 over here and I'm tired from all the 'thinking'... :-p</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;coolya&gt; 23:45? where do you live? russia?</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;evaluate&gt; Romania.</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;coolya&gt; ahh k GMT+2 :-)</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;evaluate&gt; We're in the EU and shit, but you nprolly never heard of us.</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-brick">* techmik67 is about to show his age.....</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;zimmbi&gt; but i'm right that nobody is intrested to make /datadata bigger than 200mb?</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;evaluate&gt; anyway, is there a way to get that friggin firmware without reflashing to stock?</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;techmik67&gt; i heard of you when Nadia Comaneche won the gymnastic's gold medal....</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;techmik67&gt; was that like 76?</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;techmik67&gt; i'm old</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;evaluate&gt; zimmbi, not really, no. It's faster like this and it works for most people. If you want a bigger one just make the compromise and have a slower one.</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;uberushaximus&gt; evaluate: not until someone dumps it</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;coolya&gt; zimmbi: the problem is that space on onenand is rare</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;evaluate&gt; I'M GOING TO DUMP SOMETHING SOON IF NOONE'S GIVING ME THE FW!</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;coolya&gt; evaluate: wooozaa :-) come down, drink a beer, all is finde</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;Kaik541&gt; oh the EU</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;zimmbi&gt; ok coolya i understand this side, but with voodoo lagfix i never had speed problems on stock roms and had enough space… hmm will have to accept this...</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;evaluate&gt; coolya, yeah, I'm way more relaxed already. Even if my keys aren't working, I'm fine knowing that there is a solution... :-p</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;Kaik541&gt; all I know about that is they have paprika chips, which makes me jealous</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, lol</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;evaluate&gt; paprika chips are overrated</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;evaluate&gt; barbeq ftw!</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;zimmbi&gt; bad that nobody of the developers has this much apps installed ;)</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;Kaik541&gt; I lived in Germany, I know what they taste like... I miss them</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;Wout`&gt; wait....some countries dont have paprika chips?</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;Kaik541&gt; welcome to America</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;uberushaximus&gt; America sucks</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;Kaik541&gt; closest we have are barbecue chips, but not quite the same</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-navy">* zimmbi (~Adium@80-219-7-154.dclient.hispeed.ch) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;Kaik541&gt; apparently I can buy paprika chips in Chicago... anyone live nearby?</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-brick">* evaluate greps the samsung FW for 2663 ...</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;uberushaximus&gt; Kaik541: I'm north of Milwaukee</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;Kaik541&gt; uberushaximus, going to Chicago anytime soon? :)</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;Wout`&gt; nomnonmnom <a href="http://www.supermarktkoerier.nl/images/lays%20super%20chips%20paprika.jpg">http://www.supermarktkoerier.nl/images/lays%20super%20chips%20paprika.jpg</a></span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;uberushaximus&gt; Not that I know of but if something comes up I'll let you know</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;evaluate&gt; coolya, do you think I'm right in the assuption that the code for the shortcodes is in the Phone.apk?</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;evaluate&gt; assumption*</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;Kaik541&gt; Wout`, :O Lay's of course doesn't sell THAT flavor in the US :(</span><br />
