@@ -640,3 +640,170 @@
 <span class="irc-date">[16:56]</span> <span class="irc-black">&lt;evaluate&gt; so I guess touchkey_read_byte is indeed what we need</span><br />
 <span class="irc-date">[16:57]</span> <span class="irc-black">&lt;evaluate&gt; Does someone have the skill to write a short snippet that would get the FW with touchkey_read_byte ?</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-navy">* enlightened2 (~yaaic@78.7.52.82) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;kudakeru&gt; I'll take a look once I've got some breakfast and finish waking up.</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, can I find the firmware that was flashed to the device somewhere?</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;evaluate&gt; kudakeru, cool. :-)</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;kudakeru&gt; I've been meaning to dig around in the touchkey stuff anyway, along with a few other places.</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;evaluate&gt; kudakeru, this is a good opportunity to start :-p</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;kudakeru&gt; heh</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;evaluate&gt; btw, if your buttons are working I can test the snippet for you, so that you don't break anything. I'd guess I can't break mine more that it is already...</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;kudakeru&gt; I'm hoping to get the buttons rearranged, and figure out why everything is transposed up about 3/8 of an inch.</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;evaluate&gt; kudakeru, for me they're not transposed, they aren't working at all anymore...</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;kudakeru&gt; Right</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;kudakeru&gt; What about the rest of your screen, though?</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;kudakeru&gt; Texting is a real pain in my ass right now.</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;evaluate&gt; well, since I reflashed with the 22.02 and the 25.02 update, screen is fine</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;stickpin&gt; looks like true... new touchkeys firmware = no froyo... 8-O</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;kudakeru&gt; I probably need to rebuild and flash again.</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: the new one?</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;atinm&gt; what makes you think we can read the firmware? or are you just trying to reverse the output to input in the load_firmware calls to try to read it?</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, yeah, the borked one, I'd like to have a look at it. I'm not sure if the size specified there is in bits or bytes...</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_vendor_samsung_common/blob/gingerbread/aries/proprietary/cypress-touchkey.bin">https://github.com/teamhacksung/android_vendor_samsung_common/blob/gingerbread/aries/proprietary/cypress-touchkey.bin</a></span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;evaluate&gt; atinm, <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/input/keyboard/cypress-touchkey-firmware.c#L61">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/input/keyboard/cypress-touchkey-firmware.c#L61</a></span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;codeworkx&gt; stickpin: you're keys are dead too?</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;stickpin&gt; forget it... false alert...</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;atinm&gt; that's just a call to ready a bit.</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;stickpin&gt; no im ok... but im on captivate...</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;atinm&gt; after you've set up the firmware to send the bit</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;evaluate&gt; atinm, like I said, the docs say that gpio_direction_output writed to the device while gpio_direction_input reads from it. And since touchkey_read_byte indirectly runs gpio_direction_input, I'd guess it reads the firmware...</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;stickpin&gt; and i think i flashed new firmware</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;stickpin&gt; noone can tell me how to test it... :\</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;evaluate&gt; stickpin, test what?</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;atinm&gt; usually have send the chip and address and a command (like read) and then go back and read it . . . take a look at how touchkey_read_status is working</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;stickpin&gt; what version of touchkeys firmware....</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;atinm&gt; we can hope that it has a command for sending us the firmware itself - look in cypress-touchkey-firmware.h</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;atinm&gt; those are the commands.</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;evaluate&gt; stickpin, are the touchkeys working for you?</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;stickpin&gt; yes</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;evaluate&gt; are they transposed (on the screen)?</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;atinm&gt; and I don't see a dump firmware call.</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;atinm&gt; program and verify seems to be one command</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;codeworkx&gt; stickpin: flash back to 2.2 and test your keys</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;stickpin&gt; evaluate yes on latest build</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;stickpin&gt; flashing 2.2.1 now</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;evaluate&gt; stickpin, if they are transposed you probably have the borked one</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;stickpin&gt; will test with 2.2.1 now</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;stickpin&gt; ok 2.2.1 booting now... :)</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;stickpin&gt; and my buttons is.......</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;evaluate&gt; atinm, well, there is a function that reads bits from the device, I'm just not really sure how it works...</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;evaluate&gt; it's gpio_direction_input</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;atinm&gt; I'm telling you how it works.</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-green">* enl_ (~enlighten@94.165.90.242) has joined this channel.</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;atinm&gt; we send a command to the chip and then go read its result. its a dumb chip.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;stickpin&gt; my buttons is ok... :D</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm&gt; take a look at of touchkey_read_status is working.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm&gt; it first sends a sync_enable command to the chip</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm&gt; then it sends a read_id_v1 command</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;atinm&gt; then it does something (not sure what the clk does) and then it fingally goes and reads the status</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;evaluate&gt; atinm, touchkey_send_vector SEND a vector if I interpert the functio correctly</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;atinm&gt; yes, so first it sends a command</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;atinm&gt; which is a vector of bytes</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;atinm&gt; ok, touchkey_flash_firmware:</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;atinm&gt; first it does a power on</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;atinm&gt; then calls erase_target.</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;atinm&gt; which is basically sending an erase command to the chip</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;atinm&gt; then sends a sync_enable, and does a read_write_setup. we can hope that it is the same command for a read.</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;atinm&gt; and then does a load_target which is sending bytes (the firmware) to the chip</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;atinm&gt; maybe we can do the same commands but instead do a read_bytes intead</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm&gt; so add a touchkey_dump_target function that is the same as the load_target function, but instead of send_bits it does a read_bites.</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm&gt; bites</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm&gt; bits!</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;evaluate&gt; hmm, hopefully someone who knows what's going on there can figure this out...</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;atinm&gt; but what seems to be happening in load_target is that the firmware is sent into the chip, but not "prgrammed"</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;Scepterr&gt; whos doing vibrant ?</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;stickpin&gt; soo.. looks like im a lucky one... or firmware flashed correctly... or didnt flashed at all....</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;atinm&gt; the program_target_block call is the one that seems to do the actual program.</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;atinm&gt; and I don't know if we can dump it.</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;codeworkx&gt; Scepterr: coolya</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;atinm&gt; the place that the chip programmed the fw into isn't the same as where it did a load_target to</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;atinm&gt; that seems to just write to a buffer in the chip</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-navy">* enl_ (~enlighten@94.165.90.242) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;atinm&gt; yeah, that's just a write buffer in the chip</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;evaluate&gt; isn't there also a 'read' buffer? :-D</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;atinm&gt; its the same buffer.</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;atinm&gt; I think read_write_setup is the same call</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;atinm&gt; so it is very possible that we could add a touchkey_dump_target that does reads isntead and have it dump the firmware</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;evaluate&gt; gah! I guess we need to wait for coolya.</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;atinm&gt; I can't work on this right now</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;atinm&gt; coolya or unhelpful can do it</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;atinm&gt; back later</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;nitam|work&gt; but I don't know what the equivalent read command is that corresponds to the "program_target_block"</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;nitam|work&gt; we need a "dump_target_block"</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;nitam|work&gt; we don't have it.</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;nitam|work&gt; or rather, a dump instead of program_and_verify</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;nitam|work&gt; you understand? think of the chip as a simple byte interface. you write a command, addr, data</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-green">* zimmbi (~Adium@147.88.200.112) has joined this channel.</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;nitam|work&gt; if you want to read, you send command, address to read, &amp;data</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;nitam|work&gt; you want to write send command, address to read, data</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;nitam|work&gt; command is the thing that is not documented. we don't know what the chip has for commands . . .l they didn't give us a nice dump_target_block call.</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;evaluate&gt; yeah, I got that. And like I said, I'm still of the opinion that gpio_direction_input might do the trick on a bit level...</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;nitam|work&gt; erm, guess you didn't get it.</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;nitam|work&gt; direction just says read or write - means nothing beyond that.</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;nitam|work&gt; so you write a command</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;nitam|work&gt; write an address</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;zimmbi&gt;  /datadata always full, that's really bad, any chance to change partition size?</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;nitam|work&gt; and then read data if that is what you were trying to do</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;nitam|work&gt; or write data if that is what you were trying to do</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, ok, so you mean you have to send it a command (a write) so that it spits out something you can read?</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;nitam|work&gt; so reading status "register"</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;nitam|work&gt; first you send command "read_id_v1"</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-navy">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;nitam|work&gt; doesn't seem to need an address</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;nitam|work&gt; then you read what it sends back</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;nitam|work&gt; look at touchkey_read_status()</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;nitam|work&gt; that's the simplest way to understand how the chip works.</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;nitam|work&gt; or touchkey_issp_pwr_init</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;nitam|work&gt; that one just changes the state of a pin (powers the chip on), then tells the chip to setup</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;nitam|work&gt; and waits for the transaction to end</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;nitam|work&gt; so yes, you would have to tell it to dump the firmware</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;nitam|work&gt; and then go read it</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, any idea what read_id_v1 holds?</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;evaluate&gt; nvm, found it in cypress-touchkey-firmware.h</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;nitam|work&gt; thought you would :)</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;evaluate&gt; ok, so we need to send the chip something for .data and then as size the size of the firmware (I'd guess), and voilla?</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;nitam|work&gt; those are all the commands defined. god (and samsung) knows what command tells it to dump the firmware even if there is such a command</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;nitam|work&gt; no</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;nitam|work&gt; well, yes.</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;nitam|work&gt; we need to have one of those command structs that says "dump_firmware"</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;evaluate&gt; but we don't know what 'data' needs to be...</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;nitam|work&gt; set up the chip by sending it that command</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;nitam|work&gt; and then read the data.</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;nitam|work&gt; evaluate: exactly.</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;evaluate&gt; is there nowhere a bin of the original firmware? This would be so much more simple with that one...</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;nitam|work&gt; we flash the latest and greatest samsung official drop to the phone, take it to the store and tell them "I don't know what happened to my keys"</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;nitam|work&gt; and get them to replace it. :)</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;evaluate&gt; also, now we know how we can get ourselves new devices. I have a 2 year warranty on mine, I guess I can do this trick after a year and a half and get a new one</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, lol, exactly what I was thinking :-p</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;nitam|work&gt; I saw that original .bin checkin - and it rang a bell</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;nitam|work&gt; but somehow I didn't pursue the thought . . .</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;nitam|work&gt; was at work and was distracted.</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;nitam|work&gt; sorry - should have caught it.</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;nitam|work&gt; like now - back later.</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-green">* thedood is now known as thedood|away</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, this cypress-touchkey.bin file. Is it normally included in the kernel or is it a "standalone" file?</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;evaluate&gt; did anyone look in the XXJV1 (or whatever it's called) FW if there is such a file?</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;codeworkx&gt; it's included in nexus s rom</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;evaluate&gt; well, that's the one that's borked, isn't it?</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;evaluate&gt; ok, where exactly is it in the nexus rom? I can look if there is one in the leaked FW from samsung...</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;codeworkx&gt; system/vendor/firmware</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;codeworkx&gt; it's not in jv1</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;codeworkx&gt; already checked</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;evaluate&gt; damn</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;evaluate&gt; also checked the 2.2 and 2.2.1 ones?</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;codeworkx&gt; but theres no vendor folder xD</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;evaluate&gt; crap</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-green">* thedood|away is now known as thedood</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-green">* enl_ (~enlighten@94.165.90.242) has joined this channel.</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;uberushaximus&gt; codeworkx did any other firmware files end up in the code drop?</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, there are 4 bin files in XWJS5 in /system/firmware/. Guess they are something else though, aren't they?</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;codeworkx&gt; uberushaximus: no, nothing important</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: which files are there?</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;evaluate&gt; they have awkward names, like: CE147F00.bin, CE147F01.bin, etc</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;evaluate&gt; sizes are: 4bytes, 17bytes, 20KB and 712KB</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;uberushaximus&gt; abd one more quick question, the color temp fix was also a kernel thing right?</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: thats camera firmware</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;evaluate&gt; damn</span><br />
