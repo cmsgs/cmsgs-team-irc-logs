@@ -563,3 +563,80 @@
 <span class="irc-date">[15:58]</span> <span class="irc-black">&lt;chek0v&gt; which is a filename on disc, used also by update</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;chek0v&gt; anyway</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;evaluate&gt; chek0v, kernel/samsung/2.6.35/Documentation/firmware_class/README might be interesting</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;evaluate&gt; I'll have a look at it right now, seems to describe the request_firmware function</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;chek0v&gt; yeah sec</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;chek0v&gt; mk yeah cw is right</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;chek0v&gt; firmware_data_read()</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;codeworkx&gt; chek0v: <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/input/keyboard/cypress-touchkey-firmware.c">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/input/keyboard/cypress-touchkey-firmware.c</a></span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;chek0v&gt; this documentation sucks.</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;evaluate&gt; chek0v, and the functions seems to be in include/linux/firmware.h</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;chek0v&gt; evaluate: yeah</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;chek0v&gt; tahts where i stopped</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;evaluate&gt; if you want I can paste it</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;evaluate&gt; if you don't have it</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;chek0v&gt; no i mean i have firmware.h</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;stickpin&gt; 2.3.2 kernel + latest git = :(</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;stickpin&gt; dont boot</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;chek0v&gt; but notice there is only a return -einvald or whatever</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;chek0v&gt; idk all the compiler tricks, but im expecting to see the actual code for that function somewhere</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/input/keyboard/cypress-touchkey-firmware.c#L172">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/input/keyboard/cypress-touchkey-firmware.c#L172</a></span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;chek0v&gt; codeworkx: yeah</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;evaluate&gt; That one only seems to return some checkum though, not the actual firmware. Or am I missing something?</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;codeworkx&gt; touchkey_write_bit, touchkey_read_bit</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-green">* enlightened (5270c4ce@gateway/web/freenode/ip.82.112.196.206) has joined this channel.</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;chek0v&gt; evaluate: target_data_output prob has something interesting</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;chek0v&gt; need to look at what codeworkx just posted</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;chek0v&gt; touchkey_send</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;chek0v&gt; and touchkey_read</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;evaluate&gt; btw, just as a "REMEBER". We should first test this on a non-working device, to see if it actually dumps the data, before we tell anyone to run it on a good device...</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;chek0v&gt; misery loves company</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; sure ;-)</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.1.100.adsl.012.net.il) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;evaluate&gt; the bad thing is, there are multiple request_firmware functions in the kernel it seems...</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;evaluate&gt; for various devices...</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;evaluate&gt; could someone have a look at 'firmware_data_read' from ./drivers/base/firmware_class.c</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;evaluate&gt; this seems interesting</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;evaluate&gt; but because I'm a total friggin newb I'm not sure if this would do the job...</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;evaluate&gt; and there's also static int _request_firmware in that same file, which might be what we were looking for...</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;chek0v&gt; evaluate: ya forget request firmware</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;chek0v&gt; codeworkx is right</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;chek0v&gt; its just reading from a file on disc into kernel mem</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;chek0v&gt; and then update_firmware from that mem to the chipset</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;chek0v&gt; prob these read_bits shit</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;evaluate&gt; and what about firmware_data_read ?</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;chek0v&gt; where is it at</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;chek0v&gt; oh</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;chek0v&gt; nm</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;chek0v&gt; i see your limnk</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;chek0v&gt; evaluate: maybe</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;chek0v&gt; need to see it used or documented</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;chek0v&gt; lack of comments and variable names arent very helpful heh</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;evaluate&gt; ok, let's see if I can dig up something on that</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;evaluate&gt; firmware_data_read() and firmware_loading_show() are just provided for testing and completeness, they are not called in normal use.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;evaluate&gt; dang!</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;evaluate&gt; But still, it might be a good thing. Since in normal use you don't need to read the actual firmware from the device...</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-green">* uberushax (~uberushax@2001:470:1f11:c4c:b607:f9ff:fe03:f050) has joined this channel.</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-navy">* uberushax (~uberushax@2001:470:1f11:c4c:b607:f9ff:fe03:f050) Quit (Client Quit)</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;chek0v&gt; evaluate: ya i saw that</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;chek0v&gt; doesnt mean they dont do antyhing useful tho</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;codeworkx&gt; maybe we can simply ask samsung xD</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;codeworkx&gt; "send teh stuff plx"</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-green">* enlightened2 (~yaaic@78.7.52.82) has joined this channel.</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;atinm&gt; why the f is github so slow for me..</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: kernel should be fine now</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;atinm&gt; codeworkx: ok</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;atinm&gt; but I can't read github.</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-navy">* enlightened (5270c4ce@gateway/web/freenode/ip.82.112.196.206) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: but it only works with a fresh android build because of the powervr stuff</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;evaluate&gt; hmm, can't remember if this was mentioned before, but couldn't this: <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/input/keyboard/cypress-touchkey-firmware.c#L61">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/input/keyboard/cypress-touchkey-firmware.c#L61</a></span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;evaluate&gt; get the firmware byte by byte?</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-brick">* evaluate searches for the gpio_direction_input docs</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;atinm&gt; github is way slow for me so cannot look at any of those commits etc</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;atinm&gt; driving me nuts</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;evaluate&gt; ok, so it seems that gpio_direction_input reads from the device and gpio_direction_output writes to the device</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;evaluate&gt; so I guess touchkey_read_byte is indeed what we need</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;evaluate&gt; Does someone have the skill to write a short snippet that would get the FW with touchkey_read_byte ?</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-navy">* enlightened2 (~yaaic@78.7.52.82) Quit (Ping timeout: 240 seconds)</span><br />
