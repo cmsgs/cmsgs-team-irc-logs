@@ -384,3 +384,38 @@
 <span class="irc-date">[13:53]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Client Quit)</span><br />
 <span class="irc-date">[13:53]</span> <span class="irc-green">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) has joined this channel.</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-green">* mxracer_linux (~mxracer@adsl-21-151-116.clt.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;evaluate&gt; hmm, this is really fucking strange</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;evaluate&gt; I flashed the 2502 update and the touchkeys are still not working</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;evaluate&gt; fuck!</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;designfears&gt; Sup</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;evaluate&gt; The shit hit the fan!</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;evaluate&gt; I have to go now. I hope I can work this out, hope the buttons aren't dead...</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-navy">* evaluate (~cristi@unaffiliated/evaluate) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;mxracer_linux&gt; hey guys... want to build and install CM on my captivate.. I see the message no the wiki about using speedmod or firebird kernel for ext4 support</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;mxracer_linux&gt; are those two just recomdndations... can i use a voodoo lagfix converted system?</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;mxracer_linux&gt; file system that is</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;mikebeecham&gt; codeworkx, thanks for the latest update..makes my handset look all shiny and new :D</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;codeworkx&gt; gimme new touchkeys!</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;chek0v&gt; codeworkx: urs fucked too?</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;mikebeecham&gt; you can have mine..I have some in a box here :D</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;codeworkx&gt; my touchkey controller is totally fucked up</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;codeworkx&gt; no data</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;chek0v&gt; codeworkx: you looked at these functions i pasted in the other chan</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;chek0v&gt; im looking at firmware.h to see if youc an pull the origina fw and store it</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;chek0v&gt; int request_firmware(const struct firmware **fw, const char *name, struct device *device);</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;chek0v&gt; struct firmware { size_t size; const u8 *data; struct page **pages;</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;chek0v&gt; };</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;chek0v&gt; im trying to find whrte request_firmware is but im pretty sure its going to populate firmware stuct with what you need</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-black">&lt;codeworkx&gt; the only thing i can do at the moment is using virtual keys using the display</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-black">&lt;codeworkx&gt; and move it to the position where the touchkeys are if this is possible</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-black">&lt;chek0v&gt; codeworkx: why not just try to get the original fw</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-black">&lt;codeworkx&gt; that would be the best way</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;chek0v&gt; ya, so you wanna look at what im looking at here</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;chek0v&gt; i cant find where request_firmware() is actually</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;codeworkx&gt; grep</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;chek0v&gt; ya i dont have this repo sync'd</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;chek0v&gt; or this problem</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;chek0v&gt; just took a look since i popped in</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-black">&lt;chek0v&gt; but include/linux/firmware.h has the prototype and whatnot</span><br />
