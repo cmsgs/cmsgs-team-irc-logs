@@ -2130,3 +2130,124 @@
 <span class="irc-date">[21:52]</span> <span class="irc-black">&lt;codeworkx&gt; the other modems are only for testing</span><br />
 <span class="irc-date">[21:52]</span> <span class="irc-black">&lt;Kaik541&gt; oh ok I did not know that</span><br />
 <span class="irc-date">[21:53]</span> <span class="irc-black">&lt;Kaik541&gt; thanks</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-green">* direw0lf (~androirc@83.103.178.223) has joined this channel.</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-navy">* direw0lf (~androirc@83.103.178.223) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-green">* ChanServ sets mode +o coolya</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;dudyk&gt; hi there</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;mbizzle&gt; hello</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;dudyk&gt; can someone please review my change?</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;coolya&gt; link?</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;dudyk&gt; <a href="http://review.cyanogenmod.com/3549">http://review.cyanogenmod.com/3549</a></span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;coolya&gt; what does it fix?</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;dudyk&gt; it affects cmsgs but the normal CM uses the AOSP shell, so it's not affected.</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;dudyk&gt; launching of scripts without shebang</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;dudyk&gt; like the pm script</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;coolya&gt; why do they work on the other devices and not on our?</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;dudyk&gt; we use busybox as the login shell</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;dudyk&gt; CM might be using busybox as a shell right now, I could not reproduce it on an N1 built two weeks ago.</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;coolya&gt; k</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;coolya&gt; but i can't review that one and it won't get merged until CM7.1 merge window is open</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;coolya&gt; currently mainline is in feature freeze</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;dudyk&gt; everyone can review to give a +1</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;dudyk&gt; I just want someone else to test it</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;dasunsrule32&gt; coolya: looks like the ril is partially fixed?</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;coolya&gt; if i have time on the weekend i will test it.</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;coolya&gt; dasunsrule32: dunno</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;dasunsrule32&gt; it gets cell signal this time, still have to turn the screen off/on to get data though</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;coolya&gt; that is always like that for me</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;dasunsrule32&gt; first time for me</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;coolya&gt; you can't do outgoing calls</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;coolya&gt; at the piont</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;dasunsrule32&gt; no calling?</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;dasunsrule32&gt; ah</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;dasunsrule32&gt; gotcha</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;coolya&gt; the modem doesn't report back when it's connected</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;dudyk&gt; I think we should not use busybox as default shell, since it might cause too many issues caused by scripts and shell incomaptibility</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;coolya&gt; incomming calls work</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;coolya&gt; dudyk: +1</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;dasunsrule32&gt; dudyk: +2</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;dasunsrule32&gt; :)</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;dudyk&gt; I have no problems with calls...</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;dasunsrule32&gt; me either</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; sensor works, wifi works, haven't test BT yet, gps doesn't work</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;dudyk&gt; but I do believe that bb should be able to run things without a hash tag</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;dudyk&gt; I have BT HID issues actually...</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;coolya&gt; dasunsrule32: GPS is broken i will look at it tomorrow</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; i know, just putting my results out there :D</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;coolya&gt; it looks its only broken on vibrant</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;dudyk&gt; it connects but won't receive keystrokes</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;dudyk&gt; ironic that the only device that got a GPS fix OTA has problems...</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;dasunsrule32&gt; coolya: do you want me to start putting nightlies together?</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;coolya&gt; dasunsrule32: dunno ... right now i dunno what up with forum thread, how to maintain, and blah ... i'm pretty pissed</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; yea, it got merged</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;dasunsrule32&gt; and everything dumped to sf.net</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;atinm&gt; but the links?</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;atinm&gt; where'd codeworkx leave it?</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;dudyk&gt; how does the SGS port do the RIL stuff? interfacing with libraries or reverse engineered?</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;atinm&gt; wtf - lol! we lost the links and now we lost the repo?</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;coolya&gt; dasunsrule32: yes but i can't publish a change log for a device i can't dicide when i want to push a new build ...</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;dasunsrule32&gt; the repo's gone too?</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;dasunsrule32&gt; I just synced and built</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;coolya&gt; i don't like it like it is now</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;dasunsrule32&gt; whyd codeworkx do it?</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;atinm&gt; I prefered having separate phone threads. I liked that one place for downloads</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;atinm&gt; but not one thread.</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;coolya&gt; atinm: the thread is only for downloads</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;coolya&gt; there should be another discussion thread</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;dasunsrule32&gt; did you just see the edit?</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;dudyk&gt; Steve apparently thought my fix is worth an exception... it's been merged</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;dasunsrule32&gt; <a href="http://goo.gl/OpcVP">http://goo.gl/OpcVP</a></span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;dasunsrule32&gt; repo's are jacked again?</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;coolya&gt; dudyk: :-) nice</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;dudyk&gt; is this why I'm getting hangups?</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;dudyk&gt; when repo sync, that is...</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;dasunsrule32&gt; ^^^</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;dasunsrule32&gt; look at the link</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;coolya&gt; it is fixed</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-brick">* dasunsrule32 not going to flash the nigtly i just built lol</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;coolya&gt; dudyk: we use libs</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;atinm&gt; we need to resurrect our threads until this is fixed.</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;atinm&gt; this is silly.</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; stupid bug</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;dudyk&gt; what bug?</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;techmik67&gt; getting a few packages here and there on sync attempts</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; everytime i disable the screen stay in option under apps - dev, it reenables after reboot</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;coolya&gt; we missed some stuff in vendor_cyanogen what caused the update-scripted to fail</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;coolya&gt; it got merged</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;dasunsrule32&gt; i should be able to sync now?</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;coolya&gt; i hope so</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;coolya&gt; i haven't tested</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;techmik67&gt; hanging up repeatedly</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;coolya&gt; i'm on my laptop</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;dasunsrule32&gt; testing...</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;coolya&gt; korg? or github`?</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;dasunsrule32&gt; same here</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;dudyk&gt; github</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;dasunsrule32&gt; github</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;coolya&gt; github sux -.-</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;coolya&gt; sometimes</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;techmik67&gt; error: cannot fetch project</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;techmik67&gt; got a few that time</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;dasunsrule32&gt; error: Cannot fetch teamhacksung/android_vendor_cyanogen</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;dasunsrule32&gt; fatal: The remote end hung up unexpectedly</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;dasunsrule32&gt; error: Cannot fetch themes-platform-vendor-tmobile-products-themes</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;dasunsrule32&gt; bla, bla</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;coolya&gt; hmm i will go to sleep now and hopefully it will work tomorrow</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;dasunsrule32&gt; ok</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;dudyk&gt; that reminds me of the time my ISP blocked kernel.org</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;dasunsrule32&gt; comcast?</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;dasunsrule32&gt; o/O</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;dasunsrule32&gt; o.O</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;dudyk&gt; an Israeli ISP called 012</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; nice</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;dudyk&gt; holds the world record in traffic shaping</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;dudyk&gt; even has torrent proxies that make users unaware of that....</span><br />
