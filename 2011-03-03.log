@@ -726,3 +726,47 @@
 <span class="irc-date">[6:59]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: you get the same ?</span><br />
 <span class="irc-date">[6:59]</span> <span class="irc-black">&lt;Kaik541&gt; atinm got it, uberushaximus got it earlier, and now scepterr</span><br />
 <span class="irc-date">[6:59]</span> <span class="irc-black">&lt;coolya&gt; damn my fucking nook won't boot from internal storage</span><br />
+<span class="irc-date">[7:00]</span> <span class="irc-black">&lt;Kaik541&gt; my build is dying on SystemUI</span><br />
+<span class="irc-date">[7:00]</span> <span class="irc-black">&lt;Kaik541&gt; but that's upstream</span><br />
+<span class="irc-date">[7:00]</span> <span class="irc-black">&lt;Scepterr&gt; fresh nook build is fine btw</span><br />
+<span class="irc-date">[7:00]</span> <span class="irc-black">&lt;Kaik541&gt; (I think)</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-green">* zimmbi (~Adium@80-219-7-154.dclient.hispeed.ch) has joined this channel.</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;coolya&gt; i will sync and just build an ota for testing</span><br />
+<span class="irc-date">[7:02]</span> <span class="irc-black">&lt;evaluate&gt; coolya, you mean that file isn't the touchkey firmware?</span><br />
+<span class="irc-date">[7:03]</span> <span class="irc-brick">* evaluate takes another look at the lcdtest.apk</span><br />
+<span class="irc-date">[7:03]</span> <span class="irc-black">&lt;Kaik541&gt; you've been at this for hours, would be so much easier to just flash back to stock</span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, I've slept for the last 6-7 hours...</span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;Kaik541&gt; still would be easier to flash back to stock for a whole of 5 minutes</span><br />
+<span class="irc-date">[7:06]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, I know, but I guess it wouldn't hurt if we have the firmware backed up, just in case...</span><br />
+<span class="irc-date">[7:07]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[7:08]</span> <span class="irc-black">&lt;evaluate&gt; ok, this is the reverse engineered touch_firmware.class file from the lcdtest.apk: <a href="http://pastebin.com/tujcxhYY">http://pastebin.com/tujcxhYY</a></span><br />
+<span class="irc-date">[7:08]</span> <span class="irc-black">&lt;evaluate&gt; I'd guess one of the files mentioned there must be the firmware...</span><br />
+<span class="irc-date">[7:09]</span> <span class="irc-black">&lt;evaluate&gt; There are a couple of files there, but since I don't have the stock FW I can't check them...</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-navy">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[7:11]</span> <span class="irc-green">* stickpin (~stickpin@80.178.1.100.adsl.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[7:12]</span> <span class="irc-black">&lt;coolya&gt;  evaluate the updateFirmware wasn't converted to java code ... that is where the magic happens</span><br />
+<span class="irc-date">[7:12]</span> <span class="irc-black">&lt;coolya&gt; but i think we don't have a way to flash any new firmware to the chip because the one fomr .35 kernel fails</span><br />
+<span class="irc-date">[7:14]</span> <span class="irc-green">* KaikHole (~Rawr@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[7:14]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-green">* KaikHole is now known as Kaik541</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;evaluate&gt; you mean the flashing code fails?</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;evaluate&gt; but it looked like it did something with the nexus s firmware, else we wouldn't have had the borked buttons, would we?</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-navy">* zimmbi (~Adium@80-219-7-154.dclient.hispeed.ch) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;coolya&gt; it tries to flash but then it fails but it reased the firmware before</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;coolya&gt; need to go to work now and fix my nook there</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;coolya&gt; Scepterr: i'm getting the same error as you with fresh sync</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-brick">* evaluate gives up and flashes stock FW</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[7:37]</span> <span class="irc-black">&lt;stickpin&gt; morning guys....</span><br />
+<span class="irc-date">[7:37]</span> <span class="irc-black">&lt;stickpin&gt; cappy button still broken on latest repo?</span><br />
+<span class="irc-date">[7:41]</span> <span class="irc-black">&lt;kudakeru&gt; Negative</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-navy">* uberushaximus (~uberushax@71-13-134-35.dhcp.ftbg.wi.charter.com) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[7:47]</span> <span class="irc-green">* zimmbi (~Adium@147.88.200.112) has joined this channel.</span><br />
+<span class="irc-date">[7:47]</span> <span class="irc-navy">* zimmbi (~Adium@147.88.200.112) Quit (Client Quit)</span><br />
+<span class="irc-date">[7:50]</span> <span class="irc-green">* zimmbi (~Adium@147.88.200.112) has joined this channel.</span><br />
+<span class="irc-date">[7:53]</span> <span class="irc-black">&lt;techmik&gt; Unhelpful: ping</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-green">* dudyk (~chatzilla@80.178.31.17.adsl.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-black">&lt;dudyk&gt; has anyone seen my pull request?</span><br />
