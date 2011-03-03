@@ -971,3 +971,127 @@
 <span class="irc-date">[9:58]</span> <span class="irc-black">&lt;evaluate&gt; techmik_laptop, cm7-galaxys-update-20110303.zip - doesn't LOOK like initial to me though...</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;techmik_laptop&gt; agree</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;evaluate&gt; anyway, it's good if it's working... :-p</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;dudyk&gt; atinm: is there something you'd like me to work on?</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;atinm&gt; wifi sleep</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;atinm&gt; we get kernel panic when wifi goes to sleep</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;atinm&gt; suspend</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;atinm&gt; evaluate: update is not initial</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;Unhelpful&gt; dudyk: i'm not sure, it wouldn't fully boot, surfaceflinger died. i probably need to update everything instead of just kernel?</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;atinm&gt; initial is initial</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;atinm&gt; there is a ota_xxxxx.sh - that biulds update, there is also an initial_xxxx.sh that builds initial</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;evaluate&gt; atinm, yes, I know the difference between initial and update. I was just wondering why my update from today is 133MB and that from yesterday was 86MB. techmik_laptop  said it might be an initial package that I created and I pasted that to show him that it isn't.</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;dudyk&gt; Unhelpful: I updated just the kernel, but I was on the latest build before that..</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;Unhelpful&gt; dudyk: i've been developing other stuff for a day or two now, so i'm not really up-to-date.</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;dudyk&gt; if it's two, no chance it'll run...</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; adw laucher honeycomb theme updated..... phone icon no longer green..</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;atinm&gt; evaluate: ah</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;Unhelpful&gt; right, so i need a full rebuild.</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;dudyk&gt; atinm: is there a way to get a dump out of this thing?</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;atinm&gt; let me see what mine are</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;atinm&gt; you - mine are all in the 130MB  range</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;atinm&gt; both initial and update</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;evaluate&gt; but like I said, the one from yesterday was ~86</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.242.174.68) has joined this channel.</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;evaluate&gt; and pretty much all previous ones I did were also somewhere around there...</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread Andrew Mahone * 99794ea (1 files in 1 dirs): Fix ueventd symlink to point to /init instead of /init.galaxys ... - <a href="http://bit.ly/gKLwdT">http://bit.ly/gKLwdT</a></span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;Unhelpful&gt; bugger, build isn't forked @ teamhacksung</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;dudyk&gt; is our kernel set to save panic logs? if so where are they?</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;evaluate&gt; dudyk, 'adb shell find / -type d -name log' might help...</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-navy">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;dudyk&gt; what has the normal android shell has been replaced with? it's not busybox, and not bash...</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;evaluate&gt; It's busybox</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-brick">* Unhelpful attempts sync</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;Unhelpful&gt; "normal android shell"?</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;Unhelpful&gt; do you mean the awful one in toolbox?</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;evaluate&gt; normal android shell is 'sh' IIRC</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: *lots* of shell binaries are named "sh" ;)</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, most of those I know have other names, like bash, ash, xsh, csh, etc</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: and the default one for the system is generally linked to "sh"</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;dudyk&gt; yes, the one that has the pm builtin...</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't know how AOSP does things, but toolbox had an awful shell linked to sh on samsung's firmwares.</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;Unhelpful&gt; dudyk: "toolbox sh" might get you the "standard" android shell.</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;evaluate&gt; dudyk, trying to do a 'adb install' ?</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;dudyk&gt; no, I'm trying to do pm list packages</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;evaluate&gt; ok, and you get an error that pm doesn't work, right?</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;evaluate&gt; you need to do an 'adb pull /system/bin/pm .'</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;evaluate&gt; and then edit it and insert the shebang</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;evaluate&gt; and then push it back</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;evaluate&gt; WOOOOOOOOOO. My touch keys are working again! It's a friggin miracle!</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;Unhelpful&gt; that doesn't sound like a builtin at all ;)</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;dudyk&gt; figured it out on a different window... why doesn't it have a shebang</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;evaluate&gt; dudyk, no idea. Submit a patch for it :-p</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;dudyk&gt; I think the script was builtin.</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;evaluate&gt; It wasn't. It's just like now.</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;evaluate&gt; It juts had the shebang.</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;evaluate&gt; s/juts/just/</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: did I just get partial update to initramfs?</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: eh?</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;atinm&gt; oh, that was device common</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;atinm&gt; but I should update and build with that - right?</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;Unhelpful&gt; that's not the whole initramfs update, just one of the bits that was wrong anyway :)</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;atinm&gt; or was init.galaxys really init for captivate for us?</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;Unhelpful&gt; the whole thing includes things we don't have forked :/</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;dudyk&gt; evaluate: what didn't they work before?</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;Unhelpful&gt; so i'll have to add a fork for /build</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;atinm&gt; ..</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: the package name is init.galaxys, and still is. the binary name is init, and the symlink was pointing at the package name, and was broken.</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;atinm&gt; fuck. fuck. fuck.</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;atinm&gt; firefox crashed hard.</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;Unhelpful&gt; it's something i fixed while working on initramfs, but the rest of it i'm still readying to push up.</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;evaluate&gt; dudyk, sorry, I don't understand your question.</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;atinm&gt; and I had a long unsaved post</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@115.242.174.68) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;dudyk&gt; &lt;evaluate&gt;	WOOOOOOOOOO. My touch keys are working again! It's a friggin miracle!</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;Yangtse&gt; i got scrambled screen, before the cm animation</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;evaluate&gt; yeah, I was just lazy to flash a stock firmware to get them to work again...</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;Yangtse&gt; cm7 20110302 sgs</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;dudyk&gt; ohh</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;dudyk&gt; since I made a remap for the softkeys of the captivate</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;Unhelpful&gt; dudyk: if it looks your patch is good maybe you should send a pull request?</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;dudyk&gt; I thought you tested it</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;dudyk&gt; I did!</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;Unhelpful&gt; maybe i don't know where to look for that? :)</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;dudyk&gt; someone (me?) should add a || epic || vibrant || etc...</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-brick">* Unhelpful hopes this doesn't go wrong.</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Andrew Mahone * 8f26872 (2 files in 2 dirs): Build using CM-build initramfs, fix Captivate defconfig for CM initramfs. ...</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 David Kohen * f3afa05 (1 files in 1 dirs): Fix button mapping for captivate, you can add || to your devices acordingly (I don't know the key order on others) ...</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 commits 4c3a10d...f3afa05 - <a href="http://bit.ly/hThkBo">http://bit.ly/hThkBo</a></span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;Unhelpful&gt; THAT IS NOT WHAT I WANTED TO DO :/</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-brick">* dudyk regrets not knowing that the i9000 supports 850mhz</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;evaluate&gt; so it did go wrong...</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;Unhelpful&gt; indeed.</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;evaluate&gt; dudyk, it also supports 100Mhz, but you don't want that... :-p</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;Unhelpful&gt; don't pull, busy changing history ;)</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 David Kohen * 8bdebba (1 files in 1 dirs): Fix button mapping for captivate, you can add || to your devices acordingly (I don't know the key order on others) ... - <a href="http://bit.ly/ifLCxt">http://bit.ly/ifLCxt</a></span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;dudyk&gt; evaluate: I mean UMTS bands...</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;evaluate&gt; ohh</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;evaluate&gt; thought you were taking about CPU</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;dudyk&gt; That's why I got a captivate...</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, time to pack up.</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;dudyk&gt; cuz I thought it's the only one with 850</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;stickpin&gt; ok will try to compile cappy now...</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-navy">* zimmbi (~Adium@147.88.200.112) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;dudyk&gt; There the build goes again...</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-brick">* dudyk wonders if there any worthwhile changes to be building for two hours</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;Wout`&gt; are the touchscreen/touchkeys fixed on i9000 on the repo?</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;Wout`&gt; correct calibration and such</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-green">* enl_ (970c5cfe@gateway/web/freenode/ip.151.12.92.254) has joined this channel.</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, yes.</span><br />
+<span class="irc-date">[10:53]</span> <span class="irc-black">&lt;Wout`&gt; hmmm</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;Wout`&gt; running JV1 now, but really itchting to flash CM7 back</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;Wout`&gt; but I'm really really liking the batterlife I'm getting now..</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;dudyk&gt; there aer some issues with screen edges, but this is a 15 pixel issue...</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;dudyk&gt; are*</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.5.88) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-green">* Yangtse (~Yangtse@117.136.5.88) has joined this channel.</span><br />
+<span class="irc-date">[10:56]</span> <span class="irc-black">&lt;dudyk&gt; atinm: my wifi won't suspend... did you prevent it by ignoring the setting?</span><br />
+<span class="irc-date">[10:57]</span> <span class="irc-black">&lt;atinm&gt; go into the advanced settings - it is set to never suspend by default I think</span><br />
+<span class="irc-date">[10:58]</span> <span class="irc-black">&lt;dudyk&gt; set it to suspend and it never seem to</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;dudyk&gt; that is, I set it to suspend on screen off</span><br />
