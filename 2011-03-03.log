@@ -666,3 +666,63 @@
 <span class="irc-date">[5:43]</span> <span class="irc-green">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) has joined this channel.</span><br />
 <span class="irc-date">[5:46]</span> <span class="irc-green">* UberPinguin (~uber@gentoo/user/uberpinguin) has joined this channel.</span><br />
 <span class="irc-date">[5:57]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[6:03]</span> <span class="irc-green">* KaikHole (~Rawr@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[6:04]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[6:04]</span> <span class="irc-green">* KaikHole is now known as Kaik541</span><br />
+<span class="irc-date">[6:05]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-navy">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-green">* evaluate (~cristi@unaffiliated/evaluate) has joined this channel.</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;evaluate&gt; hello</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;evaluate&gt; does anyone have a stock samsung FW?</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;evaluate&gt; I mean currently flashed on the phone...</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;ohayden&gt; cappy?</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;evaluate&gt; doesn't matter</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;ohayden&gt; my wife's phone is stock</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;evaluate&gt; ok, could you please look if this file exists: /sys/devices/virtual/misc/melfas_touchkey/touch_update ?</span><br />
+<span class="irc-date">[6:27]</span> <span class="irc-black">&lt;ohayden&gt; sure</span><br />
+<span class="irc-date">[6:27]</span> <span class="irc-black">&lt;ohayden&gt; it exists</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;evaluate&gt; ok, could you please get it to your computer and put it on a dropbox or something?</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;evaluate&gt; also, before that, check that it's a binary file and that it doesn't contain any private data or shit like that</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;ohayden&gt; my devbox is down at the moment :/</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;evaluate&gt; this should normally be the touchkey firmware...</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;evaluate&gt; ohh</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;ohayden&gt; I'll hve it up tomorrow tough</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;ohayden&gt; s/tough/though/</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;evaluate&gt; nevermind, I'll get it from somewhere else :-)</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;uberushaximus&gt; alright, so whenever I build a kernel and flash it with heimdall or change the zImage in an ota, wifi breaks</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;ohayden&gt; gah... eee keyboard sucks</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;uberushaximus&gt; the modules are in /system/modules</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;uberushaximus&gt; what do</span><br />
+<span class="irc-date">[6:30]</span> <span class="irc-black">&lt;evaluate&gt; hmm?</span><br />
+<span class="irc-date">[6:30]</span> <span class="irc-black">&lt;evaluate&gt; uberushaximus, you're flashing it wrong.</span><br />
+<span class="irc-date">[6:30]</span> <span class="irc-black">&lt;evaluate&gt; Whenever you flash a new kernel you also have to flash the drivers that are built with that kernel...</span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-black">&lt;uberushaximus&gt; go on</span><br />
+<span class="irc-date">[6:32]</span> <span class="irc-black">&lt;Kaik541&gt; you need to include the .ko files</span><br />
+<span class="irc-date">[6:32]</span> <span class="irc-black">&lt;Kaik541&gt; because they have to be built against the kernel</span><br />
+<span class="irc-date">[6:32]</span> <span class="irc-black">&lt;Kaik541&gt; so you need to include the same tun.ko, cifs.ko, and bcm4329.ko'</span><br />
+<span class="irc-date">[6:32]</span> <span class="irc-black">&lt;uberushaximus&gt; where do they end up after the build?</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;Kaik541&gt; if you build kernel with the newest ./build.sh script, it copies them over automatically</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;evaluate&gt; uberushaximus, the script normally tells you where they are</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;Kaik541&gt; but cifs.ko is in fs/cifs/ I tihnk</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;Kaik541&gt; and bcm4329.ko is wireless/bcm4329/</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;Kaik541&gt; and I don't remember tun.ko</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;evaluate&gt; that's for ota. You could also push them directly to the device, but don't ask me where...</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;uberushaximus&gt; that's what I'm asking</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;evaluate&gt; WELL, I SAID DON'T ASK!</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-brick">* evaluate gets his adb ready</span><br />
+<span class="irc-date">[6:36]</span> <span class="irc-black">&lt;evaluate&gt; ok, all 3 seem to be in /system/modules/</span><br />
+<span class="irc-date">[6:37]</span> <span class="irc-black">&lt;evaluate&gt; so, after you flashed the kernel just make sure to push those 3 files to /system/modules and do a restart and you should be fine.</span><br />
+<span class="irc-date">[6:41]</span> <span class="irc-black">&lt;evaluate&gt; damn, I still need that damned firmware file... :-\</span><br />
+<span class="irc-date">[6:41]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[6:41]</span> <span class="irc-black">&lt;uberushaximus&gt; for the controller?</span><br />
+<span class="irc-date">[6:41]</span> <span class="irc-black">&lt;evaluate&gt; yeah</span><br />
+<span class="irc-date">[6:44]</span> <span class="irc-black">&lt;uberushaximus&gt; awesome, you guys rock</span><br />
+<span class="irc-date">[6:51]</span> <span class="irc-black">&lt;kudakeru&gt; evaluate: Are you looking for the fix for your phone?</span><br />
+<span class="irc-date">[6:52]</span> <span class="irc-black">&lt;coolya&gt; evaluate: that is a sysfs file -.-</span><br />
+<span class="irc-date">[6:56]</span> <span class="irc-black">&lt;Scepterr&gt; atinm i just got this <a href="http://cmsgsteam.pastebin.com/HAmhANHK">http://cmsgsteam.pastebin.com/HAmhANHK</a></span><br />
+<span class="irc-date">[6:56]</span> <span class="irc-black">&lt;Scepterr&gt; err coolya *</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;Kaik541&gt; yeah we're all having bugs right now for some reason</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;coolya&gt; Scepterr: wtf that really shouldn't happpen. something went wrong in the releasetools :-(</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: you get the same ?</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;Kaik541&gt; atinm got it, uberushaximus got it earlier, and now scepterr</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;coolya&gt; damn my fucking nook won't boot from internal storage</span><br />
