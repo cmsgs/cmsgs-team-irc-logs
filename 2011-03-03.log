@@ -1319,3 +1319,178 @@
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;dudyk&gt; it takes 15 seconds, did that today</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-green">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) has joined this channel.</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;evaluate&gt; dudyk, I mean it takes ages to download it locally</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;dudyk&gt; git fetch &lt;path&gt; MY_BRANCH</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm&gt; evaluate - you've already cloned it, correct?</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;evaluate&gt; atinm, yeah</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;dudyk&gt; you don't need to download it again</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm&gt; get on github, fork the repo there. then push your changes to your repo</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;dudyk&gt; git rebase MY_BRANCH</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm&gt; the send a pull request.</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;evaluate&gt; ok, wait</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm&gt; off for a bit</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;evaluate&gt; let's see if I can work this out :-p</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm&gt; going to let others handle captivate user stuff on cyanogenmod and xda forums :)</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;atinm&gt; tho codeworkx - just delete all the messages on the cyanogenmod forum thread leaving the main one up until we merge everything into one.</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 codeworkx * 2f6cb63 (9 files in 4 dirs): make galaxysb standalone - <a href="http://bit.ly/emU4TR">http://bit.ly/emU4TR</a></span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;dudyk&gt; git push &lt;your_path&gt; MY_BRANCH:android-samsung-2.6.35</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;evaluate&gt; wait, wait</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;evaluate&gt; I'm not that fast</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;evaluate&gt; :-p</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;dudyk&gt; if you have problems, msg me so we can do this in an orderly fashion</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;dudyk&gt; speaking of git, who's willing to review my patch please?</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;dudyk&gt; <a href="http://review.cyanogenmod.com/3549">http://review.cyanogenmod.com/3549</a></span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;evaluate&gt; can I fork the whole 'teamhacksung' stuff? or do I need to fork everything separately?</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;dudyk&gt; I actually thought you're talking about a kernel change...</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;evaluate&gt; the change is actually in system/vold ...</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: but i cannot give permissions to you</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;codeworkx&gt; i've no perms to to this xD</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;codeworkx&gt; if i close the thread, it's closed for you too</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;atinm&gt; lol - crap.</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, any idea in what repo the files from system/vold are?</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;dudyk&gt; grep vold .repo/manifest.xml</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;dudyk&gt;   &lt;project path="system/vold" name="CyanogenMod/android_system_vold" remote="github" /&gt;</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;dudyk&gt; it's not a sgs thing, it's a CM repo, meaning you need to use gerrit</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: system/core i think. but it's mainline. we've no fork</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;evaluate&gt; crap. ok then, I guess I'll let it be</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;atinm&gt; guess we can leave it for now - let ppl futz with it. I'll eventually change the file names to be generic and then we can lock it and delete it if we merge them all.</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm&gt; what should PRODUCT_DEVICE be?</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm&gt; SGH-I897 or captivate?</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm&gt; coolya just changed vibrant to SGS-T959</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm&gt; but galaxys is still galaxys</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm&gt; I've forgotten what it *should* be...</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;mikebeecham&gt; If I wanted to contribute design-work for anything you guys might need...who would I speak to?</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;mikebeecham&gt; just as a way to say thanks</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;Wout`&gt; mikebeecham: best bet is to add it to mainlaine cyanogen</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;nitam|work&gt; here - many of us will have opinions :)</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;nitam|work&gt; but I guess it depends</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;nitam|work&gt; if it is sgs specific, here.</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: dont change it in device folder</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; i'll change all devices at vendor/cyanogen</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;mikebeecham&gt; well, since cmsgs is not officially supported I wonder if it would be nice to have SGS-Cyanogen specific artwork</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;nitam|work&gt; I just saw coolya's commit, so was wondering.</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; PRODUCT_MODEL := Galaxy S should be PRODUCT_MODEL := GT-I9000</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, do you have anything ready?</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;nitam|work&gt; ok, then captivate would be SGS-I897</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;nitam|work&gt; you do it, I'm at work now</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;mikebeecham&gt; evaluate, nothing right now..but I've not long finished some artwork for the villainrom team</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;mikebeecham&gt; and it generally takes me little time to work up some pro-looking stuff</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;mikebeecham&gt; <a href="http://behance.net/mikebeecham">http://behance.net/mikebeecham</a> is where a lot of my recent stuff is</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, when you have something ready you can show it to either coolya, codeworkx or atinm and they can decide if it can go into the rom</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; we're trying to keep things very clean looking - so haven't really done a whole lot beyond the bootlogo</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; nice!</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;Wout`&gt; maybe a nice default wallpaper?</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;mikebeecham&gt; Wout`, that kind of thing, yeah</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;mikebeecham&gt; maybe static boot logo, that kind of thing</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;mikebeecham&gt; but :</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;nitam|work&gt; the default wallpaper is the gingerbread one right now that is easily recognizable as gingerbread</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;evaluate&gt; well, I'd say a SGS-Theme for the "Theme Chooser" would be awesome.</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;mikebeecham&gt; A) Dont want to tread on people's toes</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;mikebeecham&gt; B) Dont want to go upsetting the preverbial apple cart</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;nitam|work&gt; mikebeecham: dont' worry - we don't have any designers :)</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;nitam|work&gt; and it would be great to have one</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;nitam|work&gt; we're hackers - not designers :)</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;nitam|work&gt; different sides of the brain</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;mikebeecham&gt; im a designer, not hacker ;P</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; best I've done is take art classes :)</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;mikebeecham&gt; will see what I can come up with</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;evaluate&gt; is anyone interested to test the vold patch? I'm not going to send it to CyanogenMod as they probably won't accept it.</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; show us what you'd want to change and if we like it, we'd love to have it</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;dudyk&gt; mnita|work: my system is still stable and doesn't sleep...</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;mikebeecham&gt; i'll throw stuff on here as and when..if you like it, keep it</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;codeworkx&gt; mikebeecham: sgs theme would be fine</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nitam|work&gt; discuss it with codeworkx/coolya/unhelpful</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;mikebeecham&gt; if not tell me and I wont be offended</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nitam|work&gt; we</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nitam|work&gt; we'll give feedback :)</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nitam|work&gt; ok, off for a bit</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;nitam|work&gt; the discuss it with coolya/codeworx/unhelpful was for the vold patch</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;nitam|work&gt; designwork I want to be part of deciding ;)</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;evaluate&gt; well, codeworkx seems busy and the other 2 don't seem to be online...</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;evaluate&gt; anyway, I'll wait for them</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread codeworkx * 8afaaff (1 files in 1 dirs): added samsung galaxysb - <a href="http://bit.ly/e7N9hr">http://bit.ly/e7N9hr</a></span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;codeworkx&gt; next supported device= GT-I9000B ;-)</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;dudyk&gt; don't say supported, unless you plan to actually support the users...</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;evaluate&gt; isn't i9000b from Canada?</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;Wout`&gt; can anyone build from the current repo?</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;Wout`&gt; i'm getting this <a href="http://pastebin.com/2jpxhpsH">http://pastebin.com/2jpxhpsH</a></span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;dudyk&gt; There is a problem I keep getting with wimax</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;evaluate&gt; ohh, btw, was the release-tools problem fixed?</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, ohh, that's the release-tools problem... :-p</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;evaluate&gt; poke codeworkx to fix it...</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-brick">* Wout` gently pokes codeworkx</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;Wout`&gt; wait</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;Wout`&gt; that sounds weird :P</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;evaluate&gt; and until he does, you can use the release-tools from coolya's repo</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;evaluate&gt; cd to the root of the repository and execute this: git clone git://github.com/coolya/release-tools</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;evaluate&gt; and then you will have shell scripts in that folder to create the ota package</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;evaluate&gt; like ota_galaxys.sh or something like that</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-green">* Helvio (~c29c990a@redenorte.net) has joined this channel.</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: oh yes, there is a build problem right now - haven't had time to investigate.</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;codeworkx&gt; i'll have a look at</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;codeworkx&gt; hi Helvio</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;Helvio&gt; Hello guys</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;Helvio&gt; let me introduce myself :)</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;Helvio&gt; I own a I9000B and want to continue development for the users in Brazil and Latin America</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;Helvio&gt; I have been helped until now by Dani and Guilherme, hope I can walk on my feet soon :)</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;stickpin&gt; guys any way to increase ringtone volume?</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;stickpin&gt; on cappy</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: when was your last sync?</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;evaluate&gt; 5 minutes ago :-p</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;codeworkx&gt; hmm</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;codeworkx&gt; because <a href="https://github.com/CyanogenMod/android_build/commit/ac192c16fdc2f0a8becc6b570e6256058869c5d6">https://github.com/CyanogenMod/android_build/commit/ac192c16fdc2f0a8becc6b570e6256058869c5d6</a></span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;codeworkx&gt; do a clean and retry</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;evaluate&gt; ohh, you mean the build problem?</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;evaluate&gt; Last time I built was in the morning (6-7 hours ago), Wout` just had the build problem...</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;Helvio&gt; guys, I am uploading a new update for I9000B with fixed kernel for button mapping, can you make it available on the mail thread?</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, If I want to keep some local changes, is there a way to do this properly? Like should I do a branch for them or something like that?</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;codeworkx&gt; yeah, create a new local branch</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;codeworkx&gt; Helvio: try to build from the new setup</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;Helvio&gt; I cant sync because I have uncommited changes... should I revert them?</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;codeworkx&gt; what you've changed for buttons?</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;codeworkx&gt; can you pastebin me the passage?</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;Helvio&gt; mach-aries.c</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;Helvio&gt; <a href="http://pastebin.com/iBE1gHt5">http://pastebin.com/iBE1gHt5</a></span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;Helvio&gt; line 1467 and forth</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;codeworkx&gt; ok, simply sync</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-green">* birdman (~Steven@209.60.78.131) has joined this channel.</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;Wout`&gt; codeworkx: I did a repo sync about 15 minutes ago, wont build</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;Helvio&gt; gtg lunch, later I'll try again</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;Helvio&gt; see you :)</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/2f6cb630c1bcc406e43e1cdd4e6aeb96f6dd309f#L8R1467">https://github.com/teamhacksung/android_kernel_samsung/commit/2f6cb630c1bcc406e43e1cdd4e6aeb96f6dd309f#L8R1467</a></span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;codeworkx&gt; lol i'm dumb</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;Wout`&gt; if you're dumb, then what am I? :D</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread codeworkx * 506b814 (1 files in 1 dirs): fixed releasetools - <a href="http://bit.ly/f3Bddd">http://bit.ly/f3Bddd</a></span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread codeworkx * 5149261 (1 files in 1 dirs): fixed releasetools - <a href="http://bit.ly/gAktrI">http://bit.ly/gAktrI</a></span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;evaluate&gt; ok, so I can cancel my build...</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_vibrant: gingerbread codeworkx * 6cba0df (1 files in 1 dirs): fixed releasetools - <a href="http://bit.ly/hgnuXd">http://bit.ly/hgnuXd</a></span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.1.100.adsl.012.net.il) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-green">* uberushaximus (8febdd05@gateway/web/freenode/ip.143.235.221.5) has joined this channel.</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;uberushaximus&gt; thanks for fixing the releasetools codeworkx :)</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;mikebeecham&gt; so this is a first stab at a wallpaper: <a href="http://img841.imageshack.us/i/wallpaperblue.png/">http://img841.imageshack.us/i/wallpaperblue.png/</a></span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;codeworkx&gt; mikebeecham will make us happy</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;codeworkx&gt; mikebeecham: you know how to brew a theme for themechooser?</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;mikebeecham&gt; nope</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;mikebeecham&gt; I flashed CM7 about 2 days ago</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;mikebeecham&gt; i'm a designer :D</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, <a href="http://pastebin.com/0gyrsR1B">http://pastebin.com/0gyrsR1B</a></span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;evaluate&gt; if you want to have a look at the patch</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;codeworkx&gt; mikebeecham: <a href="https://github.com/tmobile/themes-platform-vendor-tmobile-themes-Cyanbread">https://github.com/tmobile/themes-platform-vendor-tmobile-themes-Cyanbread</a></span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;codeworkx&gt; sources for cyanbread theme</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-navy">* uberushaximus (8febdd05@gateway/web/freenode/ip.143.235.221.5) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;mikebeecham&gt; will read</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: <a href="http://wiki.cyanogenmod.com/index.php?title=Howto:_Gerrit">http://wiki.cyanogenmod.com/index.php?title=Howto:_Gerrit</a> xD</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: have fun xD</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;mikebeecham&gt; crumbs</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-green">* uberushaximus (8febdd05@gateway/web/freenode/ip.143.235.221.5) has joined this channel.</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;mikebeecham&gt; steep learning curve :S</span><br />
