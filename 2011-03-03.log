@@ -1127,3 +1127,80 @@
 <span class="irc-date">[11:53]</span> <span class="irc-black">&lt;dudyk&gt; Should BT HID work?</span><br />
 <span class="irc-date">[11:53]</span> <span class="irc-black">&lt;dudyk&gt; because it does not seem to...</span><br />
 <span class="irc-date">[11:57]</span> <span class="irc-green">* zimmbi (~Adium@147.88.200.112) has joined this channel.</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;embizzle_&gt; is there a link explaining how to address "AttributeError: 'EdifyGenerator' object has no attribute 'RunChkKineto' ?</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;atinm|away&gt; have to get to work</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;stickpin&gt; initial doesnt boot</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;embizzle_&gt; stickpin how'd you get past the final build error? Mine won't build the ota</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;evaluate&gt; embizzle_, there's a problem with the release tools.</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;embizzle_&gt; is there a workaround?</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;evaluate&gt; embizzle_, to get around that, go to the root of your build tree (where you also have the .repo folder) and do this: git clone git://github.com/coolya/release-tools</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;evaluate&gt; then in that folder you will have a shell script to build the ota</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;embizzle_&gt; ah cool. we can just use our old release tools?</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;embizzle_&gt; alright, ty</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;evaluate&gt; sure :-)</span><br />
+<span class="irc-date">[12:06]</span> <span class="irc-black">&lt;embizzle_&gt; does anyone else get an error when trying to install apk's that /sbin/pm is missing?</span><br />
+<span class="irc-date">[12:06]</span> <span class="irc-black">&lt;embizzle_&gt; I always have to push it</span><br />
+<span class="irc-date">[12:06]</span> <span class="irc-black">&lt;embizzle_&gt; like every time I reboot</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;evaluate&gt; embizzle_, yeah, the shebang is missing from it</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;embizzle_&gt; it's been happening for about a few weeks</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;evaluate&gt; I mean from the 'pm' script</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;embizzle_&gt; yeah I fixed the shebang and push my edited pm</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;evaluate&gt; I'll ping codeworkx or coolya about that when they are online.</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;embizzle_&gt; do you know where it is offhand? I don't want to grep 8gigs of code lol</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;evaluate&gt; sorry, no</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;Wout`&gt; are guy guys experiencing the bug where Maps and the gpsd drain battery?</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;Wout`&gt; people are reporting it on xda</span><br />
+<span class="irc-date">[12:09]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, yeah, I had problems with Maps too</span><br />
+<span class="irc-date">[12:09]</span> <span class="irc-black">&lt;Wout`&gt; :/</span><br />
+<span class="irc-date">[12:09]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, <a href="http://dl.dropbox.com/u/9596802/snap20110302_093904.png">http://dl.dropbox.com/u/9596802/snap20110302_093904.png</a></span><br />
+<span class="irc-date">[12:09]</span> <span class="irc-black">&lt;Wout`&gt; ok, i'll hold off flashing then</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;evaluate&gt; It caused a lot of awake time...</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;Wout`&gt; did you actually run it? or does is start from boot?</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, I ran it once and also tried to kill it a few times but didn't have any luck...</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-black">&lt;evaluate&gt; only after uninstalling Maps did the problem disappear</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-black">&lt;Wout`&gt; did you have gps on?</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-navy">* enl_ (970c5cfe@gateway/web/freenode/ip.151.12.92.254) Quit (Ping timeout: 272 seconds)</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-black">&lt;evaluate&gt; no</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-black">&lt;evaluate&gt; at no point</span><br />
+<span class="irc-date">[12:14]</span> <span class="irc-black">&lt;evaluate&gt; well, the first 5 minutes after I tested it, it was on, but then I turned it off and didn't turn it on anymore</span><br />
+<span class="irc-date">[12:14]</span> <span class="irc-black">&lt;evaluate&gt; s/after/when/</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;embizzle_&gt; looks like it's in frameworks/base/cmds/pm/pm</span><br />
+<span class="irc-date">[12:26]</span> <span class="irc-black">&lt;evaluate&gt; embizzle_, fix it and send a pull request :-p</span><br />
+<span class="irc-date">[12:26]</span> <span class="irc-black">&lt;embizzle_&gt; I haven't had the time to figure out how to use git :(</span><br />
+<span class="irc-date">[12:28]</span> <span class="irc-black">&lt;embizzle_&gt; I've got a lil cheat sheet to translate between svn and git, but I haven't done any remote code fixes until I know I know what I'm doing lol</span><br />
+<span class="irc-date">[12:35]</span> <span class="irc-navy">* _YeahRight (morgoth@524955F5.cm-4-2b.dynamic.ziggo.nl) Quit ()</span><br />
+<span class="irc-date">[12:35]</span> <span class="irc-green">* h8|sleep (~h8rift@ip68-111-114-81.fv.ks.cox.net) has joined this channel.</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-black">&lt;atinm|away&gt; initial doesn't boot?</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-green">* h8|sleep is now known as h8rift</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;atinm&gt; I have to get to work . . .</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;atinm&gt; hopefully codeworkx or coolya or unhelpful can look at this - I'll try later.</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;embizzle_&gt; hmm, pm is missing though. not that it doesn't work. couple weeks ago it was the shebang. but lately it just hasn't even been in /sbin.</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;evaluate&gt; embizzle_, are you using the teamhacksung repo?</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;embizzle_&gt; yes</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;evaluate&gt; It seems to work fine for me (after adding the shebang)</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;embizzle_&gt; yeah it works after adding the shebang</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;embizzle_&gt; but there's no /sbin/pm to add it to</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;embizzle_&gt; I have to push my fixed pm</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;embizzle_&gt; I have just been keeping it on emmc</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-navy">* atinm (~atin@unaffiliated/atinm) Quit (Quit: atinm)</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;embizzle_&gt; and when I fixed it in frameworks and recompiled and flashed my new rom, it's not there still</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;embizzle_&gt; not the fixed one, not the broken one</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;evaluate&gt; embizzle_, it should be in /system/sbin/pm IIRC</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;evaluate&gt; or is /sbin a symlink to /system/sbin ?</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;embizzle_&gt; I don't have a /system/sbin</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;embizzle_&gt; it's in bi</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;embizzle_&gt; ls</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;embizzle_&gt; */bin</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;evaluate&gt; sorry, /system/bin</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;evaluate&gt; I don't have it in /sbin either, it's only in /system/bin</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;embizzle_&gt; ah I see. I wonder if that's why it wasn't sticking around after a reboot</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;embizzle_&gt; I kept pushing it to sbin</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;embizzle_&gt; aw it's 5am. I'm making silly mistakes. I'm off to bed. have a good one guys</span><br />
+<span class="irc-date">[12:50]</span> <span class="irc-black">&lt;embizzle_&gt; now Ive got a dirty bizzle kernel...fantastic ;)</span><br />
+<span class="irc-date">[12:53]</span> <span class="irc-black">&lt;evaluate&gt; WOOT, WOOT!!! I have an ext4 SD working!!!</span><br />
+<span class="irc-date">[12:53]</span> <span class="irc-black">&lt;embizzle_&gt; nice</span><br />
+<span class="irc-date">[12:55]</span> <span class="irc-green">* embizzle_ is now known as mbizzle_sleeping</span><br />
+<span class="irc-date">[12:56]</span> <span class="irc-navy">* zimmbi (~Adium@147.88.200.112) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-green">* enli_ (4e073452@gateway/web/freenode/ip.78.7.52.82) has joined this channel.</span><br />
