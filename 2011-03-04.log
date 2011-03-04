@@ -891,3 +891,127 @@
 <span class="irc-date">[9:58]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; it still fails</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;enl_&gt; hi</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;enl_&gt; anyone working on sensors?</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; kang this <a href="https://github.com/cmsgs/android_vendor_cyanogen/commit/9dd14d7fae508eabb9c97519f7612316db432bbe">https://github.com/cmsgs/android_vendor_cyanogen/commit/9dd14d7fae508eabb9c97519f7612316db432bbe</a></span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;Kaik541&gt; except we're pulling all that stuff from upstream I think</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;Kaik541&gt; they'll need to fix it</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; you can fix it locally <a href="https://github.com/teamhacksung/android_vendor_cyanogen">https://github.com/teamhacksung/android_vendor_cyanogen</a></span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;mikebeecham&gt; evaluate, just thinking through some of the stuff you were talking about with the colour blue and the AMOLED screen.  if this is the case, then why is CM7 full of blue themes and wallpapers?  Should they be pulled?</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;Kaik541&gt; oh we're no doing that from upstream it seems</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; cyan is kinda bluish, maybe thats why?</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; its not called redgenmod or greengenmod</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;mikebeecham&gt; *sigh*</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, yeah, cyanogenmod was designed when there were no amoled screens</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;evaluate&gt; and lcd screen don't have the burn-in issue</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;mikebeecham&gt; now THERE's a more thought-out reponse :D</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;mikebeecham&gt; I guess so.</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mikebeecham&gt; That said, it would probably make sense to bring the subject up. Obviously it wouldn't really matter as far as branding goes (bootscreen, etc) as these are temporal parts of the theme</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; well, lcd screens can burn in nicely as well</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;enl_&gt; at <a href="https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libsensors/BoschYamaha.cpp">https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libsensors/BoschYamaha.cpp</a> processOrientation() needs both accel and compass data, but at enable() compass and accel are enabled/disabled separately, and without 'tracking' if anyone else is using them.</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mikebeecham&gt; but into CM7 itself, blue themes and wallpapers probably wont help</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; one of my lcd monitors at work has very nice burned in image of full screen total commander</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;mikebeecham&gt; which gets me thinking as to why Samsung have gone for an all-blue theme for it's display? Surely they would have known?</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;evaluate&gt; TCMAN-dmg, yeah, but not nearly as fast as AMOLED screens. And also, color doesn't matter for LCD screens, whereas for AMOLED it does</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;Kaik541&gt; mikebeecham, you're implying samsung has "foresight"</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;mikebeecham&gt; Kaik541, my bad ;)</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;Kaik541&gt; their goal seems more to be "oversaturate the market"</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;evaluate&gt; That's like saying "Why would samsung go for RFS, they surely would've known it's slow"</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Kaik541&gt; all the galaxy s phones, the galaxy tabs, now the galaxy tab 10.1" (and possibly soon the 8.9" as well?!)</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;mikebeecham&gt; I would have said that's Android in general</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Kaik541&gt; it seems their hope is that if you throw enough of your shit at the consumer, they'll eventually go "I want one"</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;mikebeecham&gt; the speed that Android has now saturated the market is stunning</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;mikebeecham&gt; i did!</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;Kaik541&gt; clearly we all did :)</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;mikebeecham&gt; i almost had another HTC</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;mikebeecham&gt; if not for Ninpo advising the SGS for the screen</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i am sligthly disappointed in android internals/hal design</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;mikebeecham&gt; apart from the GPS and obvious lag I've not regretted it</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, just look at the changes google made to 2.3 for their nexus s phone. They ditched the battery indicator and the white notification bar that they had for such a long time. _THAT_ was thought out. They probably knew better than samsung that the displays would suffer from the old theme</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; it looks like every oem ends up fucking with hal, frameworks, apps, kernel, everything</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; so cm is quite a mess trying to accomodate devices which need all these stupid changes</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;Kaik541&gt; that and the power-saving abilties of black pixels</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: hrm, i get cell connection w/o turning the screen off, but no data. :/</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; evaluate, I would agree.  I enjoyed the white notification bar, but I think the dark grey/green work</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i wish goofle made better isolation at HAL level,</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; that said, I was reminded of how much like iphone the stock music player looks now</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; I hope Android is not going to go for the same look eventually</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, when the phone booted I just didn't press anything (for some reason, lockscreen stays up for about 1 minute after first boot) and had the 3G icon flashing before it ended</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i like black notification bar much better</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; TCMAN-dmg, I would agree</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya|away: which devices do you have again? and do you want to help w/ getting things working w/ initramfs-&gt;kernel-&gt;update build on other targets?</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; actually i think this dark gingerbread color scheme is much nicer than froyo</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; black is cool, black cars and computers are also faster ;-)</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; my only concern is if Honeycomb goes darkgrey and blue</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; as the latest HoneyBread theme seems to suggest</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; honeycomb is a beta os</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; which I installed and used for..oh, about 1 minute</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; before going back to stock</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; xoom is force close galore</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; or sometimes the apps die even without force close dialog ;-)</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;Unhelpful&gt; isn't honeycomb also tablet-specific?</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;Kaik541&gt; I'm sure google wants to throw out vanilla honeycomt</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mikebeecham&gt; Unhelpful, yes</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;Kaik541&gt; honeycomb*</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;Kaik541&gt; but I'm sure we'll start seeing manufacturer skins soon enough</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mikebeecham&gt; but you can bet it will be ported within 6 months, of that</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mikebeecham&gt; if that**</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;Kaik541&gt; mikebeecham, Unhelpful, I doubt it'll be ported (or have much desire to be ported)</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;Kaik541&gt; google said they're going to merge GB and HC into one release with "ice cream sandwich"</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, I've seen honeycomb run on the G1 (or G2, can't remember). It looks pretty nice on a phone too actually...</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;Kaik541&gt; but it will maintain (what google is calling) the "holographic look" of honeycomb</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;mikebeecham&gt; Kaik541, you wait! There will be enough pre-pubescent 14 year olds, going "like ZOMG..that's the schnizzle.  Pleaz port it"</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;mikebeecham&gt; and it will be!</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;mikebeecham&gt; thats the way it all happens</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;Kaik541&gt; I wouldn't be surprised if CM does some stuff with it, but I can't imagine them trying to port it to phones... just sticking it on the tablets</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;evaluate&gt; "honeycomb is the l33t! OMG OMG!"</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;mikebeecham&gt; lol</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;Kaik541&gt; I think the holographic look is unique</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;mikebeecham&gt; "HoneyComb is Da bomb, I gotta get that l33t sh!t on my handset, like NOW"</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;Kaik541&gt; but I'm not sure I'm sold on it</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i dont even thing honeycomb is a good idea for my 7 inch galaxy tab</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i like gingerbread much better</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; but i use my tab as a giant phone</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;evaluate&gt; <a href="http://www.androidguys.com/2011/03/03/honeycomb-ported-g1-video/">http://www.androidguys.com/2011/03/03/honeycomb-ported-g1-video/</a></span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;evaluate&gt; I think it looks decent on a phone</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;evaluate&gt; with a couple of improvements (like making some of the buttons/etc a bit bigger) it would have potential.</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;Kaik541&gt; it looked better on the EVO</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;Kaik541&gt; which, at 4.3", is a bit large for a phone</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;evaluate&gt; ouch, it seems real sluggish though even on the evo</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;evaluate&gt; that's bad I guess</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;evaluate&gt; But I bet if CM was to take on that, it would run WAAAAY better! :-)</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;mikebeecham&gt; Hahah..interesting!</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, anybody else who wants to try this out: get <a href="https://github.com/Unhelpful/android_kernel_samsung/commits/android-samsung-2.6.35-initramfs">https://github.com/Unhelpful/android_kernel_samsung/commits/android-samsung-2.6.35-initramfs</a> <a href="https://github.com/Unhelpful/android_device_samsung_captivate">https://github.com/Unhelpful/android_device_samsung_captivate</a> and <a href="https://github.com/Unhelpful/android_build">https://github.com/Unhelpful/android_build</a> :)</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;mikebeecham&gt; I plugged my handset into the PC</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;Unhelpful&gt; and use MAKEFLAGS=-j8 make instead of make -j8 or else the kernel will build single-threaded.</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;mikebeecham&gt; I get the green USB android page, but the button says "turn off USB", instead of "turn on USB"</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;mikebeecham&gt; :D</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;Unhelpful&gt; if you get an error about needing make mrproper, you need to go to your kernel dir and do make mrproper, and then probably remove out/target/product/captivate/kernel_build as well</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, does it have the potential to awfully break something?</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;Kaik541&gt; it wouldn't be Unhelpful if it didn't :P</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;Unhelpful&gt; good luck anybody who wants to adapt to another phone. you should need to change only the defconfig in kernel and the makefiles in your device tree</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: i'm running a build w/ this system now. all it does is use the CM buildsystem to build the initramfs and kernel.</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, ohh, so you just want us to test the build and not actually flash it?</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: ...if you want! i'm more interested in having people with other devices try to get it ported to their device trees</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;evaluate&gt; ohh</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;Unhelpful&gt; really all you need to do is modify the makefiles and copy some stuff from initramfs to device</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, well, what device do you have?</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;Unhelpful&gt; captivate :)</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;Unhelpful&gt; clearly? since that's the device tree i've already done?</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;evaluate&gt; ok. I've got an i9000, I guess I could test it for this...</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;evaluate&gt; ohh, right</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;evaluate&gt; is there any way to get this onto my existing repo or do I have to get everything from your repo?</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: what i would do to start with is fix up the device tree, make recovery.img, and diff your device initramfs vs the output one (in recovery/root)</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;Unhelpful&gt; default.prop will be different because it will include the full build.prop - this is apparently normal for recovery, it's set up that way in the core makefile. and all of the binary files will differ because they're fresh builds from the adb, init, and recovery sources.</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;evaluate&gt; I'm sorry that I have to sound really dumb, but you lost me at "fix up the device tree"...</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;Unhelpful&gt; but the rc files and misc/recovery.fstab should be the same if you've copied those to your device tree... if all of that looks good, then go ahead and try building otapackage. like i said, i did and it runs fine.</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: there are files to copy from initramfs to device, and changes to be made to the device .mk files. if you're not up to that, leave the job to somebody else. ;)</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Quit: Changing server)</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;Unhelpful&gt; and you can add a to a git repo w/ git remote add, then you can use git fetch to fetch it and git checkout to check out the branch. pretty much the only way right now since i haven't pushed up an alternate manifest. :)</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;evaluate&gt; Well, I'm not sure when this has been discussed, but apparently I wasn't here, as I'm don't know about any initramfs problems... Anyway, I'll try to have a look at it without bugging you anymore... :-p</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;stickpin&gt; looks like wifi killing battery as hell...</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;Unhelpful&gt; well, i have to go right now :)</span><br />
+<span class="irc-date">[10:56]</span> <span class="irc-green">* designfears (~jayp@32.168.252.143) has joined this channel.</span><br />
