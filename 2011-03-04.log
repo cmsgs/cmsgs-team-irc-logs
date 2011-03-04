@@ -201,3 +201,36 @@
 <span class="irc-date">[2:51]</span> <span class="irc-black">&lt;Unhelpful&gt; all right, deps for kernel modules seem ok. btw, anybody who has built kernels right in the kernel source dir will need to make mrproper there before this works. :P</span><br />
 <span class="irc-date">[2:52]</span> <span class="irc-black">&lt;Unhelpful&gt; the *right* way is to do in the kernel source make O=&lt;outputdir&gt; &lt;configtarget&gt;, and then either make O=&lt;outputdir&gt; in the kernel source, or else just make in the output dir</span><br />
 <span class="irc-date">[2:54]</span> <span class="irc-green">* uberushaximus (~uberushax@2001:470:1f11:c4c:b607:f9ff:fe03:f050) has joined this channel.</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-navy">* kudakeru (~jakemckni@71-32-93-243.tukw.qwest.net) Quit (Quit: kudakeru)</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-navy">* Helvio (~c953623b@redenorte.net) Quit (Quit: (( WebIRC Gratuito www.webirc.com.br )) (EOF))</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: still here?</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik67&gt; Kaik541: you know code...</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;Kaik541&gt; says who?</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;techmik67&gt; well, compare to me =P</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;techmik67&gt; compared</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;techmik67&gt; check out the begining of this pastie</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://www.pastie.org/1631164">http://www.pastie.org/1631164</a></span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;techmik67&gt; 1st few lines... about orientation and rotation</span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;techmik67&gt; logcat of camera</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;Kaik541&gt; sorry I'm eating, gonna be slow</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;techmik67&gt; np =)</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;techmik67&gt; i started logcat, opened camera, took pic in portrait, waited afew, closed...</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;Kaik541&gt; I/WindowManager(  161): Setting rotation to 0, animFlags=1</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;Kaik541&gt; D/SEC_Overlay(  161): dst width, height have changed [w= 464, h= 627] -&gt; [w=464, h= 627]</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;Kaik541&gt; D/SEC_Overlay(  161): Position/X5/Y34/W464/H627</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;Kaik541&gt; D/SEC_Overlay(  161): Adjusted Position/X5/Y34/W464/H627</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;Kaik541&gt; D/SEC_Overlay(  161): Rotation/0</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;Kaik541&gt; I/ActivityManager(  161): Config changed: { scale=1.0 imsi=310/410 loc=en_US touch=3 keys=1/1/2 nav=1/1 orien=1 layout=34 uiMode=17 seq=13 themeResource=null}</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;Kaik541&gt; D/SEC_Overlay(  161): dst width, height have changed [w= 464, h= 627] -&gt; [w=464, h= 627]</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;Kaik541&gt; sorry, wall of text, I just don't see any line numbers</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;techmik67&gt; not on here... pastebin instead?</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://pastie.org/1631225">http://pastie.org/1631225</a></span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;techmik67&gt; does this help point us to what to change in which file?</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;techmik67&gt; was scrolling thru seccamera.cpp</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;Kaik541&gt; not a damn clue, just noticed rotation changed from 1 to 0</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-navy">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;techmik67&gt; i saw that too... figured this was useful info....</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;techmik67&gt; with line #s <a href="http://pastebin.com/ahqFPXzZ">http://pastebin.com/ahqFPXzZ</a></span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-navy">* uberushaximus (~uberushax@2001:470:1f11:c4c:b607:f9ff:fe03:f050) Quit (Quit: AndroIRC)</span><br />
