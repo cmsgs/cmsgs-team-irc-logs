@@ -2251,3 +2251,100 @@
 <span class="irc-date">[22:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; nice</span><br />
 <span class="irc-date">[22:59]</span> <span class="irc-black">&lt;dudyk&gt; holds the world record in traffic shaping</span><br />
 <span class="irc-date">[22:59]</span> <span class="irc-black">&lt;dudyk&gt; even has torrent proxies that make users unaware of that....</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;dasunsrule32&gt; i flashed those builds on that thread</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;dudyk&gt; unless they use private trackers</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;dasunsrule32&gt; seem to work ok</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;coolya&gt; i need a 36h day ... i still need to merge the cam stuff from AOSP.</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;coolya&gt; and fix the FFC</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-black">&lt;dasunsrule32&gt; on i9000?</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-black">&lt;dasunsrule32&gt; i only have the vibrant</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-black">&lt;coolya&gt; FFC on GT-I9000 and merge for all devices</span><br />
+<span class="irc-date">[23:04]</span> <span class="irc-black">&lt;coolya&gt; the stranges thing is that on the vibrant the preview looks good and doesn't have this hard noise like on I9000</span><br />
+<span class="irc-date">[23:05]</span> <span class="irc-black">&lt;dasunsrule32&gt; you were ab;e too get your tochkeys back?</span><br />
+<span class="irc-date">[23:05]</span> <span class="irc-black">&lt;coolya&gt; and change my init stuff that i sent to mainline ... damn to much work :-(</span><br />
+<span class="irc-date">[23:05]</span> <span class="irc-black">&lt;coolya&gt; dasunsrule32: yep</span><br />
+<span class="irc-date">[23:06]</span> <span class="irc-black">&lt;coolya&gt; used the firmware update tool from sammy firmware</span><br />
+<span class="irc-date">[23:06]</span> <span class="irc-black">&lt;dasunsrule32&gt; ah</span><br />
+<span class="irc-date">[23:06]</span> <span class="irc-black">&lt;dasunsrule32&gt; cool</span><br />
+<span class="irc-date">[23:06]</span> <span class="irc-black">&lt;coolya&gt; because there is no docs and the kernel driver from nexus s is only able to flash a firmware not to dump</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;dasunsrule32&gt; makes sense</span><br />
+<span class="irc-date">[23:08]</span> <span class="irc-black">&lt;coolya&gt; dudyk: <a href="https://github.com/teamhacksung/android_vendor_samsung_common/blob/gingerbread/aries/proprietary/libsec-ril.so">https://github.com/teamhacksung/android_vendor_samsung_common/blob/gingerbread/aries/proprietary/libsec-ril.so</a></span><br />
+<span class="irc-date">[23:08]</span> <span class="irc-black">&lt;coolya&gt; is the samsung ril interface lib we use</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-green">* dalingrin (~erik@173.218.151.241) has joined this channel.</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;dasunsrule32&gt; apparently eugene373 fixed the wifi issues]</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;coolya&gt; dudyk: that is the open source part the loads the lib at runtime <a href="https://github.com/CyanogenMod/android_hardware_ril">https://github.com/CyanogenMod/android_hardware_ril</a></span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;dudyk&gt; so that's why I can't reproduce them!</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;dasunsrule32&gt; <a href="http://goo.gl/oIigr">http://goo.gl/oIigr</a></span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;dalingrin&gt; have you guys tried using re.additionalmounts so you can use both internal and external sd cards?</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[23:12]</span> <span class="irc-black">&lt;dudyk&gt; thanks coolya</span><br />
+<span class="irc-date">[23:12]</span> <span class="irc-black">&lt;coolya&gt; dudyk: libril interfaces the closed source implementation</span><br />
+<span class="irc-date">[23:12]</span> <span class="irc-black">&lt;coolya&gt; and rild does the IPC to the java framwork services</span><br />
+<span class="irc-date">[23:12]</span> <span class="irc-black">&lt;dudyk&gt; I know that much...</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-black">&lt;dudyk&gt; it's impossible to strace that lib to get rid of it?</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-black">&lt;dudyk&gt; the blob, I mean.</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;coolya&gt; dudyk: korea will kill us if publish any source for directly interfacing the modem</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) Quit (Client Quit)</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;coolya&gt; but i havn't had closer look at the lib, with disassembler</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;dudyk&gt; is it that confidential???</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-green">* avgvb (~pvr@187.59.145.127) has joined this channel.</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;coolya&gt; dalingrin: it gets mounted ... but sharing is the problem</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;coolya&gt; als the closed source ril stuff is confidential from samsung side</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;dalingrin&gt; coolya: now that you have a .35 kernel it *shouldn't* be a problem</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;coolya&gt; s/als/all</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;dudyk&gt; the iOS is also confidential, but people do hack it...</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;dalingrin&gt; .35 usb gadget combined with a few things defined in BoardConfig.mk and ro.additionalmount</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;coolya&gt; dalingrin: ???? what shouldn't be a problem ?</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;dalingrin&gt; mounting and sharing multiple sd cards</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;coolya&gt; it mounts right unter /emmc but gadget driver and vold have some different oppinions which virtual device they want to share :-D</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;coolya&gt; Guipert was looking at that</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;coolya&gt; but i don't what the exact problem was</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;dalingrin&gt; okay, thanks</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;coolya&gt; wasn't a part where i worked on. Maybe Guipert can tell you more</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;mbizzle&gt; coolya, /bin/pm is still missing the shebang</span><br />
+<span class="irc-date">[23:20]</span> <span class="irc-black">&lt;mbizzle&gt; */system/bin/pm</span><br />
+<span class="irc-date">[23:20]</span> <span class="irc-green">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[23:22]</span> <span class="irc-black">&lt;dudyk&gt; mbizzle: the shebang is not needed anymore</span><br />
+<span class="irc-date">[23:22]</span> <span class="irc-black">&lt;coolya&gt; dudyk: for sure. i wouldn't sa we shouldn't hack on that lib. If we can get rid of the blob I would love that.</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;mbizzle&gt; dudyk I still had problems installing apks unless I manually edited the file as of last night</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;dudyk&gt; mbizzle: although anymore is from about 10 minutes ago, but still</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;mbizzle&gt; oh ok lol</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;mbizzle&gt; I can't sync the repo</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;dudyk&gt; <a href="http://review.cyanogenmod.com/3549">http://review.cyanogenmod.com/3549</a></span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;dudyk&gt; a simple workaround, run sh pm</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;dudyk&gt; that is</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;dudyk&gt; $ sh pm</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;dudyk&gt; oops, sh `which pm`</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-navy">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;mbizzle&gt; how come we do all of that instead of adding the shebang? :)</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;dudyk&gt; to run it with a shell interpreter...</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;dudyk&gt; you can also do sh /system/bin/pm</span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-black">&lt;dudyk&gt; but in the current busybox it knows where the shell is</span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-green">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-black">&lt;dudyk&gt; current as of today, that is...</span><br />
+<span class="irc-date">[23:31]</span> <span class="irc-green">* Curr (81f48db5@gateway/web/freenode/ip.129.244.141.181) has joined this channel.</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;coolya&gt; nite guys!</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;dasunsrule32&gt; lata</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;atinm&gt; so where the fuxk is the wifi fix</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-black">&lt;atinm&gt; I *hate* that eugene does not share his code.</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-black">&lt;atinm&gt; its bullshit.</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[23:48]</span> <span class="irc-black">&lt;atinm&gt; I've put back the captivate release page. but on XDA because I don't want to recreate on cyanogenmod while it is codeworkx's playground</span><br />
+<span class="irc-date">[23:49]</span> <span class="irc-black">&lt;techmik67&gt; guys, from cognition channel <a href="http://cmsgsteam.pastebin.com/UbC4DNs2">http://cmsgsteam.pastebin.com/UbC4DNs2</a></span><br />
+<span class="irc-date">[23:50]</span> <span class="irc-black">&lt;techmik67&gt; why would someone jump on cog channel and ask how to use cm7?!?!?!</span><br />
+<span class="irc-date">[23:50]</span> <span class="irc-black">&lt;atinm&gt; techmik67: I've changed the captivate page on xda.</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;atinm&gt; to include instructions and links again. duplicate of the cyanogen forum post that codeworkx deleted.</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;atinm&gt; we were actually not in agreement about combining into one thread.</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;atinm&gt; and he jumped the gun a tiny bit.</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;techmik67&gt; still, why would someone thing to ask in cog? why would they know or care what we are doing?</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;techmik67&gt; *think</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;atinm&gt; who knows.</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-black">&lt;techmik67&gt; surprised they didnt slam him.... "THIS IS COG&lt; GO TO CM7 FOR HELP!!"</span><br />
+<span class="irc-date">[23:53]</span> <span class="irc-black">&lt;dudyk&gt; OK, I should go to bed, it's 2 AM...</span><br />
+<span class="irc-date">[23:53]</span> <span class="irc-black">&lt;dudyk&gt; good night...</span><br />
+<span class="irc-date">[23:55]</span> <span class="irc-green">* ciwrl|away is now known as ciwr</span><br />
+<span class="irc-date">[23:55]</span> <span class="irc-green">* ciwr is now known as ciwrl</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-black">&lt;techmik67&gt; so eugene fixed wifi sleep, but wont tel;l how? thats not cool.....</span><br />
+<span class="irc-date">[23:59]</span> <span class="irc-navy">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) Quit (Ping timeout: 252 seconds)</span><br />
