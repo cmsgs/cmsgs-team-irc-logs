@@ -739,3 +739,155 @@
 <span class="irc-date">[8:59]</span> <span class="irc-black">&lt;ylooca|work&gt; Unhelpful: use a ram disk for $OUT ;-)</span><br />
 <span class="irc-date">[8:59]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: doubtful, gpgpu is really only suitable for lightly- or non-branched embarassingly-parallel problems.</span><br />
 <span class="irc-date">[8:59]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya|away: ... why only $OUT? ;)</span><br />
+<span class="irc-date">[9:00]</span> <span class="irc-black">&lt;evaluate&gt; Just the kernel takes ~10 minutes for me, lol</span><br />
+<span class="irc-date">[9:00]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: it's a sandy bridge i7. they are ridiculously insane.</span><br />
+<span class="irc-date">[9:01]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, ok, I was wrong, kernel build actually takes less.</span><br />
+<span class="irc-date">[9:01]</span> <span class="irc-black">&lt;Unhelpful&gt; and no, i won't be able to afford a new laptop until this one is old and creaky. but at least it won't die 3min after anything uses 3d like the old one.</span><br />
+<span class="irc-date">[9:01]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, <a href="http://en.wikipedia.org/wiki/CUDA">http://en.wikipedia.org/wiki/CUDA</a> ?</span><br />
+<span class="irc-date">[9:01]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, how much does a clean kernel build take you?</span><br />
+<span class="irc-date">[9:01]</span> <span class="irc-black">&lt;evaluate&gt; Mine's: Elapsed: 3 min(s) 50 sec(s)</span><br />
+<span class="irc-date">[9:02]</span> <span class="irc-black">&lt;Kaik541&gt; I think, as intel put it, running on a GPU is "only 14 times faster"</span><br />
+<span class="irc-date">[9:02]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: CUDA uses the C language, yes, but only certain classes of problems can hope to run on a GPU at all, or get 14x speed from it.</span><br />
+<span class="irc-date">[9:03]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, ah ok, this was just a passing familiarity with it so I of course didn't understand, hence why I asked :)</span><br />
+<span class="irc-date">[9:03]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, how long for a clean kernel build?</span><br />
+<span class="irc-date">[9:03]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: dunno?</span><br />
+<span class="irc-date">[9:03]</span> <span class="irc-black">&lt;evaluate&gt; look in the shell output, you should have it there</span><br />
+<span class="irc-date">[9:04]</span> <span class="irc-black">&lt;evaluate&gt; it should say somethine like 'Elapsed:...'</span><br />
+<span class="irc-date">[9:04]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: i played around a bit w/ bitcoin. bitcoin does nothing but hash lots of data, and can calculate multiple hashes in parallel - the individual inputs and outputs are completely independent, this is what i mean by "embarassingly parallel"</span><br />
+<span class="irc-date">[9:05]</span> <span class="irc-black">&lt;Unhelpful&gt; at this particular job, all "eight" cores can do about 1/12 as many hashes/sec as the GPU.</span><br />
+<span class="irc-date">[9:05]</span> <span class="irc-black">&lt;Kaik541&gt; well I'm sure nvidia wants to expand on this (similar to how they keep wanting to expand VDPAU)</span><br />
+<span class="irc-date">[9:05]</span> <span class="irc-black">&lt;Unhelpful&gt; compilation is *not* amenable to GPGPU, though - the kind of problem that does well here is the sort where you are doing *exactly the same thing* independently to multiple sets of data at the same time.</span><br />
+<span class="irc-date">[9:06]</span> <span class="irc-black">&lt;Kaik541&gt; ah ok</span><br />
+<span class="irc-date">[9:06]</span> <span class="irc-black">&lt;Kaik541&gt; I think I got it</span><br />
+<span class="irc-date">[9:09]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: i'm not using the build.sh script to build the kernel.</span><br />
+<span class="irc-date">[9:10]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: so clearly, #Cyanogenmod is useless for dev questions. :/</span><br />
+<span class="irc-date">[9:11]</span> <span class="irc-black">&lt;Kaik541&gt; mostly users</span><br />
+<span class="irc-date">[9:11]</span> <span class="irc-black">&lt;Kaik541&gt; why is model number back to SGH-I897 instead of Captivate?</span><br />
+<span class="irc-date">[9:11]</span> <span class="irc-navy">* Curr (81f48db5@gateway/web/freenode/ip.129.244.141.181) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[9:12]</span> <span class="irc-black">&lt;Kaik541&gt; now I get to uninstall and reinstall swype :P</span><br />
+<span class="irc-date">[9:17]</span> <span class="irc-black">&lt;evaluate&gt; does the swype keyboard has any extra features above the GB keyboard if you're NOT using swype?</span><br />
+<span class="irc-date">[9:17]</span> <span class="irc-black">&lt;evaluate&gt; s/has/have/</span><br />
+<span class="irc-date">[9:18]</span> <span class="irc-black">&lt;Kaik541&gt; hmm?</span><br />
+<span class="irc-date">[9:18]</span> <span class="irc-black">&lt;Kaik541&gt; oh no, it's a waste basically</span><br />
+<span class="irc-date">[9:18]</span> <span class="irc-black">&lt;Kaik541&gt; no multitouch</span><br />
+<span class="irc-date">[9:19]</span> <span class="irc-black">&lt;evaluate&gt; ouch</span><br />
+<span class="irc-date">[9:19]</span> <span class="irc-black">&lt;evaluate&gt; I liked the samsung KB because it had all those extra signs and stuff</span><br />
+<span class="irc-date">[9:19]</span> <span class="irc-black">&lt;evaluate&gt; Some of them are missing on the GB keyboard...</span><br />
+<span class="irc-date">[9:20]</span> <span class="irc-black">&lt;Kaik541&gt; ugh can someone send me the swype-installer.apk ? I have an account but the download keeps failing (and of course I can't pull it from the site off my PC)</span><br />
+<span class="irc-date">[9:21]</span> <span class="irc-black">&lt;evaluate&gt; I'm registering right now. If you hold on a minute I can put it on dropbox.</span><br />
+<span class="irc-date">[9:22]</span> <span class="irc-black">&lt;Kaik541&gt; thanks</span><br />
+<span class="irc-date">[9:22]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: um... you know that the installer will then need to DL a few MB, right? :/</span><br />
+<span class="irc-date">[9:22]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, yes</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-black">&lt;Unhelpful&gt; so i'll need to uninstall/reinstall? ;/</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-black">&lt;Kaik541&gt; yeah since it's configured to run on "Captivate" not SGH-I897</span><br />
+<span class="irc-date">[9:24]</span> <span class="irc-black">&lt;Kaik541&gt; oh downloaded properly this time, looks like I'm set</span><br />
+<span class="irc-date">[9:24]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: where the hell do i go to talk to devs about getting this merged, then? a maillist, i guess? ;P</span><br />
+<span class="irc-date">[9:25]</span> <span class="irc-black">&lt;Kaik541&gt; well apparently all your suggestions are sent to limbo so I'm gonna vote against you emailing anyone or else it'll never get solved :P</span><br />
+<span class="irc-date">[9:25]</span> <span class="irc-black">&lt;Unhelpful&gt; my suggestions come with patches :P</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;Unhelpful&gt; and i've worked at least two other OSS projects where that is the main difference between "devs care about your suggestion" and "leave us be"</span><br />
+<span class="irc-date">[9:27]</span> <span class="irc-black">&lt;Kaik541&gt; dang, second scuff on my phone :(</span><br />
+<span class="irc-date">[9:28]</span> <span class="irc-black">&lt;Kaik541&gt; dropped it in the bathroom earlier</span><br />
+<span class="irc-date">[9:28]</span> <span class="irc-black">&lt;evaluate&gt; ouch</span><br />
+<span class="irc-date">[9:28]</span> <span class="irc-black">&lt;Kaik541&gt; so far I only have the tiniest scratch on the screen, worn down paint right next to the camera, and now a tiny scuff along the right border</span><br />
+<span class="irc-date">[9:28]</span> <span class="irc-black">&lt;Kaik541&gt; and it's been "naked" for the past 7 months or so</span><br />
+<span class="irc-date">[9:29]</span> <span class="irc-black">&lt;Kaik541&gt; except when I travel long distance</span><br />
+<span class="irc-date">[9:31]</span> <span class="irc-black">&lt;Kaik541&gt; the phone looks too nice to keep it encased all the time</span><br />
+<span class="irc-date">[9:31]</span> <span class="irc-black">&lt;evaluate&gt; well, the swype keyboard IS actually nicer. The keys are a bit bigger</span><br />
+<span class="irc-date">[9:31]</span> <span class="irc-black">&lt;evaluate&gt; anyway, what exactly do you need me to send you?</span><br />
+<span class="irc-date">[9:32]</span> <span class="irc-black">&lt;Kaik541&gt; nah, it successfully downloaded after rebooting the phone for some reason</span><br />
+<span class="irc-date">[9:32]</span> <span class="irc-black">&lt;evaluate&gt; ok :-)</span><br />
+<span class="irc-date">[9:32]</span> <span class="irc-black">&lt;Kaik541&gt; but the swype-installer.apk in the /sdcard/downloads is independent of device/account and is just used to download the app</span><br />
+<span class="irc-date">[9:32]</span> <span class="irc-black">&lt;evaluate&gt; woot, building finished: Kernel build time took: 3 minutes 53 seconds</span><br />
+<span class="irc-date">[9:32]</span> <span class="irc-black">&lt;evaluate&gt; OTA build time took: 19 minutes 18 seconds</span><br />
+<span class="irc-date">[9:33]</span> <span class="irc-black">&lt;evaluate&gt; SSD seems indeed to have a significant performace improvement</span><br />
+<span class="irc-date">[9:33]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, my build time is apparently the same as yours, and I only have an I5 processor :-D</span><br />
+<span class="irc-date">[9:34]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: let me copy the whole build tree to ramdisk and see how i do then?</span><br />
+<span class="irc-date">[9:34]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; do you guys see this error when compiling the tree?</span><br />
+<span class="irc-date">[9:34]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; frameworks/base/core/java/android/content/Context.java:1169: error 1: Unresolved link/see tag "android.net.wimax.WimaxManager WimaxManager" in android.content.Context</span><br />
+<span class="irc-date">[9:34]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; frameworks/base/core/java/android/content/Context.java:1477: error 1: Unresolved link/see tag "android.net.wimax.WimaxManager" in android.content.Context</span><br />
+<span class="irc-date">[9:35]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; it is some stupid documentation error but it is annoying</span><br />
+<span class="irc-date">[9:35]</span> <span class="irc-black">&lt;Unhelpful&gt; ooh, actually, i *don't* have room for that :/</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, well, the tree is 7GB big, isn't it?</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;Unhelpful&gt; tree+output is 13GB here</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;evaluate&gt; ohh</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;evaluate&gt; SSD FTW! :-D</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;evaluate&gt; and it wasn't even that expensive, it was only around 200 Euros...</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; my tree is 13GB as well, and on SSD too ;-)</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; SSD is awesome for large compiles</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;evaluate&gt; yes it is</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;evaluate&gt; and regarding that error, I can't see that actually...</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;Kaik541&gt; that's an error that was cropping up a week or so ago</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;Kaik541&gt; are you sure you're recently sync'd?</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;evaluate&gt; But seriously, this took around an hour and a half on HDD, and is now down to 20 minutes on the SSD, that is really awesome!</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; yeah, i synced everything like an hour ago</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; it showed up when cm got all these wimax changes</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;Kaik541&gt; man this profiles thing is so neat</span><br />
+<span class="irc-date">[9:39]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, which was about a week ago, haven't seen it since then on teamhacksung =/</span><br />
+<span class="irc-date">[9:39]</span> <span class="irc-brick">* Unhelpful will be back, hopefully, after he backs up and installs the new thingy</span><br />
+<span class="irc-date">[9:39]</span> <span class="irc-black">&lt;mikebeecham&gt; back!</span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-black">&lt;mikebeecham&gt; I thought the JV1 modem caused problems (reading previously!)</span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-black">&lt;Kaik541&gt; mikebeecham, I'm not sure to be honest</span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-black">&lt;Kaik541&gt; I just noticed that is supports the 850 MHz band out of the box (useful for us captivate/i9000m owners)</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;mikebeecham&gt; thought I read on XDA that people were experiencing problems</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;mikebeecham&gt; it might have been the transition from JV1 rom to CM7</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;mikebeecham&gt; but not sure now</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;Kaik541&gt; it's possible, I never read much ont he JV1 modem (I only just heard of the supported band a couple hours ago)</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;Kaik541&gt; if you have any more information, I'd gladly read it</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;mikebeecham&gt; sure</span><br />
+<span class="irc-date">[9:42]</span> <span class="irc-black">&lt;mikebeecham&gt; lemme see what I can drag up!</span><br />
+<span class="irc-date">[9:42]</span> <span class="irc-black">&lt;mikebeecham&gt; incidentally..</span><br />
+<span class="irc-date">[9:42]</span> <span class="irc-black">&lt;mikebeecham&gt; I ran the battery flat last night, ready to recharge and calibrate</span><br />
+<span class="irc-date">[9:42]</span> <span class="irc-black">&lt;mikebeecham&gt; I can only get to 96%</span><br />
+<span class="irc-date">[9:42]</span> <span class="irc-black">&lt;mikebeecham&gt; which I'm sure is a 'feature' of CM7?</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; well, i am still in cmsgs but i am pulling changes from CM every night</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;Kaik541&gt; yes, a feature/bug</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;Kaik541&gt; prevents overcharging</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;mikebeecham&gt; thats after over 8 hours of charging</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;mikebeecham&gt; ok</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;Kaik541&gt; TCMAN-dmg, ah, cmsgs is outdated and buggy to my knowledge</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; Kaik541: yes, but i am working on CM7 for galaxytab</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; Kaik541: I hope to move to teamhacksung soon</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;Kaik541&gt; might you point me to your default.xml?</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, CM7 is not at fault. This is a feature of li-pol batteries actually.</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, all new li-pol batteries incorporate an overcharging protection.</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;mikebeecham&gt; evaluate, never mentioned anywhere that anyone was at fault mate?</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;mikebeecham&gt; just thought I would mention what I saw!</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, and I was letting you know... :-p</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;mikebeecham&gt; ;)</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, straight from wikipedia: <a href="http://pastebin.com/HjDXTsDs">http://pastebin.com/HjDXTsDs</a></span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;Kaik541&gt; TCMAN-dmg, are you technomancer?</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;evaluate&gt; so that's actually a feature :-)</span><br />
+<span class="irc-date">[9:46]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; yes</span><br />
+<span class="irc-date">[9:47]</span> <span class="irc-black">&lt;mikebeecham&gt; thanks evaluate ...handy to know</span><br />
+<span class="irc-date">[9:47]</span> <span class="irc-black">&lt;mikebeecham&gt; I wonder why Samsung dont adhere to that then?</span><br />
+<span class="irc-date">[9:47]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, sure :-)</span><br />
+<span class="irc-date">[9:47]</span> <span class="irc-black">&lt;mikebeecham&gt; they not only charge to 100%, but play you a nice sound when you reach it :D</span><br />
+<span class="irc-date">[9:47]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, they do, they just had a kernel hack that showed a 100% percentage which actually wasn't true</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-black">&lt;mikebeecham&gt; ahhhh ok</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-black">&lt;evaluate&gt; the overcharge protection is actually integrated into the battery, it's a circuit.</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; god damned, so recovery wants /etc/recovery.fstab</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-black">&lt;mikebeecham&gt; that would make more sense, to stop people like me emailing them "heyyyyyyy why not 100%?"</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-black">&lt;mikebeecham&gt; :D</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, yeah, that was probably the reason they did it.</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; but if /etc directory exists then other stuff like /etc/dbus.conf cannot be found because it is in /system/etc/dbus.conf</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; aaaaaaaaaaaaaaargh</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[9:49]</span> <span class="irc-black">&lt;Kaik541&gt; TCMAN-dmg, you seem to be pointing several things to cmsgs for stuff that should be coming straight from CM</span><br />
+<span class="irc-date">[9:49]</span> <span class="irc-black">&lt;evaluate&gt; TCMAN-dmg, shouldn't /etc be a symlink to /system/etc?</span><br />
+<span class="irc-date">[9:50]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; not really, especially during recovery /system may not be even mounted</span><br />
+<span class="irc-date">[9:50]</span> <span class="irc-black">&lt;Kaik541&gt; like wpa_supplicant, frameworks/base, and libhardware_legacy</span><br />
+<span class="irc-date">[9:50]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; yes, i have local changes in wpa_supplicant, to disable combo scan</span><br />
+<span class="irc-date">[9:50]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; also some stuff in libhardware_legacy</span><br />
+<span class="irc-date">[9:51]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; and noobnl made lots of changes to frameworks and i did one fix on top of that because he broke gsm</span><br />
+<span class="irc-date">[9:51]</span> <span class="irc-black">&lt;Kaik541&gt; I think if you plan to merge with teamhacksung (and eventually into mainline) you'll need to use the method cw and coolya set up</span><br />
+<span class="irc-date">[9:51]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[9:52]</span> <span class="irc-black">&lt;Kaik541&gt; which is just to configure them at build time and not modify the hardcoded files</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; yes, i know, but the wpa_supplicant fix is necessary because my wifi driver doesnt have combo scans for instance</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; it is in #ifdef</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; see this <a href="https://github.com/cmsgs/android_external_wpa_supplicant_6/commit/7ea8ab0208e40a324a639d8186f780e342ec53dc">https://github.com/cmsgs/android_external_wpa_supplicant_6/commit/7ea8ab0208e40a324a639d8186f780e342ec53dc</a></span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-brick">* Unhelpful tries to see if CYANOGEN_WITH_GOOGLE still fails when using the gingerbread gapps pkg...</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[9:56]</span> <span class="irc-black">&lt;Unhelpful&gt; sure does</span><br />
+<span class="irc-date">[9:58]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; it still fails</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;enl_&gt; hi</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;enl_&gt; anyone working on sensors?</span><br />
