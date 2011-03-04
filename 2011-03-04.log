@@ -158,3 +158,46 @@
 <span class="irc-date">[1:57]</span> <span class="irc-black">&lt;techmik67&gt; new wifi ko he tweeted about</span><br />
 <span class="irc-date">[1:58]</span> <span class="irc-black">&lt;Unhelpful&gt; ugh. :(</span><br />
 <span class="irc-date">[1:58]</span> <span class="irc-brick">* Unhelpful is armpits-deep in build system crap right now ;)</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;atinm|night&gt; well, I asked him about the wifi</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;atinm|night&gt; I guess I'll grovel thru the voodoo code to see what we can take cleanly to fix issues without making the driver too dirty.</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;Unhelpful&gt; what exactly *is* the issue, though?</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;techmik67&gt; wait, thats what we are talking about?</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;techmik67&gt; thew sound quality sux, but it works</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;techmik67&gt; i listen to aux out in my car all the time</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;techmik67&gt; its actually better without voodoo</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;techmik67&gt; at least it was for me</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;Unhelpful&gt; or meaning that we do something wrong on the headset-detect switch - i've been playing w/ the too-new-for-alsa audio on my laptop and have similar issues, the problem is that a full insert triggers mute/unmute options that alsa *thinks* are routing audio to my headphone jack, but actually aren't.</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;techmik67&gt; i guess my quality wasnt great, and voodoo erxposed that</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;atinm&gt; &lt;-- very sleepy</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;atinm&gt; anyway, guess best we can do is get you to get into make "voodoo" right after the build issues and ubif :)</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;atinm&gt; so it is alsa.</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;atinm&gt; not voodoo . . .</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;atinm&gt; I am done.</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, getting closer! i've managed to break the dependency from kernel to recovery.img, so that i can build recovery.img w/o providing the kernel file. kernel can then depend on recovery.img, which ensures that the recovery/root tree is up-to-date before the build for the kernel is called. or that's the idea. :/</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-green">* atinm is now known as atinm|night</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|night: i've had to quit ubi, i ran up against a bug that i don't care to be troubled bug-fixing for upstream (ubi falls over under memory pressure -&gt; volumes suddenly become corrupted and read-only)</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;atinm|night&gt; wow, no want.</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, they need to fix that. i don't feel like doing it for them. shame because the overall feature-set for the ubi/ubifs stack is *nice*. :)</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Unhelpful&gt; there's another small problem too, like jffs2 mount, ubi init is linear in flash size (although faster than jffs2)</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[2:35]</span> <span class="irc-green">* thedood is now known as thedood|away</span><br />
+<span class="irc-date">[2:39]</span> <span class="irc-black">&lt;Unhelpful&gt; 'k, that seems to have done it. now working on making sure the new modules end up in the otapackage.</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-black">&lt;techmik67&gt; damn... new upstream changes</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-green">* thedood|away is now known as thedood</span><br />
+<span class="irc-date">[2:44]</span> <span class="irc-black">&lt;Unhelpful&gt; basically the idea here is that make otapackage will build a new initramfs from sources, incorporate it into a new kernel, and use that kernel. i hope. when it's done.</span><br />
+<span class="irc-date">[2:44]</span> <span class="irc-black">&lt;techmik67&gt; very nice =)</span><br />
+<span class="irc-date">[2:45]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, and i'm getting VERY FLIPPIN' CLOSE for captivate. :)</span><br />
+<span class="irc-date">[2:46]</span> <span class="irc-black">&lt;Unhelpful&gt; which just makes it more frustrating each time i wait 60s for make to *start* working</span><br />
+<span class="irc-date">[2:46]</span> <span class="irc-black">&lt;techmik67&gt; i am gonna play and play til i figure this damn camera thing ut ....</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;techmik67&gt; *out</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;Unhelpful&gt; look, take one of the problem files, and poke around in its exif tags. i'm pretty sure exif is well-documented, so you should be able to see if there is something wrong, like double tags, etc.</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;techmik67&gt; if i knew anything about code maybe.... i am totally winging this.... =P</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, that's the modules! :D</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: i'm not talking about code. look at one of the files in a hex editor. :P</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;techmik67&gt; i totally appreciate the pointers in the right direction tho</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;Unhelpful&gt; all right, deps for kernel modules seem ok. btw, anybody who has built kernels right in the kernel source dir will need to make mrproper there before this works. :P</span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-black">&lt;Unhelpful&gt; the *right* way is to do in the kernel source make O=&lt;outputdir&gt; &lt;configtarget&gt;, and then either make O=&lt;outputdir&gt; in the kernel source, or else just make in the output dir</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-green">* uberushaximus (~uberushax@2001:470:1f11:c4c:b607:f9ff:fe03:f050) has joined this channel.</span><br />
