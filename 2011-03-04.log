@@ -256,3 +256,268 @@
 <span class="irc-date">[5:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; Looks like the repo is fixed</span><br />
 <span class="irc-date">[5:41]</span> <span class="irc-green">* KaikHole is now known as Kaik541</span><br />
 <span class="irc-date">[5:56]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[6:03]</span> <span class="irc-black">&lt;dasunsrule32&gt; coolya: everything cool now on the repo side? I got it to sync</span><br />
+<span class="irc-date">[6:03]</span> <span class="irc-black">&lt;dasunsrule32&gt; building...</span><br />
+<span class="irc-date">[6:03]</span> <span class="irc-black">&lt;coolya&gt; ok</span><br />
+<span class="irc-date">[6:05]</span> <span class="irc-black">&lt;dasunsrule32&gt; I guess I can start using a cron job to start syncing and building nightlies on my server if you want</span><br />
+<span class="irc-date">[6:06]</span> <span class="irc-black">&lt;dasunsrule32&gt; and upload them to somewhere</span><br />
+<span class="irc-date">[6:06]</span> <span class="irc-black">&lt;coolya&gt; I think we don't should waste time and infrastructure on our unofficial builds and put all out power into merging stuff upstream. I really want to have the SGS upstream soon.</span><br />
+<span class="irc-date">[6:07]</span> <span class="irc-black">&lt;coolya&gt; even if it doesn't get a stable build for CM7 that is feature complete.</span><br />
+<span class="irc-date">[6:08]</span> <span class="irc-black">&lt;coolya&gt; but suffering this unofficial state is a pain</span><br />
+<span class="irc-date">[6:09]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:09]</span> <span class="irc-black">&lt;dasunsrule32&gt; yea</span><br />
+<span class="irc-date">[6:09]</span> <span class="irc-black">&lt;dasunsrule32&gt; it does suck, even though it is pretty darn close</span><br />
+<span class="irc-date">[6:11]</span> <span class="irc-black">&lt;coolya&gt; that is the main problem ... some people start calling the Galaxy S official supported and what are we doing to merge? not enough in my opinion. Currently we look like attention whores :-D</span><br />
+<span class="irc-date">[6:11]</span> <span class="irc-black">&lt;dasunsrule32&gt; so my understanding from Steve, is that hard-coded values can't be changed to be "official", so we can't change things like the reboot options to drop to download mode?</span><br />
+<span class="irc-date">[6:12]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:12]</span> <span class="irc-black">&lt;dasunsrule32&gt; I had to shut people up on xda</span><br />
+<span class="irc-date">[6:12]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:12]</span> <span class="irc-black">&lt;dasunsrule32&gt; it's official</span><br />
+<span class="irc-date">[6:12]</span> <span class="irc-black">&lt;dasunsrule32&gt; I was like, uh...no</span><br />
+<span class="irc-date">[6:12]</span> <span class="irc-black">&lt;dasunsrule32&gt; not yet</span><br />
+<span class="irc-date">[6:13]</span> <span class="irc-black">&lt;dasunsrule32&gt; I am getting close i believe on this build, see what happens</span><br />
+<span class="irc-date">[6:13]</span> <span class="irc-black">&lt;dasunsrule32&gt; been bulding for 20 minutes</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;coolya&gt; the old froyo source was a mess with a lot of hardcoded stuff and changes in the framework. But now we have no need to change things in the framework. We can do everything in the device tree</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;coolya&gt; it's only two patches we need to some common part of cm</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;dasunsrule32&gt; ok</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;coolya&gt; one for recovery what is not a show stopper if it doesn't get merged</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;dasunsrule32&gt; cool</span><br />
+<span class="irc-date">[6:15]</span> <span class="irc-black">&lt;coolya&gt; and one to init, that can read our bootmode right</span><br />
+<span class="irc-date">[6:15]</span> <span class="irc-black">&lt;coolya&gt; the rest is done in device/samsung/*</span><br />
+<span class="irc-date">[6:15]</span> <span class="irc-brick">* dasunsrule32 looking</span><br />
+<span class="irc-date">[6:16]</span> <span class="irc-black">&lt;techmik67&gt; coolya: thid may be wrong, but Unhelpfulwas finishing something about that earlier, i think</span><br />
+<span class="irc-date">[6:16]</span> <span class="irc-black">&lt;techmik67&gt; *this</span><br />
+<span class="irc-date">[6:16]</span> <span class="irc-black">&lt;coolya&gt; techmik67: what was wrong ?</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-black">&lt;techmik67&gt; lemme scroll back, nothing wrong...</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-black">&lt;techmik67&gt; [21:44] &lt;Unhelpful&gt; basically the idea here is that make otapackage will build a new initramfs from sources, incorporate it into a new kernel, and use that kernel. i hope. when it's done.</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;dasunsrule32&gt; coolya: so the mounts should be fixed in the latest merge?</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;dasunsrule32&gt; I thought I read that</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;techmik67&gt; different subject i see now....</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;coolya&gt; techmik67: yep we need a kernel.mk in our device tree what does the final linking of our kernel</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;techmik67&gt; oh, so that is something you wanted to see =)</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;coolya&gt; because we can't attach the ramdisk to our kernel after we build it afaik</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;techmik67&gt; there was more afer that</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;coolya&gt; techmik67: i would love to see that :-)</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;coolya&gt; make our live easier, much easiert.</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;techmik67&gt; scroll back 3.5 hours</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;coolya&gt; sec</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;coolya&gt; i need to increase my playback buffer xD</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;techmik67&gt; i have them.. i'll paste the few comments</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;techmik67&gt; [21:51] &lt;Unhelpful&gt; all right, deps for kernel modules seem ok. btw, anybody who has built kernels right in the kernel source dir will need to make mrproper there before this works. :P</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;techmik67&gt; [21:52] &lt;Unhelpful&gt; the *right* way is to do in the kernel source make O=&lt;outputdir&gt; &lt;configtarget&gt;, and then either make O=&lt;outputdir&gt; in the kernel source, or else just make in the output dir</span><br />
+<span class="irc-date">[6:23]</span> <span class="irc-black">&lt;techmik67&gt; thats the end</span><br />
+<span class="irc-date">[6:23]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[6:23]</span> <span class="irc-black">&lt;coolya&gt; sounds promissing.</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;techmik67&gt; wowo ....many commits just posted</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;dasunsrule32&gt; noooo</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;coolya&gt; i think i will talk to him when he gets back</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-brick">* dasunsrule32 stops build</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;coolya&gt; hm ? commits ? where?</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;techmik67&gt; twillter cmsgs feed</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;coolya&gt; cmsgs super outdated repo stuff</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;coolya&gt; xD</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;Kaik541&gt; 2noobnl is still using it I think</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;coolya&gt; dasunsrule32: build on</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;techmik67&gt; steve kondik, sven dawitz</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;dasunsrule32&gt; hehe</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;dasunsrule32&gt; yea, saw that</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;coolya&gt; it's "just" a git pull from upstream in the repo</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-green">* evaluate (~cristi@unaffiliated/evaluate) has joined this channel.</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;evaluate&gt; hey hey</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-green">* thedood|away is now known as thedood</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;evaluate&gt; what happened to the forum message?</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;dasunsrule32&gt; what if I want to pull those notification changes? ;p</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;evaluate&gt; I mean this: <a href="http://forum.cyanogenmod.com/topic/15275-gt-i9000-cyanogenmod-7-we-love-bugs-version-20110203/">http://forum.cyanogenmod.com/topic/15275-gt-i9000-cyanogenmod-7-we-love-bugs-version-20110203/</a></span><br />
+<span class="irc-date">[6:27]</span> <span class="irc-black">&lt;coolya&gt; sue codeworkx for that ...</span><br />
+<span class="irc-date">[6:27]</span> <span class="irc-black">&lt;dasunsrule32&gt; i will hae to stat over</span><br />
+<span class="irc-date">[6:27]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:27]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[6:27]</span> <span class="irc-brick">* evaluate waves his fist in anger</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;techmik67&gt; so tell me some reasons not to use this face recognition to login to ubuntu on my laptop....</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;Kaik541&gt; it's easily brute forced</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;techmik67&gt; it just seems so cool</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;Kaik541&gt; you can just hold up a picture of your face</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;Kaik541&gt; that's slightly bent</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;techmik67&gt; password too =)</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;techmik67&gt; i was more concerned with getting locked out</span><br />
+<span class="irc-date">[6:30]</span> <span class="irc-brick">* dasunsrule32 waiting for my new laptop to reload</span><br />
+<span class="irc-date">[6:30]</span> <span class="irc-black">&lt;dasunsrule32&gt; on my old lappie with a busted mobo</span><br />
+<span class="irc-date">[6:30]</span> <span class="irc-black">&lt;dasunsrule32&gt; works sometimes, sometimes not</span><br />
+<span class="irc-date">[6:30]</span> <span class="irc-black">&lt;evaluate&gt; techmik67, if you get beaten up, you won't be able to login to your computer anymore. But I guess that might be the least of your issues in that case.</span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-black">&lt;techmik67&gt; lol,</span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[6:32]</span> <span class="irc-black">&lt;techmik67&gt; seems pretty interesting, anyway</span><br />
+<span class="irc-date">[6:32]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://www.ardyans.co.cc/login-to-ubuntu-with-face-recognition.htm">http://www.ardyans.co.cc/login-to-ubuntu-with-face-recognition.htm</a></span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;coolya&gt; i think i will try that :-D</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;evaluate&gt; I'd guess I would trust a fingerprint authentication mode</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;evaluate&gt; more*</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;coolya&gt; sound cool</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;dasunsrule32&gt; it auths you to even enter your passwd</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;dasunsrule32&gt; cool</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;dasunsrule32&gt; evaluate: agreed</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;dasunsrule32&gt; :)</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;techmik67&gt; yup... not JUST face recog... too ez, like kaik said</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;dasunsrule32&gt; can't get that one wrong</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;evaluate&gt; But since this is linux and you can easily boot another linux from a thumb drive and then hack this other install, it doesn't really matter what you do...</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;evaluate&gt; I rooted a bunch of computers at work like this... :-\</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;dasunsrule32&gt; lvm/encryption :) make it at least more difficult</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;evaluate&gt; dasunsrule32, yeah, but who uses that?</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;dasunsrule32&gt; encrypt that drive</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;dasunsrule32&gt; ME</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;evaluate&gt; Isn't the speed slower?</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;coolya&gt; me</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;dasunsrule32&gt; not too bad</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;coolya&gt; not for source but for /home</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;evaluate&gt; I'm all for performance :-p</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;dasunsrule32&gt; hehe, im a balanced, speed/security</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;evaluate&gt; My all tweaked up linux laptop boots in 15 seconds. :-)</span><br />
+<span class="irc-date">[6:36]</span> <span class="irc-black">&lt;coolya&gt; i5 with integrated AES unit</span><br />
+<span class="irc-date">[6:36]</span> <span class="irc-black">&lt;dasunsrule32&gt; ooo</span><br />
+<span class="irc-date">[6:36]</span> <span class="irc-black">&lt;evaluate&gt; well, I'm a security freak too, don't get me wrong. But if someone steals my laptop they won't find much usable data on it</span><br />
+<span class="irc-date">[6:36]</span> <span class="irc-black">&lt;coolya&gt; it can encrypt about 300MB/s of data that is enough for my harddisk :-P</span><br />
+<span class="irc-date">[6:36]</span> <span class="irc-black">&lt;dasunsrule32&gt; coolya: not sure what I'm getting from work, my old one died, i thought they said an i5 with 6GB of ram</span><br />
+<span class="irc-date">[6:36]</span> <span class="irc-black">&lt;evaluate&gt; Just some porn, music, and source code for programs that they'd find anyway on the internet...</span><br />
+<span class="irc-date">[6:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; lappie</span><br />
+<span class="irc-date">[6:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; :)</span><br />
+<span class="irc-date">[6:37]</span> <span class="irc-black">&lt;evaluate&gt; btw, does anyone of you guys use lastpass?</span><br />
+<span class="irc-date">[6:37]</span> <span class="irc-black">&lt;coolya&gt; back in a bit</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;evaluate&gt; If you're a security freak like me, I'd definitely recommend google chrome with lastpass...</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; no</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; I use chrome</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; with nothing</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;evaluate&gt; dasunsrule32, then give lastpass a try</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; o.O</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;evaluate&gt; it stores your passwords securely.</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; not too worried</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;evaluate&gt; You just have to remember one password.</span><br />
+<span class="irc-date">[6:39]</span> <span class="irc-green">* thedood is now known as ciwl|away</span><br />
+<span class="irc-date">[6:39]</span> <span class="irc-green">* Scepterr is now known as ciwrl|away</span><br />
+<span class="irc-date">[6:39]</span> <span class="irc-black">&lt;dasunsrule32&gt; wth</span><br />
+<span class="irc-date">[6:39]</span> <span class="irc-black">&lt;evaluate&gt; I like them. Even bought a subscription...</span><br />
+<span class="irc-date">[6:39]</span> <span class="irc-green">* ciwrl|away is now known as Scepterr</span><br />
+<span class="irc-date">[6:39]</span> <span class="irc-black">&lt;evaluate&gt; anyway, back to more serious stuff. Any news on CM?</span><br />
+<span class="irc-date">[6:39]</span> <span class="irc-green">* ciwrl is now known as ciwrl|away</span><br />
+<span class="irc-date">[6:40]</span> <span class="irc-green">* Scepterr is now known as ciwrl</span><br />
+<span class="irc-date">[6:40]</span> <span class="irc-brick">* evaluate slaps scepter </span><br />
+<span class="irc-date">[6:40]</span> <span class="irc-black">&lt;evaluate&gt; make up your mind already! :-p</span><br />
+<span class="irc-date">[6:40]</span> <span class="irc-green">* scepter is now known as Scepterr</span><br />
+<span class="irc-date">[6:40]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[6:40]</span> <span class="irc-navy">* Scepterr (~thedood@got.kanged.by.teamdouche.net) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[6:40]</span> <span class="irc-green">* ciwrl is now known as Scepterr</span><br />
+<span class="irc-date">[6:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; he's not ciwrl|away</span><br />
+<span class="irc-date">[6:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; wannabe</span><br />
+<span class="irc-date">[6:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; let me clarify that cwirl</span><br />
+<span class="irc-date">[6:41]</span> <span class="irc-black">&lt;ciwrl|away&gt; flattery is a good thing :)</span><br />
+<span class="irc-date">[6:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; flattery or flatulence</span><br />
+<span class="irc-date">[6:42]</span> <span class="irc-black">&lt;dasunsrule32&gt; ?</span><br />
+<span class="irc-date">[6:42]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[6:42]</span> <span class="irc-black">&lt;evaluate&gt; I really can't understand people that login to IRC just to change their nick from 'enoemos|sleeping' to 'someone|school' or 'someone|work'. WTH?</span><br />
+<span class="irc-date">[6:42]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:42]</span> <span class="irc-black">&lt;dasunsrule32&gt;  /away</span><br />
+<span class="irc-date">[6:42]</span> <span class="irc-black">&lt;dasunsrule32&gt; O.o</span><br />
+<span class="irc-date">[6:42]</span> <span class="irc-black">&lt;ciwrl|away&gt; ive actually been active, and am now leaving</span><br />
+<span class="irc-date">[6:42]</span> <span class="irc-black">&lt;ciwrl|away&gt; else ill keep getting pinged</span><br />
+<span class="irc-date">[6:42]</span> <span class="irc-black">&lt;ciwrl|away&gt; and its annoying :)</span><br />
+<span class="irc-date">[6:42]</span> <span class="irc-black">&lt;evaluate&gt; I'll make sure to ping you anyway. :-p</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-black">&lt;ciwrl|away&gt; :(</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-black">&lt;dasunsrule32&gt; hehe</span><br />
+<span class="irc-date">[6:45]</span> <span class="irc-black">&lt;dasunsrule32&gt; kernel charging bug is annoying</span><br />
+<span class="irc-date">[6:46]</span> <span class="irc-black">&lt;evaluate&gt; kernel charging bug?</span><br />
+<span class="irc-date">[6:46]</span> <span class="irc-black">&lt;evaluate&gt; What's that about?</span><br />
+<span class="irc-date">[6:46]</span> <span class="irc-black">&lt;dasunsrule32&gt; it will never charge to more than 95 - 97%</span><br />
+<span class="irc-date">[6:46]</span> <span class="irc-black">&lt;dasunsrule32&gt; ever</span><br />
+<span class="irc-date">[6:46]</span> <span class="irc-black">&lt;dasunsrule32&gt; even if you bump it</span><br />
+<span class="irc-date">[6:46]</span> <span class="irc-black">&lt;evaluate&gt; dasunsrule32, that not a bug, that's a feature</span><br />
+<span class="irc-date">[6:47]</span> <span class="irc-black">&lt;dasunsrule32&gt; oh lol</span><br />
+<span class="irc-date">[6:47]</span> <span class="irc-brick">* dasunsrule32 turns read and runs in the corner</span><br />
+<span class="irc-date">[6:47]</span> <span class="irc-black">&lt;evaluate&gt; and it doesn't have anything to do with the kernel, but with the battery</span><br />
+<span class="irc-date">[6:47]</span> <span class="irc-black">&lt;dasunsrule32&gt; i know about the charing "feature" from samsung</span><br />
+<span class="irc-date">[6:47]</span> <span class="irc-black">&lt;evaluate&gt; All new Li-pol batteries have charging protection that keeps that from getting 100% charged</span><br />
+<span class="irc-date">[6:48]</span> <span class="irc-black">&lt;evaluate&gt; that not only protects them from overcharge and overheat but also from explosion :-)</span><br />
+<span class="irc-date">[6:48]</span> <span class="irc-black">&lt;dasunsrule32&gt; i knew about that, but maybe samsucks battery meter lied</span><br />
+<span class="irc-date">[6:48]</span> <span class="irc-black">&lt;dasunsrule32&gt; i could bump it to 100%</span><br />
+<span class="irc-date">[6:48]</span> <span class="irc-black">&lt;dasunsrule32&gt; where i can't on cm7</span><br />
+<span class="irc-date">[6:48]</span> <span class="irc-black">&lt;dasunsrule32&gt; maybe where the confusion set in</span><br />
+<span class="irc-date">[6:49]</span> <span class="irc-black">&lt;dasunsrule32&gt; cm doesn't lie :)</span><br />
+<span class="irc-date">[6:49]</span> <span class="irc-black">&lt;evaluate&gt; Not sure about that, but I can assure you that you won't be able to charge a newer li-pol battery to 100% no matter how hard you try</span><br />
+<span class="irc-date">[6:49]</span> <span class="irc-black">&lt;evaluate&gt; and that is a good thing.</span><br />
+<span class="irc-date">[6:49]</span> <span class="irc-black">&lt;dasunsrule32&gt; not disagreeing</span><br />
+<span class="irc-date">[6:49]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[6:50]</span> <span class="irc-black">&lt;dasunsrule32&gt; there are "ways", if you hate your battery and phone</span><br />
+<span class="irc-date">[6:50]</span> <span class="irc-black">&lt;coolya&gt; dasunsrule32: there was REALLY ugly code in the samsung kernel to fake battery in some conditions</span><br />
+<span class="irc-date">[6:50]</span> <span class="irc-black">&lt;evaluate&gt; it also prolongs your battery life (as in charging cycles), so you should be grateful about that...</span><br />
+<span class="irc-date">[6:50]</span> <span class="irc-black">&lt;dasunsrule32&gt; coolya: good to know</span><br />
+<span class="irc-date">[6:50]</span> <span class="irc-black">&lt;evaluate&gt; coolya, lol.</span><br />
+<span class="irc-date">[6:50]</span> <span class="irc-black">&lt;evaluate&gt; The shit people do...</span><br />
+<span class="irc-date">[6:50]</span> <span class="irc-black">&lt;dasunsrule32&gt; evaluate: yea, am grateful, still doesn't change the fact that samsung sucks lol</span><br />
+<span class="irc-date">[6:50]</span> <span class="irc-black">&lt;dasunsrule32&gt; o.O</span><br />
+<span class="irc-date">[6:51]</span> <span class="irc-black">&lt;dasunsrule32&gt; h/w is great though</span><br />
+<span class="irc-date">[6:51]</span> <span class="irc-black">&lt;evaluate&gt; dasunsrule32, well, seeing how many idiots there are (talking about xda for example) that can't stand to NOT have 100% battery showing up, I can somehow understand samsung...</span><br />
+<span class="irc-date">[6:51]</span> <span class="irc-black">&lt;dasunsrule32&gt; coolya: nothing like making something infinitely complex to lie</span><br />
+<span class="irc-date">[6:51]</span> <span class="irc-black">&lt;dasunsrule32&gt; yea</span><br />
+<span class="irc-date">[6:51]</span> <span class="irc-black">&lt;dasunsrule32&gt; hehe</span><br />
+<span class="irc-date">[6:52]</span> <span class="irc-black">&lt;evaluate&gt; They prolly wanted to preotect it from idiots that want to overcharge it.</span><br />
+<span class="irc-date">[6:52]</span> <span class="irc-black">&lt;dasunsrule32&gt; I prefer to know "exactly" where I'm at</span><br />
+<span class="irc-date">[6:52]</span> <span class="irc-black">&lt;evaluate&gt; "If an idiot tries to plug/unplug it 10 times, let's just lie to him and tell him it's fully charged"</span><br />
+<span class="irc-date">[6:52]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;evaluate&gt; "Good idea Xianghioda!"</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; i like your logic</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; :)</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;evaluate&gt; or whatever their names are there in korea</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;coolya&gt; we can make a battery_lier.apk for people who want it xD</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;evaluate&gt; coolya, lol</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; ROFL</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;coolya&gt; and override the icon in the status bar</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;evaluate&gt; yeah, that's prolly be useful for xda</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;evaluate&gt; you should also make it default for the xda download, lol</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;coolya&gt; and the gently decrease its value from 100% to the real one</span><br />
+<span class="irc-date">[6:54]</span> <span class="irc-black">&lt;dasunsrule32&gt; guys, my build is still going and I'm about to crash from this nyquil</span><br />
+<span class="irc-date">[6:54]</span> <span class="irc-black">&lt;dasunsrule32&gt; sick and need sleep</span><br />
+<span class="irc-date">[6:54]</span> <span class="irc-black">&lt;coolya&gt; dasunsrule32: whats you local time ?</span><br />
+<span class="irc-date">[6:54]</span> <span class="irc-black">&lt;dasunsrule32&gt; carp, it just finished</span><br />
+<span class="irc-date">[6:54]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[6:54]</span> <span class="irc-black">&lt;dasunsrule32&gt; 23:55</span><br />
+<span class="irc-date">[6:54]</span> <span class="irc-black">&lt;dasunsrule32&gt; arizona time</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;evaluate&gt; For me that "Far far away time".</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;evaluate&gt; s/that/that's/</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;coolya&gt; for me too</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;evaluate&gt; It's 9 AM for me.</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;coolya&gt; its 8 o'clock in the morninh</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;evaluate&gt; coolya, yeah, you germans, always an hour behind :-p</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;coolya&gt; s/morninh/mornging</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;coolya&gt; :-P</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;dasunsrule32&gt; otherside of the world</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[6:56]</span> <span class="irc-black">&lt;dasunsrule32&gt; 8 and 9 hours respectively</span><br />
+<span class="irc-date">[6:56]</span> <span class="irc-black">&lt;evaluate&gt; dasunsrule32, it's third of March for you there, isn't it?</span><br />
+<span class="irc-date">[6:56]</span> <span class="irc-black">&lt;coolya&gt; this is the internet we onl have utc here :-_D</span><br />
+<span class="irc-date">[6:56]</span> <span class="irc-black">&lt;dasunsrule32&gt; for 2+ minutes</span><br />
+<span class="irc-date">[6:56]</span> <span class="irc-black">&lt;dasunsrule32&gt; :)</span><br />
+<span class="irc-date">[6:57]</span> <span class="irc-black">&lt;evaluate&gt; Well then, you're behind too...</span><br />
+<span class="irc-date">[6:57]</span> <span class="irc-black">&lt;dasunsrule32&gt; hehe</span><br />
+<span class="irc-date">[6:57]</span> <span class="irc-black">&lt;evaluate&gt; :-p</span><br />
+<span class="irc-date">[6:57]</span> <span class="irc-black">&lt;coolya&gt; evaluate: is from the future don't trust him :-D</span><br />
+<span class="irc-date">[6:57]</span> <span class="irc-black">&lt;evaluate&gt; I'm going for a "future-cigarette"</span><br />
+<span class="irc-date">[6:57]</span> <span class="irc-black">&lt;evaluate&gt; brb</span><br />
+<span class="irc-date">[6:57]</span> <span class="irc-black">&lt;coolya&gt; i will drive to work</span><br />
+<span class="irc-date">[6:58]</span> <span class="irc-black">&lt;coolya&gt; back in about 9 hours</span><br />
+<span class="irc-date">[6:58]</span> <span class="irc-black">&lt;dasunsrule32&gt; if you want it: <a href="http://download.christiantechsaz.com/android/cm7-vibrant-nightly-20110303.zip">http://download.christiantechsaz.com/android/cm7-vibrant-nightly-20110303.zip</a></span><br />
+<span class="irc-date">[6:58]</span> <span class="irc-black">&lt;dasunsrule32&gt; haven't flashed it, no idea if it will kill your phone :p</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; its mar 4 now</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; :)</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;coolya&gt; i'll flash at work ;-)</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; ok, im off to the bed</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; sleep</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-black">&lt;coolya&gt; nite! ;-)</span><br />
+<span class="irc-date">[7:00]</span> <span class="irc-black">&lt;dasunsrule32&gt; it might take you a little to d/l that, I only have 768kbps up</span><br />
