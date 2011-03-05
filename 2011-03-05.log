@@ -1,0 +1,68 @@
+<span class="irc-date">[21:25]</span> <span class="irc-brown">-kornbluth.freenode.net- *** Looking up your hostname...</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-brown">-kornbluth.freenode.net- *** Checking Ident</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-brown">-kornbluth.freenode.net- *** No Ident response</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-brown">-kornbluth.freenode.net- *** Found your hostname</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-green">* cmsgsteam-logger (~PircBot@cmsgs.com) has joined this channel.</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-green">* Topic is 'SGS CyanogenMod developers and testers (and other kernel and android hackers) - <a href="http://www.cmsgs.com/">http://www.cmsgs.com/</a> - for pastebin please use <a href="http://cmsgsteam.pastebin.com'">http://cmsgsteam.pastebin.com'</a></span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-green">* Set by coolya!~coolya@microdoof.net on Sun Feb 20 16:06:26 GMT 2011</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-brown">-kornbluth.freenode.net- [freenode-info] channel trolls and no channel staff around to help? please check with freenode support: <a href="http://freenode.net/faq.shtml#gettinghelp">http://freenode.net/faq.shtml#gettinghelp</a></span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-brown">-ChanServ- [#__topsecret__] SGS CyanogenMod developers and testers (and other kernel and android hackers) - <a href="http://www.cmsgs.com/">http://www.cmsgs.com/</a></span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-green">* ChanServ sets mode +o cmsgsteam-logger</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;atinm&gt; I have to fix the stupid logger sometime to retry when it disconnects</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;GuiPer&gt; the irq?</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;coolya&gt; dhd_oob_gpio_num</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;coolya&gt; it looks like that it is</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;coolya&gt; WL_ERROR(("%s: customer specific Host GPIO number is (%d)\n",</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;coolya&gt; 	         __FUNCTION__, dhd_oob_gpio_num));</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;GuiPer&gt; so it should be set up :S</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;GuiPer&gt; and it's 19?</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;GuiPer&gt; like it should be?</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;coolya&gt; dunno</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;GuiPer&gt; because on Nexus is quite different</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;GuiPer&gt; Nexus is MMC2</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;GuiPer&gt; on ours is MMC1</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;GuiPer&gt; 		.name	= "bcm4329_wlan_irq",</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;GuiPer&gt; 		.start	= IRQ_EINT(20),</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;GuiPer&gt; 		.end	= IRQ_EINT(20),</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;GuiPer&gt; trying 19 :)</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-green">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;atinm&gt; which file is this?</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;GuiPer&gt; mach_aries...</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;GuiPer&gt; this last one :)</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;GuiPer&gt; but the differences are in dhd_custom_gpio.c</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;GuiPer&gt; lets see with 19 there, like sgs uses...</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, seems the nexus one is the only other phone that uses the audience chip... since that stuff is all open source, possibility of using those drivers?</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm&gt; there is, I am looking in there now</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm&gt; tho really looking to see how this whole sec_jack thing works</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm&gt; but let me look</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm&gt; have to gonow tho</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm&gt; cook!</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;Kaik541&gt; alrighty</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;Kaik541&gt; have fun</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-green">* atinm is now known as atinm|cooking</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;GuiPer&gt; bad idea to change to 19</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;GuiPer&gt; conflicts with touchscreen :S</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-navy">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-green">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-brick">* dasunsrule32 is about to throw this old laptop out the window</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-brick">* coolya open the window</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-brick">* dasunsrule32 throws</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;dasunsrule32&gt; :D</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-brick">* coolya closes the windows and looks befind the laptop flying into the sunset :-D</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-brick">* dasunsrule32 waves</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-brick">* ytt3r gets hit in the head as he's walking down the street</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-brick">* Kaik541 laughs</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-brick">* ytt3r dies</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-brick">* Kaik541 laughs harder</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;ytt3r&gt; ^going to look good on the channel log</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-brick">* coolya goes down stairs with his emergency beerket to relife ytt3r</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;coolya&gt; beerkit</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;Kaik541&gt; coolya = saint bernard from 1930's cartoons?</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-green">* ytt3r|reincarnat (~evan@adsl-88-56-225.asm.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://www.bestbullysticks.com/blog/wp-content/uploads/2010/07/Saint-Bernard.JPG">http://www.bestbullysticks.com/blog/wp-content/uploads/2010/07/Saint-Bernard.JPG</a></span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;ytt3r|reincarnat&gt; he lives</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-green">* ytt3r|reincarnat (~evan@adsl-88-56-225.asm.bellsouth.net) has left this channel.</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-navy">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) Quit (Ping timeout: 250 seconds)</span><br />
