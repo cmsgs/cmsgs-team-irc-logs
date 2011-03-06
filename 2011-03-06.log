@@ -1968,3 +1968,157 @@
 <span class="irc-date">[19:53]</span> <span class="irc-black">&lt;ytt3r&gt; fbsetup.sh</span><br />
 <span class="irc-date">[19:54]</span> <span class="irc-black">&lt;ytt3r&gt; that's the only way that we've managed to create a reproducible build so far.</span><br />
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;ytt3r&gt; I'm going to flash stock for now, might be able to figure it out later.</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;coolya&gt; lets get the init ready for mainline</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;ytt3r&gt; I think its more important to have a consistently bootable os than to have it ready for the mainline.</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;ytt3r&gt; don't get me wrong, it'd be great to have it mainlined, but that's my personal opinion. fix bugs, then fix mainline compat.</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;coolya&gt; it boots fine here ... i just can't do anything about that issue</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;coolya&gt; its just a simple #ifdef i have to addd</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;ytt3r&gt; Why is the galaxy s using fbsetup.sh and we aren't though?</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: removed that because he wanted to test if its working right with recovery.rc changes</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: removed what?</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;ytt3r&gt; fbsetup.sh</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;Unhelpful&gt; oh. it works fine for me :/</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;coolya&gt; i can try it on the vibrator in a but</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;coolya&gt; bir</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;coolya&gt; bit</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;ytt3r&gt; do you have uncommitted changes?</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;ytt3r&gt; might have found something that screwed over my install. cache is set to ext4nj instead of ext4 :/</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;Unhelpful&gt; ytt3r: the fbsetup.sh is not the problem, your whole initramfs is wrong, as <a href="http://pastebin.com/qQV2rQJn">http://pastebin.com/qQV2rQJn</a> shows.</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;Unhelpful&gt; cache should be yaffs2 :P</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;ytt3r&gt; I'll try a git reset on the initramfs even thoug h ididn't change anything</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;ytt3r&gt; gtg playing a concert</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;techmik67&gt; build complete</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;Unhelpful&gt; we don't *use* the /initramfs stuff any more.</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: cool, i hope somebody besides coolya can duplicate my success :/</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;evaluate&gt; ok, so I cleared the whole out folder and now rebuilt. I'll flash now and hope that it works</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;techmik67&gt; moving and flashing</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-brick">* Unhelpful would've suggested checking first ;)</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, check what? :-p</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;Unhelpful&gt; checking that the embedded initramfs is correct, checking the build log to ensure recovery.img was build before building the kernel, etc.</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;evaluate&gt; ok, the build works fine, my initial problem is still there though</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;Unhelpful&gt; "classes-jarjar.jar" AAAAAGH!</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;evaluate&gt; this shit's really starting to get awkward</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;evaluate&gt; why the hell would my lockscreen all of a sudden stop working?</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;Unhelpful&gt; wait, didn't kaik get a good build from my checkin, too? ;D</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;evaluate&gt; I don't think he had this problem before though</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-brick">* evaluate tries building an ota</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://pastebin.com/BMTxQPNT">http://pastebin.com/BMTxQPNT</a></span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;evaluate&gt; techmik67, did you somehow solve the lockscreen problem?</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;techmik67&gt; flashed initial,</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;techmik67&gt; started there</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;coolya&gt; evaluate: you tried to wipe ?</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;evaluate&gt; coolya, I'd like to avoid wiping if that's possible, this is my only phone y'know, and I have some useful stuff on it... :-p</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;evaluate&gt; we here in the west don't earn as much as you germans, I can't afford a testing device :-p</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;evaluate&gt; s/west/east/</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-brick">* Unhelpful wonders if evaluate means "western EU" or "the americas"</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;evaluate&gt; EU</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Unhelpful&gt; over here (USA) we spend more on the devices despite the apparent savings of subsidized pricing. and it'll never go away because people won't pay $500 for a phone.</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;evaluate&gt; and I actually mean east...</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;evaluate&gt; I got mine from a Vodafone deal, was only 250 Euros</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;Unhelpful&gt; oh. i must confess a lack of detailed knowled regarding income and cost-of-living as distributed in the EU. then again, it really seems unlikely such would *ever* be relevant to my life, and i'll study up if i visit, i guess. ;)</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-green">* ciwrl|bbl is now known as ciwrl</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, the western EU is all civilised and stuff, it's jus the eastern countries that are behind and this is mostly due to the communist regimes after WW2</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;Unhelpful&gt; yay communism. :)</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;evaluate&gt; So, thank you very much, Deutschland! :-p</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;coolya&gt; i don't buy my phone from a carrier :-P</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, imagine the average income in my country is somewhere around 250 Euros, that's around $300 per month. And the prices are like everywhere else (and for some thing even a bit higher)</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;coolya&gt; looks like vold is going crazy <a href="http://code.google.com/p/cyanogenmod7-for-samsung-galaxys/issues/detail?id=113&amp;colspec=ID%20Type%20Status%20Priority%20Device%20Owner%20Summary">http://code.google.com/p/cyanogenmod7-for-samsung-galaxys/issues/detail?id=113&amp;colspec=ID%20Type%20Status%20Priority%20Device%20Owner%20Summary</a></span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;evaluate&gt; coolya, ohh, yeah, I also wanted to point out that the cards don't seem to get mounted properly</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;atinm&gt; coolya, unhelpful - can you look at mach-aries.c call to s3c_adc_get_adc_data()</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;atinm&gt; it takes a argument called channel</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;evaluate&gt; I noticed that when working on the ext4vold patch.</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;atinm&gt; but i couldn't figure out what channel means.</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;atinm&gt; it uses 3 for the sec_jack, 9 for gp2a_light</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;evaluate&gt; coolya, external SD gets mounted as /emmc and internal as /sdcard, but all the settings stuff that should be applied to the external card is instead applied to the internal one (like unmount or format)</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;atinm&gt; but I don't know if it needs to be different for mic because mic is on a different GPIO on captivate.</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;atinm&gt; 3 works to detect whether there is a jack inserted.</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;atinm&gt; but I don't think it is right for detecting what key</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;atinm&gt; what button I mean</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;coolya&gt; evaluate: i will try to reproduce it in a bit</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;atinm&gt; and maybe I need to send a different channel</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;evaluate&gt; coolya, just go to "Settings" -&gt; "Storage" and you should see it there</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;atinm&gt; but don't know how to figure out which - old code doesn't use it in either eclair or froyo</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;atinm&gt; and it is possible our headset didn't have 3 buttons anyway tho it feels like it does when I click it</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;evaluate&gt; techmik67, did flashing initial solve the problem for you?</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;coolya&gt; atinm: how do they get the adc then ?</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;atinm&gt; they don't for button</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;atinm&gt; they just detect whether it was pressed</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;atinm&gt; and return one value.</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;atinm&gt; a samsung defined value at that, not a standard one</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;techmik67&gt; i didnt go back to stock or anythig, i went to mounts and storage, formatted data cache and system, and flashed initial</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;coolya&gt; the samsung headset only has one button ...</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;techmik67&gt; and everything is back to normal</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;evaluate&gt; techmik67, and did that solve the problem with the lockscreen?</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;atinm&gt; :) so maybe it is working . . . it feels like 3 tho.</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;evaluate&gt; ok, good</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: everything went fine</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;atinm&gt; need a captivate person to confirm - I haven't used my headphone so I actually don't know!</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;atinm&gt; maybe I should find the usermanual ...</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;techmik67&gt; what do you need atinm? i have my stock headset right here....</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;atinm&gt; but anyway - can you still tell me (if you know) how one reads an adc value? what is the channel argument?</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;atinm&gt; techmik67: have you used it on stock?</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;atinm&gt; or maybe on the gingerbread leak</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;techmik67&gt; not the mic, only to listen to music</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;atinm&gt; and does it show up as 3 buttons or 1</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;atinm&gt; even for listening to music</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;atinm&gt; you can do "something" with that mic  button</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;atinm&gt; maybe start/pause</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;coolya&gt; can try ma blackberry 3bnt headset on the vibrant with stock later</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;atinm&gt; maybe even forward back</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;techmik67&gt; yes... i know it did SOMETHING</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;techmik67&gt; i wanna say pasue</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;techmik67&gt; pause</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;atinm&gt; just want to know if it is one button or three - it "feels" like three - up/down/middle</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;techmik67&gt; hmmm</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;atinm&gt; maybe I should find the manual :)</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;techmik67&gt; could be 3....</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;coolya&gt; feels like one on mine</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-brick">* coolya take the vibrant manuakl</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;atinm&gt; yeah, just found something that says it is one button</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;atinm&gt; so maybe I've got this working now! ;)</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;techmik67&gt; woohoo</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;atinm&gt; I've been trying to make it read the adc value and decide like on nexus :)</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;atinm&gt; I guess nexus comes with 3 button headset?</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;atinm&gt; but what I really want to know is what the channel argument means on the adc value call . . . driving me nuts because it is just a hardcoded value in the sources!</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;coolya&gt; the SoC has some adc input channels</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;coolya&gt; it is just the channel that should be read</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;atinm&gt; so the question is whether both mic and headset itself are on the same channel.</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;atinm&gt; right now it uses 3.</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;coolya&gt; if the did it right they should have defined that by platformdata in mach-herring</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;atinm&gt; hardcoded 3 :)</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;atinm&gt; btw, has samsung actually put out 2.2 for captivate?</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;atinm&gt; I haven't been paying attentioN! :)</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://www.samsung.com/us/mobile/cell-phones/SGH-I897ZKAATT">http://www.samsung.com/us/mobile/cell-phones/SGH-I897ZKAATT</a></span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;atinm&gt; says comes with 2.2</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;stickpin&gt; yes</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;stickpin&gt; KB1</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;stickpin&gt; 2.2</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;stickpin&gt; not even 2.2.1... :\</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm&gt; so they released source for captivate?</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;stickpin&gt; lemme check</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;atinm&gt; shoot, doesn't say what version.</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;stickpin&gt; how can  i check it?</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;stickpin&gt; i donwloaded  it</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;atinm&gt; hrm, where is the linux version?</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;stickpin&gt; just a src</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;stickpin&gt; sec</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;stickpin&gt; will unpack now</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;stickpin&gt; KERNEL_BUILD_DIR=linux-2.6.29</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;atinm&gt; eclair.</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;stickpin&gt; :\</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;atinm&gt; thought it seems they did release it for Rogers captivate i896</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;atinm&gt; that's good enough</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;techmik67&gt; if i remeber right, source is out for the other devices, just the fw of KB1 for captivate</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;atinm&gt; that's fine - got the i896</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;atinm&gt; same code base</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;techmik67&gt; yay!! now you can fix EVERYTHING =P</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;atinm&gt; its for .32</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;atinm&gt; we need .35</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;techmik67&gt; bastards</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; coolya: any fix for the vib kernel build yet?</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;stickpin&gt; in Language &amp; keyboard =&gt; Android keyboard =&gt; Input languages ... everyone have double Hebrew (Israel) ?</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;stickpin&gt; or its only me...</span><br />
