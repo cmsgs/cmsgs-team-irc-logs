@@ -1650,3 +1650,200 @@
 <span class="irc-date">[17:58]</span> <span class="irc-black">&lt;techmik67&gt; but i bet it'll lead him to truly fixing reorient=)</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; is 720p recording enabled?</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; didn't look like it</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;coolya&gt; nop</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;coolya&gt; e</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;dasunsrule32&gt; didn't think so 480p</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;ytt3r&gt; jeez is my initramfs corrupted or something?</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;coolya&gt; ytt3r: what errors you are getting</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;ytt3r&gt; nothing, until I actually boot into recovery</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;ytt3r&gt; sec</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;ytt3r&gt; <a href="http://i54.tinypic.com/2582hl1.jpg">http://i54.tinypic.com/2582hl1.jpg</a></span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;Kaik541&gt; heh, I think coolya had something like that the other day</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;techmik67&gt; havent seen that before....</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;coolya&gt; <a href="http://dl.dropbox.com/u/4077110/2011-03-04-212944.jpg">http://dl.dropbox.com/u/4077110/2011-03-04-212944.jpg</a></span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;Kaik541&gt; MOAR RECOVERY</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;ytt3r&gt; soooo</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;ytt3r&gt; I guess I'll rebuild the kernel</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;coolya&gt; ytt3r: that was when i was missing fbsetup.sh</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;ytt3r&gt; under scripts/ right?</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;coolya&gt; but Unhelpful tried to solve that by adding that code in the recovery.rc</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;coolya&gt; maybe that doesn't work right</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;ytt3r&gt; I've got time so lets solve this</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;ytt3r&gt; building clean</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;techmik67&gt; i've built 2x his way... if i just "build.sh captivate" will it make initial?</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;techmik67&gt; have only made ota</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;ytt3r&gt; I still use make -j`grep 'processor' /proc/cpuinfo | wc -l` otapackage</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;techmik67&gt; same question then... if you left off "otapackage" will it make the initial?</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;coolya&gt; brunch captivate ;-)</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;coolya&gt; will do all for you</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;techmik67&gt; thx</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;ytt3r&gt; but if you leave off otapackage, it'll give you system.img boot.img, those to flash through fastboot which we know doesn't work</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;coolya&gt; brunch builds ota</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;techmik67&gt; then use releasetools/ ./initial_captivate.sh... =)</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;ytt3r&gt; you can just run releasetools/initial_captivate.sh</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;ytt3r&gt; from android/system</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;coolya&gt; lets put a new kernal on the vibrator</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;ytt3r&gt; was the screwed up recovery on your vibrant or i9k?</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;coolya&gt; vibrant</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;ytt3r&gt; did you make mrproper? that's what I did, might be the root of the problem</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;coolya&gt; i deleted my kernel dir and did a new repo sync</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;coolya&gt; to besure nothing is in there</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;ytt3r&gt; hrm I might have to do that.</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;ytt3r&gt; yeah, same issue building clean.</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;coolya&gt; but i had the problem after that</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;ytt3r&gt; so what fixed it?</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;coolya&gt; can you adb to the phone when it is in recovery and echo 1 &gt; /dev/graphics/fb3 ?</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;ytt3r&gt; sec didn't add adb to my path</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;ytt3r&gt; don't have the permissions</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;ytt3r&gt; not even with sudo</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;coolya&gt; wtf</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;ytt3r&gt; let me restart adbd</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;coolya&gt; on the phone or on you system no permission ?</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;ytt3r&gt; got in</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;ytt3r&gt; restarted the server on my computer</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;ytt3r&gt; nothing is returned from the echo</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;coolya&gt; changed the screen ?</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;ytt3r&gt; oh facepalm didn't even see that</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;ytt3r&gt; yes it worked</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;coolya&gt; then you are missing fdsetup.sh</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;coolya&gt; sec</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;coolya&gt; <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/fbsetup.sh">https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/fbsetup.sh</a></span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;coolya&gt; <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/recovery.rc#L265">https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/recovery.rc#L265</a></span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;coolya&gt; <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/galaxys.mk#L60">https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/galaxys.mk#L60</a></span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;coolya&gt; thats the three places you need it</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;ytt3r&gt; under captivate though</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;ytt3r&gt; OK cool, lunchtime bbiab</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;ytt3r&gt; boot loops</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;ytt3r&gt; I'll fix it in a bit</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;evaluate&gt; fuck</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;evaluate&gt; with the latest build I get a bootloop</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;evaluate&gt; are there any known problems with the repo right now?</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;coolya&gt; evaluate: just build again</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;coolya&gt; no make clean just a new build</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;evaluate&gt; coolya, what's the correct way to build right now? was anything changed?</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;coolya&gt; the problem is under some race condition it might be possible that a kernel is build w/o a innitram disc</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;evaluate&gt; I'm using this to build: <a href="http://pastebin.com/JskCpP98">http://pastebin.com/JskCpP98</a></span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;evaluate&gt; btw, I've noticed that the build.sh script also builds the kernel now? Is that right?</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread DW1985 * 96d8b45 (1 files in 1 dirs): removed touchscreen calibration files - <a href="http://bit.ly/hrZKZu">http://bit.ly/hrZKZu</a></span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: i'm really rather sure that's fixed now, make no longer discards the dependency of the kernel on recovery.img as circular, so it won't start the kernel until the image is ready.</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: ok then i was wrong</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, I just synced and built half an hour ago, so I'd say it isn't fixed...</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;evaluate&gt; Unless I'm having a totally different problem...</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;coolya&gt; evaluate: can you look in out/target/product/&lt;device&gt;/</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;coolya&gt; what size the kernel is</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;evaluate&gt; sure</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;evaluate&gt; I'd have to look in the zip, since I just restarted the build and the kernel was overwritten</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;evaluate&gt; zImage is 3.3MB</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;coolya&gt; hmm that is goof</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;coolya&gt; good</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;coolya&gt; i will build for galaxy s</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;evaluate&gt; and the one built right now is 4.0MB</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;evaluate&gt; :-\</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;evaluate&gt; HMM!</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;coolya&gt; 4MB ?</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;coolya&gt; hmm</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;evaluate&gt; coolya, in my out/target.../ I have both a kernel file and a zImage file</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; Unhelpful: <a href="http://pastebin.com/5K526Vf7">http://pastebin.com/5K526Vf7</a></span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;evaluate&gt; the kernel file is 3.3MB and the zImage file is 4.0MB. Is this normal?</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; on the kernel build</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; for vibrant</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;evaluate&gt; coolya, and the file in the zip is 3.3MB, so I'd guess it included the kernel file in the zip as zImage and not the zImage...</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;evaluate&gt; let's see what logcat actually says...</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;coolya&gt; evaluate: there shouldn't be a zimage</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;coolya&gt; i will look at that</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;evaluate&gt; coolya, well, there is :-\</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;coolya&gt; just started to build</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: the kernel should be copied to zImage, actually.</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;evaluate&gt; maybe that's from a previous build?</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;atinm&gt; btw, for whatever reason - my network connects on boot</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;atinm&gt; reliably</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: try removing both and rebuild?</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;evaluate&gt; ok</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;evaluate&gt; let's first see what logcat actually says</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, my polling issue is solved now too</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;Kaik541&gt; I get AT&amp;T on boot every time</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;dasunsrule32&gt; atinm: mine did too until about 2 reboots</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;dasunsrule32&gt; i get the network, just no data</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;atinm&gt; I get it all</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;dasunsrule32&gt; until the screen is turned off/on</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;atinm&gt; it instantly connects, updates my calendar and weather from 3g</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;Kaik541&gt; I have AT&amp;T, all 4 bars, and the 3G icon going well</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;Unhelpful&gt; dasunsrule32: that's what i was seeing, too :/</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; congrats :p</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;stickpin&gt; its relevant for captivate too: &lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread DW1985 * 96d8b45 (1 files in 1 dirs): removed touchscreen calibration files - <a href="http://bit.ly/hrZKZu">http://bit.ly/hrZKZu</a> ??</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; Unhelpful: hrm ok</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; brb</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;Unhelpful&gt; wtf @ pastebin</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: let me sync and take a look @ your vibrant changes, maybe i'll see the issue. :)</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;atinm&gt; oh, and I haven't synced in a while</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;atinm&gt; don't want to screw up things while I'm debugging this mic issue</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: it works fine in my mashine :-P</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;stickpin&gt; yeah atinm time to sync... let us help you... :)</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: do you still see a race on your machine? it looks like that's what dasunsrule32 has.</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;mikebeecham&gt; back</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;coolya&gt; i never had something like that</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;mikebeecham&gt; evaluate, I had a thought.  Would it be worth me creating a dropbox folder for the theme stuff, then give yourself and a couple of others access to it? That would save dropping it into public everytime we make changes?</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;atinm&gt; mikebeecham: good idea.</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;atinm&gt; dropbox is good for exactly that sort of stuff</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;mikebeecham&gt; evaluate, that way I can say "dropped some changes in"...and you can just access it</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;ytt3r&gt; Unhelpful, why isn't fbsetup in the android_device_samsung_captivate repo?</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, yup, that'd be nice</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, see PM</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;Unhelpful&gt; ytt3r: i replaced it w/ a line in recovery.rc that writes 1 to the fb device</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;ytt3r&gt; it isn't working</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;Unhelpful&gt; ...it is, i use it. :/</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;Kaik541&gt; ytt3r, it works fine for me</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;ytt3r&gt; isn't working here...</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;Kaik541&gt; I don't have the quad-recovery</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;Kaik541&gt; and I built fine last night</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;ytt3r&gt; built a few minutes ago, quad recovery and bootloops.</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;techmik67&gt; building as we speak (type?)</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;Kaik541&gt; I don't think anything captivate-specific has changed since I built</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;Unhelpful&gt; ytt3r: can you do "diff -Nur out/target/captivate/recovery/root initramfs/samsung/captivate/data" and pastebin the output?</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;ytt3r&gt; nope, nothing has.</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;ytt3r&gt; sec</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;ytt3r&gt; the output is too long &gt;:(</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;ytt3r&gt; its all + this, +that</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;evaluate&gt; ok, fuck this shit!</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;ytt3r&gt; I'll do a little block</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;Kaik541&gt; then &gt; out.log</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;Kaik541&gt; and pastebin it</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;evaluate&gt; I've deleted both kernel and zImage and rebuilt and have the bootloop again. Is there a way to fix this please?</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;Unhelpful&gt; ytt3r: really the whole thing is needed to get anywhere with it.</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;techmik67&gt; ytt3r: are you saying, IT DID STUFF? =P</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;coolya&gt; evaluate: build galaxys right now</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;ytt3r&gt; <a href="http://pastebin.com/qQV2rQJn">http://pastebin.com/qQV2rQJn</a></span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;Kaik541&gt; out/arget?</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;ytt3r&gt; yep</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;ytt3r&gt; whoops\</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;ytt3r&gt; lol</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;Kaik541&gt; lol weird</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;Unhelpful&gt; ytt3r: you'r missing a lot of initramfs contents, somehow :(</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;evaluate&gt; coolya, just making sure, you're all building with ./build.sh DEVICE, right?</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;ytt3r&gt; <a href="http://pastebin.com/3Nt5ftXH">http://pastebin.com/3Nt5ftXH</a></span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;coolya&gt; nope i just did "brunch galaxys"</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;ytt3r&gt; thats with the good path</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;ytt3r&gt; now gtg</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;ytt3r&gt; bbiab</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-brick">* Unhelpful strongly suspects others of seeing the race condition he's fairly sure he fixed :/</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;Unhelpful&gt; perhaps a clean build might be needed?</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;ytt3r&gt; that was a clean build</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;ytt3r&gt; but OK</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, dang. :(</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;dasunsrule32&gt; Unhelpful: what do you need me to do?</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;ytt3r&gt; I'm building clean while I'm gone, cya in a bit</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;Unhelpful&gt; dasunsrule32: honestly i really don't know! your pastebin shows that the kernel build fails because the specified initramfs directory doesn't exist. :/</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-navy">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; ok</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;dasunsrule32&gt; mkdir -p</span><br />
