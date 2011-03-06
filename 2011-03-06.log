@@ -876,3 +876,145 @@
 <span class="irc-date">[6:57]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) Quit (Disconnected by services)</span><br />
 <span class="irc-date">[6:57]</span> <span class="irc-green">* KaikHole is now known as Kaik541</span><br />
 <span class="irc-date">[6:59]</span> <span class="irc-brick">* Unhelpful sees sqlite errors in logcat, would be nice if they gave path :P</span><br />
+<span class="irc-date">[7:02]</span> <span class="irc-black">&lt;Kaik541&gt; ROM built successfully it seems, 128 minutes to build</span><br />
+<span class="irc-date">[7:02]</span> <span class="irc-black">&lt;Kaik541&gt; guess I was underestimating the time it took me</span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;Unhelpful&gt; well, i did add a full kernel build to the process :P</span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;Unhelpful&gt; prolly 5-10min of your 128?</span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;Kaik541&gt; about 10 yeah</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;Kaik541&gt; so still about two hours to build the ROM</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;techmik67&gt; switching to laptop only...</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[7:06]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[7:08]</span> <span class="irc-black">&lt;techmik_laptop&gt; nice..... wired laptop in bedroom =P... my wiring and drilling worked.....</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-black">&lt;Kaik541&gt; time to test and see if Unhelpful's crazy new build system actually produced a flashable zip</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-black">&lt;Kaik541&gt; :P</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-black">&lt;techmik_laptop&gt; went to the kids computer next door to my room, ran his net cable into the closet, past his pc...... put the e2000 in there........ ran a cable bac out to his pc, and the 2 remaining into my room....</span><br />
+<span class="irc-date">[7:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; e3000=gateway/main router... e2000 2nd AP</span><br />
+<span class="irc-date">[7:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; dueling wifi =)</span><br />
+<span class="irc-date">[7:12]</span> <span class="irc-black">&lt;Kaik541&gt; you know how you can turn a second router into a range extender and the like</span><br />
+<span class="irc-date">[7:12]</span> <span class="irc-black">&lt;Kaik541&gt; can you use that as like a local switch?</span><br />
+<span class="irc-date">[7:12]</span> <span class="irc-black">&lt;techmik_laptop&gt; thats basically what i did</span><br />
+<span class="irc-date">[7:12]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: because i haven't been testing it all week, and coolya for a day or so, and HE NEEDS TO COMMIT HIS I9K AND VIBRANT SUPPORT ;)</span><br />
+<span class="irc-date">[7:13]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, you also thought you had committed changes to default.xml... :P</span><br />
+<span class="irc-date">[7:13]</span> <span class="irc-black">&lt;Unhelpful&gt; but he also needs to make sure it sets TARGET_ROOT_IS_RECOVERY and TARGET_BOOT_IS_RAMDISK in the target.mk files. ;)</span><br />
+<span class="irc-date">[7:13]</span> <span class="irc-black">&lt;Unhelpful&gt; the old option is gone, because the cdma models will only need TARGET_BOOT_IS_RAMDISK, and that *might* need fixing for the root FS.</span><br />
+<span class="irc-date">[7:13]</span> <span class="irc-black">&lt;Kaik541&gt; techmik_laptop, ok cool, you got any info on that? because I have a number of non-wifi devices that need internet access regularly and I've been just bridging my windows PC to them as I need them</span><br />
+<span class="irc-date">[7:14]</span> <span class="irc-black">&lt;techmik_laptop&gt; Kaik541: i told the router it is a router or ap,, NOT a gateway........ set the static ip.... e3000 is 192.168.1.1, so you make this 1.2</span><br />
+<span class="irc-date">[7:14]</span> <span class="irc-black">&lt;techmik_laptop&gt; then, the sneaky part....</span><br />
+<span class="irc-date">[7:14]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: google WDS and your router ;P</span><br />
+<span class="irc-date">[7:14]</span> <span class="irc-black">&lt;techmik_laptop&gt; IGNORE the wan port</span><br />
+<span class="irc-date">[7:14]</span> <span class="irc-black">&lt;Kaik541&gt; would I need to use dd-wrt or openwrt for this?</span><br />
+<span class="irc-date">[7:14]</span> <span class="irc-black">&lt;techmik_laptop&gt; wait, i have the link i used...</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; makes it ez</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; dd-wrt that is</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;Unhelpful&gt; any router firmware worth anything *ought* to support WDS :P</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://www.tomshardware.com/forum/20508-43-using-linksys-router-access-point">http://www.tomshardware.com/forum/20508-43-using-linksys-router-access-point</a></span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;Kaik541&gt; I've got a linksys wrt54gs2 v1</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;Kaik541&gt; to the google</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; Kaik541: if i did it easily, i have no doubt you will</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;Kaik541&gt; I don't know, I'm kind of an idiot</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;Kaik541&gt; I bricked my last router</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-brick">* Unhelpful cleaned the crap outta all his sqlite files :P</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; like i said, the weird /unexpectedpart is to not use wan port</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;Kaik541&gt; I successfully installed DD-WRT on my last router</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; just use 1 as input and other 3 as out</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;Kaik541&gt; was so excited</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;Kaik541&gt; read a hack on how to give it full access to RAM</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;Kaik541&gt; only to realize it was for the next revision of the hardware and mine didn't have it</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;Kaik541&gt; so it just went "OH SHIT" and died</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;techmik_laptop&gt; i am afraid to use the full pwer of dd-wrt</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;dasunsrule32&gt; &lt;Unhelpful&gt; hell of force closes in google service whatsis, not to mention if you extract GB gapss CM won't build w/ CYANOGEN_WITH_GOOGLE</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;dasunsrule32&gt; same issues here on my current build</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;dasunsrule32&gt; browser will funk out too</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;dasunsrule32&gt; then the gapps service starts going berserk</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;dasunsrule32&gt; seems like for me, it takes about an hour of use or so</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;dasunsrule32&gt; or leaving talk open for an extended amount of time, 5+ minutes</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;techmik_laptop&gt; odd</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;techmik_laptop&gt; i lost the little usb android guy</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;dasunsrule32&gt; hrm...how'd you do that?</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; no clue =)</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;Kaik541&gt; techmik_laptop, ah see, this method requires me running an ethernet cable between the two routers</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; or wds to go wireless</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; i went with cable, cause i want full speed in this room</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;techmik_laptop&gt; but i have both routers wifi enabled, so its like a double web</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;dasunsrule32&gt; Kaik541: what are you trying to do?</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;dasunsrule32&gt; was the router you killed a linksys?</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;dasunsrule32&gt; those are easy to revive</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;dasunsrule32&gt; tftp</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;Kaik541&gt; I have a wireless network set up, I would like to use the second wireless router (which is currently doing nothing) to receive from the currently active wireless router and share the connection through the ports on the back to my non-wireless devices</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;Kaik541&gt; tftp could never establish a connection</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;dasunsrule32&gt; hrm...nice</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;dasunsrule32&gt; for me, it had to be pinpoint timing to revive them though, or it would never work</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;dasunsrule32&gt; a knee-jerk reaction</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;Kaik541&gt; I guess what I want is for this to be a wireless repeater but to share that connection out through the wired connections</span><br />
+<span class="irc-date">[7:24]</span> <span class="irc-black">&lt;Kaik541&gt; and I've never once tried to do this before</span><br />
+<span class="irc-date">[7:24]</span> <span class="irc-black">&lt;dasunsrule32&gt; hehe, me either</span><br />
+<span class="irc-date">[7:24]</span> <span class="irc-black">&lt;dasunsrule32&gt; was curious</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;dasunsrule32&gt; have you tried using open-wrt instead?</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;Kaik541&gt; I haven't installed any custom firmware on it</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;dasunsrule32&gt; it's little more friendly</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;Kaik541&gt; it's literally been sitting on my floor for 9 months</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;dasunsrule32&gt; what model</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;Kaik541&gt; wrt54gs2 v1</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;Kaik541&gt; I don't think openwrt supports it</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;dasunsrule32&gt; depends</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;dasunsrule32&gt; looking</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;techmik_laptop&gt; kaiok, did you check that link?</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;techmik_laptop&gt; Kaik541:</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;techmik_laptop&gt; sorry</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;Kaik541&gt; yeah but I'm not finding much info here =/</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;techmik_laptop&gt; he mentions how to use wds to connect them wirelessly</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;dasunsrule32&gt; <a href="http://wiki.openwrt.org/toh/start">http://wiki.openwrt.org/toh/start</a></span><br />
+<span class="irc-date">[7:28]</span> <span class="irc-black">&lt;techmik_laptop&gt; i only glanced cause  wanted the wired instructions</span><br />
+<span class="irc-date">[7:28]</span> <span class="irc-black">&lt;dasunsrule32&gt; is that a wireless n?</span><br />
+<span class="irc-date">[7:28]</span> <span class="irc-black">&lt;Kaik541&gt; should just be b/g</span><br />
+<span class="irc-date">[7:28]</span> <span class="irc-black">&lt;dasunsrule32&gt; ah</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;Kaik541&gt; according to drwrt's site, it's supported by them</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;dasunsrule32&gt; oh, that one</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;dasunsrule32&gt; heh</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;Kaik541&gt; techmik_laptop, the link the guy points to for WDS doesn't lead anywhere</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;dasunsrule32&gt; no, it's not supported</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;techmik_laptop&gt; lol, sec... browsing google...... search 2 routers 1 network</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;techmik_laptop&gt; lots of links</span><br />
+<span class="irc-date">[7:31]</span> <span class="irc-black">&lt;Kaik541&gt; of course I have the one router that can't be safely recovered in any way with ddwrt</span><br />
+<span class="irc-date">[7:32]</span> <span class="irc-black">&lt;techmik_laptop&gt; lol, of course</span><br />
+<span class="irc-date">[7:34]</span> <span class="irc-navy">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[7:36]</span> <span class="irc-black">&lt;techmik_laptop&gt; Kaik541: <a href="http://www.dd-wrt.com/phpBB2/viewtopic.php?t=61277&amp;highlight=bricked+wrt54gs2">http://www.dd-wrt.com/phpBB2/viewtopic.php?t=61277&amp;highlight=bricked+wrt54gs2</a></span><br />
+<span class="irc-date">[7:36]</span> <span class="irc-black">&lt;techmik_laptop&gt; scroll down to donny's answer</span><br />
+<span class="irc-date">[7:37]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[7:37]</span> <span class="irc-black">&lt;techmik_laptop&gt; hi coolya... unhelpful was lookin for ya =)</span><br />
+<span class="irc-date">[7:37]</span> <span class="irc-black">&lt;coolya&gt; hi</span><br />
+<span class="irc-date">[7:38]</span> <span class="irc-black">&lt;techmik_laptop&gt; we are using his method to build.....</span><br />
+<span class="irc-date">[7:38]</span> <span class="irc-black">&lt;coolya&gt; eah</span><br />
+<span class="irc-date">[7:38]</span> <span class="irc-black">&lt;techmik_laptop&gt; so far so good</span><br />
+<span class="irc-date">[7:38]</span> <span class="irc-black">&lt;coolya&gt; then i will push my things</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;techmik_laptop&gt; if you remember "make mrproper"</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-green">* stickpin (~stickpin@80.178.4.245.adsl.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[7:47]</span> <span class="irc-green">* ciwrl is now known as ciwrl|away</span><br />
+<span class="irc-date">[7:49]</span> <span class="irc-black">&lt;Unhelpful&gt; FCs seem better, yay.</span><br />
+<span class="irc-date">[7:49]</span> <span class="irc-black">&lt;techmik_laptop&gt; i need a smart, code type person to look at something...... arch/arm/mach-s5pv210/mach-aries.c</span><br />
+<span class="irc-date">[7:49]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: you need to update before pushing, see the pushed captivate changes.</span><br />
+<span class="irc-date">[7:50]</span> <span class="irc-black">&lt;coolya&gt; i saw, i'm working on it</span><br />
+<span class="irc-date">[7:50]</span> <span class="irc-black">&lt;coolya&gt; techmik_laptop: what do you wanted to know in there ?</span><br />
+<span class="irc-date">[7:50]</span> <span class="irc-black">&lt;techmik_laptop&gt; i'm just browsing around thru stuff i was trying to help atinm with last nite...</span><br />
+<span class="irc-date">[7:50]</span> <span class="irc-black">&lt;techmik_laptop&gt; and i see something, but i dont kow code so it may be correct</span><br />
+<span class="irc-date">[7:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; line 121</span><br />
+<span class="irc-date">[7:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; 120-124</span><br />
+<span class="irc-date">[7:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; it just looks like the NATURAL progression would have 121 as * 256</span><br />
+<span class="irc-date">[7:52]</span> <span class="irc-brick">* techmik_laptop spitballing here....</span><br />
+<span class="irc-date">[7:52]</span> <span class="irc-black">&lt;Kaik541&gt; well I'm gonna try to get ddwrt on here, probably a terrible idea... WOO</span><br />
+<span class="irc-date">[7:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; or is it correct as is? we also found a typo in Kconfog</span><br />
+<span class="irc-date">[7:54]</span> <span class="irc-green">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[7:54]</span> <span class="irc-black">&lt;techmik_laptop&gt; CAPTIVATE_SGH_I987</span><br />
+<span class="irc-date">[7:54]</span> <span class="irc-black">&lt;dasunsrule32&gt; aye, I NEED MY NEW LAPTOP</span><br />
+<span class="irc-date">[7:54]</span> <span class="irc-black">&lt;coolya&gt; if noone changed it it is the same code as in froyo</span><br />
+<span class="irc-date">[7:54]</span> <span class="irc-black">&lt;dasunsrule32&gt; hehe</span><br />
+<span class="irc-date">[7:54]</span> <span class="irc-black">&lt;techmik_laptop&gt; i'm looking locally, not on hacksung</span><br />
+<span class="irc-date">[7:55]</span> <span class="irc-brick">* dasunsrule32 build needs to finish</span><br />
+<span class="irc-date">[7:55]</span> <span class="irc-black">&lt;dasunsrule32&gt; o.O</span><br />
+<span class="irc-date">[7:55]</span> <span class="irc-brick">* dasunsrule32 is falling asleep</span><br />
+<span class="irc-date">[7:59]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
