@@ -235,3 +235,62 @@
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;atinm&gt; more fun == "no one telling him he needs to give back source to the open source community under GPL"</span><br />
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;atinm&gt; which basically means he's never going to release a kernel again</span><br />
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;atinm&gt; I wish Android wasn't Apache license..</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;ytt3r&gt; who hissyfitted?</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;atinm&gt; eugene</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;Unhelpful&gt; it wolud need to be, though, or to have a plugin exception clause to allow closed runtime libraries, or it wouldn't work for manufacturers :(</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;atinm&gt; yeah . . . still, sort of a pity that people like him are using what is open source and closing it</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;atinm&gt; while using anything others in the community contribute.</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;Unhelpful&gt; does teamhacksung not know that we have a fork for android_build?</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, when I tried running ./build.sh captivate otapackage I get <a href="http://pastebin.com/m76dsHLW">http://pastebin.com/m76dsHLW</a></span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;Kaik541&gt; kernel was never built it seems</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: i was afraid something like this might happen, you need the new forked android_build. :/</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;Kaik541&gt; well poopy</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;Kaik541&gt; so the repo's xml has to be pointed to the new android_build or else this method will not work</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;techmik67&gt; so if i git clone it and replace my build directory it should work, yes?</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;Kaik541&gt; I saw (what looked like) it trying to build the kernel at the start of the build though</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;Unhelpful&gt; i *already* checked in the change to the xml.</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;Kaik541&gt; hmm then why did it not come down with my repo sync? :(</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;Unhelpful&gt; the trouble imo is probably that the xml treats teamhacksung@github and CyanogenMod@github as the same remote.</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;Unhelpful&gt; so the remote didn't change, just the paths. :/</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="https://github.com/teamhacksung/android/blob/gingerbread/default.xml#L22">https://github.com/teamhacksung/android/blob/gingerbread/default.xml#L22</a></span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;Kaik541&gt; just change that?</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread Andrew Mahone * a270043 (1 files in 1 dirs): Fork android_build. - <a href="http://bit.ly/eLx9aM">http://bit.ly/eLx9aM</a></span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;Unhelpful&gt; huh, i thought i had pushed that already ;)</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;chek0v&gt; ./wrists</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;techmik67&gt; i just synced and got a new manifest</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;Kaik541&gt; haha, so it should work now if I resync</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;Unhelpful&gt; should</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;Unhelpful&gt; these macros break my brain: <a href="http://pastie.org/1638323">http://pastie.org/1638323</a></span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-green">* birdman (~Steven@border.benihana.com) has joined this channel.</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;techmik67&gt; scary stuff =</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;techmik67&gt; )</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;Unhelpful&gt; const_add will return the other operand if either operand can be determined to be constant and is zero. const_mul will return 0 under the same condition. and yes, gcc really really will apparently do an add (a,b) even if it knows one is zero. :(</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-black">&lt;chek0v&gt; Unhelpful: lol</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-black">&lt;Unhelpful&gt; yet it will not do anything for x * 1</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;chek0v&gt; is it a fair comparison?&gt;</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;chek0v&gt; an operator vs a function call</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;Unhelpful&gt; it's a macro, not a function call.</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;chek0v&gt; ah</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;chek0v&gt; still</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;chek0v&gt; i guess id want to se the macro :P</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;Unhelpful&gt; __builtin_constant_p is a builtin that returns whether the compiler knows if the expression is constant or not, so it's clearly not a function in the normal sense ;)</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;chek0v&gt; no, the __ helps</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;chek0v&gt; :P</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;Unhelpful&gt; ...they're the ones i just pastebinned :)</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;chek0v&gt; see ther eyou go assuming i read anythign other than like the last 2 lines of conversation :P</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-black">&lt;techmik67&gt; apparantly, this project is "old"</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-black">&lt;chek0v&gt; yeah. thats pretty baller</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-black">&lt;chek0v&gt; im sure thats useful to somebody, somewhere</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;techmik67&gt; [23:39] &lt;designgears&gt; YAY, OMG, WHY HAVE CM ON THE CAPTIVATE (now that is is 8months only and everyone is itching to move to something better)</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;techmik67&gt; so much hate</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;chek0v&gt; lol</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;techmik67&gt; cant we all just get along?</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;chek0v&gt; why did he waste all this time on fucking captivate roms then</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;chek0v&gt; its 8 months old</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;chek0v&gt; nobody gives a shit right?</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;chek0v&gt; you knew he had to get butt hurt.</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;Unhelpful&gt; chek0v: i'm using them now! i'm doing some things with vectors that i know have compile-time constant zeroes, but i wanted a generic macro to do the manipulations rather than have to decompose the whole operation myself and eliminate the zero terms.</span><br />
