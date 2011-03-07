@@ -562,3 +562,69 @@
 <span class="irc-date">[7:59]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, yeah, me too</span><br />
 <span class="irc-date">[7:59]</span> <span class="irc-black">&lt;evaluate&gt; never have I been so glad to be wrong :-p</span><br />
 <span class="irc-date">[8:00]</span> <span class="irc-black">&lt;dudyk&gt; Google gave them the GB sources to get the Nexus S out...</span><br />
+<span class="irc-date">[8:00]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, but i9000 != nexus s</span><br />
+<span class="irc-date">[8:00]</span> <span class="irc-black">&lt;Kaik541&gt; porting over the touchwiz framework is a pretty big thing, all things considered</span><br />
+<span class="irc-date">[8:02]</span> <span class="irc-black">&lt;dudyk&gt; anyway, I always thought, if you want something done, do it yourself</span><br />
+<span class="irc-date">[8:03]</span> <span class="irc-black">&lt;dudyk&gt; anybody has an issue of data not connecting after return from flight mode?</span><br />
+<span class="irc-date">[8:09]</span> <span class="irc-black">&lt;evaluate&gt; coolya, hey. I see you fixed the boot into recovery problem? :-)</span><br />
+<span class="irc-date">[8:09]</span> <span class="irc-black">&lt;coolya&gt; hmm? noo</span><br />
+<span class="irc-date">[8:09]</span> <span class="irc-black">&lt;evaluate&gt; coolya, ohh, thought this would fix it: <a href="http://review.cyanogenmod.com/#change,3344">http://review.cyanogenmod.com/#change,3344</a></span><br />
+<span class="irc-date">[8:09]</span> <span class="irc-black">&lt;evaluate&gt; :-p</span><br />
+<span class="irc-date">[8:10]</span> <span class="irc-black">&lt;coolya&gt; thats is booting into recovery not "reboot recovery" :-P</span><br />
+<span class="irc-date">[8:10]</span> <span class="irc-black">&lt;evaluate&gt; ohh, aight</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;coolya&gt; samsung gave us a sencond partition for recovery but didn't use it</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;Kaik541&gt; lucky EPIC gets to use it</span><br />
+<span class="irc-date">[8:13]</span> <span class="irc-green">* uberushaximus (~uberushax@71-13-134-35.dhcp.ftbg.wi.charter.com) has joined this channel.</span><br />
+<span class="irc-date">[8:14]</span> <span class="irc-black">&lt;evaluate&gt; coolya, any success with the wifi reboot?</span><br />
+<span class="irc-date">[8:15]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[8:15]</span> <span class="irc-black">&lt;coolya&gt; added a bunch of debug output to see whats going on.</span><br />
+<span class="irc-date">[8:15]</span> <span class="irc-black">&lt;coolya&gt; but it looks really weird</span><br />
+<span class="irc-date">[8:18]</span> <span class="irc-black">&lt;evaluate&gt; did you try printing out some of the info from 'func' in the sdio_claim_host function (right before the bug)?</span><br />
+<span class="irc-date">[8:19]</span> <span class="irc-black">&lt;evaluate&gt; struct sdio_func seems to contain some interesting stuff, couldn't we use that stuff to know where the reference came from (or do we know that already)?</span><br />
+<span class="irc-date">[8:19]</span> <span class="irc-black">&lt;coolya&gt; i need to know who deleted the memory ...</span><br />
+<span class="irc-date">[8:20]</span> <span class="irc-black">&lt;evaluate&gt; couldn't you somehow watch that memory part?</span><br />
+<span class="irc-date">[8:20]</span> <span class="irc-black">&lt;coolya&gt; lol that is C aka  Macro Assembler :-P</span><br />
+<span class="irc-date">[8:20]</span> <span class="irc-black">&lt;evaluate&gt; There's always a way! :-p</span><br />
+<span class="irc-date">[8:23]</span> <span class="irc-black">&lt;evaluate&gt; coolya, the stuff from './drivers/net/wireless/bcm4329/bcmsdh_sdmmc.c' is referencing this function, right?</span><br />
+<span class="irc-date">[8:24]</span> <span class="irc-black">&lt;coolya&gt; i have no source on the tablet i'm on :P</span><br />
+<span class="irc-date">[8:24]</span> <span class="irc-black">&lt;evaluate&gt; ohh</span><br />
+<span class="irc-date">[8:24]</span> <span class="irc-black">&lt;Kaik541&gt; psht, who doesn't carry around all their source code all the time?</span><br />
+<span class="irc-date">[8:25]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, wanted to say that this might be the reason why github was "invented", but meh :-p</span><br />
+<span class="irc-date">[8:25]</span> <span class="irc-black">&lt;Kaik541&gt; I *git* what you mean :P</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;coolya&gt; git sux no one need source controll systems :-P</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;coolya&gt; why use git if you can have tarballs and diff :-D</span><br />
+<span class="irc-date">[8:27]</span> <span class="irc-black">&lt;mikebeecham&gt;  evaluate using the stock gingerbread launcher...and it's stopped doing it now! No worries</span><br />
+<span class="irc-date">[8:27]</span> <span class="irc-black">&lt;mikebeecham&gt; Kaik541, couldnt run a live wallpaper - would be scared of the battery drain :D</span><br />
+<span class="irc-date">[8:27]</span> <span class="irc-black">&lt;Kaik541&gt; uses less than 2% on my device</span><br />
+<span class="irc-date">[8:28]</span> <span class="irc-black">&lt;mikebeecham&gt; hmmm</span><br />
+<span class="irc-date">[8:28]</span> <span class="irc-black">&lt;mikebeecham&gt; lol</span><br />
+<span class="irc-date">[8:28]</span> <span class="irc-black">&lt;mikebeecham&gt; hmmm</span><br />
+<span class="irc-date">[8:29]</span> <span class="irc-black">&lt;mikebeecham&gt; evaluate, boot loop sorted?</span><br />
+<span class="irc-date">[8:30]</span> <span class="irc-black">&lt;mikebeecham&gt; right..I'm off to work for a couple of hours. I should be back about 2.</span><br />
+<span class="irc-date">[8:30]</span> <span class="irc-black">&lt;mikebeecham&gt; evaluate, if you get round to looking at the icons, etc and you have a working apk, would you mind dropping it into dropbox? I can then check it at work</span><br />
+<span class="irc-date">[8:30]</span> <span class="irc-black">&lt;mikebeecham&gt; chars!</span><br />
+<span class="irc-date">[8:33]</span> <span class="irc-black">&lt;dudyk&gt; anyone else having an issue with data after exiting flight mode?</span><br />
+<span class="irc-date">[8:35]</span> <span class="irc-black">&lt;coolya&gt; i will try it in a sec</span><br />
+<span class="irc-date">[8:35]</span> <span class="irc-black">&lt;evaluate&gt; dudyk, my data doesn't work at all, so no idea about flight mode :-p</span><br />
+<span class="irc-date">[8:36]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, yup, I hope to be able to finish the theme in a couple of hours, I'm at work right now, so stuff takes a bit longer :-)</span><br />
+<span class="irc-date">[8:37]</span> <span class="irc-black">&lt;dudyk&gt; evaluate: what do you mean doesn't work at all?</span><br />
+<span class="irc-date">[8:37]</span> <span class="irc-black">&lt;coolya&gt; I should really get up now</span><br />
+<span class="irc-date">[8:38]</span> <span class="irc-black">&lt;evaluate&gt; dudyk, well, just that. It doesn't work. My settings seem to be correct, if I enable data, nothing happens.</span><br />
+<span class="irc-date">[8:39]</span> <span class="irc-black">&lt;evaluate&gt; I gave up on that though, since I use Wifi most of the time anyway.</span><br />
+<span class="irc-date">[8:39]</span> <span class="irc-black">&lt;coolya&gt; evaluate: you were vaderphone?</span><br />
+<span class="irc-date">[8:40]</span> <span class="irc-black">&lt;evaluate&gt; logcat doesn't seem helpful either, it just outputs <a href="http://pastebin.com/nmu5iKXC">http://pastebin.com/nmu5iKXC</a> (when I tick/untick 'Data enabled')</span><br />
+<span class="irc-date">[8:40]</span> <span class="irc-black">&lt;evaluate&gt; coolya, Vodafone, yes</span><br />
+<span class="irc-date">[8:41]</span> <span class="irc-black">&lt;coolya&gt; evaluate: logact -b radio will give us some more info</span><br />
+<span class="irc-date">[8:41]</span> <span class="irc-black">&lt;evaluate&gt; hmm, let's see</span><br />
+<span class="irc-date">[8:43]</span> <span class="irc-black">&lt;evaluate&gt; coolya, <a href="http://pastebin.com/D7Hxj1Cd">http://pastebin.com/D7Hxj1Cd</a> -- could that "UMTS CSS not supported" be related?</span><br />
+<span class="irc-date">[8:44]</span> <span class="irc-black">&lt;evaluate&gt; I've no friggin idea what all these acronyms really mean and wtf I use to connect to internet on my phone, so I don't know what should be enabled and what not.</span><br />
+<span class="irc-date">[8:44]</span> <span class="irc-black">&lt;evaluate&gt; But I'd think UMTS should be supported in the Galaxy S, shouldn't it?</span><br />
+<span class="irc-date">[8:44]</span> <span class="irc-black">&lt;coolya&gt; it is</span><br />
+<span class="irc-date">[8:44]</span> <span class="irc-black">&lt;coolya&gt; does it show any apn andress in the log?</span><br />
+<span class="irc-date">[8:45]</span> <span class="irc-black">&lt;dudyk&gt; Does the stock rom work?</span><br />
+<span class="irc-date">[8:45]</span> <span class="irc-black">&lt;evaluate&gt; coolya, I've no idea how that should look, let me paste a bit of the log output</span><br />
+<span class="irc-date">[8:45]</span> <span class="irc-black">&lt;evaluate&gt; dudyk, yup, 3G worked perfectly fine with the stock rom.</span><br />
+<span class="irc-date">[8:46]</span> <span class="irc-black">&lt;evaluate&gt; coolya, <a href="http://pastebin.com/z78U81Ua">http://pastebin.com/z78U81Ua</a></span><br />
+<span class="irc-date">[8:47]</span> <span class="irc-black">&lt;evaluate&gt; coolya, hope that's enough, if not I can paste more...</span><br />
+<span class="irc-date">[8:50]</span> <span class="irc-black">&lt;dudyk&gt; the CSS thing is not the issue, it seems like a flag that is not set</span><br />
+<span class="irc-date">[8:51]</span> <span class="irc-black">&lt;dudyk&gt; sorry, I'm not felling well... going to rest... I'll try to help when I'll wake up.</span><br />
