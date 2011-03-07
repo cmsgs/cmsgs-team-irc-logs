@@ -398,3 +398,40 @@
 <span class="irc-date">[3:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://www.pastie.org/1641805">http://www.pastie.org/1641805</a></span><br />
 <span class="irc-date">[3:47]</span> <span class="irc-black">&lt;techmik67&gt; i dont have a problem with it making both, just noting it</span><br />
 <span class="irc-date">[3:56]</span> <span class="irc-green">* ciwrl is now known as ciwrl|bbl</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: let me know if you need extra testing.... will probably be up for a while......</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;Unhelpful&gt; do you have sanity in a bottle? because i used to be better at maths, and now i have to flip back and forth between references. :P</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;techmik67&gt; lol, i have depakote =) sanity for me in a bottle =P</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;Unhelpful&gt; and as the pirate in the bar w/ the mysterious ship's wheel on the front of his pants said to the bartender, YAAAARRRRR IT'S DRIVIN' ME NUTS</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;techmik67&gt; no transporter device tho =(</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-black">&lt;techmik67&gt; i wanna be the 1st on my block to have REAL reorient and, by extension, a properly working camera =P</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;Unhelpful&gt; honestly i just want it not to take more than a minute for make to build sensors.aries, and not to spend another minute rebooting to test it.</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;techmik67&gt; do you really HAVE to make clean each time?</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;techmik67&gt; oh, this is kernel, right?</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;techmik67&gt; takes me 6 mins to build kernel</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: no, it's *only* rebuilding sensors.aries, but make takes a ridiculous amount of time per invocation to actually do anything.besides think about what to build.</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-navy">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;Unhelpful&gt; it takes 51s to remake, almost all system time, presumably while it reads in all the makefiles,and checks the timestamp of every source and output file</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;techmik67&gt; i see</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;Unhelpful&gt; you've really not noticed make sitting for a minute or so before it actually starts building things?</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;techmik67&gt; i assumed it was doing things it didnt output</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;techmik67&gt; it's really just thinking =)?</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-navy">* uberushaximus (~uberushax@71-13-134-35.dhcp.ftbg.wi.charter.com) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;Unhelpful&gt; yes. the project is very large, and make works by going through a list of output targets and their input dependencies, and comparing filesystem timestamps - if an output has inputs that are newer than it, it gets rebuild.</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;techmik67&gt; ah..... nice to know....</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;techmik67&gt; hmmmm.... i am looking thru and comparing xcaliburs stuff to ours, looking for clues to problems......... at the moment, i'm looking thru the usb/gadget drivers stuff....</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;Unhelpful&gt; what exactly are you looking *for*?</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;Unhelpful&gt; camera issue still?</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;techmik67&gt; well, since i know so little,  am basically looking for anywhere i see referneces to "LUN or LUNx" or "nlun"</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;techmik67&gt; no, the usb mounting</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;Unhelpful&gt; oh.</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;techmik67&gt; i figure cam will work when reoirent is proper</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;techmik67&gt; since it works right in video and landscape jpeg</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;Unhelpful&gt; i doubt it, we *do* already have correct pitch, roll, and accelerometer readings.</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;techmik67&gt; its only portrait jpegs that are screwy</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;techmik67&gt; well, i had a logcat that showed the whole pic taking process....</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;techmik67&gt; and it CLEARLY showed 0 rotation and tehn later 90 rotation</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;techmik67&gt; with no change in actual orientation</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;techmik67&gt; and the 1st part of the line in logcat referenced "overlay"</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;techmik67&gt; so i looked thru liboverlay...... got nowhere....</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;techmik67&gt; but on usb, i am  ASSUMING that anytime i see a LUN reference, therre should be some referrence to the fact that there are 2 LUNs</span><br />
