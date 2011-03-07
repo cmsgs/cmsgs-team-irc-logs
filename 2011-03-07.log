@@ -1746,3 +1746,63 @@
 <span class="irc-date">[20:58]</span> <span class="irc-black">&lt;nitam|work&gt; argh! and 4 player recovery.</span><br />
 <span class="irc-date">[20:58]</span> <span class="irc-black">&lt;nitam|work&gt; wtf is this about anyway</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;coolya&gt; sry but, voodoo isn't any black magic ... it is "just" reading the docs and conding with them</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;nitam|work&gt; yes, I figured as much - he managed to get wolfson docs.</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;nitam|work&gt; it should just be part of the fucking driver.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;coolya&gt; most of the code is the sysfs interface</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-green">* thedood is now known as tigersblood</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;nitam|work&gt; coolya: how about "no".</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;nitam|work&gt; going to look at the sound patch too once mic is working - the hook code could mostly get folded in from what I could tell</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;coolya&gt; the two patches he added to that branch look good</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;nitam|work&gt; I thought he mean patch as in the one with the wm8994_voodoo.x files</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;coolya&gt; yeah he wants that we apply the "full" voodoo driver</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;coolya&gt; if you want to we talk to him in #SGSport</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;nitam|work&gt; did he also attach a patch somewhere - I don't see it, just the source tree.</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;nitam|work&gt; and its commits.</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; and those two commits are good, yes.</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;Unhelpful&gt; OK! there are numbers in yas529_cdrv_init comments saying what the transform matrix.</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;Unhelpful&gt; *is*. :P</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;Unhelpful&gt; these mean *nothing* :/</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;coolya&gt; xD</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-green">* tigersblood is now known as thedood</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;Unhelpful&gt; what *really* happens is that we read what is supposedly the transform matrix from i2c - this makes some sort of sense, i guess, the device would need little memory to store it, and the manufacturer can then vary the alignment and sensitivity of axes in future products without a new driver.</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-green">* Saelynh (~Saelynh@2a01:e35:2f3f:7430:7963:3b49:180c:bb6a) has joined this channel.</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;nitam|work&gt; coolya: do you know what he means by unified sound patch?</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;coolya&gt; the full one with the sysfs interface</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;nitam|work&gt; he has that as one commit somewhere? or is it a real patch file somewhere</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;coolya&gt; there is a branch with that</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;nitam|work&gt; k</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;Unhelpful&gt; however the code that reads this in makes very little sense. we stuff a const 100 in the first matrix entry, and then treat the *nine* bytes read as *8* packed 6-bit values, discarding the rest.</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;Unhelpful&gt; actually, they're not all the same size. hrm. i wonder what the other bytes are?</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;coolya&gt; ahhhh</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;coolya&gt; strnage things going on</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; The correct way to declare a function in bash?</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; function &lt;name&gt; {command}</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;dasunsrule32&gt; then call it later by: &lt;name&gt;;</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; and can it be called within an if/then (don't see why it couldn't?)</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; so something like this? <a href="http://pastebin.com/ZvHzdpn2">http://pastebin.com/ZvHzdpn2</a></span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;evaluate&gt; dasunsrule32, drop the 'function' part</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;evaluate&gt; the rest should work</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;dasunsrule32&gt; hrm?</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;evaluate&gt; I have to go to sleep now, will be back in around 8 hours</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;evaluate&gt; dasunsrule32, just delete 'function '</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;evaluate&gt; you don't use 'function' in bash to declare a new function</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;evaluate&gt; you just declare it</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;dasunsrule32&gt; wierf</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;dasunsrule32&gt; d</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;dasunsrule32&gt; <a href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-8.html">http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-8.html</a></span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;evaluate&gt; my_function() { /do_something; }</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;dasunsrule32&gt; I was looking at that</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;dasunsrule32&gt; similar to C functiins?</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;evaluate&gt; hmm, I never used function</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;evaluate&gt; anyway, have to go now, cya'll later</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;evaluate&gt; Good night and happy hacking!</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;dasunsrule32&gt; c does use function ()</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;dasunsrule32&gt; lata</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;dasunsrule32&gt; c does use function()</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-navy">* evaluate (~cristi@unaffiliated/evaluate) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;nitam|work&gt; dasunsrule32: looks right</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;dasunsrule32&gt; mnita|work: ok, i needed a func, it was getting really wordy</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;dasunsrule32&gt; thx</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
