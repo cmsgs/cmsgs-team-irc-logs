@@ -1606,3 +1606,143 @@
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;uberushaximus&gt; iirc, the color render stuff is all done with an opengl layer</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; uberushaximus: yes</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; and there is no plugin its just a case statement with different opengl operations</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;nitam|work&gt; rm -rf twitter.com</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;uberushaximus&gt; the color stuff with voodoo control is pretty neat</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; (since coolya rm'ed facebook already)</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; coolya, he understands you (maybe its a european thing ;) ) - I'm not responding.</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;nitam|work&gt; especially since I haven't brushed up on alsa details.</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;nitam|work&gt; just know what unhelpful told me :)</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;coolya&gt; uberushaximus: for me it is to device specific stuff. why pust all the work in a kernel if it can be more portable in the surface flinger.</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;nitam|work&gt; and trust that he knows better because he doesn't want to have voodoo anywhere ;)</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: yes i talked to him last night about the light sensor.</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;nitam|work&gt; ours isn't working well is it.</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;nitam|work&gt; urk. crash . .. back later.</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: we went through this debate in rockbox. devices with meaningful tone controls offer hw controls *and* dsp.</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-green">* enlightened (~d0r1@host232-67-dynamic.252-95-r.retail.telecomitalia.it) has joined this channel.</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;uberushaximus&gt; I've been having problems with it on straight 2.3.3 for a while</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: do you have an explanation for what you're *trying* to do with these sums of values of obscenely different scales?</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: from the light sensor ?</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;coolya&gt; i wanted to change the libsensor driver, currently it just does a adc look up to a table and return the lux value from that table.</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-green">* enlightened is now known as enl_</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;coolya&gt; i wanted to get rid of the table and calculate the lux value from the adc value</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;coolya&gt; but its not linear or exponential</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;Unhelpful&gt; ...what *is* it, exactly?</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;Unhelpful&gt; you tried to fit the table w/ some kind of polynomial curve-fitting or something?</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;coolya&gt; exactly</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;mikebeecham&gt; evaluate, what is the current position with the theme?</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, what do you mean with position?</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;coolya&gt; but i didn't talk about that with him. he had some issue with the light sensor when it measures much light</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: it would be an improvement *just* to linearly interpolate between the table entries, no?</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;mikebeecham&gt; where are we with it?</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;mikebeecham&gt; all done?</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: yes it would be</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;mikebeecham&gt; I'm just looking at an icon for it...what size does it need to be?</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;evaluate&gt; well, I'm still awaiting feedback from codeworkx</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-brick">* evaluate pokes codeworkx </span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;Unhelpful&gt; afaict right now it just spits out the nearest table entry? i only see a few fixed values in the sensor reading, ever.</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, <a href="http://developer.android.com/guide/practices/ui_guidelines/icon_design.html">http://developer.android.com/guide/practices/ui_guidelines/icon_design.html</a> seems 72x72 would be best</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: yes it look what adc in the table is nearest and returns it</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: need some LERP up ins. ;)</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;evaluate&gt; yes?</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: ??? what? i'm not a native speaker :-P</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: lerp is jargon for Linear intERPolation. and "up ins" is slang that would be best translated as "here" :)</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: you've poked meeh</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: ahhh :-)</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;coolya&gt; now i understand it</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, we need some feedback on the icons. Are they ok, will they be integrated or do you want us to create a theme on top of the system one?</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;evaluate&gt; (I mean separate apk package, like it is now)</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;Unhelpful&gt; if you want to make it nicer, you could fit some sort of spline to several of the neighboring table entries. but LERP would likely be sufficient if there are enough.</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;mikebeecham&gt; evaluate, I think we should implement these icons into stock.</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;mikebeecham&gt; then create a new theme</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;mikebeecham&gt; would you agree codeworkx ?</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;Unhelpful&gt; do you know what curve the light sensor is *expected* to have, beyond a table giving a few points on it?</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;codeworkx&gt; think we can integrate the sources and build it</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;coolya&gt; i think i can add that :-) when wifi fails, i really need something that is easy to fix :-D</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, you mean the images, that actually all that's needed</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;mikebeecham&gt; evaluate, codeworkx excellent</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: I can measure it, i have a lux meter. but i didn't find any datasheet</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: ah. dang. :/</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;codeworkx&gt; look at github.com/tmobile</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;Unhelpful&gt; do you have a text file of the mapping? maybe we could find a curve to fit it that we *can* calculate.</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;mikebeecham&gt; bbs</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;coolya&gt; let me paste it</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, who? me? I've seen that already...</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;coolya&gt; currenty i only have the values from the driver</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;coolya&gt; but i could try to measure more</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;Unhelpful&gt; am i right in thinking that there are two inputs for the geomagnetic sensor, and that the "raw" one is genuinely gving un-messed-with outputs?</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: yes</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;Unhelpful&gt; is there any convenient way to *see* that?</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: Guipert was working on it, i only ported the driver itself. Guiper wanted to make it report right values</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;Unhelpful&gt; so easiest is maybe a quick hack to make "real" values raw? ;)</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;coolya&gt; i think so ;-)</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: that is the current table <a href="http://pastebin.com/dzyPPpEB">http://pastebin.com/dzyPPpEB</a></span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;Unhelpful&gt; or to get my laptop, my cable, and my frying pan in the same place, and use input-events?</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Unhelpful&gt; wtf pastebin. anything i look at there is screwed by the div w/ the text appearing to the *right* of the banner ad. :/</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;techmik67&gt; i had that with pastebin last nite</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;techmik67&gt; used pastie instead</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;nitam|work&gt; I do prefer pastie myself</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;nitam|work&gt; and for some reason teamhacksung.pastebin.com doesn't work anymore</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;nitam|work&gt; and generic pastie is better imo</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;nitam|work&gt; market exchanges programmers would never pass code review at a real company.</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;nitam|work&gt; one of the markets I target had a bug today and they expect us to restart sequence numbering at 0 because they *lost* messages but then still expect to be able to ask for retransmits . . .</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: i am having that with *all* pastebin, i can only see code in raw view ;(</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;nitam|work&gt; so when they ask for a retransmit of msg 100 - we go WTF! you actually expect us to maintain two sets of sequence numbers now?</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;techmik67&gt; all paste type sites??? wow</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;dasunsrule32&gt; data connected automagically this time on reboot</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: no, with all things *on pastebin*, for the past couple of days.</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;dasunsrule32&gt; on a fresh build from today</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;techmik67&gt; ah... use www.pastie.org</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: don't tell *me*!</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;nitam|work&gt; @coolya WTF we expected to do a diff?</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;Unhelpful&gt; *i'm* not the one who pasted these unreadable things!</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;techmik67&gt; i just found out about BOTH those sites in the last 2 weeks</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;nitam|work&gt; re: latest tweet.</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: ? what tweet ?</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: here's the problem w/ that table, which points to map. ;)</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;Unhelpful&gt; 0-150 maps to 10lux, but do we plot (0,10), (75,10), or (150,10)?</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: yes i took the center between the two</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;coolya&gt; i took 75, 10</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;nitam|work&gt; for-google branch.</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: do your meter readings back that up?</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;nitam|work&gt; wonder what google thinks ;)</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: the adc is really noisy :-(</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: average over a long period of exposure to the same light source? :/</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: i added some filtering to the kernel with an length of 3 seconds</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;coolya&gt; but at higher adc levels it still not stable</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;coolya&gt; i will try some more tomorrow</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;dasunsrule32&gt; dang, build.prop isn't pulling in my DPI change on the build from today</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;techmik67&gt; lol, Kaik541 ...... magic and gnomes......</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;Kaik541&gt; well he asked "how" not "how well"</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;dasunsrule32&gt; Any ideas why the DPI setting won't change, even though I changed it in the build.prop?</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;coolya&gt; dasunsrule32: rm -rf $OUT</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;coolya&gt; then build</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;dasunsrule32&gt; this is a fresh build</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;coolya&gt; there is a bug in the build system that is there for a long time</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;dasunsrule32&gt; and a new repo</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;coolya&gt; hmm ok thats bad</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;coolya&gt; then it should work</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;dasunsrule32&gt; i wiped out the repo as of last night</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;dasunsrule32&gt; :-/</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;coolya&gt; heimdall</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;coolya&gt; argh</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;dasunsrule32&gt; are</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;dasunsrule32&gt; argh</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;dasunsrule32&gt; sutpid repo says it's not installed now</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;evaluate&gt; you have to repo init again</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;dasunsrule32&gt; yea, i got that</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;dasunsrule32&gt; :D</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;dasunsrule32&gt; thx</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;dasunsrule32&gt; learn something new about github everday</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: funny, i add a debug output to yas529_cdrv_init where the matrixappears to be set, and nothing happens :/</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;coolya&gt; huh</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;coolya&gt; :-(</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;nitam|work&gt; crap, infinite bootloop</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-brick">* coolya is looking at the voodoo code</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://pastie.org/1644740">http://pastie.org/1644740</a></span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;nitam|work&gt; argh! and 4 player recovery.</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;nitam|work&gt; wtf is this about anyway</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;coolya&gt; sry but, voodoo isn't any black magic ... it is "just" reading the docs and conding with them</span><br />
