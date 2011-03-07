@@ -1806,3 +1806,102 @@
 <span class="irc-date">[21:48]</span> <span class="irc-black">&lt;dasunsrule32&gt; mnita|work: ok, i needed a func, it was getting really wordy</span><br />
 <span class="irc-date">[21:50]</span> <span class="irc-black">&lt;dasunsrule32&gt; thx</span><br />
 <span class="irc-date">[21:58]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;dasunsrule32&gt; Anyone care to critique me? <a href="http://pastebin.com/qPckmNEB">http://pastebin.com/qPckmNEB</a></span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;mbizzle&gt; is this your personal script?</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;dasunsrule32&gt; yes</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;mbizzle&gt; or one you want to give anyone?</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;dasunsrule32&gt; I just wrote it</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;mbizzle&gt; you have your path hard set</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;mbizzle&gt; to your build directory</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;dasunsrule32&gt; I just want someone to critiqe it and see if it looks good or recommend changes</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;mbizzle&gt; you can change it to ~/android/system</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;dasunsrule32&gt; well, if I'm running the script as root, that won't work</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;dasunsrule32&gt; i need root to move it to the web server</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;dasunsrule32&gt; ~/ that would look @ /root</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;mbizzle&gt; you can't su?</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;mikebeecham&gt;  evening all</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;mbizzle&gt; what distro are you using?</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;dasunsrule32&gt; hrm?</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;coolya&gt; ubuntu</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;dasunsrule32&gt; I am running ubuntu 10.04</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;dasunsrule32&gt; but, i don't use sudo</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;dasunsrule32&gt; its su</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;dasunsrule32&gt; :D</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;dasunsrule32&gt; becasue is use my local account to ssh in, so i don't want it having sudo rights :D</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;dasunsrule32&gt; in cron, it will be running the script as root, so I wouldn't need to use su</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;dasunsrule32&gt; but, if i ran at as the local user, how would I pass the password for root to the su -c in the shell script?</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;mbizzle&gt; personally, I have my source somewhere else than a user's /home anyway</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;dasunsrule32&gt; true, I may move it</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;mbizzle&gt; and I don't run as root</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;mbizzle&gt; I do run as a main account with sudo rights</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;mbizzle&gt; and I elevate that account to build rights only</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;mbizzle&gt; so I su - mbizzle before I build</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;mbizzle&gt; which would take care of your ssh concern</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;mbizzle&gt; and keep you out of running as root</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;dasunsrule32&gt; how do you do that without password, ahhh..run the cron as root o.O</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;dasunsrule32&gt; hrm</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;dasunsrule32&gt; maybe i don't understand too well how that works</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;dasunsrule32&gt; :(</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;mbizzle&gt; dang I'm late for class :) I'll peek at your script while Im in there lol. I just saw the first couple lines</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;dasunsrule32&gt; ok</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;mbizzle&gt; oh are you worried about sending your password while you are ssh'd into your box?</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;dasunsrule32&gt; I would rather not send any passwords :p</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;dasunsrule32&gt; hehe</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;dasunsrule32&gt; but not really</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;dasunsrule32&gt; i'm not a high traffic domain</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;dasunsrule32&gt; I have to get going home... I will try to be on later tonight, if not tomorrow</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;mbizzle&gt; dasun, you know ssh is encrypted right?</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;dasunsrule32&gt; yes</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;dasunsrule32&gt; I do :)</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;mbizzle&gt; ok well you can also keep a hash so you dont' have to send your pass</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;dasunsrule32&gt; i know servers well, I am trying to learn scripting and programming now :)</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;dasunsrule32&gt; this script is going to run via cron</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;dasunsrule32&gt; i want it to build automagically</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;mbizzle&gt; I got you</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;dasunsrule32&gt; :)</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;dasunsrule32&gt; no intervention, just d/l the latest version at my leasiure :D</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;mbizzle&gt; yea I'll take a peek at it :) ttyl</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-navy">* codeworkx (~yaaic@95-89-111-251-dynip.superkabel.de) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;dasunsrule32&gt; it expires in an hour</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;dasunsrule32&gt; ok, lata, thanks for the critque</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;dasunsrule32&gt; :D</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;mbizzle&gt; yeah good cuz it's got your username in it lol</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@uto-atechols-2.inre.asu.edu) Quit (Quit: WeeChat 0.3.3)</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-navy">* designfears (~jayp@32.147.29.25) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Quit: leaving)</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-navy">* enl_ (~d0r1@host232-67-dynamic.252-95-r.retail.telecomitalia.it) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-green">* designfears (~jayp@32.147.29.25) has joined this channel.</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-navy">* designfears (~jayp@32.147.29.25) Quit (Client Quit)</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;nitam|work&gt; has anyone managed to get captivate to build and run recently?</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;nitam|work&gt; mine just hangs.</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;techmik67&gt; today</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;techmik67&gt; 3 hours ago</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-green">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;techmik67&gt; and just got changes when i synced again, so gonna do it again</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;techmik67&gt; you *must* be making a mistake in the *awesome* instructions.....</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;techmik67&gt; =P</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-green">* thedeanius_ (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-green">* thedeanius_ is now known as thedeanius</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;nitam|work&gt; I actually don't like the new instructions ;) - I liked having to do every damn thing myself.</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;nitam|work&gt; so I knew where everything was</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;nitam|work&gt; my recovery is like way screwed.</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;techmik67&gt; lol... i'm learning where it is....</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;nitam|work&gt; split screen views and the like</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;techmik67&gt; what is it doing?</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;techmik67&gt; oph</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;techmik67&gt; oh</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;techmik67&gt; hmm.</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;techmik67&gt; lemme make a nandroid</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;nitam|work&gt; and boot just keeps looping - pissing me off</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;nitam|work&gt; because I'm at work, so keep going back to a working image because can't keep the phone out of commission</span><br />
