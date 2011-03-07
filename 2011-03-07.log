@@ -920,3 +920,76 @@
 <span class="irc-date">[13:53]</span> <span class="irc-black">&lt;Wout`&gt; can I just do a fresh sync and build?</span><br />
 <span class="irc-date">[13:54]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
 <span class="irc-date">[13:56]</span> <span class="irc-black">&lt;Wout`&gt; kernel and otapackage are combined now, yeah? which .sh do I need to run now?</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;coolya&gt; just run . build/envsetup.sh</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;coolya&gt; brunch &lt;device&gt;</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;Wout`&gt; k</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;codeworkx&gt; anyone who wants to try uboot + fastboot?</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;Wout`&gt; are you guys any closer to merging with mainline?</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;Wout`&gt; ehm</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;Wout`&gt; how dangerous is it? :P</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;codeworkx&gt; very very dangerous xD</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;Wout`&gt; did you try it already? :P</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;codeworkx&gt; no, maybe i'll try. and use my riffbox if anything goes wrong xD</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;Wout`&gt; hmm...you have a riffbox, I don't</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;Wout`&gt; so I'll pass for now :P</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;Wout`&gt; any chance of it actually working? or is it just an experiment?</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;codeworkx&gt; got sources for s5pc110</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;codeworkx&gt; complete</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;Wout`&gt; so, if i remember correctly from my short time using it: it would mean working reboot/recovery/download mode from within android</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;Wout`&gt; ?</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;Wout`&gt; and easier flashing?</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;codeworkx&gt; ya xD</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;codeworkx&gt; and kernel partition + recovery partition</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;Wout`&gt; sounds good</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;Wout`&gt; still not trying it though :P</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;codeworkx&gt; "This script will create a u-boot binary for movinand/mmc boot"</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;codeworkx&gt; sounds better</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;stickpin&gt; what is uboot + fastboot?</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-black">&lt;codeworkx&gt; uboot = bootloader</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://android-dls.com/wiki/index.php?title=Fastboot">http://android-dls.com/wiki/index.php?title=Fastboot</a></span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-green">* designfears (~jayp@32.147.29.25) has joined this channel.</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;Wout`&gt; codeworkx: will this also enable booting kernel from sd?</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-navy">* evaluate (~cristi@unaffiliated/evaluate) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;codeworkx&gt; Wout`: with fastboot it's possible</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;Wout`&gt; cool</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;stickpin&gt; codeworkx how save it is in this stage to flash it? :)</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;codeworkx&gt; zero safe xD</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;stickpin&gt; :))</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;Wout`&gt; have you even tested if the riffbox works to revive your phone if neccesary?</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-green">* atinm (~amalaviya@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;atinm&gt; damn it.</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;atinm&gt; seem to not have saved my mic changes...</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-brick">* Unhelpful strongly suggests trying this IFF (not a typo!) you have JTAG. ;)</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;atinm&gt; and messed up one of the values I'd changed to get the mic recognized</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;atinm&gt; and I forget which..</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;atinm&gt; argh!!</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;coolya&gt; 3 null pointers fixed</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;Wout`&gt; for wifi?</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;Wout`&gt; nice</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;atinm&gt; how many more to go? :)</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;Wout`&gt; how many are there? :P</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;coolya&gt; i hope i got all now</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;codeworkx&gt; Wout`: this doesn't work for sure <a href="http://www.multi-com.pl/index.php/en_US,details,id_pr,8048,menu_mode,categories.html">http://www.multi-com.pl/index.php/en_US,details,id_pr,8048,menu_mode,categories.html</a> and with soldering i've never tried</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;Wout`&gt; too bad</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;Unhelpful&gt; (that's re: uboot)</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: find any suckers, i mean victims, i mean VOLUNTEERS yet? ;)</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;Unhelpful&gt; you could just post on xda ;)</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: you wanna try something which makes your phone blazing fast?</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;codeworkx&gt; ;-)</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: i was going to suggest being *completely honest* actually.</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;Unhelpful&gt; because there *will* be somebody dumb enough.</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;Wout`&gt; if you put up a big disclaimer in big red bold letters.....then its their fault if they brick it</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;codeworkx&gt; sure, we'll find someone who is crazy/dumb/whatever enough</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;codeworkx&gt; Wout`: if you're using red, bold font they'll flash it surely</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;codeworkx&gt; they love red</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;Wout`&gt; the thing is, if he bricks it, you wont really get any useful feedback or debug output</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;Unhelpful&gt; hey, any idea what exactly happens if there are bad blocks in the bootloader region? i assume there is something genuinely read-only that actually copies the data into RAM, because onenand is not mapped into memory, is it?</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;coolya&gt; and every disclaimer is ignored</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;Unhelpful&gt; Wout`: yes, jtag would be nice here, a knowledgeable user w/ jtag could 1) unbrick 2) possibly provide useful feedback on the failure</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-black">&lt;Unhelpful&gt; assuming we have a jtag flash utility that understands our SoC and flash chip, anyway.</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-brick">* coolya is waiting for wifi sleep</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-green">* Wout|afk (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-black">&lt;Wout|afk&gt; seems like a commercial business, but who knows, he might want to help: <a href="http://forum.xda-developers.com/showthread.php?t=916711">http://forum.xda-developers.com/showthread.php?t=916711</a></span><br />
