@@ -1069,3 +1069,100 @@
 <span class="irc-date">[15:51]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
 <span class="irc-date">[15:52]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm starting to wonder if the magnetometer is even remotely correct, though.</span><br />
 <span class="irc-date">[15:56]</span> <span class="irc-black">&lt;mikebeecham&gt; does anyone know when Evaluate with be back?</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;coolya&gt; lol supercurios tweets geting worse ...</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;chek0v&gt; ?</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;coolya&gt; his blah blah about CM7 custom kernels and voodoo</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;Wout|afk&gt; he should scrap the voodoo bs and just offer it as a clean code improvement</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;Wout|afk&gt; without any 3rd party apps</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;coolya&gt; hmm what about adding the md5 of ther kernel to some ro prop ...</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-navy">* mikebeecham (~mikebeech@92.17.210.133) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;knowsnotmuch&gt; hmmm strange ... i have had just 2% drain WITH wifi over last 40 min using JP6 modem and bilboa1's kernel</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;knowsnotmuch&gt; mostly idle though - with 2 email syncing. pretty much it</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-green">* mikebeecham (~mikebeech@92.17.210.133) has joined this channel.</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;Unhelpful&gt; calibrating magnetometrs is hard :(</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: why do that? (md5)</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;coolya&gt; just strange thoughts about custom kernels and bug reports, later in the development process.</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;Unhelpful&gt; also the trouble w/ that is we can't get the length of the kernel easily, so we might be checksumming data they don't even use.</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;Unhelpful&gt; you could could uname -r ;)</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-green">* evaluate (~cristi@unaffiliated/evaluate) has joined this channel.</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;evaluate&gt; hello everyone</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;Unhelpful&gt; btw it appears the magnetometer driver can crash things. :/</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, ping?</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: what crashed `?</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: i can make senors hang, and eventually the whole UI,including probably the kernel (last_kmsg ends w/ a watchdog reboot), by fiddling with a magnet.</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;coolya&gt; ups</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;Unhelpful&gt; it's making it rather hard to test much... i was hoping i could get a sure fix on the orientation of the magnetometer w/ a big-ass magnet. ;)</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, I'm not sure how safe it is to fiddle with a big-ass magnet around the phone but meh, it's your money :-p</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: i really can't see how it should be *unsafe*, there's no magnetic storage. :P</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;evaluate&gt; well no, but are you 100% none of the components inside are sensitive to magnetic fields?</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;Unhelpful&gt; but maybe i should try something gentler... i have large cast-iron pans that are probably substantially magnetized, and would surround and help shield from the earth's field as well.</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;techmik67&gt; if mikey dooesnt stfu i'm going to polute his thread....</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: to *static* ones? i can't imagine any are, really.</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, all of the axes show *some* reading in the pan, and i can reverse  it by flipping the phone on an axis. Z consistently produces *much* larger readings than X/Y, which read about the same.</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;Unhelpful&gt; it seems as though perhaps the Z axis is more sensitive, or that we apply a different calibration factor to it.</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, tbqh I don't know THAT much about electronic devices (especially the newest ones) but fiddling with a big-ass magnet near a electronic device never sounded like a good idea to me, but if you know it's safe, go ahead. :-)</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-brick">* evaluate goes back to theme-ing :-p</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: the chips doesn't have a real Z axis</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: a rapidly-changing (more than just me moving the magnet) magnetic field could induce currents, and that might be a problem.</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: they *what*?</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;coolya&gt; 2 y asis that are fliped with an angles again each other</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;coolya&gt; s/again/against</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;Unhelpful&gt; ...oh, you mean there are three sensors, but they're not perpendicular?</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;Unhelpful&gt; the accelerometer axes appear to be perpendicular.</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;coolya&gt; its only magnetic sensor one</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;mikebeecham&gt; evaluate</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, good to know, do we have a spec sheet for the magnetometer?</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, yeah?</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, I'm creating the theme right now with the now icons.</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;coolya&gt; nope i only have some mailinglist posts but they are german</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;mikebeecham&gt; cool</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;mikebeecham&gt; dropbox works!</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;Unhelpful&gt; one that says what its axes are? you said "two Y" so i assume there is an X, a "true" Y that is perpendicular to X and in the ground plane, and a "Z" that is also perpendicular to X and at some angle to Y?</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, what do you think about the titlebar background?</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;mikebeecham&gt; the one I created</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;mikebeecham&gt; I THINK it might be a slight tad too dark</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, I've added a small shade at the bottom so one can better see where it ends</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, no, I mean the one I created :-p</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;mikebeecham&gt; oh...there's a new version to try?</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;mikebeecham&gt; I'll go grab it</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, no, just the image</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;evaluate&gt; title_bar_portrait2.9.png</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;mikebeecham&gt; well...I recently added another one that had a light 1px line at the bottom</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;mikebeecham&gt; I'll check yours though</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: in general yes, but i don't know the angel</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;evaluate&gt; have a look at it please and tell me what you thinl</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;mikebeecham&gt; looking now</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;evaluate&gt; think*</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;mikebeecham&gt; I think we're on the righ track, but I think the light part of the gradient may be too light</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;Unhelpful&gt; in this case, we 1) need to know the angle 2) need to know if the calibrations are the same (it really really looks as though not) 3) need to do more than just multiply each by a scalefactor.</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;mikebeecham&gt; if you could tone it down to something betweem the dark grey and yours we might have a winner</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: I ask all the people on that mailling list to get the docs but they all had to sign an NDA</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;mikebeecham&gt; I wish there was an easy way for me to make amendments then test on my phone</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;mikebeecham&gt; I can check these things more realtime then :S</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: and they really can't even state th angle between the axes or the calibration on each? that's *insane*.</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;coolya&gt; yamaha provides some source to do the translation. give me a second</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;coolya&gt; i think there was something on a meego kernel mailing list</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: ok, if there's something open that can translate the axes, that is a very very good first step :D</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, let me check it like this first and see how it looks. BTW, do you think you could also create some nice icons for battery/signal/wifi/bluetooth/etc (for the notification bar, next to the clock) that look something like the rover theme?</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;Unhelpful&gt; also we should have *that* in boschyamaha.cpp instead of "(xout,yout,zout) = (xin,yin,zin) * scale"</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: <a href="http://lists.meego.com/pipermail/meego-kernel/2010-December/001975.html">http://lists.meego.com/pipermail/meego-kernel/2010-December/001975.html</a></span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, let's talk in PM so the channel doesn't get too crowded</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;coolya&gt; search for yas529</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;coolya&gt; int yas529_read</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: thanks. i'll have to go over this later, but it might help :D</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;coolya&gt; there is some Y1 and Y2 stuff</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;Unhelpful&gt; yes... is this code in our kernel?</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;coolya&gt; we usesd a different driver</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;coolya&gt; the driver in the meego kernel is "only" used to controll the drift of a gyro sensor they don't really use it as a compass</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;Unhelpful&gt; oh :/</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;coolya&gt; i can sleept wifi without crash!</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;coolya&gt; but it won't wake up xD</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;Unhelpful&gt; hah</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;Unhelpful&gt; agh who the fuck designs a three-axis device w/ non-perpendicular axes?!</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;coolya&gt; yamaha ?</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;Unhelpful&gt; literature i've read suggests it's common,actualy. :(</span><br />
