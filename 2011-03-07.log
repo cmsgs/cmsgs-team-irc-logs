@@ -850,3 +850,47 @@
 <span class="irc-date">[11:59]</span> <span class="irc-black">&lt;atinm|monday&gt; uh , no.</span><br />
 <span class="irc-date">[11:59]</span> <span class="irc-black">&lt;atinm|monday&gt; still there.</span><br />
 <span class="irc-date">[11:59]</span> <span class="irc-black">&lt;atinm|monday&gt; guess I go a grepping</span><br />
+<span class="irc-date">[12:14]</span> <span class="irc-black">&lt;coolya&gt; yes now wifi crashed some where else xD</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;coolya&gt; but i have an idea</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;atinm|monday&gt; lol</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;coolya&gt; atinm|monday: captivate looks fine here</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;coolya&gt; builds without error</span><br />
+<span class="irc-date">[12:16]</span> <span class="irc-black">&lt;atinm|monday&gt; hrm</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;atinm|monday&gt; it builds (and even ran the zip), just couldn't strip</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;atinm|monday&gt; like it had bad arguments in the make</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;atinm|monday&gt; ah!</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;atinm|monday&gt; ./vendor/cyanogen/tools/squisher:find $REPACK/ota/system/lib/modules -name "*.ko" -print0 | xargs -0 arm-eabi-strip --strip-unneeded</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;atinm|monday&gt; there is no $REPACK</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;atinm|monday&gt; # /data/android/teamhacksung/out/target/product/captivate/repack.d/ota/system/lib/modules': No such file or directory</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;atinm|monday&gt; does repack.d have to exist?</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;atinm|monday&gt; and something just didn't happen?</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;coolya&gt; lol i am do stupid ... i got the same error</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;coolya&gt; s/do/to</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;coolya&gt; but didn't notice it because it didn't break the build</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;atinm|monday&gt; squisher actually does a mkdir</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;atinm|monday&gt; lol</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm|monday&gt; # Delete leftover wireless driver</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm|monday&gt; # rm -rf $REPACK/ota/system/lib/modules/*/kernel/drivers/net</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm|monday&gt; # No need for recovery</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm|monday&gt; rm -rf $REPACK/ota/recovery</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm|monday&gt; # Strip modules</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm|monday&gt; find $REPACK/ota/system/lib/modules -name "*.ko" -print0 | xargs -0 arm-eabi-strip --strip-unneeded</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;coolya&gt; we are missing some mainline stuff</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm|monday&gt; we created it, but the lib dir is just missing somehow</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;coolya&gt; i will merge that first and then check if it's still present</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm|monday&gt; k</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm|monday&gt; didn't seem to hurt much.</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm|monday&gt; but don't really know - only care about mic :)</span><br />
+<span class="irc-date">[12:28]</span> <span class="irc-black">&lt;coolya&gt; grml ... moar mergin action required</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread Kolja Dummann * dcddcdc (1 files in 1 dirs): merge - <a href="http://bit.ly/gO3iTL">http://bit.ly/gO3iTL</a></span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-black">&lt;evaluate&gt; btw, what's keeping us from merging with mainline at this point?</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;coolya&gt; argh i fail</span><br />
+<span class="irc-date">[12:48]</span> <span class="irc-black">&lt;dudyk&gt; what's up?</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;coolya&gt; i messed something up</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;coolya&gt; now repo builds again</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-black">&lt;dudyk&gt; it didn't becore?</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-black">&lt;dudyk&gt; before*</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;coolya&gt; i commited some make file that conflicted</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;dudyk&gt;  Google has some horrible code.... there is a method with almost all variables 3 letters or less.</span><br />
