@@ -145,3 +145,95 @@
 <span class="irc-date">[2:47]</span> <span class="irc-black">&lt;techmik67&gt; tweeted 3 mins ago</span><br />
 <span class="irc-date">[2:53]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, so after 7.0.0, can we has merge?</span><br />
 <span class="irc-date">[2:57]</span> <span class="irc-black">&lt;Kaik541&gt; well since they did feature freeze, doesn't that mean none of the potential merges will be able to make it in until post-7.0 stable?</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;zerojay&gt; Doesn't matter. it's not like we're good enough for a full official release at this point anyways.</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;Kaik541&gt; still annoying that I saw them merge so much stuff in the past few days</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;Kaik541&gt; yet the review we'd need for the bootmode just gets ignored</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;Kaik541&gt; well I actually haven't checked on it for a day or so, maybe it got merged (though doubtful)</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-brick">* Unhelpful wishes numpy.polyfit would allow one to require a monotonically increasing fit for datapoints</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;techmik67&gt; new build done</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, tell me if it works, I just built and sync'd and nothing new came in, but my phone can't be flashed just yet</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;atinm&gt; mine just worked too</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;atinm&gt; and I don't konw what I did last night to make my mic button start music play</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; wont' do it anymore.</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; recognizes it, sends up a KEY_MEDIA</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; but nothing happens. *grump*</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm&gt; and after sleep, button is no longer recognized..</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm&gt; that I can fix.</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-brick">* Unhelpful is *very* confused by the yamaha compass driver in the samsung sources ;/</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;Unhelpful&gt; it doesn't to appear to do anything provide copies of the transformation arrays in it to userspace?!</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;techmik67&gt; build seems good</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;Unhelpful&gt; does the whole driver for the samsung sources live in userspace and just do direct i2c access? it would explain some things. :P</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;atinm&gt; Im thinking their TV out does the same . . .</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;atinm&gt; or is just weird. there are references to TVOUT_DEVICE</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;atinm&gt; but nothing actually sets the jack_type to it.</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;atinm&gt; but there is other code that reads it and think it can be set.</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;Unhelpful&gt; it would also explain the need for a special sensor-reading daemon, i guess?</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;atinm&gt; they really were running around a tree trying to screw themselves . . . why not just write drivers for real?</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;Unhelpful&gt; because userspace is faster/easier</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;atinm&gt; yeah but is dirty as mud.</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;Unhelpful&gt; and really they're doing just fine if your goal isn't "source for the community"</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;Kaik541&gt; actually supercurio posted some stuff from "Samsung John" or whatever recently</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;Unhelpful&gt; posted where, and is there anything related to the mag sensor?</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;Kaik541&gt; and he said samsung doesn't like releasing source because of "things like CM" where they patch/fix things but rarely submit those fixes to AOSP</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;Kaik541&gt; and they "don't like the divergence"</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;Kaik541&gt; posted = shared on project voodoo, lemme find it</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;atinm&gt; if samsung fucking posted git repositories, we'd send pull requests!</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;atinm&gt; tarballs is just crap.</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;atinm&gt; hell, lets start sending code back.</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;atinm&gt; wait, what code would we send patches again.</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;atinm&gt; against. . . :)</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;atinm&gt; idiots - release code so we can send patches.</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;Kaik541&gt; I'm gonna post the conversation (which is in French) to pastebin</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;atinm&gt; samsung was speaking french to him?</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;Kaik541&gt; based on google translate, it comes across as "CM makes things worse"</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;atinm&gt; I guess they're multinational.</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://pastebin.com/GPbMN67f">http://pastebin.com/GPbMN67f</a></span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;atinm&gt; k, give link</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;Unhelpful&gt; agh, completely useless: <a href="http://pdf1.alldatasheet.com/datasheet-pdf/view/205144/YAMAHA/YAS529.html">http://pdf1.alldatasheet.com/datasheet-pdf/view/205144/YAMAHA/YAS529.html</a></span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;Unhelpful&gt; stop using pastebin it's broken :/</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;Kaik541&gt; it works fine for me =/</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;Kaik541&gt; besides, unless you speak French, gonna have to copy/paste it to translate anyway</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;Unhelpful&gt; the paste text is shoved to the right of the banner ad.</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, but just for you <a href="http://pastie.org/1645950">http://pastie.org/1645950</a></span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;Kaik541&gt; not on my screen =/</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;Unhelpful&gt; ff4 issue maybe</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;Kaik541&gt; I use firefox 4</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://translate.google.com/translate?js=n&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;layout=2&amp;eotf=1&amp;sl=fr&amp;tl=en&amp;u=http%3A%2F%2Fpastebin.com%2Fraw.php%3Fi%3DGPbMN67f">http://translate.google.com/translate?js=n&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;layout=2&amp;eotf=1&amp;sl=fr&amp;tl=en&amp;u=http%3A%2F%2Fpastebin.com%2Fraw.php%3Fi%3DGPbMN67f</a></span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;atinm&gt; basically he's complaining that ppl like CM don't contribute upstream, and break compatibility</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;Kaik541&gt; it seems the complaint isn't you guys</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;Kaik541&gt; but upstream</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;atinm&gt; well duh. we wouldn't break compatibility if they actually used AOSP.</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;atinm&gt; yeah, we're too new.</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;atinm&gt; but it actually does include us because we're the samsung devs</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;atinm&gt; CM is actually better than samsung. lets see Samsung's code run on HTC phones.</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;atinm&gt; samsung just doesn't know us yet :)</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;atinm&gt; but will.</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;atinm&gt; all I ask for is git repositories we can fork from, would make life so much easier .  ..</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;Kaik541&gt; here's what I don't get, he seems to act like it isn't all out in the open for samsung to pick and choose</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;techmik67&gt; hmmmm... 1.4 GB difference between the 2 ota zips</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;atinm&gt; and them to drop their custom crap.</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;Kaik541&gt; what's that new phone? the geekphone zero? they're advertising it as "shipped CM ready, but not pre-installed" or whatever</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;atinm&gt; nah, it is actually better for us to set up pull requests.</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;atinm&gt; no one can keep track of all the variants of things.</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;Kaik541&gt; but they COULD try and find it if they want</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;atinm&gt; we push up to cm, cm pushes up to google is the way it should work.</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;Kaik541&gt; unlikes the j4fs stuff</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://twitter.com/#!/geeksphone/status/44131179565293568">http://twitter.com/#!/geeksphone/status/44131179565293568</a></span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;techmik67&gt; cyanogen_ota-eng.USER.zip is 86.1 and update-cm-7.0.0-RC0-Kang is 84.7</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;Kaik541&gt; yeah mine was the same, which did you try?</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;techmik67&gt; no the kang</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;techmik67&gt; not</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;techmik67&gt; guess i should try both</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;techmik67&gt; wonder why it makes both and which we are "supposed " to use</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;atinm&gt; damn it.</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;atinm&gt; sleep screws with the gpio pins.</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;atinm&gt; for mic</span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-navy">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;Kaik541&gt; well I'm trying kanged zip</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;techmik67&gt; just booted</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;Kaik541&gt; yeah looks good</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;Kaik541&gt; I love that I see AT&amp;T on boot now</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;Kaik541&gt; ... well that was weird, it didn't wipe my /system this time</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;techmik67&gt; i still have it does stuff in my tree</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;techmik67&gt; for my bootsplash</span><br />
