@@ -1266,3 +1266,133 @@
 <span class="irc-date">[17:57]</span> <span class="irc-black">&lt;evaluate&gt; <a href="http://pastebin.com/qh9Eb42w">http://pastebin.com/qh9Eb42w</a></span><br />
 <span class="irc-date">[17:58]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-green">* enl_ (~AndChat@2.158.157.100) has joined this channel.</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;coolya&gt; who is Bilboa1 -.-</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;coolya&gt; i hate him</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;embizzle2&gt; lol</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;evaluate&gt; hmm, I can't find the interesting part in the dmesg though</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;coolya&gt; dmesg|grep -B14 \"reservoir</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;coolya&gt; should do it for you ;-)</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;evaluate&gt; nuthin</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;Wout&gt; coolya, bilboa1 is the guy that is 'tweaking' your kernel :P</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;evaluate&gt; do I need to reboot before I do that?</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;coolya&gt; yeah with a faulty initramdisk</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;coolya&gt; evaluate: yes otherwise the buffer is to small</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.184.89.75) has joined this channel.</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;Wout&gt; weird, I run his kernel and it worked for me</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;evaluate&gt; ok</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;coolya&gt; Wout: he is missing some symlinks</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;coolya&gt; espacially the bml_over_mtd one ;-)</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;knowsnotmuch&gt; coolya, i just pasted the info you wanted on the issue... does it make a diff which kernel i use?</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;coolya&gt; if its not totally outdated it should work ;-)</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;knowsnotmuch&gt; it worked... i pasted the results on issue. was doubtful if it would affect the result thats all</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;mikebeecham&gt; can anyone tell whether cmsgsteam will rip apart the radios to get the best wifi and battery life available?</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;mikebeecham&gt; is that on the plan?</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;evaluate&gt; coolya, dmesg: <a href="http://pastebin.com/bbigtdZt">http://pastebin.com/bbigtdZt</a></span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;evaluate&gt; coolya, if you want, I can put them in the bugtracker too, let me know</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;Wout&gt; rip apart the radios?</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-brick">* knowsnotmuch doesnt like the sound of "Bad eraseblock"</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;coolya&gt; just paste it there the more the better</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;mikebeecham&gt; Wout, yes</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;evaluate&gt; ok</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;Wout&gt; coolya is working on the wifi sleep problem, which should really help battery life</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;coolya&gt; knowsnotmuch: its normal some blocks are alway broken</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;knowsnotmuch&gt; ahh ok</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;mikebeecham&gt; the devs for HTC Hero would be doing this all the time to get the best out of them</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;mikebeecham&gt; to be honest, I always left my wifi set to 'never' anyway, only because I thought the sleeping wifi issue a little frustrating. It would never wake back up quick enough</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;coolya&gt; 1. wifi sleep + wake up and no reboot, next in 20min - fingers crossed</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;mikebeecham&gt; coolya, sounds good</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;coolya&gt; but I need to test if a sd card gets detected when the phone is suspended when all that is done</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;mikebeecham&gt; coolya, external SD?</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;mikebeecham&gt; or internal</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;coolya&gt; both i did some bad bad bad thing to the mmc stack</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-brick">* Wout crosses his fingers</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;knowsnotmuch&gt; coolya, that fixes just the reboot or does it also help with the battery drain on wifi?</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;mikebeecham&gt; lol</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;mikebeecham&gt; that'll teach ya bro!</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;coolya&gt; knowsnotmuch: it will affect battery live with wifi on. but i can't tell how much</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;knowsnotmuch&gt; ahh ok</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-brick">* knowsnotmuch crosses his fingers too</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;evaluate&gt; coolya, btw, did you notice the earpiece problem I told you about?</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-brick">* mikebeecham crosses his legs....but he does need the loo!</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;coolya&gt; not sofar but i will do testing when wifi works</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;evaluate&gt; ok :-)</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;evaluate&gt; it is for me the same for every call, so if it's a general problem it shouldn't be hard to reproduce</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;Wout&gt; i hope wifi gets fixed to coolya can move on to camera ;) :P</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;evaluate&gt; Wout, what model do you have? I9000?</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;Wout&gt; yeah</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;coolya&gt; evaluate: hopefully mnita|work changes will fix it ;-)</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;evaluate&gt; Wout, are you talking on it often?</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;Wout&gt; ehm, quite a bit</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;evaluate&gt; coolya, didn't he only work on headphones?</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;evaluate&gt; Wout, did you notice a strange buzzing in the earpiece when talking on the phone?</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;coolya&gt; evaluate: damn :( yes</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;Wout&gt; eehm...not yet...but I'll look out for it</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;evaluate&gt; Wout,  whenever the other person talks I get a strange buzzing, as if the speaker would be set too lound (or like the other person would shout), even if I lower the volume</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;evaluate&gt; Wout, don't you have some service number where you can call for free and have a robot talk to you?</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;Wout&gt; will try to check it soon, need to go now</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;evaluate&gt; I would be really curios if it's only me</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-green">* Wout is now known as Wout|afk</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;evaluate&gt; ok :-)</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: seems you're ears are fucked up. but maybe we can repair it by flashing a new firmware onto you</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, does it work fine for you?</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;codeworkx&gt; yeah, on my desire hd xD</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;evaluate&gt; hehe</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;codeworkx&gt; my i9k is my test bitch but without sim card</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;evaluate&gt; did you manage to flash fastboot onto the sgs? :-p</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: not yet. it's to crazy</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;evaluate&gt; heh</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-green">* Wout|afk (~wout@s559776f4.adsl.wanadoo.nl) has left this channel.</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-green">* Wout|afk (~wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;coolya&gt; 2. sleep done, rebooting to check if it is consistent</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;evaluate&gt; :-)</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;knowsnotmuch&gt; takes 20 min for wifi to go to sleep?</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;coolya&gt; in meantime: building for GT-I9000 and test</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;coolya&gt; knowsnotmuch: 15 but i'm to lazy to change the value</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;evaluate&gt; It's still downloading for me... :-/</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;knowsnotmuch&gt; coolya, would save you a lot of waiting time :))</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;evaluate&gt; coolya, it's just 2 minutes</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;evaluate&gt; and yeah, that ^</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;coolya&gt; evaluate: i know but i read the code in the meantime that does the wifi stuff that i would have to read anyway ;-)</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;evaluate&gt; uhum :-P</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;mikebeecham&gt; all veru exciting stuff</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;mikebeecham&gt; can it make coffee now, cause I really want a rom that can make me coffee too</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;mikebeecham&gt; :D</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;evaluate&gt; I hear that will be implemented in CM 7.1</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;mikebeecham&gt; no waiiii</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;mikebeecham&gt; thats cool</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;mikebeecham&gt; can I design the cup to go with it?</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;coolya&gt; 110% it will</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;evaluate&gt; And in 7.2 it will also be possible to make eggs 'n bacon</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;mikebeecham&gt; ahhh I'm happy</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-brick">* evaluate mmm bacon</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;mikebeecham&gt; mmmmmm ba-con</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;knowsnotmuch&gt; needs an OC-ed kernel.. nothing more</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;mikebeecham&gt; going to be making pancakes for everyone shortly</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;mikebeecham&gt; can I get anyone anything?</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;Scepterr&gt;  some tits 'n ass</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;coolya&gt; knowsnotmuch: when all is done you can OC the kernel with cm parts settings</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;mikebeecham&gt; Scepterr, sorry, was that pancake with a little lemon and sugar?  sure...coming right up!</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;knowsnotmuch&gt; so we can cook bacon and make coffee with CM7?! ;)</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;knowsnotmuch&gt; coolya, so is it consistent?</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;mikebeecham&gt; 7.3 might bring a full rotisserie</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;mikebeecham&gt; THAT i'm looking forward to!</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-brick">* knowsnotmuch 's finger is twisted into a knot </span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-navy">* embizzle2 (~mbizzle@vp117029.reshsg.uci.edu) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-navy">* enl_ (~AndChat@2.158.157.100) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117029.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;coolya&gt; vibrator looks consistent, now GT-I9000, then source clean up</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;knowsnotmuch&gt; woooohoooo</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;knowsnotmuch&gt; i haz battery :D</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;coolya&gt; was pm working for all of you ?</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;knowsnotmuch&gt; naah - had to add a line to get it to work</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;knowsnotmuch&gt; #!/sbin/sh</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;knowsnotmuch&gt; #!/sbin/sh</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;knowsnotmuch&gt; #!/sbin/sh</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;knowsnotmuch&gt; oops sorry</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;knowsnotmuch&gt; and #!/system/bin/sh in am</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;codeworkx&gt; buuu����lsscccchiiiiit samsung</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;evaluate&gt; hmm?</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-green">* riggnix (~RggnX@91.119.2.162) has joined this channel.</span><br />
