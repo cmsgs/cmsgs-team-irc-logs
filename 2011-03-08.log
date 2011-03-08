@@ -584,3 +584,126 @@
 <span class="irc-date">[7:59]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, you have to set wifi sleep policy to "On screen off" and then wait 15 minutes after the screen turns off.</span><br />
 <span class="irc-date">[7:59]</span> <span class="irc-black">&lt;Kaik541&gt; yeah i know, I usually set my phone down for a while</span><br />
 <span class="irc-date">[7:59]</span> <span class="irc-black">&lt;Kaik541&gt; I just set it, gonna check at 215ish local time</span><br />
+<span class="irc-date">[8:00]</span> <span class="irc-black">&lt;evaluate&gt; Hmm, it'd be odd if that was solved, since coolya was working yesterday on it, and afaik he hasn't found the root of the problem.</span><br />
+<span class="irc-date">[8:00]</span> <span class="irc-black">&lt;Kaik541&gt; yeah i know, which is why it's weird</span><br />
+<span class="irc-date">[8:00]</span> <span class="irc-black">&lt;techmik_laptop&gt; screen off..... counting down....</span><br />
+<span class="irc-date">[8:00]</span> <span class="irc-brick">* evaluate tries it too</span><br />
+<span class="irc-date">[8:01]</span> <span class="irc-black">&lt;Kaik541&gt; I doubt it somehow fixed itself, but earlier I set it to sleep on screen off and picked it up half an hour later and saw the wifi kick back on</span><br />
+<span class="irc-date">[8:01]</span> <span class="irc-black">&lt;Kaik541&gt; and went "oh shit, shouldn't have done that..." and then went "oh..."</span><br />
+<span class="irc-date">[8:02]</span> <span class="irc-black">&lt;dudyk&gt; I'm using this policy for almost a week and no crashes at all...</span><br />
+<span class="irc-date">[8:02]</span> <span class="irc-black">&lt;Kaik541&gt; maybe it's hardware specific? just like some phones don't like undervolting or overclocking</span><br />
+<span class="irc-date">[8:03]</span> <span class="irc-black">&lt;Kaik541&gt; just some are capable and some aren't (which still isn't good)</span><br />
+<span class="irc-date">[8:03]</span> <span class="irc-black">&lt;evaluate&gt; It doesn't seem like a hardware problem, it rather looks like a kernel/driver fault.</span><br />
+<span class="irc-date">[8:04]</span> <span class="irc-black">&lt;mikebeecham&gt; morning all</span><br />
+<span class="irc-date">[8:04]</span> <span class="irc-black">&lt;evaluate&gt; hello</span><br />
+<span class="irc-date">[8:04]</span> <span class="irc-black">&lt;mikebeecham&gt; morning evaluate</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, the driver makes more sense, but it's weird that some people aren't seeing it =/</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;dudyk&gt; morning</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;Kaik541&gt; also howdy mikebeecham</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, maybe they're not letting it sleep long enough?</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;mikebeecham&gt; 'ello Kaik541</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;Kaik541&gt; maybe, I'm gonna give it an extra 5 minutes before checking</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: it doesn't show if usb is connected</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;dudyk&gt; i had it sleep for hours</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;Kaik541&gt; ah true, good thing I've been disconnected</span><br />
+<span class="irc-date">[8:06]</span> <span class="irc-black">&lt;Kaik541&gt; also, doesn't that make trying to get a logcat fucking hard?</span><br />
+<span class="irc-date">[8:06]</span> <span class="irc-black">&lt;coolya&gt; it's really weired</span><br />
+<span class="irc-date">[8:06]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, not if you run adb over wifi :-p</span><br />
+<span class="irc-date">[8:06]</span> <span class="irc-black">&lt;Kaik541&gt; haha, good point</span><br />
+<span class="irc-date">[8:06]</span> <span class="irc-black">&lt;coolya&gt; no logcat</span><br />
+<span class="irc-date">[8:06]</span> <span class="irc-black">&lt;coolya&gt; dmesg</span><br />
+<span class="irc-date">[8:06]</span> <span class="irc-black">&lt;dudyk&gt; no, run it in a terminal to a file on the SD card</span><br />
+<span class="irc-date">[8:06]</span> <span class="irc-black">&lt;evaluate&gt; or yeah, use dmesg</span><br />
+<span class="irc-date">[8:06]</span> <span class="irc-black">&lt;coolya&gt; and you can get that after the reboot</span><br />
+<span class="irc-date">[8:06]</span> <span class="irc-black">&lt;dudyk&gt; locally</span><br />
+<span class="irc-date">[8:07]</span> <span class="irc-black">&lt;coolya&gt; with cat /proc/last_kmsg</span><br />
+<span class="irc-date">[8:07]</span> <span class="irc-black">&lt;coolya&gt; i have fixed the null pointer, but that wasn't the real problem now it sleeps but won't wake up</span><br />
+<span class="irc-date">[8:08]</span> <span class="irc-black">&lt;evaluate&gt; also, one thing I though off, if someone has an application that causes wakes, wouldn't that reset the timer for the wifi-sleep?</span><br />
+<span class="irc-date">[8:08]</span> <span class="irc-black">&lt;coolya&gt; i added a bunch of printk last night, i need to trace what really going on today</span><br />
+<span class="irc-date">[8:08]</span> <span class="irc-black">&lt;evaluate&gt; or does it only reset on screen on?</span><br />
+<span class="irc-date">[8:08]</span> <span class="irc-black">&lt;coolya&gt; it only looks on screen on</span><br />
+<span class="irc-date">[8:09]</span> <span class="irc-black">&lt;coolya&gt; you can get mails or gtalk msg in the meantime as long as the screen stays off it will go to sleep</span><br />
+<span class="irc-date">[8:09]</span> <span class="irc-black">&lt;evaluate&gt; uhum</span><br />
+<span class="irc-date">[8:10]</span> <span class="irc-black">&lt;Kaik541&gt; you never notice how much you want to pick up your phone and check it until you can't touch it for 15 minutes</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;evaluate&gt; lol, that's exactly what I though too...</span><br />
+<span class="irc-date">[8:12]</span> <span class="irc-black">&lt;evaluate&gt; btw, there IS a way to change that to 10 seconds (or whatever you like actually), it's a bit complicated though, you have to edit the settings.db</span><br />
+<span class="irc-date">[8:12]</span> <span class="irc-black">&lt;Kaik541&gt; yeah i know, but too lazy</span><br />
+<span class="irc-date">[8:12]</span> <span class="irc-black">&lt;Kaik541&gt; must keep mind off phone, must watch star trek</span><br />
+<span class="irc-date">[8:15]</span> <span class="irc-black">&lt;dudyk&gt; Kaik541: if you watch star wars, it'll just make you think about it more... :-)</span><br />
+<span class="irc-date">[8:15]</span> <span class="irc-black">&lt;Kaik541&gt; heh, I just haven't watched Deep Space 9 in a long time, so I'm watching through it again</span><br />
+<span class="irc-date">[8:15]</span> <span class="irc-black">&lt;Kaik541&gt; OH HEY</span><br />
+<span class="irc-date">[8:15]</span> <span class="irc-black">&lt;Kaik541&gt; random rebooot</span><br />
+<span class="irc-date">[8:15]</span> <span class="irc-black">&lt;Kaik541&gt; neat</span><br />
+<span class="irc-date">[8:16]</span> <span class="irc-black">&lt;Kaik541&gt; that white screen is bright</span><br />
+<span class="irc-date">[8:16]</span> <span class="irc-black">&lt;Kaik541&gt; right at fifteen minutes</span><br />
+<span class="irc-date">[8:19]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[8:20]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: can patie your /proc/last_kmesg</span><br />
+<span class="irc-date">[8:20]</span> <span class="irc-black">&lt;coolya&gt;  last_kmsg</span><br />
+<span class="irc-date">[8:20]</span> <span class="irc-black">&lt;Kaik541&gt; ohshit. I just realized I'm using kang's kernel, I forgot I switched to that because he somehow managed to unlock the 55 FPS cap &gt;_&gt;</span><br />
+<span class="irc-date">[8:21]</span> <span class="irc-black">&lt;coolya&gt; the backtrace is the same i guess :-P</span><br />
+<span class="irc-date">[8:21]</span> <span class="irc-black">&lt;Kaik541&gt; yeah</span><br />
+<span class="irc-date">[8:21]</span> <span class="irc-black">&lt;Kaik541&gt; should be</span><br />
+<span class="irc-date">[8:23]</span> <span class="irc-black">&lt;Kaik541&gt; bah why does pastie have a limit on 100 kb</span><br />
+<span class="irc-date">[8:23]</span> <span class="irc-black">&lt;evaluate&gt; try pastebin.com</span><br />
+<span class="irc-date">[8:23]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://pastebin.com/6VDaLxqN">http://pastebin.com/6VDaLxqN</a></span><br />
+<span class="irc-date">[8:25]</span> <span class="irc-black">&lt;evaluate&gt; line 695 is it I guess</span><br />
+<span class="irc-date">[8:25]</span> <span class="irc-black">&lt;Kaik541&gt; 3695*</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;evaluate&gt; mah pastebin shows 695</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-brick">* evaluate smacks pastebin</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;Kaik541&gt; it's a little cut off on the left side</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;Kaik541&gt; line 695 is like a copyright thing</span><br />
+<span class="irc-date">[8:27]</span> <span class="irc-black">&lt;evaluate&gt; woot, reboot!</span><br />
+<span class="irc-date">[8:27]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, reboot?</span><br />
+<span class="irc-date">[8:27]</span> <span class="irc-black">&lt;evaluate&gt; coolya, I can paste the kmsg too if that helps</span><br />
+<span class="irc-date">[8:27]</span> <span class="irc-black">&lt;techmik_laptop&gt; yup</span><br />
+<span class="irc-date">[8:27]</span> <span class="irc-black">&lt;Kaik541&gt; REBOOTS FOR EVERYONE!</span><br />
+<span class="irc-date">[8:28]</span> <span class="irc-black">&lt;evaluate&gt; And I'm on the original CM kernel, not like that infidel!</span><br />
+<span class="irc-date">[8:28]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[8:28]</span> <span class="irc-black">&lt;evaluate&gt; WANNADO!</span><br />
+<span class="irc-date">[8:28]</span> <span class="irc-black">&lt;coolya&gt; it the same backtrace like the one that is on the issue traker</span><br />
+<span class="irc-date">[8:28]</span> <span class="irc-black">&lt;Wout`&gt; lol</span><br />
+<span class="irc-date">[8:28]</span> <span class="irc-black">&lt;Kaik541&gt; sorry, I just wanted to see if goldeneye would play faster :P</span><br />
+<span class="irc-date">[8:28]</span> <span class="irc-black">&lt;Kaik541&gt; short answer, it does not</span><br />
+<span class="irc-date">[8:29]</span> <span class="irc-black">&lt;coolya&gt; the funny thing it, it actually powers down wifi: [ 2242.074528] =========== WLAN placed in RESET ========</span><br />
+<span class="irc-date">[8:29]</span> <span class="irc-black">&lt;techmik_laptop&gt; must sllep now</span><br />
+<span class="irc-date">[8:29]</span> <span class="irc-black">&lt;coolya&gt; and then starts to do strange things with the sdio stack</span><br />
+<span class="irc-date">[8:29]</span> <span class="irc-black">&lt;Wout`&gt; do we know yet why the phone often freezes when enabling usb sharing?</span><br />
+<span class="irc-date">[8:29]</span> <span class="irc-black">&lt;techmik_laptop&gt; back later....</span><br />
+<span class="irc-date">[8:30]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, never had that happen actually.</span><br />
+<span class="irc-date">[8:30]</span> <span class="irc-black">&lt;coolya&gt; Wout`: gimme a dmesg from that</span><br />
+<span class="irc-date">[8:30]</span> <span class="irc-black">&lt;Kaik541&gt; Wout`, one time I enabled it and it rebooted actually</span><br />
+<span class="irc-date">[8:30]</span> <span class="irc-black">&lt;Kaik541&gt; I should have grabbed a kmsg from that, but it slipped my mind at the time</span><br />
+<span class="irc-date">[8:31]</span> <span class="irc-black">&lt;Wout`&gt; k, i'll see if I can trigger it</span><br />
+<span class="irc-date">[8:33]</span> <span class="irc-black">&lt;Wout`&gt; when it happens it displays a msg about the usb volume might be in use by a app/process or somethng</span><br />
+<span class="irc-date">[8:34]</span> <span class="irc-brick">* coolya waits for the btrfs Raid 5 and Raid 6 patches</span><br />
+<span class="irc-date">[8:36]</span> <span class="irc-black">&lt;Wout`&gt; coolya: dmesg and logcat for usb sharing freeze: <a href="http://pastebin.com/i7WU4Dyy">http://pastebin.com/i7WU4Dyy</a></span><br />
+<span class="irc-date">[8:36]</span> <span class="irc-black">&lt;Wout`&gt; <a href="http://pastebin.com/EDZeN8i6">http://pastebin.com/EDZeN8i6</a></span><br />
+<span class="irc-date">[8:37]</span> <span class="irc-black">&lt;Wout`&gt; android reboots by itself a little while after it freezes</span><br />
+<span class="irc-date">[8:38]</span> <span class="irc-black">&lt;coolya&gt; can adb to the phone and look if there is /proc/last_kmsg ?</span><br />
+<span class="irc-date">[8:38]</span> <span class="irc-black">&lt;Wout`&gt; what do I do with it?</span><br />
+<span class="irc-date">[8:38]</span> <span class="irc-black">&lt;Wout`&gt; it's there</span><br />
+<span class="irc-date">[8:39]</span> <span class="irc-black">&lt;evaluate&gt; pastebin it</span><br />
+<span class="irc-date">[8:39]</span> <span class="irc-black">&lt;evaluate&gt; :-)</span><br />
+<span class="irc-date">[8:39]</span> <span class="irc-black">&lt;coolya&gt; cat /proc/last_kmsg and pastebin it</span><br />
+<span class="irc-date">[8:39]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[8:39]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[8:40]</span> <span class="irc-black">&lt;Wout`&gt; <a href="http://pastebin.com/FTHb91W4">http://pastebin.com/FTHb91W4</a></span><br />
+<span class="irc-date">[8:41]</span> <span class="irc-black">&lt;dudyk&gt; left it with screen off for over 30 minutes and nothing happened</span><br />
+<span class="irc-date">[8:42]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[8:42]</span> <span class="irc-black">&lt;mbizzle&gt; aw crap, inet crapped out</span><br />
+<span class="irc-date">[8:45]</span> <span class="irc-black">&lt;coolya&gt; dudyk: you are one of the lucky people where seems to work. I can redroduce it on the vibrant all the time.</span><br />
+<span class="irc-date">[8:45]</span> <span class="irc-green">* Yangtse (~Yangtse@117.136.5.77) has joined this channel.</span><br />
+<span class="irc-date">[8:46]</span> <span class="irc-black">&lt;dudyk&gt; could it be related to the fact I'm using SIP?</span><br />
+<span class="irc-date">[8:47]</span> <span class="irc-black">&lt;coolya&gt; does wifi sleep if sip is enabled? i don't know.</span><br />
+<span class="irc-date">[8:48]</span> <span class="irc-black">&lt;dudyk&gt; I think it does, it uses 3g when wifi is sleeping</span><br />
+<span class="irc-date">[8:49]</span> <span class="irc-black">&lt;Wout`&gt; coolya: are those pastebins of any use?</span><br />
+<span class="irc-date">[8:50]</span> <span class="irc-black">&lt;coolya&gt; its not a kernel panic, it looks like a endless loop or similar</span><br />
+<span class="irc-date">[8:51]</span> <span class="irc-black">&lt;Kaik541&gt; seems to be related to media scanner</span><br />
+<span class="irc-date">[8:51]</span> <span class="irc-black">&lt;Kaik541&gt; line 275+</span><br />
+<span class="irc-date">[8:52]</span> <span class="irc-black">&lt;Wout`&gt; happens pretty randomly, sometimes only minutes after booting the phone</span><br />
+<span class="irc-date">[8:52]</span> <span class="irc-black">&lt;Wout`&gt; sometimes at the end of the day when I've already used usb mounting numerous times troughout the day</span><br />
+<span class="irc-date">[8:53]</span> <span class="irc-black">&lt;Kaik541&gt; same</span><br />
+<span class="irc-date">[8:58]</span> <span class="irc-black">&lt;Wout`&gt; i'm getting sick of this vm</span><br />
+<span class="irc-date">[8:58]</span> <span class="irc-black">&lt;Wout`&gt; gonna install a linux dualboot</span><br />
+<span class="irc-date">[8:59]</span> <span class="irc-black">&lt;coolya&gt; windows is just a game loader ;-)</span><br />
