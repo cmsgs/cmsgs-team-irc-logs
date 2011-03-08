@@ -1,0 +1,35 @@
+<span class="irc-date">[0:00]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Quit: Computer has gone to sleep)</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;dasunsrule32&gt; pm works too</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;dasunsrule32&gt; :D</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;Kaik541&gt; I haven't built in a while</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;techmik67&gt; building now</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;dasunsrule32&gt; cmsgs.christiantechsaz.com</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;dasunsrule32&gt; i am now posting nightlies there</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;dasunsrule32&gt; working on getting better bandwith</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;mbizzle&gt; dasun</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;mbizzle&gt; I don't see where your script cleans the kernel build</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;dasunsrule32&gt; this is true</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;mbizzle&gt; are you only going to build for vibrants? or for all the sgs models?</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;mbizzle&gt; (and the script will fail when the build increment changes)</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;dasunsrule32&gt; mbizzle: for the moment, once I get this perfected, I will start the others</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;mbizzle&gt; I unfortunately can't give you any advice for how to create a variable, because I don't know how the team is going to name</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;Unhelpful&gt; oh wtf @ this msensor transform matrix. there are *far too many* nonzero values :/</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-green">* dasunsrule32_ (~cm7_rulz@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;dasunsrule32_&gt; mbizzle: you suggest like a variable for the build, BUILD=7.0.0, then drop that and change it when the build does increment?</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-navy">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;mbizzle&gt; yeah but the problem is it'd be even better to have the script autoincrement the variable</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;mbizzle&gt; as written, once it changes to rc1 or 7.1 your script will fail and /var/log will fill up with notifications</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;dasunsrule32_&gt; here, check what I've changed...</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;Unhelpful&gt; mbizzle: regular "make clean" already cleans the kernel since it's built in the product output directory.</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;dasunsrule32_&gt; one sec</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;mbizzle&gt; ahh, I was looking at that</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;dasunsrule32_&gt; <a href="http://pastebin.com/hMJNZNeW">http://pastebin.com/hMJNZNeW</a></span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;dasunsrule32_&gt; so that is what I've got</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;dasunsrule32_&gt; now</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;mbizzle&gt; but for some reason I thought it wasn't cleaning everything like my kernel .config</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;mbizzle&gt; yeah I like the looks of that much better</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;dasunsrule32_&gt; it will be easy to change the version once it changes</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;dasunsrule32_&gt; :)</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Unhelpful&gt; mbizzle: that is also in the output directory.</span><br />
