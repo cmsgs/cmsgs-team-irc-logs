@@ -1475,3 +1475,113 @@
 <span class="irc-date">[19:57]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik67&gt; so you only need device to actual "build.sh"... not for "prepare" and "clean" is what the users anre complaining to me</span><br />
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik67&gt; are*</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;nitam|work&gt; where is the device on prepare and clean?</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;codeworkx&gt; clean does rm -rf out/</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;codeworkx&gt; prepare gets google files and rommanager</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;codeworkx&gt; no device needed</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; yes, I mean where in the instructions - I'm blind, I don't see them.</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; I did take one out</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; but don't see the clean one :)</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/buildscripts/commit/6ccbdd10af495ca5be5aee8dc58434271cd160ba">https://github.com/teamhacksung/buildscripts/commit/6ccbdd10af495ca5be5aee8dc58434271cd160ba</a></span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;nitam|work&gt; no no . . . ignore us, talking to techmik.</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117029.reshsg.uci.edu) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;freat&gt; howdy. I wanted to set up my dev environment in Virtualbox. Make sense? Anyone do it? USB for debugging would be my only question if it passes that through OK.</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;freat&gt; I use my current box for Java dev and might get messy unless I'm careful with paths classpaths etc</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;codeworkx&gt; freat: i'm using vmware</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;freat&gt; I mean, if I just rely on he right setenv.sh type of scripts I may be OK, hard to keep both running at he same time though. Which I would want Eclipse for work running for days at a time.</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;codeworkx&gt; freat: virtualbox is damn slow</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;techmik67&gt; well, this is interesting..... the post on xda IS correct.... camera 360 seems to work exactly as it should, orientation and quality are both good/correct</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;freat&gt; codeworkx: in general it is slow, or just for specific purposes (like compiling / heavy cpu) ?</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;freat&gt; codeworkx: virtualization shouldn't be too much a hit I would think on a modern CPU with virtualization extensions</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;codeworkx&gt; freat: in gerneral. and i never got usb (adb) working with it</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;codeworkx&gt; freat: vmware is much better</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;freat&gt; codeworkx: hmmm, good to know. adb is a must</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;freat&gt; codeworkx: huh wonder if anyone made an android dev vmware machine out there?</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;codeworkx&gt; get a second hdd and install ubuntu on it ;-)</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;freat&gt; codeworkx: I hate multi-boot of any sort though...</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;dudyk&gt; there is network adb support</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;codeworkx&gt; delete windoze and install ubuntu xD</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;Scepterr&gt; arch ftw</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;codeworkx&gt; arch doesn't work on my machine</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;freat&gt; yeah I don't do any dual boot any more. heard good things about arch.</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;Scepterr&gt; why not ?</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;codeworkx&gt; doesn't recognize my hdd</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;freat&gt; what kind of hdd?</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;freat&gt; I had an issue with raptors a while back on Ubuntu</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;techmik67&gt; i havent booted windows in a while on my laptop</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;freat&gt; found a command that when insalling from live cd, it worked like magic</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;codeworkx&gt; it finds my ssd, it finds my raid 0 but it doesn't find this damn shitty stock western digital hdd</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;Scepterr&gt; wierd</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;Scepterr&gt; i only use velociraptors for building</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;codeworkx&gt; ubuntu does, fedora does</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;Scepterr&gt; is it sata ?</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;codeworkx&gt; ya</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;freat&gt; dmraid interfered</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;codeworkx&gt; all sata</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;Scepterr&gt; is it set to ahci in bios ?</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;freat&gt; my blog post</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;codeworkx&gt; ssd = sata3, left are sata2</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;freat&gt; <a href="http://www.burnpc.com/2010/01/31/wd-raptor-sata-wd360-not-recognized-in-ubuntu-install/">http://www.burnpc.com/2010/01/31/wd-raptor-sata-wd360-not-recognized-in-ubuntu-install/</a></span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;freat&gt; head to uninstall dmraid in the live distro, then it installed like a charm</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;Scepterr&gt; heh i retired my 36 and 74 raptors a while ago</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;freat&gt; yeah I have 4 35GB ones, was thinking RAID-0 but the power I should just get a couple big fast drives and mirror them and be done with it</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;codeworkx&gt; Scepterr: don't know atm. have to reboot to have a look at it</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;Scepterr&gt; check it when you get a chance, ive seen that not being enabled causing issues</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;freat&gt; dudyk: network adb? will need to look into that</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;freat&gt; dudyk: network debug basically?</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;freat&gt; dudyk: like JMX control or something?</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;freat&gt; dudyk: or attach to the JVM?</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;dudyk&gt; it allows the ADB process to work via network</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;Unhelpful&gt; freat: any decent raid1 implementation should be as fast as raid0 on read. :)</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;mikebeecham&gt; hows it going guys? did you get the wifi reboot sorted coolya ?</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: i've been saying, i think the trouble is w/ exif tags. not that i've hexdumped any images to check yet.</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;dudyk&gt; freat: you can add the following to the build command to make it default to network: ADDITIONAL_DEFAULT_PROPERTIES="service.adb.tcp.port=5555"</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;coolya&gt; mikebeecham: good</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;mikebeecham&gt; it worked?</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;techmik67&gt; for the moment i am using camera 360 for jpg and stock for video (rarely use anyway)</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;coolya&gt; lmao eugene sold his vibrant :-D</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: gonna try the meego-kernel yas529 driver. anything you can think of that i need to know about how we detect/read the device in sensors.aries?</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;techmik67&gt; i rm-ed him yesterday.... he tweeted "anyone who follows me due to vibrant please unfollow"</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;coolya&gt; and the voodoo website is fun too, they claim "Open Source project homepage" but not a single link to thier github</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;techmik67&gt; who is zacharius.md</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;coolya&gt; some xda user</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;Unhelpful&gt; where the hell are the meego kernel sources? all i can find is the patch for it on the ML...</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-navy">* Wout|afk (~wout@s559776f4.adsl.wanadoo.nl) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: <a href="http://meego.gitorious.org/">http://meego.gitorious.org/</a></span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;techmik67&gt; is the "build kernel and rom together" method what most CM uses? wanna ask before i reply</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-green">* wout (~wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: i've ben there, but their "kernel-source" repo doesn't actually contain any kernel source...</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;coolya&gt; they only supply a patchset against .35 i guess</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;coolya&gt; they have policy that only drivers get into their kernel that are published upstream too</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;Unhelpful&gt; ah, so the ML patch is it.</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-green">* wout is now known as Wout</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;Wout&gt; oi</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;coolya&gt; wth ... they do gps on the vibrant a totally different way</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: "they" who? samsung always has.</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;coolya&gt; samsung</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;Unhelpful&gt; i had a good laugh when vibrant ji2 was touted as a fix for captivate gps</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;coolya&gt; oour gpsd fails hard on the modem/gps combo</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;Wout&gt; so, was wifi sleep fixed while I was gone? :P</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;Unhelpful&gt; i threw the files on... verified that the vibrant gps daemon never ran, and couldn't work if you *did* run it... hahahah you're all experiencing the placebo effect.</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;coolya&gt; agpsg with no config afaik ... wth</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;designfears&gt; Does CM use anything like lbstestmode for testing GPS</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;mikebeecham&gt; coolya, when codeworkx appears, can you let him know I got his PM and I'll respond soon</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;coolya&gt; mikebeecham: i will</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;techmik67&gt; ok, so browsing the CM wiki's i see that ".build/envsetup &amp;&amp; brunch &lt;device&gt;" seems to be the "official" CM way...... does it work like ours? kernel and rom together? i want to answer the questioning aas to why we switched build methods with "cause this is the CM way"</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;Unhelpful&gt; those are CM commands for running a build. you probably want to do the vendor-files stuff for google and rom manager, though.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;coolya&gt; techmik67: CM doesn't build a kernel they only attach a initramdisk to a prebuild kernel</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;techmik67&gt; i see a complaint "why switch methods... i liked building separately"</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: they attach a funny-format ramdisk to a prebuilt kernel that a bootloader is responsible for loading. :P</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;techmik67&gt; wanna give an appripirate answer, not just "cause we wanted to "</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: then they can do make out/target/product/&lt;device&gt;/kernel ;)</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;techmik67&gt; seems like it is there at the end, in that folder with the zips, correct?</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-navy">* Wout (~wout@s559776f4.adsl.wanadoo.nl) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: basically, our bootloader gives us no choice about the ramdisk - if we want a fresh one built from the sources, which is what everybody else on CM gets, then we *have to* build it into our kernel.</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;Unhelpful&gt; and there is literally *no* good reason not to, "rebuilding" the kernel when it's not been cleaned or modified amounts to &lt;10s work :P</span><br />
