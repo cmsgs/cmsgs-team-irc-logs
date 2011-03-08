@@ -1217,3 +1217,52 @@
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;mbizzle&gt; of how Kconfig was overiding aries_captivate_defconfig</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;mbizzle&gt; I can't find which file is overriding defconf's tinyrcu setting</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;Unhelpful&gt; mbizzle: meh, there's plenty of default stuff in Kconfig. most of it is really not stuff we *should* try to change.</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;nitam|work&gt; coolya, next time you have a reboot, can you test adb pull /proc/last_kmsg :)</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;mbizzle&gt; but thingd like tinyrcu, ikconfig, kernel compression, those are things that I should be able to change</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: doesn't work it tried to pull /proc/mtd</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;coolya&gt; $ adb pull /proc/mtd</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;coolya&gt; cannot create './mtd': No such file or directory</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;mbizzle&gt; default ioscheduler is being overwritten, too</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;nitam|work&gt; so $ cat /proc/last_kmsg &gt; /sdcard/last_kmsg</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;mbizzle&gt; (and not by Kconfig)</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;nitam|work&gt; and the pull that?</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;coolya&gt; i am doing bad things now</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-brick">* coolya just disables mmc rescan on suspend</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;coolya&gt; ok i want ALL! of you to run the commands in there <a href="http://code.google.com/p/cyanogenmod7-for-samsung-galaxys/issues/detail?id=46">http://code.google.com/p/cyanogenmod7-for-samsung-galaxys/issues/detail?id=46</a> and post the out put please</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;coolya&gt; we need more tests. i will post on XDA and cm forum for that</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117029.reshsg.uci.edu) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-green">* embizzle2 (~mbizzle@vp117029.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;embizzle2&gt; ugh, inet dropped</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;embizzle2&gt; I didn't see anything after coolya doing bad things</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;embizzle2&gt; lol</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;coolya&gt; i turned of the internet ;-)</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;techmik67&gt; lol.... dmesg........ "we have a crappy bootloader an wait for it"</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;coolya&gt; hehe</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;coolya&gt; yes i was mad when made the modem driver work</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-green">* thedood is now known as thedood|away</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;techmik67&gt; i cant find what he wants in dmesg for the 1st part.... bot the bml_over_mtd part</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-green">* thedood|away is now known as thedood</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;techmik67&gt; got*</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;coolya&gt; techmik67: <a href="http://forum.xda-developers.com/showpost.php?p=11939073&amp;postcount=3773">http://forum.xda-developers.com/showpost.php?p=11939073&amp;postcount=3773</a></span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;techmik67&gt; thx</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;coolya&gt; would be nice if someone could post that on the captivate forum too</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;techmik67&gt; i posted my results on the requested page</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;Wout|afk&gt; coolya: ran the dmesg, but cant find the values you're looking for</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-green">* Wout|afk is now known as Wout</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;Wout&gt; but I think the buffer on my terminalwindow isnt big enough, how do I change that?</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;coolya&gt; Wout: you need a fresh boot because they are printed early in the boot process</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;coolya&gt; Edit -&gt; profile -&gt; edit</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;Wout&gt; k, whats a good value?</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;coolya&gt; check unlimted ;-)</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;Wout&gt; how do I output the dmesg to a file?</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;coolya&gt; dmesg &gt; path/to/the/file</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;Wout&gt; k thx, posted on the issue tracker</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;mikebeecham&gt; evening peeps</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;coolya&gt; yeah custom kernel hell can begin ... some initramfs out there doesn't symlink bml_over_mtd</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;evaluate&gt; coolya, you need output of 'dmesg' and 'bml_over_mtd scan boot 72 reservoir 2004' ?</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;evaluate&gt; <a href="http://pastebin.com/qh9Eb42w">http://pastebin.com/qh9Eb42w</a></span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-green">* enl_ (~AndChat@2.158.157.100) has joined this channel.</span><br />
