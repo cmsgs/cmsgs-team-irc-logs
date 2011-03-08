@@ -237,3 +237,47 @@
 <span class="irc-date">[3:51]</span> <span class="irc-black">&lt;Kaik541&gt; ... well that was weird, it didn't wipe my /system this time</span><br />
 <span class="irc-date">[3:52]</span> <span class="irc-black">&lt;techmik67&gt; i still have it does stuff in my tree</span><br />
 <span class="irc-date">[3:52]</span> <span class="irc-black">&lt;techmik67&gt; for my bootsplash</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;atinm&gt; W/KeyCharacterMap(  486): Can't open keycharmap file</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;atinm&gt; W/KeyCharacterMap(  486): Error loading keycharmap file '/system/usr/keychars/sec_jack.kcm.bin'. hw.keyboards.196611.devname='sec_jack'</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;atinm&gt; W/KeyCharacterMap(  486): Using default keymap: /system/usr/keychars/qwerty.kcm.bin</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-green">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-brick">* Unhelpful is increasingly suspicous of the yas529 driver. :/</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;dasunsrule32&gt; mbizzle: you here?</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;atinm&gt; any idea what W/KeyCharacterMap(  486): Can't open keycharmap file</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;atinm&gt; W/KeyCharacterMap(  486): Error loading keycharmap file '/system/usr/keychars/sec_jack.kcm.bin'. hw.keyboards.393219.devname='sec_jack'</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;atinm&gt; W/KeyCharacterMap(  486): Using default keymap: /system/usr/keychars/qwerty.kcm.bin</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;atinm&gt; is about?</span><br />
+<span class="irc-date">[4:14]</span> <span class="irc-black">&lt;atinm&gt; what are these .kcm.bin files?</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-navy">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;atinm&gt; we seem to create them from .kcm files</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-navy">* ciwrl|away (~ciwrl@pool-173-73-39-123.washdc.fios.verizon.net) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;Unhelpful&gt; seems likely, google apparently lurves to do the text-&gt;binary thing.</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;Unhelpful&gt; at least they change the extension, unlike the embedded xml resources.</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;atinm&gt; we have kl (keylayout) files, but not kcm files for sec_jack</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-green">* ciwrl (~ciwrl@pool-173-79-23-252.washdc.fios.verizon.net) has joined this channel.</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;atinm&gt; crap, I think I need to pull them off froyo</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-navy">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;mbizzle&gt; dasunsrule32 I'm back</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;atinm&gt; just dropped it in from the froyo build and seems to have got rid of the error</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;atinm&gt; weird behavior - press mic button, music starts playing but goes into a pause/play loop</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;atinm&gt; but driver isn't sending anything up anymore</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;atinm&gt; but android somehow thinks it is.</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;Unhelpful&gt; oh hoh! i found some things our driver doesn't do!</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;techmik67&gt; back</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;techmik67&gt; where does the SETTINGS&gt;STORAGE get its info from? what is it reading? cause it is backwards from vold.fstab</span><br />
+<span class="irc-date">[4:52]</span> <span class="irc-black">&lt;uberushaximus&gt; it's backwards on purpose</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;techmik67&gt; i mean that in storage settings, it lists "internal storage mnt/emmc" which is EXT not internal</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;Unhelpful&gt; ...yes, because we deliberately mount the cards in the wrong places, though i can't recall why.</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;techmik67&gt; and is telling me 14.83GB total, 10.02 available</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-black">&lt;techmik67&gt; hmmm</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;atinm&gt; I'm thinking the music player has a bug.</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;atinm&gt; some issue with getting audio focus.</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;atinm&gt; the focus seems to switch between it and something else</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;atinm&gt; continuously.</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-green">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;atinm&gt; which sucks.</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; i did throw my lptop this time</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;Kaik541&gt; somebody posted something about that, if youg et a notification while listening to music it plays the notification</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;Kaik541&gt; but then music goes down to zero</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;atinm&gt; and android thing, not a kernel thing . . . so out of my range of things I want to tackle tonight.</span><br />
