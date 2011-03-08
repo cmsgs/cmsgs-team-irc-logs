@@ -847,3 +847,30 @@
 <span class="irc-date">[11:59]</span> <span class="irc-green">* wout (~wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
 <span class="irc-date">[11:59]</span> <span class="irc-black">&lt;atinm|night&gt; coolya: :)</span><br />
 <span class="irc-date">[11:59]</span> <span class="irc-green">* atinm|night is now known as atinm</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;wout&gt; right, got linux installed, drivers all setup, programs installed, sdk installed, now syncing repo</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;wout&gt; should be better than virtualbox</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;coolya&gt; atinm: :-)</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;atinm&gt; I'm on what steals audio focus when musicplayer is on</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;coolya&gt; i think i know what the exact problem is with wifi</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;coolya&gt; but i'm not sure what is causing it</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;atinm&gt; I hit the mic button, music player starts up. and then it goes into a play/pause loop and logcat shows that email, phone, sms,everyone seems to want at the event.</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;wout&gt; the problem is: it crashes on sleep? amiright? :P</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;coolya&gt; wout: nope it goes to sleep and don't crashes. It crashes after that</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;wout&gt; hmmz</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;coolya&gt; i can work around the crash with some simple checks but that is not the source of the problem</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;coolya&gt; something triggers a rescan on the bus</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;coolya&gt; but i shouldn't rescan when wifi is in sleep</span><br />
+<span class="irc-date">[12:06]</span> <span class="irc-black">&lt;wout&gt; will you be pushing a workaround first? or do you want to do it right in one go?</span><br />
+<span class="irc-date">[12:06]</span> <span class="irc-black">&lt;coolya&gt; because the wifi card is off at the point and the kernel will try to remove the modules for cards that are no longer on the bus</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;coolya&gt; wout: the workaround will only prevent the crash, wifi won't wake up when it's gone to sleep because the kernel removes the module</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;wout&gt; ah, k</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;coolya&gt; but its strange that the rescan it not done when usb is connected</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-black">&lt;wout&gt; is this on kernel or platform level?</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-black">&lt;coolya&gt; kernel</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;wout&gt; maybe a stupid suggestion, but have you checked how the samsung kernel handles it?</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;coolya&gt; it the same code</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;coolya&gt; s/it/it's</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;wout&gt; :/</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-navy">* h8|away (~h8rift@ip68-111-114-81.fv.ks.cox.net) Quit (*.net *.split)</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-green">* h8|away (~h8rift@ip68-111-114-81.fv.ks.cox.net) has joined this channel.</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
