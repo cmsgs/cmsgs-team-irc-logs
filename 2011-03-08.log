@@ -905,3 +905,110 @@
 <span class="irc-date">[14:56]</span> <span class="irc-black">&lt;coolya&gt; we blow out way to much traffic for such a thing ;-)</span><br />
 <span class="irc-date">[14:56]</span> <span class="irc-black">&lt;coolya&gt; about 150GB/d ;-)</span><br />
 <span class="irc-date">[14:57]</span> <span class="irc-black">&lt;coolya&gt; but nice finding, but SF is really fine, but a bit slow</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: there are some differences between our init of the yas529/ms3c and the one done here: <a href="http://groups.google.com/group/itrs/browse_thread/thread/b3085a4ae81bc1">http://groups.google.com/group/itrs/browse_thread/thread/b3085a4ae81bc1</a></span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: i don't remember that i changed something, i will ask guipert if he changed something there</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: i'm not saying you did! i'm saying there are maybe some things that were never in our implementation.</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;wout&gt; Unhelpful: any progress on the video codecs? or havent you looked into it yet?</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;Unhelpful&gt; remember how i said that there seemed to be some bytes in the 9 read for calibration data that we didn't use? this code uses them.</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;coolya&gt; i think we should give it a try, can't be worse then our current implementation</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;Unhelpful&gt; or, wait, i think i do see some code. damn. :/</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-green">* atinm (~amalaviya@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;dasunsrule32&gt; coolya: ok</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;dasunsrule32&gt; :)</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;Unhelpful&gt; i find it interesting that they read the calbration data into a buffer of int8 where we use uint8. this causes the calibration values, which are 4 and 6 bits, to come out of the array signed *based solely on their alignment*</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;Unhelpful&gt; this is either very clever or very stupid. :)</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;Unhelpful&gt; think i *do* like better is that we have *several* open-coded instances of reading three 11-bit values from six bytes, and they have a function for this that is passed the expected range.</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;Unhelpful&gt; s/think/a thing/ god i'm tired</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;coolya&gt; they are often using some "C tricks" in the driver</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;coolya&gt; i hate C and especially c++ :-D</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;coolya&gt; i think i found the wifi problem</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, do you have it waking up now as well as not crashing on sleep? ;)</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;coolya&gt; nope xD</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;coolya&gt; its a bit coomplex</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;coolya&gt; wifi card is sent to sleep and bus is powered down</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;dudyk&gt; share, maybe we could help</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; coolya: ok..</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;coolya&gt; card is powered down but no rescan on the bus is forced to have the kernel module for wifi probed</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;coolya&gt; then kernel tries to freeze userspace processes and fails</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;coolya&gt; it notifies mmc bus with PM_POST_HIBERNATION</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;coolya&gt; what triggers a rescan</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;coolya&gt; but the wifi card is still powerd down</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; other drivers force rescan?</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; for their chips?</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; and we're just missing this?</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; on the bcm driver?</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: the *bad* news here is that the ms3c code is 1) of somewhat dubious origin and copyright 2) uses floats</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;coolya&gt; the power manager in the kernel notifies all drivers about the new PM state what is PM_POST_SUSPEND</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;Unhelpful&gt; floats are not allowed in kernel, which is why our driver does all of the conversion w/ fixed-point math. also because even good FPUs are very, very slow.</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;coolya&gt; and in that state it rescans all buses to ensure all cards are still present</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: :-(</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;nitam|work&gt; and ours is powered down?</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;coolya&gt; rescan notices that the card is not present on the bus and removes the kernel module</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;coolya&gt; what will fail with a null pointer in the origin code</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;Unhelpful&gt; it would not shock me to learn that this is the code in the userspace daemon that samsung uses to read the sensors. because i looked at the kernel "driver" in their kernel, and it does nothing but provide an orientation matrix on request. :(</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: why is it not present on the bus?</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: yes they do, i saw some i2c dev handling code in the yamaha sensor when i disassembled it</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;nitam|work&gt; so you need to force a rescan after the driver powers down the card?</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: because it was sent to sleept what powers down the SDIO bus and the wifi card</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: that makes me even more suspicious that the code in that google thread is not safe to use. :/</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;Unhelpful&gt; this doesn't make me feel good, either: *      license: GPL?</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: no that shouldn't be done because the kernel module would be removed. An it the module shout stay alive because sending the card to sleep is done with a IW function on the interface</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: so the module needs a post-suspend action that wakes up the card?</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: but dhd doesn't get notified about and PM changes, but maybe i missed it</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;Unhelpful&gt; why wouldn't it?</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-navy">* Unhelpful (~quassel@rockbox/developer/Unhelpful) Quit (Quit: <a href="http://quassel-irc.org">http://quassel-irc.org</a> - Chat comfortably. Anywhere.)</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-green">* Unhelpful (~quassel@rockbox/developer/Unhelpful) has joined this channel.</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-green">* ChanServ sets mode +o Unhelpful</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;Unhelpful&gt; ack. :/</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-brick">* Unhelpful was under the impression that pretty much any driver could register for sleep/wake events</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;codeworkx&gt; gief teh new ati driferz!!</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;wout&gt; wu?</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;wout&gt; t</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;coolya&gt; what happens is: userspace decides to sent wifi to sleep with iwpriv -&gt; dhd kernel driver powers down gpio for SDIO bus and card -&gt; card is secessfully sent to sleep -&gt; kernel wants to go to suspent again -&gt; freezing userspace processes fails -&gt; kernel notifies mmc core about new PM state what is PM_POST_SUSPEND that causes the mmc bus to rescan all buses -&gt; rescan detects that wifi card is no longer present on the bus -&gt; kernel wants to unload dhd kernel</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;coolya&gt; module because card is not present -&gt; boooom</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;codeworkx&gt; sounds funny</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: ooh, the ms3c.tar at the bottom of that thread seems a *bit* less dubious ;)</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-navy">* enl_ (4e073452@gateway/web/freenode/ip.78.7.52.82) Quit (Ping timeout: 245 seconds)</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;Unhelpful&gt; ie it includes the text of the GPL and LGPL licenses and real copyright notices. of course that's still only a claim somebody we don't know is making about it.</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;uberushaximus&gt; as a dirty dirty hack couldn't you wake up the card before the userspace process looks for it?</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;coolya&gt; i will try to</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;Unhelpful&gt; uberushaximus: the issue is whether we can get the driver to be told when to do that.</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;coolya&gt; it work with usb pluged in because the kernel doesn't go into suspend with the defauls settings</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;coolya&gt; s/work/works</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;Unhelpful&gt; basically it looks as though this "will wang" fellow made a half-assed attempt at releasing code to read the device, got some advice on proper LGPL/GPL release in reply, and fixed it. i hope. ;)</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;coolya&gt; hmm i think i can add some code to the early resume handler in the dhd driver</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-brick">* wout cheers</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-brick">* Unhelpful speculates that "willy wang" is 1) asian and was told to westernize his given name for dealings w/ the western world 2) was *later* told that we put given names first 3) was possibly also told later how westerners might interpret "willy wang"</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;nitam|work&gt; :-)</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;nitam|work&gt; lol! so you think a 16 core box with 20G ram is good for compiles?</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: you know, the constants here have the same names as in the meego driver. should we maybe just try using that?</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: 16 physical or HT logical?</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;uberushaximus&gt; mnita|work: eh, it might do</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;nitam|work&gt; well, 8 physical</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;nitam|work&gt; but I can get at it now</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;nitam|work&gt; our servers are free at night, so I'm going to co-opt a couple</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;Unhelpful&gt; also i should point out that others with much less CPU muscle than i can match my compile times due to having SSD, so storage may play a role here, too.</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;nitam|work&gt; yeah - but cannot get SSD on our servers.</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;nitam|work&gt; pity . . .</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;Unhelpful&gt; although w/ 20GB i bet you can keep a lot of disk cache hot ;)</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-green">* evaluate (~cristi@unaffiliated/evaluate) has joined this channel.</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-green">* enl_ (4e073452@gateway/web/freenode/ip.78.7.52.82) has joined this channel.</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: weren't you the one who got 19min compile on an i5 w/ SSD... vs the same for my quad-core SB i7 w/ HDD? :/</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;evaluate&gt; yup</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;evaluate&gt; wasn't a complete compile though, just after clean</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;evaluate&gt; After I removed the whole repo and redownloaded the compile took ~40 min</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;evaluate&gt; not sure what the difference is</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;Unhelpful&gt; clean doesn't appear to clean host binaries.</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;evaluate&gt; Anyway, it's a big improvement to the ~40-50 minutes it took on the HDD</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;Unhelpful&gt; or at least not all of them.</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, makes me wish i had an SSD. not that i can complain muchabout this machine.</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;evaluate&gt; and the fact I like most, is that I can grep the whole 14GB repo in under 5 seconds</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;evaluate&gt; on the SSD it took more than 5 minutes</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;evaluate&gt; that's pure awesomeness :-D</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;evaluate&gt; on the HDD it took more than 5 minutes*</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;evaluate&gt; Is there a reason why you were asking?</span><br />
