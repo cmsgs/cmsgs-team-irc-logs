@@ -175,3 +175,12 @@
 <span class="irc-date">[3:57]</span> <span class="irc-green">* krosseyed (~krosseyed@173-11-117-113-SFBA.hfc.comcastbusiness.net) has joined this channel.</span><br />
 <span class="irc-date">[4:11]</span> <span class="irc-navy">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Ping timeout: 240 seconds)</span><br />
 <span class="irc-date">[4:39]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.242.208.19) has joined this channel.</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@115.242.208.19) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[5:36]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Quit: leaving)</span><br />
+<span class="irc-date">[5:49]</span> <span class="irc-black">&lt;Unhelpful&gt; !!! i think i have a breakthrough on yas529/ms3c :D</span><br />
+<span class="irc-date">[5:50]</span> <span class="irc-black">&lt;Unhelpful&gt; because there is a very, very big difference between stashing a value in a signed vs unsigned temporary before you *subtract an offset* from it</span><br />
+<span class="irc-date">[5:50]</span> <span class="irc-black">&lt;Unhelpful&gt; and if the eventual destination of the value is signed, i'm thinking that doing the subtraction as unsigned is a huge mistake</span><br />
+<span class="irc-date">[5:52]</span> <span class="irc-black">&lt;techmik67&gt; still over my head, but it sre *sounds* inportant.... =P</span><br />
+<span class="irc-date">[5:52]</span> <span class="irc-black">&lt;techmik67&gt; sure *</span><br />
+<span class="irc-date">[5:53]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: (u8)0 - 32 == 224, (s8)0 - 32 == -32</span><br />
+<span class="irc-date">[5:54]</span> <span class="irc-black">&lt;Unhelpful&gt; there is a small difference there. and i was wondering why *no* values in a transform matrix were negative.</span><br />
