@@ -601,3 +601,77 @@
 <span class="irc-date">[11:58]</span> <span class="irc-navy">* enl_ (4e073452@gateway/web/freenode/ip.78.7.52.82) Quit (Ping timeout: 245 seconds)</span><br />
 <span class="irc-date">[11:59]</span> <span class="irc-black">&lt;evaluate&gt; I wonder what it could be. I've switched a bunch of updates since I first noticed the problem, but it has never disappeared. And I never had this on any stock FW.</span><br />
 <span class="irc-date">[11:59]</span> <span class="irc-black">&lt;evaluate&gt; It's really strange</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;evaluate&gt; I guess I will have to reflash a stock FW and see if it disappears and then flash CM from scratch</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;mikebeecham&gt; yeah</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;mikebeecham&gt; not ideal, but it may work</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;mikebeecham&gt; is there an easy way to build the nightlies?</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;mikebeecham&gt; for the uninitiated</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, what os are you using?</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;mikebeecham&gt; I have both Linux and W7 in my office</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;evaluate&gt; ok, what linux distro?</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;mikebeecham&gt; Ubuntu</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;evaluate&gt; good!</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;evaluate&gt; just follow the instructions on this page: <a href="http://forum.cyanogenmod.com/topic/15513-gt-i9000-cyanogenmod-7-developer-thread/">http://forum.cyanogenmod.com/topic/15513-gt-i9000-cyanogenmod-7-developer-thread/</a></span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;evaluate&gt; and replace 'DEVICE' with 'galaxys'</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;evaluate&gt; if you have good hardware and a good internet connection you can even up the 'repo sync -j40'. I used '-j200', not sure how much faster that is, but it will probably give you the best results.</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;evaluate&gt; still, since the sync download somewhere around 6-7GB if I'm not mistaked, it will take a while...</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|night: it also looks like there are some calibration data you can *write* to the device over i2c. i'm working on whatt they're supposed to be, still :/</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;evaluate&gt; downloads*</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;mikebeecham&gt; well, falled at the first hurdle ::D</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;evaluate&gt; hmm?</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;mikebeecham&gt; E: Unable to locate package lib32z1-dev</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;mikebeecham&gt; E: Unable to locate package lib32ncurses5-dev</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;mikebeecham&gt; E: Unable to locate package lib32readline5-dev</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;evaluate&gt; are you using a 32bit or a 64bit system?</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;Unhelpful&gt; most of what you're doing if already synced is polling repositories to see if they're updated.</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;mikebeecham&gt; 32bit</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;mikebeecham&gt; but my w7 is 64</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, fuck windows, we're talking about Ubuntu here :-p</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;mikebeecham&gt; 32 bit Ubuntu</span><br />
+<span class="irc-date">[12:06]</span> <span class="irc-black">&lt;evaluate&gt; so, try doing a 'apt-cache search readline5-dev' and paste the output to pastebin</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, he doesn't have the repo yet, so he'll need to download everything, that's why I recommended a high -j on sync if he has good hardware...</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;mikebeecham&gt; <a href="http://pastebin.com/m7P2G93G">http://pastebin.com/m7P2G93G</a></span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: do you really think that 200 will make it so much faster? surely github has a per-ip bandwidth allowance that you hit well below 200 threads.</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, yeah, but do you know what the limit is? I'd guess not. And since we don't I'd guess a number that is ABOVE the limit might give the best results, wouldn't it?</span><br />
+<span class="irc-date">[12:09]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, ok, just drop the '32' part from those packages</span><br />
+<span class="irc-date">[12:09]</span> <span class="irc-black">&lt;evaluate&gt; as in: sudo apt-get install git-core gnupg flex bison gperf libsdl-dev libesd0-dev libwxgtk2.6-dev squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev sun-java6-jdk pngcrush g++-multilib libz1-dev libncurses5-dev libreadline5-dev gcc-4.3-multilib g++-4.3-multilib</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;mikebeecham&gt; E: Unable to locate package libz1-dev</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-black">&lt;evaluate&gt; 'apt-cache search z1-dev'</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-black">&lt;mikebeecham&gt; lib64z1-dev - compression library - 64 bit development</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-black">&lt;evaluate&gt; replace it with that one then</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;atinm|night&gt; have to get to work ...</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-navy">* atinm|night (~atin@unaffiliated/atinm) Quit (Quit: atinm|night)</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;mikebeecham&gt; now it's working</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;Unhelpful&gt; what exactly are we trying to install here?</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, <a href="http://forum.cyanogenmod.com/topic/15513-gt-i9000-cyanogenmod-7-developer-thread/">http://forum.cyanogenmod.com/topic/15513-gt-i9000-cyanogenmod-7-developer-thread/</a></span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;mikebeecham&gt; doesn't this all mean that I should be running a 64bit machine?</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;Unhelpful&gt; mikebeecham: *are* you?</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-black">&lt;mikebeecham&gt; nope</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-black">&lt;mikebeecham&gt; 32 bit...as I've already said</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, not sure what all those libraries do, but since I have the 32bit version on my 64bit machine and you seem to get the 64bit versions on yours, I'd guess they are compatibility libs.</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;Unhelpful&gt; mikebeecham: you don't need those lib32 things, or anything multilib.</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;evaluate&gt; They might only be necessary for 64 bit machines to run some 32bit compatibility stuff...</span><br />
+<span class="irc-date">[12:16]</span> <span class="irc-black">&lt;mikebeecham&gt; ok...it's downloading anyway</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, "Note: Recompile with -Xlint:deprecation for details." Any idea how I can pass those flags to 'mmm'?</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;Unhelpful&gt; nope.</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-navy">* mikebeecham (~mikebeech@92.17.210.133) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-green">* mikebeecham (~mikebeech@92.17.210.133) has joined this channel.</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;coolya&gt; looks like sd card ist still working fine</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;coolya&gt; but maybe we should swap internal and external ... currently we can't unmount external</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;mikebeecham&gt; getting repo now</span><br />
+<span class="irc-date">[12:33]</span> <span class="irc-black">&lt;evaluate&gt; coolya, yup, I said that already :-p</span><br />
+<span class="irc-date">[12:33]</span> <span class="irc-black">&lt;evaluate&gt; coolya, but I don't think it's a good idea to have the external one on /sdcard either, since this might break stuff (like programs won't work anymore when you remove the SD)</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;evaluate&gt; anyway, I have to go to school now, see you in a few</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-navy">* evaluate (~cristi@unaffiliated/evaluate) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[12:35]</span> <span class="irc-black">&lt;coolya&gt; hmm we will offend some body anyway. On nook color you have to have a external card</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-black">&lt;Wout`&gt; i'd suggest leaving it as it is, and switching to sammys implementation when the source drops</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-black">&lt;coolya&gt; what implementation ?</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;mikebeecham&gt; tbh, I would much rather be able to access my external than not</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-navy">* mikebeecham (~mikebeech@92.17.210.133) Quit (Quit: Oops..I think I might have hit something...)</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;Wout`&gt; coolya: on the jv1 leak the internal sd isnt mounted as an sd card</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;Wout`&gt; just as flash storage</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;Wout`&gt; think they removed the 2-sdcards hack</span><br />
+<span class="irc-date">[12:47]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[12:48]</span> <span class="irc-green">* enl_ (4e073452@gateway/web/freenode/ip.78.7.52.82) has joined this channel.</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-green">* zerojay_work (~zerojaywo@blk-222-113-194.eastlink.ca) has joined this channel.</span><br />
