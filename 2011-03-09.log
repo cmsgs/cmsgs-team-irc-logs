@@ -1625,3 +1625,203 @@
 <span class="irc-date">[20:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k, lemme see what I can find.  which kernel source do you want me to use for the captivate?</span><br />
 <span class="irc-date">[20:57]</span> <span class="irc-green">* enli (~AndChat@94.165.8.240) has joined this channel.</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-navy">* enl_ (~AndChat@94.165.8.240) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-navy">* paratox (d411599b@gateway/web/freenode/ip.212.17.89.155) Quit (Ping timeout: 245 seconds)</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-green">* Msm903 (~Msm903@c-68-49-81-211.hsd1.md.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;techmik67&gt; 3 minutes to 15 mins</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;nitam|work&gt; TMC_Sherpa: use teamhacksung</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;nitam|work&gt; basically trying to fix headset and dock issues</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;nitam|work&gt; and easiest would just be to compare the GPIO settings.</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;nitam|work&gt; as a start</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;nitam|work&gt; I have tried to put in the ones I saw, but there are some changes needed to sec_jack.c also</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;nitam|work&gt; oh, sorry - compare with <a href="https://github.com/atinm/android_kernel_samsung">https://github.com/atinm/android_kernel_samsung</a></span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;nitam|work&gt; that has my changes for GPIO right now</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;codeworkx&gt; coolya: <a href="http://pastebin.com/uWb4aKEh">http://pastebin.com/uWb4aKEh</a></span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;codeworkx&gt; coolya: teh crash</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;zerojay_work&gt; By the way, my last_kmsg didn't show anything interesting or helpful for the crash with weird orientation.</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;zerojay_work&gt; save exit : isCheckpointed 1 two or three times, then rebooting. No crash dump or anything.</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;coolya&gt; codeworkx: sure kernel has the workaround?</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;techmik67&gt; reboot.... exactly 15 mins</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; crap, its the same crap codeworkx</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;codeworkx&gt; coolya: buildsystem was totally cleaned before building</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;codeworkx&gt; and synced ;-)</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;coolya&gt; techmik67: you build ?</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; techmik67: get the /proc/last_kmsg</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;techmik67&gt; gonna test my build from this morning again</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;techmik67&gt; stiill finishing boot</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;nitam|work&gt; kmsg</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;nitam|work&gt; not kmesg</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;nitam|work&gt; funny that mine is not rebooting ..</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;zerojay_work&gt; Mine hasn't been either.</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;nitam|work&gt; my headset changes shouldn't have done anything.</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;zerojay_work&gt; And I'm using codeworkx's build.</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx crashed on i9000 ;)</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;nitam|work&gt; gonna let coolya debug.</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;nitam|work&gt; just keep sending him last_kmsg files</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;nitam|work&gt; pasties</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has left this channel.</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-navy">* enli (~AndChat@94.165.8.240) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;coolya&gt; need more kmsg</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;techmik67&gt; here</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://pastebin.com/VDfRisYa">http://pastebin.com/VDfRisYa</a></span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;zerojay_work&gt; People already dl'ing coolya's latest build. Heh.</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;coolya&gt; techmik67: was that codeworkx build or yours ?</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;zerojay_work&gt; <a href="http://forum.cyanogenmod.com/topic/15278-all-models-cyanogenmod-7-faq-user-discussion/page__view__findpost__p__153294">http://forum.cyanogenmod.com/topic/15278-all-models-cyanogenmod-7-faq-user-discussion/page__view__findpost__p__153294</a></span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;techmik67&gt; codeworkx.... loading mine now</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;coolya&gt; that was not uptodate! cypress_touchkey_driver 10-0020: touchkey_interrupt_thread: touchkey_interrupt_thread</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'll get back to you as soon as I can get github to download the source, I have the hacksung version</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;coolya&gt; i disabled that debug output</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;techmik67&gt; sec... checking phone in recovery mode</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;techmik67&gt; i'm almost positive this is the only codeworkx build on my phone, but loading it again</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; cd samsung*</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; stupid window focus</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;zerojay_work&gt; <a href="http://twitter.com/#!/supercurio/status/45595467307958272">http://twitter.com/#!/supercurio/status/45595467307958272</a></span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;uberushaximus&gt; Wut</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;zerojay_work&gt; Starting to think the more underground we go, the better. lol</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;zerojay_work&gt; All probably caused by those kernels with voodoo included.</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;uberushaximus&gt; Solution, write better sound driver</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;Kaik541&gt; or, if you're running a non-standard kernel, don't submit bug reports</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;Kaik541&gt; i.e. use common sense</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;uberushaximus&gt; ^ +1</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;thedood&gt; lol</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;thedood&gt; poor guys</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;thedood&gt; you get picked on more then any other device</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;zerojay_work&gt; Never should have put out any binaries at all... lol</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;Kaik541&gt; but then people keep demanding and talking EVEN MORE shit</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;zerojay_work&gt; Fuck 'em.</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;Kaik541&gt; I guess the saying is true, you can't please all the people all the time</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;techmik67&gt; ok, waiting 15 minutes.... <a href="http://dl.dropbox.com/u/10818379/snap20110309_162455.png">http://dl.dropbox.com/u/10818379/snap20110309_162455.png</a></span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;Kaik541&gt; so fuck 'em</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;designfears&gt; techmik67: my what an odd modem u have</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;designfears&gt; ;-)</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;designfears&gt; Jk4 is your friend</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;techmik67&gt; i like JL3</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;thedood&gt; lol</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;techmik67&gt; hasnt given me an issue</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;thedood&gt; i'm on kb4 or some dumb shit</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;thedood&gt; that's the problem with samsung</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;thedood&gt; 0 consistancy</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;techmik67&gt; is anyone tweetiong back to supercurio?</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;designfears&gt; They aren't making ketchup thedood</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;thedood&gt; no you're right</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;thedood&gt; more like rotten tomatoes</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;zerojay_work&gt; <a href="http://forum.xda-developers.com/showpost.php?p=11974437&amp;postcount=1775">http://forum.xda-developers.com/showpost.php?p=11974437&amp;postcount=1775</a></span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;thedood&gt; ouch</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;nitam|work&gt; tho I have no idea why his app should crash/bug etc</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;nitam|work&gt; does he have a version for Gingerbread?</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;designfears&gt; Well put</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;thedood&gt; heh</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;thedood&gt; he just replied to me</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;nitam|work&gt; maybe he has it for nexus s.</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;thedood&gt; he said the bug is from ns</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;zerojay_work&gt; Oh, cool.</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;nitam|work&gt; if it is in nexus s source, then how is it CM7?!</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;nitam|work&gt; fix the nexus s source if you have a problem with it, and send us a link too so we can pull the fix.</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;thedood&gt; ns is supported on cm7 because no hacks are needed</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;nitam|work&gt; and don't put #if defined(CONFIG_VOODOO_SOUND) or whatever ... jeez.</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;thedood&gt; i already contacted koush</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;nitam|work&gt; yes, but does his voodoo app work on it</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;nitam|work&gt; tend to doubt it. no one will have pulled his patch into their tree.</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;nitam|work&gt; no one.</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; coolya, respond to the guy?</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;codeworkx&gt; did a new build for i9k. seems it's stable now</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;coolya&gt; i don't talk with hin about that only if it use full for me</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; k. screw it - I don't care either. let koush deal with it :)</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; since he said CyanogenMod.</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;nitam|work&gt; so he can mean nexus s too ;)</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;nitam|work&gt; I'm going to assume he did.</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;thedood&gt; lol</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;thedood&gt; playing on both sides of the fence</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;thedood&gt; classy</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;zerojay_work&gt; I'm at 22 minutes on my test of codeworkx's build on my Cappy... no wifi crash.</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;thedood&gt; 'we're cyanogen, but not official, but we're cm, but....awww fuck it'</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;techmik67&gt; i'm at 10 mins</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;codeworkx&gt; coolya: let's drive to france and do some voodoo</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;coolya&gt; +1</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;thedood&gt; that's something i can get behind</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;uberushaximus&gt; codeworkx + coolya: have you guys ever met before?</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;Kaik541&gt; they live together</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;codeworkx&gt; uberushaximus: no</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;coolya&gt; no</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;uberushaximus&gt; Kaik541: lol</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;Kaik541&gt; it's like two and a half men, without the kid</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;codeworkx&gt; uberushaximus: but i think a trip to france is a good chance</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;techmik67&gt; who's winning?</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;thedood&gt; which one is high and drinks tigerblood?</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;Kaik541&gt; and way more charlie sheen</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;zerojay_work&gt; DesignGears.</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;uberushaximus&gt; :( don't mention that ass</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;Kaik541&gt; now now, charlie sheen is nowhere near that crazy</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zerojay_work&gt; lol</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;thedood&gt; the fuck he isn't</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;techmik67&gt; reboot</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;techmik67&gt; right at 15 mins</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zerojay_work&gt; I'm still going fine at 25 minutes.</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;uberushaximus&gt; It's working fine here</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zerojay_work&gt; Wait, which wifi sleep option did you choose?</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; thedood: hey, it really could be people running nexus s and giving voodoo bad ratings.</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;thedood&gt; i think so too</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; *we* don't support Voodoo because it isn't in our code base.</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;thedood&gt; i'm investigating</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zerojay_work&gt; I chose the topmost option.</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;thedood&gt; cause you guys are baller</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;thedood&gt; nobody supports voodoo</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;thedood&gt; but that eugene guy</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; who is dead to us.</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;thedood&gt; so i hear lol</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;nitam|work&gt; he didn't happen. no source, it didn't happen.</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;thedood&gt; which high fives on that one</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;thedood&gt; he's moving on</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;thedood&gt; selling his vibrants</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; speaking of crazy people, anyone know what ever happened to Zilch?</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, to places where he doesn't need to follow GPL :)</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, you were the last to hear from him :(</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;nitam|work&gt; I still wonder why he doesn't just move to windows mobile.</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;nitam|work&gt; I asked him that ;)</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;thedood&gt; fuck me</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;thedood&gt; i can't talk to supercurio</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dang that was months ago</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; thedood: what happend?</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; thedood: and he did tweet me and coolya about voodoo - wanting us to pull in his patch.</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, yeah I know, I saw he signed onto xda ONCE on february first... haven't seen him since</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;nitam|work&gt; but there is no way we're letting anything with #if defined(CONFIG_VOODOO_xxx) show up in code.</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;nitam|work&gt; no files called wm8994_voodoo.c</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;nitam|work&gt; just not happening.</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; last thing I sent him was a link to the forum post on xda about people asking where he had gone but I don[t have his email addy anymore</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;techmik&gt; coolya: <a href="http://www.pastie.org/1653194">http://www.pastie.org/1653194</a></span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-brick">* dasunsrule32 yawns</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Kaik541&gt; he had the period where he said he had to tone it down because of something that happened at work</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Kaik541&gt; and then he signed on like twice since them and I made a mention about people missing him</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;coolya&gt; techmik: who build that ?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Kaik541&gt; and then he's been gone since</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;techmik67&gt; codeworkx build.... look at the start....</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;coolya&gt; it's outdated ... cypress_touchkey_driver debug is on</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;codeworkx&gt; 2.6.35.7-g34f127f-dirty</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;codeworkx&gt; there's something bad</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;Kaik541&gt; it says you built it codeworkx</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;techmik67&gt; its from that droppbox link earlier</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;codeworkx&gt; already uploaded a new one for i9k</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;codeworkx&gt; but not for cap</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;coolya&gt; codeworkx build is fail :-P</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;zerojay_work&gt; lol</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;techmik67&gt; just confirming.... my build from around the same time, didnt reboot</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; k, then good. hopeful that once codeworkx fixes his build we'll also be good to go</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; his 10am build is bad.</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;techmik67&gt; back to "it does stuff"</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-green">* techmik is now known as techmik_laptop</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;nitam|work&gt; you love that bootscreen</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;techmik67&gt; i do =P</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;nitam|work&gt; at least it tells you instantly whether you're running the correct build ;)</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;techmik67&gt; ok... clock running</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;techmik67&gt; 15 mins and counting down</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-green">* krosseyed (~krosseyed@173-11-113-22-SFBA.hfc.comcastbusiness.net) has joined this channel.</span><br />
