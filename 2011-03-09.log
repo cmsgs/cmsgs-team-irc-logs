@@ -820,3 +820,66 @@
 <span class="irc-date">[14:50]</span> <span class="irc-black">&lt;dasunsrule32&gt; s/reall/really</span><br />
 <span class="irc-date">[14:50]</span> <span class="irc-black">&lt;dasunsrule32&gt; or maybe a butt?</span><br />
 <span class="irc-date">[14:57]</span> <span class="irc-black">&lt;coolya&gt; i lild that much as i was reading all the "GPS fixes" for the vibrant</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;stickpin&gt; finally... :D</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-brick">* coolya starting build</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;stickpin&gt; two days in cisco killed me...</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;stickpin&gt; fast wifi, but no irc... :\</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;coolya&gt; i missed something</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-brick">* coolya start build fo real</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;dasunsrule32&gt; lol</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-brick">* dasunsrule32 has been building, final test on this incarnation of the script</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;dasunsrule32&gt; until I add scp/ftp support of sf.net</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;dasunsrule32&gt; :D</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;stickpin&gt; guys how can i add Launcher2 to build process?</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-navy">* mxracer_linux (~mxracer@adsl-222-142-172.clt.bellsouth.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;dasunsrule32&gt; coolya: any ideas? <a href="http://pastebin.com/nP7cWLwp">http://pastebin.com/nP7cWLwp</a></span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;dasunsrule32&gt; <a href="http://pastebin.com/GvCyRWmQ">http://pastebin.com/GvCyRWmQ</a></span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;dasunsrule32&gt; that version, more readable, first 3 lines is the error</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;dasunsrule32&gt; n/m, I think i know..., there are multiple zips in the out folder</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;dasunsrule32&gt; o.O</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;coolya&gt; i'm not good at shell scripts ;-)</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@59.93.52.250) has joined this channel.</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;dasunsrule32&gt; I had a wildcard for the *.zip and there were 3 zips</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;dasunsrule32&gt; it didn't know what to do</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;dasunsrule32&gt; it did, it couldn't merge 3 zip's into one</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;dasunsrule32&gt; changed to a more static file move will fix when I introduce other builds:</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;dasunsrule32&gt; /bin/mv /home/android/system/out/target/product/vibrant/update-cm-*-Vibrant-KANG-signed.zip /home/www/cmsgs/nightlies/vibrant/update-cm-$RC-Vibrant-NIGHTLY-$(date +%Y%m%d)-signed.zip</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-green">* atinm (~amalaviya@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;nitam|work&gt; complete mess at work. not going to be around for a while</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;nitam|work&gt; but quickly - did coolya's stuff for wifi get committed yet? does it work?</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: good tha you remind me</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;knowsnotmuch&gt; how is it working coolya ?</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Kolja Dummann * bb382b4 (1 files in 1 dirs): workaround for wifi sleep</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Kolja Dummann * 38285c3 (1 files in 1 dirs): cypress: remove debug output</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 commits f5fa4de...38285c3 - <a href="http://bit.ly/gX4SA3">http://bit.ly/gX4SA3</a></span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;coolya&gt; let the kangers begin to kang</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;knowsnotmuch&gt; lol</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;knowsnotmuch&gt; will bump bilbao :D</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;knowsnotmuch&gt; :D</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;coolya&gt; if he would respect us he will wait until we uploaded our builds</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;knowsnotmuch&gt; oh man coolya</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;knowsnotmuch&gt; i nudged him :P</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;nitam|work&gt; at least the guy on captivate seems to listen.</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;knowsnotmuch&gt; will tell him</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;nitam|work&gt; tho I basically told him he wasnt' including the initramfs files and that if another thing went in like the touchkey firmware, he'd be screwed and better to wait for us :)</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-green">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) has joined this channel.</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-black">&lt;stickpin&gt; to comment one line fix wifi issue? 8-O</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;knowsnotmuch&gt; coolya, does it help battery drain?</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;coolya&gt; i will upload a fresh builf for the vibrant right now</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;nitam|work&gt; I am building now too. though it has my partial mic fix too.</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;nitam|work&gt; so can't upload that</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;nitam|work&gt; let me see whether it works first :)</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;stickpin&gt; compiling now for cappy too...</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-brick">* knowsnotmuch waits for i9000.0000000</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;knowsnotmuch&gt; requested bilbao to hold his release until you guys put out your build... he said he would</span><br />
