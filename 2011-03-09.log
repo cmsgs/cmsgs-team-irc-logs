@@ -1,0 +1,122 @@
+<span class="irc-date">[0:05]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Quit: Computer has gone to sleep)</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm&gt; tonight is going to be no testing for me - I'm burnt out. Kaik541, request for you though. Can you check CM threads to see if mic button works in CM7 on other phones? Mine is acting weird but it isn't the kernel misbehaving and it looks more like a bug up above.</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;Kaik541&gt; I can try, sure</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; Mine basically goes into a play/pause infinite loop when I press the mic button. It starts the music player, starts playing a song and then that song just goes into play/pause loop in a .5 second cycle.</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;Kaik541&gt; as if you kept hitting the button over and over?</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; but kernel is not sending any more events up</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;Kaik541&gt; so you want me to find out if our controls work on say the vibrant or i9000?</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; it just sends the one. it is as if apps are not agreeing on who has AudioFocus</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; more like just search first - don't ask and look silly ;)</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;Kaik541&gt; oh of course, but I think the i9000 doesn't ship with similar headphones, not sure about the vibrant though</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm&gt; and yes, see if the mic  button works on other SGS phones - I didn't think it did</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: what headset is shipped with captivate ?</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;coolya&gt; I9000 ships with one</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm&gt; and my logcat just seems to go between phone apk, sms apk, music apk in a loop</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;Kaik541&gt; in ear headphones with built in music controls and microphone I believe (I never used mine)</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;coolya&gt; one button ?</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm&gt; yes, mic has a button. single press starts/pause</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;coolya&gt; if yes, its the smae</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;Kaik541&gt; oh ok</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm&gt; double press forward, triple back.</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm&gt; (on samsung music player)</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; not sure about gingerbread. it should at least play/pause</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; and mine does - only in a half second cycle :)</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; I haven't slept in a few nights, so burnt.</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; I committed my partial fix to atinm/android_kernel_samsung so I don't lose it</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; but didn't want to put it on teamhacksung yet</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; since it isn't actually fixed.</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;Kaik541&gt; so wait, we have someone in here with an i9000 (coolya) and when dasun pops back in he has a vibrant</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;Kaik541&gt; hell,coolya has a vibrant too... what exactly am I supposed to be on the lookout for?</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;zerojay&gt; I just built and can test if needed.</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; I think dasun already said that mic doens't work</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm&gt; he was the one who said the two click to forward, three to go back</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm&gt; I didn't konw mic button could do that :)</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm&gt; but I think that might be a samsung music app thing</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; because we actually have 3 separate events in the kernel driver for play/pause, next song, previous song</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; but our mic only sends up on because it only has the one adc value</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; one</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;Kaik541&gt; but if we all have the same headphones and they work the same... (that is none of them work yet)</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; but play/pause should work.</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; and I don't think it will</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm&gt; at least on sgs phones - our drivers haven't been fixed</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm&gt; but I was curious about other brands</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;Kaik541&gt; OH</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;Kaik541&gt; you want me to see if DIFFERENT headphones work</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm&gt; about whether it is a gingerbread bug</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;Kaik541&gt; non-stock with inline controls</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm&gt; I read somewhere that it might be</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm&gt; but lost the link</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm&gt; other phone brands</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm&gt; HTC</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm&gt; since gingerbread is the same</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;atinm&gt; and I think I'm doing the correct thing in the kernel now</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;coolya&gt; may blackberry 3 button headset is in my car i can fetch them tomorrow</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;atinm&gt; oh, while you're at it - find out if Nexus S has a three button headset :)</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;atinm&gt; because the code looks like it might.</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;coolya&gt; but i'm really tired</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;atinm&gt; hmm, I have my blackberry phones somewhere</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;atinm&gt; brb</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-navy">* Saelynh (~Saelynh@2a01:e35:2f3f:7430:7963:3b49:180c:bb6a) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;atinm&gt; crap, one button mic</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;Kaik541&gt; I'm watchign a nexus s unboxing video, and everything it ships with seems to be identical to our phones</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;Kaik541&gt; except the headphones</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117029.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;atinm&gt; yeah, once i hit the home key to get out of the music player screen it becomes fine</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;Kaik541&gt; but it looks like a 4 pole one, can't really tell =/</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm&gt; so it really looks like a gingerbread/music app bug.</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;Kaik541&gt; I see three lines on it</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm&gt; it should be 4 pole</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm&gt; since it has to have a mic</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm&gt; the question is whether the mic button has three buttons</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm&gt; as opposed to our one</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;Kaik541&gt; oh I know, I'll just ask curio</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm&gt; still, right now it is looking like a gingerbread bug to me.</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;Kaik541&gt; he has an i9000 and nexus s</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;Kaik541&gt; so he would know</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm&gt; I would be surprised if he hasn't already fixed the bug</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm&gt; since he is working in sound so much</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm&gt; worth asking</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm&gt; I asked, but he ignored me like we've been ignoring his voodoo stuff ;)</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;coolya&gt; should i be an asshole on the issue tracker or not ?</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;atinm&gt; lol</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;atinm&gt; which one?</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;Kaik541&gt; I was already an ass to that person who complained about no market apps</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;Kaik541&gt; no market app*</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;Kaik541&gt; curio says he *thinks* they're the same, but he can't tell as he enver used them</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;Kaik541&gt; so I'm asking if he has any headphones with inline controls that work</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;coolya&gt; and my sd is corrupt, with no logs no info about file system on the external sd and running some custom kernel</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm&gt; I also got a private message and a twitter msg about it</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;Kaik541&gt; apparently an iphone's headphones with inline controls should work (it worked on the nexus s)</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm&gt; I ignored them.</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;Kaik541&gt; so if anyone has an iphone's old headphones</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;Kaik541&gt; nexus one*</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm&gt; like when did I say that I was going to start providing user support in private messages.</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm&gt; at least post publicly so you can look like an idiot.</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;Kaik541&gt; haha, yeah when I get PM's asking me questions they were already asking in threads... I get annoyed</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117029.reshsg.uci.edu) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm&gt; so back to the main question - music app in gingerbread and mic controls</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-green">* embizzle_ (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, asking supercurio, all he says is that it worked on galaxy s with those headphones</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;Kaik541&gt; which isn't helpful/what I'm asking</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; oh! coolya . . . sec_jack.kcm.bin</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;Kaik541&gt; and now he's talking about something else. great.</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; we need that.</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; not sure where to get it.</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; I pulled it off froyo</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;coolya&gt; we have it</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; we have sec_jack.kl</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm&gt; there is also kcm</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm&gt; keycharmap</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;coolya&gt; shouldn't the kl file do the same ?</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm&gt; the logcat was explicitly looking for sec_jack.kcm.bin (keycharmap vs keylayout whatever that means)</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm&gt; in /system/usr/lib or something like that</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;coolya&gt; ok</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;coolya&gt; then we should push it there :-D</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm&gt; let me confirm where I put it :)</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;atinm&gt; # /system/keychars/sec_jack.kcm.bin</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;atinm&gt; I just pulled it off froyo</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-green">* YeahRight (morgoth@524955F5.cm-4-2b.dynamic.ziggo.nl) has joined this channel.</span><br />
