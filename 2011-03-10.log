@@ -268,3 +268,19 @@
 <span class="irc-date">[1:58]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
 <span class="irc-date">[1:58]</span> <span class="irc-brick">* Unhelpful_web thinks the key is going to have to do with the rough/fine offsets, possibly</span><br />
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;Unhelpful_web&gt; they can be read from *and written to* the device, unlike the calibration matrix, which is read-only, and the driver doesn't  *do* anything with them besides store/read/write - the calibration matrix is used to correct readings, but the offsets are just pushed to the device and noted so that it can produce them on request via the sysfs file.</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-navy">* krosseyed (~krosseyed@173-11-113-22-SFBA.hfc.comcastbusiness.net) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;Unhelpful_web&gt; there are also input events for things besides axis values and sync, so it looks as though we might need to do things in userspace to correctly calibrate. seems like we might need a sensors daemon after all, at least for the compass, to get sane values. the accelerometer works fine with just raw reads. :)</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.5.78) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;atinm&gt; I thought your axis were getting swapped</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;atinm&gt; which seemed like just a plain hardware bug and nothing we could do in software can fix it</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;techmik67&gt; ok, on my latest buid, 18 mins, wifi slept, no reboot</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;techmik67&gt; build</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Unhelpful_web&gt; atinm: no, the individual raw sensor values appear to respond correctly, but combining Y1/Y2 in the prescribed method doesn't really get me a good Y/Z value afaict. *but* the hardware clearly must be using the offset values to do some other correction, and while the driver can measure and report the "rough" offset values, there are also "fine" offset values that can be written to the hardware via sysfs, but that it can't provide value</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;Unhelpful_web&gt; i dumped raw sensor values while rotating the phone, and interestingly the minimum/maximum for each axis aren't centered around 0. perhaps this is what the "offsets" are used to fix? it would also explain why things don't seem quite right when combining Y1/Y2.</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;techmik67&gt; atinm are you uploading to sf?</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;atinm&gt; techmik67: not yet</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;techmik67&gt; ah... k</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-navy">* Unhelpful_web (a49c99e6@rockbox/developer/Unhelpful) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[2:39]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-navy">* uberushaximus (~uberushax@71-13-134-35.dhcp.ftbg.wi.charter.com) Quit (Quit: leaving)</span><br />
