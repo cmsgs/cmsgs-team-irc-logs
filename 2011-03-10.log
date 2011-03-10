@@ -658,3 +658,127 @@
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;coolya&gt; looks like we can mange to deal with it</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;Unhelpful_web&gt; yes, but i couldn't figure out how to use it - the parameters for the partition and reservoir partition are easy, but it wants some block offsets.</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;mbizzle&gt; I have a strange bug that has been consistent for a few weeks now</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;mbizzle&gt; I'm only on 2g, I don't know if this is the case for 3g networks</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful_web: that is the starting block of the partition in 4K blocks</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;coolya&gt; 72 for boot</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;mbizzle&gt; but if I'm on wifi, my phone doesn't work. if I'm using the phone, data doesn't work.</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; did you guys consider using rfs and storage .ko modules which have been released in recent leak of gb for galaxys?</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;Unhelpful_web&gt; coolya: oh, why do we have to give that, exactly? i mean, mtd knows where the partitions are, no?</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-brick">* Unhelpful_web would rather *not* go back to rfs ;)</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful_web: only for testing i guess, it is an really early stage</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; Unhelpful_web: not for using rfs, just for ext4 on stl block devices instead of mtd</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;coolya&gt; i will try to manage the we can meet him in irc</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; storage.ko does provide bml-stl translation layer</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; and you could kepp /efs as rfs</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;Unhelpful_web&gt; yes, but could we keep yaffs2 for the rest? i really don't see a reason to want this, except for efs and param.lfs.</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; why yaffs2, ext4 on stl</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;coolya&gt; i would like to avoid closed source modules as much as possible</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;Unhelpful_web&gt; because a designed-for-flash filesystem seems a much better idea on flash than a block-device filesystem and a block-mapping layer.</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; well, yeah, but using mtd is a bitch for switching back to stock</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;mbizzle&gt; unhelpful why are we using cfq for the default scheduler instead of noop, using that same logic?</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;Unhelpful_web&gt; mbizzle: does that even apply? yaffs2 doesn't use the block layer, aiui not doing read/write via the block device == not using the block-device scheduler.</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; anyway, for reading param.lfs in init, i think it can be easily done just by scanning the param partition for param.lfs magic</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Unhelpful_web&gt; also the amount of time spent on block scheduling seems to be vastly overestimated, and there *are* things the block schedulers do that you don't get w/ noop - a large read or write can block *everything* for a long time w/ noop</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Unhelpful_web&gt; cfq also has some support for non-rotational media, doesn't it?</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;mbizzle&gt; it does</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-green">* enl_ (970c5cfe@gateway/web/freenode/ip.151.12.92.254) has joined this channel.</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;Unhelpful_web&gt; Kaik541: i saw there was a great wave background. had to get it. :/</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;Kaik541&gt; hmm?</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;Unhelpful_web&gt; Kaik541: a hokusai woodblock print that's available as a background in fruit ninja. this one, to be specific: <a href="http://en.wikipedia.org/wiki/The_Great_Wave_off_Kanagawa">http://en.wikipedia.org/wiki/The_Great_Wave_off_Kanagawa</a></span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;Kaik541&gt; oh man, that picture reminds me so much of middle school</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;Kaik541&gt; every teacher seemed to use this picture as their default background for powerpoint presentations</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;Kaik541&gt; I have no idea why, either.</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;Unhelpful_web&gt; it's pretty!</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;Kaik541&gt; I keep all my wallpapers on dropbox that way I never get bored</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;mbizzle&gt; Unhelpful_web have you read anything about SIO scheduler?</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;Unhelpful_web&gt; mbizzle: i don't know of it. :)</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;mbizzle&gt; simple I/O -- based on noop and deadline. designed specifically for flash devices</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;mbizzle&gt; it's in the pf-kernel</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;Unhelpful_web&gt; deadline can be a pretty poor performer under contention among multiple writers, too :/</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;mikebeecham&gt; I notice with the new update that we're now using baseband JVE?</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;mikebeecham&gt; Didnt realise this was released. Is it proven better than JPM or JPY?</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;mbizzle&gt; I've been using JVE for a couple weeks</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;coolya&gt; the hole modem stuff is totally inconsistent</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;mbizzle&gt; I believe since the first day it was available</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;mikebeecham&gt; mbizzle, really? how're you finding it?</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;mbizzle&gt; voice quality is good. There are no ways to reliably test battery affect as far as I know</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;mbizzle&gt; although, keep in mind I'm with Tmobile US so I only use 2g. I can't speak for, nor care about, 3g speeds</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;mikebeecham&gt; mbizzle, I'm assuming that battery life will be consistently better now that wifi can be switched off with the screen?</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;mbizzle&gt; I operate under the faulty assumption that newer is better</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;mikebeecham&gt; mbizzle, how dare you! :)</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;mbizzle&gt; as long as quality doesn't degrade I stick with it :)</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_samsung_common: gingerbread Daniel Hillenbrand * 9d1159f (1 files in 1 dirs): aries: include SGSTheme - <a href="http://bit.ly/hHIHdA">http://bit.ly/hHIHdA</a></span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mikebeecham&gt; I would have preferred being able to choose at what point the wifi switches off...not necessarily as long as 15 mins</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;coolya&gt; i really should set my hex editor to the right endianess before search param.lfs ...</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mbizzle&gt; oh since JVE was released with a gingerbread rom, I suspected that it would cooperate better with our rom</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mbizzle&gt; mikebeecham you can control it</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mikebeecham&gt; mbizzle, can I?</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mbizzle&gt; yes</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;mikebeecham&gt; I thought it was stuck at 15 mins?</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;mbizzle&gt; I think I know where</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;mikebeecham&gt; where can I contol it?</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;coolya&gt; wtf</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;mbizzle&gt; through sqlite</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;mikebeecham&gt; ahhh</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;coolya&gt; SGSTheme in vendor???????</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;mikebeecham&gt; coolya, I'm getting SO confused with themes at the moment</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;mikebeecham&gt; I thought that the new icons were going into stock...but I find evaluate's theme AND a new SGSTheme</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;coolya&gt; can't we just keep the theme outside of our device tree ... and just put in the market?</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;mbizzle&gt; I'm not sure I know exactly where...you should know how to do these steps to fix your android_id anyway</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;mikebeecham&gt; with the icons going into the new two but NOT into stock, which is what they were designed for</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, that makes more sense</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;coolya&gt; or just sent the icons upstream what is the i think</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;coolya&gt; and if they not get in create a new theme</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;mikebeecham&gt; coolya, absolutely, but I'm very surprised that the power icons are not in stock theme now</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;mikebeecham&gt; thats really the only reason INITIALLY that I designed them</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;mikebeecham&gt; *rolls eyes*</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;coolya&gt; when codeworky gets here can you discuss that with him?</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;mbizzle&gt; mikebeecham: adb &gt; cd /datadata/com.android.providers.settings/databases</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;Kaik541&gt; mikebeecham, someone just needs to submit them to gerrit</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;mikebeecham&gt; mbizzle, I dont adb for the SGS enabled on my linux.</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;mikebeecham&gt; I had it on my Hero, but nto SGS</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;coolya&gt; i would like to avoid adding some stuff like the theme to our vendor, that might piss some douches.</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;mbizzle&gt; sqlite3 settings.db ".dump" | grep &lt;output&gt;</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;mbizzle&gt; oh</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;mbizzle&gt; well you can do it through the console I suppose :)</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;mikebeecham&gt; I made a point of saying that we need to work on a new theme, but I wanted to do it behind the scenes</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;mikebeecham&gt; all of a sudden there are new themes in the download, which are really duplicates of what is already there</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;mikebeecham&gt; which seems very pointless to me</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;Unhelpful_web&gt; what's the word, anyway, regarding upstream merge? is there any progress?</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;Yangtse&gt; try #adb shell</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;Yangtse&gt; use root</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful_web, two of coolya's reviews got approved</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful_web: recovery and init are mainline</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;coolya&gt; i will create gdoc later where we should add all the changes we need and if they are submitted</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;Unhelpful_web&gt; that's a good idea :)</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;Kaik541&gt; even CM doesn't use CM's iptables... they use the same external ones you guys do</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;mikebeecham&gt; VERY interesting. I charged my phone fully this morning (96%), and I still have 82%. Thats not bad so far!</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;mbizzle&gt; craziness</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.184.83.189) has joined this channel.</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;mikebeecham&gt; morning knowsnotmuch</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;knowsnotmuch&gt; gm mikebeecham :)</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;mikebeecham&gt; ow's you?</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-navy">* enl_ (970c5cfe@gateway/web/freenode/ip.151.12.92.254) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;knowsnotmuch&gt; pretty good .... i think :)</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;mikebeecham&gt; hehe</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;mikebeecham&gt; good</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;mikebeecham&gt; Is it worth doing a purge of the themes in the updates?</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;mikebeecham&gt; I think we need to remove the two extras now</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-brick">* knowsnotmuch loves cyanobread</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;mikebeecham&gt; put the power icons into stock, then work on themes "behind the scenes", but release to the market or as a seperate download IF people want them</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-brick">* coolya love mau5 theme</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;knowsnotmuch&gt; yeah i liked that too</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;Kaik541&gt; I like the mau5 theme too except the battery icon</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;mikebeecham&gt; knowsnotmuch, yeah, just talking about "SGSTheme" and GalaxyS</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;mikebeecham&gt; never seen the Mau5 theme</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;mikebeecham&gt; goes off to search</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;Kaik541&gt; it's in the market</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;mikebeecham&gt; is this it: <a href="http://android-themes.net/android-mau5-theme-for-cyanogenmod.html">http://android-themes.net/android-mau5-theme-for-cyanogenmod.html</a></span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;Kaik541&gt; no that's an old one</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;Kaik541&gt; just search on the market</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="https://market.android.com/details?id=org.cerqueira.Mau5KANG&amp;feature=search_result">https://market.android.com/details?id=org.cerqueira.Mau5KANG&amp;feature=search_result</a></span><br />
+<span class="irc-date">[10:50]</span> <span class="irc-black">&lt;mikebeecham&gt; yeah, no...dont like it</span><br />
+<span class="irc-date">[10:56]</span> <span class="irc-black">&lt;mbizzle&gt; me neither</span><br />
+<span class="irc-date">[10:58]</span> <span class="irc-navy">* Unhelpful_web (a49c99e6@rockbox/developer/Unhelpful) Quit (Quit: Page closed)</span><br />
