@@ -571,3 +571,90 @@
 <span class="irc-date">[8:56]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i cant get overlay working on .32.9</span><br />
 <span class="irc-date">[8:57]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; it craps out when it sends STREAM_ON ioctl and fimc driver decides there is not enough memory in the pool that it uses for overlay</span><br />
 <span class="irc-date">[8:59]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; there is option in kernel  (2) S3C UART to use for low-level debug</span><br />
+<span class="irc-date">[9:00]</span> <span class="irc-black">&lt;uberushaximus&gt; wow, the efsrestore.sh is some complex stuff</span><br />
+<span class="irc-date">[9:01]</span> <span class="irc-black">&lt;coolya&gt; lol isn't that only a cp? :-D</span><br />
+<span class="irc-date">[9:01]</span> <span class="irc-black">&lt;uberushaximus&gt; no, it's a cp -R</span><br />
+<span class="irc-date">[9:02]</span> <span class="irc-black">&lt;Kaik541&gt; hahaah</span><br />
+<span class="irc-date">[9:08]</span> <span class="irc-green">* Unhelpful_web (a49c99e6@rockbox/developer/Unhelpful) has joined this channel.</span><br />
+<span class="irc-date">[9:08]</span> <span class="irc-green">* ChanServ sets mode +o Unhelpful_web</span><br />
+<span class="irc-date">[9:12]</span> <span class="irc-black">&lt;uberushaximus&gt; alright, time for three hours of sleep because I sat on IRC again :D</span><br />
+<span class="irc-date">[9:12]</span> <span class="irc-black">&lt;Kaik541&gt; what is this "sleep" you speak of?</span><br />
+<span class="irc-date">[9:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok, i made a "please dont bother these nice folks and let us help you " post on the cm forum</span><br />
+<span class="irc-date">[9:17]</span> <span class="irc-brick">* uberushaximus fears the mindless horde that is XDA</span><br />
+<span class="irc-date">[9:17]</span> <span class="irc-black">&lt;techmik_laptop&gt; and coolya, did you see that we have scaling to 800 with no ill effects?</span><br />
+<span class="irc-date">[9:18]</span> <span class="irc-green">* Yangtse (~Yangtse@117.136.5.82) has joined this channel.</span><br />
+<span class="irc-date">[9:18]</span> <span class="irc-black">&lt;Kaik541&gt; it's shocking that they manage to find their way onto the site and decide to modify their $600 piece of hardware but just say "fuck it" to reading about what might happen to it</span><br />
+<span class="irc-date">[9:19]</span> <span class="irc-black">&lt;techmik_laptop&gt; lol</span><br />
+<span class="irc-date">[9:20]</span> <span class="irc-black">&lt;Unhelpful_web&gt; scaling what to 800 what?</span><br />
+<span class="irc-date">[9:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; cpu</span><br />
+<span class="irc-date">[9:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; with the cm tools that didnt used to work</span><br />
+<span class="irc-date">[9:21]</span> <span class="irc-black">&lt;Unhelpful_web&gt; erm, haven't we always had 800?</span><br />
+<span class="irc-date">[9:21]</span> <span class="irc-black">&lt;techmik_laptop&gt; i understood that the toolss crashed til now</span><br />
+<span class="irc-date">[9:22]</span> <span class="irc-black">&lt;techmik_laptop&gt; oh, i set my MAX to 800 i mean =P</span><br />
+<span class="irc-date">[9:22]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful_web, originally, the CMParts didn't have a table frequency to read so it was always dynamic, but now you can force scaling</span><br />
+<span class="irc-date">[9:22]</span> <span class="irc-black">&lt;Unhelpful_web&gt; Kaik541: um, i could swear the cpufreq interface can provide a table. :)</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-black">&lt;Kaik541&gt; it wasn't beingp ointed to the tables properly</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-black">&lt;Kaik541&gt; so they were just blank</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-black">&lt;Kaik541&gt; basically the commit just pointed to the /sys devices</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[9:24]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="https://github.com/teamhacksung/android_device_samsung_captivate/commit/d558298afc2482689bfa822beeaf63052181e404">https://github.com/teamhacksung/android_device_samsung_captivate/commit/d558298afc2482689bfa822beeaf63052181e404</a></span><br />
+<span class="irc-date">[9:25]</span> <span class="irc-green">* wout (~AndChat@62.140.137.146) has joined this channel.</span><br />
+<span class="irc-date">[9:29]</span> <span class="irc-navy">* wout (~AndChat@62.140.137.146) Quit (Client Quit)</span><br />
+<span class="irc-date">[9:31]</span> <span class="irc-navy">* enl_ (970c5cfe@gateway/web/freenode/ip.151.12.92.254) Quit (Ping timeout: 245 seconds)</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;mikebeecham&gt; morning morning</span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-black">&lt;coolya&gt; i will revert the iptables</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-navy">* Unhelpful_web (a49c99e6@rockbox/developer/Unhelpful) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;mikebeecham&gt; morning coolya</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;mikebeecham&gt; great release yesterday</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;mikebeecham&gt; wifi works like a dream</span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; so main CM github has bootmode=2 fix in init</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; why no lpm.rc support?</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;coolya&gt; because we can't read the bootmode</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;coolya&gt; only recovery bootmode is sent over cmdline</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; does it mean that main init.rc now should be pretty much empty, and you guys moved everything to init.aries.rc and recovery.rc?</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; ah</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; well, the bootmode is in the param.lfs</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;coolya&gt; lpm is sent over param.lfs what is closed source</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; kind of, the format of param file is very simple</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; but to use it you need to mount the partiton first</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;coolya&gt; yes it should be by 74 in the file</span><br />
+<span class="irc-date">[9:46]</span> <span class="irc-black">&lt;coolya&gt; s/by/byte</span><br />
+<span class="irc-date">[9:46]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i guess it could be possible to open the device and scan it for the param.lfs file, it has special signature</span><br />
+<span class="irc-date">[9:47]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[9:47]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread Kolja Dummann * ee079a3 (1 files in 1 dirs): Revert "Use CM iptables for droidwall etc" ... - <a href="http://bit.ly/fV1TJb">http://bit.ly/fV1TJb</a></span><br />
+<span class="irc-date">[9:47]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[9:47]</span> <span class="irc-black">&lt;coolya&gt; TCMAN-dmg: yes we should do that. someone collected info about that? maybe we should create a wiki page to share infos</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; sounds like good idea, in cmsgs.com wiki?</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-green">* Unhelpful_web (a49c99e6@rockbox/developer/Unhelpful) has joined this channel.</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-green">* ChanServ sets mode +o Unhelpful_web</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-black">&lt;coolya&gt; TCMAN-dmg: yes i think so</span><br />
+<span class="irc-date">[9:49]</span> <span class="irc-black">&lt;Unhelpful_web&gt; Kaik541: you really shouldn't have introduced me to fruit ninja :)</span><br />
+<span class="irc-date">[9:49]</span> <span class="irc-brick">* Unhelpful_web  wants his laptop here again.</span><br />
+<span class="irc-date">[9:49]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful_web, first you blame me for basic instructions webcomic and now fruit ninja :P</span><br />
+<span class="irc-date">[9:49]</span> <span class="irc-black">&lt;Unhelpful_web&gt; could do some real work</span><br />
+<span class="irc-date">[9:49]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.5.82) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[9:49]</span> <span class="irc-black">&lt;Unhelpful_web&gt; yup, all your fault.</span><br />
+<span class="irc-date">[9:50]</span> <span class="irc-black">&lt;Kaik541&gt; maybe you should have stronger will?</span><br />
+<span class="irc-date">[9:50]</span> <span class="irc-black">&lt;Kaik541&gt; :P</span><br />
+<span class="irc-date">[9:51]</span> <span class="irc-black">&lt;Unhelpful_web&gt; maybe i should have secret yas529 docs, but i don't have those, either.</span><br />
+<span class="irc-date">[9:52]</span> <span class="irc-green">* Yangtse (~Yangtse@117.136.5.82) has joined this channel.</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; see arch/arm/mach-s5pv210/include/mach/param.h for enums for params in param.lfs</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; every setting is int+int or int+string</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;mikebeecham&gt; morning Kaik541</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;mikebeecham&gt; did someone mention Fruit Ninja?</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;mikebeecham&gt; :D</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; the file starts with PARAM_MAGIC</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;coolya&gt; oh nice</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; the last 5 params are strings, the first 15 are are int</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; whole file format is described in this param.h</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;coolya&gt; i see there is a type def for it</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;Unhelpful_web&gt; TCMAN-dmg: so, provided we can deal w/ the block-mapping issues, we can write to it, then. :)</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;Kaik541&gt; heh, on a search for yas529, one of the top results (in first 3 pages) is a CM7 kernel</span><br />
+<span class="irc-date">[9:58]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; so i guess the right way would be to create dev for the param partition, open it, scan for magic and read the structure to memory</span><br />
+<span class="irc-date">[9:58]</span> <span class="irc-black">&lt;coolya&gt; i will add a mtd mapping for it</span><br />
+<span class="irc-date">[9:58]</span> <span class="irc-black">&lt;coolya&gt; eifert has created something to deal with bad blocks on BML</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;coolya&gt; looks like we can mange to deal with it</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;Unhelpful_web&gt; yes, but i couldn't figure out how to use it - the parameters for the partition and reservoir partition are easy, but it wants some block offsets.</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;mbizzle&gt; I have a strange bug that has been consistent for a few weeks now</span><br />
