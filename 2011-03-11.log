@@ -541,3 +541,61 @@
 <span class="irc-date">[7:44]</span> <span class="irc-black">&lt;Unhelpful_web&gt; btw, we should get rid of all of the axis swapping and inverting stuff for the magnetometer in libsensors. it turns out you can incorporate inversion of the z axis and rotation by 90, 180, or 270 degrees around the z axis into the correction matrix the driver applies by writing to the "position" file for the sensor in sysfs. :)</span><br />
 <span class="irc-date">[7:44]</span> <span class="irc-black">&lt;Unhelpful_web&gt; so what libsensors probably *should* do is read a property giving the appropriate sensor position, and write it to sysfs.</span><br />
 <span class="irc-date">[7:45]</span> <span class="irc-black">&lt;Unhelpful_web&gt; and then it needn't do anything *to* the data except scale it into real-world units and convert to float.</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; hey, whats the deal with these API and java doc build errors? <a href="http://pastie.org/1658775">http://pastie.org/1658775</a></span><br />
+<span class="irc-date">[8:06]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; is there any way to fix that?</span><br />
+<span class="irc-date">[8:06]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i am building practically unmodified stuff from teamhacksung repo</span><br />
+<span class="irc-date">[8:08]</span> <span class="irc-black">&lt;evaluate&gt; How exactly are you building?</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; lunch cyanogen_galaxytab-eng and then make -j4</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;evaluate&gt; TCMAN-dmg, try brunch</span><br />
+<span class="irc-date">[8:12]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; thats not gonna help</span><br />
+<span class="irc-date">[8:12]</span> <span class="irc-black">&lt;evaluate&gt; It worked for me...</span><br />
+<span class="irc-date">[8:12]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; lets see</span><br />
+<span class="irc-date">[8:13]</span> <span class="irc-black">&lt;evaluate&gt; There's also the build.sh script, you can try having a look at that...</span><br />
+<span class="irc-date">[8:13]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; bash: schedtool: command not found</span><br />
+<span class="irc-date">[8:13]</span> <span class="irc-black">&lt;coolya&gt; TCMAN-dmg: that looks like an upstream issue, some api change got merged but the api docs weren't updated</span><br />
+<span class="irc-date">[8:13]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; yeah i know, but it persists for like weeks now</span><br />
+<span class="irc-date">[8:14]</span> <span class="irc-black">&lt;Kaik541&gt; hasn't been there for us =/</span><br />
+<span class="irc-date">[8:14]</span> <span class="irc-black">&lt;evaluate&gt; I have noticed a couple of people complaining about the WiMax errors the last week, but there weren't any issues for me...</span><br />
+<span class="irc-date">[8:14]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; the second error is harmless and the first can be fixed with make update-api, but it is pissing me off</span><br />
+<span class="irc-date">[8:14]</span> <span class="irc-black">&lt;Unhelpful_web&gt; TCMAN-dmg: i forget what package schedtool is from, but you appear to be missing it from your build system.</span><br />
+<span class="irc-date">[8:15]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; emerge schedtool takes care of that crap ;-)</span><br />
+<span class="irc-date">[8:16]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[8:16]</span> <span class="irc-green">* embizzle_ (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[8:17]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Client Quit)</span><br />
+<span class="irc-date">[8:17]</span> <span class="irc-navy">* embizzle_ (~mbizzle@vp117018.reshsg.uci.edu) Quit (Client Quit)</span><br />
+<span class="irc-date">[8:17]</span> <span class="irc-green">* 64MAACYVZ (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[8:17]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; did you guys do something for recovery stuff to be copied to root instead of recovery/root?</span><br />
+<span class="irc-date">[8:18]</span> <span class="irc-navy">* 64MAACYVZ (~mbizzle@vp117018.reshsg.uci.edu) Quit (Client Quit)</span><br />
+<span class="irc-date">[8:18]</span> <span class="irc-black">&lt;coolya&gt; TCMAN-dmg: copy all to recovery/root and let kbuild take that as initramdisc</span><br />
+<span class="irc-date">[8:18]</span> <span class="irc-black">&lt;coolya&gt; that was the way Unhelpful_web changed the build system</span><br />
+<span class="irc-date">[8:19]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; i have both TARGET_ROOT_IS_RECOVERY := true</span><br />
+<span class="irc-date">[8:19]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; TARGET_BOOT_IS_RAMDISK := true</span><br />
+<span class="irc-date">[8:20]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; or is it the other way, recovery/root becomes initramfs instead or root?</span><br />
+<span class="irc-date">[8:21]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; btw, for some reason parted and sdparted and fix_permissions do not have executable attribute</span><br />
+<span class="irc-date">[8:21]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; ok, it looks like recovery/root is the initramfs, i thought it would be just everything in root and no recovery directory at all</span><br />
+<span class="irc-date">[8:22]</span> <span class="irc-black">&lt;Unhelpful_web&gt; the first option causes a recovery to be build that supports boot or recovery mode - ie the recovery doesn't remove anything after copying from the regular root.</span><br />
+<span class="irc-date">[8:22]</span> <span class="irc-black">&lt;Unhelpful_web&gt; the second option breaks the dependency of recovery.img on kernel, which is needed so that we can have recovery.img as a build dependency of kernel</span><br />
+<span class="irc-date">[8:22]</span> <span class="irc-green">* DrDood is now known as thedood|away</span><br />
+<span class="irc-date">[8:23]</span> <span class="irc-black">&lt;Unhelpful_web&gt; it's easier to build it in recovery/root than in root since recovery was *already* constructed by duplicating root and adding the recovery files to it.</span><br />
+<span class="irc-date">[8:23]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; ok</span><br />
+<span class="irc-date">[8:25]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; is it possible to get video working using copybit instead of overlay?</span><br />
+<span class="irc-date">[8:25]</span> <span class="irc-black">&lt;TCMAN-dmg&gt; overlay is unhappy with my kernel, it calls STREAM_ON ioctl and the fimc driver says there is not enough memory</span><br />
+<span class="irc-date">[8:28]</span> <span class="irc-black">&lt;Unhelpful_web&gt; ugh, if copybit is what i think, isn't that a huge performance hit?</span><br />
+<span class="irc-date">[8:37]</span> <span class="irc-black">&lt;Kaik541&gt; shit, japan just got rocked</span><br />
+<span class="irc-date">[8:38]</span> <span class="irc-black">&lt;evaluate&gt; and rolled?</span><br />
+<span class="irc-date">[8:38]</span> <span class="irc-black">&lt;Kaik541&gt; if you counter a tsunami as rolling</span><br />
+<span class="irc-date">[8:38]</span> <span class="irc-black">&lt;Kaik541&gt; 8.9 magnitude quake... that's damn strong</span><br />
+<span class="irc-date">[8:39]</span> <span class="irc-black">&lt;Kaik541&gt; s/counter/consider</span><br />
+<span class="irc-date">[8:39]</span> <span class="irc-black">&lt;evaluate&gt; ouch</span><br />
+<span class="irc-date">[8:40]</span> <span class="irc-black">&lt;evaluate&gt; With the technology they currently posses, they can move their entire country to the Moon or something...</span><br />
+<span class="irc-date">[8:41]</span> <span class="irc-black">&lt;Kaik541&gt; wow, someone already made a godzilla joke -________-</span><br />
+<span class="irc-date">[8:41]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[8:44]</span> <span class="irc-black">&lt;evaluate&gt; HOLY! That's a damn big tsunami alright...</span><br />
+<span class="irc-date">[8:44]</span> <span class="irc-black">&lt;Kaik541&gt; yeah... the earthquake was only something like 15 miles off the coast</span><br />
+<span class="irc-date">[8:44]</span> <span class="irc-black">&lt;Kaik541&gt; which isn't much considering it was an 8.9</span><br />
+<span class="irc-date">[8:47]</span> <span class="irc-black">&lt;evaluate&gt; yeah, apparently it's the 7-th most powerful in history...</span><br />
+<span class="irc-date">[8:49]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.5.80) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[8:49]</span> <span class="irc-black">&lt;Kaik541&gt; I never know how I feel about going to liveleaks... some pretty interesting videos, but it's completely uncensored (though that's the point)... but I still feel a bit odd seeing that there are videos of people dieing (dying?)</span><br />
+<span class="irc-date">[8:50]</span> <span class="irc-black">&lt;mikebeecham&gt;  morning morning</span><br />
+<span class="irc-date">[8:53]</span> <span class="irc-navy">* mikebeecham (~mikebeech@92.17.221.78) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[8:56]</span> <span class="irc-green">* mikebeecham (~mikebeech@92.17.221.78) has joined this channel.</span><br />
