@@ -255,3 +255,52 @@
 <span class="irc-date">[3:50]</span> <span class="irc-black">&lt;Unhelpful_web&gt; i should definitely look @ that magnetometer stuff *now*</span><br />
 <span class="irc-date">[3:53]</span> <span class="irc-black">&lt;Unhelpful_web&gt; nice, samsung/yamaha, magically renaming existing input event types for calibration data is a good idea</span><br />
 <span class="irc-date">[3:55]</span> <span class="irc-green">* Yangtse (~yaaic@117.136.5.86) has joined this channel.</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-navy">* Yangtse (~yaaic@117.136.5.86) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;Unhelpful_web&gt; ok, interesting stuff here. it appears the geomagnetic_raw device does *not* report raw sensor data at all, but *does* post events whenever certain internal values change, and allow you to write them. we need to be watching it as well as geomagnetic, and responding to events on it. perhaps we really do need a sensors daemon?</span><br />
+<span class="irc-date">[4:03]</span> <span class="irc-green">* Yangtse (~Yangtse@117.136.5.86) has joined this channel.</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;techmik67&gt; wes garner offering assistance (dev only)</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;Unhelpful_web&gt; assistance how?</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;techmik67&gt; from twitter:</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;techmik67&gt; wesgarner Wes Garner</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;techmik67&gt; @teamhacksung hey guys if any help is wanted for some of the bugs, just e-mail me (talking to the devs only)</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;techmik67&gt; 15 minutes ago Favorite Retweet Reply</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;techmik67&gt; he tweeted earlier he was using hacksung for vibrant and a "good job"</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-brick">* Unhelpful_web needs to tweet him "magnetometers, how the f*ck do they work?" then ;)</span><br />
+<span class="irc-date">[4:11]</span> <span class="irc-black">&lt;techmik67&gt; 24k downloads from sourceforge</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[4:24]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful_web, now now, since when are you a part of the insane clown posse?</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;Unhelpful_web&gt; i'm not, but i find that song hilarious, when i don't find it enraging, anyway.</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;Kaik541&gt; whoa whoa whoa</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;Kaik541&gt; jersey shore is on netflix now</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;Kaik541&gt; my life is complete</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;Unhelpful_web&gt; ugh.</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;Kaik541&gt; oh come on, it's like monkeys at the zoo</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;Kaik541&gt; it's fun to watch them throw poop, as long as it isn't being thrown at you</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;mersault&gt; I am grateful that they exist. I am even more grateful that there is an international border between me and the cast of jersey shore.</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-brick">* mersault has never seen an episode</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;Kaik541&gt; you can't just watch one episode of it</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;Kaik541&gt; you either need to watch them all so you can understand just how much hate you have for their sheer existence</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;Kaik541&gt; or never watch it</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;Kaik541&gt; "never watch it" is probably better for your overall mental health</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;mersault&gt; check.</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;mersault&gt; best thing I ever did for myself: no cable and an HD Home Run. I can record the daily show and colbert report nightly, plus some other select brain candy, but for the most part, I have to select my tv watching purposefully.</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;mersault&gt; well, it would be an exaggeration to say best, but certainly something that added value</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;Kaik541&gt; I don't pay for cable TV</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;Kaik541&gt; I just hop onto hulu or netflix (and occasionally network specific sites) to watch the shows I want</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;mersault&gt; I still haven't done the streaming thing, extensively. primarily because Canada doesn't have hulu. My mother does though, which is kinda funny.</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;Kaik541&gt; netflix just implemented streaming recently didn't it?</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;Kaik541&gt; $8 unlimited, no DVD's</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;mersault&gt; yes, netflix has come to Canada. but, admittedly, I've kinda solved the problem. they're late, for me.</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;mersault&gt; rss+torrents...</span><br />
+<span class="irc-date">[4:52]</span> <span class="irc-black">&lt;mersault&gt; if there ever comes a decent netflix plugin for mythtv, I'll look closer.</span><br />
+<span class="irc-date">[4:52]</span> <span class="irc-black">&lt;Kaik541&gt; I would just like netflix to support linux in general</span><br />
+<span class="irc-date">[4:52]</span> <span class="irc-black">&lt;Kaik541&gt; but i have my xbox for when I really need it</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-black">&lt;mersault&gt; I have a ps3, and might even be able to teach the gf how to use it</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-black">&lt;mersault&gt; but in the end, mythtv is what the tv is set to when it turns on...</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-black">&lt;mersault&gt; and she knows how to use it.</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-black">&lt;mersault&gt; so... that's settles that.</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-brick">* Unhelpful_web wonders how one records the daily show and colbert report w/o cable</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-brick">* Unhelpful_web wishes one could be assured of recording cable one pays for w/ mythtv... however the actual situation seems to be pretty much the opposite. must-be-MS-or-other-big-corp-closed-source-product-to-record-with-cablecard :(</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;mersault&gt; Unhelpful_web: Here in Canada, the daily show and colbert report are aired on broadcast by CTV.</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;mersault&gt; I'm in Toronto, so I pull it from the CN tower in 17.4MBps HD quality. Better than HD cable can do</span><br />
