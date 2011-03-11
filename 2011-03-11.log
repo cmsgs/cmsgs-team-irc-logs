@@ -1088,3 +1088,34 @@
 <span class="irc-date">[19:53]</span> <span class="irc-black">&lt;mersault&gt; speaking of I896 vs. I897, what do I need to change in the source to get a build of cm7 that says it's an I896? (I actually have an I896)</span><br />
 <span class="irc-date">[19:57]</span> <span class="irc-navy">* designfears (~jayp@32.146.215.79) Quit (Ping timeout: 246 seconds)</span><br />
 <span class="irc-date">[19:58]</span> <span class="irc-green">* designfears (~jayp@32.146.215.79) has joined this channel.</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-navy">* designfears (~jayp@32.146.215.79) Quit (Client Quit)</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-green">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-green">* uberushax (~androirc@2001:470:1f11:c4c:b607:f9ff:fe03:f050) has joined this channel.</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;codeworkx&gt; mersault: wtf is i896?</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;mersault&gt; codeworkx: SGH-I896 is the Rogers captivate.</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;Kaik541&gt; it's the canadian version of the Captivate</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;codeworkx&gt; same hardware?</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;mersault&gt; basically the same phone, minus the audience chip</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;codeworkx&gt; try flashing the i897</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-navy">* uberushax (~androirc@2001:470:1f11:c4c:b607:f9ff:fe03:f050) Quit (Client Quit)</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;mersault&gt; I can run I897 roms without issue. it's a completely cosmetic thing</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;codeworkx&gt; change it at build.prop</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;mersault&gt; hmmm... last time I tried that my keyboard got screwed up... but wait... swype ties itself to the phone type at installation, which I discovered when you guys changed the build between 0303 and 0310</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;mersault&gt; aha... I just need to uninstall and reinstall swype.</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;mersault&gt; so this doesn't even need to be a source change at all.</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;ohayden&gt; I'm able to compile captivate now under a squeeze container</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;ohayden&gt; lenny has a broken version of gcc</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;mersault&gt; ohayden: I've been building for captivate on squeeze for a few days now.</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;ohayden&gt; yeah.. nothing new</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;ohayden&gt; I initially tried on lenny but ran into a compiler issue</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;mersault&gt; lenny is pretty damn ancient</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;ohayden&gt; I could have updated gcc, but meh</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;ohayden&gt; sadly lenny is the default debian for lxc on squeeze</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;ohayden&gt; talk to them :P</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;ohayden&gt; I just wrote a squeeze config and built a new container</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, do you have a minute?</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;evaluate&gt; Any idea why modifying the lcd density doesn't work anymore? It worked ~ a week ago, but now when I modify it and restart, it just sets it back to 240...</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;evaluate&gt; I have no idea which commit might have borked that...</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: dont know</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;evaluate&gt; ok :-)</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;uberushaximus&gt; if you format system data and cache and then reflash initial, is it like starting over entirely?</span><br />
