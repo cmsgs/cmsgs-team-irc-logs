@@ -1138,3 +1138,47 @@
 <span class="irc-date">[21:55]</span> <span class="irc-black">&lt;Unhelpful&gt; re: other places. next time don't ask a question and its opposite. ;)</span><br />
 <span class="irc-date">[21:56]</span> <span class="irc-black">&lt;evaluate&gt; ok :-p</span><br />
 <span class="irc-date">[21:57]</span> <span class="irc-black">&lt;evaluate&gt; I was just wondering, how does the Settings app know which is the external and which is the internal SD card? Does it just take the first one as the internal and the other one as external? Caus right now it seems to get them wrong...</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;Kaik541&gt; I'm pretty sure it's the device specified in vold.fstab</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;evaluate&gt; Hmm, let's see...</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;uberushaximus&gt; I hate it when recovery spawns four multicolored instances</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;uberushaximus&gt; has that happened to anyone else before?</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;Kaik541&gt; I've yet to see that on my phone, but I laugh so hard when I see the pics of it</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;evaluate&gt; uberushaximus, yup, happened to me too</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;evaluate&gt; just rm the out folder and rebuild</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;Kaik541&gt; evaluate, you're working on the SGSTheme right?</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;evaluate&gt; yeah</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;Kaik541&gt; the data icons (3G/H) are still from the andorian theme</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;evaluate&gt; I know</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;Kaik541&gt; k, just wanted to make sure since I saw you switched the signal bars over to stock GB ones</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;evaluate&gt; I will have to do a mass import of most of the system icons, I just didn't have the time yet.</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;uberushaximus&gt; evaluate: I rm'd out before I built though :/</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-navy">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;evaluate&gt; ok, I found how the Settings apk find the additional storage: adb shell getprop ro.additionalmounts</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;evaluate&gt; now to see where this is being set</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;Kaik541&gt; evaluate, are you pulling the theme from 2.2 firmwares or the leaked 2.3.2?</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, what do you mean "pull"?</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;Kaik541&gt; what si the goal of this theme? to look like the touchwiz theme?</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;evaluate&gt; Something like that, yeah</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;Kaik541&gt; and are you grabbing your images from the 2.2 firmwares? just curious is all</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;evaluate&gt; To be as close to AOSP GB theme as possible, while still being functional and looking good.</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;Kaik541&gt; ah ok</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;evaluate&gt; Weel, I'm pulling them from various sources. Mostly from the system theme and Androidian theme though.</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;evaluate&gt; Well*</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;Kaik541&gt; yeah I thought this was going to be a theme to make it look like the old SGS theme and I was confused</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;Kaik541&gt; since the title was "SGS theme" so I was thinking touchwiz</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;evaluate&gt; You mean the one with the white-ish notification bar and the blue battery?</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;Kaik541&gt; I'm talking about the one our phones came with</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;evaluate&gt; Well, the name is like it is because I'm generally not very inspired... :-p</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;Kaik541&gt; gray notification bar</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;Kaik541&gt; lighter colored tray, etc</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;evaluate&gt; Yeah, that's the one I meant too. That's just plain ugly, I wouldn't do that to my phone...</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-green">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, that's why I was confused, but now that that's cleared up I gotcha</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;Kaik541&gt; I'm guessing there would be SOME people who wouldn't mind a touchwiz theme, but I'm not a fan</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;evaluate&gt; Well, I also though about taking over *a couple* of things from the touchwiz theme, like the icon for the Settings app, which I actually like more than the current one.</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;Kaik541&gt; there are some things that are fine, I was thinking it was a complete UI clone theme</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;Kaik541&gt; like the sense one on xda</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, any idea why the system won't accept any setprop commands: <a href="http://pastebin.com/V0LFddde">http://pastebin.com/V0LFddde</a> ?</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;evaluate&gt; This might be the same problem as the one with lcd_density, caus that won't apply either...</span><br />
