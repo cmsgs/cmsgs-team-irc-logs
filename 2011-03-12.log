@@ -803,3 +803,94 @@
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread codeworkx * 8b49c8a (1 files in 1 dirs): captivate.mk: decreased wifi.supplicant_scan_interval - <a href="https://github.com/teamhacksung/android_device_samsung_captivate/commit/8b49c8a65436040dd2f071b95279d148f62f6dcc">https://github.com/teamhacksung/android_device_samsung_captivate/commit/8b49c8a65436040dd2f071b95279d148f62f6dcc</a></span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, I just grep'ed the whole tree for 'PHONE_STORAGE' and I can only see that being used in the init.rc and recovery.rc, so from what I can see I'd say it's 'überflüssig'</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;codeworkx&gt; lol</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;techmik67&gt; i think i just got the last changes.... orient, mounting of cards... scan interval</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;codeworkx&gt; it's �berfl�ssig</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;codeworkx&gt; it's not necessary</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;atinm|away&gt; I'm going to commit this - it makes captivate mic work. no buttons, but mic gets enabled. everything is in #if defined(CONFIG_SAMSUNG_CAPTIVATE)</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;atinm|away&gt; so other phones need to see if some of those apply for their version</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;evaluate&gt; yeah, I didn't find the correct word in English and was too lazy to translate it :-p</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;atinm|away&gt; I think a couple do, but not all</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;Unhelpful&gt; wtf @ some of the madness. if (t &gt;= 0) x -= t else x += -t;</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;atinm|away&gt; lol</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;evaluate&gt; isn't x=x-t and x=x+(-t) the same? lol</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: yes, it is.</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;evaluate&gt; wow.</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;Unhelpful&gt; i've also simplified that. there are pointless casts between sizes, too. ;)</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;atinm|away&gt; it really looks like code that they said "ok, how about if we negate it - is that better?"</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;atinm|away&gt; "oh good, looks better"</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;atinm|away&gt; and enough hacks accumulate to create code like that.</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;atinm|away&gt; because no one wants to touch a hack that was already put in.</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;Unhelpful&gt; i am. :P</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;evaluate&gt; "hey, let's just put more 'if's in our code, so it looks more sofisticated"</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: I know - but you're basically rewriting the thing. I don't think most people there (or here) could.</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;evaluate&gt; or maybe the people that have written that driver were pain per character? :-p</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;evaluate&gt; paid*</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;Unhelpful&gt; c_driver.temp_coeff[i] = (int8_t)((int16_t)buf[i + 6] - 0x80);</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;atinm|away&gt; frick, music app breaks the mic.</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;atinm|away&gt; exiting it disables mic as well</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;Unhelpful&gt; the cast to int16_t is becaues buf is u8. the cast back to int_8 is because c_driver.coeff is s8, but is not needed.</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-green">* enlightened (~d0r1@host111-67-static.29-87-b.business.telecomitalia.it) has joined this channel.</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, also, regarding that if, maybe they actually meant that to be: if (t &gt;= 0) x -= t else x -= -t; and they typo'd?</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;evaluate&gt; or even if (t &gt;= 0) x -= t else x += t;</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: i don't think so, actually... everything i can find indicates the correct formula is x-t</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;Kaik541&gt; needs moar if's</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;evaluate&gt; ok, then maybe they are just idiots :-p</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;Unhelpful&gt; there are also screwups like dividing by 1600 and multiplying by 400 later. i'm pretty sure there might be some loss of precision there. ;P</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;evaluate&gt; heh</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Andrew Mahone * bbef854 (1 files in 1 dirs): yas529 driver improvements: use _to_cpu macros for 16-bit values from i2c, unify conversions of values from i2c via macros, roll 3/100 factor for thermal coefficients into stored values, general code cleanup. ... - <a href="http://bit.ly/eUDlar">http://bit.ly/eUDlar</a></span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: how do I just build the nightly?</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;atinm|away&gt; do I need to set an environment variable?</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;atinm|away&gt; hrm, why is mic disabled damn it.</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;atinm|away&gt; lol, it disables the mic.</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;atinm|away&gt; but nothing enables it after.</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;atinm|away&gt; I guess music app thinks it doesn't need the mic so it disables it.</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;atinm|away&gt; is there another music app i can try?</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;evaluate&gt; I think there's one called MIUI</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;evaluate&gt; <a href="http://forum.xda-developers.com/showpost.php?p=9606003&amp;postcount=1">http://forum.xda-developers.com/showpost.php?p=9606003&amp;postcount=1</a></span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Kaik541&gt; cubed</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;evaluate&gt; for example</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Kaik541&gt; is in the market</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, so, if testing goes well, i will need to add a new vendor binary...</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;Kaik541&gt; atinm|away, <a href="http://www.collegehumor.com/video:1928783">http://www.collegehumor.com/video:1928783</a></span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;Kaik541&gt; no</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="https://market.android.com/details?id=org.abrantix.rockon.rockonnggl&amp;feature=search_result">https://market.android.com/details?id=org.abrantix.rockon.rockonnggl&amp;feature=search_result</a></span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;Kaik541&gt; god dammit, my computer fails at copy/paste from firefox lately</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;Unhelpful&gt; where do those belong? ;)</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, OS?</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;Kaik541&gt; windows</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;evaluate&gt; did you close the firefox window from where you copied before pasting?</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;Kaik541&gt; nope</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;evaluate&gt; then it's awkward</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;Kaik541&gt; sometimes when I highlight and hit ctrl+c and then ctrl+v it pastes the thing I had in the clipboard before that</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;evaluate&gt; I know that there are some problems (at least on linux) that if you copy from firefox and then close the window, the copy gets lost</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;Kaik541&gt; and I have to hit ctrl c again, I would assume it's just I'm not hitting ctrl c properly except I've never really had a problem doing so and it ONLY happens with firefox</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, get a program like clcl</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;evaluate&gt; It's a tool every user needs (especially programmers)</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;Kaik541&gt; eh, I should just double check to make sure the link I'm sending is the correct one before I hit enter</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;mikebeecham&gt; evening chaps</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;mikebeecham&gt; well, thats Avatar done!</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;mikebeecham&gt; kids enjoyed :D</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, you still there?</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: who's codeworkx?</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;evaluate&gt; ok. :-p Was just wondering why you didn't also push the other change for the memory card.</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;ytt3r&gt; you are, silly</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;Unhelpful&gt; mikebeecham: iunno, i thought the original Fern Gully was better than that remake. ;)</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Kaik541&gt; I liked it better when it was also called pocahontas</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: i've pushed all</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;codeworkx&gt; service hook was missing</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: master Chris Cosby * 890a217 (1 files in 1 dirs): Rework squisher to be more maintainer friendly</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: master Chris Cosby * 9838356 (1 files in 1 dirs): Make squisher create the squashfs correctly for Dream/Sapphire devices.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: master toastcfh * 1d3ebd7 (1 files in 1 dirs): added sprint to apns-config. enabling mms send on sprint network</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: master commits 95bc01d...1d3ebd7 - <a href="http://bit.ly/dUfy0L">http://bit.ly/dUfy0L</a></span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;codeworkx&gt; wtf xD</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;Kaik541&gt; I'm thinking that wasn't the right hook :P</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;techmik67&gt; back and still building....</span><br />
