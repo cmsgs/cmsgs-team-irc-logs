@@ -1,0 +1,107 @@
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;atinm&gt; ?</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;uberushaximus&gt; kangsterizer's kernel</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;atinm&gt; Kaik541: you there?</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;atinm&gt; ah - ./kick uberushaximus</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;uberushaximus&gt; and it's still around even after I cleaned system/data/cache flashed a new kernel and initial</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;atinm&gt; that'll teach you ;)</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;atinm&gt; I really wish ppl who are here would try to stick with stuff we're building so we know what you're testing . . . but I understand why you'd do other stuff if you need the sound and color stuff</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm&gt; and so we hear about the bugs from ppl who know what we look for in bug reports :)</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;atinm|away&gt; I liked Kaik541's answer . . . "no logcat, it didn't happen"</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;evaluate&gt; lol, this is some fucked up shit.</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;evaluate&gt; I edit /default.prop, save it and everything's fine. After I restart, the edit I made aren't there anymore, and the file has a completely different timestamp. WTF?</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;atinm|away&gt; you do realize it is coming from initramfs?</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;evaluate&gt; atinm|away, and where do I have to change it so that it's consistent?</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;evaluate&gt; Do I have to update my kernel/initramfs?</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;atinm|away&gt; yes</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;evaluate&gt; gah</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;atinm|away&gt; initramfs is built into the kernel image</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;evaluate&gt; it worked before, this is really fucked up...</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-navy">* mersault (~mersault@69.158.29.99) Quit (Ping timeout: 248 seconds)</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;evaluate&gt; wit before I mean the old buildsystem</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;atinm|away&gt; where did you edit it?</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;atinm|away&gt; if you did it on the phone, reboot will blow it away</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;evaluate&gt; With the old buildsystem I could have edited it on the phone and the changes remained</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;evaluate&gt; this build system isn't good</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;atinm|away&gt; which old system.</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;evaluate&gt; it won't allow users to customize lcd_density or other stuff</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;evaluate&gt; well, the one before unhelpful made the changes</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;atinm|away&gt; if default.prop was part of initramfs, then his changes didn't change anything</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;atinm|away&gt; it would have always been part of initramfs</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;atinm|away&gt; and editing on the phone would not do crap.</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;evaluate&gt; atinm|away, I can assure you it worked before</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;evaluate&gt; And I'm not the only one that noticed this.</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;atinm|away&gt; not from default.prop it didn't.</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;atinm|away&gt; like I said, it is and has always been in initramfs.</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;atinm|away&gt; so any local edits would get lost on reboot.</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;evaluate&gt; see <a href="http://www.cmsgs.com/cmsgs-team-irc-logs/index.php?date=2011-03-10">http://www.cmsgs.com/cmsgs-team-irc-logs/index.php?date=2011-03-10</a> ~ 15:53</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;evaluate&gt; I'm really neither an idiot nor insane</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;evaluate&gt; I can assure you it worked before.</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;atinm|away&gt; I don't see anything related to default.prop in there</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;evaluate&gt; about the lcd density changes</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;evaluate&gt; these changes have to be made in the prop file</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;evaluate&gt; ro.sf.lcd_density to be precise</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;atinm|away&gt; *shrug* well, they must have also been made somewhere else - or the phone was reading them dynamically.</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;atinm|away&gt; I don't know. default.prop is in initramfs, any change will not live across reboot. that's just the way life is.</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;atinm|away&gt; and has always been,</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;evaluate&gt; There's also /system/build.prop, but the changes there don't seem to take any effect</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;atinm|away&gt; initramfs contents are in the kernel image. kernel image is reloaded at boot.</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;atinm|away&gt; yes, that will live across reboot</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;evaluate&gt; yeah, but that apparently isn't interpreted properly (or there's some other issue).</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;atinm|away&gt; well, depends on what is reading it.</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;atinm|away&gt; what is it that you are trying to write to it?</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;evaluate&gt; I changed for example ro.sf.lcd_density=240 to ...=200</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;atinm|away&gt; from what I can see, build.prop has ro.sf.lcd_density=240</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;atinm|away&gt; but I don't know if that is saying to actually "do" it, or just telling that that "is" what it is.</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;atinm|away&gt; but any change you make there should take</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;designfears&gt; oope i just had a reboot. how can i submit the details</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;atinm|away&gt; designfears: cat /proc/last_kmsg &gt; /sdcard/last_kmsg</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;atinm|away&gt; on the phone in adb after reboot</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;evaluate&gt; atinm|away, well, you could try it yourself. Set the density to 200 and reboot and see if it applies.</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;evaluate&gt; I'll try something else though.</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;atinm|away&gt; yup, it stayed across reboot like it should.</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;evaluate&gt; HMM?</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;evaluate&gt; now this is really awkward...</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;atinm|away&gt; but I have no idea whether it is supposed to change lcd or is just a build property that is saying that is what it is.</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;atinm|away&gt; I don't think it changed anything.</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;evaluate&gt; do you have a higher resolution?</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;evaluate&gt; actually, virtual resolution</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;evaluate&gt; Does stuff look smaller than before?</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;atinm|away&gt; and it is possible that whatever it is supposed to do is not working. but it isn't the build system.</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-green">* Yangtse (~Yangtse@117.136.5.80) has joined this channel.</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;designfears&gt; <a href="http://pastie.org/1661620">http://pastie.org/1661620</a></span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;atinm|away&gt; maybe - seems sharper but I could be imagining it</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;Yangtse&gt; morning</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;atinm|away&gt; designfears: that's the /proc/last_kmsg file?</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;designfears&gt; yes</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;designfears&gt; that was after the reboot happened. i did not adb reboot</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;designfears&gt; is a normal reboot then get the file better</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm|away&gt; hrm. it doesn't look like it crashed - it seems it was told to.</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm|away&gt; or died so hard that nothing else got written out</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm|away&gt; after the reset.</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;designfears&gt; wifi sleep has been working the past 3 times i turned the screen on</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm|away&gt; ee, it is using the march 9th kernel</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm|away&gt; the dirty one</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm|away&gt; just flash the latest I just uploaded</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;designfears&gt; ok</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm|away&gt; (you're captivate?)</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;designfears&gt; correct</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;designfears&gt; i had just applied the update from 03 10</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm|away&gt; ok, yes, use the latest. I think the march 9th one was halfbaked.</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm|away&gt; hmm.</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm|away&gt; evaluate: I'm pretty sure I'm imagining it</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm|away&gt; it should be obvious, right&gt;?</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;evaluate&gt; yeah. In the phone apk for example, you should see it</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;evaluate&gt; caus that one doesn't scale properly</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;evaluate&gt; but there should be a pretty significant difference</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm|away&gt; I dunno what to tell you - if something is supposed to read it, it isn't.</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm|away&gt; but the change definitely isn't supposed to be in default.prop</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm|away&gt; if you want it across the reboot</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm|away&gt; grep for the property in code</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm|away&gt; see what reads it</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;evaluate&gt; I changed it now in the initramfs and am building it, I'm curios if that works (should be ovious, but I want to make sure).</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;evaluate&gt; doesn't the initramfs automatically get built when I do ./build.sh galaxys ?</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
