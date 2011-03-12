@@ -646,3 +646,160 @@
 <span class="irc-date">[18:54]</span> <span class="irc-black">&lt;techmik67&gt; hey all</span><br />
 <span class="irc-date">[18:57]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;evaluate&gt; ok, I think I have also found the other setting. Rebuilding now to see if that's it.</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;atinm|away&gt; how the hell do I revert an old commit.</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;Unhelpful&gt; git revert?</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm|away&gt; I have already pushed it, so it needs to be reverted on teamhacksung</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm|away&gt; and when I do a revert, it tells me I need to pull from teamhacksung</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm|away&gt; and when I do, it pulls in the commit again</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: yes, you *don't* want to actually remove the commit from history.</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;Unhelpful&gt; what you need to do is make a new commit that undoes the old one.</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;atinm|away&gt; well crap.</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;Unhelpful&gt; so sync up w/ teamhacksung, then do "git revert &lt;oldcommit&gt;", then push</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;Unhelpful&gt; that's better anyway, because actually removing the commit upstream will have funny effects when other people pull/push.</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;atinm|away&gt; I pulled in a request but I didn't realize that supercurio wasn't in the chain.</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, ok, following 2 things have to be modified: in file vendor/cyanogen/products/cyanogen_galaxys.mk set ro.additionalmounts to /mnt/sdcard</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;atinm|away&gt; so need to revert that commit and just cherry-pick from his.</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;Unhelpful&gt; they might get merge errors on pull, or they might push the removed commit back if they have it locally.</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, and in file device/samsung/galaxys/init.rc set export EXTERNAL_STORAGE /mnt/emmc</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, these two changes will make the settings apk see the cards properly</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;Unhelpful&gt; this is why git revert doesn't remove the old commit :)</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: makes sense.</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;atinm|away&gt; pain in the ass tho :)</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, but if there's *any chance* that somebody else has a copy of history you've pushed, you shouldn't try to change it.</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, and of course all other devices, these are just the paths for the i9000 (not sure if the others have the same setup)</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate:  ok, lemme check it</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, sweet! does anybody have *nice* photos of a captivate board where i can see where/how the yas529 is mounted?</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;Unhelpful&gt; i found descriptions for the position option for the yas529 driver - if we just know the right position we won't need to mess w/ its input at all.</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, I also tested USB mount and it isn't affected by these settings in any way, so that will still work</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: <a href="http://forum.xda-developers.com/showthread.php?t=740022">http://forum.xda-developers.com/showthread.php?t=740022</a></span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: yeah, i just found that... sadly i can't ID any of the chips there, i was hoping it might have a readable yas529 or ms-3c mark, and maybe it does, but i can't really make out chip labels in those.</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;codeworkx&gt; disassemble yours</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;codeworkx&gt; it's pretty easy</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Unhelpful&gt; that's what i was *trying* to avoid ;)</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://www.techrepublic.com/photos/samsung-captivate-at-t-samsung-galaxy-s-teardown/456848?seq=26&amp;tag=thumbnail-view-selector;get-photo-roto">http://www.techrepublic.com/photos/samsung-captivate-at-t-samsung-galaxy-s-teardown/456848?seq=26&amp;tag=thumbnail-view-selector;get-photo-roto</a> &lt;-- slightly higher quality, still can't identify though</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 atinm * 3ffde8d (5 files in 4 dirs): Merge branch 'android-samsung-2.6.35' of git://github.com/teamhacksung/android_kernel_samsung into android-samsung-2.6.35</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 atinm * 6e7d32c (1 files in 1 dirs): Revert c35c784a83343084d9da ...</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 commits 0140141...6e7d32c - <a href="http://bit.ly/gcKzKs">http://bit.ly/gcKzKs</a></span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;Unhelpful&gt; this is interesting: <a href="http://www.techrepublic.com/photos/samsung-captivate-at-t-samsung-galaxy-s-teardown/456848?seq=30&amp;tag=thumbnail-view-selector;get-photo-roto">http://www.techrepublic.com/photos/samsung-captivate-at-t-samsung-galaxy-s-teardown/456848?seq=30&amp;tag=thumbnail-view-selector;get-photo-roto</a></span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;Unhelpful&gt; what *is* the removed module? the chip says its NEC something. the module it connects to doesn't have visible marks and appears to connect to nothing else</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 SIMOND François * 713be4c (1 files in 1 dirs): ASoC: Set FLL1 Gain to x32 to reduce audio jitter to inaudible levels ...</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 SIMOND François * 980cd35 (1 files in 1 dirs): ASoC: Activate WM8994 DAC 128x high performance oversampling ...</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 commits 6e7d32c...980cd35 - <a href="http://bit.ly/eNla7G">http://bit.ly/eNla7G</a></span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-green">* birdman (~Steven@205.sub-75-216-18.myvzw.com) has joined this channel.</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;Kaik541&gt; NEC I believe is the camera?</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://i.techrepublic.com.com/gallery/456902-850-569.jpg">http://i.techrepublic.com.com/gallery/456902-850-569.jpg</a> &lt;--- based on this picture, the camera is in the top left and it says NEC</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;atinm|away&gt; ytt3r: please use cherry-pick if you're going to pull from other places...</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm|away&gt; don't want to deal with that again.</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;atinm|away&gt; he's not here . . . techmik67 let him know when you see him.</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, good call, that's the placement too</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;Unhelpful&gt; ok! so, i'm going to remove all of the magnetic axis messing for all targets from sensors.h :)</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;Unhelpful&gt; for captivate i am setting what i believe to be the right orientation for the sensor in the driver</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;atinm|away&gt; we need a couple of other phones each .. .</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;Unhelpful&gt; for other targets, well, the transformation specified in sensor.h isn't actually valid. :/</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;atinm|away&gt; at least one captivate and one sgs and one nexus s sounds good.</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;atinm|away&gt; :)</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, if somebody wants to provide me more phones, i'll be happy to take *them* apart.</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;Unhelpful&gt; none of the closeups have anything i can be sure is the yas529/ms-3c :/</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;techmik67&gt; atinm|away: are you talking wiht supercuro in the last, say 10 mins or so?</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;atinm|away&gt; yes</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;atinm|away&gt; it was the commit from ytt3r - I didn't pay attention, but supercurio wasn't in the commit chain. so I had to revert it and cherry-pick directly from him.</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;atinm|away&gt; which is the right way .  . .</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-green">* mersault (~mersault@bas4-toronto02-1176313207.dsl.bell.ca) has joined this channel.</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;atinm|away&gt; as he very loudly pointed out :)</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;techmik67&gt; he also metioned another commit, i think, unless its my misread.... sec</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;Kaik541&gt; it was two small commits</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;Kaik541&gt; that got merged as one</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;Kaik541&gt; same file though</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;techmik67&gt; oh</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;atinm|away&gt; yes, two small ones that got pulled in as one.  I remembered the change so when I saw ytt3r's pull request and it was the same, I commited it.</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;atinm|away&gt; and regretted right after :)</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;techmik67&gt; you see what his reply was in the other channel to my link, kaik... thats why i was uinsure if his goal ois accomplished r not</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;atinm|away&gt; but had also committed a couple of other unrelated changes in the same push.</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;atinm|away&gt; that's why the commmit log looks so bad.</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;techmik67&gt; i see, atinm|away</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;atinm|away&gt; but is all good now.</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;techmik67&gt; so should i test the new commits?</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;atinm|away&gt; he will still be unhappy because it is No mainline doesn't replace Voodoo sound. It's a feature-less outdated non-configurable implementation</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;atinm|away&gt; because his configuration involves sysfs and we're not pulling it in :)</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;atinm|away&gt; when he works thru alsa we'll pull it in</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;techmik67&gt; i think i remember this discussion from the other day</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;atinm|away&gt; there's not a lot to the commit - but do check it out</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;atinm|away&gt; the voodoo app will not work with this</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;techmik67&gt; building</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: do you see any problems if we change wifi scan interval from 15 to 60?</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: should be much better for battery</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;atinm|away&gt; what was it in froyo?</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;codeworkx&gt; dont know</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;atinm|away&gt; I'm ok with 60, I have always wished for an "off" for scanning.</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;atinm|away&gt; haven't looked recently whether we have one now.</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;ytt3r&gt; My fault, sorry about that. I have no idea how to use github to just pull in changes like that :/</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-navy">* gdanko_ (~gdanko@nat/yahoo/x-foboyznuvsyqpslk) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-green">* gdanko (~gdanko@nat/yahoo/x-vxpnjovrzzjwajvh) has joined this channel.</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm|away&gt; basically git remote add curio hisrepo.git</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm|away&gt; git fetch curio</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm|away&gt; git cherry-pick hexnumberforcommit</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;atinm|away&gt; the number is unique, so it'll know which commit to get.</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;ytt3r&gt; next time I won't mess up like that :P</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;atinm|away&gt; basically copying/pasting code is a bad idea usually if you have their git commit available.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;atinm|away&gt; the only time I do it is when the files are different, parentage is different etc</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;atinm|away&gt; like when pulling a commit from a froyo kernel into gingerbread kernel</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;atinm|away&gt; that usually requires a copy/paste because the changes are in different files in different trees sometimes.</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: what about export PHONE_STORAGE?</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: should be sdcard then</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, I'm not entirely sure what that is used for.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm|away&gt; but since curios change and our tree are the same (or very similar) and the changes were to the same file, it worked</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, I wouldn't mess with that until we know what it does and what the correct setting should be.</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread Andrew Mahone * 7dfa14b (1 files in 1 dirs): Remove invert/swap hacks for magnetic sensor and orientation. Will fix Captivate magnetometer orientation with correct position parameter in driver. ...</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread Andrew Mahone * 84ef75f (2 files in 1 dirs): Merge branch 'gingerbread' of git://github.com/teamhacksung/android_device_samsung_common into gingerbread</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread commits df1ad79...84ef75f - <a href="http://bit.ly/gnhFe4">http://bit.ly/gnhFe4</a></span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread codeworkx * 2cae969 (1 files in 1 dirs): init.rc: set EXTERNAL_STORAGE=/mnt/emmc - <a href="http://bit.ly/dT7xgI">http://bit.ly/dT7xgI</a></span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;atinm|away&gt; lol, try it ;)</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxysb: gingerbread codeworkx * 656f0b2 (1 files in 1 dirs): init.rc: set EXTERNAL_STORAGE=/mnt/emmc - <a href="http://bit.ly/dZmtfj">http://bit.ly/dZmtfj</a></span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_vibrant: gingerbread codeworkx * ded6f98 (1 files in 1 dirs): init.rc: set EXTERNAL_STORAGE=/mnt/emmc - <a href="http://bit.ly/ehv6uD">http://bit.ly/ehv6uD</a></span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;mersault&gt; where does the code for handling caller id reside? is it part of the phone app itself, or further down in the stack?</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread codeworkx * 4a3f230 (1 files in 1 dirs): init.rc: set EXTERNAL_STORAGE=/mnt/emmc - <a href="http://bit.ly/etx8tH">http://bit.ly/etx8tH</a></span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;mersault&gt; I noticed on a call last night that network side inbound caller id doesn't work.</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Andrew Mahone * d5b033f (1 files in 1 dirs): Fix magnetometer position parameter for Captivate. ...</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Andrew Mahone * be7832e (12 files in 8 dirs): Merge branch 'android-samsung-2.6.35' of git://github.com/teamhacksung/android_kernel_samsung into android-samsung-2.6.35 ...</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 commits 980cd35...be7832e - <a href="https://github.com/teamhacksung/android_kernel_samsung/compare/980cd35...be7832e">https://github.com/teamhacksung/android_kernel_samsung/compare/980cd35...be7832e</a></span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;evaluate&gt; heh. Lots o' commits here :-p</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-navy">* birdman (~Steven@205.sub-75-216-18.myvzw.com) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread codeworkx * a89e049 (1 files in 1 dirs): galaxys.mk: decreased wifi.supplicant_scan_interval - <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/commit/a89e04902e7831008c28a8c69b55d068b79dfb69">https://github.com/teamhacksung/android_device_samsung_galaxys/commit/a89e04902e7831008c28a8c69b55d068b79dfb69</a></span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: when you update galaxys for sf.net, can you also do captivate?</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;codeworkx&gt; sure</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxysb: gingerbread codeworkx * 371005b (1 files in 1 dirs): galaxysb.mk: decreased wifi.supplicant_scan_interval - <a href="https://github.com/teamhacksung/android_device_samsung_galaxysb/commit/371005bf51d5024252c997681ede759048249f9e">https://github.com/teamhacksung/android_device_samsung_galaxysb/commit/371005bf51d5024252c997681ede759048249f9e</a></span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;atinm|away&gt; I'm in the middle of trying to fix mic and don't want to stash it etc</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;atinm|away&gt; Kaik541 can test it and so can techmik67 before you upload if you are afraid of it crashing.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_vibrant: gingerbread codeworkx * 56e2eb6 (1 files in 1 dirs): vibrant.mk: decreased wifi.supplicant_scan_interval - <a href="https://github.com/teamhacksung/android_device_samsung_vibrant/commit/56e2eb697319eb90f15a0f57faa0d13f5dd28fe9">https://github.com/teamhacksung/android_device_samsung_vibrant/commit/56e2eb697319eb90f15a0f57faa0d13f5dd28fe9</a></span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik67&gt; i keep stopping my builds cause i keep seeing new commits</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;Unhelpful&gt; btw yas529 driver says reported units are 400µT, we say in sensors.h that they're 4000µT</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread codeworkx * 8b49c8a (1 files in 1 dirs): captivate.mk: decreased wifi.supplicant_scan_interval - <a href="https://github.com/teamhacksung/android_device_samsung_captivate/commit/8b49c8a65436040dd2f071b95279d148f62f6dcc">https://github.com/teamhacksung/android_device_samsung_captivate/commit/8b49c8a65436040dd2f071b95279d148f62f6dcc</a></span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, I just grep'ed the whole tree for 'PHONE_STORAGE' and I can only see that being used in the init.rc and recovery.rc, so from what I can see I'd say it's 'überflüssig'</span><br />
