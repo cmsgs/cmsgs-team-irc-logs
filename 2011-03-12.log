@@ -301,3 +301,76 @@
 <span class="irc-date">[14:49]</span> <span class="irc-black">&lt;Wout`&gt; oi guys</span><br />
 <span class="irc-date">[14:50]</span> <span class="irc-black">&lt;evaluate&gt; oi oi</span><br />
 <span class="irc-date">[14:51]</span> <span class="irc-black">&lt;evaluate&gt; Hmm. Does anyone in here know how I can rebuild the ramdisk.img. I can't seem to figure this out.</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;atinm|away&gt; the easiest way is to just modify it in the device_samsung_xxxx (the files come from there) and rebuilt the kernel</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;evaluate&gt; you mean this one, right: ./initramfs/samsung/galaxys/data/default.prop ?</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;evaluate&gt; I tried editing that, but the ramdisk.img in out/.../ramdisk.img doesn't contain the changes I made... :-\</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;atinm|away&gt; where the hell does initramfs/samsung exist?</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;evaluate&gt; (after rebuilding the kernel of course)</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;evaluate&gt; It's in my build tree...</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;atinm|away&gt; I didn't think it existed anymore</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;atinm|away&gt; where</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;evaluate&gt; in the root</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;evaluate&gt; if you have it set up according to the instructions in the forum it should be something like ~/android/system/initramfs/samsung/galaxys/data/default.prop</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm|away&gt; I thought we'd removed that.</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm|away&gt; hrm, let me see something</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm|away&gt; I guess its there</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;atinm|away&gt; but we have duplicated files</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;atinm|away&gt; that's why I'm not sure anymore.</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;atinm|away&gt; find . -name default.prop -print</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;atinm|away&gt; find . -name init.aries.rc -print</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;evaluate&gt; <a href="http://pastebin.com/AYZixSc2">http://pastebin.com/AYZixSc2</a></span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;evaluate&gt; and I guess it wouldn't make any sense to edit the ones in out, since they get rewritten, don't they?</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;atinm|away&gt; yes</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;evaluate&gt; So the only one that remains is the ./initramfs/samsung/galaxys/data/default.prop</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;atinm|away&gt; ok, it *looks* like it might be using the files from initramfs, but then overwriting them from devices/samsung/captivate etc for the ones that are there as well</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure where to look, but I just tried it again and it doesn't work</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;atinm|away&gt; so default.prop might still be from the initramfs</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;atinm|away&gt; you tried modifying it?</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;evaluate&gt; I mounted the ramdisk.img on my computer, opened the default.prop and it doesn't contain my changes...</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;atinm|away&gt; try modifying it, and do a rebuild (. ./build/envsetup.sh &amp;&amp; brunch captivate)</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;evaluate&gt; atinm|away, where should I try modifying it?</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;atinm|away&gt; in initramfs/samsung/whatever</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;atinm|away&gt; what you use</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;evaluate&gt; I did</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;atinm|away&gt; and then do the full build</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;evaluate&gt; I modified it and then did ./build.sh galaxys kernel</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;evaluate&gt; so it only builds the kernel</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;atinm|away&gt; the output goes into ./out/target/product/captivate/root/default.prop</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;atinm|away&gt; if you want to build just the kernel, modify ./out/target/product/captivate/root/default.prop</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;evaluate&gt; yeah, but that one doesn't contain my changes either</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;evaluate&gt; hmm, let's see</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;evaluate&gt; but I'm afraid that one might get overwritten</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;atinm|away&gt; if it is, it'll be from initramfs/samsung/xx</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;evaluate&gt; I'm afraid there's a bug here</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;atinm|away&gt; ?</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;atinm|away&gt; (i am distracted - but basically just modify every damn default.prop you find)</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;atinm|away&gt; one of them will work</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;atinm|away&gt; or go thru the makefile to figure out how</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;evaluate&gt; atinm|away, yeah, that's what I fear, they instead of taking the device specific build.prop, it just takes a hardcoded one (captivate for example) and that's why my changes won't work. I'll try editing each one and rebuilding afterwards, to see of that's the case.</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;evaluate&gt; s/they/that/</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm|away&gt; no, it definitely uses build.prop</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm|away&gt; you need to edit the correct one.</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm|away&gt; and same for default.prop</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;evaluate&gt; Hmm. and I can't seem to be able to flash out/target.../kernel with heimdall...</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm|away&gt; if you're just building the kernel - please just modify the files in out/target/product/xxx/root</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm|away&gt; and build.</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm|away&gt; it'll work.</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;evaluate&gt; is this normal?</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm|away&gt; no.</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;evaluate&gt; ugh</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm|away&gt; out/target/products/captivate/kernel_build/arch/arm/boot/zImage is what I flash .. tho I think kernel is the same</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;atinm|away&gt; sorry, kinda busy. "Cars" is playing on my computer . . .</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;evaluate&gt; they seem to have the same md5sum and size, so I'd guess they're the same.</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;evaluate&gt; ok, thanks for the tips :-)</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;evaluate&gt; lol, it worked with zImage :-\</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;atinm|away&gt; CONFIG_INITRAMFS_SOURCE="out/target/product/galaxys/recovery/root"</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;atinm|away&gt; thats in defconfig</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;atinm|away&gt; so modify out/target..</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-green">* mikebeecham (~mikebeech@92.17.221.78) has joined this channel.</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;mikebeecham&gt; afternoon peeps</span><br />
