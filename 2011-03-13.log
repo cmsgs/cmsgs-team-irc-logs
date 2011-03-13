@@ -542,3 +542,43 @@
 <span class="irc-date">[8:33]</span> <span class="irc-navy">* dasunsrule32 (~cm7_rulz@christiantechsaz.com) Quit (Ping timeout: 255 seconds)</span><br />
 <span class="irc-date">[9:00]</span> <span class="irc-green">* birdman (~Steven@24.246.130.106) has joined this channel.</span><br />
 <span class="irc-date">[10:04]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Quit: leaving)</span><br />
+<span class="irc-date">[11:01]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm|night&gt; mersault: look in rogers i896 code</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm|night&gt; look in phone.apk I guess. haven't seen anything like that in the kernel</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm|night&gt; and you're right, its a request vs get it anyway deal</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm|night&gt; storage - shit, someone will have to look</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm|night&gt; and neither unhelpful nor I are terribly interested :)</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;evaluate&gt; morning.</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;evaluate&gt; any success with the lun folder?</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;atinm|night&gt; no one's looked in the kernel yet</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;evaluate&gt; uhum. Let's see then.</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-black">&lt;evaluate&gt; but, the kernel is pretty much identical, isn't it?</span><br />
+<span class="irc-date">[11:21]</span> <span class="irc-black">&lt;atinm|night&gt; yes, pretty much</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;atinm|night&gt; in fact, must be the same in that area - I haven't looked closely</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;atinm|night&gt; is storage layout different? I haven't ever cared to find out</span><br />
+<span class="irc-date">[11:23]</span> <span class="irc-black">&lt;evaluate&gt; I'll do a diff between device/samsung/captivate and galaxys for starters, see if there are any differences</span><br />
+<span class="irc-date">[11:23]</span> <span class="irc-black">&lt;evaluate&gt; atinm|night, I actually have no idea what's different, never cared much for the captivate :-p</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm|night&gt; yup - do a diff, see if youspot anything</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm|night&gt; I</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm|night&gt; '</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm|night&gt; ll</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm|night&gt; lo</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm|night&gt; ok</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm|night&gt; jeez</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm|night&gt; I'll look</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm|night&gt; later</span><br />
+<span class="irc-date">[11:45]</span> <span class="irc-black">&lt;evaluate&gt; ok, I couldn't find any significant changes in the device part</span><br />
+<span class="irc-date">[11:46]</span> <span class="irc-black">&lt;atinm|night&gt; in your dmesg output, what does your HWREV come up as?</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;atinm|night&gt; shoot, I need someone with a froyo captivate :)</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;atinm|night&gt; guess I'll have to do it today - I don't think we're reading the HWREV correctly - or at elast, I'm getting just 0x1 while I'm pretty sure it was different in froyo</span><br />
+<span class="irc-date">[11:49]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;atinm|night&gt; <a href="http://pastebin.com/QypgsEDA">http://pastebin.com/QypgsEDA</a></span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;atinm|night&gt; this is the relevant part evaluate</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;atinm|night&gt; the usb gadget driver, and seeing only one</span><br />
+<span class="irc-date">[11:52]</span> <span class="irc-black">&lt;atinm|night&gt; f_mass_storage.c</span><br />
+<span class="irc-date">[11:56]</span> <span class="irc-black">&lt;atinm|night&gt; but not a kernel problem, it seems to be a config problem.</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;evaluate&gt; ok, I thought about this for a second and I think I'll have to do something pretty nasty</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;evaluate&gt; but since the android devs are suckers, this might not really be regarded as nasty, but as necessary</span><br />
+<span class="irc-date">[11:59]</span> <span class="irc-black">&lt;atinm|night&gt; ?</span><br />
+<span class="irc-date">[11:59]</span> <span class="irc-black">&lt;evaluate&gt; thing is, currently the EXTERNAL_MEMORY is used for EVERYTHING. From apps on the SD to settings to everything else</span><br />
