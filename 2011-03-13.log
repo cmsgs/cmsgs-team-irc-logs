@@ -1093,3 +1093,124 @@
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;codeworkx&gt; you mean it isnt in /mnt only in /mnt/sdcard</span><br />
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;Wout`&gt; when I go to settings--&gt;storage: it does list internal storage as /mnt/sdcard/external_sd</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;Wout`&gt; but says Unavailable under totale space and free space</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;Wout`&gt; codeworkx: /mnt/sdcard/external_sd is NOT there</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;codeworkx&gt; then you didnt flash the build xD</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://codeworkx.de/download/cyanogenmod/update-cm-7-03132011-NIGHTLY-GalaxyS-signed.zip">http://codeworkx.de/download/cyanogenmod/update-cm-7-03132011-NIGHTLY-GalaxyS-signed.zip</a></span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;Wout`&gt; yes I did</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;Wout`&gt; [20:59] &lt;Wout`&gt; when I go to settings--&gt;storage: it does list internal storage as /mnt/sdcard/external_sd</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;Wout`&gt; [20:59] &lt;Wout`&gt; but says Unavailable under totale space and free space</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;Wout`&gt; and when I boot the phone, there is a msg in notification area saying I can safely remove sdcard</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;Wout`&gt; even though /mnt/sdcard is mounted</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;Wout`&gt; to I think the external one isnt mounted codeworkx</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;codeworkx&gt; mine is at /mnt/sdcard/external_sd</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;Wout`&gt; mine isnt</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;Wout`&gt; on the latest build</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;codeworkx&gt; even after a factory reset</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;Wout`&gt; didnt do a factory reset</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;Wout`&gt; is that neccesary?</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;codeworkx&gt; mayybe</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;Wout`&gt; sorry then, dont have time to set everything up right now. Can tell you though that it doesnt work when its flashed over a previous build</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-brick">* Unhelpful points out that we would also need to have vold make the mount point if it doesn't exist, since it's on another filesystem that *may* have been wiped :)</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;codeworkx&gt; wout, create external_sd on your internal card</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;codeworkx&gt; folder</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;codeworkx&gt; and reboot</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, in the init, did you create the external_sd folder *after* mounting the internal SD or before?</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;codeworkx&gt; before</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;evaluate&gt; I'd guess if you do it before mounting the internal sd, the folder might get borked when you mount it...</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;Wout`&gt; when I adb while in recovery, /mnt/sdcard/external_sd exists</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;Wout`&gt; but /sdcard/external_sd doesnt</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;Wout`&gt; i created it</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: we cannot write onto sdcard while init</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;Wout`&gt; then rebooted</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;Unhelpful&gt; we need to have vold create it before attempting to mount it. and also to ensure that any dynamic mounts that are in the path prefix for a mount are already mounted, or else fail them.</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: vold does the mounting</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;Wout`&gt; but still cant see external_sd inside my sdcard through root explorer</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: and we cannot write after sdcard is mounted and before external sd is</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;Wout`&gt; and that notification about Safe to remove sdcard on boot seems to indicate that external isnt mounted</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;Unhelpful&gt; not from a .rc anyway</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;codeworkx&gt; Wout`: your phone is defect.</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;Wout`&gt; no, your code is :P</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;codeworkx&gt; this code works fine on codeworkx phone</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;Wout`&gt; maybe its the factory reset</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;Wout`&gt; but gotta go now, maybe I'll try tomorrow with a fresh wipe</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-green">* Wout` is now known as Wout|af</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-green">* Wout|af is now known as Wout|afk</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;codeworkx&gt; Wout|afk: <a href="http://forum.xda-developers.com/showpost.php?p=12070682&amp;postcount=4301">http://forum.xda-developers.com/showpost.php?p=12070682&amp;postcount=4301</a>  goooo home !!!!!</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;codeworkx&gt; Wout|afk: your phone is defect</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;Wout|afk&gt; hope not :P</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;evaluate&gt; getMountService().getVolumeState(path); gives me an error, and I don't know why... :-\</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;codeworkx&gt; Wout|afk: it's really working here</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;Wout|afk&gt; I believe you</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;Wout|afk&gt; but it isnt for me, and I flashed the build correctly</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;Wout|afk&gt; but external sd doesnt get mounted</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;codeworkx&gt; Wout|afk: you're holding your phone the wrong way</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;Wout|afk&gt; as proven by the  'safely remove sdcard' notification and the fact that settings--&gt;storage doesnt crash but says under /mnt/sdcard/external_sd that the info is unavailable</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;Wout|afk&gt; just flashed back previous build, works fine under emmc</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;codeworkx&gt; Wout|afk: strange</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;Wout|afk&gt; gotta go, will test more tomorrow</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-navy">* Wout|afk (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, <a href="http://dl.dropbox.com/u/9596802/snap20110313_221312.png">http://dl.dropbox.com/u/9596802/snap20110313_221312.png</a></span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;evaluate&gt; display is working correctly on everything now, I just don't know why it doesn't see the card as mounted...</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;evaluate&gt; I'll search if the MountService is also working with additionalmounts. If it does we will have to edit that too :-\</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;evaluate&gt; FUCK!</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;evaluate&gt; ./frameworks/base/services/java/com/android/server/MountService.java:        String additionalVolumesProperty = SystemProperties.get("ro.additionalmounts");</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-green">* wout (~AndChat@62.140.137.119) has joined this channel.</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;evaluate&gt; there it is :-p</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;techmik67&gt; i was just on the latest build from the repositories.... no external card inserted.... gallery and camera were fine.... file manager showed my internal..... settings&gt;storage showed internal inBOTH places, sdcard and internal storage....</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;evaluate&gt; hmm, I really don't like the idea of messing with the framework</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;wout&gt; Codeworkx, can I try to mount the external one after booting?</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;codeworkx&gt; manually. but thats not the right way</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;codeworkx&gt; you have to invoke vold to do it</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;evaluate&gt; wout, you could try to remove it and then reinsert it (phisical remove)</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;wout&gt; Almost at the trainstation, will reflash and try when I'm on boad</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, if I edit the file frameworks/base/services/java/com/android/server/MountService.java, what do I have to 'make' to rebuild the package that contains that?</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;evaluate&gt; mmm -B /frameworks/base/services/ ?</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;codeworkx&gt; whole framework?</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;evaluate&gt; doesn't it suffice if I only rebuild services?</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-navy">* wout (~AndChat@62.140.137.119) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-brick">* evaluate tries</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-green">* wout (~AndChat@62.140.137.151) has joined this channel.</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;wout&gt; Codeworkx: reflashed latest, booted, removes external, the phone noticed, re-inserted,phone checks it for errors, then displays 'safe to remove card'</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;wout&gt; I've got a 11 minute trainride to run some terminal commands for you guys :P</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, <a href="http://dl.dropbox.com/u/9596802/snap20110313_223214.png">http://dl.dropbox.com/u/9596802/snap20110313_223214.png</a></span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: +1</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;codeworkx&gt; is it working?</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;evaluate&gt; a small hack to MountService made it work</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;wout&gt; How can I mount it manually to test?</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;evaluate&gt; now I just have to make unmount and format work</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;evaluate&gt; :-)</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;codeworkx&gt; wout: vold --help ?? xD</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;codeworkx&gt; dont know</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;wout&gt; OK, flashing back then</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;codeworkx&gt; wout: xda users reported its working fine except the storage fc's</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;codeworkx&gt; settings menu</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;codeworkx&gt; external_sd + evaluates fix + fc fix = win</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;Kaik541&gt; that would be such a useful upstream patch</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-navy">* wout (~AndChat@62.140.137.151) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;Kaik541&gt; I feel like only more devices will start having two sd card's</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;Kaik541&gt; also, shouldn't dual SD support make it into AOSP line sometime soon with the xoom?</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: shouldn't the galaxys have brought dual sd support into aosp?</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;atinm|away&gt; mersault: your headset mic should work now</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, assuming samsung had applied the patch back, but I feel like google and motorola are working a bit closer together on the xoom than samsung and google did on the galaxy s phones</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: sure? xD</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: i'll believe it if i've seen it</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;Kaik541&gt; well almost all the honeycomb tablets come with internal storage + external sd, so I feel like that's something that would add natively, but until it happens...</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;evaluate&gt; yeah, I guess that's also the reason why the Nexus S doesn't have external SD</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, also, that addition doesn't equal 'win', you still have to add 'mount both SDs to computer' to the left side for it to be a proper win...</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: that's a kernel thingy</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, you sure we couldn't implement that in the MountService ?</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: the lun is there, but not working correctly</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, I need an idea on how to implement formatting and unmounting</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;codeworkx&gt; the same way?</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;GuiPer&gt; codeworkx: regarding the lun mounting I already took a look at it, Samsung hacked quite hard into the gadget driver...</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;GuiPer&gt; maybe port to .35 will work, I tried but without luck</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, <a href="http://pastebin.com/VCyNADdg">http://pastebin.com/VCyNADdg</a></span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: the source drop will be with us</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;evaluate&gt; this is the function that checks clicks on the items. It currently checks if 'preference == mSdMountToggle', which is a single item. You think it would be ok to create an array with the format items and check if the string is in that array?</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;GuiPer&gt; let's hope!!</span><br />
