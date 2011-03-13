@@ -582,3 +582,99 @@
 <span class="irc-date">[11:58]</span> <span class="irc-black">&lt;evaluate&gt; but since the android devs are suckers, this might not really be regarded as nasty, but as necessary</span><br />
 <span class="irc-date">[11:59]</span> <span class="irc-black">&lt;atinm|night&gt; ?</span><br />
 <span class="irc-date">[11:59]</span> <span class="irc-black">&lt;evaluate&gt; thing is, currently the EXTERNAL_MEMORY is used for EVERYTHING. From apps on the SD to settings to everything else</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;evaluate&gt; and since we want to use our internal SD for all of that, we need to leave that alone</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;atinm|night&gt; need to find out where the configuration comes from</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;evaluate&gt; I think we will need to add a new flag like the ro.additionalmounts (does ro.additionalmounts.sd sound good?) and use that everywhere where we want our external card to be used</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;evaluate&gt; atinm|night, and yeah, I guess this problem with the captivate will still need to be fixed if you ever want to share that card over USB or do other things with it, I'd guess this needs to work.</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;atinm|night&gt; don't fuck the other phones - you want to commit something that breaks other phones, you #ifdef it</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;atinm|night&gt; until there is a fix.</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;atinm|night&gt; or you fix all phones if the problem is common to all</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;evaluate&gt; atinm|night, if you mean this change with the SDs, I didn't know that the captivate isn't set up properly...</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;atinm|night&gt; now you know - try to figure out what it would be, most probably a board config</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;atinm|night&gt; but if you cannot, don't commit to captivate and others if the others break as well</span><br />
+<span class="irc-date">[12:06]</span> <span class="irc-black">&lt;evaluate&gt; sheesh, come down please. I'm trying to help here, shit like this can happen and I guess it isn't the first time.</span><br />
+<span class="irc-date">[12:06]</span> <span class="irc-black">&lt;evaluate&gt; s/come/calm/</span><br />
+<span class="irc-date">[12:06]</span> <span class="irc-black">&lt;atinm|night&gt; I am, just saying that because at the moment its broken and we can't leave it that way</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;atinm|night&gt; and none of us have the time to work on this, and you seem to be the one who decided to take this on so right now its you. I'm helping - looking thru diffs in the config</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;evaluate&gt; atinm|night, I'm looking into it and will try to fix it. The only bad thing is that codeworkx immediately made a new release after commiting these changes, so we didn't get to test them properly here internally</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;atinm|night&gt; but I am coming to this new.</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-green">* atinm|night is now known as atinm</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;atinm&gt; yes, my mistake - not going to let him release captivate anymore :)</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;evaluate&gt; Anyway, I'm looking for the best way to fix this and hope to have a fix ready in a couple of hours.</span><br />
+<span class="irc-date">[12:09]</span> <span class="irc-black">&lt;evaluate&gt; I just hope to have someone with a captivate then, who can test it for me.</span><br />
+<span class="irc-date">[12:09]</span> <span class="irc-black">&lt;atinm&gt; Kaik541: and techmik67 will come on soon</span><br />
+<span class="irc-date">[12:09]</span> <span class="irc-black">&lt;atinm&gt; the device files look the same..</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;atinm&gt; except that galaxys still has the mmcwait.sh hack</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;atinm&gt; rather than passing wait as a mount argument</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;atinm&gt; but that might not be a good thing.</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-black">&lt;atinm&gt; maybe vold has to be different?</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;atinm&gt; I think I'm going to have to bring up froyo.</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;atinm&gt; crap.</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;atinm&gt; a few different things to look at there ...</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[12:14]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure where the driver gets the number of LUNs from</span><br />
+<span class="irc-date">[12:14]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, hey, good you're here.</span><br />
+<span class="irc-date">[12:14]</span> <span class="irc-black">&lt;codeworkx&gt; hi</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: one minute, i'll tell you</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, the problem on the captivate seems to be that the kernel only sees one LUN, and not two</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/plat-s5p/devs.c#L151">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/plat-s5p/devs.c#L151</a></span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;codeworkx&gt; you're right xD</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;evaluate&gt; who's done that?</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;atinm&gt; fixfixitfixit!</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;atinm&gt; oo, flashed to eclair!</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;atinm&gt; ;)</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Daniel Hillenbrand * ff73b99 (1 files in 1 dirs): devs.c: 2 luns for aries - <a href="http://bit.ly/g16Cx1">http://bit.ly/g16Cx1</a></span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, are there actually Galaxy S devices with only one LUN, or why was that ifdef added there?</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: no, changed it to mach aries</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;evaluate&gt; ok :-)</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, and now to the base of the problem.</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;evaluate&gt; It seems that EXTERNAL_STORAGE is used in many places as the *primary* storage, so I don't think it was a good idea to change that (sorry!!!).</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;evaluate&gt; I think we will need to add a new flag like the ro.additionalmounts (does ro.additionalmounts.sd sound good?) and use that everywhere where we want our external card to be used</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: framework changes?</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, for starters we would only need that in the settings app, since that was the place where it initially was displaying wrong.</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: should talk with cyanogen before putting much work into it</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: or we try the way samsung did it</span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, and that is?</span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-black">&lt;codeworkx&gt; mount internal card to /mnt/sdcard, mount external card to /mnt/sdcard/external_sd and hack the whole thingy</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;codeworkx&gt; no thats bad xD</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;evaluate&gt; yeah, that's pretty nasty :-p</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: does the gallery access the external card?</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;codeworkx&gt; emmc</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;evaluate&gt; Thing is, if we add ro.additionalmounts.sd and use that in the settings app with an ifdef or something, that wouldn't break other devices.</span><br />
+<span class="irc-date">[12:26]</span> <span class="irc-black">&lt;evaluate&gt; I think the gallery used the EXTERNAL_STORAGE too...</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;evaluate&gt; let me have a look into the settings app and see if we can do it so that cyanogen might approve it</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;evaluate&gt; atinm, could you recompile the captivate kernel with the new setting and see if mounting works fine with that (I'd guess it should).</span><br />
+<span class="irc-date">[12:28]</span> <span class="irc-black">&lt;atinm&gt; yes, want to look at one more thing unrelated</span><br />
+<span class="irc-date">[12:28]</span> <span class="irc-black">&lt;evaluate&gt; ok</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;atinm&gt; I won't be able to test this - have to wait for Kaik541 or techmik67</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;atinm&gt; have to go soon</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;atinm&gt; kid is going to wake up any moment</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;evaluate&gt; ok.</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, techmik67 ping?</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;codeworkx&gt; make /out/target/product/captivate/kernel should do it</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;evaluate&gt; I can build it, that's not the problem, problem is that I can't test it :-p</span><br />
+<span class="irc-date">[12:33]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, could you please have a look at packages/apps/Settings/src/com/android/settings/deviceinfo/Memory.java ?</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;evaluate&gt; I'd say we can duplicate the function at line 100 and name it something like getExternalVolumePaths or something like that</span><br />
+<span class="irc-date">[12:35]</span> <span class="irc-black">&lt;evaluate&gt; and then when we display the informations, we see if that contains anything, if it does we display that, if not, we display it like now.</span><br />
+<span class="irc-date">[12:35]</span> <span class="irc-black">&lt;evaluate&gt; I don't see why cyanogen wouldn't approve it if we do it like this.</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-black">&lt;evaluate&gt; This would also give the possibility to all other devices that have multiple SDs to handle them properly.</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-black">&lt;evaluate&gt; or we could rather name it 'getRemovableVolumePaths' so it's more obvious that these devices are removable and thus need the 'unmount' and 'format' options.</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: the internal needs unmount and format too</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;Kaik541&gt; I'm barely aware of what's going on right now</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;Kaik541&gt; but potential fix for sd card handling? building</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: but you cannot remove the internal</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, why would you want 'unmount' for the internal card?</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: unmount -&gt; format</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;Kaik541&gt; you'd want to be able to format your internal storage</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;Kaik541&gt; at least as an option</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;Kaik541&gt; it's not like someone is giong to sit there going 'why can't I pull out my NAND?"</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;Kaik541&gt; also, if you have the unmount option, you'd also have the "mount" option back if it doesn't properly remount on it's own</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: you cannot format a card which is actually in use by apps or something</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;evaluate&gt; ok, let me hack the Settings app a bit and see something</span><br />
