@@ -802,3 +802,139 @@
 <span class="irc-date">[16:33]</span> <span class="irc-black">&lt;GuiPer&gt; i saw that you did some changes on the kernel driver, but I dont think it will help</span><br />
 <span class="irc-date">[16:34]</span> <span class="irc-black">&lt;Unhelpful&gt; no, those changes are more about code quality and performance... removed a bunch of open-coded implementations of the same thing, etc.</span><br />
 <span class="irc-date">[16:35]</span> <span class="irc-black">&lt;Unhelpful&gt; anyway, geomagneticd does calibration stuff to the driver</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has left this channel.</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;atinm&gt; GuiPer: its Unhelpful who is looking at it.</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;atinm&gt; evaluate: status?</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;atinm&gt; anything?</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;techmik67&gt; i'm building to test this : <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/ff73b99126dbce59217df87018c6217154d579aa">https://github.com/teamhacksung/android_kernel_samsung/commit/ff73b99126dbce59217df87018c6217154d579aa</a></span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;atinm&gt; evaluate: I am reverting the changes to the init.rc and additionalmounts override. just recommit when everything is good</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;atinm&gt; I don't want the rest of development to be hostage to this right now.</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;atinm&gt; I committed mic stuff, and there is also the wifi supplicant interval that we'd like to be able to put up sometime</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm&gt; techmik67: did you figure out how build issue?</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm&gt; it seems to be building fine here</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;techmik67&gt; therer was a new commit</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;techmik67&gt; that fixed it i guess</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;techmik67&gt; but wait on the revert</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;techmik67&gt; isnt this commi addressing it?</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;atinm&gt; ok, but I think there is other stuff that is going to get screwed up in App land because they depend on EXTERNAL_STORAGE too</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;atinm&gt; it is doing one part of it</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;techmik67&gt; 2 luns for config_mach_aries....</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;atinm&gt; I am not going to revert that.</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;atinm&gt; just the two commits that hit init.rc setting of EXTERNAL_STORAGE and the *.mk files that hit additionalmounts</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: if you revert, then please do it on all 4 devices</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm&gt; I have</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm&gt; haven't pushed yet</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm&gt; wanted to build first</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm&gt; to make sure everything still works :)</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm&gt; doing a build clean because a lot of stuff came in</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;atinm&gt; since I last updated</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: and you can rename emmc to externalsd. vendor/cyanogen/products, init.rc, recovery.rc, recovery.fstab, vold.conf</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;evaluate&gt; atinm, I'm working on the settings app atm</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;atinm&gt; evaluate: I thought there are other apps that will also need changes.</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;atinm&gt; codeworkx: oh god, what? :) I was only reverting the commits you made</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: it's ok ;-)</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;evaluate&gt; if the EXTERNAL_STORAGE is set to the internal card, only the settings app will need to be patched</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;atinm&gt; jsut the two: <a href="https://github.com/teamhacksung/android_vendor_cyanogen/commit/26d65f02a8a2bf1daff5d36742ff48773229de5f">https://github.com/teamhacksung/android_vendor_cyanogen/commit/26d65f02a8a2bf1daff5d36742ff48773229de5f</a>  <a href="https://github.com/teamhacksung/android_device_samsung_captivate/commit/4a3f23028d8563f1367e342d442235a5f418f121">https://github.com/teamhacksung/android_device_samsung_captivate/commit/4a3f23028d8563f1367e342d442235a5f418f121</a></span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: yes, right</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: i've tested the renaming of emmc to externalsd because it's less confusing for our users</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;atinm&gt; ok, only doing the revert so we are back at previous state. kernel fix stays because that is actually correct regardless.</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;atinm&gt; so you want me to do the renaming or have you already done it and just need to commit it?</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;atinm&gt; one thing at a time . . . brb</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;evaluate&gt; atinm, one more thing. Please also add 'ro.removablemounts=/mnt/emmc' to vendor/cyanogen/products/cyanogen_DEVICENAME.mk</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm&gt; let me first push the revert - want to finish build, push that, then changes.</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;evaluate&gt; ok</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm&gt; what does removablemounts do?</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;evaluate&gt; just saying that so that everyone has that flag set in the kernel, so when I finish the settings app, I have someone that can test :-p</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;atinm&gt; its not something "standard"?</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;atinm&gt; I'm afraid that changing Settings.apk is a bigger deal because it affects everyone</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;atinm&gt; need to run it by cyanogen</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;evaluate&gt; it will replace ro.additionalmounts. The additionalmounts will be left for the devices that currently use that so they can still show in the settings app, we add removablemounts so that we can show the unmount and format options for these devices</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;evaluate&gt; atinm, I know.</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;evaluate&gt; talked about it with codeworkx already.</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: gingerbread atinm * f40e098 (4 files in 1 dirs): Revert "galaxys line: set ro.additionalmounts=/mnt/sdcard. fixes storage menu at settings." ... - <a href="http://bit.ly/i0fpo9">http://bit.ly/i0fpo9</a></span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;atinm&gt; wtf, why am I getting conflicts</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;atinm&gt; in the device_samsung_captivate/Android.mk vendorsetup.sh</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;techmik67&gt; did you resync?</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;techmik67&gt; there's a commit today for it</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;techmik67&gt; i was getting that before, then i got the commit on sync and its buildiong</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;techmik67&gt; building*</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: merged vendor/cyanogen</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: gingerbread atinm * 3a5b6eb (1 files in 1 dirs): Revert "init.rc: set EXTERNAL_STORAGE=/mnt/emmc" ...</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: gingerbread atinm * 2d3bcf9 (1 files in 1 dirs): Merge branch 'gingerbread' of github.com:teamhacksung/android_vendor_cyanogen into gingerbread ...</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: gingerbread commits f40e098...2d3bcf9 - <a href="http://bit.ly/gzht9J">http://bit.ly/gzht9J</a></span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;atinm&gt; holy ..</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;atinm&gt; just got a whole mess of things</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;atinm&gt; crap.</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;codeworkx&gt; wtf</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;atinm&gt; yeah - wtf..</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;codeworkx&gt; oh, atinm has merged device/samsung/captivate to vendor/cyanogen xD</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;atinm&gt; fuck, no.!</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;codeworkx&gt; how you did that?</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;atinm&gt; I don't know!</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;codeworkx&gt; thats pretty funny</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;atinm&gt; how does one do that :)</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;atinm&gt; crap, and its a merge so can't just revert it.</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;codeworkx&gt; now you can really undo the commits xD</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;codeworkx&gt; sledgehammer</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://stackoverflow.com/questions/448919/how-can-i-remove-a-commit-on-github">http://stackoverflow.com/questions/448919/how-can-i-remove-a-commit-on-github</a></span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: if i do a push -f, all should be ok</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;atinm&gt; git push -f origin HEAD^:master</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;atinm&gt; ?</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;atinm&gt; git push -f origin HEAD^:gingerbread</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;atinm&gt; here goes ... ;)</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;atinm&gt; pretty!</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;atinm&gt; still don't know how that happened ...</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;atinm&gt; wtf.</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;atinm&gt; was in the device/samsung/captivate directory and did a push there!</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: it's still fucked</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;codeworkx&gt; i'll fix it</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;atinm&gt; it looks fine on gingerbread branch</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/teamhacksung/android_vendor_cyanogen/commits/gingerbread">https://github.com/teamhacksung/android_vendor_cyanogen/commits/gingerbread</a></span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;atinm&gt; captivate ..</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;codeworkx&gt; ok, it's back to life</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;codeworkx&gt; now pull it!</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;codeworkx&gt; cleanly xD</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-brick">* Unhelpful again points out that editing history is-bad-mmkay</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;codeworkx&gt; history is fine</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;atinm&gt; wtf.</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;atinm&gt; why is my local history weird now</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;codeworkx&gt; delete your local repo and clone again</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;atinm&gt; and why cannot I blow vendor/cyanogen away</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;atinm&gt; screw it, blew it all away</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;atinm&gt; dunno what I did tho . . . how the f.</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;atinm&gt; oh!</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;atinm&gt; I must have added a remote but my paste history must have still be saying vendor_cyanogen</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;atinm&gt; and I wasn't paying attention - the ctrl-c must not have taken</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;atinm&gt; guess I'll pay attention now! :)</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;atinm&gt; that was fun ;)</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;atinm&gt; glad I'm on my work server</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;atinm&gt; it can resync quicker than my home box</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;atinm&gt; have to get this done before kid wakes from nap</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: did the push -f screw up history?</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;codeworkx&gt; no, because the history on my local machine was fine</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;atinm&gt; just so long as no one did a pull in the meantime</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;atinm&gt; between my fuck up and you fixing.</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;atinm&gt; but then can also re pull ;)</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;codeworkx&gt; i didn't get your commits. so my local repo was older than the remote repo</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;atinm&gt; luckily very small number of developers right now so chances are small that anyone get in a pull between you and me.</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;codeworkx&gt; i now simply force pushed the old stuff</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;atinm&gt; yes, this overwrote the history between me and you - and can screw up the person who pulled between our commits. hopefully zero people.</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;atinm&gt; except me ;)</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;atinm&gt; who did have to recreate this repo</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; but I caused this, so its my punishment..</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; oh, techmik67 have you built recently?</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; successfully?</span><br />
