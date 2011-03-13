@@ -146,3 +146,66 @@
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;mersault&gt; yes. exactly.</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;mersault&gt; now in storage settings, both the internal and external sd card are unavailable.</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;mersault&gt; this was with straight nightly build, no alternate kernel</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;mersault&gt; I have the logcat. What do you want me to grep out of it?</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;Kaik541&gt; wait even your external says unavailable?</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;Kaik541&gt; do you have a card in there?</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;Kaik541&gt; because that'd be different</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;mersault&gt; I do have an external SD card</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;mersault&gt; I have listed now: sd card 15.11GB total space. internal storage 1.85GB total. and finally, internal storage: /mnt/sdcard unavailable</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;Kaik541&gt; ah ok, so your external still shows how much space it has</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;Kaik541&gt; then that's the same</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;Kaik541&gt; post up the logcat so evaluate can take a look</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;mersault&gt; the whole thing, or do you want specific snippets?</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;mersault&gt; it's 1445 lines</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;Kaik541&gt; if you can make it fit</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;Kaik541&gt; just try and trim out anything before you try to mount it</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;Kaik541&gt; that's what I did</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;techmik67&gt; evaluate: where/what are your changes to the mounts?</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;evaluate&gt; techmik67, what do you mean?</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;evaluate&gt; from the one from yesterday?</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;techmik67&gt; i'm looking thru github and trying to find commits relating to mounts</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;techmik67&gt; tryint ot see what's diffrent in my local sources</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;evaluate&gt; <a href="https://github.com/teamhacksung/android_vendor_cyanogen/commit/26d65f02a8a2bf1daff5d36742ff48773229de5f">https://github.com/teamhacksung/android_vendor_cyanogen/commit/26d65f02a8a2bf1daff5d36742ff48773229de5f</a> and <a href="https://github.com/teamhacksung/android_device_samsung_captivate/commit/8b49c8a65436040dd2f071b95279d148f62f6dcc">https://github.com/teamhacksung/android_device_samsung_captivate/commit/8b49c8a65436040dd2f071b95279d148f62f6dcc</a> should be it</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;techmik67&gt; thx</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;techmik67&gt; i'm sure the scan interval iisnt causing it =)</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;evaluate&gt; no, wait, wrong link</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;techmik67&gt; i see the mk file</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;mersault&gt; bah, is there a paste site that lets me just feed it the log file directly?</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;evaluate&gt; <a href="https://github.com/teamhacksung/android_device_samsung_captivate/commit/4a3f23028d8563f1367e342d442235a5f418f121">https://github.com/teamhacksung/android_device_samsung_captivate/commit/4a3f23028d8563f1367e342d442235a5f418f121</a></span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;evaluate&gt; mersault, pastebin.com</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;techmik67&gt; k, thx evaluate</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;mersault&gt; evaluate: where's the option? am I just being blind here?</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;mersault&gt; or do I have to sign up to unlock that functionality?</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;evaluate&gt; ohh, log file. Can't you just do a Ctrl+a; Ctrl+v ?</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;evaluate&gt; umm, Ctrl+a; Ctrl+c; Ctrl+v</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;evaluate&gt; I think I might have found something. Let's see if this makes any difference</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;mersault&gt; Okay, got it into pastebin.com: <a href="http://pastebin.com/j7gP1wqP">http://pastebin.com/j7gP1wqP</a></span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;evaluate&gt; ok, the ones with heimdall, please try this: <a href="http://dl.dropbox.com/u/9596802/kernel">http://dl.dropbox.com/u/9596802/kernel</a> and see if it makes any difference whatsoever.</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;evaluate&gt; techmik67, Kaik541 ^</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;mersault&gt; heimdall doesn't seem to want to work on mac os x</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;mersault&gt; at least, the frontend doesn't....</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;evaluate&gt; mersault, you could try the CLI</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;evaluate&gt; I'll bbiab</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;mersault&gt; evaluate: would be happy to. is there a man page?</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;mersault&gt; just drop the phone to download mode, and use 'heimdall flash --kernel kernel'?</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;techmik67&gt; same as before.....</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://pastebin.com/7ZWi3hGR">http://pastebin.com/7ZWi3hGR</a></span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;mersault&gt; heimdall on mac fails with: Failed to receive device info response!</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;evaluate&gt; hmm, the thing is, android has a really fucked up system for SD cards. It isn't normally thought of working with internal SD cards, only with external ones. So our internal SD is pretty much fucking stuff up...</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;mersault&gt; booo... heimdall did manage to softbrick my phone though.</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-brick">* mersault boots up a windows VM to run Odin from</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;evaluate&gt; mersault, you should be able to reflash the CM update to get it working again...</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;mersault&gt; no, I get the wonderful phone-computer screen</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: the first android devices only had an external card. and every user used one. xD</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;evaluate&gt; yeah, but they should've have some foresight... :-p</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: internal sd = bad</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: an external one can be replaced</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;evaluate&gt; I'm trying to do it the 'harmony' way now though, see how that works out</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: new because of a defect, bigger because to small and so an</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;mersault&gt; wait, does heimdall require a tar, or just the kernel image?</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;evaluate&gt; mersault, the binary image</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;mersault&gt; okay... then yeah, hiemdall on mac os borks my phone.</span><br />
