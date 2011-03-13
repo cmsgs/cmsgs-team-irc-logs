@@ -467,3 +467,41 @@
 <span class="irc-date">[3:47]</span> <span class="irc-navy">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Ping timeout: 250 seconds)</span><br />
 <span class="irc-date">[3:48]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.240.83.126) has joined this channel.</span><br />
 <span class="irc-date">[3:58]</span> <span class="irc-green">* embizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[4:04]</span> <span class="irc-black">&lt;Unhelpful&gt; if it works correctly, i see no reason not to</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;knowsnotmuch&gt; hmmm FCs with camera  ... is it just me?</span><br />
+<span class="irc-date">[4:11]</span> <span class="irc-black">&lt;mersault&gt; so, I've been here only intermittently lately, anyone want to give me the tl;dr of the current status of the captivate?</span><br />
+<span class="irc-date">[4:14]</span> <span class="irc-black">&lt;Unhelpful&gt; it's f*cked. but that's just from the guy digging @ the sensor crap. :P</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;mersault&gt; heh. what's the deal with the sd cards? should I just go back to my known good backup?</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;Unhelpful&gt; i haven't really been following that. something about issues w/ unmount/usb share. i don't really care about those so much. :)</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;mersault&gt; alright, I guess I'll just revert to a nice backup.</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;mersault&gt; though, a question if I may. do you know where I should start looking if I wanted to peak at the code that handles inbound calls? I noticed that inbound caller ID isn't working, as is typical of primarily American ROMs.</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;Kaik541&gt; mersault, do you mean for numbers not in your contact book?</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;mersault&gt; Canadian phone networks have a slightly different standard for CNAM. Our networks send the ANI with the call, rather than expecting the terminating side of the call to do a DIP</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-black">&lt;Kaik541&gt; so, yes?</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-black">&lt;mersault&gt; yes (I was partway through writing that out when you responded, figured I'd just finish my sentence)</span><br />
+<span class="irc-date">[4:24]</span> <span class="irc-black">&lt;mersault&gt; it's pretty much the only difference from bellcore.</span><br />
+<span class="irc-date">[4:24]</span> <span class="irc-black">&lt;Kaik541&gt; haha alright, I was more saying that as a joke about the fact that I have NO IDEA what you just said</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;mersault&gt; basically, the american network depends on the final piece of equipment at the terminating end (the guy receiving the call) before the phone to send a special query back to the originating network asking what the caller name is. for whatever reason, no american cell network bothers with this.</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;mersault&gt; canadian networks just get the originating network to add the caller name to the information being passed in the call, and send it along. I have no idea why the americans built theirs the way they did.</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;mersault&gt; anyway, I was hoping to peak at the Rogers' source code, and the cm7 code, and get an idea of the scale of the problem.</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-navy">* gdanko (~gdanko@nat/yahoo/x-vxpnjovrzzjwajvh) Quit (Quit: Computer has gone to sleep)</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;Kaik541&gt; I feel like that wouldn't be in kernel sources though?</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;mersault&gt; I doubt it is. I think it's probably in the dialer.</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;mersault&gt; unless it's in the modem driver or something</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;Kaik541&gt; well then you'd need to look at the phone.apk source would be my bet</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;mersault&gt; anyway, I was hoping someone who knew a bit about the whole android system would have a better idea than I</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;Kaik541&gt; and since taht isn't open source for rogers/samsung</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;mersault&gt; well, then I guess I hope it exists in a part of the stack that is open source :)</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;techmik67&gt; i am drooling over this page...... <a href="http://kan.gd/1fx">http://kan.gd/1fx</a></span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.240.83.126) has left this channel.</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-brick">* Unhelpful is happy w/ his SB. :)</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;Unhelpful&gt; although i don't have "DOMINATOR" memory.</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;techmik67&gt; how fast i could build clean with 6 cores over 2.5 ghz</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;Unhelpful&gt; takes me about 19min w/ 8x~2.8</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;techmik67&gt; wow</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;Unhelpful&gt; approximately because of turbo boost</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;techmik67&gt; 90 mins now here =(</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;Unhelpful&gt; keep in mind, evaluate has a previous-gen i5, and an SSD, and can match that time.</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;Unhelpful&gt; CPU isn't everything</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-navy">* Msm903|Sad (~Msm903@c-68-49-81-211.hsd1.md.comcast.net) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-green">* Msm903|Sad (~Msm903@c-68-49-81-211.hsd1.md.comcast.net) has joined this channel.</span><br />
