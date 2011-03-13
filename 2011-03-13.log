@@ -938,3 +938,91 @@
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; but I caused this, so its my punishment..</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; oh, techmik67 have you built recently?</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; successfully?</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;techmik67&gt; building now, from AFTER the vendoer/cyanogen got fixed, but BEFORE you commited/merged</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;techmik67&gt; should be done within about 15 mins</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;atinm&gt; so you're in a fuxed state - because also need reverts in the device dirs</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;atinm&gt; I basically need to redo the reverts, *except* the bad merge :)</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;techmik67&gt; i have the "weird cards" from last night, but i saw the "fixed lins" commit from today in therer when i synced</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;techmik67&gt; *luns</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;atinm&gt; ok, that's a good commit.</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-green">* thedood is now known as DrFuk</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;atinm&gt; back in a few - waiting on repo sync to end</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;techmik67&gt; so i guess that is the ONLY change from the card issues last nite.... if this works, it was all that was needed</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;atinm&gt; well, try it. I don't think it is a complete fix.</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; because it affects apps</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; but see what you get.</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;techmik67&gt; will report as soon as build finishes</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; would be curious about what you see with the kernel lun1 fix and the rest of the EXTERNAL_STORAGE etc pointing at where they should</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;atinm&gt; nothing uses PHONE_STORAGE does it?</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;techmik67&gt; something asks should i store on the phone or card......</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;techmik67&gt; oh</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;techmik67&gt; its dolphin hd browser</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;atinm&gt; sorry, I meant the variable.</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-green">* DrFuk is now known as thedood</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;mikebeecham&gt;  evening all</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;techmik67&gt; hiya</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;atinm&gt; because I think the confusion with where apps are expecting EXTERNAL_STORAGE to be and what we think it should be</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;atinm&gt; we have an external storage card and phone non-removal storage</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;atinm&gt; but I am confused about which should point where (haven't been paying attention)</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;atinm&gt; just want to build clean and have you make sure mic is working..</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;atinm&gt; so I can move on to buttons.</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;mikebeecham&gt; hows the cmsgs peeps today?</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;mikebeecham&gt; think I've missed a lot!</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread atinm * 64dac6b (1 files in 1 dirs): Revert "init.rc: set EXTERNAL_STORAGE=/mnt/emmc" ... - <a href="http://bit.ly/gL2Klj">http://bit.ly/gL2Klj</a></span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread atinm * 18fe57a (1 files in 1 dirs): Revert "init.rc: set EXTERNAL_STORAGE=/mnt/emmc" ... - <a href="http://bit.ly/gYZU7N">http://bit.ly/gYZU7N</a></span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;mikebeecham&gt; wb coolya</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_vibrant: gingerbread atinm * d4e9db1 (1 files in 1 dirs): Revert "init.rc: set EXTERNAL_STORAGE=/mnt/emmc" ... - <a href="http://bit.ly/f8WVJr">http://bit.ly/f8WVJr</a></span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-brick">* coolya is still drunk</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: gingerbread atinm * 6b782a1 (4 files in 1 dirs): Revert "galaxys line: set ro.additionalmounts=/mnt/sdcard. fixes storage menu at settings." ... - <a href="http://bit.ly/gVeXr1">http://bit.ly/gVeXr1</a></span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: galaxysb</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;atinm&gt; sec</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;Unhelpful&gt; ...wtf</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxysb: gingerbread atinm * 79dd05c (1 files in 1 dirs): Revert "init.rc: set EXTERNAL_STORAGE=/mnt/emmc" ... - <a href="http://bit.ly/fUNtJX">http://bit.ly/fUNtJX</a></span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-brick">* Unhelpful wonders why there even is PHONE_STORAGE if apps ignore it</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;atinm&gt; yeah..</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;codeworkx&gt; its useless</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm more and more thinking we *do* need to do it like samsung - make internal "EXTERNAL_STORAGE", and mount the removable SD card under it.</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;Unhelpful&gt; this also readily makes it available to *all* apps that ignore things below the sdcard root.</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;Unhelpful&gt; why is my power out?...</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;Unhelpful&gt; also thank goodness for UPS ;)</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;coolya&gt; dunno</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;coolya&gt; :-P</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;atinm&gt; unhelpful that does make sense (re EXTERNAL_STORAGE)</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;atinm&gt; nothing looks at PHONE_STORAGE it seems</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-brick">* Unhelpful is annoyed, using geomagneticd made his compass semi-working *before* :/</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;Unhelpful&gt; again-i-really-wish-i-knew-what-it-was-trying-to-do</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;Unhelpful&gt; awesome, all ways are north</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;techmik67&gt; atinm: just that 1 commit fixed it</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;techmik67&gt; they dont unmount now</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;atinm&gt; that's good. I'm waiting to find out what we're going to do about apps that will get confused now</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;atinm&gt; and whether we should just go to the way samsung did it with internal as EXTERNAL_STORAGE and removable under it</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-brick">* Unhelpful doesn't think we really have a choice about internal as EXTERNAL_STORAGE, and that the only question is what to do about the removable card.</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;evaluate&gt; yeah, EXTERNAL_STORAGE will be left to /mnt/sdcard</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;evaluate&gt; and I guess for now /mnt/emmc is also fine.</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, I think this settings app might take a bit longer than expected'</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;evaluate&gt; I never really worked with androids app code before (other than basic stuff) so it takes longer since I also need to document myself about how all of this really works. I want to get this right so we can then also send it upstream</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;atinm&gt; not bad, 14 min for a full clean build</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;Unhelpful&gt; noooooooo nobody is allowed to beat my time :(</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;atinm&gt; its a Xeon 3.16 8 core machine with 16GB</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;Unhelpful&gt; NOBODY! ;)</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;atinm&gt; no ssd tho</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-brick">* Unhelpful sneaks into evaluate's house to grab his SSD</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; its my work machine that I coopted</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; actually test machine</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;atinm&gt; techmik67: can you build with what is there now?</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;atinm&gt; and test mic :)</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;techmik67&gt; just finished building.... i synced, but didnt clean</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm&gt; s ok</span><br />
