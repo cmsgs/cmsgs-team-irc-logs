@@ -350,3 +350,79 @@
 <span class="irc-date">[6:58]</span> <span class="irc-black">&lt;evaluate&gt; Not sure what difference it'll make, but typos are usually not good :-p</span><br />
 <span class="irc-date">[6:59]</span> <span class="irc-black">&lt;techmik_laptop&gt; well, it seems to me (a non code person) that it might look for the wrong/nonexistant i879 config or something when changes are applied</span><br />
 <span class="irc-date">[6:59]</span> <span class="irc-black">&lt;techmik_laptop&gt; like how sometimes the device specific stuff seems not to change</span><br />
+<span class="irc-date">[7:00]</span> <span class="irc-black">&lt;techmik_laptop&gt; i always see stuff like "hmmm, why didnt that stick?"</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;evaluate&gt; Dun worry, I'm a "code person" (or at least so I like to think) and also usually don't have any clue what's going on. That's normal I guess :-p</span><br />
+<span class="irc-date">[7:02]</span> <span class="irc-black">&lt;evaluate&gt; Good, finished work. Going for a smoke and then continue hacking Settings. bbiab</span><br />
+<span class="irc-date">[7:03]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; GuiPer will know if its important.... =)</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;GuiPer&gt; Hi, just woke up :) still half sleepin</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;GuiPer&gt; ?</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;GuiPer&gt; brb</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; typo in arch/arm/mach-s5pv210/Kconfig</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[7:11]</span> <span class="irc-black">&lt;evaluate&gt; techmik_laptop, do you have the latest kernel built?</span><br />
+<span class="irc-date">[7:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; yup</span><br />
+<span class="irc-date">[7:12]</span> <span class="irc-black">&lt;evaluate&gt; could you please do 'adb shell getprop ro.removablemounts' ?</span><br />
+<span class="irc-date">[7:13]</span> <span class="irc-black">&lt;techmik_laptop&gt; no output</span><br />
+<span class="irc-date">[7:13]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[7:13]</span> <span class="irc-black">&lt;evaluate&gt; means I'll have no testers then... :-\</span><br />
+<span class="irc-date">[7:14]</span> <span class="irc-black">&lt;techmik_laptop&gt; right now its like it always was</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; if your test changes arent too complicatd, i'll make .bak files of the originals and try your changes</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; make pastiebins</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;evaluate&gt; thing is, for the settings app to work properly, we'll need ro.removablemounts.</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;evaluate&gt; This will have to be set in /default.pop</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;evaluate&gt; prop*</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; tell me what to put where.....</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;evaluate&gt; You can just edit vendor/cyanogen/products/cyanogen_DEVICENAME.mk and add the line 'ro.removablemounts=/mnt/emmc' after ro.additionalmounts</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;evaluate&gt; actually, just replace ro.additionalmounts with it</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;techmik_laptop&gt; wait, line 36?</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;evaluate&gt; somewhere around that, yeah</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; it is that already</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; ah</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; nvm</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; additional mopunts</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;evaluate&gt; yeah, replace it with removablemounts</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;evaluate&gt; (btw, your external SD will stop working until you try my changes)</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;evaluate&gt; and one more change</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;evaluate&gt; <a href="http://dl.dropbox.com/u/9596802/MountService.java">http://dl.dropbox.com/u/9596802/MountService.java</a></span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;techmik_laptop&gt; changed that line</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;evaluate&gt; put this in frameworks/base/services/java/com/android/server/</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;evaluate&gt; and then '. build/envsetup.sh &amp;&amp; mmm -B frameworks/base/services/java/'</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;evaluate&gt; and then copy out/target/product/DEVICE/system/framework/services.jar to your /system/framework/ folder</span><br />
+<span class="irc-date">[7:24]</span> <span class="irc-black">&lt;evaluate&gt; With these two changes you can test the Settings app. I hope to have it ready in the next couple of hours, hope you'll be around :-p</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;techmik_laptop&gt; forgot to take the pills that help me fall asleep.... 3.26 here.... will prob make it to around 6 before i fall asleep anyway =P</span><br />
+<span class="irc-date">[7:31]</span> <span class="irc-black">&lt;evaluate&gt; heh</span><br />
+<span class="irc-date">[7:33]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok, copied services.jar to my phone.... reboot?</span><br />
+<span class="irc-date">[7:34]</span> <span class="irc-black">&lt;evaluate&gt; yeah</span><br />
+<span class="irc-date">[7:34]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[7:35]</span> <span class="irc-black">&lt;evaluate&gt; techmik_laptop, actually with the modified services framework, your external card should mount and work nicely. Please let me now if that's not the case</span><br />
+<span class="irc-date">[7:35]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[7:35]</span> <span class="irc-black">&lt;evaluate&gt; The only thing not working for now, will be that you won't find it in the Settings-&gt;Storage menu</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;techmik_laptop&gt; hmmm....... no change in anything? how can that be?</span><br />
+<span class="irc-date">[7:40]</span> <span class="irc-black">&lt;techmik_laptop&gt; i see your services.jar</span><br />
+<span class="irc-date">[7:40]</span> <span class="irc-black">&lt;techmik_laptop&gt; in place</span><br />
+<span class="irc-date">[7:40]</span> <span class="irc-black">&lt;techmik_laptop&gt; wait</span><br />
+<span class="irc-date">[7:41]</span> <span class="irc-black">&lt;techmik_laptop&gt; what did i or didnt i do that would affect the removeablemounts change we made?</span><br />
+<span class="irc-date">[7:41]</span> <span class="irc-black">&lt;techmik_laptop&gt; i mean</span><br />
+<span class="irc-date">[7:41]</span> <span class="irc-black">&lt;techmik_laptop&gt; we changed the file</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;techmik_laptop&gt;  but didnt rebuild the rom, so did the chcange get applies?</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; change*</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;evaluate&gt; ohh, you have to rebuild the kernel of course</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; just kernel? not the whole rom?</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-black">&lt;evaluate&gt; for the ro.removablemounts to get applied to the default.prop</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-black">&lt;evaluate&gt; no</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-brick">* techmik_laptop crosses fingers</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-black">&lt;techmik_laptop&gt; clean build of rom takes 90 minutes for me, is why i ask</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-black">&lt;evaluate&gt; just delete out/target/product/.../recovery and out/.../root</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-black">&lt;evaluate&gt; and rebuild the kernel</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[7:55]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-black">&lt;evaluate&gt; so?</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-black">&lt;evaluate&gt; Is the kernel ready?</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[7:57]</span> <span class="irc-black">&lt;techmik_laptop&gt; flashing</span><br />
+<span class="irc-date">[7:59]</span> <span class="irc-black">&lt;evaluate&gt; gut gut</span><br />
