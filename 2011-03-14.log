@@ -1410,3 +1410,81 @@
 <span class="irc-date">[19:54]</span> <span class="irc-black">&lt;uberushaximus&gt; <a href="https://market.android.com/details?id=uk.co.nickfines.RealCalc">https://market.android.com/details?id=uk.co.nickfines.RealCalc</a></span><br />
 <span class="irc-date">[19:54]</span> <span class="irc-black">&lt;Unhelpful&gt; uberushaximus: i've used it, i didn't even know it had RPN.</span><br />
 <span class="irc-date">[19:55]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@uto-atechols-2.inre.asu.edu) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@uto-atechols-2.inre.asu.edu) has joined this channel.</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;evaluate&gt; hmph</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;evaluate&gt; There's one more thing in the framework we need to hack to make this work, and that is formatting.</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-brick">* evaluate crosses fingers</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;Unhelpful&gt; this is what it's like when i talk maths, isn't it? ;)</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure what you mean...</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;Unhelpful&gt; :)</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;evaluate&gt; I'm getting a bit overwhelmed with this. "Change this, then you need to change that, ohh wait, there's more, we've hidden something in the framework too. SURPRISE!!!"</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;Unhelpful&gt; git would be really useful here for keeping track of all of that.</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;evaluate&gt; Why the fuck would they make a separate fucking file for formatting if they use it in a single place anyway.</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, yeah, I know. You wouldn't want to see my coding style though... :-p</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-green">* enl_ (5ff7d20a@gateway/web/freenode/ip.95.247.210.10) has joined this channel.</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;evaluate&gt; In the end it looks decent, but if you look at it in between you'll just be like "wow, what a moron"</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Unhelpful&gt; then we wouldn't want your code? ;)</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Unhelpful&gt; i have a pile of junk in BoschYamaha.cpp that i'm sure is no better.</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure if I'm the only one, caus I didn't see many people actually code, but I use a crapload of shit in between to figure out what exactly is going on...</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;nitam|work&gt; that's why source control is so useful - it maintains history for when you're hacking crap . . . and need to get back to a known good state. even locally.</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;nitam|work&gt; but nevermind.</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, there weren't many actually 'good' states in this actually, it's so badly made that I need to change pretty much everything to make it work.</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;uberushaximus&gt; so make a "thisbreaksshit" branch and then work in there</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;evaluate&gt; ok, let me see if I can manage to push to coolya's repo. I'm curios how the diff looks too :-p</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;nitam|work&gt; I don't think he's forked it - you have write access to git@github.com:atinm/android_packages_apps_Settings.git - you can push there.</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;evaluate&gt; ok, let's see</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;Wout`&gt; is it possible to get the lockscreen in landscape mode?</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;evaluate&gt; How was the command for the first push again? If I just do 'git push mine' it says 'Everything up-to-date'...</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; did you clone a repo somewhere?</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;uberushaximus&gt; Wout`: on accident</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; you must have cloned the CyanogenMod one to start, correct?</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;evaluate&gt; yeah, the one where I'm editing</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;nitam|work&gt; git remote add atinm  git@github.com:atinm/android_packages_apps_Settings.git</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;Wout`&gt; uberushaximus: ?</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;evaluate&gt; did that</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;nitam|work&gt; (to differentiate from mine in case you also have a mine)</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;evaluate&gt; also did git add and git commit, just need the command to push</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;nitam|work&gt; now git push atinm gingerbread</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;evaluate&gt; right</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;Unhelpful&gt; fyi? you can flatten commmits together before sending them upstream.</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;nitam|work&gt; also, make sure you modified in the gingerbread branch ...</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;nitam|work&gt; git branch -a should tell you what branch you're working in</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;evaluate&gt; hmm: <a href="http://pastebin.com/sQQzATdt">http://pastebin.com/sQQzATdt</a></span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;nitam|work&gt; git branch 0a</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;nitam|work&gt; -a</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;nitam|work&gt; (you'd have an easier time if you just created a github repo yourself that forked cyanogenmod's and added a remote for yourself - right now you have 2 extra layers in between you and cyanogenmod)</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;evaluate&gt; <a href="http://pastebin.com/cM6ittPy">http://pastebin.com/cM6ittPy</a></span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;nitam|work&gt; ok, git pull atinm gingerbread</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;nitam|work&gt; it should do a merge.</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-brick">* evaluate makes a backup first, just to be sure</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;nitam|work&gt; sure.</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;nitam|work&gt; basically things changed upstream since you cloned.</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;Unhelpful&gt; using git, "backup" means "git stash" or "git commit" :)</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;nitam|work&gt; he has committed - but I let that go :)</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;evaluate&gt; ok, it should be up</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;nitam|work&gt; wtf.</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;nitam|work&gt; what were you doing modifying portugese ;)</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;evaluate&gt; hmm?</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;nitam|work&gt; or cantonese</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;evaluate&gt; you're looking at the wrong commit</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;evaluate&gt; that's probably the merge you're looking at</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;nitam|work&gt; yes, wanted to see what was merged - but was funny :)</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;nitam|work&gt; one sec.</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;evaluate&gt; <a href="https://github.com/atinm/android_packages_apps_Settings/commit/3262e6bc0b875a157d370a0656a7c5f8802d5f0f">https://github.com/atinm/android_packages_apps_Settings/commit/3262e6bc0b875a157d370a0656a7c5f8802d5f0f</a></span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;evaluate&gt; this should be it</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-green">* embizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Wout`&gt; damn evaluate, thats a lot of code</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;nitam|work&gt; ok, looks good. now if anyone wants to test it, they need to go into the same directory, do a git remote add evaluate git://github.com/atinm/android_packages_apps_Settings.git</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Wout`&gt; for a 'simple' setting</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, yeah, I know</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;evaluate&gt; Like I said, I had to modify pretty much all of it...</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; git checkout gingerbread; git branch evaluate_test_branch; git pull evaluate gingerbread</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;nitam|work&gt; and it will only modify the test branch. and you can always just go to the regular branch by git checkout gingerbread</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;nitam|work&gt; I'll look at the code tonight.</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, it isn't ready yet. I've discovered a small bug that I need to fix (I know what's wrong, but I want to finish formatting first).</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-navy">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;evaluate&gt; and there's also some cleanup to do.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;nitam|work&gt; that's cool. I want to see what this code is in general.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;nitam|work&gt; not just yours</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;evaluate&gt; It was fucked before, because most of the stuff was hardcoded. I had to use the magical powers of teh HashMap to be able to handle infinitely many removable devices.</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
