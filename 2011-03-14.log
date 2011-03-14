@@ -231,3 +231,31 @@
 <span class="irc-date">[3:37]</span> <span class="irc-black">&lt;uberushaximus&gt; in static images</span><br />
 <span class="irc-date">[3:55]</span> <span class="irc-black">&lt;mersault&gt; mbizzle: what's in the latest kernel?</span><br />
 <span class="irc-date">[3:58]</span> <span class="irc-black">&lt;mbizzle&gt; the latest kernel sounds like they did 4pole headset fixes</span><br />
+<span class="irc-date">[4:03]</span> <span class="irc-black">&lt;mersault&gt; yeah, I saw that. what other changes have you been up to though?</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;mbizzle&gt; bunch of stuff, different io scheduler, voodoo crap, optimizations</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;uberushaximus&gt; <a href="https://github.com/kangsterizer/android_kernel_samsung/commits/">https://github.com/kangsterizer/android_kernel_samsung/commits/</a></span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;uberushaximus&gt; changelog</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;mbizzle&gt; the io scheduler I'm using is simple io. it uses something similar to noop with deadlines.</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;uberushaximus&gt; oh you're doing one mbizzle? my mistake, I thought you were talking about kang's</span><br />
+<span class="irc-date">[4:10]</span> <span class="irc-black">&lt;mbizzle&gt; yeah I work on one for myself. I just give it out in here if people are interested, I don't publish it on xda or anything like that</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;uberushaximus&gt; it seems the headphone jack doesn't poll to see if there's something plugged in on captivate</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;uberushaximus&gt; when you reboot</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;uberushaximus&gt; until you replug it</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-green">* TMC_Sherpa (~Jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;mbizzle&gt; what do you mean?</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;mbizzle&gt; if you're headphone is plugged in before you boot up?</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;mbizzle&gt; it won't detect it?</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;mbizzle&gt; aw, I see the same issue</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; there is prolly some GPIO weirdness going on the source from Sammy is kinda screwey</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; fyi it doesn't like it when you rip huge chunks out of the kernel source</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; stupid kconfig</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-navy">* TMC_Sherpa (~Jeff@c-67-173-42-196.hsd1.il.comcast.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;uberushaximus&gt; mbizzle: do you have your kernel on github?</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;mbizzle&gt; no</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;mbizzle&gt; I am still learning how to use github</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;uberushaximus&gt; clone a repo, make changes, commit, push</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;techmik67&gt; anyone available with captivate push access? i see a typo, probably means nothing, but still should be fixed.....</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;techmik_laptop&gt; config SAMSUNG_CAPTIVATE</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;techmik_laptop&gt; 	bool "select SGHI879"</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;techmik67&gt; in arch/arm/mach-s5pv210/Kconfig</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;techmik67&gt; line 175</span><br />
