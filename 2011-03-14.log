@@ -426,3 +426,62 @@
 <span class="irc-date">[7:56]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
 <span class="irc-date">[7:57]</span> <span class="irc-black">&lt;techmik_laptop&gt; flashing</span><br />
 <span class="irc-date">[7:59]</span> <span class="irc-black">&lt;evaluate&gt; gut gut</span><br />
+<span class="irc-date">[8:00]</span> <span class="irc-black">&lt;techmik_laptop&gt; how is it possible that there is no change.... everything as before?</span><br />
+<span class="irc-date">[8:02]</span> <span class="irc-black">&lt;techmik_laptop&gt; i mean, just the changes to the line about removeablemounts should have made SOME difference, right?</span><br />
+<span class="irc-date">[8:02]</span> <span class="irc-black">&lt;evaluate&gt; did you delete the 'recovery' and the 'root' folder from the out.../ ?</span><br />
+<span class="irc-date">[8:02]</span> <span class="irc-black">&lt;techmik_laptop&gt; yup</span><br />
+<span class="irc-date">[8:02]</span> <span class="irc-black">&lt;techmik_laptop&gt; i'll do it again</span><br />
+<span class="irc-date">[8:02]</span> <span class="irc-black">&lt;evaluate&gt; and 'adb shell getprop ro.removablemounts' doesn't reply anything?</span><br />
+<span class="irc-date">[8:02]</span> <span class="irc-black">&lt;techmik_laptop&gt; deleted</span><br />
+<span class="irc-date">[8:03]</span> <span class="irc-black">&lt;techmik_laptop&gt; no output</span><br />
+<span class="irc-date">[8:03]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok, building kernel</span><br />
+<span class="irc-date">[8:04]</span> <span class="irc-black">&lt;techmik_laptop&gt; error</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;techmik_laptop&gt;   /home/techmik/android/system/kernel/samsung/2.6.35/scripts/gen_initramfs_list.sh: Cannot open '/home/techmik/android/system//out/target/product/captivate/recovery/root'</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; make[1]: *** [usr/initramfs_data.cpio.gz] Error 1</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; make: *** [usr] Error 2</span><br />
+<span class="irc-date">[8:09]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[8:10]</span> <span class="irc-black">&lt;techmik_laptop&gt; what if i rebuild rom and kernel without cleaning?</span><br />
+<span class="irc-date">[8:10]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure what's different in the captivate build system compared to the galaxys one, caus that works for me no problems</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;evaluate&gt; eventually try and delete the whole out folder and then rebuild.</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[8:14]</span> <span class="irc-black">&lt;techmik_laptop&gt; doenst wanna let me build just the kernel it looks like</span><br />
+<span class="irc-date">[8:15]</span> <span class="irc-black">&lt;mikebeecham&gt;  morning all</span><br />
+<span class="irc-date">[8:20]</span> <span class="irc-green">* enl_ (4e073452@gateway/web/freenode/ip.78.7.52.82) has joined this channel.</span><br />
+<span class="irc-date">[8:29]</span> <span class="irc-black">&lt;evaluate&gt; techmik67, how are you building it?</span><br />
+<span class="irc-date">[8:29]</span> <span class="irc-black">&lt;evaluate&gt; './build.sh captivate kernel' ?</span><br />
+<span class="irc-date">[8:30]</span> <span class="irc-black">&lt;techmik_laptop&gt; just ./build.sh captivate</span><br />
+<span class="irc-date">[8:31]</span> <span class="irc-black">&lt;techmik_laptop&gt; in kernel directory</span><br />
+<span class="irc-date">[8:31]</span> <span class="irc-black">&lt;techmik_laptop&gt; well, kernel/samsung/2.6.35/</span><br />
+<span class="irc-date">[8:32]</span> <span class="irc-navy">* enl_ (4e073452@gateway/web/freenode/ip.78.7.52.82) Quit (Ping timeout: 245 seconds)</span><br />
+<span class="irc-date">[8:34]</span> <span class="irc-green">* enl_ (970c5cfe@gateway/web/freenode/ip.151.12.92.254) has joined this channel.</span><br />
+<span class="irc-date">[8:35]</span> <span class="irc-navy">* mikebeecham (~mikebeech@92.17.221.78) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[8:36]</span> <span class="irc-black">&lt;evaluate&gt; you'd best try the command I wrote in the root</span><br />
+<span class="irc-date">[8:36]</span> <span class="irc-black">&lt;evaluate&gt; that always works for me</span><br />
+<span class="irc-date">[8:36]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[8:40]</span> <span class="irc-black">&lt;techmik_laptop&gt; seems to be working</span><br />
+<span class="irc-date">[8:40]</span> <span class="irc-black">&lt;techmik_laptop&gt; done</span><br />
+<span class="irc-date">[8:41]</span> <span class="irc-black">&lt;evaluate&gt; cool</span><br />
+<span class="irc-date">[8:41]</span> <span class="irc-black">&lt;evaluate&gt; 'adb shell getprop ro.removablemounts' working now?</span><br />
+<span class="irc-date">[8:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; flashing</span><br />
+<span class="irc-date">[8:45]</span> <span class="irc-black">&lt;techmik_laptop&gt; still no output and no change</span><br />
+<span class="irc-date">[8:45]</span> <span class="irc-black">&lt;evaluate&gt; pfft</span><br />
+<span class="irc-date">[8:46]</span> <span class="irc-black">&lt;evaluate&gt; did you remove the out folder before trying the command I gave you?</span><br />
+<span class="irc-date">[8:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; yup</span><br />
+<span class="irc-date">[8:46]</span> <span class="irc-black">&lt;evaluate&gt; I mean, after you compiled it your way and before compiling it how I said?</span><br />
+<span class="irc-date">[8:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; it created new ones and moved on</span><br />
+<span class="irc-date">[8:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; yes</span><br />
+<span class="irc-date">[8:46]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[8:46]</span> <span class="irc-black">&lt;evaluate&gt; this is really awkward</span><br />
+<span class="irc-date">[8:47]</span> <span class="irc-black">&lt;evaluate&gt; don't you get anything from 'adb shell getprop ro.removablemounts'?</span><br />
+<span class="irc-date">[8:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; nope</span><br />
+<span class="irc-date">[8:47]</span> <span class="irc-black">&lt;evaluate&gt; This is really confusing...</span><br />
+<span class="irc-date">[8:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; no output</span><br />
+<span class="irc-date">[8:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; should i try with your line AFTER additionalmounts, instead of replacing it?</span><br />
+<span class="irc-date">[8:48]</span> <span class="irc-black">&lt;evaluate&gt; no, we need to replace additionalmounts</span><br />
+<span class="irc-date">[8:48]</span> <span class="irc-black">&lt;evaluate&gt; else you will have the item doubled in the settings -&gt; storage</span><br />
+<span class="irc-date">[8:48]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[8:49]</span> <span class="irc-black">&lt;techmik_laptop&gt; see, this is the kind of thing i wonder about that typo</span><br />
+<span class="irc-date">[8:50]</span> <span class="irc-black">&lt;techmik_laptop&gt; cause i see places captivate is referred to by model#</span><br />
+<span class="irc-date">[8:51]</span> <span class="irc-black">&lt;evaluate&gt; I seriously have no fucking clue as to why this doesn't work...</span><br />
+<span class="irc-date">[8:55]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
