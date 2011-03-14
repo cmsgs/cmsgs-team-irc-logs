@@ -930,3 +930,117 @@
 <span class="irc-date">[12:59]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, if you've formatted them to VFAT then no</span><br />
 <span class="irc-date">[12:59]</span> <span class="irc-black">&lt;mbizzle&gt; is that possible and just time consuming or not even something that one can do?</span><br />
 <span class="irc-date">[12:59]</span> <span class="irc-black">&lt;mbizzle&gt; (setting separate flags)</span><br />
+<span class="irc-date">[13:00]</span> <span class="irc-black">&lt;mbizzle&gt; I have a feeling the cards have to be formatted in vfat or they probably wont' work with all of those generic devices I listed</span><br />
+<span class="irc-date">[13:00]</span> <span class="irc-black">&lt;evaluate&gt; but since my patch for ext4 got approved, you can format them to ext4 and set up symlinks, your apps may break tho if you format the internal SD to ext4</span><br />
+<span class="irc-date">[13:01]</span> <span class="irc-black">&lt;evaluate&gt; and re: separate flags, sure you can set them, it's just that the apps are not yet set up to work with them, all apps read the same flag, and that is 'EXTERNAL_STORAGE'</span><br />
+<span class="irc-date">[13:02]</span> <span class="irc-black">&lt;mbizzle&gt; so conceivably I could format my internal sdcard to ext4, keep my external card vfat, and place symlinks for DCIM and media/music</span><br />
+<span class="irc-date">[13:02]</span> <span class="irc-black">&lt;evaluate&gt; theoretically yes, practically something could go awfully wrong</span><br />
+<span class="irc-date">[13:02]</span> <span class="irc-black">&lt;mbizzle&gt; lol</span><br />
+<span class="irc-date">[13:03]</span> <span class="irc-black">&lt;evaluate&gt; but since other than FC or data loss there's nothing that can really happen, I guess it wouldn't hurt to try</span><br />
+<span class="irc-date">[13:03]</span> <span class="irc-black">&lt;evaluate&gt; (and to announce here if it worked, since I'm curios too)</span><br />
+<span class="irc-date">[13:03]</span> <span class="irc-black">&lt;mbizzle&gt; how do I format the internal card to ext4?</span><br />
+<span class="irc-date">[13:03]</span> <span class="irc-black">&lt;evaluate&gt; connect it to the computer</span><br />
+<span class="irc-date">[13:03]</span> <span class="irc-black">&lt;mbizzle&gt; I haven't seen that option...just a manual makefs?</span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-black">&lt;evaluate&gt; well, you could either try to 'turn on usb storage' and then unmount it from your computer (without ejecting it) and then format it with gparted</span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-black">&lt;evaluate&gt; or the old-school-way, through command line, like you said</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;mbizzle&gt; this is going to be a blast</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;mbizzle&gt; I can imagine lol</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;mbizzle&gt; my gf is going to kill me when she wakes up I think</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;evaluate&gt; isn't this your phone?</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;mbizzle&gt; yes</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;mbizzle&gt; but I haven't been to sleep yet</span><br />
+<span class="irc-date">[13:10]</span> <span class="irc-black">&lt;evaluate&gt; ohh, heh</span><br />
+<span class="irc-date">[13:10]</span> <span class="irc-black">&lt;evaluate&gt; WELL, WOULD YOU LOOK AT THIS SHIT!</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;evaluate&gt; I made the settings app unmount the external SD, but now I can't mount it back, lol</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;mbizzle&gt; lol</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@uto-atechols-2.inre.asu.edu) has joined this channel.</span><br />
+<span class="irc-date">[13:21]</span> <span class="irc-green">* mersault (~mersault@acihip.tor4.dsl4u.ca) has joined this channel.</span><br />
+<span class="irc-date">[13:21]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[13:29]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[13:30]</span> <span class="irc-black">&lt;mbizzle&gt; I'm going to have to continue this test in the morning</span><br />
+<span class="irc-date">[13:30]</span> <span class="irc-black">&lt;mbizzle&gt; it's probably wrapping up now but I need to lie down</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-black">&lt;mbizzle&gt; oh man I forgot about the stupid time change was looking at my old clock</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-black">&lt;mbizzle&gt; it's 630 I'm really going to be dead</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-black">&lt;mbizzle&gt; evaluate I think it's done lol</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-black">&lt;evaluate&gt; what's done?</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-black">&lt;mbizzle&gt; the clean build</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-black">&lt;evaluate&gt; ohh</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-black">&lt;mbizzle&gt; just finished</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-green">* atinm (~amalaviya@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-black">&lt;mbizzle&gt; now what do we want to check?</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, you'd have to check if everything is working fine with those changes</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, hello</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;nitam|work&gt; sorry evaluate, was rushing this morning</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;nitam|work&gt; am at work . . . so going to be very slow</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;mbizzle&gt; I'm talking about your .jar stuff not the ext4 stuff</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;evaluate&gt; sure, no worries</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, yeah, me too</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;mbizzle&gt; well what changes :)</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;evaluate&gt; copy the jar over and set the settings back (ro.additionalmounts has to be empty and ro.removablemounts has to be set to /mnt/emmc)</span><br />
+<span class="irc-date">[13:34]</span> <span class="irc-black">&lt;evaluate&gt; and then test everything with the new service.jar</span><br />
+<span class="irc-date">[13:36]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Quit: WeeChat 0.3.4)</span><br />
+<span class="irc-date">[13:37]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[13:37]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, but if you want to go to bed it's fine. I guess I can handle it.</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;mbizzle&gt; I haven't changed anything except pushing the services.jar</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;mbizzle&gt; that should be good right?</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;mbizzle&gt; since everything was workign before</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;mbizzle&gt; except mounting emmc</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;mbizzle&gt; damn I jsut got caught :(</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;mbizzle&gt; I got like 2 minutes lol</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, no worries :-)</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;evaluate&gt; There's no rush really I guess</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-black">&lt;mbizzle&gt; that worked</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-black">&lt;mbizzle&gt; emmc is mounted</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-black">&lt;mbizzle&gt; there is no emmc in settings</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-black">&lt;evaluate&gt; good :-)</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-black">&lt;mbizzle&gt; that's what we wanted to test right?</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-black">&lt;evaluate&gt; emmc won't appear in settings unless you have the patched settings apk</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-black">&lt;evaluate&gt; yup</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-black">&lt;mbizzle&gt; ok</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;evaluate&gt; just check quick if the files are all there</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;mbizzle&gt; so send me the settings.apk when you're ready</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;evaluate&gt; and that's it :-)</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;mbizzle&gt; yeah files are in ther</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;mbizzle&gt; when I checked if it was mounted</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;evaluate&gt; cool. Thanks a lot! :-)</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;mbizzle&gt; np</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;mbizzle&gt; so that's that, I'll leave it as is and wait for the settings apk</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;evaluate&gt; Sleep tight! :-p</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;mbizzle&gt; sinc eI dnot use my ext sdcard lol</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;mbizzle&gt; it's not so much sleep that I'm worried about hahah</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;mbizzle&gt; ttyl</span><br />
+<span class="irc-date">[13:42]</span> <span class="irc-black">&lt;evaluate&gt; It's getting your ass kicked that you're worried about. I know how that is, in the weekends I tend to remain awake until 5-6AM too, and then I get my ass kicked from my GF :-p</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;Wout`&gt; how's the new settings.apk coming along evaluate? are the buttons working yet?</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;evaluate&gt; buttons are working, unmounting is working too</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;evaluate&gt; I just need to make the remount work</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;evaluate&gt; and formating</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;evaluate&gt; this is a damn big patch</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;Wout`&gt; cant you just re-use the code from the internal sdcard buttons?</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;evaluate&gt; had to modify MOST of the Memory.java file. Thought it was going to be more simple, oh how wrong I was</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, nope, I have to rewrite that, since those buttons were hardcoded to ONLY work with what is contained in 'EXTERNAL_STORAGE'</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;Wout`&gt; ah, ok</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;evaluate&gt; That was a very dumb decision from the android devs IMHO</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;evaluate&gt; but meh, what do I know, I don't work for one of the biggest companies in the world...</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;zerojay_work&gt; I guess they assumed there would only be one external SD card, nothing internal.</span><br />
+<span class="irc-date">[13:50]</span> <span class="irc-black">&lt;evaluate&gt; They don't have a lot of foresight if they assumed that.</span><br />
+<span class="irc-date">[13:50]</span> <span class="irc-black">&lt;evaluate&gt; AFAIK there are already devices out with as many as 4 SD cards...</span><br />
+<span class="irc-date">[13:50]</span> <span class="irc-black">&lt;Unhelpful&gt; mbizzle: symlinks? don't see how that helps. needs to be there before any other filesystems.</span><br />
+<span class="irc-date">[13:51]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, why wouldn't symlinks help?</span><br />
+<span class="irc-date">[13:51]</span> <span class="irc-black">&lt;evaluate&gt; I mean, making a symlink from /mnt/sdcard/DCIM to /mnt/emmc/DCIM doesn't sound wrong to me...</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: because they'd to be in place on the in the initramfs filesystem?</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;Unhelpful&gt; um...</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;Unhelpful&gt; you can't make symlinks on vfat at all. ;)</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, well, that's why we have the ext4 vold patch, don't we? :-p</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-green">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) has joined this channel.</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: i really think that samsung had things right regarding two cards... mount one under the other, make system apps know about it so they can have settings for which storage to use.</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;Unhelpful&gt; the first part takes care of everything that lets you pick a path under /sdcard ;)</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, we will also try to mount the external card under /mnt/sdcard/external_sd, but first we need to finish this setup.</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;evaluate&gt; Also, we won't be able to modify the system apps to know about the two sdcards, since that probably won't be accepted into mainline</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;evaluate&gt; ever</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;Unhelpful&gt; i can't see why it shouldn't be if it's hidden on devices with one storage.</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;Unhelpful&gt; the way i see it, a lot of what's needed would be in vold - it will need to check mounts it manages, and understand whether one is a subdirectory of another or not.</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, I think it's perfectly fine like we have it right now. If we just change the mountpoint of the external SD to /mnt/sdcard/external_sd it'll be perfect.</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;Unhelpful&gt; ...yes, but that won't be perfect without vold understanding the relationship between mounts it manages.</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;evaluate&gt; I don't think that's necessary, vold is pretty rudimentary, I don't think it actually needs to know where it mounts, it just mounts and that's that</span><br />
