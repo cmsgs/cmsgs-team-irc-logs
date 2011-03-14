@@ -538,3 +538,114 @@
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;evaluate&gt; You can just flash the old update back after you're done though</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;evaluate&gt; and I didn't do anything to the notification bar, could it be your settings?</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;Wout`&gt; it was there before I flashed your kernel and services</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;evaluate&gt; Anyway, stuff that needs to be tested, is: did your SDs mount properly? Can you see stuff in your /sdcard /emmc, respectively /mnt/sdcard and /mnt/emmc? Does everything else work like before?</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;evaluate&gt; Galler, Camera, Music, etc...</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;evaluate&gt; just go a bit through them and see if evenrything's fine</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;Wout`&gt; emmc works</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;Wout`&gt; gallery works</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;Wout`&gt; music from emmc gets read by music app</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;Wout`&gt; camera takes and saves pictures</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;evaluate&gt; What do you see in Settings -&gt; Storage ?</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;Wout`&gt; SD card</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;Wout`&gt; which can be mounted an erased</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;Wout`&gt; Internal storage</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;Wout`&gt; and Internal storage /mnt/emmc</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;evaluate&gt; do you have root explorer?</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;Wout`&gt; yeah</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;evaluate&gt; ok, could you please open /system/build.prop with a text editor and go towards the end of the file and you should see a line that looks like: 'ro.additionalmounts=/mnt/emmc'</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;evaluate&gt; You need to remove that line and reboot.</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;evaluate&gt; After rebooting, in Settings -&gt; Storage you should only see SD card and Internal storage.</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;mbizzle&gt; you have the code straight for a captivate yet?</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, what code?</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;mbizzle&gt; for this fix you're doing</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;Wout`&gt; evaluate: k rebooting, btw I get a popup saying 'Application redirected' on boot</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;mbizzle&gt; *testing</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;Wout`&gt; evaluate: settings--&gt;storage now only shwos SD card and Internal Storage</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, I gave it to techmik67, but it didn't seem to work. I could give you the code too, but you'd have to do the compiling yourself...</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, good, now please test everything again to see if it works just like before.</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;Wout`&gt; it does</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;Wout`&gt; gallery/camera/music all ok</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;Wout`&gt; and /scard and /emmc are there</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mbizzle&gt; yeah I'll do the compliing myself</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mbizzle&gt; just send me the diff please and I can handle it from there</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;Wout`&gt; anyting else? if not I'll flash back, I miss my notification bar :P</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, I don't currently have a diff, but I can tell you what needs to be changed</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, if you could hold on for another 10-15 minutes I also need the settings app tested a bit, it's not quite ready yet though...</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;Wout`&gt; hmmz, ok</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, or you could then go through the steps again when it's ready :-p</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;mbizzle&gt; ok</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;Wout`&gt; evaluate: but any idea why the notification bar is gone? is it part of the services jar?</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-navy">* enl_ (970c5cfe@gateway/web/freenode/ip.151.12.92.254) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, I actually have no idea. It works fine for me :-\</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, <a href="http://dl.dropbox.com/u/9596802/Settings.apk">http://dl.dropbox.com/u/9596802/Settings.apk</a></span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;evaluate&gt; push that to your /system/app/ folder and then open Settings -&gt; Storage again and tell me if everything's ok</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;Wout`&gt; emmc now shows up</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, in vendor/cyanogen/products/cyanogen_DEVICENAME.mk replace 'ro.additionalmounts' with 'ro.removablemounts'</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;Wout`&gt; unmount/erase greyed out</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, does it also show the correct sizes?</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;Wout`&gt; yeah</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, then put this: <a href="http://dl.dropbox.com/u/9596802/MountService.java">http://dl.dropbox.com/u/9596802/MountService.java</a> in frameworks/base/services/java/com/android/server/</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, ok, could you please launch a 'adb logcat' and press a bit on the 'unmount' and 'format' buttons of the external sd (not the internal one, as that will format it).</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;Wout`&gt; k, so that wont erase my external, right?</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;evaluate&gt; and tell me if you see something like: <a href="http://pastebin.com/p2nmCHgA">http://pastebin.com/p2nmCHgA</a></span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, if you push the ones for external SD (the ones on the bottom) it shouldn't</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;Wout`&gt; no</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;Wout`&gt; nothing in logcat</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;Wout`&gt; when I press the greyed out buttons</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;mbizzle&gt; ok what do I need to recmopile? only the kernel?</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, you're pushing these two, right: <a href="http://dl.dropbox.com/u/9596802/snap20110313_223214.png">http://dl.dropbox.com/u/9596802/snap20110313_223214.png</a> ?</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;Wout`&gt; yup</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, ./build.sh captivate kernel</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, and '. build/envsetup.sh &amp;&amp; mmm -B frameworks/base/services/java/'</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, hmm, that's really awkward...</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;evaluate&gt; There should be at least SOME output...</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, how exactly did you launch logcat?</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;Wout`&gt; adb logcat</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;evaluate&gt; could you please try to restart and then try pushing again on the buttons?</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;mbizzle&gt; do I just flash the kernel and push the drivers?</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, yup. And you need to push the out/target/product/.../system/framework/service.jar</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;evaluate&gt; to /system/framework/</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, does a restart change anything?</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;Wout`&gt; rebooting now</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;evaluate&gt; ok</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, actually, I think it was my bad, gave you the wrong one. Please try <a href="http://dl.dropbox.com/u/9596802/Settings.apk">http://dl.dropbox.com/u/9596802/Settings.apk</a></span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;Wout`&gt; still nothing, rebooting again</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;evaluate&gt; please make sure you really downloaded and pushed the right one</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;Wout`&gt; I did</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;Wout`&gt; and rebooted</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;Wout`&gt; still nothing</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;evaluate&gt; can't be. Let me put it up again</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;Wout`&gt; i'm seeing lots of references to com.android.systemui.statusbar in logcat though</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;Wout`&gt; it dies all the time</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;Wout`&gt; would explain the lack of statusbar</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;evaluate&gt; heh</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;evaluate&gt; doesn't matter, we'll be done in a couple of minutes</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;Wout`&gt; if you reupload the apk I'll give it one last try, after that I'm flashing back</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, yup, just a second</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;evaluate&gt; <a href="http://dl.dropbox.com/u/9596802/Settings.apk">http://dl.dropbox.com/u/9596802/Settings.apk</a></span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;Wout`&gt; rebooting</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;Wout`&gt; setting is now broken evaluate</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;Wout`&gt; not showing up in app drawer</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;Wout`&gt; wait</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;Wout`&gt; got it</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;evaluate&gt; could you please do a 'adb shell ls -lsa /system/app/Settings.apk'?</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;mbizzle&gt; ok</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;evaluate&gt; ok :-p</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;mbizzle&gt; I'm all set</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;Wout`&gt; evaluate: <a href="http://pastebin.com/FmGdJAxC">http://pastebin.com/FmGdJAxC</a></span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, please go to /system/build.prop and erase the 'ro.additionalmounts=/mnt/emmc' line and then reboot.</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, awesome. You can flash back now. Thank you very much for your input.</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;Wout`&gt; you're welcome</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;evaluate&gt; Now I just have to make them buttons actually do the mounting/formating and we're all set :-p</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;Wout`&gt; do you think mainstream CM wil accept a changed settings.apk?</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, well, since in the future more devices will come that will have external SD cards, they will need to.</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;evaluate&gt; I think they currently don't have a single device with external SD card that they support, probably that's why noone bothered to patch these things.</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;mbizzle&gt; I need a settings.apk?</span><br />
+<span class="irc-date">[10:51]</span> <span class="irc-black">&lt;mbizzle&gt; what am I supposed to be looking at here ? :)</span><br />
+<span class="irc-date">[10:53]</span> <span class="irc-black">&lt;mbizzle&gt; emmc is still my external sdcard</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-navy">* evaluate (~cristi@unaffiliated/evaluate) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-black">&lt;mbizzle&gt; hmmm...</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-green">* enl_ (4e073452@gateway/web/freenode/ip.78.7.52.82) has joined this channel.</span><br />
