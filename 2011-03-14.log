@@ -1044,3 +1044,51 @@
 <span class="irc-date">[13:58]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, I think it's perfectly fine like we have it right now. If we just change the mountpoint of the external SD to /mnt/sdcard/external_sd it'll be perfect.</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;Unhelpful&gt; ...yes, but that won't be perfect without vold understanding the relationship between mounts it manages.</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;evaluate&gt; I don't think that's necessary, vold is pretty rudimentary, I don't think it actually needs to know where it mounts, it just mounts and that's that</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;Unhelpful&gt; well,*something* needs to ensure that we umount external  first, and mount internal first, and that /sdcard/external_sd is created if it doesn't exist.</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;Unhelpful&gt; what's going to do that job, exactly?</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;evaluate&gt; init.rc?</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;Unhelpful&gt; no, init.rc can't do that, because we can mount/umount these at runtime. isn't that vold's job, in fact?</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;evaluate&gt; vold is a 'tool' for the MountService as far as I can tell.</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;evaluate&gt; The MountService sees when something needs to be mounted/unmounted/whatever and tells vold to do that</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;evaluate&gt; Like I said, vold is a pretty rudimentary tool that checks/mounts/formats devices when it's told to.</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;evaluate&gt; And that's pretty much it.</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, then MountService needs to enforce these mount-order requirements.</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;evaluate&gt; Couldn't we just do that in a .sh script?</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;Unhelpful&gt; that MountService calls?</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;Unhelpful&gt; does it already support running a script to mount volumes?</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;evaluate&gt; actually, wait</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;evaluate&gt; no, that's not what I meant, I'm still refering to boot time now.</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;Unhelpful&gt; forget boot time! this is not a boot-time issue.</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;evaluate&gt; the thing gets complicated when you unmount /mnt/sdcard WITHOUT unmounting /mnt/sdcard/external_sd first</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;evaluate&gt; and that is a problem...</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.184.72.174) has joined this channel.</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;evaluate&gt; and yeah, I don't think that could be easily handled without huge (and possibly ugly) patches to the framework</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: you *can't*, this is what i'm *trying* to say. a request to umount /mnt/sdcard needs to generate one to umount external_sd.</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;Unhelpful&gt; and the same on mount, but in the opposite order.</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;evaluate&gt; yeah, that would be ugly</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;evaluate&gt; anyway, let me first finish this patch to the settings app, and then we can see what we will do further on</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-brick">* Wout` is actually happy with the current /sdcard and /emmc solution</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;Wout`&gt; if only we can get /emmc to share over usb</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;evaluate&gt; I think it might just be easier (and more acceptable to mainline) if we just patch most apps to tell them about 'ro.removablemounts' instead of some ugly hacks to the frameworks</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;Unhelpful&gt; i think at the very least we should make camera etc look at such a property and offer options, though.</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, yeah, that's be pretty neat</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;evaluate&gt; that'd*</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;evaluate&gt; although, it would bring in more complications</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;Unhelpful&gt; re: mainline, are they *really* going to block features just because they're only used on some targets? they don't do that for *other* targets, do they?</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;evaluate&gt; since, if you for example set the property to your external SD card, and then take out the card and want to take a photo, you will need some fallback for the app, so that it doesn't just error out because it can't find the card</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, I'm not sure actually. They accepted my vold patch without problems, but I heard they're pretty anal when it comes to such features.</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;Unhelpful&gt; automatically falling back to EXTERNAL_STORAGE would be sane.</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, yeah, but you would need two checks then.</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;Unhelpful&gt; if they would block a good implementation *for that reason* then we just need to fork and stay forked.</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;evaluate&gt; 1. see if ro.camera.defaultstorage is set or not and 2. see if ro.camera.defaultstorage is actually available or not.</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;Unhelpful&gt; because i can't really get myself to care about developers who want to actively block support for a target or feature.</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;evaluate&gt; yeah, that wouldn't be very nice of them if they'd block that.</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;evaluate&gt; ok, I have to go now</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, could you do me a favor please?</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;evaluate&gt; pass this link to anyone who wants to test out the new system</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;evaluate&gt; <a href="http://pastie.org/1669854">http://pastie.org/1669854</a></span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;evaluate&gt; unmounting in the settings app works, but that's it</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;evaluate&gt; remount doesn't work nor does format</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;evaluate&gt; I need to go to school now, be back in a couple of hours and then I'll try to finish it for good.</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-navy">* evaluate (~cristi@unaffiliated/evaluate) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;Unhelpful&gt; how do you know which data is good, w/o a checksum?</span><br />
