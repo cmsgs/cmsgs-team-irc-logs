@@ -1488,3 +1488,29 @@
 <span class="irc-date">[20:56]</span> <span class="irc-black">&lt;nitam|work&gt; not just yours</span><br />
 <span class="irc-date">[20:57]</span> <span class="irc-black">&lt;evaluate&gt; It was fucked before, because most of the stuff was hardcoded. I had to use the magical powers of teh HashMap to be able to handle infinitely many removable devices.</span><br />
 <span class="irc-date">[20:58]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;nitam|work&gt; any particular reason to specify HashMap vs just Map?</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;nitam|work&gt; since ideally you want to use the most general interface so you can change in implementation if it so happens that you want to.</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;nitam|work&gt; (just a Java'ism - nothing inherently wrong here)</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-navy">* enl_ (5ff7d20a@gateway/web/freenode/ip.95.247.210.10) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, I didn't work much with Java before, but declaring it as Map would have required me to also include java.util.Map, which I wasn't very comfortable with</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;nitam|work&gt; if that code was already using hashmap, leave  it</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-navy">* embizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;evaluate&gt; It wasn't, I added that to be able to handle multiple removable devices, before it only handled one.</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@uto-atechols-2.inre.asu.edu) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;nitam|work&gt; that's fine. leave it.</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-navy">* mersault (~mersault@acihip.tor4.dsl4u.ca) Quit (Quit: mersault)</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-green">* enlightened (~d0r1@host10-210-dynamic.247-95-r.retail.telecomitalia.it) has joined this channel.</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@uto-atechols-2.inre.asu.edu) has joined this channel.</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;stickpin&gt; hi</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;evaluate&gt; ok, made another push, fixed the bug and done some cleanup</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;evaluate&gt; now on to the formatting</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;stickpin&gt; btw its only me who feels that adwlauncher is slower then launcher2?</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;evaluate&gt; (btw, I'd appreciate some testing on this, especially from captivate and the other devices)</span><br />
