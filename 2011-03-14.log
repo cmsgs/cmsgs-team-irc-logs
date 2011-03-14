@@ -815,3 +815,118 @@
 <span class="irc-date">[11:59]</span> <span class="irc-black">&lt;mbizzle&gt; then deleted the out folder then compiled the kernel</span><br />
 <span class="irc-date">[11:59]</span> <span class="irc-black">&lt;evaluate&gt; could you please check the timestamp of the file on the phone? I'm pretty sure you don't have the right one, else it should work.</span><br />
 <span class="irc-date">[11:59]</span> <span class="irc-black">&lt;evaluate&gt; 'adb shell ls -lsa /system/framework/services.jar'</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;mbizzle&gt; 3:34 am</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-navy">* enl_ (4e073452@gateway/web/freenode/ip.78.7.52.82) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;mbizzle&gt; today</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;mbizzle&gt; 1.5 hours ago</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;evaluate&gt; are you sure you replaced the MountService.java file properly?</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;mbizzle&gt; so the only thing left is to build clean</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;mbizzle&gt; I followed the instructions you wrote</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;evaluate&gt; ok then I'm really clueless.</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;mbizzle&gt; should I rebuild the entire package and see what happens?</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;evaluate&gt; you should definitely try a clean build</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;mbizzle&gt; ok</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;mbizzle&gt; I don't need to flash the rom, just build clean and push services.jar correct?</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;evaluate&gt; yeah</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;mbizzle&gt; ok I'll brb</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has left this channel.</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-green">* embizzle_ (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-green">* embizzle_ is now known as mbizzle</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;mbizzle&gt; ok back</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-black">&lt;mbizzle&gt; evaluate what are all of the changes? I've altered build.prop, cyanogen_captivate.mk, and what else do I need to double check?</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;evaluate&gt; the MountService.java file</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;evaluate&gt; in frameworks/base/services/java/</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;evaluate&gt; check it's timestamp</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-black">&lt;mbizzle&gt; on my phone?</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-black">&lt;evaluate&gt; no, in your build tree</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;mbizzle&gt; should that be gone after I make clean?</span><br />
+<span class="irc-date">[12:16]</span> <span class="irc-black">&lt;mbizzle&gt; or I have frameworks/base/services/java/com/android/server/MountService.java with a timestamp of two hours ago</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;evaluate&gt; yeah, that's the one</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;evaluate&gt; just to make sure, check that on line 1219 it says something about ro.removablemounts</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;mbizzle&gt; yes</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;evaluate&gt; good</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;evaluate&gt; then you can rebuild</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;mbizzle&gt; good cuz I've been</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;mbizzle&gt; lol</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;mbizzle&gt; ro.additionalmounts is still in there too, btw</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;evaluate&gt; where?</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;mbizzle&gt; on line 1210</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;evaluate&gt; ohh, I know</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;evaluate&gt; that's for backwards compatibility</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;mbizzle&gt; dang it's too early in the morning...I'm not going to remember all the steps I did to get to where I'm at</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;mbizzle&gt; I don't remember how I got this MountService.java file altered</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;Unhelpful&gt; mbizzle: i changed the position but i also removed the postprocessing we did on the value (we no longer swap x/y and invert z after reading)</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, I've created a paste, for when codeworkx or coolya come online: <a href="http://pastie.org/1669854">http://pastie.org/1669854</a></span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-black">&lt;mbizzle&gt; Unhelpful are you referring to my question about aries.captivate.defconfig?</span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-black">&lt;Unhelpful&gt; yes</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;mbizzle&gt; so we should set it to 0 now?</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;mbizzle&gt; evaluate, when we're done should I just delete MountService.java then?</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;Unhelpful&gt; the change in position is supposed to compensate for the removal of x/y swap and z invert, but i'm no longer sure we should've been doing that.</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;evaluate&gt; no</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, I guess you can keep that, since it will probably included in the tree anyway</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;evaluate&gt; s/tree/repo/</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;mbizzle&gt; after I change back my mk file and build.prop I'm back to normal?</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;evaluate&gt; yup</span><br />
+<span class="irc-date">[12:26]</span> <span class="irc-black">&lt;mbizzle&gt; here we're just trying to get a confirmed proper services.jar to see if I can mount emmc?</span><br />
+<span class="irc-date">[12:28]</span> <span class="irc-black">&lt;mbizzle&gt; I've never liked the decision to keep the built in SD card mounted to sdcard</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;mbizzle&gt; all of the apps I've used default to saving on the sdcard. the camera, music players</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;mbizzle&gt; so that means unless I manually reconfigure them (and not all can be) the data I'd want removable is on emmc</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;mbizzle&gt; I mean it's on sdcard but I need it on "emmc"</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;mbizzle&gt; /s/need/want</span><br />
+<span class="irc-date">[12:32]</span> <span class="irc-black">&lt;Wout`&gt; do you want it removable, or mountable?</span><br />
+<span class="irc-date">[12:33]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, that's not that hard to configure. All apps default to the 'EXTERNAL_STORAGE' variable that is set in init.rc. If you change that to /emmc all your apps should work with your external SD</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;evaluate&gt; s,/emmc,/mnt/emmc,</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;mbizzle&gt; but what's the point in keeping external_storage set to sdcard currently?</span><br />
+<span class="irc-date">[12:35]</span> <span class="irc-black">&lt;mbizzle&gt; or sdcard to the internal sdcard</span><br />
+<span class="irc-date">[12:35]</span> <span class="irc-black">&lt;evaluate&gt; well, the point is that some people don't have an external card at all</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-black">&lt;evaluate&gt; that means if we default EXTERNAL_STORAGE to /emmc, the people without that will not have any settings saved at all</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-black">&lt;evaluate&gt; so since the internal SD cannot be removed, it is most sane to default the setting to that one, since that's what most people want anyway</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-black">&lt;evaluate&gt; and that's also what samsung did to their stock FW</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-black">&lt;mbizzle&gt; but everyone expects the internal storage to be called sdcard?</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-black">&lt;evaluate&gt; It is actually an SD card of some kind. An internal one at that, but still...</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-navy">* mersault (~mersault@bas4-toronto02-1176313207.dsl.bell.ca) Quit (Quit: mersault)</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-black">&lt;evaluate&gt; so there's nothing wrong with that name</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;mbizzle&gt; no, nothing wrong. just counter-intuitive</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;evaluate&gt; well, we will name the external one probably external_sd, so it makes more sense</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;evaluate&gt; just like samsung did</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;mbizzle&gt; I figured thats what emmc meant</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;mbizzle&gt; external mmedia card I guess</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;evaluate&gt; yup</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;mbizzle&gt; it'd be nice to be able to set that from within CM's ui</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;mbizzle&gt; where do we want our apps to default to... sdcard or ex_sdcard</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;evaluate&gt; Since there are multiple settings to be taken care of, that probably won't ever be possible</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;mbizzle&gt; it's not just the simple changing EXTERNAL_STORAGE?</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;mbizzle&gt; is that possible to make into a ui option?</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;evaluate&gt; yes, that will change the default card</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;evaluate&gt; but if you  change that, you also have to change the other one (ro.removablemounts in this case)</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;Unhelpful&gt; mbizzle: it's not, because it's an environment variable, and we can't really propagate it to other processes when we decide to change it. to have it set everywhere we have to decide at init time.</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;mbizzle&gt; Unhelpful is it possible to set it and then reboot before it works...or maybe make it an option in clockwork?</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;mbizzle&gt; because there's only really a handful of us who are going to want/be able to muck around in the code. but many more are going to expect their portable data to defalt to their removable media. Do you agree?</span><br />
+<span class="irc-date">[12:47]</span> <span class="irc-black">&lt;mbizzle&gt; (if they have it, that is)</span><br />
+<span class="irc-date">[12:47]</span> <span class="irc-black">&lt;Unhelpful&gt; mbizzle: not really.  it has to be set in init.rc, which we can't modify without rebuilding and reflashing kernel.</span><br />
+<span class="irc-date">[12:48]</span> <span class="irc-black">&lt;mbizzle&gt; and we can't use symlinks right?</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;mbizzle&gt; I don't really know how we get around people wanting to pull their cards out and transferring pictures and music between their card readers and their phones</span><br />
+<span class="irc-date">[12:50]</span> <span class="irc-black">&lt;mbizzle&gt; I really don't even know why I have an external card, lol, it's been all of about useless for the past 6 months I think</span><br />
+<span class="irc-date">[12:52]</span> <span class="irc-black">&lt;evaluate&gt; well, I use my external SD for music/pics/etc</span><br />
+<span class="irc-date">[12:52]</span> <span class="irc-black">&lt;mbizzle&gt; this issue has been bothering me since the emmc workaround was implemented but I haven't yet figured out something that works 100%</span><br />
+<span class="irc-date">[12:53]</span> <span class="irc-black">&lt;evaluate&gt; that means, music/pics/etc that I want to put from my computer to my phone, if I ever want to put something from my phone to my computer, I either use the usb cable (which is BTW much easier than taking out the SD card) or bluetooth or dropbox, etc</span><br />
+<span class="irc-date">[12:54]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, you can create a local patch to the kernel that changes the EXTERNAL_STORAGE variable and use that. That will default everything to whatever you set it to.</span><br />
+<span class="irc-date">[12:55]</span> <span class="irc-black">&lt;mbizzle&gt; I was thinking more about people who won't ever step into irc</span><br />
+<span class="irc-date">[12:55]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, most people will prefer having their settings and everything on their internal SD, believe me</span><br />
+<span class="irc-date">[12:55]</span> <span class="irc-black">&lt;mbizzle&gt; my sdcard is slips into my tv, my htpc, and my car. so it's not easier for me to use usb, but yes I can address that personally</span><br />
+<span class="irc-date">[12:56]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, if you set your external_storage to your removable card, when you remove that card ALL of the programs that save their settings on the card won't work properly anymore (or even not at all) and you don't want that, believe me.</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-black">&lt;mbizzle&gt; it's probably more of an issue of putting everything on the same card</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-black">&lt;evaluate&gt; and neither does the majority of the users</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-black">&lt;mbizzle&gt; rather than separating media from everythign else</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-black">&lt;mbizzle&gt; it'd be nice if there was a way to tell android to save media to an external card and nothing else</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;evaluate&gt; yeah, that would've been nice, unfortunately android isn't that smart yet. :-p</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;mbizzle&gt; there isn't a way to setup symlinks on our sdcards, correct?</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;evaluate&gt; I'd appreciate a separate flag for each app tbqh, something like 'ro.camera.defaultstorage', 'ro.soundrecorder.defaultstorage', etc</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;evaluate&gt; but that's just a dream for now</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, if you've formatted them to VFAT then no</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;mbizzle&gt; is that possible and just time consuming or not even something that one can do?</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;mbizzle&gt; (setting separate flags)</span><br />
