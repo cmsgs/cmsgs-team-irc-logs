@@ -1111,3 +1111,96 @@
 <span class="irc-date">[15:56]</span> <span class="irc-navy">* mxracer (~me@adsl-1-144-196.clt.bellsouth.net) Quit (Ping timeout: 246 seconds)</span><br />
 <span class="irc-date">[15:57]</span> <span class="irc-green">* noone_linux (~mxracer@adsl-210-120-208.clt.bellsouth.net) has joined this channel.</span><br />
 <span class="irc-date">[15:58]</span> <span class="irc-navy">* mxracer_linux (~mxracer@adsl-1-144-196.clt.bellsouth.net) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-green">* mxracer (~me@adsl-210-120-208.clt.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;mersault&gt; Anyone here familiar with what's in frameworks/base/telephony/java/com/android/internal/telephony?</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;mikebeecham&gt; codeworkx, I notice there was a lot of feedback regarding the potential 03132011. Did the issues get resolved? What is the current situation with external-sd?</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;codeworkx&gt; mikebeecham: we can mount the external card to /mnt/sdcard/external_sd, but the settings app fails</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;mikebeecham&gt; I guess that means upon a reboot the external would be unmounted again</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: that's *what i just said*! ;)</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; mnita|work: and like you said, if we are - then we fork for real.</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; yes, I was agreeing :)</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;Unhelpful&gt; now, if they say "come back with a better implementation", and give us valid complaints to address... then we do that.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: what you're talking about?</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;nitam|work&gt; lots of things with *_EXTERNAL_STORAGE in the tree</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: support for multiple removable storage. evaluate seemed to think that that might be rejected upstream, regardless of implementation quality, as something that "only galaxy s needs"</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;Unhelpful&gt; imo if they *do* give that as areason, we can't really keep working with them.</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;codeworkx&gt; think we should do it as clean as possible. harmony and incredible can use it too</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, there *are* other devices w/ both?</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;codeworkx&gt; but not much</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;mikebeecham&gt; *shudders*</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;mikebeecham&gt; been there before, and it's rarely pretty I'm afraid</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;mikebeecham&gt; I was in the middle of the XBMC/Plex fork</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;nitam|work&gt; interesting: <a href="http://pastebin.com/MFmZ9SuU">http://pastebin.com/MFmZ9SuU</a></span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;nitam|work&gt; default to "/sdcard" if EXTERNAL_STORAGE is not specified in the environment</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;nitam|work&gt; for us a fork is easier - but we'd rather not obviously.</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;nitam|work&gt; since it just means forking what is different - most still remains the same.</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;mikebeecham&gt; mnita|work, of course</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;nitam|work&gt; but we are going to do it right. ;)</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;mikebeecham&gt; what my experience was...it started off with both parties wanting an animcable split</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;mikebeecham&gt; then it go ugly...caused by a small number of people on both sides</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;mikebeecham&gt; my only advice if you wanted to do it right...</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;mikebeecham&gt; keep your integrity</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;mikebeecham&gt; which sounds like a simple thing</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;mikebeecham&gt; but things MIGHT get ugly quickly if you're not careful</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;nitam|work&gt; like what ... I thought you meant code related stuff</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;mikebeecham&gt; every aspect...</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;nitam|work&gt; nothing else matters because we're downstream from cyanogenmod which is downstream from google.</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;mikebeecham&gt; there is the code, what you are both trying to achieve</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;mikebeecham&gt; but then if you are forking, you might soon find that there's less in common between the two groups</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;nitam|work&gt; in practical terms it means continuing the way we are. not desirable.</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;mikebeecham&gt; sure</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;mikebeecham&gt; we had the "you're stealing code" type stuff</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;mikebeecham&gt; which I'm sure you guys wont have</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;mikebeecham&gt; because it's different</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;nitam|work&gt; of course we're "stealing" code - we're downstream ;)</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;mikebeecham&gt; yeah, but you know what I mean</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;nitam|work&gt; basically any changes they make, we get -- its not parallel development on separate products.</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;mikebeecham&gt; it starts of with little issues, but get big quickly because both parties are seeking thier own agenda and very protective toward their own people</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;mikebeecham&gt; sure</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;nitam|work&gt; problems happen with both try to become "standard". like android linux.</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;nitam|work&gt; that is definitely pissing off linus and others</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;nitam|work&gt; because they forked and are a standard now</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;mikebeecham&gt; yup</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;nitam|work&gt; can't happen with us - we take most things from CyanogenMod upstream.</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;mikebeecham&gt; ..and how are cyanogen about that?</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;mikebeecham&gt; are they ok with it?</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;nitam|work&gt; and are quite open about it - it is how its done.</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;nitam|work&gt; yes, we're not supported by them - but that's how its done until we're "done" and can merge upstream</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;nitam|work&gt; and anything we cannot, and has to stay that way, we keep forked.</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;nitam|work&gt; usually things get merged if they're done reasonably well and they need them. so our challenge is mostly to get it reviewed.</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;nitam|work&gt; and fix issues they raise.</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;mikebeecham&gt; well, however you guys work it out I'm eternally grateful that I got to have vanilla on my SGS</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;nitam|work&gt; the get reviewed seemed to work when we pinged Koush on twitter ;)</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;nitam|work&gt; so next time we want something looked at that we think is ready, we need to ping him.</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;nitam|work&gt; looking at this whole EXTERNAL_STORAGE thing ...</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;nitam|work&gt; hate this crap . . . it is hard coded to look for that everywhere...</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;nitam|work&gt; so subdir seems like the easiest way for the apps.</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;nitam|work&gt; mount/unmount needs to get worked on and merged upstream</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;nitam|work&gt; back later..</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: mounting external sd to /mnt/sdcard/external_sd works fine except the settings force close because of statfs fail</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: mount, unmount and so on works</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: the only thing we have to do is patch vold, patch the settings app, include evaluates fixes cleanly</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;nitam|work&gt; that would work I think because apps will see the external card then</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;nitam|work&gt; we could look at what samsung did ;)</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-green">* evaluate (~cristi@unaffiliated/evaluate) has joined this channel.</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;evaluate&gt; ho, ho, ho</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;nitam|work&gt; hey, evaluate - you working in a github repository?</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;evaluate&gt; no</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;evaluate&gt; locally</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;nitam|work&gt; k, push to a repository when you're ready so we can look at the changes.</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nitam|work&gt; or just push interim versions too so we can see. I'd like to see what code you're modifying - so I learn something about the whole volume mounting/dismounting/managing stuff</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;evaluate&gt; I'll make a diff, I've no idea how else I could make it</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nitam|work&gt; will also make it easier for you to send a pull request.</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;evaluate&gt; that is, if you don't give me push access :-p</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nitam|work&gt; we won't. :)</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@uto-atechols-2.inre.asu.edu) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nitam|work&gt; that's why you should create a new github account.</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nitam|work&gt; if you don't have one</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nitam|work&gt; and push to a repository there.</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;nitam|work&gt; it's easy, painless, public and easy to do pull requests from.</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;nitam|work&gt; diff patches suck.</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;nitam|work&gt; its not code source revisioned.</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;nitam|work&gt; just do it. :)</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;evaluate&gt; I don't see why you wouldn't give me push access, it's not like I'll push anything without discussing it first with you guys, but anyway, I'll see what I can do</span><br />
