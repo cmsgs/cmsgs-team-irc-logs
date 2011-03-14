@@ -649,3 +649,169 @@
 <span class="irc-date">[10:54]</span> <span class="irc-navy">* evaluate (~cristi@unaffiliated/evaluate) Quit (Read error: Operation timed out)</span><br />
 <span class="irc-date">[10:55]</span> <span class="irc-black">&lt;mbizzle&gt; hmmm...</span><br />
 <span class="irc-date">[10:55]</span> <span class="irc-green">* enl_ (4e073452@gateway/web/freenode/ip.78.7.52.82) has joined this channel.</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;mbizzle&gt; well I guess there's not much for me to test...</span><br />
+<span class="irc-date">[11:03]</span> <span class="irc-black">&lt;mbizzle&gt; let me know when you come back online evaluate</span><br />
+<span class="irc-date">[11:03]</span> <span class="irc-green">* evaluate (~cristi@unaffiliated/evaluate) has joined this channel.</span><br />
+<span class="irc-date">[11:03]</span> <span class="irc-black">&lt;evaluate&gt; disconnected. Did I miss something?</span><br />
+<span class="irc-date">[11:04]</span> <span class="irc-black">&lt;mbizzle&gt; not much</span><br />
+<span class="irc-date">[11:04]</span> <span class="irc-black">&lt;mbizzle&gt; just me waiting lol</span><br />
+<span class="irc-date">[11:04]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[11:04]</span> <span class="irc-black">&lt;mbizzle&gt; and the fact that emmc and sdcard are apparently unchanged</span><br />
+<span class="irc-date">[11:04]</span> <span class="irc-black">&lt;mbizzle&gt; emmc is still my external card</span><br />
+<span class="irc-date">[11:04]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, could you please open Settings -&gt; Storage and tell me what you have there?</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;mbizzle&gt; what do you want to know?</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;mbizzle&gt; same as stock</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 atinm * 25b2323 (1 files in 1 dirs): Fix typo. ... - <a href="http://bit.ly/exoMX6">http://bit.ly/exoMX6</a></span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;evaluate&gt; last item, what does it say?</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;mbizzle&gt; sd card &gt; 10gb free space</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;mbizzle&gt; internal storage 1.6 free space</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;mbizzle&gt; emmc  15 gig free space</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;evaluate&gt; but what does the title of the last item say?</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;mbizzle&gt; if I umount my sdcard it's my internal one</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;mbizzle&gt; Internal Storage: /mnt/emmc</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;evaluate&gt; does it say 'Internal storage' or 'Removable storage'?</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;evaluate&gt; you didn't build the kernel properly. Could you please remove the out folder and rebuild the kernel?</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;evaluate&gt; just 'rm -rf out' and './build.sh captivate kernel'</span><br />
+<span class="irc-date">[11:08]</span> <span class="irc-black">&lt;evaluate&gt; atinm|night, hey, you there?</span><br />
+<span class="irc-date">[11:08]</span> <span class="irc-black">&lt;mbizzle&gt; do you want me to recompile services.jar before or after the kernel?</span><br />
+<span class="irc-date">[11:08]</span> <span class="irc-black">&lt;evaluate&gt; you dont're need to recompile services if you have already done so</span><br />
+<span class="irc-date">[11:08]</span> <span class="irc-black">&lt;evaluate&gt; just rm out and rebuild the kernel</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-black">&lt;mbizzle&gt; there isn't much interaction with ./build.sh captivate kernel ...how did I build the kernel wrong?</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-black">&lt;mbizzle&gt; do I need to change something in .config?</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, you didn't actually build it wrong, it was build wrong because you didn't clean your environment</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;mbizzle&gt; after I reflash the kernel I should see rmoveable storage in mounts?</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, if you don't have the modified settings app, you should only see the internal SD and the internal storage.</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;mbizzle&gt; which should be what used to be /mnt/sdcard?</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;mbizzle&gt; is the settings.apk ready for use yet?</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;evaluate&gt; internal SD is /mnt/sdcard and internal storage is unmodified</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, not quite, I need to do a couple more changes</span><br />
+<span class="irc-date">[11:16]</span> <span class="irc-navy">* atinm|night (~atin@unaffiliated/atinm) Quit (Quit: atinm|night)</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;mbizzle&gt; my internal sd is already mounted at /mnt/sdcard. is this thing you're working on going to switch that? or what exactly am I looking for?</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-navy">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;mbizzle&gt; ok done</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;mbizzle&gt; still says "internal storage: /mnt/emmc</span><br />
+<span class="irc-date">[11:23]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, I am trying to modify CM so that it also accepts Removable devices, so that we can properly unmount/format/etc our external cards.</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;mbizzle&gt; well, what should I try next?</span><br />
+<span class="irc-date">[11:25]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, apparently there is a problem when building the captivate kernel, so your stuff didn't get applied, not sure why.</span><br />
+<span class="irc-date">[11:25]</span> <span class="irc-black">&lt;evaluate&gt; We should wait for atinm and see if he knows why this doesn't work.</span><br />
+<span class="irc-date">[11:26]</span> <span class="irc-black">&lt;mbizzle&gt; is that what happened with techmik too?</span><br />
+<span class="irc-date">[11:26]</span> <span class="irc-black">&lt;evaluate&gt; yup</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;evaluate&gt; apparently the changes in vendor/cyanogen/products/cyanogen_captivate.mk don't apply for you guys</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;evaluate&gt; and I'm not sure why</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;mbizzle&gt; hmm</span><br />
+<span class="irc-date">[11:28]</span> <span class="irc-black">&lt;evaluate&gt; actually, hold on just a second</span><br />
+<span class="irc-date">[11:31]</span> <span class="irc-black">&lt;evaluate&gt; yup, that's the place I changed it too. Should work but apparently it doesn't for you, no idea why, sorry.</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;mbizzle&gt; actually it is changing the files in the out directory</span><br />
+<span class="irc-date">[11:33]</span> <span class="irc-black">&lt;mbizzle&gt; I want it to be removablemounts right?</span><br />
+<span class="irc-date">[11:33]</span> <span class="irc-black">&lt;mbizzle&gt; changed from additionalmounts</span><br />
+<span class="irc-date">[11:34]</span> <span class="irc-black">&lt;evaluate&gt; yup</span><br />
+<span class="irc-date">[11:34]</span> <span class="irc-black">&lt;mbizzle&gt; I find that out/target/product/captivate/recovery/root/default.prop has ro:removablemounts=/mnt/emmc</span><br />
+<span class="irc-date">[11:34]</span> <span class="irc-black">&lt;evaluate&gt; but you can't change that on the device directly, since it'll be replace on reboot</span><br />
+<span class="irc-date">[11:34]</span> <span class="irc-black">&lt;mbizzle&gt; and so does out/target/product/captivate/system/build.prop</span><br />
+<span class="irc-date">[11:34]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, hmm</span><br />
+<span class="irc-date">[11:34]</span> <span class="irc-black">&lt;mbizzle&gt; no I checked the output after building my kernel</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;mbizzle&gt; with find . | xargs grep ro.removableble.mounts=/mnt/emmc</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;evaluate&gt; what does 'adb shell getprop ro.additionalmounts' say?</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;mbizzle&gt; /mnt/emmc</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;evaluate&gt; you don't need the find, it's slower like that because you do 2 commands. Just do 'grep -R "whatever" .'</span><br />
+<span class="irc-date">[11:36]</span> <span class="irc-black">&lt;evaluate&gt; ok, that's wrong, ro.additionalmounts should be unset. Could you please see if you still have it in /default.prop or in /system/build.prop ?</span><br />
+<span class="irc-date">[11:37]</span> <span class="irc-black">&lt;mbizzle&gt; it's in build.prop</span><br />
+<span class="irc-date">[11:37]</span> <span class="irc-black">&lt;mbizzle&gt; but removablemounts is in default.prop</span><br />
+<span class="irc-date">[11:38]</span> <span class="irc-black">&lt;evaluate&gt; delete that line from there then please</span><br />
+<span class="irc-date">[11:38]</span> <span class="irc-black">&lt;evaluate&gt; I mean the additionalmounts one</span><br />
+<span class="irc-date">[11:38]</span> <span class="irc-black">&lt;evaluate&gt; and then reboot</span><br />
+<span class="irc-date">[11:38]</span> <span class="irc-black">&lt;evaluate&gt; I need to friggin note these changes somewhere, for when someone with commit access comes in</span><br />
+<span class="irc-date">[11:39]</span> <span class="irc-black">&lt;evaluate&gt; What was that site again where you could edit your pastes?</span><br />
+<span class="irc-date">[11:39]</span> <span class="irc-black">&lt;mbizzle&gt; wait, didn't I edit build.prop when I started</span><br />
+<span class="irc-date">[11:39]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, I've no idea, but apparently you didn't do it right :-p</span><br />
+<span class="irc-date">[11:40]</span> <span class="irc-black">&lt;evaluate&gt; or you reflashed that file</span><br />
+<span class="irc-date">[11:40]</span> <span class="irc-black">&lt;mbizzle&gt; I did because I have the original files</span><br />
+<span class="irc-date">[11:40]</span> <span class="irc-black">&lt;mbizzle&gt; and the edited version</span><br />
+<span class="irc-date">[11:41]</span> <span class="irc-black">&lt;mbizzle&gt; maybe I reversed them</span><br />
+<span class="irc-date">[11:41]</span> <span class="irc-black">&lt;mbizzle&gt; so delete additionalmounts from build.prop?</span><br />
+<span class="irc-date">[11:43]</span> <span class="irc-black">&lt;evaluate&gt; yup</span><br />
+<span class="irc-date">[11:43]</span> <span class="irc-black">&lt;mbizzle&gt; are permissions 644?</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-black">&lt;evaluate&gt; yup</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-black">&lt;mbizzle&gt; I must have pushed the unedited version and kept the edited one :\</span><br />
+<span class="irc-date">[11:45]</span> <span class="irc-black">&lt;mbizzle&gt; I don't know about grep -R ...it's still going and it's not verbose</span><br />
+<span class="irc-date">[11:45]</span> <span class="irc-black">&lt;mbizzle&gt; I figured there was some reason I didn't do it that way</span><br />
+<span class="irc-date">[11:46]</span> <span class="irc-black">&lt;evaluate&gt; it always works for me...</span><br />
+<span class="irc-date">[11:46]</span> <span class="irc-black">&lt;mbizzle&gt; I'm sure its working</span><br />
+<span class="irc-date">[11:46]</span> <span class="irc-black">&lt;mbizzle&gt; I just can't see what its doing</span><br />
+<span class="irc-date">[11:46]</span> <span class="irc-black">&lt;mbizzle&gt; ok so now that appears to have worked</span><br />
+<span class="irc-date">[11:46]</span> <span class="irc-black">&lt;mbizzle&gt; I have sdcard at the top</span><br />
+<span class="irc-date">[11:46]</span> <span class="irc-black">&lt;mbizzle&gt; and internal storage</span><br />
+<span class="irc-date">[11:46]</span> <span class="irc-black">&lt;mbizzle&gt; nothing else</span><br />
+<span class="irc-date">[11:46]</span> <span class="irc-black">&lt;evaluate&gt; GOOD!</span><br />
+<span class="irc-date">[11:46]</span> <span class="irc-black">&lt;evaluate&gt; now test to see if everything's working like before</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;mbizzle&gt; now my sdcard is still my internal storage</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;mbizzle&gt; *internal sd</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;evaluate&gt; yes, that's normal</span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;evaluate&gt; actually wait, what do you mean your SD card? Your external one is showing in the settings -&gt; storage?</span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;mbizzle&gt; at the top, I have SD Card. that is my built in sd card</span><br />
+<span class="irc-date">[11:49]</span> <span class="irc-black">&lt;mbizzle&gt; next I have internal storage. that is the 2gb mem</span><br />
+<span class="irc-date">[11:49]</span> <span class="irc-black">&lt;evaluate&gt; yes, that's ok</span><br />
+<span class="irc-date">[11:49]</span> <span class="irc-black">&lt;mbizzle&gt; I no longer have any information on the actual sd card I own</span><br />
+<span class="irc-date">[11:49]</span> <span class="irc-black">&lt;evaluate&gt; The build in SD will always remain the primary storage</span><br />
+<span class="irc-date">[11:49]</span> <span class="irc-black">&lt;mbizzle&gt; that I can remove from the phone</span><br />
+<span class="irc-date">[11:49]</span> <span class="irc-black">&lt;mbizzle&gt; that sucks</span><br />
+<span class="irc-date">[11:49]</span> <span class="irc-black">&lt;evaluate&gt; and you don't see the external SD because you don't have the patched settings apk</span><br />
+<span class="irc-date">[11:49]</span> <span class="irc-black">&lt;evaluate&gt; but can you see it in /mnt/emmc?</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;evaluate&gt; I mean, can you see your files from the external SD there&gt;</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;evaluate&gt; ?</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;mbizzle&gt; no</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;mbizzle&gt; it's not mounted</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;evaluate&gt; are you sure you properly pushed services.jar?</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;mbizzle&gt; I can't remember the mount command offhand</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;mbizzle&gt; for wherever emmc is located</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;evaluate&gt; you probably won't be able to mount it, you need the patched services.jar</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;mbizzle&gt; I thought I had the correct .jar but I also thought I had the correct build.prop</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;mbizzle&gt; I'll push it again</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;evaluate&gt; how did you build it?</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;evaluate&gt; with the 'mmm' command?</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;mbizzle&gt; yes</span><br />
+<span class="irc-date">[11:52]</span> <span class="irc-black">&lt;mbizzle&gt; mmm -B frameworks/base/services/java</span><br />
+<span class="irc-date">[11:52]</span> <span class="irc-black">&lt;evaluate&gt; then you might have to also look into out/target/product/generic/...</span><br />
+<span class="irc-date">[11:52]</span> <span class="irc-black">&lt;evaluate&gt; since mmm doesn't always put stuff in the device specific folder, it sometimes also puts it in generic</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;mbizzle&gt; there are only two .mk files in there</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;evaluate&gt; you could check the output from the build to see where the compiled services.jar has been placed</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;evaluate&gt; or recompile it</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;mbizzle&gt; yeah I recompiled it</span><br />
+<span class="irc-date">[11:54]</span> <span class="irc-black">&lt;mbizzle&gt; although I don't see an output for services.jar</span><br />
+<span class="irc-date">[11:54]</span> <span class="irc-black">&lt;evaluate&gt; and look in the output for something like 'Install: out/target/product/generic/system/framework/services.jar'</span><br />
+<span class="irc-date">[11:54]</span> <span class="irc-black">&lt;mbizzle&gt; I wonder if I had an error here</span><br />
+<span class="irc-date">[11:54]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, I mean the output from the compile command</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-black">&lt;mbizzle&gt; when I compiled my kernel?</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-black">&lt;evaluate&gt; no, when you executed mmm -B frameworks/base/services/java/</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-black">&lt;mbizzle&gt; I didn't get anything like that</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-green">* zerojay_work (~zerojaywo@blk-222-113-194.eastlink.ca) has joined this channel.</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-black">&lt;mbizzle&gt; i got an error now that I'm reading it</span><br />
+<span class="irc-date">[11:56]</span> <span class="irc-black">&lt;evaluate&gt; well, there's your problem then :-p</span><br />
+<span class="irc-date">[11:56]</span> <span class="irc-black">&lt;evaluate&gt; did you rebuild the services framework *after* deleting the out folder?</span><br />
+<span class="irc-date">[11:56]</span> <span class="irc-green">* mersault (~mersault@bas4-toronto02-1176313207.dsl.bell.ca) has joined this channel.</span><br />
+<span class="irc-date">[11:56]</span> <span class="irc-black">&lt;mbizzle&gt; yes</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-black">&lt;evaluate&gt; That won't work.</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-black">&lt;mbizzle&gt; I just did it again</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-black">&lt;mbizzle&gt; I mean, I did it before, I did it after, and I did it again</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-black">&lt;mbizzle&gt; after I've recompiled the kernel</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-black">&lt;evaluate&gt; You will probably need to rebuild the whole package for the services.jar to be compiled</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-black">&lt;evaluate&gt; you should've done this before deleting the out folder</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;evaluate&gt; I think I've mentioned this before.</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;mbizzle&gt; I did it before deleting the out folder</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;evaluate&gt; and still got an error?</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;mbizzle&gt; no I didn't get an error then</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;evaluate&gt; ohh</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;mbizzle&gt; but apparently I needed to build clean</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;evaluate&gt; but did you push it to the phone then?</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;mbizzle&gt; yes</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;mbizzle&gt; I built it, then pushed it, then compiled the kernel</span><br />
+<span class="irc-date">[11:59]</span> <span class="irc-black">&lt;mbizzle&gt; then deleted the out folder then compiled the kernel</span><br />
+<span class="irc-date">[11:59]</span> <span class="irc-black">&lt;evaluate&gt; could you please check the timestamp of the file on the phone? I'm pretty sure you don't have the right one, else it should work.</span><br />
+<span class="irc-date">[11:59]</span> <span class="irc-black">&lt;evaluate&gt; 'adb shell ls -lsa /system/framework/services.jar'</span><br />
