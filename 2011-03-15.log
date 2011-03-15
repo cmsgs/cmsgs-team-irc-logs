@@ -12,3 +12,61 @@
 <span class="irc-date">[2:31]</span> <span class="irc-navy">* birdman (~Steven@24.246.130.106) Quit (Ping timeout: 255 seconds)</span><br />
 <span class="irc-date">[2:34]</span> <span class="irc-navy">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Ping timeout: 250 seconds)</span><br />
 <span class="irc-date">[2:35]</span> <span class="irc-green">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-green">* ciwrl|away is now known as ciwrl|food</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-green">* mersault_ (~mersault@home.nullpointer.ca) has joined this channel.</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-navy">* mersault_ (~mersault@home.nullpointer.ca) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-green">* mersault_ (~mersault@home.nullpointer.ca) has joined this channel.</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-navy">* mersault (~mersault@206.248.172.98) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-green">* mersault_ is now known as mersault</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-green">* embizzle_ is now known as mbizzle</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-green">* mersault_ (~mersault@home.nullpointer.ca) has joined this channel.</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-navy">* mersault_ (~mersault@home.nullpointer.ca) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-green">* mersault_ (~mersault@home.nullpointer.ca) has joined this channel.</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-green">* mersault__ (~mersault@home.nullpointer.ca) has joined this channel.</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-navy">* mersault (~mersault@home.nullpointer.ca) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-green">* mersault__ is now known as mersault</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-navy">* mersault_ (~mersault@home.nullpointer.ca) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;techmik67&gt; anyone around?</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;uberushaximus&gt; No</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;techmik67&gt; figured i'd ask a git question BEFORE i do it this time</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;techmik67&gt; if i pull or merge, its my local sources i'm changing, right? not the source?</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;techmik67&gt; as long as i dont push, i'm not changing the remote? i guess is my question.....</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;mbizzle&gt; I think you are the remote</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;mbizzle&gt; in git terminology, isn't the remote your workstation?</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;techmik67&gt; i am using atinm as my source</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;techmik67&gt; let me start over</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;techmik67&gt; i have my build dirs from teamhacksung</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;techmik67&gt; i went into 3 of tehm and created "test" branch</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;mersault&gt; techmik67: I'm not a git person, but I believe a push is you pushing to the upstream repo. a pull is you basically suggesting a patch.</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;mersault&gt; assuming you cloned or forked teamhacksung, for instance</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;techmik67&gt; i want to confirm that push is th eONLY way i affect upsream</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;mersault&gt; I know for a fact that push impacts the repo</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;techmik67&gt; i now have 2 branches of a dir... gingerbread (main) and test</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;mersault&gt; and I believe pull is the manner in which downstream folks signal to upstream folks to check out a patch</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;mersault&gt; but how you specify them on the cli to impact or collect files into a single commit, I dunno</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;techmik67&gt; i think i found what i need  <a href="http://gitref.org/remotes/#fetch">http://gitref.org/remotes/#fetch</a></span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;mersault&gt; for instance, I know the cyanogenmod team largely works by the devs issueing pull requests, and a much smaller group of people with push access reviewing the pull requests and then pushing them to the main repo</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;techmik67&gt; yes i see that in the hierachy at cm and on github</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik67&gt; the link is the use of "pull" and "remote" i meant</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;mersault&gt; keep in mind, I've never used git. just read up on alternatives while researching for work (eventually decided the costs weren't worth moving from svn)</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik67&gt; probably not explaining right.... i am NOT goood with git</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;mersault&gt; I would assume, and this is an assumption, that pull is the verb and remote is the other end, whether upstream or downstream.</span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;mersault&gt; in your case (and the majority of) you'd be issuing a pull to the remote party (teamhacksung)</span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;techmik67&gt; if i am reading the page correctly, the fact that i pull from atinm because i "git remote add atinm......" in the directory, i didnt want to change his stuff (the upstream, as i understand the terminology)</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;techmik67&gt; i "git pull" and had to tweak and "git merge"</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;techmik67&gt; and it wants me to commit</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;techmik67&gt; and i wanna make sure its just MY local stuff i am changing</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;techmik67&gt; which i think is the case</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, have you played much with the headphone buttons yet?</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;Kaik541&gt; as in, testing them</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;techmik67&gt; i have stock headset... in call, it works</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;techmik67&gt; not incall, starts music player for me</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;techmik67&gt; and button press pauses</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;Kaik541&gt; for me, single press = play/pause for either default music player or last player used (it controls pandora fine, but by default opens up "Music")</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;Kaik541&gt; and double click = next in music, but not triple press = back</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;techmik67&gt; didnt even know to try 2x and 3x</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-black">&lt;Kaik541&gt; yeah double is supposed to do "next" and triple is supposed to do "back"</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-black">&lt;Kaik541&gt; at least on stock</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;Kaik541&gt; but pandora doesn't have a back option so can't test it there and I'm using honeycomb music player so maybe that's just broken</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-navy">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Quit: Leaving)</span><br />
