@@ -137,3 +137,106 @@
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;techmik_laptop&gt; maybe atinm can figure out the error.... when building from his branches, i get this error:</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;atinm|night&gt; just switch branch, and push to it. it isn't that hard ...</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;techmik_laptop&gt; build/core/base_rules.mk:162: *** vendor/cyanogen/cmds/am: MODULE.TARGET.JAVA_LIBRARIES.am already defined by frameworks/base/cmds/am.  Stop.</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; techmik_laptop: did you do any repo syncs?</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; or just switched branches?</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; I was able to build last night btw</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;techmik_laptop&gt; i synced from mainline, built, checkout to his branch in the 3 directories and pulled</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;techmik_laptop&gt; then build</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm|night&gt; ok, one sec</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;techmik_laptop&gt; mainline builds no prob</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm|night&gt; yes, need to pull mainline changes into the branch too</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm|night&gt; sec</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;techmik_laptop&gt; ah.. so i also epo sync as well as pull in his branches....</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;techmik_laptop&gt; repo*</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;atinm|night&gt; yes, because changes are dependent</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;techmik_laptop&gt; so i checkout, pull, repo sync, build?</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm|night&gt; no, in the three dirs - git pull there too and you might hit merges.</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm|night&gt; I am doing it so you don't have to</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;atinm|night&gt; (this is the stuff that developers do..)</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;atinm|night&gt; (when they want ppl to test the branch)</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;atinm|night&gt; but the idea is, you go into those three dirs. git remote add cm git://cyanogen_repo.git for that.</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm|night&gt; and then in the dir, git checkout sdcard_test</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm|night&gt; git pull cm gingerbread</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm|night&gt; which pulls gingerbread changes into the sdcard_test branch, merging stuff.</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;evaluate&gt; atinm|night, was that for me?</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm|night&gt; so sdcard_test remains the same</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;techmik_laptop&gt; i see</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm|night&gt; for both you and techmik_laptop</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm|night&gt; you're a developer, techmik_laptop is a tester who wants to learn git.</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;evaluate&gt; ok</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;techmik_laptop&gt; git seems complicated cause the terminology seems counter-intuitive at times</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm|night&gt; well, pull and push - push out, pull in. pull request is asking someone to pull from you</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;atinm|night&gt; remote is a different repo you want to reference too (usually an upstream one)</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-green">* enl_ (5270c4ce@gateway/web/freenode/ip.82.112.196.206) has joined this channel.</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;techmik_laptop&gt; i can "pull" changes from remotes to me locally, but there are also "pull requests" which is not the same as just pushing?</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;atinm|night&gt; so you add a remote, move into the branch you want to work in, and then pull from it</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;atinm|night&gt; right. pull request is asking someone else to pull from you into their branch</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;atinm|night&gt; so you could ask me to do a pull request</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; as opposed to straight pushing it to them</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;atinm|night&gt; and I would then check it out, and then pull it into my branch if I think it is good. and then I'd push it to teamhacksung</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;atinm|night&gt; right</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; i see</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;atinm|night&gt; compiling.</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; so, when you were away, i should have been asking you to pull, and you would have seen what i was doing wrong....</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; rather than pushing to you and killing it</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;atinm|night&gt; yes</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; i understand!!</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;atinm|night&gt; except I didn't have access to a computer</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; got it</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;atinm|night&gt; so I wouldn't have been able to look at it :)</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; i remember that</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;atinm|night&gt; well, I would have been able to look at it on my phone, but not done much with it</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm|night&gt; which might not have been a bad thing ;-)</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;techmik_laptop&gt; i mean that would have been the "right" way</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117015.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm|night&gt; yes</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm|night&gt; basically very few people should have access to push into a repo, the rest do pull requests</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm|night&gt; its how any project with distributed people works</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;techmik_laptop&gt; i see and understand pull requests much more now, thank you</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm|night&gt; keeps the project sane and non-breaking.</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;atinm|night&gt; ok, go into each dir, git checkout sdcard_test, git pull atinm sdcard_test</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;atinm|night&gt; no repo sync</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;atinm|night&gt; just git pull from me directly</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;atinm|night&gt; evaluate: you want to make changes, you go into each dir, git checkout sdcard_test, modify file, git commit it, and git push atinm sdcard_test</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;atinm|night&gt; you'll first need to git pull atinm sdcard_test to be in sync</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;evaluate&gt; ok</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;atinm|night&gt; from now on, you go into those three dirs, git remote add cm git://cyanogen_repo_for_dir.git</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;atinm|night&gt; and git pull cm gingerbread</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;atinm|night&gt; w</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;atinm|night&gt; which pulls into sdcard_test</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;atinm|night&gt; and merges</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;atinm|night&gt; basically any time anyone does a repo sync, it could have brought it stuff that depends on frameworks/base</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;atinm|night&gt; or vendor_cyanogen</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;atinm|night&gt; so those two usually need a pull from cyanogen also</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;atinm|night&gt; ok, off for a bit</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;atinm|night&gt; wtf..</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;techmik_laptop&gt; ?</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;atinm|night&gt; I see the changes in apps_Settings</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;atinm|night&gt; but not in cyanogen</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;atinm|night&gt; sec</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;techmik_laptop&gt; i got changes in all 3</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;atinm|night&gt; no, we lost one</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;atinm|night&gt; sec</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;atinm|night&gt; ok</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;atinm|night&gt; now go into each, and pull</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;techmik_laptop&gt; not seeing a new change</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;atinm|night&gt; from atinm sdcard_test</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;atinm|night&gt; try now.</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;atinm|night&gt; I hadn't commited :)</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;techmik_laptop&gt; got it</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;atinm|night&gt; same for evaluate.</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;atinm|night&gt; looks like it is building</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;atinm|night&gt; back later</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;atinm|night&gt; like a few hours later</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;atinm|night&gt; have to get kid ready for work</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;atinm|night&gt; and get to work</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;atinm|night&gt; ok, it built</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;techmik_laptop&gt; wow thats fast</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-navy">* enl_ (5270c4ce@gateway/web/freenode/ip.82.112.196.206) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Ping timeout: 255 seconds)</span><br />
