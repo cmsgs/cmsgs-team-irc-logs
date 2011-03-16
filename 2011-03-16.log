@@ -155,3 +155,59 @@
 <span class="irc-date">[8:46]</span> <span class="irc-black">&lt;Unhelpful&gt; &lt;&lt; is a left shift, | is a bitwise OR.</span><br />
 <span class="irc-date">[8:48]</span> <span class="irc-black">&lt;evaluate&gt; ok, just like I was thinking. Thanks!</span><br />
 <span class="irc-date">[8:49]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[9:03]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[9:10]</span> <span class="irc-black">&lt;mikebeecham&gt; morning</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.5.66) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[9:29]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[9:29]</span> <span class="irc-black">&lt;Kaik541&gt; hmm2u2</span><br />
+<span class="irc-date">[9:30]</span> <span class="irc-black">&lt;evaluate&gt; I'm not 100%, but I think we might have to move our external SD to another place.</span><br />
+<span class="irc-date">[9:31]</span> <span class="irc-black">&lt;evaluate&gt;  /emmc seems to be handled differently and seems to screw stuff up...</span><br />
+<span class="irc-date">[9:32]</span> <span class="irc-black">&lt;evaluate&gt; vold assigns /emmc the partition number -1, which of course is totally wrong...</span><br />
+<span class="irc-date">[9:33]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, could you please to a 'adb shell df -h' and tell me which device number you have mounted on '/mnt/emmc'?</span><br />
+<span class="irc-date">[9:34]</span> <span class="irc-black">&lt;Unhelpful&gt; that depends on what you mean by "partition number"</span><br />
+<span class="irc-date">[9:34]</span> <span class="irc-black">&lt;Unhelpful&gt; and i thought we want to mount it on /mnt/sdcard/external_sd? for the obvious reasons?</span><br />
+<span class="irc-date">[9:35]</span> <span class="irc-black">&lt;evaluate&gt; well, the cards are named /dev/block/vold/X:*, where X is the device number and * is the partition number</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;evaluate&gt; and vold thinks of /emmc and /sdcard as being the same device, /emmc being the device itself (thus it asigns it the partition number -1) and /sdcard being the first mountable partition, thus it gets the partition number 1 assigned to it</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;Kaik541&gt; emmc is 179:9</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;evaluate&gt; This is totally screwed up, I'll try moving the external SD to somewhere else.</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, thanks!</span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-black">&lt;mikebeecham&gt; morning Kaik541</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;Kaik541&gt; morning</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;mikebeecham&gt; discovered emmc in a negative way last night - downloaded a modem, went to flash through cwm...couldn't find it</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;mikebeecham&gt; lol</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;mikebeecham&gt; had to reboot, copy across THEN flash</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;evaluate&gt; LOL!!!</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;evaluate&gt; Who the fuck wrote the vold.fstab???</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;evaluate&gt; I am *SO* gonna kick that person in the balls!</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[9:47]</span> <span class="irc-green">* embizzle (~mbizzle@vp117013.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[9:52]</span> <span class="irc-black">&lt;embizzle&gt; mikebeecham you can mount /emmc through cwm's mounts option</span><br />
+<span class="irc-date">[9:52]</span> <span class="irc-black">&lt;mikebeecham&gt; ok, good to know for future</span><br />
+<span class="irc-date">[9:52]</span> <span class="irc-black">&lt;mikebeecham&gt; just trying out JPY again, but not totally happy with it</span><br />
+<span class="irc-date">[9:52]</span> <span class="irc-black">&lt;mikebeecham&gt; might have to go back to JPM</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-black">&lt;embizzle&gt; and you don't have to flash modems, btw</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-black">&lt;mikebeecham&gt; huh?</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-black">&lt;mikebeecham&gt; what should i be doing then mate?</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-black">&lt;embizzle&gt; you can just copy them over via adb</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-black">&lt;embizzle&gt; using dd command</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-black">&lt;mikebeecham&gt; embizzle, ahhh dont have adb set up</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;mikebeecham&gt; i had it on my hero, but not on the SGS</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;embizzle&gt; what do you mean by set up?</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;mikebeecham&gt; i had the sdk downloaded to my linux machine, and I was using it then</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;mikebeecham&gt; I've just not bothered to download the sdk for sgs yet</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;mikebeecham&gt; ..and I never really understood it tbh</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;mikebeecham&gt; I could carry out basic tasks with adb on the hero, but dont really have the time to really get to understand it</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;embizzle&gt; do you still have the sdk downloaded that you used for your hero?</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;mikebeecham&gt; yessir</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;embizzle&gt; I think it's the same</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;embizzle&gt; I thought the sdk is for android, not per device</span><br />
+<span class="irc-date">[9:56]</span> <span class="irc-black">&lt;mikebeecham&gt; might look into that then...will have to refresh what little knowledge I had :D</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;embizzle&gt; how do you get the files onto your phone to flash them?</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;mikebeecham&gt; i just download them from SF directly to  my phone, boot into CWM, flash then reboot</span><br />
+<span class="irc-date">[9:58]</span> <span class="irc-black">&lt;Kaik541&gt; adb gets updated, but it should still function the same</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;mikebeecham&gt; hmmm...must have reformatted my linux machine and not re-downloaded the sdk</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;mikebeecham&gt; dont have it</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;mikebeecham&gt; lol</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;Kaik541&gt; it's a quick download and pretty easy to set up =/</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;mikebeecham&gt; ok, would someone mind linking me and guiding me?</span><br />
