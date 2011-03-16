@@ -842,3 +842,42 @@
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nitam|work&gt; that means its a different device. fuck.</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;mersault&gt; Kaik541: how was that determined? I can only find one instance of DG saying it is so</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nitam|work&gt; needs a different defconfig then if I enable A1026</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;Kaik541&gt; from my understanding, it's because there was nothing in the source code about it</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;Kaik541&gt; I haven't personally checked, I've just heard it from a number of people</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;nitam|work&gt; well yeah, I saw that. but the first captivate eclair drop didn't have it either ;)</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;Kaik541&gt; I suppose it could though, as their modems don't have voice processing either (so it would make sense if they did)</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;nitam|work&gt; we got it off the vibrant source drop :)</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;nitam|work&gt; ok, only way to test is to go to stock on rogers, and try kb1 or something captivate specific</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;mersault&gt; hmmm, my friend is getting an assert failed when trying to flash KB1</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;Kaik541&gt; I know for a fact that they can use the same modems we do</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;nitam|work&gt; from the zip?</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;mersault&gt; mnita|work: yeah</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;Kaik541&gt; and we can use their modems</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;nitam|work&gt; the zip will have the device prop</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;mersault&gt; ah, so I gotta rip out the actual file and build another zip</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;nitam|work&gt; someone needs to unzip it, modify the updater-script (or update-script) to take out the device check and rezip, sign.</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;nitam|work&gt; all the good stuff one does to build a zip for flashing</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm doing what I can atinm, work and classes are in the way the next couple days</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-brick">* TMC_Sherpa is sneaking a peek durring breaks</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;mersault&gt; okay, with any luck that zip will work (been a while since I signed a zip)</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-navy">* TMC_Sherpa (~Jeff@65.201.195.242) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;nitam|work&gt; hope he reads the logs - TMC_Sherpa, no worries -- do it when you can. I'm going to do some diff'ing myself.</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;nitam|work&gt; I guess best way to check is just to install KB1 on a stock rogers phone and see what you hear. so hopefully the zip works</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;Kaik541&gt; well everyone who runs cognition</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;Kaik541&gt; is using KB1 with KB1 kernel/modem</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;Kaik541&gt; and lots of rogers people use that</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;mersault&gt; Kaik541: so that would lead me to believe that there is an A1026 chip..</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, I was under the impression that there wasn't, but it would make sense that there was</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;mersault&gt; anyway, we're about to try the rogers jl1 kernel with the kb1 modem</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;mersault&gt; JL1 kernel with KB1 modem == sounds good.</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;mersault&gt; so I would surmise that the I896 does in fact include A1026 chip.</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;mersault&gt; and with that, I'm going to go home.</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;mersault&gt; bbiab</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-navy">* mersault (~mersault@acihip.tor4.dsl4u.ca) Quit (Quit: mersault)</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-navy">* zerojay_work (~zerojaywo@blk-222-113-194.eastlink.ca) Quit (Ping timeout: 248 seconds)</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Quit: Get MacIrssi - <a href="http://www.sysctl.co.uk/projects/macirssi/)">http://www.sysctl.co.uk/projects/macirssi/)</a></span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-navy">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) Quit (Ping timeout: 240 seconds)</span><br />
