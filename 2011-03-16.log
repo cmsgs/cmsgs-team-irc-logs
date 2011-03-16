@@ -387,3 +387,99 @@
 <span class="irc-date">[13:55]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
 <span class="irc-date">[13:57]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 252 seconds)</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, there's one more thing we need to add for everything to work properly</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;evaluate&gt; But it's in the vold repo, so I'd be grateful if you could add this: <a href="http://pastebin.com/PSh5rTE6">http://pastebin.com/PSh5rTE6</a></span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;evaluate&gt; It's a hack, but there's no easier way right now to make this work, without rewriting most of the vold daemon.</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;nitam|work&gt; which repo?</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;Unhelpful&gt; it's really *so stupid* it can't understand that device majors don't indicate a unique whole disk? :(</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;evaluate&gt; android_system_vold</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;nitam|work&gt; ok. <a href="https://github.com/atinm/android_system_vold/admin">https://github.com/atinm/android_system_vold/admin</a></span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, yup, so we change the device block for the external SD in the kernel to something else, or we will need to change most of the vold daemon to make it work.</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;nitam|work&gt; git clone that, git branch --track sdcard_test github/sdcard_test, git checkout sdcard_test</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;Unhelpful&gt; then we need to change vold.</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, don't you mean <a href="https://github.com/atinm/android_system_vold.git">https://github.com/atinm/android_system_vold.git</a> ?</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;nitam|work&gt; not admin</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;nitam|work&gt; ye :)</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;evaluate&gt; ok :-)</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;nitam|work&gt; git@github.com:atinm/android_system_vold.git</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, also, to create my own clone of teamhacksung on github, is there an easy way, or do I have to fork each repo indepentently?</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-green">* mersault (~mersault@63.250.111.37) has joined this channel.</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;Unhelpful&gt; what about VOLD_EMMC_SHARES_DEV_MAJOR ?</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;nitam|work&gt; you shouldn't need to clone the whole repo, just clone the repos you're working in</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;nitam|work&gt; and then create a branch in those repos and work there</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;nitam|work&gt; all of us work that way, even when we're working in a lot of repos.</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, ok, pushed</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;nitam|work&gt; repo is sort of the way you manage a whole mess of git repositories, but each is independent in that it can work independently</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;nitam|work&gt; yuck...</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, well, I wanted the whole tree so I can have it all in one folder, like I have the teamhacksung repo now, so I can easily build an update/initial package with my changes if need be</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;nitam|work&gt; just use the teamhacksung repo is what I meant</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;nitam|work&gt; you just need to go into the repos you changed, switch the branch to sdcard_test</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;nitam|work&gt; and build</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, well, you said I should make my own clone on github so I can do pull requests</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;nitam|work&gt; it'll pick the sdcard_test branches for all the dirs that are pointed to that.</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;nitam|work&gt; same thing</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;nitam|work&gt; you fork the repo you want to push to</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;nitam|work&gt; then push there, then when you're ready, you merge sdcard_test back to gingerbread branch and then send pull request</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;nitam|work&gt; pull requests work on git repository level</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;nitam|work&gt; not top level</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;nitam|work&gt; github actually doesn't even know about repo</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;evaluate&gt; uhum</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;nitam|work&gt; since you're working in atinm repos, and are an owner, you can send pull requests from there</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;nitam|work&gt; it'll still be  you sending the pull request.</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful, since you've been discussing this, I've added you to the same repos.</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;nitam|work&gt; so you can see what is being done . . .</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, I saw that in the code, didn't give much attention to it actually, since I thought that it was set correctly, but now that you mentioned it I looked it up and it isn't actually set</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;nitam|work&gt; evaluate: I doubt any of us clone all the repos under teamhacksung ..</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;nitam|work&gt; you've have to be working in every repo to want to do that :)</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, I just thought it might be easier for me, so I don't get any conflicts or stuff when I do a repo sync</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;nitam|work&gt; repo sync doesn't touch sdcard_test branch.</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;nitam|work&gt; if you get any upstream changes, they'll be in gingerbread</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;nitam|work&gt; you'll need to merge those changes into sdcard_test yourself.</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;nitam|work&gt; that's the whole idea of working in a branch. this way I can repo sync and not get your changes.</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;evaluate&gt; ok, so it seems that we have to set BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true in the BoardConfig.mk</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;nitam|work&gt; but if I go into the sdcard_test branch when I want to test this, I'll get that instead</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;evaluate&gt; since they actually share the MAJOR dev number</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;nitam|work&gt; ok, sec</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, could you please do 'adb shell ls -lsa /dev/block/vold' ?</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;evaluate&gt; I'd like to know if it's the same for the captivate</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;evaluate&gt; because if they're the same on the captivate, we could set this in aries, couldn't we?</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt; ~ # ls -lsa /dev/block/vold</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt;    0 drwxr-xr-x    2 root     root           140 Mar 14 18:14 .</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt;    0 drwxr-xr-x    4 root     root           820 Mar 14 18:14 ..</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt;    0 brw-rw----    1 root     root      179,   0 Mar 14 18:14 179:0</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt;    0 brw-rw----    1 root     root      179,   1 Mar 14 18:14 179:1</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt;    0 brw-rw----    1 root     root      179,   2 Mar 14 18:14 179:2</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt;    0 brw-rw----    1 root     root      179,   8 Mar 14 18:14 179:8</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt;    0 brw-rw----    1 root     root      179,   9 Mar 14 18:14 179:9</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;evaluate&gt; good, it's the same</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;evaluate&gt; you can add that to gingerbread directly</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-green">* zerojay_work (~zerojaywo@blk-222-113-194.eastlink.ca) has joined this channel.</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;nitam|work&gt; but I don't know if BOARD_xxx can be set in common</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;nitam|work&gt; yeah</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;nitam|work&gt; we don't have BoardConfigs there</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;nitam|work&gt; crap.</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;nitam|work&gt; what does this do, what happens when we set it?</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;evaluate&gt; it get used in vold so that it can correctly identify the device that needs to be formatted</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;evaluate&gt; so this might make that vold back unnecessary</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;evaluate&gt; it has to be tested though</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;nitam|work&gt; without your changes to other stuff, and just setting this, will it break stuff?</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;evaluate&gt; No.</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;nitam|work&gt; because if there is any possibility that it breaks stuff, this needs to be in a branch until tested</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;evaluate&gt; It is only used in the formatting function and only if you try to format the emmc, which, without my changes, you can't</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;evaluate&gt; I have to go now, will be back in a couple of hours.</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;evaluate&gt; Then I can test it.</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;nitam|work&gt; right now it is present in htc inc</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117011.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;nitam|work&gt; and encore - do they have emcc?</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;nitam|work&gt; or whatever</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;evaluate&gt; not sure, you could look it up on gsmarena though.</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;evaluate&gt; have to go now, bye</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;nitam|work&gt; k</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-navy">* evaluate (~cristi@unaffiliated/evaluate) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;nitam|work&gt; shoot, I have to go too.</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;nitam|work&gt; have to do this after meeting.</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;mbizzle&gt; ls</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117011.reshsg.uci.edu) Quit (Quit: leaving)</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-navy">* noone_linux (~mxracer@adsl-210-120-208.clt.bellsouth.net) Quit (Quit: Leaving)</span><br />
