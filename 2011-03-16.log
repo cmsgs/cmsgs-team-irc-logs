@@ -881,3 +881,75 @@
 <span class="irc-date">[21:39]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[21:54]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Quit: Get MacIrssi - <a href="http://www.sysctl.co.uk/projects/macirssi/)">http://www.sysctl.co.uk/projects/macirssi/)</a></span><br />
 <span class="irc-date">[21:58]</span> <span class="irc-navy">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;techmik67&gt; ok, different than yesterday, but still not quite right........ i mounted and unmounted externalcard, and that seemed to go ok, but when i told it to erase the removeable card, it looked like it was, then when remounted showed the same as before...... but when i went to file manager or root explorer, external is untouched, but internal is semi-formatted......  all folders gone, but the files that were in the root of the sdcard</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;techmik67&gt; are still there</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;evaluate&gt; are you sure you updated everything?</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;techmik67&gt; right before i flashed</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;techmik67&gt; will reupdate all and rebuild clean, but that'll take 90 mins</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;evaluate&gt; wait</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;evaluate&gt; go to device/samsung/captivate/Boardconfig.mk</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;evaluate&gt; and see if you have BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="https://github.com/teamhacksung/android_build/commit/9cfe9efb895b1461e1dce4414d8a46e3f91c36a8">https://github.com/teamhacksung/android_build/commit/9cfe9efb895b1461e1dce4414d8a46e3f91c36a8</a></span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;nitam|work&gt; (bot wasn't hooked up so didn't get message)</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, cool</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;nitam|work&gt; fixes the lcd_density change bug</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;nitam|work&gt; can change it in build.prop now</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-green">* mersault (~mersault@65.95.181.170) has joined this channel.</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;techmik67&gt; yes i have the vold=true line</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;evaluate&gt; techmik67, ok, could you please get me a 'adb logcat -v time' of the format?</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;techmik67&gt; massive logcat</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;nitam|work&gt; crap - why does cyanogen use %m%d%y format for the zips.</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;techmik67&gt; 1548 lines</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://dl.dropbox.com/u/10818379/logcat.txt">http://dl.dropbox.com/u/10818379/logcat.txt</a></span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;evaluate&gt; thanks</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;evaluate&gt; could you please try again to format the external card?</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;evaluate&gt; it seems newfs didn't get executed...</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;techmik67&gt; sure</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;techmik67&gt; no change, just do it?</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;evaluate&gt; yup</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;evaluate&gt; and launch logcat in the background</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;evaluate&gt; so you see what's being done</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;evaluate&gt; you should see some references to newfs_something</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;evaluate&gt; newfs_msdos*</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure though why your folders on your internal SD disappeared, you sure you didn't do anything to them? caus that isn't normal (and I can't see any reference to that in the log either...)</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://dl.dropbox.com/u/10818379/logcat2.txt">http://dl.dropbox.com/u/10818379/logcat2.txt</a></span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;techmik67&gt; all i did was back up, then format</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;evaluate&gt; ok, it still didn't get formatted. Do you press format when the card is unmounted?</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;techmik67&gt; not this time.... 1st time i did it both mounted and unmounted (yesterday)</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;evaluate&gt; ok, could you please try that too?</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://dl.dropbox.com/u/10818379/logcat3.txt">http://dl.dropbox.com/u/10818379/logcat3.txt</a></span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;evaluate&gt; ok, there's something wrong with your system. I guess you have a wrong vold</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;evaluate&gt; I'll give you the proper vold binary in a second</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;evaluate&gt; <a href="http://dl.dropbox.com/u/9596802/removablemounts/vold.zip">http://dl.dropbox.com/u/9596802/removablemounts/vold.zip</a></span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;evaluate&gt; unpack that and push it to /system/bin/</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;evaluate&gt; Then do a 'adb shell killall vold' and then try again to format</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;evaluate&gt; and paste the logcat :-p</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;evaluate&gt; btw, after doing 'adb shell killall vold' both of your cards will get unmounted, that is normal.</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;nitam|work&gt; funny, some guy tweeted both me and DG to tell us he's running the most recently nightly..</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;evaluate&gt; DG?</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;nitam|work&gt; someone actually thinks DesignGears and I are working on the same stuff . . .</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;evaluate&gt; lulz</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;nitam|work&gt; maybe DG is finally taking stuff from teamhacksung ;)</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;evaluate&gt; yeah, probably because your so like bff and shit</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;nitam|work&gt; yeah. he's definitely my favorite kanger in the world.</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;nitam|work&gt; later!</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;mersault&gt; what is the source of the term 'kanger'?</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;UberPinguin&gt; mersault: The explanation I got is that 'kang' has its root in a phonetic reversal of 'gank', and 'kanger' is 'one who kangs'</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;UberPinguin&gt; Gank is a slang term for steal</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;techmik67&gt; ok, both unmouted after killall... mount em and format?</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;mersault&gt; UberPinguin: thanks. good enough.</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;mersault&gt; though, where is gank slang?</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;UberPinguin&gt; The US</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;Kaik541&gt; gank is common in video games</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;Kaik541&gt; usually when you get ambused it's referred to as 'being ganked"</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;UberPinguin&gt; I knew some wannabe gangbangers in high school who used it</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;evaluate&gt; techmik67, yeah</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;Kaik541&gt; but apparently gank is also a real word which means "to steal"</span><br />
