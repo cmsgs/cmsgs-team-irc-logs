@@ -211,3 +211,113 @@
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;mikebeecham&gt; lol</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;Kaik541&gt; it's a quick download and pretty easy to set up =/</span><br />
 <span class="irc-date">[10:00]</span> <span class="irc-black">&lt;mikebeecham&gt; ok, would someone mind linking me and guiding me?</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;mikebeecham&gt; if it's not too much troublew</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-green">* embizzle_ (~mbizzle@vp117013.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-green">* embizzle_ is now known as mbizzle</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;mikebeecham&gt; <a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a></span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;mikebeecham&gt; this one for linux?</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;Kaik541&gt; yes</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;mikebeecham&gt; ok</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;mikebeecham&gt; will download now</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;mikebeecham&gt; then might need a little 'guidance'</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-navy">* embizzle (~mbizzle@vp117013.reshsg.uci.edu) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;mbizzle&gt; in order to flash your modem, do "adb push modem.bin /sdcard/" "adb shell" "dd if=/sdcard/modem.bin of=/dev/block/mtdblock5" "adb reboot now"</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;mikebeecham&gt; whoa...slow down there pony</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;mikebeecham&gt; one thing at a time</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;mbizzle&gt; I may not be around when you're done</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;mbizzle&gt; just paste that somewhere for future reference</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;mikebeecham&gt; I've downloaded the tar and extracted it to a folder I can find!</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;mikebeecham&gt; so do I need to 'set it up' or can I just navigate in terminal to that folder</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;mbizzle&gt; you can just navigate to it</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;mikebeecham&gt; ok</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;mbizzle&gt; but eventually you'll want to set it up</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;Kaik541&gt; doesn't ubuntu require it to run as root</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;mbizzle&gt; which just entails adding the path to adb into your global path</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;mikebeecham&gt; and do I need to put the modem anywhere in particular on my linux machine</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;Unhelpful&gt; actually you really ought to use flash_image radio /sdcard/modem.bin, i'd think? this will do things "right" by repeating any failed block writes on the next block</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: any sane distro *would* ;)</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mbizzle&gt; that information I gave was from codeworkx</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;Kaik541&gt; well I'm just saying I know ubuntu does specifically</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mikebeecham&gt; *groan*</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mikebeecham&gt; tell you what..</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mbizzle&gt; I didnt' inquire the logic, but I assume the issue is any unnecessary flash is risk</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mikebeecham&gt; before giving advice, decide between you how it should be done :D</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mikebeecham&gt; that way it'll save confusing people who dont understand to begin with</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;mbizzle&gt; ubuntu doesnt require adb to be run as root</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;mbizzle&gt; and ubuntu doesn't do traditional nix root/user distinctions anyway</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Unhelpful&gt; mbizzle: i don't have any idea what you might mean by that, or why you would think dd isn't "flashing" the partition somehow.</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;mbizzle&gt; flashing via odin</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Kaik541&gt; flash is a flash, regardless of method</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;mbizzle&gt; if you say so</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;Kaik541&gt; fastboot is a flash</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;Kaik541&gt; I assume anything that has the ability to write to NAND is considered a flash</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;mbizzle&gt; as I wrote earlier, what I wrote was from codeworkx. you two should probably ask him directly why he advised to use dd</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;mbizzle&gt; I only added the additional information that the general consensus of odin is that it's an unreliable method to flash one's phone</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;mikebeecham&gt; so, what should I be doing then?</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;mikebeecham&gt; :D</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;Unhelpful&gt; mbizzle: oh, i see, he was advising *not* to use odin. that makes sense, because rild is using mtd access (and will handle bad blocks by skipping them), and odin will use bml (a specific block-remapping strategy)</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mbizzle&gt; well you should be familiar with adb</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mbizzle&gt; is sane advice, imo</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;Unhelpful&gt; also you should flash kernel images with odin/heimdall as they're read by the bootloader, which uses bml. :P</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; mbizzle, well, I dont need to be if I can continue using the method i have been doing...</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;Unhelpful&gt; though that doesn't matter if your boot partition has no bad blocks</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; it's you guys that are pushing the benefits of adb</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; doesn't bother me either way</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mbizzle&gt; Unhelpful I advised not to use odin. codeworkx specifically said to use dd</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mbizzle&gt; for modem flashes</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mbizzle&gt; I didn't say anything about kernel flashes. I advise heimdall for that.</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;Unhelpful&gt; right, you said, but that doesn't make sense, because of how rild will handle bad blocks - the same way flash_image would.</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mikebeecham&gt; *goes off to flash JPM via CWM!!*</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;mbizzle&gt; where are the chats logged to?</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;mbizzle&gt; do you have the link handy?</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;Kaik541&gt; they're on cmsgs.com</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;Kaik541&gt; odin/heimdall can't be used to flash modems in general, you will have to use either dd or the flash_image method (which I think is just a complex version of dd)</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;Kaik541&gt; emphasis on the "I think" part</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;mikebeecham&gt; Kaik541, CWM for modem flash!</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;mikebeecham&gt; kernel, dont know as I dont flash kernels</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;Kaik541&gt; cwm uses the flash_image method</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;mbizzle&gt; yeah it looks like he was just saying you *can't* use odin</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;mikebeecham&gt; which is what I've pretty much always done :D</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;mikebeecham&gt; mbizzle, to flash modems?</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;Kaik541&gt; the only thing odin can put into place is the kernel</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, do you still have my mod on your device?</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;mbizzle&gt; yes evaluate</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, can you afford to format the SD cards?</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;mbizzle&gt; I prefer to use dd because it's less hassle. I didn't actually know you cant use odin to flash modems I've used it once i believe :)</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;mbizzle&gt; I can once I backup my data</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;mbizzle&gt; both cards?</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;evaluate&gt; Well, since vold is fucked up and might do nasty stuff, I'd say backup both of your SDs just to be sure.</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;mbizzle&gt; or in the unlikely event your mod accidentally my sdcard?</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;mbizzle&gt; lol as I suspected</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;mbizzle&gt; ok I'll back them both up np</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;mbizzle&gt; mikebeecham once you learn adb basics it's very seamless to work on the internals of your phone</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;mbizzle&gt; for example, right now I just do "adb pull /sdcard/ ./sdcard" to back up my sdcard</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;mikebeecham&gt; mbizzle, sure...but since no agreement seems to have been reached about to do the things I would use ADB for, I'll stick to what I know for now...</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;mikebeecham&gt; not to say that I wouldn't pick it up later on</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, but tell me when you're finished with the backup, because there's one more thing that needs to be changed before trying the format</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;mbizzle&gt; I don't really know how else to do backups like that other than adb</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;mbizzle&gt; I'm almost done, what do I need to change</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;evaluate&gt; in /etc/vold.fstab, change the 'auto' in the emmc mount line to '9'</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mbizzle&gt; and when you ran into that issue about finding you had to transfer a file over, you can actually do "adb shell mv /mnt/emmc/&lt;file&gt; /mnt/sdcard/" while you were in cmw and flash the file. no rebooting necessary, no fiddling with file managers to move the file</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;mbizzle&gt; ok do I need to reboot?</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;mbizzle&gt; or do anything to my settings.apk?</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;mbizzle&gt; (and should I try to format my sdcard with ext4? :) )</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;evaluate&gt; Wait just a minute please. I have to first try out something on my phone. You should reboot though after changing your vold.fstab</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-navy">* birdman (~Steven@24.246.130.106) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;evaluate&gt; After you reboot, please tell me if the cards mount nicely...</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;mbizzle&gt; I had a lot more on there than I realized :)</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;Unhelpful&gt; mbizzle: if you flash your modem w/ odin and have no bad blocks, it'll probably work. or if you're flashing for an eclair or froyo build that will use bml/stl</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;mbizzle&gt; oh I don't actually have much working knowledge of odin</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;mbizzle&gt; Ive only used it in extreme emergency situations and with unfavorable results</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;mbizzle&gt; evaluate when I rebooted I recevied "damaged sdcard" in the notifications</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;mbizzle&gt; "damaged sdcard. you may have to reformat it"</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;evaluate&gt; ok, change it back for now, I will have to have a look at this.</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;mbizzle&gt; I should not reformat it?</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;evaluate&gt; well, format will probably work, but it doesn't matter since the card won't be mounted properly anyway</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;mbizzle&gt; I'll change it back and wait then. I just left everything we did alone so hit me up anytime as a testbed</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;mbizzle&gt; where is the normal fstab? is there one...</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;evaluate&gt; ok. Thanks! :-)</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;evaluate&gt; No, there isn't any fstab like on normal linux machines</span><br />
+<span class="irc-date">[10:50]</span> <span class="irc-black">&lt;mbizzle&gt; where do we set mount options?</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;evaluate&gt; you can't</span><br />
