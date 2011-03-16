@@ -107,3 +107,37 @@
 <span class="irc-date">[6:52]</span> <span class="irc-black">&lt;evaluate&gt; I don't understand though why android uses the newfs_msdos binary and not mkfs.vfat...</span><br />
 <span class="irc-date">[6:56]</span> <span class="irc-black">&lt;mbizzle&gt; hmm</span><br />
 <span class="irc-date">[6:59]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@115.184.123.224) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[7:03]</span> <span class="irc-navy">* birdman (~Steven@24.246.130.106) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-green">* freat (~ron@c-98-216-38-131.hsd1.ma.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[7:08]</span> <span class="irc-green">* stickpin (~stickpin@80.178.4.245.adsl.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-green">* ciwrl|brb is now known as ciwrl</span><br />
+<span class="irc-date">[7:12]</span> <span class="irc-black">&lt;mbizzle&gt; I think the msdos binary supports the old 8.3 filename convention. vfat supports long filenames</span><br />
+<span class="irc-date">[7:13]</span> <span class="irc-black">&lt;evaluate&gt; Well, that's a plus for vfat in my book...</span><br />
+<span class="irc-date">[7:13]</span> <span class="irc-brick">* evaluate thinks about adapting vold to work with mkfs.vfat instead of newfs_msdos</span><br />
+<span class="irc-date">[7:13]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure if the cyanogen guys will like this though</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;Unhelpful&gt; um...</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm pretty sure that's a mount-time decision.</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure what you mean...</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;Unhelpful&gt; long file names. i don't think how you make the fs has anything to do with it.</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;mbizzle&gt; it's not how you make the filenames</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;mbizzle&gt; both of them are symlinks to newfs_msdos</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;mbizzle&gt; when you create the partition</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;evaluate&gt; screw the damn filenames. newfs_msdos os borked and we need a solution :-p</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;Unhelpful&gt; it is? i really doubt they use something broken just for kicks.</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;mbizzle&gt; but when you mount it, depending on the type (vfat or msdos) dictates the capabilities because then it uses one of two different binaries</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, well, I send newfs_msdos the command to format '/dev/block/vold/179:9' and it actually formats '/dev/block/vold/179:1' and borks '/dev/block/vold/179:9'</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;evaluate&gt; So yeah, I'd say it's fucked actually...</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, but that's also a *choice* you make when you mount it. afaik the only difference between a vfat and an ms-dos filesystem is that one has had long filenames stored in it.</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;Unhelpful&gt; nothing about how you format it makes that choice for you</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;mbizzle&gt; yes, when you format it it's the same tool</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;mbizzle&gt; check it, both should just be symlinks to mkfs.msdos</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;mbizzle&gt; *mkdosfs on ubuntu</span><br />
+<span class="irc-date">[7:28]</span> <span class="irc-black">&lt;evaluate&gt; ok, mea culpa. newfs_msdos is fine, if I execute it manually it works. The vold daemon is at fault (again!)</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;Unhelpful&gt; mbizzle: not that that means much, several dozen programs with clearly different behavior are all symlinks to busybox ;)</span><br />
+<span class="irc-date">[7:31]</span> <span class="irc-black">&lt;Unhelpful&gt; beat my head against compass some more? sound like a plan?</span><br />
+<span class="irc-date">[7:32]</span> <span class="irc-black">&lt;Kaik541&gt; I refuse to help more people on the forums. I have 99 thanks, I do not want more</span><br />
+<span class="irc-date">[7:32]</span> <span class="irc-black">&lt;Unhelpful&gt; i have what i am 80% sure is a working orientation implementation, if only i were feeding it good data. :/</span><br />
+<span class="irc-date">[7:33]</span> <span class="irc-black">&lt;mbizzle&gt; Unhelpful but in this case I don't think the two different symlinks to mkdos are actually formatting the filesystem differently.</span><br />
+<span class="irc-date">[7:33]</span> <span class="irc-green">* ciwrl is now known as ciwrl|away</span><br />
+<span class="irc-date">[7:34]</span> <span class="irc-black">&lt;Unhelpful&gt; mbizzle: i would imagine not. i can't think of what useful distinctions there would be to make between them at format time.</span><br />
+<span class="irc-date">[7:58]</span> <span class="irc-green">* birdman (~Steven@24.246.130.106) has joined this channel.</span><br />
