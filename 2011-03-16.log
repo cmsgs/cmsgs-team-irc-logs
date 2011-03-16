@@ -321,3 +321,44 @@
 <span class="irc-date">[10:48]</span> <span class="irc-black">&lt;evaluate&gt; No, there isn't any fstab like on normal linux machines</span><br />
 <span class="irc-date">[10:50]</span> <span class="irc-black">&lt;mbizzle&gt; where do we set mount options?</span><br />
 <span class="irc-date">[10:59]</span> <span class="irc-black">&lt;evaluate&gt; you can't</span><br />
+<span class="irc-date">[11:00]</span> <span class="irc-black">&lt;evaluate&gt; actually you can, but you have to edit the vold source code for that, since the mount options are hardcoded in there (I know, it sucks)</span><br />
+<span class="irc-date">[11:01]</span> <span class="irc-black">&lt;mbizzle&gt; but we can remount on the fly, but there's no file to put the mount options in?</span><br />
+<span class="irc-date">[11:01]</span> <span class="irc-black">&lt;mbizzle&gt; that's bizarre</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;mbizzle&gt; I should just be able to remount my partitions at boot</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;evaluate&gt; vold handles that automatically</span><br />
+<span class="irc-date">[11:03]</span> <span class="irc-black">&lt;Unhelpful&gt; mbizzle: but we don't mount from an fstab at boot, because the gui is supposed to interact with vold so that it can report and let you modify volume state..</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;evaluate&gt; ok I think I know what the solution may be, just not sure where I have to modify it. We need to tell vold that /sdcard and /emmc are separate devices, because it currently sees them as the same device (179)</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;evaluate&gt; we would have to have /sdcard be 179:0 and /emmc be 180:0 or something like that</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;mbizzle&gt; oh looks like I can create a userinit.sh to modify things at bootup</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;mbizzle&gt; I'm looking in /etc/init.d/*userinit</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: um, do the numbers *mean* anything outside of vold, though?</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure, I don't think so...</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;evaluate&gt; I mean, they clearly use the MAJOR device number in a lot of places, if it would mean anything they would've just hardcoded it, wouldn't they?</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;evaluate&gt; So I guess they made it so that it could be modified in the future, the implementation sucks a lot though</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: um, 179 is the device major number.</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;evaluate&gt; yes</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;Unhelpful&gt; you can't just decide to have it different. and same major number does *not* mean same actual device.</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;Unhelpful&gt; anything that assumes it does needs that assumption fixed</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;evaluate&gt; But like I said, they didn't hardcode it, they use variables like mDeviceMajor to refer to it, that's why I'm saying that it's implemented so it can be modified...</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;Unhelpful&gt; ...vold doesn't decide what the major/minor numbers for devices are. their kernel drivers, and other facilities in the kernel, do that.</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, if it is the same major number, it is the same device. Because if you have a device with mountpoint 'auto', it defaults to -1, which means entire device. If you format that device, it formats the whole thing (that means the whole 179 device)</span><br />
+<span class="irc-date">[11:16]</span> <span class="irc-black">&lt;evaluate&gt; Believe me, I tested it and I know what I'm talking about.</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;evaluate&gt; That's actually the problem why I can't format /emmc now, because it has been set as 'auto'. So when I try to format it, it formats the whole 179:*</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;evaluate&gt; That means it also formats the internal SD, which is 179:1</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;Unhelpful&gt; *sigh* i'm trying to explain that it is not vold that decides mmcblk0 and mmcblk1 have the same major number. and they have the same major number, and *are different devices*.</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;Unhelpful&gt; the problem is not the numbers, its the assumption vold makes based on them.</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;evaluate&gt; These are virtual devices created *by* vold (in /dev/block/vold) so yes, the device numbers *are* actually handled by vold and vold only</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-black">&lt;Unhelpful&gt; did you try looking at /dev/block/mmcblk*? the *nodes* in /dev/block/vold are created by vold, but the numbers *do not* come from vold.</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-black">&lt;evaluate&gt; The actual devices are indeed the mmcblk* devices you mentioned, but vold handles them internally by their virtual device names in /dev/block/vold.</span><br />
+<span class="irc-date">[11:21]</span> <span class="irc-black">&lt;mbizzle&gt; ok brb I hope things dont asplode on me</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117013.reshsg.uci.edu) Quit (Quit: leaving)</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;Unhelpful&gt; ... yes, and the major/minor numbers don't come from vold, and are assigned by the kernel. *all* of our mmc devices are major 179, and nothing you poke at in vold will change that.</span><br />
+<span class="irc-date">[11:23]</span> <span class="irc-black">&lt;Unhelpful&gt; the devices it creates in /dev/block/vold are not some kind of "virtual" devices that go through vold somehow, they have the same type, major, and minor numbers as the regular mmc devices, and anything that opens them is talking to the mmc driver, not vold.</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[11:34]</span> <span class="irc-black">&lt;evaluate&gt; I still don't get it why they're both on the 179 block</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;Unhelpful&gt; because majors are not unique per physical devices. they're generally unique per driver, although a driver that needs many device nodes can get several majors.</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;Unhelpful&gt; as i said before, the broken-ness is not in both devices having the same major, but in the assumption that same major = same device.</span><br />
+<span class="irc-date">[11:36]</span> <span class="irc-black">&lt;evaluate&gt; ok that means that vold was programmed by an idiot then...</span><br />
+<span class="irc-date">[11:38]</span> <span class="irc-black">&lt;evaluate&gt; And I also don't get why, if I set emmc to be minor '9', vold tries to mount 179:0</span><br />
+<span class="irc-date">[11:45]</span> <span class="irc-green">* designfears (~jayp@32.170.94.124) has joined this channel.</span><br />
+<span class="irc-date">[11:56]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.4.245.adsl.012.net.il) Quit (Ping timeout: 248 seconds)</span><br />
