@@ -362,3 +362,19 @@
 <span class="irc-date">[11:38]</span> <span class="irc-black">&lt;evaluate&gt; And I also don't get why, if I set emmc to be minor '9', vold tries to mount 179:0</span><br />
 <span class="irc-date">[11:45]</span> <span class="irc-green">* designfears (~jayp@32.170.94.124) has joined this channel.</span><br />
 <span class="irc-date">[11:56]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.4.245.adsl.012.net.il) Quit (Ping timeout: 248 seconds)</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-green">* stickpin (~stickpin@80.178.4.245.adsl.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[12:09]</span> <span class="irc-black">&lt;evaluate&gt; ok then, this should make vold work properly with our current setup: <a href="http://pastebin.com/j0CTJuFS">http://pastebin.com/j0CTJuFS</a></span><br />
+<span class="irc-date">[12:09]</span> <span class="irc-black">&lt;evaluate&gt; I think I'll call it the 'fuckvold' hack!</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-green">* mersault (~mersault@65.95.181.170) has joined this channel.</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;Unhelpful&gt; why does the -1 get assigned anyway? that's not a real device node minor :P</span><br />
+<span class="irc-date">[12:16]</span> <span class="irc-navy">* mxracer (~me@adsl-210-120-208.clt.bellsouth.net) Quit ()</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;evaluate&gt; vold thinks of the -1 as the whole device</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;evaluate&gt; that's why I said that since our external SD gets the -1 assigned, vold formats the whole 179 block</span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-black">&lt;evaluate&gt; actually it seems I have to catch the -1 further up the tree</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;evaluate&gt; ok, this should solve the problem for now: <a href="http://pastebin.com/PSh5rTE6">http://pastebin.com/PSh5rTE6</a></span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, do you think it would be possible to change the 'block' for the external SD from 179 to something else in the kernel?</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;evaluate&gt; I don't know how this works, so I don't know if it would be possible...</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;evaluate&gt; But if that would be possible, we wouldn't need this hack anymore...</span><br />
+<span class="irc-date">[12:32]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[12:35]</span> <span class="irc-black">&lt;evaluate&gt; Or I could try and hack vold so that it gives some totally different names to the devices, so we can more easily handle them....</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-navy">* atinm|night (~atin@unaffiliated/atinm) Quit (Quit: atinm|night)</span><br />
