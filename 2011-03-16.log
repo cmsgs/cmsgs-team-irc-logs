@@ -730,3 +730,115 @@
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; if you can believe this: <a href="http://forum.xda-developers.com/wiki/index.php?title=Samsung_Galaxy_S/SGH-I896">http://forum.xda-developers.com/wiki/index.php?title=Samsung_Galaxy_S/SGH-I896</a></span><br />
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;mersault&gt; I guess... is there such a thing as lspci on andoid?</span><br />
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;mersault&gt; yeah, that's the wiki page I was looking at</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;evaluate&gt; techmik67, any feedback?</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;techmik67&gt; i tyoped out my report earlier.... sec....</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;techmik67&gt; here's where i left off before i ran out to store... gonna test formatting now</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;techmik67&gt; ] &lt;techmik67&gt; i dont know if this is progress or not.... i am using evaluates changes, and....... under settings&gt;storage it shows, in order,:   sdcard  13.03 total, and unmount sdcard and erase sdcard are both white, not grey, signifying they can be clicked......... then internal storage total space 1.85gb, ..... then removeable storage /mnt/emmc  14.83gb (its a 16gb card) and it now HAS the unmount sdcard and erase sdcard</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;techmik67&gt; options, but they</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;techmik67&gt; [14:34] &lt;techmik67&gt; ARE NOT white</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;techmik67&gt; [14:35] &lt;techmik67&gt; also</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;techmik67&gt; [14:35] &lt;techmik67&gt; i can see both "cards" in/thru adb</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;techmik67&gt; [14:36] &lt;techmik67&gt; aadb shell, then cd sdcard or cd emms i can ls each one</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;nitam|work&gt; mersault: confirm this for me please. it will be really painful if i896 doesn't have the A1026 chip</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;mersault&gt; mnita|work: I know, hence why I was trying to figure out, heh</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;nitam|work&gt; will need to create a new device</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;designfears&gt; &lt;mersault&gt; yeah, that's the wiki page I was looking at</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;mersault&gt; any ideas on how to probe the hardware from adb shell to figure it out?</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;mersault&gt; hmmm.... if we take the Rogers stock ROM, root it for adb use, and then dmesg, would it appear there?</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;mersault&gt; hmm... my buddy might have his I896 still running on the version of cognition that was based on the Rogers stock rom</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;mersault&gt; the 3.x series was rogers jl1 based, I believe.</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;nitam|work&gt; the code looks like it doesn't have it</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;nitam|work&gt; all the audience code from the captivate is missing in the i896</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;nitam|work&gt; from the i897 is missing from the i896</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;nitam|work&gt; but that doesn't mean anything . . . captivate source drop didn't have A1026 code either when it first dropped while vibrant did :)</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;mersault&gt; yeah, I'd like to probe an I896</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;evaluate&gt; techmik67, yup, I saw that and also replied to it</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;techmik67&gt; backing up to test format</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-green">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) has joined this channel.</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;mersault&gt; mnita|work: my friend has his phone running a ROM and kernel based on the Rogers stock ROM (basically it just has cwm injected into the kernel)</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-green">* zerojay_work (~zerojaywo@blk-222-113-194.eastlink.ca) has joined this channel.</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;mersault&gt; I'm getting him to send me the dmesg from his phone</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;nitam|work&gt; fuck: <a href="https://github.com/teamhacksung/android_build/blob/1a056a90d16563a926b44b1b62bb20a3891b066e/core/Makefile#L756">https://github.com/teamhacksung/android_build/blob/1a056a90d16563a926b44b1b62bb20a3891b066e/core/Makefile#L756</a></span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful! coolya!</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;nitam|work&gt; we're cat'ing default.prop and build.prop into default.prop</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;nitam|work&gt; and I guess that line is meant for phones that have separate recovery and real images</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;nitam|work&gt; but we're basically duplicating all the stuff in build.prop in default.prop</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;nitam|work&gt; and that  is what is screwing up lcd_density for example</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;nitam|work&gt; because changing build.prop does nothing</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;nitam|work&gt; that file is basically unused - default.prop stuff is taking precedence</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;mersault&gt; AHA! I've been wondering why changes to build.prop haven't been taking effect!</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;Unhelpful&gt; perhaps we should just add the model-related properties?</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; I'm just going to split them</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; sec</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;evaluate&gt; do we even need a default.prop?</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;mersault&gt; mnita|work: <a href="http://pastebin.com/qzX3cXtN">http://pastebin.com/qzX3cXtN</a></span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;nitam|work&gt; it seems /system does exist in recovery, so we could just leave it as /system/build.prop and /default.prop</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-brick">* Unhelpful would like the model ID stuff in because then updates will still install after wiping /system</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;mersault&gt; I'd love for it to be easy for us I896 owners to be able to set our phones to be I896 :)</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;nitam|work&gt; there is already a TARGET_ROOT_IS_RECOVERY</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;nitam|work&gt; the configure error happens on i897 too</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;nitam|work&gt; and the firmware download error :)</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;mersault&gt; mnita|work: this one is grepped better: <a href="http://pastebin.com/pp8RXSwX">http://pastebin.com/pp8RXSwX</a></span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;nitam|work&gt; the device not supported is new tho - so I guess you don't have it</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;nitam|work&gt; but the driver just fails - so the code does try it</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;nitam|work&gt; and we can ignore it.</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;nitam|work&gt; do i9000 modems work well for you?</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;mersault&gt; yup</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;nitam|work&gt; do i897?</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;nitam|work&gt; modems?</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;nitam|work&gt; on stock</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;mersault&gt; I honestly forget...</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;nitam|work&gt; should try that - that'll tell you</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;mersault&gt; jl1 is what kind of modem?</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;nitam|work&gt; if you can run an i897 modem on stock, then you have the audience chip working.</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;mersault&gt; that's what Rogers released</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;nitam|work&gt; I don't know JL2 and 3 are i9000</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;nitam|work&gt; but dunno about jl1</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;mersault&gt; so if my friend flashes a KB1 modem and it sounds good....</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;nitam|work&gt; yeah</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;nitam|work&gt; it should sound like utter crap</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;nitam|work&gt; if the chip isn't there</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;nitam|work&gt; where is Kaik541 when I need him.</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;mersault&gt; yeah, but he has an i897</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;mersault&gt; will the kb1 modem zip included in the cm7 stuff work on my friends ROM?</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;mersault&gt; the modem zips are all the same, correct?</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;nitam|work&gt; yes, but he knows this sort of stuff</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;mersault&gt; he knows how to use CWM, yes</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;nitam|work&gt; differences between phones, models etc</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;mersault&gt; oh, kaik, right</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;nitam|work&gt; I mean Kaik541. Your friend has i897?</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;nitam|work&gt; that doesn't work :)</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;mersault&gt; no, my friend has an i896</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;nitam|work&gt; ok, then ask him to try kb1</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;nitam|work&gt; see if it sounds like crap</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;zerojay_work&gt; I'm on the Rogers captivate.</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;nitam|work&gt; on stock</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;zerojay_work&gt; Oh, nm.</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;nitam|work&gt; has to be stock froyo :)</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;nitam|work&gt; but it is looking like rogers captivate doesn't have the audience chip</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;nitam|work&gt; at least from the driver</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-green">* TMC_Sherpa (~Jeff@65.201.195.242) has joined this channel.</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;mersault&gt; okay, I've emailed the modems to my friend, and he's going to test it out shortly.</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;mersault&gt; so, what's the scoop on the defaul.prop vs. build.prop?</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;nitam|work&gt; working on it</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;mersault&gt; can I delete one of them, edit one of them, etc?</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;nitam|work&gt; dunno, you could try deleting build.prop</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;nitam|work&gt; default.prop comes from the kernel ramdisk</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;nitam|work&gt; so you basically can't edit it :)</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;nitam|work&gt; until I commit my changes anyway</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;nitam|work&gt; brb</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;mersault&gt; ah, gotcha. damn</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nitam|work&gt; Kaik541: does i896 have the audience chip?</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;Kaik541&gt; no</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nitam|work&gt; well creat.</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nitam|work&gt; great.</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;Kaik541&gt; only cappy</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nitam|work&gt; that means its a different device. fuck.</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;mersault&gt; Kaik541: how was that determined? I can only find one instance of DG saying it is so</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nitam|work&gt; needs a different defconfig then if I enable A1026</span><br />
