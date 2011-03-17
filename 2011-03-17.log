@@ -687,3 +687,103 @@
 <span class="irc-date">[15:41]</span> <span class="irc-black">&lt;mikebeecham&gt;   afternoon all</span><br />
 <span class="irc-date">[15:47]</span> <span class="irc-black">&lt;uberushaximus&gt; sup</span><br />
 <span class="irc-date">[15:50]</span> <span class="irc-black">&lt;mikebeecham&gt; hey uberushaximus</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: can you change the installation instructions to make them also flash the update zip after initial.</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;nitam|work&gt; the initial zip is not changed frequently, so to get the latest update they need to flash the update.</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;nitam|work&gt; after the initial, always.</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;nitam|work&gt; so just 15. Install the latest update using the instructions below.</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;codeworkx&gt; but after a reboot</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;codeworkx&gt; otherwise they'll fuck it</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-green">* embizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.4.245.adsl.012.net.il) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-green">* Msm903|home (~Msm903@c-68-49-81-211.hsd1.md.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-navy">* Msm903|pissed (~Msm903@c-68-49-81-211.hsd1.md.comcast.net) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-green">* evaluate (~cristi@unaffiliated/evaluate) has joined this channel.</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-navy">* embizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-green">* embizzle (~mbizzle@vp117011.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;nitam|work&gt; yes, put that in too.</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;evaluate&gt; Hello.</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;nitam|work&gt; hey - I'm going to give them a day to look at the commit</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;nitam|work&gt; and then ping Koush</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;nitam|work&gt; you could start on the mount point stuff tho</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;evaluate&gt; I was looking a bit through the stuff and I'm not 100% sure we need to mount the external card to /mnt/sdcard/external_sd</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;evaluate&gt; It seems that for example the Gallery app recognizes my photos even if they are on /emmc ...</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;evaluate&gt; And the Music app seems to work pretty fine too...</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;nitam|work&gt; where is your EXTERNAL_STORAGE variable pointing?</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;nitam|work&gt; I'll be back later..</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;evaluate&gt; it's currently pointing to /mnt/sdcard</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;nitam|work&gt; is anything pointing to emmc?</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;nitam|work&gt; how did the apps know about it</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;evaluate&gt; not sure, might be the 'PHONE_STORAGE'...</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-navy">* birdman (~Steven@24.246.130.106) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;nitam|work&gt; we thought nothing looks at PHONE_STORAGE&gt;</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-green">* birdman (~Steven@24.246.130.106) has joined this channel.</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;evaluate&gt; Yeah, we might have been wrong :-p</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;nitam|work&gt; (it is true that my /mnt/emmc works too)</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;nitam|work&gt; without your fixes in there yet</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;nitam|work&gt; grep ..</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;nitam|work&gt; back in a bit</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;nitam|work&gt; maybe that media server thing (the thing that goes and looks for media) looks at all mounted places</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;nitam|work&gt; do backup programs like TitaniumBackup see emmc?</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;evaluate&gt; I don't think so</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;nitam|work&gt; techmik ?</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;nitam|work&gt; so they must be looking at EXTERNAL_STORAGE.</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;nitam|work&gt; that's sort of why mounting under is a good idea, it becomes available to everything as just EXTERNAL_STORAGE.</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;nitam|work&gt; I hate it though.</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;nitam|work&gt; there should be something other than EXTERNAL_STORAGE in android.</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Read error: No route to host)</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;nitam|work&gt; but it is workable - every new device could mount under /sdcard</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;nitam|work&gt; and be visible to everything</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;nitam|work&gt; you could look to see how Samsung did it in froyo</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;nitam|work&gt; now that you are familiar with the code.</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;evaluate&gt; Well, I'd find this a pretty ugly hack. Think of devices that may come that may have multiple storage devices. Are you going to mount them all under /sdcard? That would be pretty nasty. I'd rather say make an additional property (ro.mediadevices) and adapt the applications to work with that...</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;nitam|work&gt; have to go for a bit</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;nitam|work&gt; we can't modify the apps, and android spec just uses external storage.</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;nitam|work&gt; so for now we work with it.</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;nitam|work&gt; maybe google with update the spec to handle more cards, or they may decide mounting under is the way to go.</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;nitam|work&gt; basically mounting under is backward compatible.</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;nitam|work&gt; and doesn't require a change to the spec.</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;nitam|work&gt; which you and I aren't going to make Google do.</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;evaluate&gt; yeah, but it's pretty nasty. If you want to unmount /sdcard, you have to unmount everything else too, which isn't that nice...</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;nitam|work&gt; I know . . . it is hacky.</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;evaluate&gt; I sure hope that they won't do it that way...</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;nitam|work&gt; I agree with you in principle. The problem is that right now that's the only way to work with Android 2.3</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;nitam|work&gt; since they already wrote the spec.</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;nitam|work&gt; and apps</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;evaluate&gt; well, if /emmc works right now, we might not even need any additional hack</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;techmik&gt; morning all</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;embizzle&gt; titanium backup will see /mnt/emmc btw</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;evaluate&gt; I mean if apps will see and work with it</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;embizzle&gt; you have to set it manually, but it does work</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;evaluate&gt; there you have it :-p</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;nitam|work&gt; as long as apps can see it, I'm cool.</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;evaluate&gt; morning techmik</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;embizzle&gt; and last night I was going to mention to you guys that media will be scanned from all mounted places, but I assumed you knew ;)</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;nitam|work&gt; manually as in?</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;techmik&gt; whats the word today?</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;nitam|work&gt; I haven't used Titanium in ages - does it show you the paths it knows already?</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;embizzle&gt; manually as in the preferences you can set where you'd like your backups stored</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;nitam|work&gt; or does it want you to enter everything manually?</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;embizzle&gt; everything being /mnt/emmc/</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nitam|work&gt; ye</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;embizzle&gt; everything being /mnt/emmc/TitaniumBackup</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nitam|work&gt; it knows abotu /mnt/sdcard tho?</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;embizzle&gt; that's where it is by default</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nitam|work&gt; without you having to do anything</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nitam|work&gt; ok, and that woudl be because that's what Android tells it</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nitam|work&gt; is available.</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;embizzle&gt; yes, by default it's just "TitaniumBackup" and it's automagically in /mnt/sdcard/</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;embizzle&gt; but you can manually put /mnt/emmc/TitaniumBackup and it will work on the removable card</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;nitam|work&gt; I think we are going to get bitten again and again - mounting under /sdcard is clean for the apps. sucks for us.</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;techmik&gt; is there antything going wrong with the sdcard_test, or are we still hoping for merge? and is the symlink thing a ssamsung thing?</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;evaluate&gt; ok, so since the patches seem to be working (all xda feedbacks were positive) and since there isn't any additional hack or such required, will we include it in the tree?</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;Wout`&gt; has anyone looked at how samsung is handling it on the 2.3 leak?</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;Wout`&gt; because i think they switched it up from froyo</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, didn't *you* have the leak installed?</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;Wout`&gt; yeah, but didnt really look into it</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;evaluate&gt; heh</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;nitam|work&gt; Wout`: no. I never installed it - I'd like to look at its ramdisk though</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;Wout`&gt; :P</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;nitam|work&gt; maybe supercurio put it up somewhere</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;nitam|work&gt; he usually does that.</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;nitam|work&gt; evaluate: not yet. I would like unhelpful and coolya to chime in.</span><br />
