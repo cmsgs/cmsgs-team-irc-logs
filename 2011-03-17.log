@@ -440,3 +440,54 @@
 <span class="irc-date">[7:58]</span> <span class="irc-black">&lt;techmik_laptop&gt; [21:02] &lt;techmik67&gt; it's officially working, atinm... jst rebuilt with latest changes, all good</span><br />
 <span class="irc-date">[7:58]</span> <span class="irc-black">&lt;techmik_laptop&gt; [21:02] &lt;atinm&gt; great.</span><br />
 <span class="irc-date">[7:58]</span> <span class="irc-black">&lt;techmik_laptop&gt; [21:02] &lt;atinm&gt; now just need coolya and unhelpful to look it over</span><br />
+<span class="irc-date">[8:03]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[8:04]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;mbizzle&gt; hmm dropped connection</span><br />
+<span class="irc-date">[8:05]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, well, there's no such thing as 'too much feedback', so yeah, I'd appreciate if you could test if everything's working too...</span><br />
+<span class="irc-date">[8:07]</span> <span class="irc-black">&lt;techmik_laptop&gt; mbizzle: you want the build it way?</span><br />
+<span class="irc-date">[8:08]</span> <span class="irc-black">&lt;mbizzle&gt; what?</span><br />
+<span class="irc-date">[8:08]</span> <span class="irc-black">&lt;techmik_laptop&gt; the compile it with his changes method</span><br />
+<span class="irc-date">[8:09]</span> <span class="irc-black">&lt;techmik_laptop&gt; or are you testing the zip?</span><br />
+<span class="irc-date">[8:09]</span> <span class="irc-black">&lt;mbizzle&gt; I'm going to compile the source</span><br />
+<span class="irc-date">[8:09]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok</span><br />
+<span class="irc-date">[8:09]</span> <span class="irc-black">&lt;techmik_laptop&gt; did you set up the remotes from atinm for the 4 repos? is what i was asking...</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;mbizzle&gt; I need to set it up? I figured I could just git clone the source and build it</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; no</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; it'll  screw you up</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; tht way</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; this way, you keep them seperate so its not a problem when its merged</span><br />
+<span class="irc-date">[8:12]</span> <span class="irc-black">&lt;techmik_laptop&gt; otherwise,, when it gets added to hacksung, you will get merge conflicts when you try to repo sync</span><br />
+<span class="irc-date">[8:13]</span> <span class="irc-black">&lt;techmik_laptop&gt; its not that big a deal..... like 4 steps repeated in 4 repos</span><br />
+<span class="irc-date">[8:14]</span> <span class="irc-black">&lt;mbizzle&gt; I don't know git very well. I thought I just add branch and then checkout branch</span><br />
+<span class="irc-date">[8:14]</span> <span class="irc-black">&lt;mbizzle&gt; how am I supposed to be doing it</span><br />
+<span class="irc-date">[8:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; pretty much, but you want to set ip up to track upstrean, then set up the sdcard_test branch, add remote, chheckout, pull</span><br />
+<span class="irc-date">[8:19]</span> <span class="irc-black">&lt;mbizzle&gt; I don't see a commit from last night</span><br />
+<span class="irc-date">[8:20]</span> <span class="irc-black">&lt;mbizzle&gt; when was the fix made evaluate?</span><br />
+<span class="irc-date">[8:20]</span> <span class="irc-black">&lt;mbizzle&gt; shouldn't I be looking in android_system_vold?</span><br />
+<span class="irc-date">[8:21]</span> <span class="irc-black">&lt;mbizzle&gt; oh or android_frameworks_base looks like</span><br />
+<span class="irc-date">[8:21]</span> <span class="irc-black">&lt;evaluate&gt; no, the last commit should've been in android_device"samsung I guess it's called</span><br />
+<span class="irc-date">[8:22]</span> <span class="irc-black">&lt;evaluate&gt; android_device_samsung_DEVICENAME rather</span><br />
+<span class="irc-date">[8:23]</span> <span class="irc-black">&lt;evaluate&gt; but I guess it would be much easier to just test the update I posted, until we merge it into teamhacksung</span><br />
+<span class="irc-date">[8:23]</span> <span class="irc-black">&lt;mbizzle&gt; boardconfig.mk?</span><br />
+<span class="irc-date">[8:23]</span> <span class="irc-black">&lt;mikebeecham&gt; morning morning</span><br />
+<span class="irc-date">[8:24]</span> <span class="irc-black">&lt;evaluate&gt; mbizzle, yeah</span><br />
+<span class="irc-date">[8:24]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, hello.</span><br />
+<span class="irc-date">[8:24]</span> <span class="irc-black">&lt;mbizzle&gt; well I wanted to see what you did...that's the point of getting the source right? :)</span><br />
+<span class="irc-date">[8:24]</span> <span class="irc-black">&lt;mikebeecham&gt; morning evaluate</span><br />
+<span class="irc-date">[8:24]</span> <span class="irc-black">&lt;mikebeecham&gt; Whats new? What have I missed?</span><br />
+<span class="irc-date">[8:25]</span> <span class="irc-black">&lt;techmik_laptop&gt; mbizzle: system/vold....... packages/apps/Settings...... frameworks/base....... vendor cyanogen...... those are the 4 changed repos</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;techmik_laptop&gt; look on atinm</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;mbizzle&gt; I have everything except for the latest change that fixed the vold issue, afaik</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;techmik_laptop&gt; n</span><br />
+<span class="irc-date">[8:27]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="https://github.com/atinm/android_system_vold/commits/sdcard_test">https://github.com/atinm/android_system_vold/commits/sdcard_test</a></span><br />
+<span class="irc-date">[8:31]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Ping timeout: 248 seconds)</span><br />
+<span class="irc-date">[8:33]</span> <span class="irc-green">* embizzle_ (~mbizzle@vp117011.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[8:34]</span> <span class="irc-green">* embizzle_ is now known as mbizzle</span><br />
+<span class="irc-date">[8:35]</span> <span class="irc-black">&lt;mbizzle&gt; time to switch to LAN apparently</span><br />
+<span class="irc-date">[8:35]</span> <span class="irc-black">&lt;techmik_laptop&gt; lol</span><br />
+<span class="irc-date">[8:36]</span> <span class="irc-black">&lt;mbizzle&gt; let's see how deeply I can break this</span><br />
+<span class="irc-date">[8:36]</span> <span class="irc-black">&lt;mbizzle&gt; heh</span><br />
+<span class="irc-date">[8:56]</span> <span class="irc-green">* Unhelpful_web (a49c99e6@rockbox/developer/Unhelpful) has joined this channel.</span><br />
+<span class="irc-date">[8:56]</span> <span class="irc-green">* ChanServ sets mode +o Unhelpful_web</span><br />
+<span class="irc-date">[8:57]</span> <span class="irc-black">&lt;mbizzle&gt; is it possible to define the toolchain I want to use for the ROM in a single file?</span><br />
+<span class="irc-date">[8:59]</span> <span class="irc-black">&lt;mbizzle&gt; or rather is envsetup.mk the only place I need to worry about?</span><br />
