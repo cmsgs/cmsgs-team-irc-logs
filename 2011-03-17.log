@@ -491,3 +491,84 @@
 <span class="irc-date">[8:56]</span> <span class="irc-green">* ChanServ sets mode +o Unhelpful_web</span><br />
 <span class="irc-date">[8:57]</span> <span class="irc-black">&lt;mbizzle&gt; is it possible to define the toolchain I want to use for the ROM in a single file?</span><br />
 <span class="irc-date">[8:59]</span> <span class="irc-black">&lt;mbizzle&gt; or rather is envsetup.mk the only place I need to worry about?</span><br />
+<span class="irc-date">[9:08]</span> <span class="irc-black">&lt;Unhelpful_web&gt; why do you need to change the toolchain?</span><br />
+<span class="irc-date">[9:08]</span> <span class="irc-black">&lt;mbizzle&gt; I'm using the newest gcc when I build the kernel</span><br />
+<span class="irc-date">[9:08]</span> <span class="irc-black">&lt;mbizzle&gt; I wanted to do the same for the rom</span><br />
+<span class="irc-date">[9:11]</span> <span class="irc-black">&lt;mbizzle&gt; in any case, does changing it in envsetup.sh address it globally? or where is the global setting?</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;atinm|night&gt; Unhelpful_web: can you look over the sdcard stuff?</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;atinm|night&gt; when you have time</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;atinm|night&gt; or we could wait till coolya is available again</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;atinm|night&gt; shit, I'm up.</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;Unhelpful_web&gt; atinm|night: i probably can't until weekend. probably. :)</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-green">* atinm|night is now known as atinm</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;Unhelpful_web&gt; mbizzle: you're not a gentoo user, are you?</span><br />
+<span class="irc-date">[9:27]</span> <span class="irc-black">&lt;mbizzle&gt; haven't been for about 10 years I think</span><br />
+<span class="irc-date">[9:27]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful_web: from what I can tell, we are still in separate / mount points, not under /sdcard/</span><br />
+<span class="irc-date">[9:28]</span> <span class="irc-black">&lt;atinm&gt; I thought you wanted it under /sdcard/ so apps didn't screw up (but not sure)</span><br />
+<span class="irc-date">[9:28]</span> <span class="irc-black">&lt;Unhelpful_web&gt; well, i would like apps to *always* be able to navigate it, even ones that can't navigate below /sdcard (many filemanagers)</span><br />
+<span class="irc-date">[9:28]</span> <span class="irc-black">&lt;evaluate&gt;  atinm, yeah, it would be nice to have the external under /sdcard/external_sd, but we would have to make some big changes to the framework to make that work</span><br />
+<span class="irc-date">[9:29]</span> <span class="irc-black">&lt;Unhelpful_web&gt; then we should get to work making them. ;)</span><br />
+<span class="irc-date">[9:29]</span> <span class="irc-black">&lt;atinm&gt; so that means samsung did those changes in 2.2?</span><br />
+<span class="irc-date">[9:30]</span> <span class="irc-brick">* Unhelpful_web says nasty words at whoever builds quassel for windows</span><br />
+<span class="irc-date">[9:30]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful_web, easier said than done. We need to take care to not interfere with other devices if we ever want those changes in mainline.</span><br />
+<span class="irc-date">[9:30]</span> <span class="irc-black">&lt;evaluate&gt; atinm, well, I'd guess so...</span><br />
+<span class="irc-date">[9:30]</span> <span class="irc-black">&lt;Unhelpful_web&gt; evaluate: i'm pretty sure the plan i suggested for making the mount manager aware of what it needs to do wouldn't break any other cases. :P</span><br />
+<span class="irc-date">[9:31]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful_web, well, not if you do it the right way and implement proper checks.</span><br />
+<span class="irc-date">[9:31]</span> <span class="irc-black">&lt;mbizzle&gt; well I guess 10 is an exaggeration but not for many years</span><br />
+<span class="irc-date">[9:33]</span> <span class="irc-black">&lt;evaluate&gt; atinm, btw, feedback on the update seems positive thus far: <a href="http://forum.xda-developers.com/showpost.php?p=12159039&amp;postcount=4650">http://forum.xda-developers.com/showpost.php?p=12159039&amp;postcount=4650</a></span><br />
+<span class="irc-date">[9:34]</span> <span class="irc-black">&lt;evaluate&gt; I'd guess if there are a couple more that confirm it's working, you could merge it into teamhacksung and I could move on to trying to make the external_sd stuff work...</span><br />
+<span class="irc-date">[9:34]</span> <span class="irc-black">&lt;atinm&gt; that's fine - I still want to explore the "right way" like Unhelpful is saying. I'm pretty sure coolya will agree.</span><br />
+<span class="irc-date">[9:34]</span> <span class="irc-black">&lt;atinm&gt; these are changes in a lot of repos, I'd rather do them right.</span><br />
+<span class="irc-date">[9:35]</span> <span class="irc-black">&lt;evaluate&gt; well, they don't have anything to do with the exernal_sd stuff though</span><br />
+<span class="irc-date">[9:35]</span> <span class="irc-black">&lt;Unhelpful_web&gt; atinm: basically i suggested that mountmanager look at its entire list of managed mount points when doing mount/umount - if mounting something that has another managed mount as a path prefix, mount that first. do the reverse on umount.</span><br />
+<span class="irc-date">[9:35]</span> <span class="irc-black">&lt;evaluate&gt; this is about mounting/unmounting/formatting the sdcard and not about where it gets mounted...</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;atinm&gt; yes . . . and mount points are part of this.</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;evaluate&gt; no.</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;atinm&gt; that's why - do explore the final chnages to mount manager</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;atinm&gt; you'll learn never to ignore what unhelpful is saying . . . :)</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;evaluate&gt; I don't ignore what he's saying, I just think you're being a bit too anal about this...</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;atinm&gt; also, why is unmount not available?</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;evaluate&gt; it's not 'not available', the color is just off, and I'm not sure how to fix it (since the setEnabled property is already set to true)</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;Unhelpful_web&gt; i had to say *how many* times that there is nothing wrong with devices sharing a major number?</span><br />
+<span class="irc-date">[9:39]</span> <span class="irc-black">&lt;atinm&gt; evaluate, I cannot argue (don't really want to) - I'll defer to other committers like unhelpful and coolya on this.</span><br />
+<span class="irc-date">[9:39]</span> <span class="irc-black">&lt;atinm&gt; I have to go.</span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-black">&lt;atinm&gt; (and if I'm anal, wait till you hit cyanogenmod...)</span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-brick">* Unhelpful_web has not actually seen what the full changeset is for the storage changes</span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, I don't understand what that has to do with the current conversation. I just said that the current commits don't have anything in common with the external_sd mount stuff,  they're two separate things, even if they're both related to the cards.</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;evaluate&gt; That's why I said that there's no reason to block these commits until we have a solution for external_sd, caus they're not related...</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/atinm/android_vendor_cyanogen/tree/sdcard_test">https://github.com/atinm/android_vendor_cyanogen/tree/sdcard_test</a></span><br />
+<span class="irc-date">[9:42]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/atinm/android_packages_apps_Settings/tree/sdcard_test">https://github.com/atinm/android_packages_apps_Settings/tree/sdcard_test</a></span><br />
+<span class="irc-date">[9:42]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/atinm/android_frameworks_base/tree/sdcard_test">https://github.com/atinm/android_frameworks_base/tree/sdcard_test</a></span><br />
+<span class="irc-date">[9:42]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/atinm/android_system_vold/tree/sdcard_test">https://github.com/atinm/android_system_vold/tree/sdcard_test</a></span><br />
+<span class="irc-date">[9:43]</span> <span class="irc-black">&lt;atinm&gt; and the devices have BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-brick">* Unhelpful_web still can't believe that's *optional*.</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;Unhelpful_web&gt; any devices could share major numbers. code that makes assumptions based on *numbers* is bad code. the only valid assumption is same major *and* minor == same device</span><br />
+<span class="irc-date">[9:46]</span> <span class="irc-black">&lt;atinm&gt; agreed . . .</span><br />
+<span class="irc-date">[9:46]</span> <span class="irc-black">&lt;atinm&gt; evaluate, at least get the stupid option to light up.</span><br />
+<span class="irc-date">[9:49]</span> <span class="irc-black">&lt;Unhelpful_web&gt; evaluate: that was more re: the "ignoring me" comment. there are people here who it appears have more development experience than you do. that doesn't mean they're always right, but it seemed like it was *really* difficult to get the point across re: devices.</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-black">&lt;atinm&gt; evaluate: is system_vold still needed?</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-black">&lt;atinm&gt; as in, we can just use mainline, correct?</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-black">&lt;atinm&gt; it looks like it</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;evaluate&gt; atinm, re: "option light up" I will look that up, it was more prioritary for me to get the rest working, since that isn't really a bug, it's more of a visual glitch, that doesn't do any harm</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;atinm&gt; ignore the system_vold repo Unhelpful_web techmik67 - the change to devicename.mk got around that.</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;atinm&gt; evaluate: given that it is sdcards we're talking about, lets get it right</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;atinm&gt; ok, I'm done.</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;evaluate&gt; and yeah, I reverted the vold hack since that isn't needed anymore because we have the 'VOLD_EMMC_SHARES_DEV_MAJOR'</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;atinm&gt; back later.</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;Unhelpful_web&gt; ok, so only need vendor, Settings, and frameworks/base?</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;atinm|away&gt; yes, if you're using the latest device/samsung/captivate</span><br />
+<span class="irc-date">[9:56]</span> <span class="irc-black">&lt;evaluate&gt; and the BOARD_VOLD_EMMC_SHARES_DEV_MAJOR flag which is in device/samsung/DEVICENAME</span><br />
+<span class="irc-date">[9:56]</span> <span class="irc-black">&lt;atinm|away&gt; that has VOLD_EMMC_SHARES.. flag set</span><br />
+<span class="irc-date">[9:56]</span> <span class="irc-black">&lt;Unhelpful_web&gt; right. if there's nothing new by weekend i'll give it a try :)</span><br />
+<span class="irc-date">[9:56]</span> <span class="irc-black">&lt;atinm|away&gt; thanks Unhelpful_web - back later. kid to the dentist which means things hav eto work early</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;atinm|away&gt; evaluate: if you fix the visual thing, I would be amenable to committing this if you're then going to work on the mount point as well</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;atinm|away&gt; it puts us in a better place.</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;atinm|away&gt; so most changes would stay</span><br />
+<span class="irc-date">[9:58]</span> <span class="irc-black">&lt;evaluate&gt; I will look it up right now.</span><br />
+<span class="irc-date">[9:58]</span> <span class="irc-black">&lt;Unhelpful_web&gt; i can at least take a look @ the commits now, i guess</span><br />
+<span class="irc-date">[9:58]</span> <span class="irc-black">&lt;atinm|away&gt; I really would prefer if coolya also weighed in.</span><br />
+<span class="irc-date">[9:58]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful_web: yes please</span><br />
+<span class="irc-date">[9:58]</span> <span class="irc-black">&lt;atinm|away&gt; I really haven't been able to ..</span><br />
+<span class="irc-date">[9:58]</span> <span class="irc-black">&lt;atinm|away&gt; bye, later.</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;Unhelpful_web&gt; why do we need to touch vendor/cyanogen, exactly?</span><br />
