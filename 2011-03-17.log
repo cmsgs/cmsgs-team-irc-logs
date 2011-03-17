@@ -572,3 +572,66 @@
 <span class="irc-date">[9:58]</span> <span class="irc-black">&lt;atinm|away&gt; I really haven't been able to ..</span><br />
 <span class="irc-date">[9:58]</span> <span class="irc-black">&lt;atinm|away&gt; bye, later.</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;Unhelpful_web&gt; why do we need to touch vendor/cyanogen, exactly?</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;Unhelpful_web&gt; or are these properties *appropriate* to set for all targets?</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;evaluate&gt; you mean the ro.removablemounts prop?</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;Kaik541&gt; is he still on vacation?</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;Unhelpful_web&gt; evaluate: yes, we can set properties in the device tree, is there a reason to set this one for all cyanogen builds?</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful_web, I'm not sure what you mean with 'all cyanogen builds'.</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;evaluate&gt; I just changed the ro.additionalmounts which was used before to ro.removablemounts, and that one was in the cyanogen/vendor part...</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;Unhelpful_web&gt; evaluate: i mean that the change impacts *all* devices, not just sgs ones. and is there a reason for the option rename?</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, the change should only impact the devices that actually *use* the ro.removablemounts prop, and since currently it's just us that use it, it shouldn't impact anyone else.</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;evaluate&gt; and the reason for the option rename is that I didn't want to break existing devices that currently use ro.additionalmounts, so that the merge with mainline is less painful</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Unhelpful_web&gt; ok. but then, should we only add ro.removablemounts in our device trees, then?</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;Unhelpful_web&gt; what's additionalmounts used for now, anyway?</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;evaluate&gt; I'd regard these two props as: additionalmounts - to be used for devices that are NOT removable, like internal storage devices and ro.removablemounts - for devices that ARE removable, like extnernal memory devices</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, it's used for devices that have internal SD cards.</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;Unhelpful_web&gt; *physically* removable, or just unmount-and-export? or both?</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;evaluate&gt; yeah, phisically removable</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;evaluate&gt; physically*</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;Unhelpful_web&gt; ok, so the distinction is that removablemounts is for physically-removable devices, and therefore we might want to display an unmount option, instead of just offering them for export. what about our internal sd? is it handled correctly already?</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;evaluate&gt; yes, it is, but only because it is set as 'EXTERNAL_STORAGE' (which IMHO is also an overly used variable)</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;evaluate&gt; I mean overly used in the sense that a lot of applications make a lot of assumptions about that device, only because of it's flag, and in our case, many of these assumptions are false actually...</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;Unhelpful_web&gt; it is, but it seems that really the only way to make most apps work is to have it *both* in EXTERNAL_STORAGE and also mounted at /mnt/sdcard</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;Unhelpful_web&gt; it's really very silly that nothing seems to know PHONE_STORAGE. i really don't see why it exists if we can't make this work just by mounting internal on emmc where it ought to be, external on sdcard where it ought to be, and pointing PHONE_STORAGE and EXTERNAL_STORAGE at them.</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;Unhelpful_web&gt; find something new to hate about android about once a week, it seems. :/</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;evaluate&gt; Well, PHONE_STORAGE is useless too IMO</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;evaluate&gt; This should be done with an 'array' of devices and each app (or each category of apps) should have  a separate flag.</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;Unhelpful_web&gt; with the first, broken attempt that messed with the _STORAGE variables, it was weird. one of my apps wouldn't work right no matter *which* card i put its files on.</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;evaluate&gt; If I would've designed this, I would've set "ro.fixedmounts=/whatever", then "ro.removablemounts=/mnt/sdcard;/mnt/emmc" and then a couple of categories like "ro.musicfiles=/mnt/sdcard/Music" or "ro.picturefiles=/mnt/emmc/Pics" and then make apps like Gallery use the proper flags like ro.picturefiles in this case</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;evaluate&gt; Voila, problem solved!</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;evaluate&gt; and you could even make them be an array like: "ro.picturefiles=/mnt/emmc/Pics;/mnt/sdcard/DCIM", so that it can scan multiple folders for pics...</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;Unhelpful_web&gt; no, i think just an array of exportable and removable devices is enough. giving each media type a property might be overkill. but in any case we're already stuck w/ what we have.</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;Unhelpful_web&gt; oh, sorry, i completely misread the vendor changes. i see they are device-specific. stupid having device stuff in /vendor *and* /device, but that was also not *our* choice, eh?</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure, but probably not...</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;evaluate&gt; I'm not even sure why this vendor stuff exists at all...</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;evaluate&gt; It could've just been an extra file in the device tree and that's it...</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;Unhelpful_web&gt; well, i *guess* some of it is about ROM vendors?</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;Unhelpful_web&gt; but then there shouldn't also be hardware-vendor, ie device, stuff in it</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;evaluate&gt; BTW, I just noticed we're still using 'RC0' in the modversion prop...</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;evaluate&gt; CyanogenMod is actually at RC2 already, IIRC</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;Kaik541&gt; evaluate, yeah, but this ROM isn't at RC2 status</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;Kaik541&gt; they're still calling it alpha/beta for the most part</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-brick">* Unhelpful_web goes for now</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;Kaik541&gt; we have (almost?) all the upstream fixes, but it's still not perfect for our phones</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-navy">* Unhelpful_web (a49c99e6@rockbox/developer/Unhelpful) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;evaluate&gt; yeah, but I'd guess that is the 'upstream' string</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;evaluate&gt; like, where this ROM is forked from...</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;evaluate&gt; or maybe I'm just interpreting it wrong...</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;Kaik541&gt; I think the naming convention is more "this isn't stable so we're not going to label it above RC0 until we think so"</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;mbizzle&gt; it shouldn't be at RC status if it's still internally considered alpha/beta unstable</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;Kaik541&gt; which is why it's RC0</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;evaluate&gt; uhum</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;Kaik541&gt; actually, the new naming convention for people who  receive "official" updates from the team get ones saying "nightly"</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;Kaik541&gt; the default build process just has it say RC0 though (not sure how to change that)</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;mbizzle&gt; you want to know how to change it for yourself?</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;atinm|away&gt; its top secret.</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;mbizzle&gt; lol</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;atinm|away&gt; so hush.</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;atinm|away&gt; you build Kang versions - they're the same really except the naming.</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;mbizzle&gt; :|</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;Kaik541&gt; I don't really care about changing it tbh</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;Kaik541&gt; as long as it works it could say it's mod version "poop" and I wouldn't care</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-green">* designfears (~jayp@32.170.83.194) has joined this channel.</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;Kaik541&gt; I swear, every time I see that name...</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;evaluate&gt; I know what you mean, I feel the same... :-p</span><br />
