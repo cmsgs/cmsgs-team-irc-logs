@@ -787,3 +787,119 @@
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;nitam|work&gt; maybe supercurio put it up somewhere</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;nitam|work&gt; he usually does that.</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;nitam|work&gt; evaluate: not yet. I would like unhelpful and coolya to chime in.</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;nitam|work&gt; I personally think it is better than what we have. but not complete.</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;nitam|work&gt; I think we need to do the sdcard mount</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;evaluate&gt; in that case it might get accepted faster into mainline... :-p</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;techmik&gt; mnita|work: do you know if, by chance, samsung set up the /mnt/sdcard/external_sd dir? it somehow was the same as /emmc, but doesnt get recreated after format,and i cant manually make a symlink.....</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;nitam|work&gt; I will wait for someone to review for today</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;nitam|work&gt; and then ping them</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;nitam|work&gt; and if nothing is done, then we will have to fork which is a pain in the ass.</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;nitam|work&gt; that's why I'd rather wait on them.</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-navy">* birdman (~Steven@24.246.130.106) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;nitam|work&gt; I don't know how it was created.</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;nitam|work&gt; /mnt/sdcard is created in init.rc</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;Wout`&gt; how do devices without external sd support manage this anyway?</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;Wout`&gt; where do apps store data?</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;nitam|work&gt; EXTERNAL_STORAGE = /sdcard - the issue is that we have two</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;nitam|work&gt; one of which is removable.</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;Wout`&gt; But arent there devices with both internal storage (non-sd) an an sd-card slot?</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, you mean like the Nexus S?</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;evaluate&gt; ohh wait, that has just internal</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;evaluate&gt; I don't think there are any that have just external...</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;nitam|work&gt; vold.</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;evaluate&gt; and if they have, they just set it to 'EXTERNAL_STORAGE', problem solved...</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;Wout`&gt; I mean, devices that have both internal and external storage, but the internal is some sort of nand instead of SD</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;evaluate&gt; it's harder with multiple devices</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;nitam|work&gt; I don't know what other devices have more than one device</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;evaluate&gt; I'd guess the harmony, seeing it's additionalmounts line</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;nitam|work&gt; I need Kaik ..</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;Wout`&gt; I mean, most HTC devices support micro sd cards</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;Wout`&gt; but they arent required right?</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;techmik&gt; ok, i see something different</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;Wout`&gt; there's internal storage too?</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;nitam|work&gt; I need a system dump of a froyo phone</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;nitam|work&gt; I know I've seen a tar somewhere</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;nitam|work&gt; Kaik541 would know ..</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;Wout`&gt; What I'm getting as is, can't we mount the internal sd in a different way? that android doesnt see it as an sdcard, just a bit of flashstorage</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;techmik&gt; <a href="http://pastebin.com/JN83iSxW">http://pastebin.com/JN83iSxW</a></span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;Wout`&gt; evaluate, mnita|work: for example, the Nexus One has 512mb internal storage, and a microsd-slot. Seems to work fine</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;nitam|work&gt; they're most probably just settings EXTERNAL_STORAGE to the sd</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;nitam|work&gt; setting</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;evaluate&gt; yeah, and PHONE_STORAGE to the internal one</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;evaluate&gt; techmik, what's that about?</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;techmik&gt; line 25, which is line 43 in teamhacksung init.rc</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;Wout`&gt; so the problem is we have both phone_storage AND an internal sd?</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;Wout`&gt; which are both internal storage</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;techmik&gt; make that line 16= line 43 in hacksung</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;techmik&gt; but i dont see it at all in my build directory for sdcard_test</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;evaluate&gt; Wout`, look under Settings -&gt; Storage, then you'll notice</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;Wout`&gt; and I'm guesing there isnt a way to 'bundle' the phone storage with the internal sd? :P that the kernel sees it as one big volume?</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;evaluate&gt; I don't know why all this hassle though. It seems to be working perfectly fine for me like it is now, why is there a need to change it if it's working?</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;evaluate&gt; techmik, where is that from?</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;nitam|work&gt; evaluate: you seem to be missing the idea that if android 2.3 expects external storage to be accessible via EXTERNAL_STORAGE, we need to fall in with that?</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;techmik&gt; that is from init.rc on hacksung</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, but we also have PHONE_STORAGE, and it seems to be working fine with that...</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-green">* birdman (~Steven@24.246.130.106) has joined this channel.</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;Wout`&gt; evaluate: I guess it is, but is does require some serious hacking like you said. Just seems the ideal situation is to have one internal storage location, and one external</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-brick">* Wout` is happy either way</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;nitam|work&gt; eh, I'm going to leave this for a bit</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;nitam|work&gt; coolya will be back soon and unhelpful will be too.</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;nitam|work&gt; back later.</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;stickpin&gt; guys how to make speaker louder? i mean in kernel/sound ? anyone know what to edit?</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;nitam|work&gt; search in sound/soc/codecs</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;nitam|work&gt; wm8994_samsung.c or wm8994_herring.c</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;techmik&gt; i have a question... why would my initramfs/captivate/data/init.rc be different than teamhacksungs repo?</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;evaluate&gt; are you on a different branch or have any uncommited changes?</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;techmik&gt; no and no</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;techmik&gt; gingerbread/main branch and no changes</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;techmik&gt; hmmm</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;nitam|work&gt; is it the same as device/samsung/captivate/init.rc?</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;techmik&gt; we pull from gingerbread_captivate_initramfs, correct?</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;nitam|work&gt; no</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;techmik&gt; aha</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;nitam|work&gt; the initramfs is generated now</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;techmik&gt; ah</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;techmik&gt; i see</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;nitam|work&gt; it gets built when you build the tree</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;nitam|work&gt; into out/target/product/captivate/recovery/root</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;nitam|work&gt; that's the initramfs that you are using</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;techmik&gt; it doesnt see to have  that "backward compatiblity" symlink creation</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;nitam|work&gt; I don't even know what those do and whether it matters</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;techmik&gt; i'm trying to figure out where the /sdcard/external_sd was linked to /emmc</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;stickpin&gt; something strange... on 2.2.1 i have much louder sound from speaker... and on cm i always missing calls... :\</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;stickpin&gt; when im in datacenter a specially...</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: there is no symlink</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;codeworkx&gt; only /mnt/emmc is symlinked to /emmc</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;techmik&gt; what/where did that come from originally? cause i certainly never created it....</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;codeworkx&gt; external_sd folder on your internal sdcard?</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;techmik&gt; yes</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;codeworkx&gt; samsung vold i think</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;techmik&gt; kaikthought it was a samsung thing....</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;codeworkx&gt; vold mounts the internal, created the folder for the external, and mounts the external finally</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;techmik&gt; so dont need it, and it shouldnt get recreated after format? if thats the case, then eval's changes seem to be working as intended</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;codeworkx&gt; it will not be recreated</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;codeworkx&gt; only if you switch back to a sammy rom</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;mikebeecham&gt;  evening evaluate codeworkx</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;techmik&gt; not required, just thought it was SUPPOSED to be there =)</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;codeworkx&gt; hi mikebeecham</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;evaluate&gt; evening mikebeecham</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;mikebeecham&gt; hey guys</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;mikebeecham&gt; feeling a little bored...anything I can help with?</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;stickpin&gt; no one? :\</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; told you were to look if you wanted the code part of it</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;mikebeecham&gt; was that to me mnita|work ?</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; stickpin:</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;mikebeecham&gt; ahhh ok</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;mikebeecham&gt; was gonna say.,.I dont have THAT much time ;)</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; but does sound profile not work?</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; I've never tried .. .</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;stickpin&gt; really strange... played with all the sound setting it really low...</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;stickpin&gt; sound profile?</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;stickpin&gt; In CM settings &gt; sound you can set something louder... but it works only if headphones is connected...</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;stickpin&gt; so its not really helps</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;nitam|work&gt; only for headphones? hmm</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;stickpin&gt; yep... theres note too</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;nitam|work&gt; so default is set in the driver I guess</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;nitam|work&gt; sound/soc/codecs/wm8994_samsung.c/wm8994_herring.c</span><br />
