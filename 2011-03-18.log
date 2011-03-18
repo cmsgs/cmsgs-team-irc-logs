@@ -488,3 +488,296 @@
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;Kaik541&gt; ./adb kill-sever</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;atinm|sick&gt; edit ~/.bash_profile</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;Kaik541&gt; sudo ./adb start-server</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|sick&gt; and if there is a PATH variable in the file, add :~/android/android-sdk-linux_x86/platform-tools to it</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|sick&gt; and if there isn't, add export PATH=$PATH:~/android/android-sdk-linux_x86/platform-tools</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm|sick&gt; and re login. you won't have to go into the tools dir after that</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm|sick&gt; the other thing is, you need to do the ./adb kill-server and sudo ./adb start-server right now</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm|sick&gt; you can automate it - I've forgotten how tho</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;mikebeecham&gt; Kaik541, atinm|sick starting and stopping the server gave me access</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;atinm|sick&gt; the thing I was telling you was to fix yoru path, so you don't have to cd to that dir</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;mikebeecham&gt; will do that now actually :D</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;atinm|sick&gt; doesn't matter - if you find it easier to cd there, that's fune.</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;mikebeecham&gt; nahhh</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;mikebeecham&gt; my .bash_profile is completely empty</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;mikebeecham&gt; is that right?</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;Kaik541&gt; heh, I used to not have it in my path because I thought "meh it's just a cd" and then I added it and I was shocked at how much time I wasted simply cd'ing</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;atinm|sick&gt; I actually created a file in /etc/udev/rules.d/</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;atinm|sick&gt; called 51-android.rules</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;atinm|sick&gt; and put in SUBSYSTEM=="usb", SYSFS{idVendor}=="04e8", MODE="0666"</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;atinm|sick&gt; and it doesn't ask me for permission anymore</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;mikebeecham&gt; slow down...I'm a linux novice with this stuff</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;mikebeecham&gt; so I've tried to gedit my .bash_profile, but it's completely empty</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;mikebeecham&gt; is that expected?</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm|sick&gt; oh, chmod a+rx /etc/udev/rules.d/51-android.rules also.</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm|sick&gt; if you didn't have anything, yes.</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm|sick&gt; its fine. add export PATH=$PATH:~/android/android-sdk-linux_x86/platform-tools</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm|sick&gt; to it, save it.</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mikebeecham&gt; so i've added " export PATH=$PATH:~/android/android-sdk-linux_x86/platform-tools"</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mikebeecham&gt; and saved it</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mikebeecham&gt; so just logout and back in again?</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;atinm|sick&gt; yes</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mikebeecham&gt; brb</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-navy">* mikebeecham (~mikebeech@92.17.221.78) Quit (Quit: Oops..I think I might have hit something...)</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;Kaik541&gt; sudo touch /etc/udev/rules.d/51-android.rules</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;Kaik541&gt; oops</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;atinm|sick&gt; just create/edit it</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-green">* mikebeecham (~mikebeech@92.17.221.78) has joined this channel.</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Kaik541&gt; I was just setting it up for myself, was sshing into my box out of laziness</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;mikebeecham&gt; right...I opened up a terminal and typed "./adb shell"</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;atinm|sick&gt; mikebeecham: now just plain adb should run it</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm|sick&gt; no ./ needed now</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm|sick&gt; no cd needed either</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;mikebeecham&gt; command not found</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm|sick&gt; it should run from any dir</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm|sick&gt; echo $PATH</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm|sick&gt; type that and what does it say</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;mikebeecham&gt; /home/mike/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm|sick&gt; cat ~/.bash_profile</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm|sick&gt; what does it say</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;mikebeecham&gt; export PATH=$PATH:~/android/android-sdk-linux_x86/platform-tools</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;atinm|sick&gt; didn't take</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;mikebeecham&gt; how about a reboot?</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;atinm|sick&gt; just a logout should do it unless you're using a different shell</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;mikebeecham&gt; would that make a difference?</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; not that I'm aware</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;atinm|sick&gt; which sh</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;atinm|sick&gt; type that</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;atinm|sick&gt; and which bash</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; I now get a dollar sign</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; sorry.</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; misread</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;atinm|sick&gt; from which</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; /bin/sh</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm|sick&gt; yeah, you're using a different shell.</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm|sick&gt; you shouldn't use that ;)</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; eeek</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm|sick&gt; I do sudo rm /bin/sh</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@115.242.193.78) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm|sick&gt; and sudo ln -s /bin/bash /bin/sh</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; i dont really understand what you mean by "using a different shell"</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm|sick&gt; type which bash</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm|sick&gt; and tell me what it says</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mikebeecham&gt; I just installed Ubuntu from the live-cd a while ago and now just update when it needs to</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mikebeecham&gt; /bin/bash</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm|sick&gt; ok ... lets change your shell. you should just use bash</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mikebeecham&gt; ok</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm|sick&gt; sudo rm /bin/sh</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm|sick&gt; and then</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm|sick&gt; sudo ln -s /bin/sh /bin/bash</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm|sick&gt; no no!!~</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mikebeecham&gt; is this going to have an effect on anything that I do in Ubuntu</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm|sick&gt; sudo ln -s /bin/bash /bin/sh</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm|sick&gt; sorry</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mikebeecham&gt; will it knock anything out /stop apps working, etc</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;Kaik541&gt; mikebeecham, you're using dash by default</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;atinm|sick&gt; mikebeecham: no</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;atinm|sick&gt; bash is a better sh</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;mikebeecham&gt; ln: creating symbolic link `/bin/bash': File exists</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;atinm|sick&gt; the second command</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;atinm|sick&gt; sudo ln -s /bin/bash /bin/sh</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;mikebeecham&gt; hehe...yeah I noticed the glaring mistake then in your first command ;)</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;mikebeecham&gt; ok...done</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;atinm|sick&gt; now logout and log back in</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;mikebeecham&gt; brb</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-navy">* mikebeecham (~mikebeech@92.17.221.78) Quit (Quit: Oops..I think I might have hit something...)</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-green">* mikebeecham (~mikebeech@92.17.221.78) has joined this channel.</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;Kaik541&gt; atinm|sick, why did you put it in .bash_profile and not .bashrc?</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;mikebeecham&gt; so explain to me what we justr did...and why</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;atinm|sick&gt; Kaik541: it would work in either</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm|sick&gt; but stuff like environment variables usually go in .profile</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;mikebeecham&gt; right, I've tried which sh, and which bash...I get the same results!!</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm|sick&gt; mikebeecham: we changed your shell to bash - a super set of sh</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm|sick&gt; and symlinked sh to point to bash</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm|sick&gt; so even if you try sh, it is really bash</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;mikebeecham&gt; which sh = /bin/sh</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;mikebeecham&gt; which bash = /bin/bash</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm|sick&gt; and then we added the sdk to your path</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm|sick&gt; yes, but ls -l /bin/sh</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm|sick&gt; will say /bin/sh -&gt; /bin/bash</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm|sick&gt; which means sh is really /bin/bash</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;atinm|sick&gt; and that is what will run</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;mikebeecham&gt; lrwxrwxrwx 1 root root 9 2011-03-18 10:14 /bin/sh -&gt; /bin/bash</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;atinm|sick&gt; like I said.</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;mikebeecham&gt; good</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;atinm|sick&gt; then we added to your PATH</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;atinm|sick&gt; which is where the computer looks to find executables.</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;mikebeecham&gt; so theoretically, I should now be able to type "adb shell"</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;atinm|sick&gt; so we told the shell to also look in platform-tools for executables</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;atinm|sick&gt; yes</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;mikebeecham&gt; command not found</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;atinm|sick&gt; wtf.</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;Kaik541&gt; atinm|sick,</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;atinm|sick&gt; echo $PATH</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;Kaik541&gt; shouldn't the export</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;Kaik541&gt; export PATH=${PATH}:&lt;sdk&gt;/tools:&lt;sdk&gt;/platform-tools</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;mikebeecham&gt; /home/mike/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;atinm|sick&gt; it just didn't take</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;atinm|sick&gt; source .bash_profile</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;atinm|sick&gt; cd</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;atinm|sick&gt; then source .bash_profile</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;mikebeecham&gt; ok</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;mikebeecham&gt; thats better</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;mikebeecham&gt; it looks like I'm now in the shell</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;atinm|sick&gt; hrm.</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;mikebeecham&gt; i have ~#</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;atinm|sick&gt; from adb shell?</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mikebeecham&gt; i was at my normal terminal prompt</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;atinm|sick&gt; or just from the source .bash_prfofile?</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mikebeecham&gt; I typed</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mikebeecham&gt; cd</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mikebeecham&gt; source .bash_profile</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mikebeecham&gt; then adb shell</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;atinm|sick&gt; ok</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mikebeecham&gt; and went into the shell</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;atinm|sick&gt; not sure file your .bash_profile didn't run on login</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mikebeecham&gt; ok</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;atinm|sick&gt; you logged out completely?</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;atinm|sick&gt; as in back to linux login screen?</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;mikebeecham&gt; i logged out to the accounts screen</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;mikebeecham&gt; login screen, yeah</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;mikebeecham&gt; re-typed my password</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;mikebeecham&gt; came back to desktop</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;atinm|sick&gt; ok</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;atinm|sick&gt; that should have worked.</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;atinm|sick&gt; .bash_profile runs first</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;atinm|sick&gt; oh</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;atinm|sick&gt; do you have a .bashrc?</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;mikebeecham&gt; yup</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;atinm|sick&gt; is there a PATH line in there?</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;mikebeecham&gt; nope</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;atinm|sick&gt; cat ~/.bash_profile</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;mikebeecham&gt; ok</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;mikebeecham&gt; export PATH=$PATH:~/android/android-sdk-linux_x86/platform-tools</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;atinm|sick&gt; screw it, change it to ${PATH}:~/android..</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;mikebeecham&gt; export ${PATH}:~/android/android-sdk-linux_x86/platform-tools</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;atinm|sick&gt; then logout again.</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;mikebeecham&gt; brb</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-navy">* mikebeecham (~mikebeech@92.17.221.78) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;Kaik541&gt; why keep telling him to logout</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;Kaik541&gt; isntead of source</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;atinm|sick&gt; right now source woudl just extend his path</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;Kaik541&gt; ah</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-green">* mikebeecham (~mikebeech@92.17.221.78) has joined this channel.</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;atinm|sick&gt; want to make sure it works on login</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;mikebeecham&gt; no joy...</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;atinm|sick&gt; echo $PATH</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;mikebeecham&gt; just tried adb shell and "adb:command not found"</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;Kaik541&gt; are you sure you didn't typo anything?</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;mikebeecham&gt; /home/mike/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;atinm|sick&gt; maybe its a different shell he is in</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;mikebeecham&gt; lemme go check</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;Kaik541&gt; and that you're editing .bash_profile</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;mikebeecham&gt; I am:</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;mikebeecham&gt; "sudo gedit ~/.bash_profile</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;mikebeecham&gt; export ${PATH}:~/android/android-sdk-linux_x86/platform-tools</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;Kaik541&gt; yuck, gedit... use nano :P</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;mikebeecham&gt; that is the only line in the document</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, bad</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;atinm|sick&gt; export PATH=${PATH}:~/android etc</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;mikebeecham&gt; brb</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-navy">* mikebeecham (~mikebeech@92.17.221.78) Quit (Client Quit)</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;atinm|sick&gt; ps h -o cmd</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;Kaik541&gt; atinm|sick, I thought you guys wouldn't be able to include hardware decoding libs for divx and the sort?</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;atinm|sick&gt; ps h -o cmd | grep bin</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;Kaik541&gt; bceause that's what the guy in the thread was asking about</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-green">* GuiPer (~GuiPer@94.230.152.2) has joined this channel.</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-green">* GuiPer (~GuiPer@94.230.152.2) has left this channel.</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-green">* GuiPer (~GuiPer@94.230.152.2) has joined this channel.</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;atinm|sick&gt; I don't know what we'll get or not get and whether we'd be able to use what they drop when they drop GB.</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;atinm|sick&gt; whether we could just drop the libs. I doubt it - but until it happens, I'm not going to say definitely not.</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;Kaik541&gt; well I just figured since the codecs and whatnot weren't a part of AOSP/CM they couldn't just be integrated</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-green">* mikebeecham (~mikebeech@92.17.221.78) has joined this channel.</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;atinm|sick&gt; does CM6 do them?</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;atinm|sick&gt; or can one run them while in CM6?</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;Kaik541&gt; not to the best of my knowledge</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;atinm|sick&gt; I know it wouldn't be included - but maybe dropping something - not gapps, but similar</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, then maybe not.</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;mikebeecham&gt; sorry guys</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;mikebeecham&gt; still no</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;atinm|sick&gt; CM6 on other phones.</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;atinm|sick&gt; mike: ps h -o cmd | grep bin</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;atinm|sick&gt; what do you get</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;mikebeecham&gt; grep --color=auto bin</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;atinm|sick&gt; after that</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;mikebeecham&gt; back to my command prompt</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;atinm|sick&gt; that's it?</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;mikebeecham&gt; yup</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;atinm|sick&gt; ps h -o cmd</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;atinm|sick&gt; now?</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;atinm|sick&gt; paste it to pastie.com</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;mikebeecham&gt; not worth it, for two lines</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;mikebeecham&gt; bash</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;mikebeecham&gt; ps h -o cmd</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, so you are running bash</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;mikebeecham&gt; thats it</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;atinm|sick&gt; cat ~/.bash_profile</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;atinm|sick&gt; cut/paste what it it shows</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;mikebeecham&gt; export PATH=${PATH}:~/android/android-sdk-linux_x86/platform-tools</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;atinm|sick&gt; and adb sits in platform-tools?</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;mikebeecham&gt; should there be a forward-slash on the end of platform-tools?</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;atinm|sick&gt; no</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;mikebeecham&gt; thats the correct path, and yes ADB sits in there</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;atinm|sick&gt; wtf.</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;atinm|sick&gt; and source .bash_profile makes it found</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;atinm|sick&gt; bash runs .bash_profile first ..</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;mikebeecham&gt; if I cd to the folder</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;mikebeecham&gt; and type "adb shell"</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;mikebeecham&gt; I get command not found</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;atinm|sick&gt; yeah, that's normal</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;mikebeecham&gt; if I then type "./adb shell"</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;mikebeecham&gt; then I get the shell</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;atinm|sick&gt; right</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;atinm|sick&gt; adb says look in the PATH, it actually doesn't look in the dir you are in :)</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;atinm|sick&gt; you have to tell it "look here"</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;atinm|sick&gt; with the ./</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;mikebeecham&gt; ok</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, again ps h -o cmd</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;atinm|sick&gt; and this time actually cut/paste exactly what it says</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;mikebeecham&gt; bash</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;atinm|sick&gt; no - in front of bash?</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;atinm|sick&gt; oh frick, you're on the machine.</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;mikebeecham&gt; there's nothing in front of bash...it's just the text 'bash'</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;mikebeecham&gt; with the second line underneath</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;atinm|sick&gt; screw it, just cut/paste the line into your .bashrc</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;atinm|sick&gt; cut it out of .bash_profile</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;mikebeecham&gt; the export line?</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;atinm|sick&gt; yeah</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;atinm|sick&gt; its not a login shell</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;atinm|sick&gt; (I always ssh into my machines ...)</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;atinm|sick&gt; .bash_profile is run on login shells</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;mikebeecham&gt; just throw it at the bottom of my bashrc?</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;atinm|sick&gt; yes</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;mikebeecham&gt; brb...logging in</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-navy">* mikebeecham (~mikebeech@92.17.221.78) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;atinm|sick&gt; this is all I'm good for right now..</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-green">* mikebeecham (~mikebeech@92.17.221.78) has joined this channel.</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;mikebeecham&gt; that worked</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;mikebeecham&gt; straight in</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;atinm|sick&gt; yeah..</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;mikebeecham&gt; cant even remember why I needed it now, but it's working :D</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;atinm|sick&gt; you'' still have to always remember to sudo adb start-server whenever you reboot your machine</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;mikebeecham&gt; ok</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm|sick&gt; basically if you get a permission denied. sudo adb kill-server followed by sudo adb start-server</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;mikebeecham&gt; cool</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;mikebeecham&gt; ok..I think I started this because of the poor wifi issue</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm|sick&gt; yeah</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm|sick&gt; adb shell</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm|sick&gt; dmesg</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm|sick&gt; when you start wifi</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm|sick&gt; right after</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;atinm|sick&gt; and copy/paste it to pastebin.com</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;atinm|sick&gt; then logcat, ctrl-c it when it slows down, and copy/paste to pastebin.com</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;atinm|sick&gt; and put in the issues list.</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;mikebeecham&gt; right..done both of them</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;mikebeecham&gt; is the issues list on the forum</span><br />
+<span class="irc-date">[10:53]</span> <span class="irc-black">&lt;mikebeecham&gt; and thanks very much for the help this morning, even though you're sick!</span><br />
+<span class="irc-date">[10:56]</span> <span class="irc-black">&lt;Kaik541&gt; yeah thanks atinm|sick, I kinda followed along just to set it up on my linux box because I was like "meh, the instructions are right in front of me"</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;atinm|sick&gt; you show mike  how to install in udev</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;atinm|sick&gt; so sudo start-server isn't needed</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;atinm|sick&gt; my head hurts.</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;mikebeecham&gt; lol</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;mikebeecham&gt; you did well bro</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;mikebeecham&gt; rest up</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;atinm|sick&gt; evaluate should be happy, I pinged koush (will most probably get yelled at too)</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;Kaik541&gt; udev is actually pretty simple</span><br />
