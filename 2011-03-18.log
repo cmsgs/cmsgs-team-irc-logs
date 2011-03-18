@@ -837,3 +837,46 @@
 <span class="irc-date">[11:56]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, lies and scandal I say</span><br />
 <span class="irc-date">[11:56]</span> <span class="irc-black">&lt;Unhelpful&gt; well, i don't know, maybe it has some way it checks if a baseband firmware has been uploaded already. :P</span><br />
 <span class="irc-date">[11:57]</span> <span class="irc-black">&lt;Unhelpful&gt; also killing it may or may not be bad for the stability of the system as a whole - whenever i've seen init do a soft restart because a system-critical service died or locked up, the system has needed a *real* restart to be fully usable.</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-navy">* enl_ (58267bc3@gateway/web/freenode/ip.88.38.123.195) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-green">* stickpin (~stickpin@80.178.10.254.adsl.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;evaluate&gt; Kaik541, did you see my message from yesterday?</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;Kaik541&gt; which?</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;evaluate&gt; [12:38] &lt;evaluate&gt; hehe, this looks good: Merge "GPS: Fix issue where GPS would no longer aquire a lock after toggling GPS off then on." into gingerbread</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;evaluate&gt; [12:38] &lt;evaluate&gt; Kaik541, ^</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;Kaik541&gt; oh yeah, works fine as of the other day for me</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;evaluate&gt; you were the one 'complaining' about GPS not working, weren't you? :-p</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;Kaik541&gt; I had mentioned that something broke it, yes</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;Kaik541&gt; hmm, camera is broken for me</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;evaluate&gt; works for me</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;Kaik541&gt; I just built two hours ago</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;Kaik541&gt; open it up and goes "cannot connect to camera"</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://pastebin.com/raw.php?i=pBQhfqt3">http://pastebin.com/raw.php?i=pBQhfqt3</a></span><br />
+<span class="irc-date">[12:48]</span> <span class="irc-black">&lt;Kaik541&gt; it looks like it thinks it's in use by something else</span><br />
+<span class="irc-date">[12:48]</span> <span class="irc-black">&lt;Kaik541&gt; yeah ok, works fine after reboot</span><br />
+<span class="irc-date">[12:48]</span> <span class="irc-black">&lt;Kaik541&gt; weird</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;evaluate&gt; hmm, no idea, I never looked into the camera code, the error looks though as something else might access the camera (the 'busy' thing)</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;evaluate&gt; yeah, I was going to suggest a reboot...</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;Kaik541&gt; I tried opening google goggles and it force closed, then I tried to open camera and crash</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;Kaik541&gt; unintsalled goggles, rebooted, works fine</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;Kaik541&gt; uninstalled*</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;evaluate&gt; probably googles did something nasty...</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;evaluate&gt; goggles*</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;evaluate&gt; it doesn't work for me either</span><br />
+<span class="irc-date">[12:51]</span> <span class="irc-black">&lt;evaluate&gt; I wonder, did anyone try to kang the ril stuff from the JV1 rom to see if it works for us? Or do we need the source code to make it work?</span><br />
+<span class="irc-date">[12:52]</span> <span class="irc-black">&lt;Kaik541&gt; I know coolya and codeworkx looked at it</span><br />
+<span class="irc-date">[12:52]</span> <span class="irc-black">&lt;Kaik541&gt; don't know if they ever did anything with it</span><br />
+<span class="irc-date">[12:52]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://www.amazon.com/Dell-Streak-Wi-Fi-Tablet-Gray/dp/tech-data/B004QZASJ8/?tag=phandroid-20">http://www.amazon.com/Dell-Streak-Wi-Fi-Tablet-Gray/dp/tech-data/B004QZASJ8/?tag=phandroid-20</a> &lt;--- wow, surprisingly decent for only $380</span><br />
+<span class="irc-date">[12:52]</span> <span class="irc-black">&lt;evaluate&gt; it looks like all we need is a working /system/bin/rild and /vendor/lib/libsec-ril.so</span><br />
+<span class="irc-date">[12:53]</span> <span class="irc-black">&lt;Kaik541&gt; resolution sucks and 2.2 is meh, but still</span><br />
+<span class="irc-date">[12:55]</span> <span class="irc-black">&lt;evaluate&gt; I wonder if we can just kang those 2 from the JV1 release...</span><br />
+<span class="irc-date">[12:56]</span> <span class="irc-black">&lt;Unhelpful&gt; why, is something *wrong* with rild now?</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-black">&lt;evaluate&gt; well, 1. It doesn't automatically connect after you boot (only after lock/unlock), 2. You sometimes get no connection (just look in the battery history) and 3. I can't get any 3G (Internet) connection at all.</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-black">&lt;evaluate&gt; I'd think it would be nice if these could be solved...</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;Kaik541&gt; your data connection issue is still a weird bug imo</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;Kaik541&gt; since everyone else gets it fine :(</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;evaluate&gt; yeah, that might be just me, but the other 2 are known issues...</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;evaluate&gt; and everyone has them</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;Kaik541&gt; I don't claim to think something "fixed" it, as it still definitely isn't perfect</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;Kaik541&gt; but I see my carrier's name on boot almost instantly</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;Kaik541&gt; the only thing that takes some time is the data connection</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;evaluate&gt; you mean you see a connection without locking/unlocking the screen?</span><br />
