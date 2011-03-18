@@ -29,3 +29,63 @@
 <span class="irc-date">[0:54]</span> <span class="irc-black">&lt;techmik67&gt; i am reading a q and a from 2 years ago and i wonder if i should be paying attention.....</span><br />
 <span class="irc-date">[0:55]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://kan.gd/1km">http://kan.gd/1km</a></span><br />
 <span class="irc-date">[0:56]</span> <span class="irc-green">* mersault_ (~mersault@64.231.177.83) has joined this channel.</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;Unhelpful_web&gt; Kaik541: i think that people who think they'll notice battery drain differences between the two are crazy. :)</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-navy">* mersault (~mersault@64.231.177.83) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-green">* mersault_ is now known as mersault</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;Unhelpful_web&gt; i'm incined toward cfq, it has special support for non-rotational media, and we *do* still need a schedular to deal with contention for read/write bandwidth between processes.</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful_web, heh, I'm just curious since this is the first time I've messed around with any of this undervolting stuff and xan's app lets me choose (and I didn't honestly know the difference)</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;Unhelpful_web&gt; noop is a strict fifo queue for read/write requests. if some background app does a gigantic bulk I/O, and you cause a foreground app to initiate I/O before it completes, you're going to notice.</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;Kaik541&gt; then I shall stick with CFQ</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;Unhelpful_web&gt; certain people seem convinced that CFQ will cause the CPU to spend *very large amounts* of time on computations regarding queue ordering.</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;mersault&gt; BFS! BFS! BFS!</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;Unhelpful_web&gt; mersault: that's a different problem domain, we are talking about I/O schedulers...</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;Unhelpful_web&gt; and me, i'm just trying to set up a cross-compile environment where i can build quassel :)</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;mersault&gt; ah, why so you are. I was just skimming and saw CFQ</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;mersault&gt; which I read as CFS</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;Unhelpful_web&gt; ah.</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;Unhelpful_web&gt; yes, BFS has some things in its favor for us, though</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;mersault&gt; and was reading about that stuff recently</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;Unhelpful_web&gt; for small numbers of CPUs and processes it's faster than CFS, or so i understand.</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;mersault&gt; anyway, apparently I either need to pay attention to the chat, or not participate at all.</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;mersault&gt; otherwise I put my foot in my mouth</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-green">* mersault is now known as mersault|away</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;Unhelpful_web&gt; a lot is made of CFS being O(1), but big-O notation causes people to forget that there is a per-algorithm constant multiplier outside to the big-O expression, and for some algorithms it can be quite large.</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;mersault|away&gt; lots of people don't really understand big-O</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;Unhelpful_web&gt; it's not hard to understand. at all. though i'll admit that i'm *not* in the class of people who produce proofs of algorithms' big-O efficiency claims. :)</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;mersault|away&gt; just people something is easy to understand doesn't mean most people will</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;mersault|away&gt; lots of people read a single article on it, and assume they know everything about it and all it's implications</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;Unhelpful_web&gt; if people would write it as c*O() maybe the constant-multiplier business wouldn't be forgotten. ;)</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;Unhelpful_web&gt; there are *lots* of algorithms with good big-O execution times that are appallingly slow and never used except for very very large problem sets</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;Unhelpful_web&gt; because if you're comparing times of 10^9s * O(1) with 5 * O(n) you're going to need a pretty big n before the first algorithm is better.</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;Kaik541&gt; big O logic was my least favorite class</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;Kaik541&gt; it was taught to me by the guy who invented plasma screen technology</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;Kaik541&gt; and that's about all I took away from that class</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;designfears&gt; as you're discussing big 0 <a href="http://kan.gd/1ko">http://kan.gd/1ko</a></span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;mersault|away&gt; it was tought to me by a prof so useless that we finally told her to sit down, and several of us students got up and tought the class</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;Kaik541&gt; designfears, this is the most efficient thing I've ever seen</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;designfears&gt; keeps u focused</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;designfears&gt; what was i workin on again? o yea BIG 0</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;designfears&gt; BIG O BIG O BIG OOO</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;Kaik541&gt; the character names seem a little uncreative... "android" "butler" "officer"</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;designfears&gt; from what i hear that show is great</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;designfears&gt; batman + robots</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;designfears&gt; dats how japan makes things better</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;designfears&gt; take a good show and add robots</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;Unhelpful_web&gt; BIG OOOOOOOO! SHOOOOOTIME!</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;Unhelpful_web&gt; designfears: and bad guys who spout philosophy. and lots and lots of talk about the connection between memory and identity.</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;Unhelpful_web&gt; LOTS.</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;Kaik541&gt; so like memento?</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;Kaik541&gt; but with robots?</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;designfears&gt; don't momento run backasswards</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;Unhelpful_web&gt; Kaik541: um, no, not really like memento. *certain* anime writers seem to be obsessed with the question of what role our past plays in who we are, and whether we would be "ourselves" in any meaningful way if we did not remember our past.</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;Unhelpful_web&gt; memento really has relatively little of that iirc.</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;Kaik541&gt; that's true, I suppose memento is more of he remembers who he was but not who he is</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;Unhelpful_web&gt; the setting for Big O involves an entire city of people who have no memories beyond a certain point in their past</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;Kaik541&gt; they should move to a new city</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;Kaik541&gt; might as well start fresh</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;Unhelpful_web&gt; hush you</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;Unhelpful_web&gt; that's not really the point</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;Kaik541&gt; did the main character used to be evil?</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;Kaik541&gt; because that's the onlylogical reason to have a gigantic robot</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;Kaik541&gt; capable of fighting off other giant things</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;uberushaximus&gt; Evangelion &gt; Big O</span><br />
