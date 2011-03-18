@@ -241,3 +241,39 @@
 <span class="irc-date">[6:49]</span> <span class="irc-black">&lt;techmik&gt; thanks.... always wondered why we couldnt do that</span><br />
 <span class="irc-date">[6:49]</span> <span class="irc-black">&lt;Kaik541&gt; technomancer was talking the other day something about using param magic numbers to make it work</span><br />
 <span class="irc-date">[6:51]</span> <span class="irc-black">&lt;Unhelpful&gt; i suppose if we used uboot...</span><br />
+<span class="irc-date">[7:11]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, got a brick to spare?</span><br />
+<span class="irc-date">[7:14]</span> <span class="irc-black">&lt;evaluate&gt; There is something we could do about the external_sd thing, it's kind of hackish though and I'm not sure how well it'll work or if it won't break anything...</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;evaluate&gt; We could format the internal SD to ext4 and then make a symlink from /mnt/sdcard/external_sd -&gt; /mnt/emmc</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;Unhelpful&gt; it will break exporting the internal SD (except to linux)</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;evaluate&gt; ohh, right</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;evaluate&gt; snap</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;evaluate&gt; we definitely need a nfs kind of share instead of sharing the device directly :-p</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, did you ever setup a nfs share?</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;evaluate&gt; Caus I never tried it and I'm not sure what the steps are. Do we have all the necessary tools on our device already (nfs daemon and everything that's needed) ?</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;Unhelpful&gt; cifs might be easier. or maybe not, compiling samba for android would probably be hellish.</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;evaluate&gt; I'd guess we don't have a nfs server in android right now, do we?</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;mikebeecham&gt;  morning guys...can you help me out with something</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;mikebeecham&gt; for some reason I have no video through either youtube app or when I click on a video link on a webpage</span><br />
+<span class="irc-date">[7:33]</span> <span class="irc-black">&lt;mikebeecham&gt; i have the audio, but the video is not working for some reason</span><br />
+<span class="irc-date">[7:36]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: we don't, but the actual server is a kernel component (we would just need to build the module). there are still userspace bits to make it work, though. :/</span><br />
+<span class="irc-date">[7:37]</span> <span class="irc-black">&lt;evaluate&gt; doesn't it just need the proper config files in /etc/ ?</span><br />
+<span class="irc-date">[7:38]</span> <span class="irc-black">&lt;Unhelpful&gt; no, we need the module (or builtin) server, there are userspace utilities to tell the kernel what to serve (these read the config file), and also for other touchy aspects of how nfs works (it uses a portmapper rather than a fixed port)</span><br />
+<span class="irc-date">[7:38]</span> <span class="irc-black">&lt;evaluate&gt; I see.</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;evaluate&gt; And then what about cifs? As far as I can tell, we have the kernel module already (cifs.ko?), what else would we need to make that work?</span><br />
+<span class="irc-date">[7:40]</span> <span class="irc-black">&lt;Unhelpful&gt; um... that's a CIFS *client*.</span><br />
+<span class="irc-date">[7:41]</span> <span class="irc-black">&lt;Unhelpful&gt; the server is all userspace. we would need to get most of samba to compile.</span><br />
+<span class="irc-date">[7:41]</span> <span class="irc-black">&lt;evaluate&gt; ohh</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;evaluate&gt; Or we could just compile a ftp Server for android and include it by default, but that'd be pretty nasty :-p</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-brick">* Unhelpful hates that android couldn't use a reasonably compatible libc and libstdc++</span><br />
+<span class="irc-date">[7:44]</span> <span class="irc-black">&lt;evaluate&gt; this guy seems to have managed to create a samba app: <a href="http://forum.xda-developers.com/showpost.php?p=8239139&amp;postcount=128">http://forum.xda-developers.com/showpost.php?p=8239139&amp;postcount=128</a></span><br />
+<span class="irc-date">[7:46]</span> <span class="irc-black">&lt;Unhelpful&gt; perhaps samba actually works without modification. or else he used an alternate compiler. :)</span><br />
+<span class="irc-date">[7:46]</span> <span class="irc-black">&lt;evaluate&gt; Not sure, but I've seen the term GPL mentioned there, maybe we could find the source code of this too...</span><br />
+<span class="irc-date">[7:49]</span> <span class="irc-black">&lt;evaluate&gt; If we have the source code, we could include it in CM, right?</span><br />
+<span class="irc-date">[7:50]</span> <span class="irc-black">&lt;Unhelpful&gt; samba itself is gpl iirc, and if he modified it to compile for android he'd obviously be obligated to share ;)</span><br />
+<span class="irc-date">[7:50]</span> <span class="irc-black">&lt;mikebeecham&gt;  is anyone able to give some guidance about the video issue?</span><br />
+<span class="irc-date">[7:51]</span> <span class="irc-black">&lt;evaluate&gt; mikebeecham, not sure, it seems to work for me though</span><br />
+<span class="irc-date">[7:52]</span> <span class="irc-black">&lt;mikebeecham&gt; it was working fine for me, then  just didnt</span><br />
+<span class="irc-date">[7:52]</span> <span class="irc-black">&lt;mikebeecham&gt; I've uninstalled the app, upgraded my build of CM7</span><br />
+<span class="irc-date">[7:52]</span> <span class="irc-black">&lt;mikebeecham&gt; nothing seems to shift it</span><br />
+<span class="irc-date">[7:55]</span> <span class="irc-black">&lt;mikebeecham&gt; gah..working again now</span><br />
+<span class="irc-date">[7:55]</span> <span class="irc-black">&lt;mikebeecham&gt; although I tell you what DOES annoy me...videos stopping halfway through "trouble playing this video - click to retry"</span><br />
