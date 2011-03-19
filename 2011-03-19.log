@@ -356,3 +356,210 @@
 <span class="irc-date">[9:55]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, installing a ROM i built @ home sucks (13% done downloading :/ )</span><br />
 <span class="irc-date">[9:55]</span> <span class="irc-black">&lt;Kaik541&gt; they don't read, they ask asinine questions, they are *shocked* when an alpha/beta release doesn't have every god damn feature... it's ilke dealing with a kindergartener who doesn't get why his mom took his toys away</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;Kaik541&gt; how much of it to ask that people read? :(</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-green">* atinm|night is now known as atinm</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: success?</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm not @ my build system. i'm downloading my build to my phone now.</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;Unhelpful&gt; it built,though.</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;Unhelpful&gt; is there anything missing from what i implemented, though? :/</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;atinm&gt; I don't think so - that's what looked like was missing.</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;atinm&gt; oh, vold.fstab remains the same, init.rc the same, and build.prop ro.removablemounts should be /mnt/sdcard I think</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;atinm&gt; if we have the mount under working</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm&gt; well, that's cyanogen_captivate.mk in vendor/cyanogen/product</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;mikebeecham&gt;  morning morning</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm&gt; the ro.removablemounts</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm&gt; I can look at the code too if you're committed</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;mikebeecham&gt; asinine questions Kaik541? :o</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;mikebeecham&gt; BTW...how do I flash one of these cyanogen roms? :D</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;Kaik541&gt; mikebeecham, sadly, that question has popped up numerous times... even though the instructions are absurdly direct</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mikebeecham&gt; and why on earth do I not have FF camera?</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mikebeecham&gt; cmon guys...thought you were all professional?</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;mikebeecham&gt; :D</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-navy">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;Kaik541&gt; ugh, AMD is killing the ATi brand name :(</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;mikebeecham&gt; listen....I've been around long enough (years) on forums, etc to know that you just WONT be able to get round the fact that people dont read</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;mikebeecham&gt; you can document</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;mikebeecham&gt; DO THIS</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;mikebeecham&gt; now DO THAT</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;mikebeecham&gt; and DO THE NEXT</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;mikebeecham&gt; and people will still ask you how to do it</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;mikebeecham&gt; I want one of those t-shirts...</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;mikebeecham&gt; "I see dumb people"</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;Kaik541&gt; and I will stab their eyes out</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;mikebeecham&gt; you do what you do best and leave the people who cant read to ask their stupid questions</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Kaik541&gt; I tell them "read the FAQ" or "read the OP"</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;atinm&gt; Kaik541: !</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Kaik541&gt; I get questions of "it's not claer"</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;mikebeecham&gt; at the very worst you link to the instructions in your room topic and go..."follow that link and come back to me in 48 hours if you've still not figured it out"</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;mikebeecham&gt; people want spoon feeding...we're all guilty of it to an extent</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;mikebeecham&gt; people want one-to-one support</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;mikebeecham&gt; and want you to do it for them</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;mikebeecham&gt; that way if it goes pete tong it's YOUR fault, not theirs</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;Kaik541&gt; I really don't get it... I'm not particularly smart and almost completely ingornant of code (I took a year, of which I basically failed out of) and I'm capable of building from source (it's so simple with these scripts)</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;mikebeecham&gt; ...and people want the instant result, not the process to get there</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;Kaik541&gt; yet people are literally incapable of just reading 10 lines of instructions</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;mikebeecham&gt; the reason, I think, Kaik541 is that it's endemic of the fast-food society that we live in</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;mikebeecham&gt; people want it NOW</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;mikebeecham&gt; but they dont want to go through a process to get it</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; sure, I'm in here asking questions all the time...and yesterday with adb is a good example of what I'm saying...</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;Kaik541&gt; it's not even hard though :(</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; atinm, pretty much had to do stuff for me</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;Kaik541&gt; to me, it's the equivalent of asking "how do I install windows?"</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; but I WANT to learn to do it</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; and few people do</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;mikebeecham&gt; they just want it done..period!</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm&gt; mikebeecham: the problem is that I didn't really teach you</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; atinm, agreed</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm&gt; I just told you what to do without explaining</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; yes...I'm just as guilty as everyone else</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, to be fair, he did ask for an explanation, we just didn't give him on</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;Kaik541&gt; e</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; I tried to asked on occasion</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; but that's cool</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;atinm&gt; yes, I was too sick to respond</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; hey, there's no blame culture here</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;mikebeecham&gt; I was thankful to have it done</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;Kaik541&gt; but at least he realizes he's mostly ignorant (as do I, I try to understand as best I can, but I admit so many things go over my head here)</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm&gt; but basically, when you start a shell, it need to know where the programs sit.</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mikebeecham&gt; where I struggle is where people whine about stuff that they feel they have a right to, without any input to make it happen</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm&gt; so that when you type a program name to start, it knows where to go look</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mikebeecham&gt; especially when they get it for free</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm&gt; you had /bin/sh as your shell and it sucks so you had a special case</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mikebeecham&gt; atinm, a little like windows shortcuts?</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm&gt; first we just removed /bin/sh from your computer. :)</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm&gt; no like Windows PATH</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;atinm&gt; Windows has a path too</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;mikebeecham&gt; right</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;atinm&gt; and had it point to /bin/bash which is a superset shell on /bin/sh</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;mikebeecham&gt; so if I typed "c:/program files/mikbeecham is a nob.exe</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;atinm&gt; that's what the ln -s command did</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;mikebeecham&gt; that is what we're talking about with the shell in linux?</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;mikebeecham&gt; right</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;atinm&gt; so then when you start a terminal in linux, it starts /bin/bash for you now</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;mikebeecham&gt; ln stands for?</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;mikebeecham&gt; line?</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;atinm&gt; and bash has a PATH variable which tells it where to look for programs sitting in its environment</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;atinm&gt; ln == link</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;mikebeecham&gt; right</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;atinm&gt; ln -s == symbolic link</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;atinm&gt; basically fake it so that one file just points at another</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;mikebeecham&gt; ahhh</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;mikebeecham&gt; so the superset is just a roadsign that points to it</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;atinm&gt; if that file goes away, point at nothing but if it comes back, point at it again</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;atinm&gt; no, the /bin/sh -&gt; /bin/bash says /bin/sh is really just going to run /bin/bash</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;atinm&gt; because it is actually pointing at it</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;atinm&gt; rather than its own executable</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;Kaik541&gt; it's a "fake" file basically</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;Kaik541&gt; just a redirect</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm&gt; and /bin/bash is the superset executable shell</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;mikebeecham&gt; ok, so in that respect it IS more like a windows shortcut on your desktop...just a cruder example</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm&gt; so that runs instead.</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;mikebeecham&gt; or maybe more like a bat file on your desktop</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm&gt; yes, its like a shortcut</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm&gt; its like those .lnk files</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;mikebeecham&gt; yup</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm&gt; which are shortcuts I think</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;mikebeecham&gt; get it</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;mikebeecham&gt; nice</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm&gt; now, bash has an environment</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;Unhelpful&gt; except that *any* operation on a symbolic link, for the most part, will operate on the target file</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;mikebeecham&gt; ok...need to carry this on. Have to go walk the dog in the sunshine with Mrs B...</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;mikebeecham&gt; keep writing and I'll read up and ask questions in a bit mate</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;mikebeecham&gt; good learning!</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;mikebeecham&gt; bfn</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm&gt; its still night here</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm&gt; or well, morning</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm&gt; but dark</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm&gt; ok, Unhelpful anything I can look at?</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm&gt; it is the weekend, and now that kid is older - my weekends are no longer mine .  .</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm&gt; to just code</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;atinm&gt; have to steal time</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: urk, it's one of the repos we don't have forked (yet)</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;atinm&gt; its ok, you can fork it and commit to a branch</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;atinm&gt; and I'll pull from it</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah. gimme a bit. :)</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;atinm&gt; or you can push to mine that we did fork, you can write there</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;atinm&gt; but yours works too</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;Unhelpful&gt; <a href="https://github.com/Unhelpful/android_frameworks_base/tree/sdcard_test">https://github.com/Unhelpful/android_frameworks_base/tree/sdcard_test</a></span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;atinm&gt; got it</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;atinm&gt; mktag</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;atinm&gt; urk</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;Unhelpful&gt; you'll need to fix properties elsewhere to use it.</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;atinm&gt; just the vendor_cyanogeon stuff?</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;Unhelpful&gt; afaik</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.242.221.206) has joined this channel.</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;atinm&gt; that looks simple enough</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;atinm&gt; ro.removablemounts := /mnt/sdcard;/mnt/sdcard/external_sd ?</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;Unhelpful&gt; shouldn't /mnt/sdcard already be handled by being set as EXTERNAL_STORAGE?</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;atinm&gt; hrm, I dunno. I thought nothing really looks at that except apps.</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;atinm&gt; we used to have to have it in additionalmounts</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;atinm&gt; if yours works without, then fine :)</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;Unhelpful&gt; well, crap. this build of mine might be broken, then. ;)</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;atinm&gt; ah :)</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;atinm&gt; well, let me build with it set and see</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;atinm&gt; you haven't done a mkdir yet</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;atinm&gt; right?</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;atinm&gt; hrm, I could use my vold to do it</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;atinm&gt; oh, just saw it</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;atinm&gt; sorry</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, top of doMountOneVolume</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;atinm&gt; got hidden in the variables :)</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;atinm&gt; very cool</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;atinm&gt; ok, I added PRODUCT_PROPERTY_OVERRIDES += \</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;atinm&gt;     ro.removablemounts=/mnt/sdcard;/mnt/sdcard/external_sd</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;Unhelpful&gt; friggin overly-OO languages. have to create a File object to do filesystem things.</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;atinm&gt; and should point EXTERNAL_STORAGE to /mnt/sdcard</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;evaluate&gt; morning</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;atinm&gt; moring</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;evaluate&gt; atinm, you shouldn't be adding a mountpoint to multiple flags</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;atinm&gt; hmm?</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;evaluate&gt; that will lead to 1. it being shown doubled in the settings menu for example and 2. the mountservice might not handle it properly anymore...</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;atinm&gt; we modified mountservice.java</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;evaluate&gt; well, you said you added /mnt/sdcard to both removablemounts and EXTERNAL_STORAGE</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;atinm&gt; that part I am not sure about - does EXTERNAL_STORAGE always get mounted?</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;atinm&gt; without being in removablemounts?</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;evaluate&gt; yes</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;Unhelpful&gt; how, exactly, does the value of EXTERNAL_STORAGE end up being seen in getShareableVolumes?</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;Unhelpful&gt; because i can't see any evidence that the environment is checked there</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;evaluate&gt; it is handled separately</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;evaluate&gt; originally there was no removablemounts and no additionalmounts, there was only EXTERNAL_STORAGE</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;atinm&gt; yes, me neither - where do I grep.</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, wait: volumesToMount.add(Environment.getExternalStorageDirectory().getPath());</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;atinm&gt; ah yes, remember seeing that before.</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;atinm&gt; ok, removed it</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;Unhelpful&gt; well, i'm @ splash for a while now :/</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;atinm&gt; from removablemounts</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, booted.:)</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;atinm&gt; building</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;Unhelpful&gt; leaving work</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;atinm&gt; I can keep at it for a little while longer until kid wakes</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;atinm&gt; this will be a harder sell to merge upstream</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;evaluate&gt; atinm, I still sustain that modifying a mountpoint to be under another mountpoint isn't the proper way to do this...</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;atinm&gt; evaluate: we agree. but its the only way to make it work "now"</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;evaluate&gt; atinm, well, what exactly doesn't work now? I mean beside TitaniumBackup?</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;atinm&gt; any app that uses EXTERNAL_STORAGE</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm&gt; because EXTERNAL_STORAGE is where they are supposed to store their information according to Android docs</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm&gt; so that is where they go</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;evaluate&gt; As far as I can tell, Gallery, Music and all other system apps seem to work perfectly fine.</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm&gt; read the Android docs for storing application private data</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;evaluate&gt; ok, and EXTERNAL_STORAGE is set to /mnt/sdcard for us. Is there something wrong with that?</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm&gt; its always in External Storage.</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;atinm&gt; yes, we want to be able to also go down it.</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;atinm&gt; does your file manager work?</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-green">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;evaluate&gt; yes</span><br />
+<span class="irc-date">[10:50]</span> <span class="irc-black">&lt;evaluate&gt; doesn't yours?</span><br />
+<span class="irc-date">[10:50]</span> <span class="irc-black">&lt;atinm&gt; oh, it saw it under root.</span><br />
+<span class="irc-date">[10:51]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://developer.android.com/guide/topics/data/data-storage.html">http://developer.android.com/guide/topics/data/data-storage.html</a></span><br />
+<span class="irc-date">[10:53]</span> <span class="irc-black">&lt;evaluate&gt; yeah, and we want our /mnt/sdcard to be EXTERNAL_STORAGE, since then we can be sure that everyone has it, but not everyone has an external SD</span><br />
+<span class="irc-date">[10:53]</span> <span class="irc-black">&lt;evaluate&gt; I don't see anything wrong with that...</span><br />
+<span class="irc-date">[10:53]</span> <span class="irc-black">&lt;evaluate&gt; brb, breakfast</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;atinm&gt; yes, it is sdcard - but also easily shows where external is</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;atinm&gt; external just becomes an extension</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;atinm&gt; and is subsumed.</span><br />
