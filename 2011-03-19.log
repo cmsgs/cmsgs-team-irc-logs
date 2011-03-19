@@ -795,3 +795,55 @@
 <span class="irc-date">[18:49]</span> <span class="irc-navy">* UberPinguin (~uber@gentoo/user/uberpinguin) Quit (Ping timeout: 276 seconds)</span><br />
 <span class="irc-date">[18:56]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
 <span class="irc-date">[18:58]</span> <span class="irc-green">* UberPinguin (~uber@gentoo/user/uberpinguin) has joined this channel.</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;Unhelpful&gt; i really *don't* see why we need a different property? in MountService they're just dumped in a list together, anyway.</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, I just thought that there might be devices in the future that might not want an option to unmount or format some of their mountpoints that is all...</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;Wout`&gt; coolya: could the cam banding be ffc/voltage related?</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;coolya&gt; Wout`: doesn't look like, the kernel is only powering on the cam that is selected</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;coolya&gt; but i'm now chacking if there is a regulator that is powerd up that is for the FFC</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-navy">* UberPinguin (~uber@gentoo/user/uberpinguin) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;coolya&gt; s/chacking/checking</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;coolya&gt; maybe that is the reason why FFC doesn't work :-D</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;Wout`&gt; I care more about banding with the main cam, than ffc :P but thanks for looking into itt</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Wout`&gt; coolya, maybe you could exchange your experiences with the devs in this thread <a href="http://forum.xda-developers.com/showthread.php?t=945791">http://forum.xda-developers.com/showthread.php?t=945791</a></span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Wout`&gt; their faq says</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Wout`&gt; 5) There are red lines in low light, is there a fix?</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Wout`&gt; Currently no, there has been signifigant progress on lowering the amount, but its not perfect yet. Be patient its coming.</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;Wout`&gt; so they have fixed it to some extent</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;coolya&gt; loging into my xda the first time for ages now :-D</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;zerojay&gt; lol</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;ytt3r&gt; how can I pull in a change from another repository, like atinm did with voodoo sound</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;ytt3r&gt; ?</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: maybe, but i think maybe upstream would consider the changeset more acceptable with that left out?</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;Unhelpful&gt; i just can't see what it's supposed to do for us *now*</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;techmik67&gt; ytt3r i believe its thru branches, like we have been doing to test the sdcard stuff</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;coolya&gt; ytt3r: git pull &lt;url&gt; branch ?</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;coolya&gt; maybe you should create a branch in you repo firt</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;coolya&gt; with git checkout -b &lt;name&gt;</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;coolya&gt; then you can play with your changes in a branch and merge when all is fine</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;ytt3r&gt; thanks</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;Unhelpful&gt; or git checkout --track &lt;remote&gt;/&lt;branch&gt;</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;Unhelpful&gt; iirc repo sync will force you off of a non-tracking local branch, but will merge to the current branch if it tracks the upstream.</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;techmik67&gt; i was gonna say, this is how atinm had me doing stuff for sdcard... <a href="http://www.pastie.org/1672744">http://www.pastie.org/1672744</a></span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: i don't think the removeable vs additional is what fixed anything for us</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: trying to figure out why external_sd is marked removed</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm|away&gt; that's what is making it so it doesn't get a mount</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: huh, how does something get "marked" as removed?</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm|away&gt; so only sdcard is mounted</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm|away&gt; in MountService.java</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm|away&gt; setVolumeState() is called with removed on it.</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm|away&gt; tho why I don't know yet</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;atinm|away&gt; no</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;Unhelpful&gt; afaict the ACTION_BOOT_COMPLETED action is supposed to mount all shareables :/</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;atinm|away&gt; the getVolumeState() on it is returning removed</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;atinm|away&gt; so nothing happens</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;atinm|away&gt; vold.fstab maybe</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: look @ getVolumeState - if mVolumeStates.get fails it *sets* the state to removed, maybe this is the issue?</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;Unhelpful&gt; mVolumeStates is a hashmap,the only code i can find that inserts into it is setVolumeState</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm|away&gt; right, that is what it is.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm|away&gt; nothing is entering the external it seems</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm|away&gt; I don't see a call to setVolumeState..</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm|away&gt; in the log</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm|away&gt; (put a log message in it)</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;atinm|away&gt; back in a bit</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;ytt3r&gt; hrm... <a href="http://www.pastie.org/1690452">http://www.pastie.org/1690452</a></span><br />
