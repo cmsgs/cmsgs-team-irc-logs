@@ -847,3 +847,41 @@
 <span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm|away&gt; (put a log message in it)</span><br />
 <span class="irc-date">[19:52]</span> <span class="irc-black">&lt;atinm|away&gt; back in a bit</span><br />
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;ytt3r&gt; hrm... <a href="http://www.pastie.org/1690452">http://www.pastie.org/1690452</a></span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;coolya&gt; warning: too many files (created: 434 deleted: 33898)</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;coolya&gt; wtf?</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;ytt3r&gt; what does it mean</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;ytt3r&gt; lol</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;ytt3r&gt; double rainbow I'm so confused</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;coolya&gt; where are you trying to cherry pic from?</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;ytt3r&gt; another branch on my android_kernel_samsung repository</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;coolya&gt; only a single commit? or a complete branch ?</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;coolya&gt; argh</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;ytt3r&gt; lol</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;coolya&gt; what am i writing? :-D</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;coolya&gt; my brain is fucked :-D</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;coolya&gt; doesn't it show where are the conflicts ?</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;ytt3r&gt; that's the entire output</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-green">* UberPinguin (~uber@gentoo/user/uberpinguin) has joined this channel.</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;Unhelpful&gt; ytt3r: i've seen that before. you're fine. :)</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-green">* GuiPer (~GuiPer@107.120.broadband11.iol.cz) has joined this channel.</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;ytt3r&gt; I can just ignore it?</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;Unhelpful&gt; IME yes.</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-navy">* mersault (~mersault@69.158.29.99) Quit (Quit: mersault)</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: i added some debug code to the doMountVolume to log its processing of the shareable mounts list. /mnt/emmc is in there, wtf.</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;atinm|away&gt; vold.fstab still has it</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;atinm|away&gt; I thought maybe that was it</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;atinm|away&gt; let me see</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;Unhelpful&gt; i changed vold.fstab, and *i see it under removablemounts in /system/build.prop* :/</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;Unhelpful&gt; so somehow build.prop is getting /mnt/emmc and not /mnt/sdcard/external_sd</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;coolya&gt; rn -rf $OUT</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;coolya&gt; s/rn/rm</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: funny, i did that right *before* building this :/</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;coolya&gt; hmm</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;coolya&gt; that is bad :-D</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;Unhelpful&gt; but trying again :)</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;coolya&gt; then i dunno</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;Unhelpful&gt; well, trying to build just the build.prop again. but this is likely my problem. i could probably edit it on the device and see :)</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-green">* AcidNerd (AcidNerd@94.139.59.248) has joined this channel.</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
