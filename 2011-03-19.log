@@ -119,3 +119,61 @@
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;atinm|sick&gt; <a href="http://cmsgs.com/mediawiki/index.php?title=Main_Page">http://cmsgs.com/mediawiki/index.php?title=Main_Page</a></span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;ohayden&gt; this is super verbose for me, but sure I can add it there as well</span><br />
 <span class="irc-date">[1:00]</span> <span class="irc-black">&lt;atinm|sick&gt; I use templates, do you know mediawiki?</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;atinm|sick&gt; basically you need to edit two files:</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|sick: aiui many things won't work w/o an external SD if we point EXTERNAL_STORAGE at it. :/</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;atinm|sick&gt; <a href="http://cmsgs.com/mediawiki/index.php?title=Template:Building_and_Installing_Gingerbread_from_Source">http://cmsgs.com/mediawiki/index.php?title=Template:Building_and_Installing_Gingerbread_from_Source</a></span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;atinm|sick&gt; <a href="http://cmsgs.com/mediawiki/index.php?title=Template:Gingerbread_initial_flash">http://cmsgs.com/mediawiki/index.php?title=Template:Gingerbread_initial_flash</a></span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;ohayden&gt; I don't much about templates on mediawiki, but I can always learn :-)</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;atinm|sick&gt; just edit those two - the second is initial</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;atinm|sick&gt; and the {{{device}}} just says use the arguments to the template</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm|sick&gt; so I just have one file for all devices.</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;ohayden&gt; ahh cool</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;ohayden&gt; done got learned :P</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm|sick&gt; Unhelpful: yes, I figured, but pointing it at /mnt/sdcard works if we also mount external under that</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm|sick&gt; then everything is visible</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm|sick&gt; so that's the goal.</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, gone.</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|sick: right, that's what i figure we need to aim for - /mnt/sdcard as the internal, /mnt/sdcard/external_sd as the external, and EXTERNAL_STORAGE pointed at /mnt/sdcard</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;ohayden&gt; hasta atimn, hope you feel better</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, will look at MountService tomorrow</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;techmik67&gt; hey, i just installed latest tibu.....v3.7.4.1......</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;techmik67&gt; it now sees:</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;techmik67&gt; internal storage: 2gb</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;techmik67&gt; internal emmc: 15.8gb</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;techmik67&gt; sdcard: 13.9gb</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;techmik67&gt; ext sdcard: 13.9gb</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm|sick&gt; techmik, that's with the latest update?</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;techmik67&gt; wait</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;atinm|sick&gt; yes, that's what I see too</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;atinm|sick&gt; with latest update</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;techmik67&gt; initial... lemme pop update on... this is 2nd install since d/l</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;atinm|sick&gt; it is calling both sd card and ex sdcard the same</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;techmik67&gt; installing nightly</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;techmik67&gt; did it in differrent order this time</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;techmik67&gt; same with update</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-green">* mersault (~mersault@69.158.29.99) has joined this channel.</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;uberushaximus&gt; tibu is working here with the latest source</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;uberushaximus&gt; in teamhacksung</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;techmik67&gt; oh, it works fine</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;techmik67&gt; just haas that weird reading</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;atinm|sick&gt; just shows interesting stuff :)</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;atinm|sick&gt; slightly confused,</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;atinm|sick&gt; but works</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, gnite</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-green">* atinm|sick is now known as atinm|night</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;techmik67&gt; nite</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;mersault&gt; so, anything else new in the recent captivate build? I see the settings stuff was pushed, but is the rest of the sdcard stuff in there?</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;techmik67&gt; i just rebooted.... sec</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; ok, now, after reboot, settings&gt;storage has no external listed, but you can access it thru file manager or root explorer</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; so that is the settings app, correct?</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; that contols that</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;mersault&gt; settings app will control what it displays, assume that file manager uses something else</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;techmik67&gt; ok, as far as i know, everything EXCEPT the settings app is in the regular repo's now</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;techmik67&gt; and i just finished a build *with* the settings change</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;techmik67&gt; lemme try it</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;techmik67&gt; booting</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;techmik67&gt; yup... fixed in my build</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;techmik67&gt; its the settings app changes that need to get applied</span><br />
