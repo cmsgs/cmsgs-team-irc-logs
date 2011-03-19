@@ -885,3 +885,47 @@
 <span class="irc-date">[20:30]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 246 seconds)</span><br />
 <span class="irc-date">[20:33]</span> <span class="irc-green">* AcidNerd (AcidNerd@94.139.59.248) has joined this channel.</span><br />
 <span class="irc-date">[20:44]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;atinm|away&gt; I just did a rm -rf out too</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;atinm|away&gt; lets see :)</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;techmik67&gt; where is the botologo called.... not where is it (drivers/video/samsung/) but what file asks for it?</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;atinm|away&gt; ok, wtf. why does sdcard have a volume state but external not</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;coolya&gt; techmik67: s3c_fb</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;techmik67&gt; thx =)</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;ohayden&gt; E/AndroidRuntime( 2265): java.lang.NullPointerException</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;ohayden&gt; E/AndroidRuntime( 2265): at com.android.internal.telephony.cdma.CDMAPhone.getState(CDMAPhone.java:268)</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;ohayden&gt; trying to recreate it</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;coolya&gt; our modem is fucked</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: well, fixing my build.prop helped *some*, my debug code shows it *trying* to mount external_sd</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;ohayden&gt; seems to be since I turned on airplane mode</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;ohayden&gt; now I can get out of it</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;AcidNerd&gt; by doing a wipe/factory reset</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;ohayden&gt; s/can/can't/</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;coolya&gt; ohayden: yes the modem thinks it is in cdma mode what fails</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;coolya&gt; only a wipe can fix that</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;ohayden&gt; so it's nothing I should try to track down?</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;coolya&gt; the modem reports back network mode 7 when it gets out of filght mode</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;ohayden&gt; ahh</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;coolya&gt; what is wrong</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;coolya&gt; and android detected the net changes and tries to work with cdma from that point</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-navy">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;coolya&gt; but then it can't create its internal "phone" an has no chance to talk to the RIL where it could get the information that it is in GSM mode</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;coolya&gt; the source of all evil seems to be that our closed source RIL / Modem has a problem</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;ohayden&gt; yeah, so it's out of ours for now :/</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;ohayden&gt; s/ours/our hands/</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;ohayden&gt; gah, I need to lay off the booze :P</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;techmik67&gt; ok, this is silly.... i have never apt-get autoremoved... so i have *every* version of ubuntu still on my laptop.... from 2.6.25-22 thru the current 2.6.38-7..... is there a real reasonnot to autoremove at this point?</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;coolya&gt; some with some time and assembler can fix that :-D</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;ohayden&gt; I'm not much of an assembler guy, so it's certainly out of my scope :-)</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;coolya&gt; techmik67: you might have no kernel to get back to if .38 is not working ;-)</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;techmik67&gt; is therer  a way to just keep 1 previous?</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: ok, there was a further problem, asking vold to mount a mounted volume fails, so i need to insert code in doMount/doUnmount to check the state of the parent/child dir.</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;Unhelpful&gt; tiem 4 moar reboot</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;ohayden&gt; luz, I had to create a net udev rule since CM switch my vendeor/prod id to 0x18d1:0x4e22</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;ohayden&gt; s/net/new/</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-green">* mersault (~mersault@bas4-toronto02-1177978782.dsl.bell.ca) has joined this channel.</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;Unhelpful&gt; MOUNTED :D</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;techmik67&gt; yay!!</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;Kaik541&gt; gratz</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;Unhelpful&gt; both work via usb storage, but OS for some reason didn't give me prompt to mount external. just remounted after turning off storage.</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
