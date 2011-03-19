@@ -644,3 +644,15 @@
 <span class="irc-date">[12:52]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
 <span class="irc-date">[12:53]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-89-111-251-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
 <span class="irc-date">[12:59]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@115.184.64.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[13:02]</span> <span class="irc-black">&lt;Unhelpful&gt; nor i, but i don't agree that there is something inherently wrong with mounting one filesystem under another.</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-navy">* UberPinguin (~uber@gentoo/user/uberpinguin) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: doMountVolume is never called for /mnt/sdcard/external_sd. what actually tells MountService to mount?</span><br />
+<span class="irc-date">[13:29]</span> <span class="irc-green">* UberPinguin (~uber@gentoo/user/uberpinguin) has joined this channel.</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;atinm|away&gt; I compiled with all sorts of debug statements</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;atinm|away&gt; lets see</span><br />
+<span class="irc-date">[13:34]</span> <span class="irc-black">&lt;atinm|away&gt; actually, have to go.</span><br />
+<span class="irc-date">[13:35]</span> <span class="irc-black">&lt;atinm|away&gt; but it *looks* like ::run() in MountService should mount the stuff in removablemounts</span><br />
+<span class="irc-date">[13:35]</span> <span class="irc-black">&lt;atinm|away&gt; and there is already EXTERNAL_STORAGE in the volumeMounts</span><br />
+<span class="irc-date">[13:35]</span> <span class="irc-black">&lt;atinm|away&gt; so there should be 2</span><br />
+<span class="irc-date">[13:35]</span> <span class="irc-black">&lt;atinm|away&gt; but we don't see 2</span><br />
