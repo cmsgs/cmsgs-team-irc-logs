@@ -1,0 +1,121 @@
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;techmik67&gt; hah..... testing the update....... i jusdt got a "update to froyo" text from att!</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;Unhelpful&gt; THEY'RE ONTO US!</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;techmik67&gt; update and initial both seemed good.... tibu restoring now</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;techmik67&gt; uh oh</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;techmik67&gt; skynet <a href="http://twitter.com/#!/engadget/status/48884543788302337">http://twitter.com/#!/engadget/status/48884543788302337</a> or is it the cymeks?</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm|sick&gt; how're we doing?</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm|sick&gt; I  have been hacking vold</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm|sick&gt; need to figure out is sending it the volume mount cmd tho</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm|sick&gt; because I'm only getting the one for /mnt/sdcard/external_sd</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm|sick&gt; (emmc)</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm|sick&gt; not the sdcard one</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;ohayden&gt; I just flashed initial kernel (told you I'm being slow)</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm|sick&gt; so its all backwards. I want the sdcard to get mounted first..</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm|sick&gt; and without my changes, it does get called first</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;ohayden&gt; so uh, heimdall rebooted and I see the "Galaxy S - cyanogen" logo, should I just power off and 3-button into recovery to finish the steps or does it boot to something?</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm|sick&gt; 3 button</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm|sick&gt; doesn't boot into anything since system isnt there</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm|sick&gt; or is wrong</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-navy">* Msm|Pissed|Sad (~Msm903@c-68-49-81-211.hsd1.md.comcast.net) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm|sick&gt; wow, who was that?</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;ohayden&gt; ok... I figured as so much, but since I'm a cyanogen virgin :-)</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;techmik67&gt; just pull battery and 3 button to recovery to continue</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm|sick&gt; wth are you doing here?</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm|sick&gt; .kick ohayden</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm|sick&gt; ;)</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;ohayden&gt; I'm a virgin not a nub :P</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|sick: what *actually* decides to do the mount? evaluate seemed to be under the impression that the java mount manager was the real brains, and vold just followed orders - in which case, maybe the mount manager is the right place to handle "pre-mount" requirements :)</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm|sick&gt; yeah, that's what I'm thinking now too . . . I actually hacked vold to understand the samsung options</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm|sick&gt; options like mount_deep, mbr_policy</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|sick&gt; mount_deep seemed to mean mounted under another</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|sick&gt; mbr_policy whether to write the mbr</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;Unhelpful&gt; there's already an option about that?!</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|sick&gt; so I put those in</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|sick&gt; no, I added them</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|sick&gt; samsung had those</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|sick&gt; but they didn't opensource vold</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;Unhelpful&gt; ok. something like mount_deep needs to know what the parent is. :)</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|sick&gt; somehwere it lost gpl and becamse apache</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;Unhelpful&gt; my thought was just to automate that - we *have* a list of the dynamic mounts, right?</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|sick&gt; yes</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|sick&gt; umm, not in vold tho - in MountService</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm|sick&gt; but yes, we should do it there. at first it seemed like it was easy in vold</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm|sick&gt; since I just needed to hack in a couple more options</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;Unhelpful&gt; sort the mount points by length, and iterate them starting with the shortest. on mount, any path that is a prefix of the one we're trying to mount, we attempt to mount. fail the whole operation on any failure.</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm|sick&gt; into the fstab parsing</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;Unhelpful&gt; when we get back to the mount we were originally attempting, at that point all of its prerequisites should be satisfied.</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;atinm|sick&gt; that's actually good . . . hadnt' spent time looking at mountservice, but now I think I have to</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;atinm|sick&gt; tomorrow - really still too sick to do more than very basic stuff like hacking vold.</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, and before attempting any individual mount, make sure the mount point exists, and try to mkdir it if not - needed because formatting internal would leave it without an external_sd directory.</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;atinm|sick&gt; that's what mount_deep is doing in vold right now ;)</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;atinm|sick&gt; so I could keep that</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;Unhelpful&gt; on *unmount*, we would do the opposite - start with the longest mount-point path, and try to umount if the current umount request is a prefix of it.</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;atinm|sick&gt; righ tnow as in min my hack</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;atinm|sick&gt; maybe I'm getting less sick - I'm understanding how to do this now</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;atinm|sick&gt; this morning there was no way.</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;atinm|sick&gt; (I was on serious pain medication :) )</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;atinm|sick&gt; prefixes shouldn't be hard to do.</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;atinm|sick&gt; Will look if I'm up tonight</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;atinm|sick&gt; techmik67: did the install work?</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;atinm|sick&gt; just want to upload and go to sleep now</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;techmik67&gt; all looks good.... rebooting after my tibu restore</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;atinm|sick&gt; try the update.zip as well?</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;techmik67&gt; but all was well</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;atinm|sick&gt; great, thanks. :)</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;techmik67&gt; =) my job</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|sick: it should be fairly easy in any language, but i don't know java and i don't know how to play with strings there ;)</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;atinm|sick&gt; java is actually easier on strings :)</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;atinm|sick&gt; but I think this is cpp</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;atinm|sick&gt; which is fine too</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm|sick&gt; brb, uploading to sf</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;techmik67&gt; brb, dogwalk =)</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm|sick&gt; ok ... wanted to know if this changes sdcard behavior</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;Unhelpful&gt; i thought mountservice was all java?</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm|sick&gt; I have to check - I forget now, it does look like java now that I think about the merge request</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;Unhelpful&gt; heh... do you maybe need to take a break? ;)</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm|sick&gt; like I said, not quite myself right now :)</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm|sick&gt; yes, going to get back in bed.</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm|sick&gt; just finishing the upload</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;Unhelpful&gt; good idea. should i start by pulling from the sdcard_test branches linked earlier?</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;ohayden&gt; atinm|sick: When the initial zip is being applied there is a spelling error "Formating paritions..." should be "Formatting partitions..."</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|sick&gt; ohayden: :)</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|sick&gt; eh.</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;ohayden&gt; I:P</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;ohayden&gt; told you I'm being anal</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm|sick&gt; Unhelpful: they merged some of the changes already into cyanogenmod</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;ohayden&gt; I'll fix it</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm|sick&gt; so now the only repo that isn't merged is packages/apps/Settings</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm|sick&gt; that is still sdcard_test</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm|sick&gt; others are all part of cyanogenmod or teamhacksung.</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm|sick&gt; the only change that got merged is to frameworks, so it understands ro.removablemounts</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm|sick&gt; which is a harmless one. I guess Settings.apk will know them too</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm|sick&gt; but the problem with mounting and where to mount is still there - right now it is still /mnt/emmc</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm|sick&gt; and so vendor/cyanogen/products/cyanogen_captivate.mk replaced additionalmounts with removablemounts</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm|sick&gt; (I'm not sure they're both removable tho . . .)</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm|sick&gt; that's commited. so if I repo sync, you'll have everything, and only need packages/apps/Settings from atinm:sdcard_test</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm|sick&gt; if you repo sync I mean</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;Unhelpful&gt; 'k</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm|sick&gt; evaluate put that up on gerrit too</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm|sick&gt; the Settings</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm|sick&gt; lets see</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm|sick&gt; I haven't given up on supporting /mnt/sdcard/external_sd tho</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm|sick&gt; even if /mnt/emmc works.</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm|sick&gt; the confusion is because of EXTERNAL_STORAGE.</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;atinm|sick&gt; nothing in Android seems to look at PHONE_STORAGE.</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;atinm|sick&gt; Samsung had created INTERNAL_STORAGE and EXTERNAL_STORAGE</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;atinm|sick&gt; we just have EXTERNAL_STORAGE, and so I think we should be pointing it at the external sd</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;atinm|sick&gt; actually, I don't know . . .</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;atinm|sick&gt; it would work if we pointed it at /mnt/sdcard</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;atinm|sick&gt; and had external sd mounted under</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;atinm|sick&gt; everything that looks at EXTERNAL_STORAGE would see that</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;ohayden&gt; sweet... initial works</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;atinm|sick&gt; so it would "just work"</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;atinm|sick&gt; screw it. going to bed.</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;ohayden&gt; <a href="http://crancho.com/wiki/CyanogenMod_for_Samsung_Captivate#Flashing_Initial">http://crancho.com/wiki/CyanogenMod_for_Samsung_Captivate#Flashing_Initial</a></span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;ohayden&gt; my very VERBOSE guide</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;atinm|sick&gt; ohayden: just edit the wiki man</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;atinm|sick&gt; <a href="http://cmsgs.com/mediawiki/index.php?title=Main_Page">http://cmsgs.com/mediawiki/index.php?title=Main_Page</a></span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;ohayden&gt; this is super verbose for me, but sure I can add it there as well</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;atinm|sick&gt; I use templates, do you know mediawiki?</span><br />
