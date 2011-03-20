@@ -1,0 +1,45 @@
+<span class="irc-date">[0:00]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Kolja Dummann * 45fc514 (2 files in 2 dirs): right gpio settings from camera clean up regulator owning - <a href="http://bit.ly/hNSt12">http://bit.ly/hNSt12</a></span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;techmik67&gt; figures..... i am just about done building, and now the kernel commit =)</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, it doesn't affect us though</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;techmik67&gt; oh, ffc, right....</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;coolya&gt; yes it FFC</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;Unhelpful&gt; well, doing it in vold couldn't be so much harder ;)</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;techmik67&gt; dont nned to rebuild -=PPP</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;coolya&gt; looks like some regulators are sharred between the FFC and Rear cam.</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;coolya&gt; can't turn on the rear without powering up the FFC</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://forum.xda-developers.com/showpost.php?p=12225825&amp;postcount=3251">http://forum.xda-developers.com/showpost.php?p=12225825&amp;postcount=3251</a> &lt;-- God I love zilch</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;techmik67&gt; excellent post</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;Kaik541&gt; I like that he used the word "caustic"</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Kaik541&gt; it pretty much sums it up</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: otoh in vold the list of shareable mounts could readily be kept entirely static after it's loaded... that would be nice ;)</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, I didn't look exactly at the checks done in vold for the unmounting/mounting, but I always think it's best to do such thing as low as possible in the tree, so you don't accidentally miss any cases...</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;evaluate&gt; just my $0.02</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: i have external_sd in file manager , but its empty,m not pointing at emmc</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;techmik67&gt; or is that what you expected?</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: oh, um, you probably need to modify properties and vold.fstab too... but i'm gonna have a go at doing this lower in the chain, evaluate's probably right about that.</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;techmik67&gt; ok, so keep the settings form atinm and revert te frameworks base from you?</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;Unhelpful&gt; for now, yah.</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;techmik67&gt; ohh... the light dawns.... i could have set up your remote *also* and *either* "git pull atinm sdcard_test" or "git pull unhelpful sdcard_test", right?</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;Unhelpful&gt; erm... :)</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't know which component you mean. i only have a branch for frameworks/base :)</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;techmik67&gt; atinm did also for this sdcard_test</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;techmik67&gt; i guess i am just confirming you can have multiple remotes, and you just specify which you are pulling</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;techmik67&gt; and you cant just type git pull</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;techmik67&gt; or it wont know which you mean</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;Unhelpful&gt; it will if the current branch tracks a specific upstream branch.</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;techmik67&gt; i get it</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;techmik67&gt; in this case</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;techmik67&gt; if i was in gingerbread branch, that tracks upstream</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, in my ext4 implementation I edited the Fat::doMount function in system/vold/Fat.ccp, since that is what directly calls the mount utility. I'm not sure if it is aware of the other mountpoints as well, but it might be a good place to start</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;evaluate&gt; The next place higher in the tree would be Volume.cpp and VolumeManager.cpp, these might actually be aware of the other mountpoints and probably the best place to implement the change...</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;techmik67&gt; so, aside from step 1, you can do the rest of the lines for as many branches and remotes you want to create? <a href="http://www.pastie.org/1691080">http://www.pastie.org/1691080</a></span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: if one of those is what call Fat::doMount, then probably that's the place to go. at least i won't have to worry about Java's opaque mkdirs() :)</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;Unhelpful&gt; added some debug code. it returns false... and that's it. :/</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;techmik67&gt; brb... dog walk</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;evaluate&gt; I'm quite new to Java myself, never programmed in Java before, so I've done the changes to the Settings app by trial and error myself... :-p</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Quit: leaving)</span><br />
