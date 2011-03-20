@@ -215,3 +215,71 @@
 <span class="irc-date">[9:56]</span> <span class="irc-black">&lt;coolya&gt; geeksphone ;-)</span><br />
 <span class="irc-date">[9:57]</span> <span class="irc-black">&lt;Kaik541&gt; closest you can get yeah</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;evaluate&gt; hmm, I copied over the libsec-ril.so, libril.so and rild and I can't get any signal at all (not even after lock). Do I also need the JV1 modem.bin&gt;</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;evaluate&gt; and in the radio log I get a lot of these: <a href="http://pastebin.com/fDUtxap2">http://pastebin.com/fDUtxap2</a> :-\</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;evaluate&gt; wtf is /dev/onedram ?</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;Kaik541&gt; I'm gonna guess where they expect the modem to be stored</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;evaluate&gt; and how the hell could I get it there? :-p</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;Kaik541&gt; change the way RIL works :D</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;evaluate&gt; yeah, sure :-p</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;evaluate&gt; I'd guess if there is a way to decompile these files to get some sort of machine code and then decompile ours to get the same thing and then do a diff between them, might help us a bit, not sure how legal that is though</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;coolya&gt; fuck the legal reason :-D</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;coolya&gt; that is the device used to load the firmware to the modem</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;coolya&gt; over shared mem</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;evaluate&gt; coolya, any way I could get it there?</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;coolya&gt; but the samsung stuff look for some bml device to laod the frimware</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;evaluate&gt; I have no clue what I'd have to do</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;coolya&gt; decompile an change the string</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;coolya&gt; modemctl is it on our kernel</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;coolya&gt; or change the kernel</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;coolya&gt; egrep for onedram in the kernel</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-black">&lt;evaluate&gt; and change every occurence of 'onedram' with 'modemctl'?</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;evaluate&gt; or should I do the reverse? change modemctl with onedram?</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;coolya&gt; just the device nane</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;coolya&gt; to onedram</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;evaluate&gt; this one: ./drivers/misc/samsung_modemctl/modem_ctl.c:		.name = "modemctl",</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;evaluate&gt; or this: ./arch/arm/mach-s5pv210/dev-aries-phone.c:	.name = "modemctl",</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;evaluate&gt; or this: ./arch/arm/mach-s5pv210/dev-herring-phone.c:	.name = "modemctl",</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;evaluate&gt; :-p</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;coolya&gt; yep all</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-brick">* evaluate tries changing all of 'em</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;coolya&gt; but unsing the closed source ril will cause trouble in the framework :-D</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;evaluate&gt; what kind of trouble?</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;evaluate&gt; big trouble or small trouble? :-p</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;coolya&gt; trouble that will prevent us from going mainline forever ;-)</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;evaluate&gt; ohh</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;coolya&gt; samsung fail VERY hard on the hole ril stuff</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;coolya&gt; they modified the framework to work with their crapy ril</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;evaluate&gt; well, maybe we could get some kind of machine code out of it (not sure if that's possible) and do a diff between that and ours and see if we can identify what we're doing wrong in our code</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;evaluate&gt; just sayin'...</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;evaluate&gt; I mean, what other options do we have? Do you think a source code drop from samsung gingerbread might solve this in a better way?</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;coolya&gt; leav it as it is ...</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;coolya&gt; or someone with time and asm skills has to go deep into it</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-green">* enl_ (~enl_@151.80.2.33) has joined this channel.</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;evaluate&gt; well, if we leave it as it is, we can't really ever call it 'stable', can we?</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;coolya&gt; microsoft can call windows stable :-P</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;evaluate&gt; good point...</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;coolya&gt; the problem is the samsung video call support</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;coolya&gt; thy fucked up everything for that</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;evaluate&gt; ok, I have changed the modemctl stuff to onedram, but I still don't have any onedram in /dev</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;evaluate&gt; bah, that's the least of our problems I guess, I really don't know if there is actually someone who does video calls...</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;coolya&gt; i don't mean impletmenting it ...</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;coolya&gt; they failed on implementing it</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;evaluate&gt; ok, so any idea on the onedram thingie?</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;evaluate&gt; I still don't have it in /dev/</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;evaluate&gt; should I clean build the kernel?</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;coolya&gt; i would have to look at the source but i'm lazy :-P</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;evaluate&gt; ohh come on. Pretty please? :-p</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;coolya&gt; i will take a breakfast, power on the PC and look at it :-)</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;evaluate&gt; cool. thanks</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;evaluate&gt; I would do this myself if I had the know-how, unfortunately I don't :-p</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;evaluate&gt; I will google a bit and see if we can somehow decompile the .so files until then...</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;coolya&gt; you could use ida pro</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;coolya&gt; there is a free demo that can decompile elf binaries</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;coolya&gt; or use objdump from the ndk toolchain</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-navy">* enl_ (~enl_@151.80.2.33) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;evaluate&gt; objdump doesn't seem to work (or I am doing it wrong): xobjdump: Can't disassemble for architecture UNKNOWN!</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;evaluate&gt; -x</span><br />
