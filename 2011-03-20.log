@@ -300,3 +300,117 @@
 <span class="irc-date">[11:58]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, do you know any utility that would let me decompile android .so files?</span><br />
 <span class="irc-date">[11:59]</span> <span class="irc-black">&lt;evaluate&gt; I mean one that would give me *any* type of human readable code. I would like to do a diff between samsung's ril libraries and the ones we have, maybe we can see how they do stuff so we can maybe fix our RIL</span><br />
 <span class="irc-date">[11:59]</span> <span class="irc-navy">* GuiPer (~GuiPer@107.120.broadband11.iol.cz) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;codeworkx&gt; evaluate: we're using libsec-ril.so and libsecril-client.so from samsung (nexus s)</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;evaluate&gt; codeworkx, do you know then where exactly our polling problem on boot lies? Is the the rild, or libril.so?</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;coolya&gt; libsec-ril</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;coolya&gt; rild is only a host daemon</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;coolya&gt; lubril does the IPC to the java world</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;evaluate&gt; well, I noticed the rild on samsung GB leak is a bit different from ours (in size)</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;evaluate&gt; uhum</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;coolya&gt; libsec-ril is the modem implementation</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;coolya&gt; thats what i mean, they fucked up because samsung software engeniers have no clue about android and hack the shit like a 12y old child</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;evaluate&gt; ok, I'll try replacing just that from the GB leak and see what I get</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;evaluate&gt; btw, just a random thought, since we use the RIL from nexus s, is there any change a modem from the nexus S might work?</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;coolya&gt; that google has created the architecture for a reason they don't understand</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;coolya&gt; they are just focused on "get the shit working"</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;evaluate&gt; ok, if I replace just the libsec-ril, I get: E/RILClient(   76): Connect_RILD: Connecting failed. Connection refused(111)</span><br />
+<span class="irc-date">[12:05]</span> <span class="irc-black">&lt;evaluate&gt; I've no idea what that means though</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;Unhelpful&gt; android, a linux OS from people who hate linux :/</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-black">&lt;zerojay&gt; lol</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-black">&lt;evaluate&gt; coolya, any success on that /dev/onedram thing?</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-black">&lt;Unhelpful&gt; seriously, though, almost *everything* about it is so anti-linux in design :P</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-brick">* Unhelpful still thinks that using a custom libc for licensing reasons was extremely silly - there are libcs that won't copyleft-infect your other binaries, and vendors *really* don't have any good reason to customize libc, and bionic is a fairly poor implementation.</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;coolya&gt; sue the vendors with their noobish devs</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;coolya&gt; htc hack are kindergarden against that what samsung ddi</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;coolya&gt; did</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;Unhelpful&gt; also putting things in your libc headers that you don't implement is not clever :P</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;evaluate&gt; well, wtf. They sold more than 10M galaxy S devices, didn't they? If they don't make enough money to pay proper developers, I don't know who does...</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;coolya&gt; evaluate: why should the management pay good devs when they can have a crapy but working implementation by paying noobs?</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;coolya&gt; its about money not about code quality</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;evaluate&gt; well, if they'd pay proper devs and published the code on github, I bet they'd sell 20M instead of 10 :-p</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;coolya&gt; i don't think so</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;coolya&gt; the "power user" market isn't that big</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;codeworkx&gt; most of the users dont know which android version they're using and dont care about</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;coolya&gt; look at apple ...</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;evaluate&gt; well, seeing how many people use CM for example, I'd guess there are actually quite a few...</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;atinm|away&gt; morning</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: I wasn't able to do anything last night</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;atinm&gt; and today looks as bad. I get less done on weekends as the kid gets older.</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;coolya&gt; evaluate: there are 120k? installs out there on every supported model</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;evaluate&gt; and since samsung currently has the best hardware, if they'd ramp up on the sofware side I bet they might win over quite a bunch of the other users...</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;atinm&gt; I didn't even get a change to flash after making sure build.prop was right</span><br />
+<span class="irc-date">[12:32]</span> <span class="irc-black">&lt;atinm&gt; back later ... dang it</span><br />
+<span class="irc-date">[12:32]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[12:32]</span> <span class="irc-black">&lt;evaluate&gt; coolya, yeah, that's just CM, think of how many darky/doc/miui/etc users there are that would quite welcome a bit more open-ness on samsung's side...</span><br />
+<span class="irc-date">[12:32]</span> <span class="irc-black">&lt;atinm|away&gt; (ooh, wonder what happened on xda - clown came in to clean up, I guess I missed it all! love it! :) )</span><br />
+<span class="irc-date">[12:33]</span> <span class="irc-black">&lt;coolya&gt; i think there are less than 3% of the sgs with custom roms</span><br />
+<span class="irc-date">[12:33]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: i have things mostly working, but java's mkdirs silently fails, so an internal format would kill the whole thing. i'm going to look @ doing this in vold instead, at least in C i get to know why file operations fail.</span><br />
+<span class="irc-date">[12:33]</span> <span class="irc-black">&lt;Unhelpful&gt; my mom runs stock :P</span><br />
+<span class="irc-date">[12:33]</span> <span class="irc-black">&lt;atinm|away&gt; lol</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: ok. vold wasn't bad. I went hacking in it too</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;atinm|away&gt; and added a couple of the samsung options to it</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;atinm|away&gt; didn't commit anywhere</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;atinm|away&gt; but it'll go mkdir as well</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;atinm|away&gt; but you got the order stuff working?</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;atinm|away&gt; a</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;atinm|away&gt; s i</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;atinm|away&gt; n</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;atinm|away&gt; as in what order the mkdirs are called?</span><br />
+<span class="irc-date">[12:35]</span> <span class="irc-black">&lt;atinm|away&gt; (or mounts)</span><br />
+<span class="irc-date">[12:35]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: i did, but evaluate thinks i ought to move the works into vold, as MountService does everything by talking to it, and it's possible other things could talk to it also.</span><br />
+<span class="irc-date">[12:35]</span> <span class="irc-black">&lt;atinm|away&gt; the order that vold created/mounts?</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-black">&lt;atinm|away&gt; it is mounservice that is doing to calling into vold</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-black">&lt;atinm|away&gt; vold just sees the "volume mount" part</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-black">&lt;atinm|away&gt; so it needs to be told to mount in the correct order</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-black">&lt;evaluate&gt; atinm|away, but can we really rule out that nothing else is calling vold's mount/unmount functions directly (not through the mount service)?</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: right, but why not do the ordering in vold?</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-black">&lt;atinm|away&gt; I guess it can too since it knows what it is managing</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: i do have to wonder why you would even *have* a service and still have other code do things directly.</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, I don't think other stuff calls vold tho</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;atinm|away&gt; we can confirm - the service is the interface to the underlying stuff</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, I don't know, but since other stuff is fucked up in android too, I wouldn't wonder if something else actually calls vold directly...</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;atinm|away&gt; nah, I really doubt it. a few greps will tell us..</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;atinm|away&gt; I have to go</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;atinm|away&gt; but will look later.</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: well, i have it all working in mountservice, except for the part where creating directories fails silently :/</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;atinm|away&gt; I'll upload my vold - don't use it</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;Unhelpful&gt; hahahah</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;atinm|away&gt; since I added the code that takes an option called mount_deep</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;atinm|away&gt; that tells it whether to also create the dir if it doesn't exist</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;atinm|away&gt; and an option called mbr_policy</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;atinm|away&gt; wh</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;atinm|away&gt; ich</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;Unhelpful&gt; i didn't see any reason to have an option for that ;)</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;atinm|away&gt; which if overwrite also writes the mbr</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;atinm|away&gt; eh, I looked at ssamsungs vold.fstab and figured that's what they were doing</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;atinm|away&gt; and went ahead and did it and then realized I still needed stuff to get called in the right order</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;atinm|away&gt; that's why I said don't use it :)</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;atinm|away&gt; but its simple code, you can do it quicker than trying to see what to take out</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: doesn't vold notify mountservice of everything it does? it can just enforce the mount ordering itself.</span><br />
+<span class="irc-date">[12:48]</span> <span class="irc-black">&lt;atinm|away&gt; it does</span><br />
+<span class="irc-date">[12:48]</span> <span class="irc-black">&lt;coolya&gt; atinm|away: we have anyone who can confirm this <a href="https://github.com/teamhacksung/android_kernel_samsung/pull/12">https://github.com/teamhacksung/android_kernel_samsung/pull/12</a> ?</span><br />
+<span class="irc-date">[12:48]</span> <span class="irc-black">&lt;coolya&gt; or shall i just merge it blind</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;atinm|away&gt; I was going to talk to unhelpful about it</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;atinm|away&gt; i</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;atinm|away&gt; t</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;atinm|away&gt; it is another sysfs interface</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;atinm|away&gt; to enable dock</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;atinm|away&gt; requires a separate app to enable dock</span><br />
+<span class="irc-date">[12:49]</span> <span class="irc-black">&lt;coolya&gt; isn't there a input device</span><br />
+<span class="irc-date">[12:50]</span> <span class="irc-black">&lt;Unhelpful&gt; there even *is* a dock? how does it work w/ the stupid plug on top?</span><br />
+<span class="irc-date">[12:50]</span> <span class="irc-black">&lt;coolya&gt; thats gets notifed when the FSA (micro usb chip) detects a dock</span><br />
+<span class="irc-date">[12:50]</span> <span class="irc-black">&lt;atinm|away&gt; no</span><br />
+<span class="irc-date">[12:50]</span> <span class="irc-black">&lt;atinm|away&gt; at least, not in this implementation</span><br />
+<span class="irc-date">[12:50]</span> <span class="irc-black">&lt;coolya&gt; i think i saw something in the code</span><br />
+<span class="irc-date">[12:50]</span> <span class="irc-black">&lt;atinm|away&gt; the sysfs was the way he enabled the chip</span><br />
+<span class="irc-date">[12:50]</span> <span class="irc-black">&lt;atinm|away&gt; that's why I wanted to talk to you guys before merging</span><br />
+<span class="irc-date">[12:51]</span> <span class="irc-black">&lt;atinm|away&gt; I haven't looked deeply in his code. I know he has a separate app</span><br />
+<span class="irc-date">[12:51]</span> <span class="irc-black">&lt;atinm|away&gt; and it used the sysfs</span><br />
+<span class="irc-date">[12:51]</span> <span class="irc-black">&lt;atinm|away&gt; crap, have to go.</span><br />
+<span class="irc-date">[12:51]</span> <span class="irc-black">&lt;atinm|away&gt; wife will kill</span><br />
+<span class="irc-date">[12:51]</span> <span class="irc-black">&lt;atinm|away&gt; b</span><br />
+<span class="irc-date">[12:51]</span> <span class="irc-black">&lt;atinm|away&gt; y</span><br />
+<span class="irc-date">[12:51]</span> <span class="irc-black">&lt;atinm|away&gt; e</span><br />
+<span class="irc-date">[12:51]</span> <span class="irc-black">&lt;coolya&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/mach-s5pv210/mach-aries.c#L2461">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/mach-s5pv210/mach-aries.c#L2461</a></span><br />
