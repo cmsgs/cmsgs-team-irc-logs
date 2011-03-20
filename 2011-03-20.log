@@ -414,3 +414,42 @@
 <span class="irc-date">[12:51]</span> <span class="irc-black">&lt;atinm|away&gt; y</span><br />
 <span class="irc-date">[12:51]</span> <span class="irc-black">&lt;atinm|away&gt; e</span><br />
 <span class="irc-date">[12:51]</span> <span class="irc-black">&lt;coolya&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/mach-s5pv210/mach-aries.c#L2461">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/mach-s5pv210/mach-aries.c#L2461</a></span><br />
+<span class="irc-date">[13:02]</span> <span class="irc-black">&lt;atinm|away&gt; I thought the last commit was the interface that enabled that chip</span><br />
+<span class="irc-date">[13:03]</span> <span class="irc-black">&lt;atinm|away&gt; (shh...)</span><br />
+<span class="irc-date">[13:09]</span> <span class="irc-black">&lt;coolya&gt; but for it looks like everything from that side is there "only" the usespace and alsa route is missing?</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-black">&lt;coolya&gt; CONFIG_HAWK_VER_B1_REAL_ADDED_FEATURE wtf</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;atinm|away&gt; yes, alsa route is missing is what I thought</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;atinm|away&gt; but given that I known nil about alsa right now, I figured you and unhelpful would be able to judge better whether code-wise this works</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;atinm|away&gt; none of us has a dock tho to test</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;atinm|away&gt; (I think its a usb dock unhelpful, not headphone jack)</span><br />
+<span class="irc-date">[13:53]</span> <span class="irc-black">&lt;coolya&gt; i just orded a car dock</span><br />
+<span class="irc-date">[13:53]</span> <span class="irc-black">&lt;atinm|away&gt; :)</span><br />
+<span class="irc-date">[13:53]</span> <span class="irc-black">&lt;coolya&gt; its usb dock :-)</span><br />
+<span class="irc-date">[13:53]</span> <span class="irc-black">&lt;atinm|away&gt; his code seems to be ifdefed for captivate.</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;atinm|away&gt; actually, has others too</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;atinm|away&gt; so hopefully you can test</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;atinm|away&gt; I almost convinced my wife to let me buy another computer</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;atinm|away&gt; but then I told her about my test machine Xeon 8core machine ..</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;coolya&gt; 12cores?</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;atinm|away&gt; so now no go :)</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[13:54]</span> <span class="irc-black">&lt;atinm|away&gt; no . . . for my home.</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;atinm|away&gt; I'll get 12 core at work soon</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;atinm|away&gt; a few of them</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;atinm|away&gt; I use a testbed with 12 of these machines</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;atinm|away&gt; when I'm regression testing my code</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;atinm|away&gt; so I take over one in the evenings for android</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;atinm|away&gt; anyway, hopefuly you'll be abl eo test usb dock</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;atinm|away&gt; everything looked fine to me except the missing alsa route and the sysfs interface.</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;atinm|away&gt; our reason for not putting voodoo is two fold, no alsa and sysfs, as well as all code separated</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;atinm|away&gt; and this has the first problem as well</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;atinm|away&gt; no alsa route, and only enable was sysfs</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;atinm|away&gt; so I didn't think it was kosher until you guys took a look</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;atinm|away&gt; gone again ..</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;coolya&gt; k</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;coolya&gt; i looking into some gpio stuff for the vibrant right now</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;coolya&gt; i got a pull request for mic stuff on vibrant but that would break my cam stuff</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;coolya&gt; i told him to rebase his stuff</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;atinm|away&gt; k</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;atinm|away&gt; (hiding in study right now - wil lhave to leave any moment)</span><br />
