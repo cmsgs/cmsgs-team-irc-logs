@@ -43,3 +43,54 @@
 <span class="irc-date">[0:45]</span> <span class="irc-black">&lt;techmik67&gt; brb... dog walk</span><br />
 <span class="irc-date">[0:47]</span> <span class="irc-black">&lt;evaluate&gt; I'm quite new to Java myself, never programmed in Java before, so I've done the changes to the Settings app by trial and error myself... :-p</span><br />
 <span class="irc-date">[0:50]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117018.reshsg.uci.edu) Quit (Quit: leaving)</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-navy">* AcidNerd (AcidNerd@94.139.59.248) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-green">* AcidNerd (AcidNerd@94.139.59.248) has joined this channel.</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;Unhelpful&gt; well, mkdirs only returns a boolean for success or failure. and it *can* raise exceptions but isn't doing so. so, no idea why it fails.</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;Unhelpful&gt; doesn't it seem a bit odd that dynamic mounts need to be in a property *and* in vold.fstab?</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;techmik67&gt; its hard to try to learn something new while enjoying a basketball game =)</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, yeah, that's a bit odd</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;Unhelpful&gt; there should be a vold enumerate mounts command ;)</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;evaluate&gt; and re: mkdir, I'd guess the c++ implementation might actually return something more useful</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: exceptions are not supported by bionic, if somthing throws exceptions throught bionic they will be swallowed</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: this is in java - there are numerous examples of exceptions used everywhere else, so i assume dalvik supports them.</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;coolya&gt; yes dalvik supports then ;-)</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;coolya&gt; i thought it was was c++ code</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;Unhelpful&gt; right, well i created a new File with a path, and called file.mkdirs()... and it just returns false. no exception, no nothing anywhere to say why.</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;Unhelpful&gt; hahahahah: void Volume::protectFromAutorunStupidity()</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;coolya&gt; olol</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;coolya&gt; best line in logcat Vold (The revange) fired up :-D</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;techmik67&gt; too snarky? <a href="http://forum.xda-developers.com/showpost.php?p=12226970&amp;postcount=3279">http://forum.xda-developers.com/showpost.php?p=12226970&amp;postcount=3279</a></span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;coolya&gt; techmik67: nope totally fine</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;techmik67&gt; lol, thx</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;evaluate&gt; coolya, btw, since we have the pit file sources, couldn't we create some heimdall flashable files together with a pit? Just curios...</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;coolya&gt; bootloader does not use mtd</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;coolya&gt; why should we use heimdall? we can't backup gapps with heimdall and restore them after flashing</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;evaluate&gt; I was thinking of it for the initial flash. I'd guess it would be much easier than the current method...</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;Unhelpful&gt; ubifs would *possibly* be odin-flashable if we could have a "raw" partition type in pit, but ubi worked great until my phone ran low on memory, and then all of my filesystems were read-only and corrupted. ;)</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;coolya&gt; as long as it is easier than flashing to htc all is fine</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;coolya&gt; total noobs can flash right now so i think it is easy enought :-D</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;Unhelpful&gt; great stuff, but basically there's a bit in the UBI layer that allocates a buffer for manipulating the data-to-write, and if that fails, well, big big fail :/</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;coolya&gt; maybe we should make it more complicated</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;coolya&gt; i liked ubi on the n900</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;coolya&gt; but the garbage collection is sometime strange</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;evaluate&gt; I didn't mean easy as in 'easy/hard', I was rather referring to easy as in fast</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: can we make the complications secretly unnecessary?  ie tell everybody they *really do* need to smear fresh chicken blood under the battery before installing?</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;coolya&gt; yeah and don't forget the salt on all windows and doors</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;techmik67&gt; salt on windows and doors? demons coming?</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: like i said, the *only* problem i really saw was the memory pressure issue. when i found mail-list threads on it from multiple years ago, with proposed solutions, still unimplemented, i gave the hell up on it.</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-brick">* Unhelpful rather likes the idea in some east asian cultures that demons can only travel in straight lines, so that zig-zag entryways, bridges, etc, will stop them.</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;coolya&gt; techmik67: maybe some korean dragon will sue you for flashing open source on it :-D</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;Unhelpful&gt; and theyr *attractive* as well as functional ;)</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;techmik67&gt; =))</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;Unhelpful&gt; speaking of demons, time to play okamiden in the bath :)</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;Unhelpful&gt; original game is better. this one is still good, though.</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-brick">* Unhelpful is still on-and-off banging on geomagneticd</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;Unhelpful&gt; i think it doesn't do a great job. otoh i don't know how to do what it does either. :)</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;Unhelpful&gt; the only literature i can find on bias-calibrating magnetic sensors basically says exclude any magnetic fields, take a reading, that's the bias. that's not at all practical.</span><br />
