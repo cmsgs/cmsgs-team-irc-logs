@@ -686,3 +686,108 @@
 <span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; very busy at work.</span><br />
 <span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; so can't really look right now</span><br />
 <span class="irc-date">[20:58]</span> <span class="irc-black">&lt;coolya&gt; ok</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;Wout`&gt; damn, 2.2.1 is laggy as hell compared to CM7, even with ext4</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; does it work if you have them plugged in when you boot your phone coolya?</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;coolya&gt; nope doesn't detect the headset at all then</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-navy">* mersault (~mersault@acihip.tor4.dsl4u.ca) Quit (Quit: mersault)</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the froyo sec_jack.c is very screwey in the T959 source</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;coolya&gt; yep ifdef hell</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and ifndef you lucky dog</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; static int jack_type_detect_change(struct work_struct *ignored)</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; static int jack_type_detect_change(struct work_struct *ignored)</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; frick'n copy and paste you stupid machine</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; #ifndef CONFIG_S5PC110_T959_BOARD	  		</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 		        gpio_set_value(GPIO_EARPATH_SEL,1);// [hdlnc_2010-11-19]</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 		#endif</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so, for some reason that doesn't get sent on a vanilla T959</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;nitam|work&gt; that's an ndef</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;nitam|work&gt; dont' set it :)</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;nitam|work&gt; not there anyway</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;nitam|work&gt; I think detection is just the micbias stuff</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; all the wm8994 stuff is the same...oh interesting HAWK and the PLUS add the HAC and ttymisc objects</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; arch/arm/mach-s5pv210/include/mach/gpio-aries-setting.h is messy</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;coolya&gt; Samsung code == the mess</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-navy">* ytt3r (~evan@adsl-88-54-244.asm.bellsouth.net) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah but there are a few PULL_NONE that become PULL_DOWN in there</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;evaluate&gt; coolya, is there any reason we didn't upgrade the kernel to 2.6.35.11 yet?</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;evaluate&gt; just curios...</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-brick">* Wout` prays that samsung opensources everything with the GB release</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;evaluate&gt; I made a diff between 35.7 and 35.11 and applied it to our code and there were only 4 rejects. If I can manage to fix those I'll test it on my device and I can then push it if you want to have a look at it...</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;coolya&gt; i don't see a point doing it</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;coolya&gt; would only cause trouble</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;coolya&gt; as we are moving away from upstream</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;evaluate&gt; well, since .11 is a longterm version I'd guess it brings in a lot of bugfixes...</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;nitam|work&gt; where did you get the 35.11 from?</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;evaluate&gt; kernel.org? lol</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;nitam|work&gt; ok, then that is just going to be trouble.</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-green">* kang (~kang@rsbac/developer/kang) has joined this channel.</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;evaluate&gt; why's that?</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;nitam|work&gt; samsung diverges</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;coolya&gt; because that would be moving away from google upstream</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;evaluate&gt; like I said, it appled everything just fine except for 4 things, which don't seem very hard to fix</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;coolya&gt; an cause the hell out off merge hell if there are changes from upstream</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;nitam|work&gt; oh, did you use android.kernel.org?</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;coolya&gt; samsung kernel upstream is still .7</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;evaluate&gt; no, I have taken the linux kernel (the 'normal' one), both versions, 35.7 and 35.11, then did a diff between them and then applied that to our code with git apply</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; the two kernels aren't the same - they've diverged.</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;evaluate&gt; and I only have 4 .rej files with just a couple of rejects, which don't seem hard to apply (it seems these were either changes made by the cmsgsteam or by android/CM)</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, well, if they aren't the same, how did it apply (almost) everything perfectly?</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; I'm surprised - they weren't always that way</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;coolya&gt; why apply that ?</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;evaluate&gt; coolya, like I said, 35.11 is regarded as longterm support version, so it has a lot of bugfixes</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;evaluate&gt; let me try to wead out the rejects and see if it even works before we continue this, it might not even work :-p</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;nitam|work&gt; just for the hell of it, try doing a diff between android.kernel.org kernel 2.6.35 and what you have</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;nitam|work&gt; its all a mess.</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-navy">* codeworkx (~codeworkx@95-88-156-238-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;nitam|work&gt; coolya: <a href="http://android.git.kernel.org/?p=kernel/common.git;a=commit;h=6ce9cbeef4cb7074beffbd5652b0943c8aec1246">http://android.git.kernel.org/?p=kernel/common.git;a=commit;h=6ce9cbeef4cb7074beffbd5652b0943c8aec1246</a></span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, I know, but if you do a diff between two kernel versions and then apply that patch to your kernel (and ignore the changes in non-existant files) you'll be pretty fine...</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-green">* ciwrl is now known as ciwrl|bbl</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-green">* ytt3r (~evan@adsl-88-93-234.asm.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;coolya&gt; mnita|work:  pulled that about an hour ago</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;nitam|work&gt; k</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;nitam|work&gt; guess you went thru the others too :)</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;coolya&gt; its the only we were missig :-)</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;nitam|work&gt; that's good - maybe help the battery some</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;nitam|work&gt; evaluate keep at it.</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, sorry, I don't understand what you mean...</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;nitam|work&gt; I'm telling you to go for it - hopefully you'll be able to merge it sometime when we get the next drop</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; *if* samsung has moved with it. otherwise, oh well.</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;coolya&gt; branch ic</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;coolya&gt; branch it</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;evaluate&gt; yup, did a branch</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;evaluate&gt; first reject fixed, 3 more to go :-p</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;stickpin&gt; evening all...</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;stickpin&gt; had a really busy day... :\</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;coolya&gt; evaluate: if you are bored fix teh fm app :-P</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;evaluate&gt; coolya, let me finish this first...</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, or just finish the additionalmounts and removablemounts thing first</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;nitam|work&gt; and the settings app.</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;nitam|work&gt; or did you just ignore what they asked?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Wout`&gt; evaluate: and while you're at it, fix camera and ril plz :P</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful did some stuff</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;techmik67&gt; on sttings</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;techmik67&gt; settings</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, I already submited a second patch in the morning that doesn't use removablemounts anymore</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;evaluate&gt; so they now have the choice</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;Kaik541&gt; mnita|work, since we're going back to additionalmounts instead of removeablemounts, should we revert that on the github as well?</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; Kaik541: since we only got it from upstream, we'll get it when it gets merged upstream</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; evaluate: what's the review</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; link</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-navy">* ytt3r (~evan@adsl-88-93-234.asm.bellsouth.net) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;evaluate&gt; mnita|work, <a href="http://review.cyanogenmod.com/3979">http://review.cyanogenmod.com/3979</a> and <a href="http://review.cyanogenmod.com/4130">http://review.cyanogenmod.com/4130</a></span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;evaluate&gt; ok, all 4 rejects fixed, not let's see if this builds...</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;nitam|work&gt; the settings app patch is separate from the additional/removable one, correct?</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;nitam|work&gt; the settings app would work with additionalmounts</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;nitam|work&gt; if that is what people have already</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;Kaik541&gt; yes</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;nitam|work&gt; they're independent is what I mean.</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;evaluate&gt; there are 2 patch sets for the settings app</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;evaluate&gt; the first patch set works with removablemounts and the second patch set works with additionalmounts</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;nitam|work&gt; the links you gave, one is to Settings and the other is to remove removable mounts</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;nitam|work&gt; is there another?</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;evaluate&gt; no, that's all</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;nitam|work&gt; ok, so the last patchset - that is most applicable just works with additionalmounts, correct?</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;evaluate&gt; yu[</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;nitam|work&gt; ok.</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;evaluate&gt; yup*</span><br />
