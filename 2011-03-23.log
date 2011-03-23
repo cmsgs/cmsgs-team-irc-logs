@@ -365,3 +365,60 @@
 <span class="irc-date">[10:48]</span> <span class="irc-black">&lt;evaluate&gt; yeah</span><br />
 <span class="irc-date">[10:48]</span> <span class="irc-black">&lt;evaluate&gt; and revert of adding removablemounts to the framework</span><br />
 <span class="irc-date">[10:59]</span> <span class="irc-black">&lt;evaluate&gt; wow</span><br />
+<span class="irc-date">[11:00]</span> <span class="irc-black">&lt;evaluate&gt; I managed to push both patches even though I got some errors and had to do some weird shit, I'm getting pretty good at git :-p</span><br />
+<span class="irc-date">[11:01]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://r.cyanogenmod.com/#change,4129">http://r.cyanogenmod.com/#change,4129</a> ?</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;Kaik541&gt; oh nvm</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;evaluate&gt; Yeah, yeah, I've abandoned it already...</span><br />
+<span class="irc-date">[11:03]</span> <span class="irc-black">&lt;evaluate&gt; not exactly sure what happened there, it got uploaded when I uploaded the framework change...</span><br />
+<span class="irc-date">[11:04]</span> <span class="irc-black">&lt;Kaik541&gt; it's the "depends on" bit</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;evaluate&gt; do I need to rebase it since I abandoned that patch?</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;evaluate&gt; or can I leave it like that</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;evaluate&gt; ?</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;evaluate&gt; I'm a bit confused right now...</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;Kaik541&gt; it's gone from the main page it seems</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;evaluate&gt; guess I'll just leave it like it is and see what happens</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://r.cyanogenmod.com/#change,4130">http://r.cyanogenmod.com/#change,4130</a> &lt;--- but this change has a section that says "depends on"</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;Kaik541&gt; which for some reason points to the abandoned ID, and not the merged one</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;evaluate&gt; yeah, that's what I was wondering...</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;evaluate&gt; Guess I'm still failing hard at git...</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;Unhelpful&gt; you know you can update the contents of a change, yah? ;P</span><br />
+<span class="irc-date">[11:21]</span> <span class="irc-black">&lt;evaluate&gt; what do you mean?</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;Kaik541&gt; you can probably remove the reference/depends on line via the site</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;evaluate&gt; let's see</span><br />
+<span class="irc-date">[11:25]</span> <span class="irc-black">&lt;evaluate&gt; I fail to see how I could do that...</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: you need to change edit it locally and push it :)</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;evaluate&gt; well, what exactly do I need to change locally?</span><br />
+<span class="irc-date">[11:28]</span> <span class="irc-black">&lt;Unhelpful&gt; whatever you want to change on the site.</span><br />
+<span class="irc-date">[11:28]</span> <span class="irc-black">&lt;evaluate&gt; should I rebase it and remove the dependency on that merge?</span><br />
+<span class="irc-date">[11:29]</span> <span class="irc-black">&lt;Unhelpful&gt; if you only want to change the commit message / description, git commit --amend will work</span><br />
+<span class="irc-date">[11:31]</span> <span class="irc-black">&lt;Unhelpful&gt; i thought 4129, or something like it, was already merged?</span><br />
+<span class="irc-date">[11:31]</span> <span class="irc-black">&lt;evaluate&gt; yeah, I don't know why it appears locally for me</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;evaluate&gt; is there any way to resync my git repo so it looks exactly like the upstream one?</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;evaluate&gt; without all the garbage in git log</span><br />
+<span class="irc-date">[11:33]</span> <span class="irc-black">&lt;Unhelpful&gt; tbh? at this point it might be easiest to create a new tracking branch for upstream, and then just cherry-pick to it</span><br />
+<span class="irc-date">[11:34]</span> <span class="irc-black">&lt;evaluate&gt; you think there would be any problems if I just leave it like it is?</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't know... gerrit added that "depends on" for you?</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;evaluate&gt; yeah</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm. i have no idea why. :/</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;evaluate&gt; I have that 'commit' locally too, but it's the same as mine</span><br />
+<span class="irc-date">[11:36]</span> <span class="irc-black">&lt;evaluate&gt; with mine I mean the changes that I have pushed to gerrit the first time around</span><br />
+<span class="irc-date">[11:36]</span> <span class="irc-black">&lt;evaluate&gt; bah</span><br />
+<span class="irc-date">[11:37]</span> <span class="irc-black">&lt;evaluate&gt; I'll just leave it like it is, and if it doesn't work I'll just redownload the whole git repo and redo the patch</span><br />
+<span class="irc-date">[11:37]</span> <span class="irc-black">&lt;evaluate&gt; guess I should've removed the local branch after submiting the patch, that probably would've got rid of these problems...</span><br />
+<span class="irc-date">[11:38]</span> <span class="irc-navy">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[11:39]</span> <span class="irc-black">&lt;Unhelpful&gt; you'd really think if it's supposed to be clever enough to see if changes it tracks are in your history, and create a dependency, that it ought to see if the change was merged.</span><br />
+<span class="irc-date">[11:41]</span> <span class="irc-black">&lt;Kaik541&gt; I think it does</span><br />
+<span class="irc-date">[11:41]</span> <span class="irc-black">&lt;Kaik541&gt; the problem is, he has a change that wasn't merged</span><br />
+<span class="irc-date">[11:41]</span> <span class="irc-black">&lt;evaluate&gt; I don't</span><br />
+<span class="irc-date">[11:41]</span> <span class="irc-black">&lt;Kaik541&gt; the depends on is pointing to the "abandoned" one, not the one that was merged</span><br />
+<span class="irc-date">[11:41]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.24.208.adsl.012.net.il) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[11:41]</span> <span class="irc-black">&lt;evaluate&gt; they are the same, that's why the "abandoned" one is empty</span><br />
+<span class="irc-date">[11:41]</span> <span class="irc-black">&lt;Kaik541&gt; then</span><br />
+<span class="irc-date">[11:41]</span> <span class="irc-black">&lt;Kaik541&gt; that's very strange</span><br />
+<span class="irc-date">[11:41]</span> <span class="irc-black">&lt;Kaik541&gt; my bad</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;Unhelpful&gt; i suggest you checkout --track &lt;upstream&gt; -b &lt;workingname&gt; ,cherry-pick the revert to that, and then push it to refs/changes/4130 (or use cmgerrit changes 4130)</span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;evaluate&gt; <a href="http://www.google.com/blank.html">http://www.google.com/blank.html</a></span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;Unhelpful&gt; i *hope* that would work :/</span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;evaluate&gt; ever had that happen^ ?</span><br />
+<span class="irc-date">[11:52]</span> <span class="irc-black">&lt;evaluate&gt; lolol: <a href="http://bash.org/?926329">http://bash.org/?926329</a></span><br />
