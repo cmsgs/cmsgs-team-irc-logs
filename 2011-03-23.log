@@ -91,3 +91,22 @@
 <span class="irc-date">[5:40]</span> <span class="irc-brick">* Unhelpful hugs his SB i7 ;)</span><br />
 <span class="irc-date">[5:53]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[5:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; been a while since i was booted into windows on this laptop =)</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[6:04]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok, i have a socket S1 (638) package processor</span><br />
+<span class="irc-date">[6:16]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-green">* evaluate (~cristi@unaffiliated/evaluate) has joined this channel.</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;evaluate&gt; morning</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: &lt;Unhelpful&gt; hokay: you need <a href="https://github.com/atinm/android_packages_apps_Settings/tree/sdcard_test">https://github.com/atinm/android_packages_apps_Settings/tree/sdcard_test</a> and <a href="https://github.com/Unhelpful/android_system_vold/tree/sdcard_test">https://github.com/Unhelpful/android_system_vold/tree/sdcard_test</a> and you also need to set ro.removablemounts=/mnt/sdcard/external_sd and make the external sd mountpoint /mnt/sdcard/external_sd in /system/etc/vold.fstab  :)</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;Unhelpful&gt; from a while ago. ;)</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;evaluate&gt; ok, I have just a bit of work to do and then I'll take a look at it.</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;uberushaximus&gt; <a href="http://www.youtube.com/watch?v=rTUwqxHpXMY">http://www.youtube.com/watch?v=rTUwqxHpXMY</a></span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;Unhelpful&gt; it would be nice not to rely on the vold.fstab entries being pre-sorted, but fixing that will be inconvenient - probably the easiest way is to add an insort method to android::List and use that instead of push_back</span><br />
+<span class="irc-date">[6:36]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-black">&lt;evaluate&gt; ok, let me have a look at this. as far as I can see, there are no changes to the settings app, right?</span><br />
+<span class="irc-date">[6:45]</span> <span class="irc-black">&lt;Unhelpful&gt; no new ones, no :)</span><br />
+<span class="irc-date">[6:48]</span> <span class="irc-black">&lt;evaluate&gt; good. let me build this so I can see what's going on</span><br />
+<span class="irc-date">[6:50]</span> <span class="irc-black">&lt;Unhelpful&gt; it's not too exciting. if you mount external at /mnt/sdcard/external_sd, it will be unmounted before internal is, and internal will be mounted before external is.</span><br />
+<span class="irc-date">[6:52]</span> <span class="irc-black">&lt;evaluate&gt; but you said there's an error, right?</span><br />
+<span class="irc-date">[6:53]</span> <span class="irc-black">&lt;evaluate&gt; or did you manage to fix it?</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-black">&lt;Unhelpful&gt; everything's fine now, as far as i can tell. storage menu still seems to lag behind actual state sometimes, though.</span><br />
