@@ -638,3 +638,51 @@
 <span class="irc-date">[19:38]</span> <span class="irc-green">* ciwrl is now known as ciwrl|food</span><br />
 <span class="irc-date">[19:56]</span> <span class="irc-black">&lt;uberushaximus&gt; <a href="https://github.com/kangsterizer/android_kernel_samsung/commit/b691ec71d022a3766af4a48003d177a458be94c4">https://github.com/kangsterizer/android_kernel_samsung/commit/b691ec71d022a3766af4a48003d177a458be94c4</a></span><br />
 <span class="irc-date">[19:57]</span> <span class="irc-black">&lt;coolya&gt; uberushaximus: swa that an pulled it into my local branch from upstream</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-navy">* designfears (~jayp@32.150.251.197) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-green">* ciwrl|food is now known as ciwrl</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gaaahhhhh Should I be pissed at Apple for having an OS that falls over when you have two files with the same name separated by case or should I be mad at the idiots who did it in  netfilter</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-green">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Kolja Dummann * 7c6de79 (2 files in 1 dirs): Merge branch 'android-samsung-2.6.35' of <a href="http://android.git.kernel.org/kernel/samsung">http://android.git.kernel.org/kernel/samsung</a> into android-samsung-2.6.35 - <a href="http://bit.ly/gqWsTO">http://bit.ly/gqWsTO</a></span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: headset don't seem to work</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;evaluate&gt; we're currently using 2.6.35.7, right?</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;coolya&gt; jep</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;uberushaximus&gt; is there an easy way to build just kernel?</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;techmik67&gt; ./build.sh captivate kernel</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;evaluate&gt; ./build.sh DEVICENAME kernel</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;uberushaximus&gt; hot, thanks</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;nitam|work&gt; coolya: what does it show for headset?</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;nitam|work&gt; still 2?</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;nitam|work&gt; frick.</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;nitam|work&gt; I need a vibrant to be able to really figure it out</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; the idea is, we have to enable ear_micbais_en, and micbias_en</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; and then we can read the adc</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; and if it comes back within a range that seems to depend on the phone, it is either a 4 pole or 3 pole</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; so I guess, one thing you could do is put a debug statement in to see what adc it read</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; lemme see</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;nitam|work&gt; near the top of mach-aries.c</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;nitam|work&gt; there is a commented out #undef pr_debug, #define pr_debug pr_info</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;nitam|work&gt; uncomment, compile and run</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;coolya&gt; k</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;nitam|work&gt; oh also in sec_jack.c</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;nitam|work&gt; same thing, uncomment</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;nitam|work&gt; there will be lots of debug</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;nitam|work&gt; it should tell you when it sees a mic inserted, and what adc it read and what it decided it was.</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;nitam|work&gt; that should tell us where to look</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;nitam|work&gt; I saw that the adc table was slightly different on vibrant</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;nitam|work&gt; so maybe it is just that</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;nitam|work&gt; hopefully</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; its 3250 vs 3300</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;nitam|work&gt; well, lets see what the adc value comes back as. the biggest problem is just reading the darn thing.</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;nitam|work&gt; because the correct gpio needs to get enabled.</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;coolya&gt; its zero</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;coolya&gt; looks like we missed some gpio</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;coolya&gt; i will play around with them a bit</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; ok, look in the froyo code . . . its what I'm doing.</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; the biggest thing was just putting the debug statements in :)</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; very busy at work.</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; so can't really look right now</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;coolya&gt; ok</span><br />
