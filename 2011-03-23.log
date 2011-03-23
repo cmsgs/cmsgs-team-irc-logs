@@ -185,3 +185,55 @@
 <span class="irc-date">[7:59]</span> <span class="irc-navy">* birdman (~Steven@124.sub-75-201-246.myvzw.com) Quit (Ping timeout: 255 seconds)</span><br />
 <span class="irc-date">[7:59]</span> <span class="irc-black">&lt;Unhelpful&gt; and i don't think it was wise to *do* it that way... but i'm curious as to what the drive was.</span><br />
 <span class="irc-date">[7:59]</span> <span class="irc-black">&lt;Unhelpful&gt; i can tell you exactly what changing it would imply, that system could read files on the sdcard. :)</span><br />
+<span class="irc-date">[8:03]</span> <span class="irc-black">&lt;Unhelpful&gt; ah! i think i've found why!</span><br />
+<span class="irc-date">[8:03]</span> <span class="irc-black">&lt;Unhelpful&gt; <a href="http://android.bigresource.com/Track/android-YfvGLH39z/">http://android.bigresource.com/Track/android-YfvGLH39z/</a></span><br />
+<span class="irc-date">[8:04]</span> <span class="irc-black">&lt;Unhelpful&gt; it would seem we could resolve this by granting only browse and not read. system processes would still not be able to hold fds on sdcard.</span><br />
+<span class="irc-date">[8:07]</span> <span class="irc-black">&lt;evaluate&gt; ok, do you know where the permissions are stored?</span><br />
+<span class="irc-date">[8:07]</span> <span class="irc-black">&lt;Unhelpful&gt; ...Volume.cpp ;)</span><br />
+<span class="irc-date">[8:08]</span> <span class="irc-black">&lt;Unhelpful&gt; we could also ask somebody w/ a stock ROM.</span><br />
+<span class="irc-date">[8:09]</span> <span class="irc-black">&lt;evaluate&gt; well, do you know anyone with a stock rom? I don't... :-p</span><br />
+<span class="irc-date">[8:10]</span> <span class="irc-black">&lt;Unhelpful&gt; change the "0702" in the call to Fat::doMount in Volume.cpp to 0602. this will grant only browse permissions to system. just pushed the new vold and remounted, perms are changed and i get space info again.</span><br />
+<span class="irc-date">[8:11]</span> <span class="irc-black">&lt;evaluate&gt; you mean line 377 in Volume.cpp, right?</span><br />
+<span class="irc-date">[8:12]</span> <span class="irc-black">&lt;Unhelpful&gt; ayup.</span><br />
+<span class="irc-date">[8:13]</span> <span class="irc-black">&lt;Unhelpful&gt; a filesystem insid a filesystem... &lt;insert pun on "inception" here&gt;</span><br />
+<span class="irc-date">[8:14]</span> <span class="irc-black">&lt;evaluate&gt; lol</span><br />
+<span class="irc-date">[8:14]</span> <span class="irc-black">&lt;evaluate&gt; if the first FS 'dies', the second gets trapped in limbo</span><br />
+<span class="irc-date">[8:16]</span> <span class="irc-black">&lt;evaluate&gt; ok, this looks good to me, I'd say you can make a test version and put it up on xda so we get some more feedback...</span><br />
+<span class="irc-date">[8:17]</span> <span class="irc-black">&lt;evaluate&gt; not sure if this will get accepted in upstream though...</span><br />
+<span class="irc-date">[8:19]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah. i wonder what a "proper" solution would be. :/</span><br />
+<span class="irc-date">[8:20]</span> <span class="irc-black">&lt;evaluate&gt; well, since we have to think about the future, and since in the future devices have more than 2 cards actually, I'd say a proper solution would be to 'teach' each app to work with ro.additionalmounts and ro.removablemounts, since those can hold multiple devices...</span><br />
+<span class="irc-date">[8:21]</span> <span class="irc-black">&lt;Unhelpful&gt; probably, yes.</span><br />
+<span class="irc-date">[8:21]</span> <span class="irc-black">&lt;evaluate&gt; I'd even eliminate EXTERNAL_STORAGE for good</span><br />
+<span class="irc-date">[8:22]</span> <span class="irc-black">&lt;evaluate&gt; and make apps work ONLY with ro.additionalmounts and ro.removablemounts</span><br />
+<span class="irc-date">[8:23]</span> <span class="irc-black">&lt;evaluate&gt; and then make the apps that are only interested in the 'primary' storage device read the first mountpoint in ro.additionalmounts or ro.removablemounts</span><br />
+<span class="irc-date">[8:23]</span> <span class="irc-black">&lt;evaluate&gt; this would give them much more power and make everything much easier</span><br />
+<span class="irc-date">[8:23]</span> <span class="irc-black">&lt;evaluate&gt; you would just have to put all devices in the appropriate flag and make sure that the one that you consider as being the primary storage is in the first place</span><br />
+<span class="irc-date">[8:24]</span> <span class="irc-black">&lt;evaluate&gt; and you're all sorted, no more awkward EXTERNAL_STORAGE and PHONE_STORAGE variables that either don't get read or are totally misleading</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;Unhelpful&gt; i still don't see any reason to have *two* properties.</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;evaluate&gt; I thought of the tablets for example</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;evaluate&gt; I'd guess they might come with internal hard drives for example</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;Unhelpful&gt; ...i don't follow.</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, I think that's what they said too... they want evaluate to expand additional mounts, not add a "removeable mounts" option</span><br />
+<span class="irc-date">[8:26]</span> <span class="irc-black">&lt;Kaik541&gt; they = review people</span><br />
+<span class="irc-date">[8:27]</span> <span class="irc-black">&lt;Unhelpful&gt; internal hard drive is different from internal SD how?</span><br />
+<span class="irc-date">[8:27]</span> <span class="irc-black">&lt;evaluate&gt; and you probably wouldn't want to unmount/format those, since they might contain important data or some stuff...</span><br />
+<span class="irc-date">[8:27]</span> <span class="irc-black">&lt;Kaik541&gt; it's just like unmounting /formatting our internal sd =/</span><br />
+<span class="irc-date">[8:27]</span> <span class="irc-black">&lt;Kaik541&gt; they'd keep a proteted partition the end user (without root) can't modify</span><br />
+<span class="irc-date">[8:28]</span> <span class="irc-black">&lt;Unhelpful&gt; why, any app w/ sdcard write could wipe the contents, anyway.</span><br />
+<span class="irc-date">[8:29]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure how to explain it. I thought there might be devices that have internal storage that isn't a system storage (the reason why it gets put under ro.additionalmounts) yet still contains important data, so that you can't unmount/format it</span><br />
+<span class="irc-date">[8:29]</span> <span class="irc-black">&lt;evaluate&gt; maybe I'm just talking bullshit here...</span><br />
+<span class="irc-date">[8:30]</span> <span class="irc-black">&lt;Kaik541&gt; I feel like that's a very specific/rare implentation</span><br />
+<span class="irc-date">[8:30]</span> <span class="irc-black">&lt;Kaik541&gt; and if it ever crops up, they can "fix" it :P</span><br />
+<span class="irc-date">[8:30]</span> <span class="irc-black">&lt;Unhelpful&gt; i think *if* that ever happens somebody can worry about it then.</span><br />
+<span class="irc-date">[8:31]</span> <span class="irc-black">&lt;Unhelpful&gt; and if it's never supposed to unmount or formate i would just mount it in init.rc and not tell vold it exists. ;)</span><br />
+<span class="irc-date">[8:32]</span> <span class="irc-black">&lt;Unhelpful&gt; if anybody ever answered questions on cyanogenmod-dev we could ask ;)</span><br />
+<span class="irc-date">[8:34]</span> <span class="irc-black">&lt;evaluate&gt; yeah, I think I'll just wait to see what they say on the patch review and then we can work from there</span><br />
+<span class="irc-date">[8:38]</span> <span class="irc-black">&lt;Kaik541&gt; if they ever answer &gt;_&lt;</span><br />
+<span class="irc-date">[8:38]</span> <span class="irc-black">&lt;Kaik541&gt; actually</span><br />
+<span class="irc-date">[8:38]</span> <span class="irc-black">&lt;Kaik541&gt; based on what he said, it sounds exactly like he wants you to use additional mounts</span><br />
+<span class="irc-date">[8:38]</span> <span class="irc-black">&lt;Kaik541&gt; My point was that additionalmounts are already *able* to be unmounted, as they are for UMS - the system does not depend on them always being mounted.</span><br />
+<span class="irc-date">[8:45]</span> <span class="irc-black">&lt;evaluate&gt; Well, I'd just like to hear that from a dev that can make such decisions</span><br />
+<span class="irc-date">[8:46]</span> <span class="irc-black">&lt;evaluate&gt; I wouldn't want to work on a second patch that applies the options to additionalmounts just to hear afterwards that they would've preffered removablemounts...</span><br />
+<span class="irc-date">[8:46]</span> <span class="irc-black">&lt;evaluate&gt; preferred*</span><br />
+<span class="irc-date">[8:52]</span> <span class="irc-green">* birdman (~Steven@124.sub-75-201-246.myvzw.com) has joined this channel.</span><br />
+<span class="irc-date">[8:59]</span> <span class="irc-black">&lt;evaluate&gt; I think we will need to modify vold in the future so that it is able to use a normal linux fstab file, and so that it can mount all partitions on a device, not just the first one...</span><br />
