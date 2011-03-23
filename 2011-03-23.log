@@ -237,3 +237,48 @@
 <span class="irc-date">[8:46]</span> <span class="irc-black">&lt;evaluate&gt; preferred*</span><br />
 <span class="irc-date">[8:52]</span> <span class="irc-green">* birdman (~Steven@124.sub-75-201-246.myvzw.com) has joined this channel.</span><br />
 <span class="irc-date">[8:59]</span> <span class="irc-black">&lt;evaluate&gt; I think we will need to modify vold in the future so that it is able to use a normal linux fstab file, and so that it can mount all partitions on a device, not just the first one...</span><br />
+<span class="irc-date">[9:01]</span> <span class="irc-black">&lt;evaluate&gt; I mean, only mounting the first partition on a device is pretty dumb...</span><br />
+<span class="irc-date">[9:04]</span> <span class="irc-black">&lt;evaluate&gt; actually, I don't even think you need a different fstab file for that. You could make it create mountpoints on the fly, as in, if the current device is labeled as 'emmc' in the fstab, you mount its first partition to /mnt/emmc and then all consecutive partitions on mountpoints that you create on the fly based on the partition naumber, i.e. partition2 -&gt; /mnt/emmc1, partition3 -&gt; /mnt/emmc2, etc</span><br />
+<span class="irc-date">[9:08]</span> <span class="irc-navy">* birdman (~Steven@124.sub-75-201-246.myvzw.com) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[9:21]</span> <span class="irc-green">* birdman (~Steven@24.246.130.106) has joined this channel.</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;Unhelpful&gt; there, happy? <a href="http://review.cyanogenmod.com/#change,4127">http://review.cyanogenmod.com/#change,4127</a></span><br />
+<span class="irc-date">[9:30]</span> <span class="irc-black">&lt;Unhelpful&gt; ffs ridiculous assumptions about what commit messages mean.</span><br />
+<span class="irc-date">[9:39]</span> <span class="irc-black">&lt;evaluate&gt; what's that on line 353?</span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-black">&lt;Unhelpful&gt; that's... how is this even working?</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;Kaik541&gt; typo ftw</span><br />
+<span class="irc-date">[9:41]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, it's commented out.</span><br />
+<span class="irc-date">[9:42]</span> <span class="irc-black">&lt;Kaik541&gt; I was about to ask if # meant comment</span><br />
+<span class="irc-date">[9:42]</span> <span class="irc-black">&lt;evaluate&gt; yeah, it's commented out, but it misses the 'i' in 'ifeq', so I thought it may be a typo...</span><br />
+<span class="irc-date">[9:44]</span> <span class="irc-black">&lt;evaluate&gt; the other reason I thought it may be a typo was that I wondered why you would add that as a comment...</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;atinm|night&gt; I'd just take the commented stuff out</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;atinm|night&gt; they can see the diff</span><br />
+<span class="irc-date">[9:45]</span> <span class="irc-black">&lt;evaluate&gt; yeah, I don't think leaving old code in there commented would make much sense...</span><br />
+<span class="irc-date">[9:46]</span> <span class="irc-black">&lt;atinm|night&gt; just resubmit it. and then we bug them</span><br />
+<span class="irc-date">[9:46]</span> <span class="irc-black">&lt;atinm|night&gt; this one we want.</span><br />
+<span class="irc-date">[9:46]</span> <span class="irc-black">&lt;atinm|night&gt; badly.</span><br />
+<span class="irc-date">[9:48]</span> <span class="irc-black">&lt;atinm|night&gt; that was a good tweet :) - Your mobile phone has more computing power than all of NASA in 1969. NASA launched a man to the moon. We launch a bird into pigs.</span><br />
+<span class="irc-date">[9:49]</span> <span class="irc-black">&lt;Unhelpful&gt; better :D</span><br />
+<span class="irc-date">[9:49]</span> <span class="irc-black">&lt;Unhelpful&gt; <a href="http://review.cyanogenmod.com/#change,4127">http://review.cyanogenmod.com/#change,4127</a></span><br />
+<span class="irc-date">[9:50]</span> <span class="irc-black">&lt;atinm|night&gt; hrm, I'm still seeing the #feq</span><br />
+<span class="irc-date">[9:50]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|night: yes, i just pulled the changes to core/Makefile from our working repo and sent them. i *thought* i'd already done cleanup before it went to teamhacksung ;)</span><br />
+<span class="irc-date">[9:50]</span> <span class="irc-black">&lt;evaluate&gt; hmm, all 3 patch sets look the same to me...</span><br />
+<span class="irc-date">[9:50]</span> <span class="irc-black">&lt;atinm|night&gt; yes, good commit message.</span><br />
+<span class="irc-date">[9:51]</span> <span class="irc-black">&lt;atinm|night&gt; can you also take out the bad comment?</span><br />
+<span class="irc-date">[9:51]</span> <span class="irc-black">&lt;evaluate&gt; s/comment/comments/</span><br />
+<span class="irc-date">[9:52]</span> <span class="irc-black">&lt;atinm|night&gt; line 353 and 354</span><br />
+<span class="irc-date">[9:52]</span> <span class="irc-black">&lt;Unhelpful&gt; fixed :)</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-black">&lt;Kaik541&gt; it looks right to me</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-black">&lt;Unhelpful&gt; i *thought* i had that the first time, but i forgot to git rebase --continue to complete my interactive rebase</span><br />
+<span class="irc-date">[9:54]</span> <span class="irc-black">&lt;atinm|night&gt; awesome</span><br />
+<span class="irc-date">[9:55]</span> <span class="irc-black">&lt;evaluate&gt; +1'd</span><br />
+<span class="irc-date">[9:56]</span> <span class="irc-black">&lt;evaluate&gt; so, from what I've understood from coolya, after this and the settings stuff gets in, we can go mainline?</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|night: thoughts on the storage issue? i have a working vold, but there was a possibly-unwanted-upstream hack, system needs *at least* browse permissions on sdcard or else it can't even get free space on the deeper mounts.</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;atinm|night&gt; fuck.</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;atinm|night&gt; yeah, i was reading back and thinking "fuck".</span><br />
+<span class="irc-date">[9:57]</span> <span class="irc-black">&lt;atinm|night&gt; the whole point was nothing else should need changing . . .</span><br />
+<span class="irc-date">[9:58]</span> <span class="irc-black">&lt;Unhelpful&gt; alternately, i guess a setuid helper binary could return the data, or even just a struct statfs</span><br />
+<span class="irc-date">[9:58]</span> <span class="irc-black">&lt;atinm|night&gt; because otherwise the cleaner solution is to just extend ro.additionalmounts (which we've renamed ro.removablemounts now, a whole separate issue) capabilities. Apps that depend on EXTERNAL_STORAGE are screwed unless they learn to work with multiple mounts.</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;Unhelpful&gt; probably granting browse permissions is *better*.</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;evaluate&gt; even with nothing else changed, I still upstream wouldn't accept this as a solution. Like I said, the best solution might probably be to modify the apps to use the removablemounts and additionalmounts flags</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;evaluate&gt; but to also make the non-system apps use those, we would have to get these changes in AOSP</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; the only reason to go for this was it nothing else changed - because then we can say that apps that just use the AOSP external storage would be able to use multiple volumes.</span><br />
