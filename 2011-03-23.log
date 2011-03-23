@@ -282,3 +282,86 @@
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;evaluate&gt; even with nothing else changed, I still upstream wouldn't accept this as a solution. Like I said, the best solution might probably be to modify the apps to use the removablemounts and additionalmounts flags</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;evaluate&gt; but to also make the non-system apps use those, we would have to get these changes in AOSP</span><br />
 <span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; the only reason to go for this was it nothing else changed - because then we can say that apps that just use the AOSP external storage would be able to use multiple volumes.</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; and would get accepted.</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; since it "fits" the AOSP 3.0 model.</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;Unhelpful&gt; what do we actually *do* differently for removablemounts than for additionalmounts?</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; or at least we could argue about it.</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; just unmount and format</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; t</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; </span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; I</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; th</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; </span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, just the unmount/format options in settings</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; I think that should be one - just additionalmounts.</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;atinm|night&gt; no one else seems to mind.</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm|night&gt; and it means no change to settings.ap</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;evaluate&gt; well, some other people said that too, but I'd like to hear what the CM devs think about it before I change the patch</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm|night&gt; the guy who implemented ro.additionalmounts said it</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm|night&gt; you will not get anyone who knows more now</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;evaluate&gt; well, it actually means change to the settings app, since we need to add the additional options to additionalmounts</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm|night&gt; I think that is what Koush said too.</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-brick">* Unhelpful thinks just doing that might have better odds at acceptance upstream</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;atinm|night&gt; ok - it doesn't matter now because we have both upstream now because you jumped the gun.</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;evaluate&gt; you mean just change it so it uses additionalmounts?</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;atinm|night&gt; yeah, it would be easier - other phones won't need to change.</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;atinm|night&gt; t</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;atinm|night&gt; hat</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;atinm|night&gt;  </span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;evaluate&gt; atinm|night, well, the settings patch didn't get accepted yet</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;atinm|night&gt; that makes it easier. yes, the settings patch was when the other phone devs got interested.</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, and change settings to add the extra options in settings for ro.additionalmounts</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;atinm|night&gt; and asked why not one, because they didn't care what removablemounts did as it didn't affect them.</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;atinm|night&gt; but now it matters.</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;atinm|night&gt; I'd resubmit both patches at once. merge removable and additional into additional, and add the options to settings. submit as one.</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;evaluate&gt; ok, let's see if I still have that branch</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;atinm|night&gt; atinm still has it</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm|night&gt; unless you changed more stuff</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;evaluate&gt; atinm|night, there are also changes to the framework that need to be undone</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;evaluate&gt; the removablemounts stuff</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm|night&gt; yes, I'm saying just submit a new patch.</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;evaluate&gt; I'd really prefer if a dev could at least review it and tell me what to do</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm|night&gt; that "merges" functionality of additionalmounts and removablemounts into additionalmounts and adds options to Settings.</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm|night&gt; they did.</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;atinm|night&gt; they told you already. no one is more qualified than the guy who implemented it</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;evaluate&gt; well, the guy that reviewed it isn't a dev</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;atinm|night&gt; and koush questioned exactly the same thing.</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;evaluate&gt; really?</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;Unhelpful&gt; it's a shame nobody bothered to say before adding the frameworks change</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;atinm|night&gt; he said he implemented it and didn't add format and mount out of laziness.</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;atinm|night&gt; yes, most probably because so much stuff happens, people only pay attention when it touches them directly.</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;Unhelpful&gt; the frameworks changes i saw were what made me really wonder why we would have both</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;atinm|night&gt; removablemounts was easy to ignore because they don't use it.</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;atinm|night&gt; the whole thing, frameworks and settings change should have gone together, they'd have noticed then</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;atinm|night&gt; l</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;atinm|night&gt; ike</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Unhelpful&gt; i looked and thought, "why do this, they're the same"</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;atinm|night&gt; like they did when Settings change went in.</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;evaluate&gt; I can't do them together since they are 2 separate repos</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, that's really unfortunate</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;evaluate&gt; I have to submit 2 separate patches</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;atinm|night&gt; well, send them back to back.</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;evaluate&gt; ok, will try to do that now</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Unhelpful&gt; and part of my Big Gripe About Repo ;)</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;atinm|night&gt; just at the same time is the best you can tdo.</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm|night&gt; ok, off.</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm|night&gt; have to get ready for work. its like that's all I do.</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm|night&gt; :)</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm|night&gt; I code like 18 hours a day</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;Unhelpful&gt; he could push updates after both are in, referencing the other's change number in each description. ;)</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm|night&gt; I'm going to burn out and liver will decide screw this, did not sign up for this</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;atinm|night&gt; well, see you later.</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-navy">* atinm|night (~atin@unaffiliated/atinm) Quit (Quit: atinm|night)</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;Unhelpful&gt; l... livers *decide* things now? crap.</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;evaluate&gt; ok, patch modified, let's see if this works</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;Kaik541&gt; I guess it does if it can kill you</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-navy">* ciwrl|nap (~ciwrl@pool-173-79-20-76.washdc.fios.verizon.net) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-green">* ciwrl (~ciwrl@pool-173-79-48-102.washdc.fios.verizon.net) has joined this channel.</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;evaluate&gt; good, seems to work for me, now to push it</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;Kaik541&gt; push it real goo</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;Kaik541&gt; d</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: this is what, just settings support for format/unmount ro.additionalmounts?</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;evaluate&gt; yeah</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;evaluate&gt; and revert of adding removablemounts to the framework</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;evaluate&gt; wow</span><br />
