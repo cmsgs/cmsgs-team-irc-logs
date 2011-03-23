@@ -110,3 +110,78 @@
 <span class="irc-date">[6:52]</span> <span class="irc-black">&lt;evaluate&gt; but you said there's an error, right?</span><br />
 <span class="irc-date">[6:53]</span> <span class="irc-black">&lt;evaluate&gt; or did you manage to fix it?</span><br />
 <span class="irc-date">[6:55]</span> <span class="irc-black">&lt;Unhelpful&gt; everything's fine now, as far as i can tell. storage menu still seems to lag behind actual state sometimes, though.</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, btw, did you send your build system changes to CM?</span><br />
+<span class="irc-date">[7:02]</span> <span class="irc-black">&lt;Unhelpful&gt; the only gotcha right now is you can deliberately break it if you place deeper mountpoints ahead of shallower ones in vold.fstab. i think ordering volumes as they're read in should be *fairly* easy.</span><br />
+<span class="irc-date">[7:02]</span> <span class="irc-black">&lt;Unhelpful&gt; i didn't yet :/</span><br />
+<span class="irc-date">[7:02]</span> <span class="irc-black">&lt;evaluate&gt; what are you waiting for? :-p</span><br />
+<span class="irc-date">[7:03]</span> <span class="irc-black">&lt;Unhelpful&gt; time, mostly. :P</span><br />
+<span class="irc-date">[7:07]</span> <span class="irc-black">&lt;techmik_laptop&gt; thi slaptop wont even take a good cpu =(</span><br />
+<span class="irc-date">[7:11]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, <a href="http://pastebin.com/mF8gmPaY">http://pastebin.com/mF8gmPaY</a></span><br />
+<span class="irc-date">[7:11]</span> <span class="irc-black">&lt;evaluate&gt; it won't mount the external sd</span><br />
+<span class="irc-date">[7:12]</span> <span class="irc-black">&lt;evaluate&gt; actually, I think the problem might be with the settings app</span><br />
+<span class="irc-date">[7:13]</span> <span class="irc-black">&lt;Unhelpful&gt; if you set mDebug in Volume.cpp and VolumeManager.cpp to true, you'll get some more debug output</span><br />
+<span class="irc-date">[7:14]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't get any errors here :/</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;evaluate&gt; any idea where the 'statfs' prototype is defined?</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;evaluate&gt; I'd like to have a look at the errno 13 and what it means exactly...</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, btw, does it show total space and available space correctly for you in Settings -&gt; Storage?</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;Unhelpful&gt; it doesn't seem to... any idea why?</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;Unhelpful&gt; um, errno meanings aren't per-call :)</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;evaluate&gt; well, the settings app calls statfs to find out the total and available space on the card</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;evaluate&gt; and that call apparently fails</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;evaluate&gt; and what do you mean they aren't per call? Isn't there a table with like: 1 means the mountpoint isn't available, 2 means it isn't readable, 3 means etc. ?</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;Unhelpful&gt; erm, nope.</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;evaluate&gt; what does that 13 stand for then? :-p</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;Unhelpful&gt; you could find out fairly easily with strerror ;)</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;Unhelpful&gt; look in bionic/libc/include/sys/_errdefs.h</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-green">* stickpin (~stickpin@80.178.24.208.adsl.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[7:24]</span> <span class="irc-black">&lt;Unhelpful&gt; permission denied :(</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;Unhelpful&gt; the numbers have specific meanings, they're just not specific to any one library function. they're generic, so while they're not always *perfectly descriptive you can always use strerror to map them to hopefully-meaningful text errors</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-navy">* birdman (~Steven@24.246.130.106) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm, it certainly looks to me like both sdcards have the same permissions - this makes sense since iirc you said that mount options are hardcoded, and permissions for vfat are all in mount options.</span><br />
+<span class="irc-date">[7:28]</span> <span class="irc-black">&lt;evaluate&gt; yeah, you can see the permissions in Fat.cpp</span><br />
+<span class="irc-date">[7:28]</span> <span class="irc-black">&lt;evaluate&gt; Fat::mount I think it was</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;evaluate&gt; I don't have much experience with mountflags, but maybe you can spot if there's anything wrong with them</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;evaluate&gt; Fat::doMount actually...</span><br />
+<span class="irc-date">[7:31]</span> <span class="irc-black">&lt;evaluate&gt; actually, now that I look at it, the IDs and masks aren't hardcoded, they're passed to the mount function...</span><br />
+<span class="irc-date">[7:32]</span> <span class="irc-black">&lt;Unhelpful&gt; interesting. mine both have the same IDs, though.</span><br />
+<span class="irc-date">[7:33]</span> <span class="irc-black">&lt;evaluate&gt; I think that's normal, isn't it?</span><br />
+<span class="irc-date">[7:34]</span> <span class="irc-black">&lt;Unhelpful&gt; they ought to, the gid is used to limit access to apps with sdcard access permissions.</span><br />
+<span class="irc-date">[7:35]</span> <span class="irc-black">&lt;evaluate&gt; all masks seem to be set to '0702' on mine</span><br />
+<span class="irc-date">[7:35]</span> <span class="irc-black">&lt;Unhelpful&gt; right, FAT can't store unix permissions, they're set at mount.</span><br />
+<span class="irc-date">[7:37]</span> <span class="irc-black">&lt;Unhelpful&gt; viewing storage w/ extsd mounted gives me th same error. bah.</span><br />
+<span class="irc-date">[7:38]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;evaluate&gt; could it be that statfs is run as 'system' and since /mnt/sdcard/external_sd isn't world readable it can't access it?</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;evaluate&gt; although I see that /mnt/sdcard has the same permissions... :-\</span><br />
+<span class="irc-date">[7:40]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm not sure what permissions statfs actually needs - it's reading properties of the filesystem, not of any file.</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm, yes, actually, it might be the problem. :)</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-black">&lt;evaluate&gt; what exactly? The permissions?</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-green">* birdman (~Steven@124.sub-75-201-246.myvzw.com) has joined this channel.</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-black">&lt;Unhelpful&gt; yes. in a very funny way. :)</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-black">&lt;evaluate&gt; I'm not sure I understand...</span><br />
+<span class="irc-date">[7:44]</span> <span class="irc-black">&lt;Unhelpful&gt; it fails because it's *under* a directory for which system does not have search access.</span><br />
+<span class="irc-date">[7:44]</span> <span class="irc-black">&lt;Unhelpful&gt; per statfs man page: EACCES (statfs()) Search permission is denied for a component of the path prefix of path.  (See also path_resolution(7).)</span><br />
+<span class="irc-date">[7:45]</span> <span class="irc-black">&lt;evaluate&gt; so we need to mount /mnt/sdcard with another mask then?</span><br />
+<span class="irc-date">[7:45]</span> <span class="irc-black">&lt;evaluate&gt; Wouldn't that imply some security risks?</span><br />
+<span class="irc-date">[7:46]</span> <span class="irc-black">&lt;Unhelpful&gt; or use different permissions in things that need to call statfs.</span><br />
+<span class="irc-date">[7:47]</span> <span class="irc-black">&lt;evaluate&gt; wouldn't that be a lot of trouble? I'd guess many things would need access to statfs...</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-brick">* Unhelpful wonders how samsung dealt w/ this issue...</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-black">&lt;evaluate&gt; for example the camera, iirc it shows the number of photos you can still take until your memory is full, so somehow it needs to know the available space, I'd guess it does that through statfs</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-black">&lt;evaluate&gt; and there may be many more apps that need that</span><br />
+<span class="irc-date">[7:49]</span> <span class="irc-black">&lt;Unhelpful&gt; any app that actually reads/writes files in the sdcard should be fine, though.</span><br />
+<span class="irc-date">[7:49]</span> <span class="irc-black">&lt;Unhelpful&gt; the storage app is an odd exception because it *only* displays statistics.</span><br />
+<span class="irc-date">[7:49]</span> <span class="irc-black">&lt;evaluate&gt; yes, but the settings app looks awful :-p</span><br />
+<span class="irc-date">[7:50]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm, but, actually, sdcard and external_sd both have r-x for other - so *anything* should be able to read and list contents, you only need special perms for write.</span><br />
+<span class="irc-date">[7:50]</span> <span class="irc-black">&lt;Unhelpful&gt; wtf.</span><br />
+<span class="irc-date">[7:52]</span> <span class="irc-black">&lt;evaluate&gt; yeah, I typo'd, I meant to say 'user' readable. That means if statfs runs as 'system', it won't be able to access it, will it?</span><br />
+<span class="irc-date">[7:53]</span> <span class="irc-black">&lt;Unhelpful&gt; erm, but, that's the funny thing, shouldn't the other r-x perms suffice?</span><br />
+<span class="irc-date">[7:53]</span> <span class="irc-black">&lt;Unhelpful&gt; apparently not!</span><br />
+<span class="irc-date">[7:53]</span> <span class="irc-black">&lt;evaluate&gt; well, apparently not: <a href="http://pastebin.com/SCXR1zFf">http://pastebin.com/SCXR1zFf</a></span><br />
+<span class="irc-date">[7:54]</span> <span class="irc-black">&lt;evaluate&gt; if statfs runs as user 'system' that might be the problem...</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-black">&lt;evaluate&gt; too bad we don't have someone with a stock rom to see what the perms of /mnt/sdcard are, I'd be curios if they've set them to user readable...</span><br />
+<span class="irc-date">[7:58]</span> <span class="irc-black">&lt;Unhelpful&gt; i think it's very odd that *only* the system user would be denied read/browse access.</span><br />
+<span class="irc-date">[7:58]</span> <span class="irc-black">&lt;evaluate&gt; yeah, not sure what the reason is...</span><br />
+<span class="irc-date">[7:58]</span> <span class="irc-black">&lt;evaluate&gt; I don't think it would be wise to change that though...</span><br />
+<span class="irc-date">[7:59]</span> <span class="irc-black">&lt;evaluate&gt; at least not until we know what it implies...</span><br />
+<span class="irc-date">[7:59]</span> <span class="irc-navy">* birdman (~Steven@124.sub-75-201-246.myvzw.com) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[7:59]</span> <span class="irc-black">&lt;Unhelpful&gt; and i don't think it was wise to *do* it that way... but i'm curious as to what the drive was.</span><br />
+<span class="irc-date">[7:59]</span> <span class="irc-black">&lt;Unhelpful&gt; i can tell you exactly what changing it would imply, that system could read files on the sdcard. :)</span><br />
