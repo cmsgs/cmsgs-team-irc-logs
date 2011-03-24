@@ -1228,3 +1228,42 @@
 <span class="irc-date">[18:55]</span> <span class="irc-navy">* Wout|afk (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
 <span class="irc-date">[18:56]</span> <span class="irc-green">* birdman-laptop (~Steven@159.sub-75-225-106.myvzw.com) has joined this channel.</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-green">* wout (~wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;wout&gt; codeworkx, coolya|away or Unhelpful can one of you please update this topic? <a href="http://forum.cyanogenmod.com/topic/15513-all-models-cyanogenmod-7-developer-thread/">http://forum.cyanogenmod.com/topic/15513-all-models-cyanogenmod-7-developer-thread/</a></span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;wout&gt; with the current commands needed for building</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;nitam|work&gt; only codeworkx can fix that.</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;nitam|work&gt; but you can look at cmsgs.com</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-navy">* birdman-laptop (~Steven@159.sub-75-225-106.myvzw.com) Quit (Ping timeout: 248 seconds)</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;nitam|work&gt; it has the build instructions</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;wout&gt; k, thx</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;codeworkx&gt; wout: whats up?</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;wout&gt; nothing, mnita|work already pointed me to the correct instructions :)</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;codeworkx&gt; instructions on  <a href="http://forum.cyanogenmod.com/topic/15513-all-models-cyanogenmod-7-developer-thread/">http://forum.cyanogenmod.com/topic/15513-all-models-cyanogenmod-7-developer-thread/</a>  are good</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;wout&gt; but they're different from <a href="http://cmsgs.com/mediawiki/index.php?title=Building_and_Installing_Gingerbread_from_Source_galaxys">http://cmsgs.com/mediawiki/index.php?title=Building_and_Installing_Gingerbread_from_Source_galaxys</a></span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;wout&gt; I havent synced in a while, and now I'm getting "error: You have local changes to 'api/current.xml'; cannot switch branches.". Is there any way I can solve that without deleting and redownloading the entire source?</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;ohayden&gt; did you make changes to api/current.xml?</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;wout&gt; not that I know of</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;ohayden&gt; if you just want to ditch any changes then you should be able to do a git checkout HEAD -- api/current.xml</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;wout&gt; wout@Wout-Ubuntu:~/android/system$ git checkout HEAD -- api/current.xml</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;wout&gt; fatal: Not a git repository (or any of the parent directories): .git</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;ohayden&gt; cd ~/android/system/frameworks/base</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;ohayden&gt; then do a git status</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;ohayden&gt; and that should show you any changes it thinks have occured</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;wout&gt; thx, that did the trick</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;ohayden&gt; np</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;wout&gt; building, hope it works</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-navy">* DJNgoma (~DJNgoma@41-133-207-13.dsl.mweb.co.za) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-green">* neldar (~neldar@dsl23-88.pool.bitel.net) has joined this channel.</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;- *neldar* Bot Sentry eingeschalten:  Sie werden jetzt ignoriert!  Ihre Nachricht wird übermittelt wenn sie die folgenden Fragen innerhalb von 10 Minuten richtig beantworten:  How do you spell the result of ten div_ided by 2?</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;nitam|work&gt; wout: the instructions are actually the same (build.sh does it for you..)</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;nitam|work&gt; later.</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-green">* nitam|work (work@work.com) has left this channel.</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;gdanko&gt; How goes CM7 on SGS?</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-green">* ciwrl is now known as ciwrl|brb</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;kang&gt; 123</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;wout&gt; 456</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;designfears&gt; 789</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-green">* ciwrl|brb is now known as ciwrl</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;mersault&gt; abc</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;designfears&gt; Def</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;mersault&gt; only problem is we started at 1 not 0</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-green">* birdman (~Steven@24.246.130.106) has joined this channel.</span><br />
