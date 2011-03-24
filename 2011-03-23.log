@@ -973,3 +973,187 @@
 <span class="irc-date">[22:57]</span> <span class="irc-black">&lt;evaluate&gt; I don't think he has anything agains people that just fork and give proper credits</span><br />
 <span class="irc-date">[22:58]</span> <span class="irc-black">&lt;evaluate&gt; anyway, second thing was, since most people don't actually read the whole thread, but just the first post (or only go to the download site), we sometimes have to get some updates there before we submite the code, since we can't really test every possible case, and it usually helps weed out bugs if a bunch of users test it instead of 2-3</span><br />
 <span class="irc-date">[22:59]</span> <span class="irc-black">&lt;kang&gt; no worries</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;evaluate&gt; like the sd card changes, a lot of people complained the stuff was fucked up when codeworkx released that update that switched the SDs, that's why I decided to put up the second one without putting it to sourceforge</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;kang&gt; as long as its in source im happy</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;kang&gt; but once again, no big deal</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;evaluate&gt; and with big red warnings people actually knew what they were doing and knew it was risky</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;kang&gt; btw if you have a I9000</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;kang&gt; whats ur cypress firmware version^^</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;kang&gt; (dmesg|grep hardware)</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;evaluate&gt; you mean: 10-0020 ?</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;uberushaximus&gt; i897 is &lt;6&gt;[    3.204353] cypress_touchkey_driver 10-0020: cypress_touchkey_probe: hardware rev1 = 0xf8, rev2 = 0xcf</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;kang&gt; thats an i9000?</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;uberushaximus&gt; no i897</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;kang&gt; ha</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;evaluate&gt; and: hardware rev1 = 0xa9, rev2 = 0x3</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;kang&gt; they seem slightly diff from phone to phone</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;evaluate&gt; and this is a i9000</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;kang&gt; ok thx</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;kang&gt; yeah that's what i hate too</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;kang&gt; have*</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;kang&gt; then the detection for the back light is wrong in cm7</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-black">&lt;kang&gt; you don't notice it because its not used</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-black">&lt;evaluate&gt; you should be able to update it to latest with that feature in the stock rom (there a shortcode, can't remember it right now)</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-black">&lt;kang&gt; i have the same version as u do and never updated the fw, but i wondered</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-black">&lt;kang&gt; the thing is, the check for OLD_BACKLIGHT is wrong anyhow^^</span><br />
+<span class="irc-date">[23:04]</span> <span class="irc-black">&lt;kang&gt; i suspect all LEGACY touchkeys use OLD_BACKLIGHT but i'm not sure either - would make the check easier</span><br />
+<span class="irc-date">[23:04]</span> <span class="irc-black">&lt;kang&gt; its needed to turn off/on the backlight as you might expect</span><br />
+<span class="irc-date">[23:05]</span> <span class="irc-black">&lt;kang&gt; also required to make the backlight time out</span><br />
+<span class="irc-date">[23:06]</span> <span class="irc-black">&lt;evaluate&gt; is there something wrong with the backlight?</span><br />
+<span class="irc-date">[23:06]</span> <span class="irc-black">&lt;evaluate&gt; mine seems fine...</span><br />
+<span class="irc-date">[23:06]</span> <span class="irc-black">&lt;Kaik541&gt; is it on all the time?</span><br />
+<span class="irc-date">[23:06]</span> <span class="irc-black">&lt;Kaik541&gt; beause mine is</span><br />
+<span class="irc-date">[23:06]</span> <span class="irc-black">&lt;evaluate&gt; no</span><br />
+<span class="irc-date">[23:06]</span> <span class="irc-black">&lt;Kaik541&gt; all the time = when the sreen is on</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;evaluate&gt; only when I press the keys</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;Kaik541&gt; mine is on from the moment I turn on the screen until I turn it off</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;kang&gt; yep</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;evaluate&gt; I mean, if I unlock the phone and don't press the touchkeys at all, they are off</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;Kaik541&gt; I don't touch mine</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;Kaik541&gt; they're just on</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;evaluate&gt; as soon as I press them, they turn on</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;kang&gt; normally they should timeout after you turn them on, but they dont - and they can't</span><br />
+<span class="irc-date">[23:08]</span> <span class="irc-black">&lt;evaluate&gt; (and I don't see anything wrong with that)</span><br />
+<span class="irc-date">[23:08]</span> <span class="irc-black">&lt;kang&gt; because the code is wrong</span><br />
+<span class="irc-date">[23:08]</span> <span class="irc-black">&lt;kang&gt; they turn off when you turn off the screen because it disable the touchkey entierely</span><br />
+<span class="irc-date">[23:08]</span> <span class="irc-black">&lt;evaluate&gt; you know what that 'the code is wrong' is asking for?</span><br />
+<span class="irc-date">[23:09]</span> <span class="irc-black">&lt;kang&gt; u can look at my git if u want a quick fix</span><br />
+<span class="irc-date">[23:09]</span> <span class="irc-black">&lt;kang&gt; but its not proper</span><br />
+<span class="irc-date">[23:09]</span> <span class="irc-black">&lt;kang&gt; and there we go to what i said a few lines higher</span><br />
+<span class="irc-date">[23:09]</span> <span class="irc-black">&lt;evaluate&gt; <a href="http://fixitfixitfixit.ytmnd.com/">http://fixitfixitfixit.ytmnd.com/</a></span><br />
+<span class="irc-date">[23:09]</span> <span class="irc-black">&lt;kang&gt; "i think that all LEGACY touch stuff probably use OLD_BACKLIGHT but i'm not sure"</span><br />
+<span class="irc-date">[23:09]</span> <span class="irc-black">&lt;kang&gt; cause if they do a clean fix is easy:p</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;kang&gt; atm it check for some flags and they're wrong</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;evaluate&gt; I guess you best talk about that with coolya</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;kang&gt; in my kernel.. i just forced the right value for BLN</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;kang&gt; and left it broken for the rest just in case</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;evaluate&gt; I actually don't know much about the kernel/drivers (as you have just noticed earlier)</span><br />
+<span class="irc-date">[23:12]</span> <span class="irc-black">&lt;evaluate&gt; btw, you could try and publish a 35.11 kernel, so we get some more feedback and see if everything actually works at least like before</span><br />
+<span class="irc-date">[23:12]</span> <span class="irc-black">&lt;evaluate&gt; that might make coolya change his mind and import the changes... :-p</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-black">&lt;kang&gt; yeah but, does .11 fixes anything?</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-black">&lt;kang&gt; or its just to be up to date</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-black">&lt;evaluate&gt; I've no idea, it's a longterm support version though, so I guess it should fix most bugs that are related strictly to the kernel</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;evaluate&gt; I've no idea which those are, but still :-p</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;kang&gt; likely to fix a couple of security bugs i guess</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;kang&gt; xd</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;evaluate&gt; don't think that's all</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;evaluate&gt; there were also changes in a couple of drivers and other stuff...</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;kang&gt; usually most of the bugs are in drivers we dont use</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;kang&gt; but the changelog is usually huge also :p</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;evaluate&gt; btw, just got a notification that 'linux 2.6.38.1' came out</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;kang&gt; so checking sux</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;evaluate&gt; well, that's why there's xda</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;evaluate&gt; lots of free testers :-p</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;techmik67&gt; i'm on ubuntu 11.04, and using 2.6.38-7</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;evaluate&gt; lots of free feedback</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;evaluate&gt; -7 ~= .1</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;techmik67&gt; for laptop, nott phone'</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;evaluate&gt; -7 is an addition from debian</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;evaluate&gt; it's the debian version 7 of the 2.6.38 kernel</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: you can use git reflog to see prior states of the repository, and all of these will have a commit hash you can use to check them out - even stuff you committed to nobranch checkouts. :)</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;kang&gt; what sux with android.. they dont care about updates</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, mmm, that looks pretty useful...</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;kang&gt; kernels are just at .38 for future products</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;uberushaximus&gt; I think that the platypus guy zacharias.maladroit should send stuff upstream to us</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;kang&gt; even google doesnt rly support current versions lol</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: i just scrolled up and saw that it looked like you lost some stuff :)</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, managed to get it back and commit :-D</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;kang&gt; kang saved the day.</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;evaluate&gt; Unhelpful, <a href="http://dl.dropbox.com/u/9596802/snap20110324_000045.png">http://dl.dropbox.com/u/9596802/snap20110324_000045.png</a> :-p</span><br />
+<span class="irc-date">[23:21]</span> <span class="irc-black">&lt;kang&gt; in fact it was 4 conflicts, lol</span><br />
+<span class="irc-date">[23:21]</span> <span class="irc-black">&lt;evaluate&gt; hmm?</span><br />
+<span class="irc-date">[23:21]</span> <span class="irc-black">&lt;kang&gt; just merged .11</span><br />
+<span class="irc-date">[23:22]</span> <span class="irc-black">&lt;evaluate&gt; yourself or from my repo?</span><br />
+<span class="irc-date">[23:22]</span> <span class="irc-black">&lt;kang&gt; myself</span><br />
+<span class="irc-date">[23:22]</span> <span class="irc-black">&lt;evaluate&gt; yeah, from those 4 conflicts, 2 are merged, so only 2 are real conflicts</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;kang&gt; uhm</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;kang&gt; not really</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;kang&gt; i mean</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;kang&gt; last one was a fix android already had</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;kang&gt; and others just stuff that moved a bit due to android code</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;evaluate&gt; that's what I'm saying, the changes are already there</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;evaluate&gt; 2 of 'em</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;evaluate&gt; and the other 2 you have to merge</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;evaluate&gt; at least that was the case for me...</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;kang&gt; the thing is again with android u dont rly know what they have fixed or not</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;kang&gt; i'd like if meego would work, lol</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;kang&gt; since they're more traditional with that stuff</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;evaluate&gt; heh</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;evaluate&gt; meego seems nice</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;evaluate&gt; and so did maemo</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;evaluate&gt; too bad nokia are idiots and made a deal with win$hit</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;kang&gt; if u wanna check vs what u did or smth with coolya idk lol</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;kang&gt; <a href="https://github.com/kangsterizer/android_kernel_samsung/tree/2.6.35.11-teamhacksung">https://github.com/kangsterizer/android_kernel_samsung/tree/2.6.35.11-teamhacksung</a></span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-black">&lt;kang&gt; seems i can't count were just 3</span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-black">&lt;kang&gt; ;D</span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-black">&lt;Unhelpful&gt; evaluate: yeah, i saw that already ;)</span><br />
+<span class="irc-date">[23:29]</span> <span class="irc-brick">* Unhelpful wonders if git reset, etc, could be made to create a temporary nobranch commit before mangling uncommitted files</span><br />
+<span class="irc-date">[23:29]</span> <span class="irc-black">&lt;Unhelpful&gt; so that *anything* would be recoverable via reflog ;)</span><br />
+<span class="irc-date">[23:29]</span> <span class="irc-black">&lt;evaluate&gt; kang, these were the rejects for me: <a href="http://pastebin.com/c2D6ZdDj">http://pastebin.com/c2D6ZdDj</a></span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;Unhelpful&gt; i think at nokia it was more a mistake of thinking that a community would just sort of magically form and take nearly all of the weight of supporting the platform off of them.</span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;Unhelpful&gt; they didn't *work* enough to get maemo/meego into a wide rannge of products, which they would need to do to foster a real development community</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;evaluate&gt; well yeah, if they would've released at least 5-10 devices, maybe it would've gotten more interesting</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;evaluate&gt; but a single device isn't going to make a OS popular</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;evaluate&gt; at least not if it isn't called galaxy s :-p</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;kang&gt; the N900 was nice but not that nice</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;kang&gt; bad camera and pretty big for a phone</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;evaluate&gt; yeah, but it had potential</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;Unhelpful&gt; they're in bed w/ MS now because they *already* failed to create an ecosystem for their OS, so they had to go shopping for a platform/ecosystem.</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;kang&gt; potential, but its not a pony</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;Unhelpful&gt; PONY?! :D</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;evaluate&gt; if they would've released a couple more devices, they would've had some chances of getting the OS popular</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;kang&gt; yeah everyone wants a pony.</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;kang&gt; if u give them a N900 instead, it doesnt work</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;Unhelpful&gt; I SURE DO. ALSO VENDOR MEDIA LIBS ;)</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-black">&lt;evaluate&gt; hmm</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-brick">* Unhelpful wants his mkv/wmv support back... also i wonder if we could readily fit ffmpeg into android's media framework. ;)</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-black">&lt;evaluate&gt; the patch from 35.7 to 35.11 is 800 and some KB, the patch from 35.11 to 37.4 is 117MB. WTF?!?</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;kang&gt; thats another example why i dont like android</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;kang&gt; on meego u'd just start any program that has already ffmpeg anyway xd</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;Unhelpful&gt; kang: all of the NIH?</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;kang&gt; all of the non-standard</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;Unhelpful&gt; we need a new libc, we don't like any existing ones for reasons that don't make any sense.</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;kang&gt; the other day i was compiling my stuff for android</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;kang&gt; and bionic doesnt support many of the syscalls</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;kang&gt; all this end up just being annoyment lol</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;evaluate&gt; ok, I'll go to sleep.</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;kang&gt; gn</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;evaluate&gt; good night everyone!</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;techmik67&gt; night</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;kang&gt; i think id be happy enough if intel released a cpu that kept their promises</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;kang&gt; and give us meego x86</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-navy">* evaluate (~cristi@unaffiliated/evaluate) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;kang&gt; unfortunately that's another pony</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;kang&gt; ^^</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-black">&lt;techmik67&gt; so if i wanted to pull the patches that evaluate sent in, how do i use the info on this page? <a href="http://review.cyanogenmod.com/#change,4130">http://review.cyanogenmod.com/#change,4130</a></span><br />
+<span class="irc-date">[23:40]</span> <span class="irc-black">&lt;Unhelpful&gt; kang: have you tried to compile anything that used functions in the bionic headers but not the libraries?</span><br />
+<span class="irc-date">[23:40]</span> <span class="irc-black">&lt;kang&gt; nop</span><br />
+<span class="irc-date">[23:40]</span> <span class="irc-black">&lt;kang&gt; they werent in the header, fortunately i guess</span><br />
+<span class="irc-date">[23:40]</span> <span class="irc-black">&lt;kang&gt; wouldnt be happy if its in the headers but not actually supported</span><br />
+<span class="irc-date">[23:40]</span> <span class="irc-black">&lt;kang&gt; ^</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah... i forget what i hit, i think it was maybe strrchr?</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;kang&gt; talking about bionic etc</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;kang&gt; iptables crashes on getsockopt</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;Unhelpful&gt; but got a nice pretty link error for the missing symbol</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;kang&gt; segfault</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;kang&gt; dunno exactly why</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;Unhelpful&gt; gdb?</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;kang&gt; gdb ends up there</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;kang&gt; probably need bionic dbg code</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;kang&gt; the only other program that uses that is rild</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;kang&gt; i havent even checked but i wondered if it just segfaults calling it lol</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;Unhelpful&gt; shouldn't gdbclient load debug data from the build?</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;Unhelpful&gt; assuming the local build matches what's installed, that is. ;)</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;kang&gt; yeah but it doesnt load the dbg code from bionic so i figure its not there</span><br />
+<span class="irc-date">[23:43]</span> <span class="irc-black">&lt;Unhelpful&gt; wtf... why wouldn't it?</span><br />
+<span class="irc-date">[23:44]</span> <span class="irc-black">&lt;kang&gt; there seems to be some libc_* in obj</span><br />
+<span class="irc-date">[23:44]</span> <span class="irc-black">&lt;kang&gt; maybe just doesnt have this part idk</span><br />
+<span class="irc-date">[23:44]</span> <span class="irc-black">&lt;kang&gt; i think the function is in asm</span><br />
+<span class="irc-date">[23:44]</span> <span class="irc-brick">* Unhelpful thinks that maybe we could really use a library w/ the uclibc versions of everything missing from bionic. of course things linking to it would need to comply w/ the license, but it's not like LGPL asks a lot of application licenses - not much of anything, in fact.</span><br />
+<span class="irc-date">[23:44]</span> <span class="irc-black">&lt;kang&gt; i looked at it 2 weeks ago so its not all fresh in my memory</span><br />
+<span class="irc-date">[23:44]</span> <span class="irc-black">&lt;Unhelpful&gt; ohhhh, um, well, i believe all actual syscall implementations are in asm</span><br />
+<span class="irc-date">[23:44]</span> <span class="irc-black">&lt;Unhelpful&gt; and yeah, gdb can't see into asm very well.</span><br />
+<span class="irc-date">[23:45]</span> <span class="irc-black">&lt;Unhelpful&gt; but i believe it *can* trace/step asm instructions, which should at least be *something*</span><br />
+<span class="irc-date">[23:45]</span> <span class="irc-black">&lt;kang&gt; i guess i would have to look deeper next time</span><br />
+<span class="irc-date">[23:45]</span> <span class="irc-black">&lt;kang&gt; but these fix arent very fun</span><br />
+<span class="irc-date">[23:45]</span> <span class="irc-black">&lt;kang&gt; ^^</span><br />
