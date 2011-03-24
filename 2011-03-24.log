@@ -1386,3 +1386,209 @@
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;atinm&gt; the assignment to pdata?</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-navy">* wout (~wout@s559776f4.adsl.wanadoo.nl) Quit (Quit: Ex-Chat)</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;kang&gt; yes its there</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;kang&gt; but thats sec_jack pdata</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;kang&gt; sec_mic_bias is in wm8994_pdata</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;atinm&gt; yes ... that's where mach-aries set it</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;kang&gt; nope</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-brick">* stickpin hates he's captivate... :(((((</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;kang&gt; see line 1621 of mach-aries</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;atinm&gt; well, yes ok - sorry, but the function ptr is all I care about.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;stickpin&gt; cant get this shit working properly... :\</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;atinm&gt; and wm8994_set_mic_bias is called in irq thread</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;atinm&gt; via that function ptr.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;atinm&gt; or should be.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;kang&gt; well unless im crazy i dont see it anywhere</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;atinm&gt; line 101 of mach-aries.c</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;atinm&gt; are the two lines pr_debug uncommented?</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;kang&gt; yes.</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;atinm&gt; do you see any of the other pr_debug stuff from mach-aries.c? :)</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;atinm&gt; just add a few more pr_debug where you *know* it goes.</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;atinm&gt; or just try recompiling :)</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;atinm&gt; I'm not sure it built with the debug statements.</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-navy">* mersault (~mersault@acihip.tor4.dsl4u.ca) Quit (Quit: mersault)</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;kang&gt; i get the other pr_debug</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;kang&gt; but then again.. im quite positive this set_mic_bias is not called anywhere</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;kang&gt; just tell me exactly where/when it should called</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;kang&gt; and ill put it</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;kang&gt; cause im not sure what it does</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;atinm&gt; sec_jack_detect_irq_thread</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;atinm&gt; at line 282</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;atinm&gt; is where it should be getting called via the function ptr.</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;kang&gt; that calls set_micbias_state</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;kang&gt; which is another function ptr</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;atinm&gt; yes, which is a function ptr to wm8994_set_mic_bias.</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;kang&gt; do you mean to have set_micbias_state to point to wm8994_set_mic_bias ?</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;kang&gt; ok</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;atinm&gt; and it should be doing that at line 1628 of mach-aries.c</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;atinm&gt; hrm.</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;atinm&gt; wait..</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;atinm&gt; wtf.</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;kang&gt; im not sure if u realize what u tell me or we have diff code</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;kang&gt; thats a diff pdata</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;atinm&gt; yes, just realized that.</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;kang&gt; but its what im saying since a little while.</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;kang&gt; i can zap sec_jack_set_micbias_state and put set_mic_bias instead</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;atinm&gt; I know - I was not paying attention to the words, just the lines :)</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;atinm&gt; except where the fuck is that value set then.</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;kang&gt; or call set_mic_bias from the wm8994 driver</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;kang&gt; (which makes more sense with the code but i dunno what these gpio do)</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;atinm&gt; wait</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;atinm&gt; do</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;atinm&gt; n't</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;atinm&gt;  </span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;atinm&gt; do anything</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-navy">* designfears (~jayp@32.170.4.116) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;atinm&gt; ah</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;atinm&gt; frick sec.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: headset_mic atinm * 5e1605c (1 files in 1 dirs): Enable MICBIAS_EN or MICBIAS_EN2 for Vibrant and Galaxys when preparing to read adc value. ... - <a href="http://bit.ly/hhSaBG">http://bit.ly/hhSaBG</a></span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;atinm&gt; ok, try again.</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; T959 only uses 8 files in the codecs directory, you *could* modify the 2.2 Makefile and Kconfig so they have the newer defs in them, copy the old files over and see what pukes. How much worse could it make things :P</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;atinm&gt; last resort :)</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;atinm&gt; actually, we have to modify it anyway - the stupid 2.2 code sends up bad codes</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;atinm&gt; small, but still</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;atinm&gt; this isn't that hard - just need access to people willing to test like kang is :)</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;atinm&gt; able to build and modify code to try stuff etc</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;atinm&gt; except did he just leave?</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;atinm&gt; dang :)</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;atinm&gt; I have to go for a bit. but I was missing a micbias_en that is different on galaxys and vibrant</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; :)  in the 2.2 source it used HAC_ON HAC_OFF instead of FACTORY_SUB_MIC_ON in the captivate code</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-green">* designfears (~jayp@32.170.4.116) has joined this channel.</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; crap, wrong paste</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;atinm&gt; youre in wm8994-aries or something</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah, wrong file</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;atinm&gt; right now we're still in the mach-aries and sec_jack world. just trying to detect the damn thing first :)</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; working on it :P I did a skeleton for Vibrant this morning, once you pull out all the plus and hawk stuff there are 46 files different</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; a couple of them will need to be stripped to make sense out of, way to many ifdefs for my brain</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;UberPinguin&gt; hm? What's the current project? AUdio routing has had my stymied for months :p</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-navy">* kang (~kang@rsbac/developer/kang) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;atinm&gt; the adc value tables are slightly different.</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-green">* kang (~kang@rsbac/developer/kang) has joined this channel.</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;kang&gt; uhm</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;atinm&gt; at the moment it is detection of the correct headset</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;kang&gt; atinm: sry i was a bit afk.. and seems i got net splitted or smth</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;UberPinguin&gt; ah ok</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;atinm&gt; can you pull and try again kang?</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;kang&gt; yeah its already flashing^^</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;atinm&gt; modified to set MICBIAS_EN for galaxys and vibrant.</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;UberPinguin&gt; Are your builds also having trouble adjusting in-call volume? I remember that noob's pre-alpha builds for the Epic had that issue.</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;atinm&gt; it is possible - i haven't tried, but I think i saw an issue about it.</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;UberPinguin&gt; The volume meter on the screen went up and down, but actual volume was maxed</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;kang&gt; adc=3097 / 3098</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; better than the other way around I guess</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;kang&gt; 3099 too</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;atinm&gt; kang, awesome :)</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;atinm&gt; type=1?</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;kang&gt; yes</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;atinm&gt; !</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;atinm&gt; try it.</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;atinm&gt; coolya, same fix for vibrant - but different gpio.</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;atinm&gt; some use MICBIAS_EN2 and others MICBIAS_EN</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;atinm&gt; depending on HWREV.</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;atinm&gt; so yours should be using MICBIAS_EN2</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;atinm&gt; I wonder if I requested it :)</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;atinm&gt; brb</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-green">* DJNgoma (~DJNgoma@41-133-207-13.dsl.mweb.co.za) has joined this channel.</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;kang&gt; atinm: mic works but not button - although i never used that i only expect it does pause? lol</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;kang&gt; thats the bundled one from the sgs =/</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: headset_mic atinm * e597a3a (1 files in 1 dirs): Request MICBIAS_EN2 if needed. ... - <a href="http://bit.ly/i3xUOY">http://bit.ly/i3xUOY</a></span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;atinm&gt; kang, yes - it should pause/play</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;atinm&gt; that's next step :)</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;atinm&gt; first just detect.</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;atinm&gt; coolya, there you go. hopefully vibrant mic should work now.</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;atinm&gt; headset_mic branch if anyone else wants to try on vibrant,</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;atinm&gt; have to go for a bit.</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;kang&gt; i guess u should delete the set_mic_bias for clarity if u dont use it now</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;atinm&gt; no, everything in there should be there.</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;UberPinguin&gt; ...any chance this'll impact Bluetooth call audio?</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;atinm&gt; not these changes.</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;atinm&gt; next file I touch it might :)</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;UberPinguin&gt; :D</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;coolya&gt; need bash some noobs first :-D</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;atinm&gt; wm8994_herring.c</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;atinm&gt; kang, there are two different micbias - both need to be enabled at different points.</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;UberPinguin&gt; These going into the .35 kernel?</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm&gt; so the rest of the code is fine. I was missing a micbias_en from vibrant and galaxys in one spot that captivate doesn't need it.</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;UberPinguin&gt; Fantastic</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm&gt; that's the only kernel we've ever used here</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm&gt; only epic uses the .32 now I think</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm&gt; maybe fascinate.</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm&gt; galaxys,captivate,vibrant march together.</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;UberPinguin&gt; For now ;)</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;atinm&gt; well, I am hoping they'll join us.</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;atinm&gt; bu</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;atinm&gt; t fo</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;atinm&gt; r</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;kang&gt; any idea if captivate uses the new BACKLIGHT_ON flag?</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;kang&gt; cause it seems to work on escapist kernel</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;kang&gt; old SGS i need the OLD_BACKLIGHT_ON flag</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, birdman was here this morning and he said he's trying real hard to get to using .35</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;atinm&gt; dunno. I should ask neldar.</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;atinm&gt; when he is not away.</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;atinm&gt; he's the guy who did the BLN first.</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;Kaik541&gt; but the fascinate gets stuck in bootmode 2 if you use 3 button recovery</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;atinm&gt; in eclair days :)</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;Kaik541&gt; so he needs param.ko to work properly before he can even boot :D</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;atinm&gt; haven't paid attention to BLN. coolya might now - he's done more touchkey stuff than I have.</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;kang&gt; i made a quick BLN port but theres such culprits</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;atinm&gt; Kaik541: well crap.</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;kang&gt; had to force OLD_BACKLIGHT_ON cause the detection flags dont work</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;kang&gt; seems it doesnt work for everyone tho</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-navy">* codeworkx (~codeworkx@77-23-132-231-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;Kaik541&gt; he said besides that, he's pretty much in line with teamhacksung though</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;atinm&gt; I really haven't looked. not been something I paid attention to before.</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;coolya&gt; touchkeys are fucked there is no default interface to userspace and i don'T want a new sysfs interface</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;kang&gt; i dont doubt u dont want bln in</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;kang&gt; but having them turn off after timeout</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;kang&gt; would be good lol</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;atinm&gt; they turn off for me tho</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;kang&gt; it doesnt on the i9000</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;atinm&gt; oh, no - they dont if the screen is on</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;kang&gt; yeah, then, that</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;atinm&gt; I thought that was a feature.</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;kang&gt; the flag it writes is the wrong 1</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;atinm&gt; and it isn't raelly a battery hog is it?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;kang&gt; i dunno</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;kang&gt; its more of an annoyance for me</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;kang&gt; eg u watch a movie or smth</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;atinm&gt; what flag does it write where?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;kang&gt; and u have to turn off/on to turn em off</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;atinm&gt; actually, you know - do some greps :) - I want to concentrate on the mic for now</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;kang&gt; cypress-touchkey.c</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;coolya&gt; kang: i don't want to add sysfs interface only for the sgs</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;atinm&gt; unless you know where I should look</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;kang&gt; coolya: thats how it works in sammy's rom?</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;atinm&gt; kang, yes.</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;atinm&gt; that I do remember.</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;kang&gt; oh, bleh</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;atinm&gt; sorry</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;atinm&gt; we</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;atinm&gt; ll,</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;atinm&gt; well, I'm off for a bit</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;kang&gt; and on the nexus s.. the firmware does it ?</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;atinm|away&gt; go thru touchkey.c (cypress-touchkey.c) . . . if there is something, it should be there.</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;kang&gt; yeah well ill look at the old source xd</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;atinm|away&gt; coolya, let me know when you try the vibrant with the headset_mic branch</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;kang&gt; but if thats turned off by a daemon, bleh lol</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;atinm|away&gt; it should at least identify 4pole by saying type=1</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;atinm|away&gt; and adc something like 3000</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;atinm|away&gt; but vibrant might have a slightly different table.</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;coolya&gt; i will ifdef the hell out of it if it is different</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-green">* neldar (~neldar@dsl23-88.pool.bitel.net) has left this channel.</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 3250 on the Captivate 3300 on the Vibrant iirc the code is +- 100 so it should be fine</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;atinm|away&gt; I think it'll be fine as well.</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;atinm|away&gt; there is enough leeway</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Quit: thedeanius)</span><br />
