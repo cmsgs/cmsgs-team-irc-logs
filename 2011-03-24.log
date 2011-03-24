@@ -863,3 +863,26 @@
 <span class="irc-date">[9:56]</span> <span class="irc-black">&lt;Wout`&gt; in the GB leak they're now proper input devices</span><br />
 <span class="irc-date">[9:58]</span> <span class="irc-green">* designfears (~jayp@32.170.4.116) has joined this channel.</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, same for our kernel also. *but* the bulk of the calibration for the magnetometer is still done in a userspace daemon. in fact, all of the actual input reading for all sensors seems to work that way on samsung GB.</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm&gt; kaik, did you mean "not pointing to usb drivers"?</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;Kaik541&gt; what did I say?</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm&gt; no pointing to</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;Kaik541&gt; eh, close enough, but yeah, I meant to make sure people had the drivers installed for ODIN</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm&gt; and I thought, why not? :)</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm&gt; thanks, sending</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;Unhelpful&gt; tbh things might work better if we just use their sensor daemons. at the very least i think we need something *like* geomagneticd to get the magnetometer properly calibrated, although the GB leak one doesn't work properly with our driver.</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm&gt; gah. time to get ready for work.. and tonight I get sick.</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm&gt; hopefully not as bad as last week.</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;atinm&gt; see you later (will try at work)</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-navy">* atinm (~atin@unaffiliated/atinm) Quit (Quit: atinm)</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-brick">* Unhelpful should probably try to figure out why "their" geomagneticd never seems to set the fine offsets</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Kaik541&gt; maybe it has something to do with what Wout` said about it being a proper driver/interface now</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;Unhelpful&gt; no. there are also leaked sources for the darn thing, and those use an input driver, and even seem to work, to some degree, with ours.</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;kang&gt; uberushaximus: sry i went to bed ^^ the .11 merge is super simple</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;kang&gt; uberushaximus: im in CEST</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;Unhelpful&gt; ...</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;Unhelpful&gt; inCEST. heh.</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;Wout`&gt; Unhelpful: if the GB sources will contain the source to those drivers, would that be helpful?</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;Unhelpful&gt; Wout`: it certainly *might*, tbh if the driver just works w/ the vendor binary that might be our best solution. i'd rather not distribute a leaked-source binary, you know? :/</span><br />
+<span class="irc-date">[10:11]</span> <span class="irc-black">&lt;Wout`&gt; thats why I hope the sourcedrop comes soon. Might give this project a nice boost</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-brick">* Unhelpful has a sort of an idea for a dead-stupid algorithm for calibrating the magnetometer ;)</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;Unhelpful&gt; based on the idea that the geomagnetic field should not have a large vertical component - use the accelerometer to figure out what "vertical" is, try to solve offsets for zeroing the measurement in that direction.</span><br />
