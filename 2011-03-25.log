@@ -197,3 +197,122 @@
 <span class="irc-date">[12:50]</span> <span class="irc-black">&lt;mikebeecham&gt; afternoon all</span><br />
 <span class="irc-date">[12:51]</span> <span class="irc-black">&lt;mikebeecham&gt; atinm|sick, how you feeling bro?</span><br />
 <span class="irc-date">[12:53]</span> <span class="irc-navy">* mikebeecham (~mikebeech@92.17.221.78) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-black">&lt;atinm|sick&gt; coolya, it could just be a bug in the code :)</span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-green">* atinm|sick is now known as atinm</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;coolya&gt; nope my blackberry headset works fine</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-green">* atinm is now known as atinm|sick</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;coolya&gt; adc looks good with it</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm|sick&gt; cool - so at least mic works?</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;coolya&gt; but with samsung one it stays below 100</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm|sick&gt; no buttons tho?</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;coolya&gt; testing mic in a sec</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm|sick&gt; k</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;atinm|sick&gt; trying to decide whether to 1. go back to bed. 2. work on headset buttons for galaxys and vibrant, 3. play in a poker tournament</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;atinm|sick&gt; tournament isn't till the afternoon</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;atinm|sick&gt; so hopefully won't be as suck</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;atinm|sick&gt; or sick..</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;coolya&gt; atinm|sick: what should happen if i press the button in dmesg ?</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;coolya&gt; i get gpio_keys_scan_keys: key 1-f0, 0 (148) continue debounc</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;atinm|sick&gt; sec, let me see . . . I have to  look at the code again</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm|sick&gt; do you get any sec_jack_button* functions in the dmesg?</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm|sick&gt; _connect, _filter.</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm|sick&gt; eventually _filter should get called</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm|sick&gt; and it should queue work</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;atinm|sick&gt; which does the actual - one sec. let me see that</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;atinm|sick&gt; sec_jack_buttons_work should be the one that finally sends up a keycode</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;atinm|sick&gt; and that gets called from filter</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|sick&gt; all of this will only happen if we've managed to hook up the SEND_END correctly</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;coolya&gt; doesn't look like its getting called</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|sick&gt; which is not guaranteed.</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|sick&gt; I was looking at that code this morning.</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;coolya&gt; but it</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;coolya&gt; GPIO Input Driver: Start gpio inputs for sec_jack in interrupt mode</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|sick&gt; and am not sure it is.</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;coolya&gt; &lt;6&gt;[ 1941.279988] input: sec_jack as /devices/virtual/input/input10</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;coolya&gt; &lt;6&gt;[ 1941.281049] sec_jack_buttons_connect</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;coolya&gt; &lt;6&gt;[ 1941.282900] sec_jack_set_type : jack_type = 1</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;coolya&gt; is what i get in dmesg when connecting it</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, that's good.</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|sick&gt; so we're connected. but the code isn't told when the button is pressed</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;atinm|sick&gt; SEND_END.</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;atinm|sick&gt; or SEND_END35.</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;atinm|sick&gt; captivate uses SEND_END35</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;atinm|sick&gt; vibrant code was confused in the froyo - I couldn't tell in my low brain activity mode whether it is really used or whether it uses SEND_END like galaxys is supposed to</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;coolya&gt; audio playback should pause when i press it right ?</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;atinm|sick&gt; yes</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;atinm|sick&gt; but first _filter should be seen in dmesg</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;coolya&gt; lts try</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;atinm|sick&gt; and the work, and it should say keycode and then it'll pause/play</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;coolya&gt; s/lts/let's</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;coolya&gt; nope doesn't pause</span><br />
+<span class="irc-date">[13:17]</span> <span class="irc-black">&lt;atinm|sick&gt; take a look at GPIO_SEND_END (or maybe it is GPIO_EAR_SEND_END)</span><br />
+<span class="irc-date">[13:17]</span> <span class="irc-black">&lt;coolya&gt; i will try mice</span><br />
+<span class="irc-date">[13:17]</span> <span class="irc-black">&lt;atinm|sick&gt; and SEND_END35</span><br />
+<span class="irc-date">[13:17]</span> <span class="irc-black">&lt;atinm|sick&gt; I'll try to decipher what froyo did again..</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[13:21]</span> <span class="irc-black">&lt;coolya&gt; mic won't work until i unplug the headset</span><br />
+<span class="irc-date">[13:21]</span> <span class="irc-black">&lt;coolya&gt; nor headset or internal</span><br />
+<span class="irc-date">[13:27]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[13:28]</span> <span class="irc-black">&lt;atinm|sick&gt; did you take my latest checkin?</span><br />
+<span class="irc-date">[13:28]</span> <span class="irc-black">&lt;atinm|sick&gt; the micbias_en2 was set as input - I think it should be output</span><br />
+<span class="irc-date">[13:28]</span> <span class="irc-black">&lt;atinm|sick&gt; and it might have been screwing things until unplug</span><br />
+<span class="irc-date">[13:28]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[13:29]</span> <span class="irc-green">* gdanko (~gdanko@ip68-111-171-185.sd.sd.cox.net) has joined this channel.</span><br />
+<span class="irc-date">[13:29]</span> <span class="irc-black">&lt;coolya&gt; atinm|sick: yes before that it wasn't working at all</span><br />
+<span class="irc-date">[13:29]</span> <span class="irc-black">&lt;atinm|sick&gt; k</span><br />
+<span class="irc-date">[13:30]</span> <span class="irc-black">&lt;atinm|sick&gt; well, improvement at least :)</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-black">&lt;atinm|sick&gt; let me check some more.</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-navy">* gdanko (~gdanko@ip68-111-171-185.sd.sd.cox.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-black">&lt;atinm|sick&gt; basically there are two part to this. one is handling the interrupt (GPIO_DET_35) that starts detection of headset</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-green">* designfears (~jayp@32.149.192.214) has joined this channel.</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;coolya&gt; that looks good</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;coolya&gt; sec_jack_detect_irq_thread</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;coolya&gt; &lt;6&gt;[ 1940.685443] sec_jack_set_micbias_state: on=1</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;atinm|sick&gt; the other is SEND_END/SEND_END35. Captivate has both - but we use SEND_END35 to detect button</span><br />
+<span class="irc-date">[13:34]</span> <span class="irc-black">&lt;atinm|sick&gt; but that is not an interrupt or maybe it is an interrupt, but the work is done in a thread.</span><br />
+<span class="irc-date">[13:34]</span> <span class="irc-black">&lt;coolya&gt; but when i plugin the headset i see</span><br />
+<span class="irc-date">[13:34]</span> <span class="irc-black">&lt;coolya&gt; &lt;6&gt;[ 1933.821856] sec_jack_buttons_filter: type=0, code=0, value=1</span><br />
+<span class="irc-date">[13:34]</span> <span class="irc-black">&lt;coolya&gt; &lt;6&gt;[ 1933.823614] sec_jack_buttons_disconnect</span><br />
+<span class="irc-date">[13:34]</span> <span class="irc-black">&lt;atinm|sick&gt; oh..</span><br />
+<span class="irc-date">[13:34]</span> <span class="irc-black">&lt;atinm|sick&gt; hrm, that shouldn't happen just on plugin. it means there is a spurios interrupt</span><br />
+<span class="irc-date">[13:35]</span> <span class="irc-black">&lt;atinm|sick&gt; and we need debounce</span><br />
+<span class="irc-date">[13:35]</span> <span class="irc-black">&lt;atinm|sick&gt; T959 code had debounce</span><br />
+<span class="irc-date">[13:35]</span> <span class="irc-black">&lt;atinm|sick&gt; we didnt'  need it in captviate, let me see</span><br />
+<span class="irc-date">[13:35]</span> <span class="irc-black">&lt;coolya&gt; <a href="http://pastebin.com/UUgpUKZY">http://pastebin.com/UUgpUKZY</a></span><br />
+<span class="irc-date">[13:35]</span> <span class="irc-black">&lt;coolya&gt; thats all it get</span><br />
+<span class="irc-date">[13:36]</span> <span class="irc-green">* quad (415241e3@gateway/web/freenode/ip.65.82.65.227) has joined this channel.</span><br />
+<span class="irc-date">[13:36]</span> <span class="irc-black">&lt;atinm|sick&gt; on plugin, that's starting the detect thread. that's good.</span><br />
+<span class="irc-date">[13:36]</span> <span class="irc-black">&lt;atinm|sick&gt; and it finds it.</span><br />
+<span class="irc-date">[13:37]</span> <span class="irc-black">&lt;atinm|sick&gt; but youre saying it stops mic</span><br />
+<span class="irc-date">[13:37]</span> <span class="irc-black">&lt;atinm|sick&gt; from actually working?</span><br />
+<span class="irc-date">[13:37]</span> <span class="irc-black">&lt;atinm|sick&gt; active low vs active high maybe ...</span><br />
+<span class="irc-date">[13:37]</span> <span class="irc-green">* enl_ (4e073452@gateway/web/freenode/ip.78.7.52.82) has joined this channel.</span><br />
+<span class="irc-date">[13:37]</span> <span class="irc-black">&lt;atinm|sick&gt; sec</span><br />
+<span class="irc-date">[13:37]</span> <span class="irc-black">&lt;atinm|sick&gt; l</span><br />
+<span class="irc-date">[13:37]</span> <span class="irc-black">&lt;atinm|sick&gt; et</span><br />
+<span class="irc-date">[13:37]</span> <span class="irc-black">&lt;atinm|sick&gt; me</span><br />
+<span class="irc-date">[13:37]</span> <span class="irc-black">&lt;coolya&gt; i i change to active low i claims that there is a headset all the time</span><br />
+<span class="irc-date">[13:37]</span> <span class="irc-black">&lt;atinm|sick&gt; :)</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;atinm|sick&gt; ok. so at the moment we detect the headset.</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;atinm|sick&gt; ignoring the buttons for now - does just the mic work on plugin?</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;atinm|sick&gt; or does that need unplug/replug</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-green">* Yangtse (~Yangtse@117.136.22.49) has joined this channel.</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;coolya&gt; maybe i should insert a sim when i want to call my office fon</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-navy">* Yangtse (~Yangtse@117.136.22.49) Quit (Client Quit)</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;coolya&gt; mic works</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;coolya&gt; on phone calls</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;atinm|sick&gt; wha..</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;atinm|sick&gt; oh!</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;atinm|sick&gt; brb</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;UberPinguin&gt; atinm|sick: When you get back; have you run across anything in working on the mic code that would be relevant to  <a href="http://code.google.com/p/android/issues/detail?id=11372">http://code.google.com/p/android/issues/detail?id=11372</a> ?</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;atinm|sick&gt; yes</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;atinm|sick&gt; or at least, I know where to look</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;atinm|sick&gt; but I'll come back to that.</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;UberPinguin&gt; OK, I'd deeply appreciate it.</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;atinm|sick&gt; weird. T959 code seems to request both MICBIAS and MICBIAS_EN2</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;atinm|sick&gt; but sec_jack only seems to use MICBIAS.</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;atinm|sick&gt; not making sense</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;atinm|sick&gt; but I'll do the same anyway ..</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-navy">* enl_ (4e073452@gateway/web/freenode/ip.78.7.52.82) Quit (Quit: Page closed)</span><br />
