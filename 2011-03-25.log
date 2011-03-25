@@ -316,3 +316,105 @@
 <span class="irc-date">[13:57]</span> <span class="irc-black">&lt;atinm|sick&gt; not making sense</span><br />
 <span class="irc-date">[13:58]</span> <span class="irc-black">&lt;atinm|sick&gt; but I'll do the same anyway ..</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-navy">* enl_ (4e073452@gateway/web/freenode/ip.78.7.52.82) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="http://paste.pocoo.org/show/359443/">http://paste.pocoo.org/show/359443/</a>   This is a log of the full boot process on an Epic, from power on to fully booted. It does not include any logcat, only bootloader and kernel. I don't know if you guys have any use for it, but I figure more data is better than less.</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;coolya&gt;  thx :-)</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-green">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) has joined this channel.</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;UberPinguin&gt; I just realized it might be missing some stuff, since the UART switches control back to Modem at the end there.</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;atinm|sick&gt; coolya, do you see wm8994_set_mic_bias</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;atinm|sick&gt; getting called when you plug in mic?</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: headset_mic atinm * 6db4ade (1 files in 1 dirs): Use GPIO_MICBIAS_EN when enabling mic for use in all cases. GPIO_MICBIAS_EN2 is only used to detect the jack type. ... - <a href="http://bit.ly/dG43Wn">http://bit.ly/dG43Wn</a></span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-black">&lt;atinm|sick&gt; try that, see if it is any better.</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-green">* neldar (~neldar@dsl104-170.pool.bitel.net) has joined this channel.</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;- *neldar* Bot Sentry eingeschalten:  Sie werden jetzt ignoriert!  Ihre Nachricht wird übermittelt wenn sie die folgenden Fragen innerhalb von 10 Minuten richtig beantworten:  How do you spell the result of ten div_ided by 2?</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;coolya&gt; i will</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;atinm|sick&gt; someone needs to ship me a vibrant . . . and galaxys. :)</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;atinm|sick&gt; wonder what'll happen to vibrant when the ATT&amp;TMO merger is done</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;Kaik541&gt; same thing that happens to every other tmobile phone</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;Kaik541&gt; stuck on edge :)</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;Kaik541&gt; since they're gonna use tmobile's AWS bands for LTE instead of 3G</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;Kaik541&gt; they'll be told to "upgrade to compatible hardware"</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;gdanko&gt; Now HTC is joining Moto in locking BL</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;gdanko&gt; I wonder how hard it would be to create an OSS BL</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;atinm|sick&gt; really? HTC was the one that was most friendly ...</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;gdanko&gt; Yep but the Thunderbolt and Incredible S are locked.</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;coolya&gt; thunderbold has signed boot.img</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;gdanko&gt; They say its because so many bricked phones are being sent back.</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;coolya&gt; gdanko: with the right docs and enough time you can port uboot</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;atinm|sick&gt; well, crap.</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;gdanko&gt; coolya: thats what I thought</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;atinm|sick&gt; coolya, maybe that's what we should ask for :)</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;gdanko&gt; atinm|sick: Given time an resources, it will be bypassed.</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;atinm|sick&gt; boot code.</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;coolya&gt; there is a samsung uboot branch</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;coolya&gt; that has all the code we would need</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;gdanko&gt; People will give up on Android if the vendors lock down the open platform.</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;gdanko&gt; I gave HTC a piece of my mind. Sense is horrible.</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;atinm|sick&gt; yeah, but a working one that we know will just work without having to risk our phones testing it :)</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;atinm|sick&gt; easier to modify a working version of code.</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;coolya&gt; even the nexus s bootloader is CSS</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;atinm|sick&gt; CSS?</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;coolya&gt; closed source software :-)</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;atinm|sick&gt; lol - guess I didn't know the term having never dealt with it ;)</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;atinm|sick&gt; if they don't want us messing with the phones, then make good phones ...</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;atinm|sick&gt; with good software.</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;atinm|sick&gt; otherwise let us help you . . .</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;Kaik541&gt; asking manufacturers to make things acceptable will never work for people like us</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;coolya&gt; <a href="http://cmsgsteam.pastebin.com/izyQHb4h">http://cmsgsteam.pastebin.com/izyQHb4h</a></span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;Kaik541&gt; who are convinced they can squeeze just a little more juice out of things</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;atinm|sick&gt; I wouldn't even mind signing up as a Samsung Developer or something if they had a program like that.</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;atinm|sick&gt; like Apple does.</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;atinm|sick&gt; coolya: that's on plugin right? how about when you start recording.</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;atinm|sick&gt; do you see ... wm8994_set_micbias_state?</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;coolya&gt; with the sound recorder ?</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;atinm|sick&gt; yeah</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;atinm|sick&gt; I just use google voice search :)</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;atinm|sick&gt; to test mic</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;coolya&gt; works</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;atinm|sick&gt; so no crap gets saved either</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;coolya&gt; wtf</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;atinm|sick&gt; with the latest code?</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;coolya&gt; sound recorder works now</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;atinm|sick&gt; good. I think it should all work now.</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;atinm|sick&gt; think.. :)</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;atinm|sick&gt; not buttons. but mic.</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;coolya&gt; do the buttons work on any phone ?</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;atinm|sick&gt; yes, captivate.</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;atinm|sick&gt; dunno about galaxys since my latest commits</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;coolya&gt; i will try it there</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;techmik67&gt; what is THIS? <a href="http://pastebin.com/jYgL9p4E">http://pastebin.com/jYgL9p4E</a></span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;coolya&gt; atinm|sick: it looks like the work functions is not called</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;atinm|sick&gt; coolya: ok - lets try galaxys first.</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, java error</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;Kaik541&gt; just build again</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;techmik67&gt; did... same error</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;atinm|sick&gt; since it just has a GPIO_SEND_END</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, then reboot</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;atinm|sick&gt; while vibrant seems to have both GPIO_SEND_END and GPIO_SEND_END35</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;Kaik541&gt; usually it's bad memory or something</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;atinm|sick&gt; and is confusing...not sure which to use</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;atinm|sick&gt; right now it is using send_end35 like captivate.</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;atinm|sick&gt; galaxys just has send_end</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;coolya&gt; atinm|sick: brunching galaxys</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;atinm|sick&gt; k</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;coolya&gt; i had a look at fm stuff</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;coolya&gt; doesn't look that hard</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;atinm|sick&gt; yes, I was looking at it too - some GPIOs are shared between phones tho. so be careful - will need #ifdefs</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;atinm|sick&gt; like FM_RST is MICBIAS_EN2 or something</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;atinm|sick&gt; on vibrant</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;coolya&gt; from the kernel side it looks good</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;coolya&gt; i think i need to create the jni stuff in the framework</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;coolya&gt; before i can see if kernel is really working right</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-green">* mersault (~mersault@acihip.tor4.dsl4u.ca) has joined this channel.</span><br />
