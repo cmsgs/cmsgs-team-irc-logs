@@ -546,3 +546,71 @@
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm|sick&gt; damn it..</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm|sick&gt; oh wait.</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm|sick&gt; sec</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-green">* birdman (~Steven@24.246.130.106) has joined this channel.</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;atinm|sick&gt; I want to revert the last two commits..</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: headset_mic atinm * 2e09203 (2 files in 2 dirs): Revert "Let wm8994_herring handle ear_sel enable/disable." ...</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: headset_mic atinm * 59f45f6 (3 files in 3 dirs): Revert "Use EARPATH_SEL only at the time we need to use the earpiece. Enable it for phones for recording mic." ...</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: headset_mic commits 6abc2e5...59f45f6 - <a href="http://bit.ly/eFjkiO">http://bit.ly/eFjkiO</a></span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm|sick&gt; xcaliburinhand wrote to me - he has been in this area a lot. he said vibrant and galaxys are identical ..</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm|sick&gt; so lets see.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm|sick&gt; I am not sure they are identical, but they're close.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;coolya&gt; ok i will try</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;Wout`&gt; I didnt know getting a headset to work could be so difficult. Is this an Android, or a Samsung thing?</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;atinm|sick&gt; its not hard, it is more that the drivers are now "correct" while the code we have was really bad from samsung</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;atinm|sick&gt; but we need to do many of the same things that the old drivers were doing, just in different places.</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;atinm|sick&gt; and working with 3 phones gets confusing.</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;atinm|sick&gt; coolya, go back to this. and tell me if the mic works on both galaxys and vibrant. I don't know what to make of the blackberry vs samsung headset tho</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;coolya&gt; atinm|sick: i only care about the samsung one</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-green">* Wout` is now known as Wout|f00d</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, build and let me catch up to what the current status is :)</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;atinm|sick&gt; galaxys works but vibrant doesn't with samsung headset</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;atinm|sick&gt; right?</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;atinm|sick&gt; anonymous: captivate already works in this case :)</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;atinm|sick&gt; damn thing is supposed to be the same..</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;coolya&gt; atinm|sick: adc on vibrant is still at ~100</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;atinm|sick&gt; yeah, I'm wondering if I need to enable another gpio on vibrant</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;atinm|sick&gt; that I'm not seeing ..</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;atinm|sick&gt; brb</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;techmik67&gt; so it takes 90-100 mins to build on my laptop, and after installing linux as dual boot on my desktop as well, 64 mins on desktop =(</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;coolya&gt; dual core ?</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;techmik67&gt; laptop athlon 2 m300 @ 2ghx, desktop petium dual @2ghz</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;techmik67&gt; pentium*</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;techmik67&gt; crap, it want even finished... got that java error again</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;coolya&gt; buy a hexa core I7 :-P</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;techmik67&gt; sure... dontions, please =)</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;techmik67&gt; donations</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;techmik67&gt; =P</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;techmik67&gt; aha</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;techmik67&gt; a log of the error</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: headset_mic atinm * a010c62 (1 files in 1 dirs): So not enable EARPATH_SEL on Vibrant before reading adc. ... - <a href="http://bit.ly/gtKq8d">http://bit.ly/gtKq8d</a></span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;techmik67&gt; error log: <a href="http://pastebin.com/PAg1ft9h">http://pastebin.com/PAg1ft9h</a></span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;coolya&gt; i had some thing like that when i was running out of RAM</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;techmik67&gt; i have 4gb installed, and, for when in use as windows, i have an 8gb flashdrive inserted for "readyboost"</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;coolya&gt; how much swap du you have in linux?</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;techmik67&gt; i think i set up 4gb</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;coolya&gt; hmm that should be enough</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;techmik_laptop&gt; booting back to windows on th epc... found out what i wanted to, which was would it build faster.....</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;coolya&gt; funny <a href="http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=2ff416463040342dbd68aaa96f8a8d604792a557">http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=2ff416463040342dbd68aaa96f8a8d604792a557</a></span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;coolya&gt; i will slap everyone with this commit message who complains about battery :-P</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;UberPinguin&gt; lol coolya</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;coolya&gt; oh our adc / temp table for the battery is a bit to low</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;ohayden&gt; yeah I saw a bug report complaining about that</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;coolya&gt; battery tempe is reported to high</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;coolya&gt; that could be the thing why some users have charing issues</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;coolya&gt; i will correct that</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;ohayden&gt; yea</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;ohayden&gt; cool</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;coolya&gt; atinm|sick: galaxys is fine with the last commit, vibrant still to low adc</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;atinm|sick&gt; dang.</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;atinm|sick&gt; I'm at a loss now.</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;Wout|f00d&gt; coolya : how big is the error on the batt temp readout?</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-green">* Wout|f00d is now known as Wout</span><br />
