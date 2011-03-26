@@ -546,3 +546,121 @@
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; erm</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/kangsterizer/android_device_samsung_common/commit/fbfce2fdee0fe0affc742321a2518b9d1ef3bcfa">https://github.com/kangsterizer/android_device_samsung_common/commit/fbfce2fdee0fe0affc742321a2518b9d1ef3bcfa</a></span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/kangsterizer/android_kernel_samsung/commit/ac0334f0c5eba50f747699fa4fe3021bb0bef8f1">https://github.com/kangsterizer/android_kernel_samsung/commit/ac0334f0c5eba50f747699fa4fe3021bb0bef8f1</a></span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;kang&gt; mikebeecham: you probably have another app running sending notifications</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;mikebeecham&gt; only twitter</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;kang&gt; mikebeecham: the lib light up the led for both notifications and attention</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;mikebeecham&gt; and I have removed all notifications</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;mikebeecham&gt; believe me..I have no other apps running</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;mikebeecham&gt; they are lighting upon thier own</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;kang&gt; mikebeecham: can you check with adb cat /proc/kmsg and see if it says notification on when it lights up?</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;mikebeecham&gt; I'm away at the moment so cant check</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;kang&gt; coolya: yeah, maybe you wanna wait a bit longer so that possible bugs are ironed out^^</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;mikebeecham&gt; do you have a recent kernel without BLN, or is there a way to disable it?</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;mikebeecham&gt; I downloaded the bln control app, but it told me I had no bln enabled</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;mikebeecham&gt; :S</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;kang&gt; you can switch back /system/lib/hw/lights.aries.so to stock</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;kang&gt; this will disable it</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;coolya&gt; kang: sure, just send a pull request if feel its the right time</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;mikebeecham&gt; through adb?</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;kang&gt; coolya: alrighty</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;kang&gt; mikebeecham: if you have the original one eg from the cm7 ota (unzip just that file)</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;kang&gt; run that:</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;kang&gt; adb push lights.aries.so /system/lib/hw</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;kang&gt; then reboot</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;kang&gt; it will turn it off</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;mikebeecham&gt; nahhh...I'm, away on holiday at the moment..just speaking through my netbook</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;mikebeecham&gt; I'll reflash latest CM7, that should sort it!</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;mikebeecham&gt; btw codeworkx etc</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;kang&gt; its the same as flashing it back anyhow</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;mikebeecham&gt; great latest release</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;kang&gt; but im curious what enables your light if you could check before flashing back</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;kang&gt; that would be helpful</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;kang&gt; (adb shell cat /proc/kmsg)</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;mikebeecham&gt; kang:</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; mikebeecham: what wis different?</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;mikebeecham&gt; i have no other apps running</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; mikebeecham: in the latest release?</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; we didn't know :)</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;mikebeecham&gt; and I cant check since Im on holiday with no proper pc</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; including codeworkx :)</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;kang&gt; ok</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;mikebeecham&gt; ffc</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;mikebeecham&gt; front facing camera  now works</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;mikebeecham&gt; albeit with orinetation problems</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;atinm&gt; ah, cool coolya</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;coolya&gt; it doesn't work :-P</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;mikebeecham&gt; but aside from that</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;atinm&gt; we don't have ffc so I don't pay attention :)</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;mikebeecham&gt; coolya, it works better than it did before you worked on it</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;mikebeecham&gt; :D</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;coolya&gt; it powers up and FIMC streams the picture that is all</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;mikebeecham&gt; cant wait for rear facing to have no noise</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;mikebeecham&gt; I hardly use FFC</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;coolya&gt; orientation is broken</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;mikebeecham&gt; but apart from that</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;mikebeecham&gt; excellent</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-navy">* mersault (~mersault@67.71.2.170) Quit (Quit: mersault)</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;mikebeecham&gt; I'm in newquay at the moment, so will look at the other stuff when I get holme</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;coolya&gt; maybe its just a current that is to low, i didn't check deeper maybe samsung fucked up at the ENUM that indicates the current on .32 kernel</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;atinm&gt; coolya, Makefile doesn't have elif does it?</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;atinm&gt; just nested ifeq, else, ifneq</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;atinm&gt; ah well</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;atinm&gt; I have a new Makefile, that just separates our stuff out in BOARD_USES_INITRAMFS</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;coolya&gt; did you figure out what caused the bootloop ?</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;atinm&gt; no, it got too confusing so I reverted.</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;atinm&gt; so right now the state should be galaxys works with samsung, vibrant doesn't.</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-navy">* mikebeecham (56b0390f@gateway/web/freenode/ip.86.176.57.15) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;atinm&gt; if we confirm that vibrant is no worse than before (no headset, but without works fine), and galaxys works, I'll merge to head</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;atinm&gt; and then continue to work on vibrant in a new branch</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;coolya&gt; k</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;coolya&gt; i will try it in 10min or so</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-navy">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-green">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-navy">* codeworkx (~codeworkx@77-23-132-231-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: that sounds like a lot of duplication in the makefile :/</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;atinm&gt; yeah, but if it lets us in ..</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;atinm&gt; who are we to argue :)</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;atinm&gt; I guess it is mostly about "don't touch other stuff"</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;Unhelpful&gt; just be careful w/ BOARD_USES_INITRAMFS, as originally written it still depended on kernel :P</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;atinm&gt; now that you're here - you do it. :)</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;atinm&gt; I'm having to first figure out what you did ;)</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;atinm&gt; you already know what you did :)</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;coolya&gt; atinm: vibrant doesn't detect pulling the headset out with your branch</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;atinm&gt; it is always in?</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;coolya&gt; was my fault, sry</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;atinm&gt; or does it detect when inserting, but then never sees it go away?</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;coolya&gt; works with detection of both, it was my fault</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;coolya&gt; testing i9000 now</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;coolya&gt; atinm: ship it, works on I9000</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;atinm&gt; my branch is all messed up right now with more stuff related to vibrant that isn't working ..</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;atinm&gt; can you do the merge to head from your branch?</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;atinm&gt; codeworkx put up a new i9000 update today..</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;coolya&gt; sure</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;atinm&gt; so that will need to be updated too</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;atinm&gt; unhelpful, you here?</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: battery_test atinm * 3229008 (4 files in 4 dirs): Separate EARPATH_SEL handling for vibrant. ...</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: battery_test atinm * ccf41fa (4 files in 4 dirs): Revert "Separate EARPATH_SEL handling for vibrant." ...</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: battery_test atinm * 04f128d (1 files in 1 dirs): Revert "Enable EARPATH_SEL for Vibrant also, as well as MICBIAS_EN." ...</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: battery_test atinm * a982c1f (1 files in 1 dirs): Revert "So not enable EARPATH_SEL on Vibrant before reading adc." ...</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: battery_test atinm * d1abf7b (2 files in 2 dirs): Enable EARPATH_SEL for all phones when using headset mic. Enable MICBAIS_EN for Vibrant. ...</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: battery_test Kolja Dummann * 90b48f4 (3 files in 3 dirs): Merge branch 'headset_mic' of <a href="https://github.com/teamhacksung/android_kernel_samsung">https://github.com/teamhacksung/android_kernel_samsung</a> into battery_test</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: battery_test commits 398fbf3...90b48f4 - <a href="http://bit.ly/fNhkyJ">http://bit.ly/fNhkyJ</a></span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;designfears&gt; oh shittt</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;designfears&gt; flood of commits</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;coolya&gt; atinm: merged</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;atinm&gt; I saw :)</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;atinm&gt; thanks - trying to do the makefile like koush asked.</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; but broke something :-P</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;coolya&gt; maybe we could have squished the vibrant revert / commit stuff</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; with unhelpful was here.</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; wish</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; yeah - that's what I was thinking - oh well. :)</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; lots of running in place during that time ..</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;coolya&gt; i will upload a kernel for the people on I9000 with charging issue with a big super fat brick warning</span><br />
