@@ -720,3 +720,50 @@
 <span class="irc-date">[21:45]</span> <span class="irc-black">&lt;coolya&gt; need to go now</span><br />
 <span class="irc-date">[21:45]</span> <span class="irc-black">&lt;coolya&gt; birthday party of a friend :-)</span><br />
 <span class="irc-date">[21:46]</span> <span class="irc-black">&lt;atinm|cooking&gt; have fun - I'll look at it</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;atinm|cooking&gt; weird, I have the same problem even with the old Makefile</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-green">* atinm|cooking is now known as atinm</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;atinm&gt; something is wrong in my tree..</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;techmik67&gt; squirrels?</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm&gt; might as well be</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;techmik67&gt; i just finished a full clean build that started 90 mins ago and am booting it as we speak</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;atinm&gt; yeah, cleaned up everything lets see</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;techmik67&gt; hmm.... on boot, external wasnt mounted.... had to manually hit mount in sttings to get it done</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;techmik67&gt; brb, dog walk</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;UberPinguin&gt; atinm: <a href="http://forum.xda-developers.com/showthread.php?p=12415454#post12415454">http://forum.xda-developers.com/showthread.php?p=12415454#post12415454</a> for the UART serial console</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;atinm&gt; nice</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;atinm&gt; beyond me I'm afraid.</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;atinm&gt; need one of my hardware friends to do it :)</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;UberPinguin&gt; :)</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;UberPinguin&gt; This redesign should shave the price by about $10 to $15, too.</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="http://forum.xda-developers.com/showpost.php?p=11561325&amp;postcount=7">http://forum.xda-developers.com/showpost.php?p=11561325&amp;postcount=7</a>  Has photos of the previous design, assembled. It should make the diagrams less intimidating.</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: what's the status on fixing build changes?</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm&gt; not good.</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm&gt; I must have missed something</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm&gt; just got back to it tho</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm&gt; so if you want to take a look, CM_Version branch on build/core</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm&gt; in fact, you *should* take a look. you know this better...</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;atinm&gt; basically we skip all the bootimage stuff and ALLED_BOOTIMAGE_TARGET := $(INSTALLED_RAMDISK_TARGET)</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;atinm&gt; end</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;atinm&gt; right?</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;atinm&gt; INSTALLED_BOOTIMAGE_TARGET := $(INSTALLED_RAMDISK_TARGET)</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-green">* mersault (~mersault@67.71.2.170) has joined this channel.</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;techmik67&gt; back</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: what exactly goes in INSTALLED_RAMDISK_TARGET?</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;atinm&gt; $(PRODUCT_OUT)/ramdisk.img according to what is currently commited on head</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;atinm&gt; head of gingerbread</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;Unhelpful&gt; right, but what are its contents?</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;atinm&gt; ifeq (,$(filter true, $(TARGET_NO_KERNEL) $(TARGET_BOOT_IS_RAMDISK)))</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;atinm&gt; does that mean *dont* go in there if either is not true?</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;Unhelpful&gt; do if either true i believe.</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;atinm&gt; or rather, go in there if both are not true</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;Unhelpful&gt; or, um... damn i hate make :(</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;atinm&gt; yeah :)</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;atinm&gt; yeah - go in there if both are not true.</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; otherwise test will fail. so we dont' want to go in there.</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; phew.</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;Unhelpful&gt; MKBOOTFS produces an initramfs-style CPIO archive btw.</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; so it seems we go into the else clause</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; yeah, I saw that.</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; was wondering if we could use it</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;Unhelpful&gt; we certainly *can*...</span><br />
