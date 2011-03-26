@@ -36,3 +36,35 @@
 <span class="irc-date">[6:01]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 252 seconds)</span><br />
 <span class="irc-date">[6:15]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
 <span class="irc-date">[6:59]</span> <span class="irc-black">&lt;uberushaximus&gt; where does the kernel go when you ./build.sh target kernel?</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;uberushaximus&gt; is it just "kernel" in out?</span><br />
+<span class="irc-date">[7:02]</span> <span class="irc-black">&lt;Unhelpful&gt; yes.</span><br />
+<span class="irc-date">[7:13]</span> <span class="irc-black">&lt;uberushaximus&gt; and where are the modules? (is there anything else I need?)</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;Kaik541&gt; look in the build script, it tells you where they move them</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;Kaik541&gt; oh wait, not anymore</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;uberushaximus&gt; ah I assumed they got moved there, but I just had a brain fart I guess... er</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;Kaik541&gt; you need bcm4329.ko, cifs.ko, and tun.ko</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;uberushaximus&gt; I see where they should be now</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;uberushaximus&gt; drivers/net and fs/cifs</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;uberushaximus&gt; except they're not there?</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[7:28]</span> <span class="irc-green">* Wout` (Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;Kaik541&gt; that's very weird, don't know what to tell you =/</span><br />
+<span class="irc-date">[7:34]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@115.242.149.158) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[7:34]</span> <span class="irc-black">&lt;Unhelpful&gt; they should be copied to the system directory :)</span><br />
+<span class="irc-date">[7:34]</span> <span class="irc-black">&lt;Unhelpful&gt; erm, system/modules i think? or system/lib/modules?</span><br />
+<span class="irc-date">[7:36]</span> <span class="irc-black">&lt;Unhelpful&gt; but they *should* also be in kernel_build as well, i only copy them to system, not move them...</span><br />
+<span class="irc-date">[7:36]</span> <span class="irc-black">&lt;uberushaximus&gt; I'm trying again, since I cleaned it, I'm trying to build what I merged in from platypus kernel, it seems a little jerky though</span><br />
+<span class="irc-date">[7:37]</span> <span class="irc-black">&lt;uberushaximus&gt; I'll probably just grab the voodoo bits and call it a day</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;Wout`&gt; oi</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.242.179.161) has joined this channel.</span><br />
+<span class="irc-date">[7:45]</span> <span class="irc-black">&lt;uberushaximus&gt; ah they're there, 'find' rocks</span><br />
+<span class="irc-date">[7:46]</span> <span class="irc-black">&lt;Kaik541&gt; btw, I think we're having the modules pushed to /system/modules</span><br />
+<span class="irc-date">[7:46]</span> <span class="irc-black">&lt;Kaik541&gt; but shouldn't we be pushing it to /system/lib/moduels?</span><br />
+<span class="irc-date">[7:46]</span> <span class="irc-black">&lt;Kaik541&gt; isn't that the standard?</span><br />
+<span class="irc-date">[7:50]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@115.242.179.161) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[7:51]</span> <span class="irc-black">&lt;Unhelpful&gt; i just did what we were previously doing w/ the prebuilt modules. unless i screwed it up. :P</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-black">&lt;Kaik541&gt; well I think we've always been pushing to /system/modules</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-black">&lt;Kaik541&gt; but I think most apps and such look in /system/lib/modules</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-black">&lt;Kaik541&gt; though I may be getting the two directories confused</span><br />
+<span class="irc-date">[7:57]</span> <span class="irc-black">&lt;uberushaximus&gt; oh poo</span><br />
