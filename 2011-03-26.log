@@ -500,3 +500,49 @@
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm&gt; I want to attach a serial debugger</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-green">* kalpik is now known as [G]boobs</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;UberPinguin&gt; I have a writeup on the design and build, but it's incomplete. I'll post the link as soon as I've updated it with my recent findings.</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-green">* [G]boobs is now known as kalpik</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;atinm&gt; wtf. unhelpful, coolya</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;atinm&gt; koush responded</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;Wout|afk&gt; to what?</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;atinm&gt; build Makefile changes</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-navy">* neldar (~neldar@dsl-217-166-117.pool.bitel.net) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;coolya&gt; nullghost: whats up`?</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;coolya&gt; atinm: i just read it</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;atinm&gt; looking over what he suggests.</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;atinm&gt; (demands)</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;coolya&gt; he wants that we create a new "path" in the build process instead of modifying the existing</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;atinm&gt; which actually makes sense.</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;atinm&gt; (mostly keeps us independent of everyone else)..</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;atinm&gt; by the way, why does our recovery use recovery/misc when they use recovery/etc?</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;coolya&gt; atinm: because we symlink it on recovery boot</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;atinm&gt; I guess we can just copy our stuff into a BOARD_USES_INITRAMFS</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;atinm&gt; or something</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;coolya&gt; because if we would put it as etc in the init ramdisk vold will fail because we can't symlink /system/etc there</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;atinm&gt; and leave the rest out there.</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;atinm&gt; then their stuff isn't touched.</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-green">* kalpik_ (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-green">* kalpik_ is now known as kalpik</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-navy">* mersault (~mersault@bas4-toronto02-1167988743.dsl.bell.ca) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-green">* mersault (~mersault@67.71.2.170) has joined this channel.</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;kang&gt; coolya: more pong ;p</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-green">* mikebeecham (56b0390f@gateway/web/freenode/ip.86.176.57.15) has joined this channel.</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;mikebeecham&gt; afternoon</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;atinm&gt; coolya, just did it koush's way - brb</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;mikebeecham&gt; i've just flashed a kang kernel..now the backlights light up on thier own (not bln related!)</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;mikebeecham&gt; any ideas what I could do?</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;coolya&gt; kang: can you squish your "BLN" that shouldn't be called BLN and send a pull request?</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; coolya I already asked :)</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;coolya&gt; k :-)</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;mikebeecham&gt; is this what it is?</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;mikebeecham&gt; bln</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;coolya&gt; sry didn't read the logs</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;mikebeecham&gt; it lights up when I dont have any notifications</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; but he has given me the applicable commits:</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; fbfce2fdee0fe0affc742321a2518b9d1ef3bcfa</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; erm</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/kangsterizer/android_device_samsung_common/commit/fbfce2fdee0fe0affc742321a2518b9d1ef3bcfa">https://github.com/kangsterizer/android_device_samsung_common/commit/fbfce2fdee0fe0affc742321a2518b9d1ef3bcfa</a></span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/kangsterizer/android_kernel_samsung/commit/ac0334f0c5eba50f747699fa4fe3021bb0bef8f1">https://github.com/kangsterizer/android_kernel_samsung/commit/ac0334f0c5eba50f747699fa4fe3021bb0bef8f1</a></span><br />
