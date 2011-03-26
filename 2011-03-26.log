@@ -469,3 +469,34 @@
 <span class="irc-date">[15:54]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx and coolya|away, this is probably a question for you two</span><br />
 <span class="irc-date">[15:55]</span> <span class="irc-black">&lt;kang&gt; you should paste your panic somewhere i think</span><br />
 <span class="irc-date">[15:55]</span> <span class="irc-black">&lt;nullghost&gt; that's the problem, it won't get far enough to dmesg or logcat</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-green">* neldar (~neldar@dsl-217-166-117.pool.bitel.net) has joined this channel.</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;- *neldar* Bot Sentry eingeschalten:  Sie werden jetzt ignoriert!  Ihre Nachricht wird übermittelt wenn sie die folgenden Fragen innerhalb von 10 Minuten richtig beantworten:  How do you spell the result of ten div_ided by 2?</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-navy">* DJNgoma|DCD (~DJNgoma@41-133-207-106.dsl.mweb.co.za) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-green">* DJNgoma|DCD (~DJNgoma@41-133-207-106.dsl.mweb.co.za) has joined this channel.</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-navy">* nullghost (~quassel@c-76-18-157-237.hsd1.tn.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-green">* nullghost (~quassel@c-76-18-157-237.hsd1.tn.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-green">* DJNgoma|DCD is now known as DJNgoma</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;atinm&gt; nullghost: you want to talk to coolya, he's the expert on mtd onenand stuff</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;atinm&gt; Kaik541: it looks like the nexus s doesn't use the A1026</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;atinm&gt; Kaik541: have we tried their modem?</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;nullghost&gt; he's looked over our mtd stuff, but I don't think that's the problem</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-green">* mersault (~mersault@bas4-toronto02-1167988743.dsl.bell.ca) has joined this channel.</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;nullghost&gt; there has to be something I'm missing, for it to panic and reboot that quickly</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;atinm&gt; on the other hand, the nexus one does..</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;atinm&gt; damn it..</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-green">* kalpik_ is now known as kalpik</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;nullghost&gt; cool, I've got a dmesg now</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;nullghost&gt; we got a serial debugger attached</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;nullghost&gt; <a href="http://paste.pocoo.org/show/359972/">http://paste.pocoo.org/show/359972/</a></span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;nullghost&gt; it's an NPE that causes the kernel panic, line 381</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;atinm&gt; looks like framebuffer</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;UberPinguin&gt; I think it's more than that though.. there's an NPE, and later there's a panic and backtrace from s3cfb_probe</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;UberPinguin&gt; Yeah</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nullghost&gt; ok, that's got us in the right direction. great.</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;UberPinguin&gt; It's about time this stupid device paid off</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nullghost&gt; haha, $80 of genius if you ask me</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;nullghost&gt; UberPinguin here built a uart usb dongle</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;atinm&gt; that's great - I want one of those.</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm&gt; I want to attach a serial debugger</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-green">* kalpik is now known as [G]boobs</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;UberPinguin&gt; I have a writeup on the design and build, but it's incomplete. I'll post the link as soon as I've updated it with my recent findings.</span><br />
