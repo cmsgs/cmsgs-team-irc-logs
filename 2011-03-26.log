@@ -664,3 +664,38 @@
 <span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; yeah - that's what I was thinking - oh well. :)</span><br />
 <span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; lots of running in place during that time ..</span><br />
 <span class="irc-date">[18:57]</span> <span class="irc-black">&lt;coolya&gt; i will upload a kernel for the people on I9000 with charging issue with a big super fat brick warning</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;designfears&gt; how can they brick?</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: i'll try tonight, i want to ask him some questions first.</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;coolya&gt; turing the SGS into a fireball</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm&gt; I created a CM_Version branch on build/core</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm&gt; commited what I have - can you take a look?</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm&gt; it just totally ignores the rest and adds BOARD_USES_INITRAMFS</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;atinm&gt; and puts our stuff in it</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;atinm&gt; coolya :) - you extended the range of what it calls overheated?</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;coolya&gt; yeap</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;coolya&gt; to the insane values from jpx source</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/teamhacksung/android_build/commit/45f41d62b13fa62f4968908bae216f8fdcf97538">https://github.com/teamhacksung/android_build/commit/45f41d62b13fa62f4968908bae216f8fdcf97538</a></span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;atinm&gt; you'll need to add BOARD_USES_INITRAMFS to the device/samsung/x/BoardConfig.mk</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;atinm&gt; I think it works - it booted :)</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;atinm&gt; easier to see it with a diff against cyanogenmod ..</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm&gt; can you test it to make sure it builds a working image on the other phones?</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm&gt; coolya?</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;coolya&gt; sure</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm&gt; lunch for me - back in a bit</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm&gt; (I have today to work on android - tomorrow wife works on her stuff while I manage kid)</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm&gt; (so have to get evertyhing in today :) )</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: if it works and it's clean... :)</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;atinm&gt; the real test is whether it broke nook</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;coolya&gt; testing nook too</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;atinm&gt; I'm pretty sure it'll work on sgs if it worked on captivate ... unless I screwed something up</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;atinm&gt; and flashed the wrong image :)</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-green">* atinm is now known as atinm|lunch</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-green">* atinm|lunch is now known as atinm|cooking</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;atinm|cooking&gt; gone for a while - will see you guys later in the evening (it is 3:30pm - more like after 8pm)</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;coolya&gt; k i'll be here a bit</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;atinm|cooking&gt; coolya, unhelpful - if the Makefile works, you should commit it under Unhelpful's name.</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;atinm|cooking&gt; and resubmit in the same thing</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;atinm|cooking&gt; have him look again..</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;coolya&gt; k</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;atinm|cooking&gt; koush that is</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
