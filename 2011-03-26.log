@@ -767,3 +767,58 @@
 <span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; yeah, I saw that.</span><br />
 <span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; was wondering if we could use it</span><br />
 <span class="irc-date">[22:58]</span> <span class="irc-black">&lt;Unhelpful&gt; we certainly *can*...</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;atinm&gt; and we are making it, right? and not going into the clause that rm it</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;atinm&gt; screw it, first just trying to get what we have work again with just a straight dup</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;atinm&gt; and I failed. :)</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm splitting out a recovery_root: target that will build the recovery/root :P</span><br />
+<span class="irc-date">[23:05]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[23:09]</span> <span class="irc-black">&lt;atinm&gt; hrm, maybe it worked this time</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;techmik67&gt; just built cm_version</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;atinm&gt; techmik67: it will fail if you clean it completely.</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;atinm&gt; don't try yet :)</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;techmik67&gt; didnt clean</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;atinm&gt; yeah, that's what faked me out</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;atinm&gt; this time I did clean I think.</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;atinm&gt; let me make completely sure :)</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;techmik67&gt; remember, it takes me 90 mins to build clean =(</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-black">&lt;techmik67&gt; booted fine</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-black">&lt;techmik67&gt; with a dirty build, that is</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;atinm&gt; yeah, the problem happens when you clean and it fails to build the initramfs (which was the whole point of the exercise . . . to build the damn thing)</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;techmik67&gt; gotcha</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;atinm&gt; just taking it personally that koush told us we don't understand what we're doing ...</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;atinm&gt; if he wants the same damn code duplicated, so be it.</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;techmik67&gt; lol, from what i have seen, he talks to *everyone* like that</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;Kaik541&gt; he really does</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;atinm&gt; I know - still.</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: FIXING THAT. ;P</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;Unhelpful&gt; but nicer.</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;Kaik541&gt; if he knows so well what we're doing wrong</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;techmik67&gt; i dont suppose that testing with "./build.sh captivate kernel" is enough, huh?</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;techmik67&gt; i just cleaned</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;atinm&gt; don't - it's broken, we know it right now</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;atinm&gt; soon, this one isn't rocket science.</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;atinm&gt; just that make isn't an actual language .. .</span><br />
+<span class="irc-date">[23:20]</span> <span class="irc-black">&lt;atinm&gt; unhelpful, better you than me :)</span><br />
+<span class="irc-date">[23:20]</span> <span class="irc-black">&lt;atinm&gt; delete the CM_Version branch since you're fixing it "right". I was just going to hack it to duplicate the code.</span><br />
+<span class="irc-date">[23:20]</span> <span class="irc-black">&lt;atinm&gt; or I can</span><br />
+<span class="irc-date">[23:21]</span> <span class="irc-black">&lt;atinm&gt; (still a little miffed that I couldn't even duplicate it :) )</span><br />
+<span class="irc-date">[23:21]</span> <span class="irc-black">&lt;Unhelpful&gt; i moved the duplicated code into a new build target generating a timestamp file for the target recovery filesystem tree</span><br />
+<span class="irc-date">[23:21]</span> <span class="irc-black">&lt;Unhelpful&gt; then the various recovery image rules depend on that</span><br />
+<span class="irc-date">[23:21]</span> <span class="irc-black">&lt;atinm&gt; I worry that anything that touches the rest of the code he hits a speedbump on</span><br />
+<span class="irc-date">[23:21]</span> <span class="irc-black">&lt;atinm&gt; tho yeah, it did look bad with the ifdef everywhere :)</span><br />
+<span class="irc-date">[23:22]</span> <span class="irc-black">&lt;atinm&gt; ifeq</span><br />
+<span class="irc-date">[23:22]</span> <span class="irc-black">&lt;Unhelpful&gt; it *also* means that conditionals for modifying recovery contents need only ever appear one place :)</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;atinm&gt; it would be nice - I'll let you do it. wondering if I have the energy to play the 9pm poker tournament :)</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;atinm&gt; wonder if I should put in a donate button - "buy me into the Sunday Million Poker Tournament"</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;atinm&gt; tho no one will donate - it takes time away from CM7 :)</span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-black">&lt;atinm&gt; holy crap. 32K people are already registered.</span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-black">&lt;atinm&gt; (to play the tournament...)</span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-black">&lt;atinm&gt; (btw, I am working ... its building in the background)</span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-black">&lt;atinm&gt; $11 to play the tournament - 150K ppl . . . $1,000,000 guaranteed . . . that just seems like way too much work.</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-black">&lt;atinm&gt; think my quick and dirty worked..</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: koush just responded ...</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;atinm&gt; he actually wants the dirty</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;atinm&gt; you saw it too</span><br />
+<span class="irc-date">[23:45]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
