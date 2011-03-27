@@ -180,3 +180,104 @@
 <span class="irc-date">[9:40]</span> <span class="irc-black">&lt;Wout`&gt; I've got a script checking the samsung opensource site every 30 mins for updates :P so when it drops, i'll let you know</span><br />
 <span class="irc-date">[9:53]</span> <span class="irc-black">&lt;coolya&gt; i would love if just the opensource center from samsung would be able to send me an email if a model i subscribed too got an update</span><br />
 <span class="irc-date">[9:58]</span> <span class="irc-black">&lt;Wout`&gt; suggest it to your contact ;)</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;crypta&gt; had a look at the buglist for SGS... and uhm... number 73 "no charging while tethering". maybe I am wrong, but having a look at power consumption of radio and wan (~1.2w)... I think this "bug" is more related to the temperature limits of the CM7 SGS mod</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;Wout`&gt; yeah, drain is prolly higher than charging rate</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;crypta&gt; not only that</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;crypta&gt; heat also</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;Wout`&gt; right</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;coolya&gt; there is a kernel branch where you can fry your phone</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;crypta&gt; for getting along with heat limits @ cm7, I sometimes use fligtmode</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;Wout`&gt; cool: you're using jpx values in that branch, yeah? if samsung deemed it safe for a release firmware, it should be alright  I guess</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;coolya&gt; imho those values are insane</span><br />
+<span class="irc-date">[10:05]</span> <span class="irc-black">&lt;crypta&gt; ah, I am ok with this... just wanted to show, that some bugs maybe aren't real bugs and as so.. they maybe don't have to be listed so they won't scare people away ;)</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;coolya&gt; the battery *shouldn't* get that hot even when its charging and power is taken from it</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;coolya&gt; i traveled a hole week on train with 4 to 7 hours tethering each day</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;coolya&gt; never run into an overheat issue on battery</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;coolya&gt; even when it was nearly lasted and got charged while tethering</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;coolya&gt; all other SGS models use way lower values</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;Wout`&gt; but what kind of environment temps were you in?</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;crypta&gt; I did one night - the problem keeps only if some arguments come together: room temperature / sun or heavy use... e.g. 3d gaming</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;Wout`&gt; these things have to function in hot countries too</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;coolya&gt; Wout`: my battery temperatur increased at about 5°C on charging</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;coolya&gt; even i you live in a area where its abot 40°C there 13°C until it will overheat and stop charging</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;crypta&gt; wasn't the old limit 47°? and 42°C recovery?</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;coolya&gt; #define HIGH_BLOCK_TEMP			500</span><br />
+<span class="irc-date">[10:13]</span> <span class="irc-black">&lt;coolya&gt; #define HIGH_RECOVER_TEMP		420</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;coolya&gt; those values are °C/10</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;coolya&gt; i will write a *very* detailed blog enty about the charing logic to wipe out all the FUD flowing a round</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;coolya&gt; hope that helps to make users understand what is going on</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;coolya&gt; and why battery won't change in all condition just because a charger is pluged in</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;crypta&gt; another thought I had related to the temps.. as .. if I remember correctly... the samsung temps are much higher ... maybe the tempsensor is placed somewhere else. I don't have any problems with it in current condition.. but I have to admit, I do fear the hot summer days :D</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;coolya&gt; may vibrant and galaxys have the same battery according to the material number :-P</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;coolya&gt; both assembles in the same week i just noticed ;-)</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;Wout`&gt; touchkeys backlight stays on while the screen is on with JVK</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;Wout`&gt; just like Nexus S</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;Wout`&gt; perhaps samsung based their update on nexus s sources</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;Wout`&gt; would be nice, prolly cleaner because google wrote them</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;atinm|away&gt; morning</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;Wout`&gt; afternoon</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;coolya&gt; samsung wrote them but google reviewed the source ;-)</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;coolya&gt; hi atinm</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;coolya&gt; the makefile looks good on encore aka nook color</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;coolya&gt; flashing update.zip right now</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;atinm&gt; sec, checking the emails from unhelpful</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;atinm&gt; ohgad, tweet explosion from voodoo</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;atinm&gt; err, supercurio</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;coolya&gt; he is tweeting every fart on lagfix</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;atinm&gt; this is why I always remove him..</span><br />
+<span class="irc-date">[10:31]</span> <span class="irc-black">&lt;atinm&gt; ok . . . did you try unhelpful's Makefile?</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;atinm&gt; did he push it anywhere?</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;atinm&gt; I don't see it..</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;coolya&gt; copying update.zip to nook color right now</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;atinm&gt; or did it just get on gerrit?</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;coolya&gt; it is on gerrit</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;atinm&gt; yes, it should work..I'm afraid to ask Koush to look :)</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;coolya&gt; ahh i missed something :-(</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;Wout`&gt; does that mean the buildprocess is ready for mainline/</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;Wout`&gt; ?</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;coolya&gt; didn't pull the dependency</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;coolya&gt; its ready when mainline says its ready :-S</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;coolya&gt; s/:-S/:-D</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;coolya&gt; once again from scratch</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;coolya&gt; brunch galaxys &amp;&amp; brunch vibrant &amp;&amp; brunch encore</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;atinm&gt; that changing USES_MKIMAGE to USES_INITRAMFS looks scary..</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;coolya&gt; wtf do i have to modify encore too ?</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;atinm&gt; no... shouldn't. only if it uses_initramfs</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;coolya&gt; ok</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;coolya&gt; compiling all the three rightn ow</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;atinm&gt; I need to coopt three of my servers..</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;coolya&gt; i need a new hey core I7</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;coolya&gt; s/hey/hexa</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;atinm&gt; so I won't be working today - its my turn to let wife work on her research while I play with the kid. I hate winter.</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;Wout`&gt; one of them sandy bridge ones, blazingly quick</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;atinm&gt; so much mor efun if we can go outside</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;atinm&gt; (and I sucked at poker last night too)</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;coolya&gt; i saw the poker database on your github, what is it ?</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;atinm&gt; it imports what you're playing in realtime, and shows statistics</span><br />
+<span class="irc-date">[10:44]</span> <span class="irc-black">&lt;atinm&gt; on how many hands each opponent is playing, what % of the time they'r eraising folding etc - all legal :)</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;atinm&gt; but gives you an idea of what cards they're playing</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;atinm&gt; I only use it after tho - I want to train myself to read this realtime myself like the best players can</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;atinm&gt; but using the hand history, I can figure out what mistakes I made (a lot..)</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;atinm&gt; and try not to make them again</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;coolya&gt; a friend of mine is a poker freak he playing 7 tables at a time online</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;atinm&gt; yeah, I can barely manage one :)</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;atinm&gt; I just started and got distracted by the coding. realized there were better people doing the coding who knew what they're doing on a table too, so I am back to just playing :)</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;atinm&gt; and coding android.</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;coolya&gt; lol i love then new VW comercial</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm&gt; I only play freerolls tho - no money. they have tournaments that let you enter for free but still pay you some small change. fine for when I'm learning</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;coolya&gt; <a href="http://www.youtube.com/watch?v=R55e-uHQna0">http://www.youtube.com/watch?v=R55e-uHQna0</a></span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;coolya&gt; i suck at poker</span><br />
+<span class="irc-date">[10:50]</span> <span class="irc-black">&lt;atinm&gt; I just tell myself I still do better at coding :)</span><br />
+<span class="irc-date">[10:51]</span> <span class="irc-black">&lt;coolya&gt; Wout`: i thought of this one <a href="http://ark.intel.com/Product.aspx?id=47933&amp;processor=i7-970&amp;spec-codes=SLBVF">http://ark.intel.com/Product.aspx?id=47933&amp;processor=i7-970&amp;spec-codes=SLBVF</a></span><br />
+<span class="irc-date">[10:51]</span> <span class="irc-black">&lt;coolya&gt; not sandy bridge</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-black">&lt;Wout`&gt; well, if the software you're using is multithreaded, then the 970 is really nice</span><br />
+<span class="irc-date">[10:57]</span> <span class="irc-black">&lt;Wout`&gt; but clock for clock the new i7's are much faster</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;coolya&gt; compiling android is heavily multi threaded ;-)</span><br />
