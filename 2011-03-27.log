@@ -499,3 +499,51 @@
 <span class="irc-date">[16:56]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm not sure what the problem is, though, because i see the correct init.rc and recovery.rc afaict...</span><br />
 <span class="irc-date">[16:56]</span> <span class="irc-black">&lt;coolya&gt; yes i seeing that too when i looked at when the build was done</span><br />
 <span class="irc-date">[16:57]</span> <span class="irc-black">&lt;coolya&gt; for me it looks like that our stuff is copied ther *after* the kernel was build</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;Unhelpful&gt; there are two times the kernel source makefile is run through, once to create the config, once to build the kernel. the first can happen safely any time, and is likely to run parallel to the actual recoveryfs build.</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;Unhelpful&gt; the second is the one that has important ordering dependencies</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;Unhelpful&gt; ah, no, it's installing the "stock" recovery init as init.rc. :)</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;Unhelpful&gt; so we'll always boot the stock recovery init... boo.</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;Unhelpful&gt; woot, working in recovery now</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: see comment i just added before trying to build this. setting the specified variable will cause it to install recovery.rc without further changes to recovery filesystem setup.</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;coolya&gt; i will try it in a bit need to do some changes to my fm driver</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;Unhelpful&gt; this is for i9k or are you trying to make fm work via the bcm receiver?</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;coolya&gt; i9k</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;coolya&gt; first</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;coolya&gt; a driver for the bcm chip is already there</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;Unhelpful&gt; ah. was gonna say, if they didn't connect an FM antenna to th BCM... we probably will never see reception on it. :/</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;coolya&gt; i9k has a extra fm chip</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;coolya&gt; si4709</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-navy">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm|away&gt; did you see curio's latest tweets :)</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;atinm|away&gt; I gues we developed "relations" too ;)</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;Unhelpful&gt; o?</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;atinm|away&gt; I think he meant he got an email..</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;atinm|away&gt; 8)</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;coolya&gt; doesn''t he understand that he his tweet drama is anoying =?</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;atinm|away&gt; I don't think so..</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;atinm|away&gt; that's why I always remove him when he goes on tweet binges.</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;coolya&gt; i need to remove him from my android list</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;atinm|away&gt; unfollowed him again.</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;coolya&gt; it's really to much</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;atinm|away&gt; yeah</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;atinm|away&gt; wonder if he knows we all got the email, including cyanogen.</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;kang&gt; twitter should auto consolidate subsequent tweets.</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;Unhelpful&gt; "weekly digest mode" :)</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;atinm|away&gt; lol yes.</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;atinm&gt; so is the Makefile good now?</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;mersault&gt; presumably a decent client could do that. oh wait, twitter doesn't want alternative clients...</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;atinm&gt; saw you made two more patches.</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-navy">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;kang&gt; whats this email about btw :p</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;kang&gt; uhm</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;kang&gt; seems 2.3.3 from sammy has brightness control for the touchkey</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;atinm&gt; coolya, unhelpful - makefile good?</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;coolya&gt; atinm testing when my fm build is working</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;atinm&gt; have to reboot machine...</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has left this channel.</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: works-for-me but requires additional device changes as detailed in comment.</span><br />
