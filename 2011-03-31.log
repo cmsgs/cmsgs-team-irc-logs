@@ -117,3 +117,134 @@
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;freat&gt; this is true. but if you're talking security of a cellphone, it needs to be secure to offline attacks as well</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;techmik67&gt; 1- how secure is it to transmit, compared to pc or laptop....</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;Unhelpful&gt; maybe i the superuser app could password-protect the ability to approve su access. :)</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;techmik67&gt; and 2, how can i physucally protect it</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;freat&gt; if an app wants security, it needs to either not store valuable information, or encrypt it</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;techmik67&gt; physically*</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;kang&gt; freat: different level of security, you can't mix them up, because security are only "assurance levels", not a defined state</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;Unhelpful&gt; freat: that is not reasonably achievable on this device, imo. download mode will let you flash a new kernel, at which point you can do what you want to it.</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;nitam|work&gt; unless we also secure the card.</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;nitam|work&gt; which is a pain in the ass.</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;freat&gt; flashing a new kernel won't let you read an encrypted filesystem</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;kang&gt; the cards being formatted FAT you're more or less out of luck anyway</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;nitam|work&gt; the whole asec thing was doing that I thought.</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;nitam|work&gt; so the underpinnings are there.</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;kang&gt; since in most cases you're going to break the usb mount</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;Unhelpful&gt; freat: true. but the key has to be stored *somewhere*, or are we prompting on each access?</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;kang&gt; if you store the key on the phone, physical security is already lost :p</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;kang&gt; it's exactly the same as on laptop encryption..</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;nitam|work&gt; Unhelpful, I thought it was when you started the phone and got in via password that it did the mount</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;nitam|work&gt; and decrypted/mounted</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;nitam|work&gt; but I didn't pay attention to it really. I just thought that was what the whole moveMount thing was in the MountService.java</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;freat&gt; Unhelpful: I don't care. I'm just saying that it IS posible to have an encrypted volume. Hacked firmware in our sense is no different than open-source firmware</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;nitam|work&gt; I've never really paid attention to security . . . my eyes glaze up</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; theres no good way to encrypt it on the phone, since you've to enter the key to mount</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; either its a good key..</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; and its such a pain its unuseable</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; either its a crap key, renders encryption useless</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; either its stored, again, useless</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; =/</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;nitam|work&gt; the code I looked at was using aes or something</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;nitam|work&gt; mounting the card on /asec</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;freat&gt; if you could make the device USB host... could try those usb thumb drive dongles</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;kang&gt; yes, but the passphrase (=what i call key) needs to be strong as well</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;nitam|work&gt; and then moving it to the real spot.</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;freat&gt; something you have, know, and are</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;freat&gt; all 3 security points</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;nitam|work&gt; anyway - techmik67, basically what we're saying is, don't do anything with the phone that you require security for ;)</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;techmik67&gt; lol, thx</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;nitam|work&gt; if you need security, get a blackberry.</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;techmik67&gt; like now</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;techmik67&gt; i dont</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;kang&gt; i wouldnt really get a blackberry</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;kang&gt; if you want security, don't use a phone.</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;kang&gt; :P</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;nitam|work&gt; well yeah, but its relatively more secure.</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;nitam|work&gt; in that the damn thing is closed :)</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;techmik67&gt; gonna have to get a thumbprint sensor phone/laptop =)</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;kang&gt; it has some security measures in fact</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;kang&gt; if you use BBM its encrypted etc and separated</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;kang&gt; but the rest isnt</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;kang&gt; example, the BB failed quick at pwn2own (ofc these exploits are prepared but still)</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, wife is at harvard medical school and so her work basically only approves some phones</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;nitam|work&gt; android phones aren't approved :)</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;nitam|work&gt; they email is encrypted, their laptop drives have to be encrypted if they want to connect to the network</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;nitam|work&gt; etc</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;kang&gt; as long as it doesnt have a real certification the approvals are more of a business trade anyway</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;kang&gt; a simple example are SSH passwords</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;kang&gt; its encrypted etc ppl feel secure</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;kang&gt; they dont realize the passwords are plain text and can be captured server side</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://lwn.net/images/conf/rtlws11/real-fast.pdf">http://lwn.net/images/conf/rtlws11/real-fast.pdf</a></span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;nitam|work&gt; urk</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-green">* mersault (~mersault@acihip.tor4.dsl4u.ca) has joined this channel.</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: closed is not more secure. :)</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;nitam|work&gt; I didn't say it was - just "relatively" :)</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;techmik67&gt; so does anyone know what its gonna take for koush to look at our 2 reviews?</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;nitam|work&gt; (that link was work reading . . . )</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;nitam|work&gt; real time linux kernels . . .</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;kang&gt; real fast will always &gt; real time in such kernels for perfs ^^</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;kang&gt; but you can't predict the outcome with real fast</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;kang&gt; you can with real time</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;kang&gt; anyhow!</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;kang&gt; while encryption might be implemented one way or another that is more or less secure against your average robbery issue</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;kang&gt; i think its much more important to have software separation inside the phone</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;kang&gt; since u get ur email, contacts, location, etc everything same place.. and atm not very high security lol</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;kang&gt; usually.. ppl get their work email, keys etc.. on it</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;kang&gt; together with the latest crap software, cracks, w/e and their browser and so on</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;kang&gt; while the work place is usually sort of secure</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;kang&gt; this places such a super weak link in the chain</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;UberPinguin&gt; mnita|work: ping (bluetooth vs wired heaset routing)</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;nitam|work&gt; kang, real time vs real fast. That's what we think - but I am doing some analysis for network drivers/hardware etc to see if I can squeeze some more performance somewhere . . .</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;nitam|work&gt; UberPinguin: hmm?</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;kang&gt; mnita|work: sounds interesting, just out of curiosity how quick is your network then? i mean, i think most cards up to 1G nearly reach their theorical peak right?</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;nitam|work&gt; 10G and infiniband.</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;kang&gt; oks</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;kang&gt; theoretical* i always write that one wrong &gt;&lt;</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;nitam|work&gt; we also have custom cards that allow us to skip the kernel completely</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;UberPinguin&gt; mnita|work: A few days ago I asked you if you'd run across anything relevant to my Google Code issue wrt preferring bluetooth headset for in-call audio vs. wired headset when both are connected. You were busy w/ something else, but indicated you had an idea where to look. Mind pointing me at it?</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;kang&gt; i suppose the kernel has too many context switches</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;nitam|work&gt; because right now we're hitting kernel bottlenecks</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;nitam|work&gt; wm8994_herring.c</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;nitam|work&gt; in source/soc/codecs</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;UberPinguin&gt; Thanks</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;nitam|work&gt; but hmm</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;nitam|work&gt; something has to do it from the android layer tho</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;nitam|work&gt; the driver just gets told</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;nitam|work&gt; and it sets up the path</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;nitam|work&gt; something else tells it from above which to use, that I haven't looked at.</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;UberPinguin&gt; I thought it was somewhere in AudioPolicyManager, but I haven't been able to find where the decision is actually made and passed</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;nitam|work&gt; go grepping :)</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;nitam|work&gt; same thing I'll do when I have time</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;nitam|work&gt; ok, later.</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;UberPinguin&gt; Hasta</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful:   /media/Android/teamhacksung/kernel/samsung/2.6.35/scripts/gen_initramfs_list.sh: Cannot open '/media/Android/teamhacksung//out/product/target/galaxysb/recovery.cpio'</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx, we weren't sure what galaxysb was using - it seemed to be pointing to /data still</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;nitam|work&gt; it basically needs to do the same thing that galaxys is doing, and that might require more work.</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;nitam|work&gt; We just didnt' knw.</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-black">&lt;nitam|work&gt; Take a look at the commits around that time for galaxys, captivate and vibrant. Galaxysb needs the same, and it might also need all the .rc files etc in device/samsung/galaxysb like the others have</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-black">&lt;codeworkx&gt; galaxysb is using galaxys ramdisk</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;nitam|work&gt; ah yuck.</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;nitam|work&gt; that's jsut dirty . . .</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;codeworkx&gt; no it doesnt</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;nitam|work&gt; not sure whether we thought of that.</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;codeworkx&gt; ramdisk is created by buildsystem</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;codeworkx&gt; except some init.rc files</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;codeworkx&gt; but these are in each device folder</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;codeworkx&gt; so, it's like on all other devices</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;codeworkx&gt; am i wrong?</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;nitam|work&gt; try just changing the BoardConfig.mk to point to galaxys/recovery.cpio then</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;nitam|work&gt; if it is the same.</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;nitam|work&gt; tho that won't work . . . I dunno, where was it building the ramdisk?</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;nitam|work&gt; let me try building it</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;nitam|work&gt; I write a fucking long post explaining exactly the same fucking thing that the post right after it quotes and then asks the same fucking thing again. I give up.</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;techmik67&gt; dont reply again</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;nitam|work&gt; I'm not going to.</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;nitam|work&gt; I'm done.</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;techmik67&gt; they dont listen</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;mikebeecham&gt; Hey guys...hows the afternoon going?</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;techmik67&gt; we want sources!!! =)</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;nitam|work&gt; and fewer idiots.</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;techmik67&gt; on xda? ha! no way</span><br />
