@@ -914,3 +914,150 @@
 <span class="irc-date">[21:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; vib is the only one with det_check_to_earpath_sel() in it which is looking at GPIO_DET_35</span><br />
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;dasunsrule32&gt; atinm: interesting</span><br />
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;atinm&gt; I update, it boots and I'm ready to go.</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;atinm&gt; TMC_Sherpa: is that function actually used?</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;atinm&gt; for HWREV f</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;atinm&gt; I seemed to have thought it was in a #if that meant it is not ..</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I dont think so, GPIO_DET_35 doesn't get set from anywhere</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;atinm&gt; since my cleaned up code doesn't ahve it anymore</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;atinm&gt; ok, I'm going to start it off as off.</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;atinm&gt; and turn it on only for 3pole and 4 pole.</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;atinm&gt; if something is plugged in</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sorry pulling HAWK crap out</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-navy">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gaahhh could they have made this ....no I don't want to know the answer</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;atinm&gt; ok, back later - building vibrant.</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-green">* atinm is now known as atinm|dinner</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;Zilch25&gt; oh good captain retarded posted again</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;Zilch25&gt; "I wish for a better hat stand. If froyo can be ported to the iPhone and HD2, I am sure the newer version of android are possible on the System without any help from Sammy, no matter how much of an outlier the hardware is when compared to other phones. "</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; then build it your F*ing self, it's so easy you just said so</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;Zilch25&gt; thats pretty much what the next 3 posts said</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; anyway yes atinm, the vib turns it off after, everyone else before.  the only (!?!) weird thing is sec_jack_probe uses _EN for everything even the vibrant which can't be right can it?</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;Zilch25&gt; i like how his prior response to atin was semi humble, then i guess he had some time to think about it and went back into full blown helmet wearing blow hard tard mode</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I had entertaining conversations with you Zilch, thats about all I did there for 6 months</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 'cept for a few attaboys to xcal</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;Zilch25&gt; haha well you ran a bunch of diffs too</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;Zilch25&gt; i wasnt monopolizing all of your time</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-green">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;Zilch25&gt; but yeah that was back in the good ol days before everyone thought they knew everything about everything</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;Zilch25&gt; and rajendra82 wasn't a shitposter</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I finished the diffs then they froyo leaks started coming out</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or I stopped posting them anyway</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;Zilch25&gt; well its good to see you've found a new project :)</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;Zilch25&gt; even if the people on xda are too slow to appreciate the work that goes into it :P lol</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; LOL my memory isn't as good as it used to be but I'm pretty sure you and Kaik drug me in here</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;Zilch25&gt; lol yes, sir</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;Zilch25&gt; jeez looking at my pms i really did disappear in october</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;Zilch25&gt; that was a hell of a hiatus</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;Zilch25&gt; also i have over 800pms... good lord</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; there was a post or two wondering where you went, I think the two camps were dead and got a better/different phone</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;Zilch25&gt; lol... yeah i did kind of vanish without a word... though i did reply to one thread just saying i was super busy and work was super shady</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; fuel for the dead camp iirc :)</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;Zilch25&gt; hahaha yeah the boss put a hit out on me or something :o</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hell I still show people your ascii art, still kills me</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;Zilch25&gt; hahahahaha</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;Zilch25&gt; that thing got so murdered by the PM too</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; thats part of what makes it great</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;Zilch25&gt; i swear it looked normal when i sent it lol</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; "normal"</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;Zilch25&gt; though im not 100% sure what all i included, but i remember it was all kinds of mangled</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you at the beach :P not much to it really</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;Zilch25&gt; hahahaha</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'd tell you were to look but its in one of the 100 evil league of evil needs your phone posts I think</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;Zilch25&gt; im reading back through some of our old pms from the end of september... that was when we were first catching on to DG being evil</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;Zilch25&gt; hahaha</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;atinm|dinner&gt; oh please god . . . make him go away.</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-green">* atinm|dinner is now known as atinm</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;atinm&gt; iPhone?! HD2?!</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; DG on his own I can deal with its his minion horde</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;Zilch25&gt; but... cognition has better battery life than CM7... you guys just dont know how to dev</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;Zilch25&gt; herpaderp</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm&gt; he needs to put up or shut up. I need to see which damn phone has a working android that didn't start of with drivers and/or documentation to the hardware.</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm&gt; bah.</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;Zilch25&gt; rej doesnt dev anything</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;atinm&gt; he used to be somewhat sane if I remember right</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;Zilch25&gt; seriously... read it from a comedic standpoint and its okay</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;atinm&gt; he's got an indian name, so I remember him</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;Zilch25&gt; yeah... back before i vanished he used to be helpful and have useful contributions</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;Zilch25&gt; now he's slinging the most ignorant/stupid crap re: deving AOSP ive ever seen</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;Zilch25&gt; quite an about-face :P</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; October 6th</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;        @</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;        \|/</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;  ~~~/ \ ~~~~~~~~~~~</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;Zilch25&gt; hahahahahaha</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;Zilch25&gt; yes!</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;Zilch25&gt; my ascii art... forever immortalized in the logs</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;Zilch25&gt; this is important deving going on right here.</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; still kills me</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;Kaik541&gt;  what's funny is I completely missed it so I have to check the logs for it</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;atinm&gt; "put up or shut up - show me the hardware that CM7 works on better than it does on the SGS that had proprietary hardware drivers installed and never got any open source drivers or documentation and still managed to get that hardware working". fuck.</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;atinm&gt; </span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;Zilch25&gt; someone should turn that into a boot animation, they can leave the little man alone, but animate the ~'s so it looks like a barber pole</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;atinm&gt; I almost want to go on again.</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;atinm&gt; bah.</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;atinm&gt; I will not post there again.</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;Zilch25&gt; haha just leave them to fight amongst themselves</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;atinm&gt; thank idiots like him.</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;Zilch25&gt; let the collective ignorance of xda collapse in on itself</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;atinm&gt; anyway - vibrant - any takers?</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;Kaik541&gt; be like "hey, you know that 'adb reboot download' command you love so much... yeah, get that working without a working param.ko... oh, no other official CM phones have that? ouch."</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I could post it again, still in me ctrl-c queue but I think it's more entertaining is you have to wait for the logs Kaik, remind me if it gets lost or something</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;Kaik541&gt; wow, rajendra82 is someone I used to think wasn't retarded</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;Zilch25&gt; i dont know kaik, when you talk all i hear is cognition</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;Zilch25&gt; exactly, thats what i found so shocking</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;Kaik541&gt; it are ported to iphone, therefore, samsung must be easier... herp derp</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;Zilch25&gt; i like how the point was brought up that, yes, it can boot on iphone, but nothing works</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;Kaik541&gt; obviously someone hasn't tried using the iphone 3g (doesn't even work on 3gs or 4 or ipad, etc) port, which is buggy, crashes, and slow as get out</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;Kaik541&gt; don't get me wrong, I have respect for the iDroid team, where they're at takes a lot of time and dedication</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;Kaik541&gt; but != cyanogenmod as a daily driver on SGS</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;atinm&gt; and I am sure anything that is proprietary without source or docs doesn't work there either.</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;Kaik541&gt; the only thing they have "working"</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;Kaik541&gt; is sms and phone calls</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;Kaik541&gt; and maybe wifi?</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;Kaik541&gt; since it uses the same wifi chip we have</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;atinm&gt; it cannot be anything else . . . not like someone has some magic that we're not privy to.</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;Kaik541&gt; or the new one does... not sure about the old ones</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;Kaik541&gt; oh also, you wanna talk about battery drain, you can physically watch it drop on the iphone port... 100% in like 3 hours</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;Kaik541&gt; doing nothing, might I add</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;Zilch25&gt; clearly the most logical answer is that you are making things harder because</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;Zilch25&gt; just because</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;atinm&gt; its not work comparing - they're in the same boat.</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;atinm&gt; worth</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;Zilch25&gt; you're trying to justify all those donations you arent taking</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;Zilch25&gt; derp</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;Kaik541&gt; it's apples to androids</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;atinm&gt; its only the know it alls who seem to think we're just plain stupid here.</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;atinm&gt; and maybe they're right.</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;atinm&gt; we'll never know, because they've produced nothing.</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;atinm&gt; and actually admit they don't know anything about development like this guy did.</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;atinm&gt; which makes it even more fun .  . .</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;atinm&gt; no one goes and tells a brain surgeon - oh but my podiatrist did that so much quicker.</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;atinm&gt; and even my proctologist can do better than you. I'm going to go to him next time.</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;Zilch25&gt; i once edited my autoexec.bat file and it wasnt hard at all</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;Kaik541&gt; they think because they're capable of installing a lot of samsung ROM's, they understand development</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;atinm&gt; anyway, back to me. vibrant?</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;atinm&gt; ppl?</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;kang&gt; ffs i hate the 1st of april</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;kang&gt; the day you can't read the news.</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;Kaik541&gt; oh man, I'm gonna have to go get my money out for rent on april 1st... the teller better not pull any pranks on me &gt;_&gt;</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;Kaik541&gt; money already makes me nervous enough :P</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;atinm&gt; where are the vibrant folks anyway</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;atinm&gt; where do they hang out?</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;kang&gt; sleeping imo.</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;Kaik541&gt; it's only 6 pm here (US, central time)</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;kang&gt; oh, right i should be the one sleeping.</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;atinm&gt; vibrant is also in the US.</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;atinm&gt; but surprisingly, is also in India</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; that was news to me</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; I thought it was exclusively US.</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;kang&gt; on the bright side, the earth is flat.</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; dang, when did that happen.</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;atinm&gt; I need to go back to reading the news . . . this phone has totally taken over my life.</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;atinm&gt; do we still have 9 planets?</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;kang&gt; god came and flattened it lol</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;kang&gt; i'm not sure, the universe might be flat too</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;atinm&gt; ok, I've managed to build vibrant</span><br />
