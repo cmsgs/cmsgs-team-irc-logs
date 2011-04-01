@@ -49,3 +49,79 @@
 <span class="irc-date">[0:58]</span> <span class="irc-black">&lt;atinm&gt; hmm....my antenna is a little low powered for this.</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;atinm&gt; on a sphere?</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Unhelpful&gt; the bias is the center of that sphere. i've been a few days looking for existing software that fit a sphere with a series of points on its surface.</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;atinm&gt; one of these days I have to read up so you have someone to talk to . . .</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: yes, a sphere... think of the sensor bias as being an "anchor" somewhere in space, and the reading as a line from there whose length is the magnitude of the field, and whose direction depends on the orientation of the device with regard to the field.</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;atinm&gt; (that actually made sense :) )</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;Unhelpful&gt; the set of points equidistant from one point is a sphere, so the raw readings, if they had no noise, should lie on the surface of a sphere centered around the bias and with a radius representing the strength of the field.</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm&gt; ok, yes</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;Unhelpful&gt; this makes sense in terms of samsung's email, too - "rotate the device a few times" :)</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;Kaik541&gt; that's really the advice they gave?</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm&gt; so that's what they meant</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;Unhelpful&gt; it needs to "see" the field from several angles so that it can "see" enough of that sphere to calculate its center.</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm&gt; roll it 3 times</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;atinm&gt; or something is what they said.</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;Unhelpful&gt; they seem to be thinking we're working with their sensor daemons... shame those fail. ;)</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;atinm&gt; once along each axis?</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;atinm&gt; they are not clueful . . . which is why we need you.</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: that would give the *best possible*  image of the offset, but even if it just turns around a little bit, so there are readings from *part* of the sphere, we can see what the radius and center would be, roughly, by the curvature the points represent.</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;Unhelpful&gt; there is noise, readings aren't perfect, etc, so it's not exact-fit, we're calculating a best fit, or will be when i find usable code ;)</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;atinm&gt; ok, yes. if it is basically uniform which we have to sort of assume?</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;Unhelpful&gt; i tried to read research papers on this one, but they tended well outside my understanding</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;atinm&gt; uniform in that no bias along a particular axis</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;atinm&gt; I'll also ask wife after she's done with her slides for a presentation tomorrow</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: oh, i'm sure the bias isn't uniform, but the idea is that some roughly-fixed offset is added to each axis. it still doesn't change the general shape the readings should trace out...</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;atinm&gt; asking specific stuff like this frequently yields an answer.</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;atinm&gt; when she doesn't hvae to explain things to me.</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;atinm&gt; her surgical instruments are tracked via a magnetic field</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;Unhelpful&gt; after repeatedly failing to figure out their code, i started looking for other information on sensor calibration, which is where i found this sphere business. apparently some degree of bias in readings is very typical for magnetometers.</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;Unhelpful&gt; i actually suspect this is even maybe what they're doing - one of the research papers involved a method i didn't entirely understand, but required a solver for matrix eigenvectors, which hey, they have in geomagneticd.</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;atinm&gt; yes - and then the roll business</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah. so, as a first attempt, i'm going to be just calculating the offset, and start adjusting the read values by the offset, which should give us nice understandable readings.</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;Unhelpful&gt; you know, assuming i can find a solution method i can implement myself or based on code i can compile.</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;atinm&gt; maybe write to one of the authors of the papers . . .</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;atinm&gt; ask if they use android ;)</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; man, am just going to do a line by line diff/merge of wm8994_herring.c and wm8994_aries.c from captivate froyo</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;Unhelpful&gt; oh fsck yeah! "Pursuant to title 17 Section 105 of the United States Code this software is not subject to copyright protection and is in the public domain."</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;atinm&gt; should really only be cleanup and A1026 stuff</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; everything over there is screwed up, the funny thing is iirc the copy date is older in the GB source</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 'course it's wolfson insterad of samsung so it may be better anyway</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: it is nist :)</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;Unhelpful&gt; aaahaahhahaah template library. duh.</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;Unhelpful&gt; unzip their source files - no C files!</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;atinm&gt; TNT algorithms and classes are all in header files --there are no libraries to build!</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm&gt; "</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;Unhelpful&gt; indeed. template library, all of the code is in headers because all of it can be specialized when you instantiate it.</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;atinm&gt; aww man . . . drug side effects kicking in</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;atinm&gt; should lie down. a1026 tomorrow.</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;atinm&gt; g'nite.</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-green">* atinm is now known as atinm|night</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;chaembian&gt; Good morning! Never hear the alarm</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;atinm|night&gt; hmm</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;atinm|night&gt; chaembian: haven't uploaded the build . . . and too sick now. if you want, you should spend some time learning how to build etc.</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;atinm|night&gt; so that I can just point at a branch and you do the build yourself.</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;chaembian&gt; atinm|night: Sure</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;atinm|night&gt; and so I am not continuously uploading stuff which takes way to long</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;chaembian&gt; Yes, I got it</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;atinm|night&gt; quicker for you too really, since you won't have to download big stuff after you can build.</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;chaembian&gt; 'repo sync' is still running wildly</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;atinm|night&gt; after you have synced once</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or you could pasty a diff patch :P</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;atinm|night&gt; he still needs to learn to build :)</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh you dont have the repo yet, nm</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; better him than me :D</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;chaembian&gt; :)</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;atinm|night&gt; well, g'nite. chaembian ask kaik or techmik for help - they're both captivate, but they can help you set up to help us test.</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;atinm|night&gt; me in particular :)</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;Unhelpful&gt; well, step one, succesfully imported tnt and jama/c++ into android (made directories for them in external and unpacked them) ;)</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;Unhelpful&gt; maybe i should just stuff them in our libsensors dir, though, for now?</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;atinm|night&gt; yes</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;atinm|night&gt; wil be easier to use for now.</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;Unhelpful&gt; sorry, i *thought* there would be code to compile. ;)</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;atinm|night&gt; :) - libsensors it is</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;atinm|night&gt; you might even be able to slash it to the few lines you need ...</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;atinm|night&gt; after it works</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;atinm|night&gt; off, can't stay up anymore./</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;Kaik541&gt; feel better!</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|night: nah, easier to import it whole, then upstream changes will be easy to integrate... i mean, except that they don't seem to have a repository.</span><br />
