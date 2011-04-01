@@ -163,3 +163,38 @@
 <span class="irc-date">[2:54]</span> <span class="irc-black">&lt;chaembian&gt; OK, there are bunch of apks under ~/android/system/vendor/cyanogen/proprietary/</span><br />
 <span class="irc-date">[2:54]</span> <span class="irc-black">&lt;chaembian&gt; I see RomManager.apk and a bunch of Google*.apk</span><br />
 <span class="irc-date">[2:55]</span> <span class="irc-black">&lt;chaembian&gt; I'll proceed with the build</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: at a guess, M == Mode, because redundancy is awesome. Linear Power Mode? Llama Parking Management?</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;Unhelpful&gt; waaaaait! actually samsung fw has an lmp.rc iirc... isn't it Low Power Mode? i think it's the rc for charge-only mode. iirc.</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;uberushaximus&gt; getting that working would be pretty cool</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sounds about right, there is a bat check, temp check and...something else I forget (it's been like an hour)</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; captivate has it defined but vibrant comments it out and it's not in the GB source</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;chaembian&gt; build complete</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; \0/</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;Unhelpful&gt; congrats</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;techmik67&gt; ok, lets test that vibrant !</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;techmik67&gt; woohoo!</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;chaembian&gt; The file I got -- which build does it correspond to?</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;chaembian&gt; The 0322 update?</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;uberushaximus&gt; samsung should learn to make clean their source releases</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;techmik67&gt; no, todays fresh update, but</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; um, if you clean the source it  breaks</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;techmik67&gt; you need to make an inital too if you aent on it already</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; some times anyway, depends on the release</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;techmik67&gt; arent*</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;chaembian&gt; I'm running CM7 only with the 0322 update</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;Unhelpful&gt; uberushaximus: tricky, unlike recovery and normal boot, modes like LPM are signaled *only* via param.lfs, iirc.</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;techmik67&gt; just flash this one then to get the latest changes</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;Unhelpful&gt; we need to able to *reliably* read it</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;chaembian&gt; OK, let me flash the build</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what little there is is hiding in drivers/power in the battery files</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;chaembian&gt; OK, so far everything seems to be quite. Anything specific to be tested for?</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;techmik67&gt; just the fact that everything works means atinm didnt break anything =)</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; headphones or the mic anyway</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;techmik67&gt; he was concerned that his last commit would hurt vibrant</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;techmik67&gt; since you built ok, all is probably well</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or at least not worse</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-black">&lt;chaembian&gt; *quiet</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-green">* prayii (~prayii@32.146.214.49) has joined this channel.</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; bleh 32 files left to merge and I don't have it in me, night boys behave yourselves</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-navy">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-navy">* prayii (~prayii@32.146.214.49) Quit (Quit: Yaaic - Yet another Android IRC client - <a href="http://www.yaaic.org)">http://www.yaaic.org)</a></span><br />
