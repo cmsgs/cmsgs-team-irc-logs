@@ -1134,3 +1134,37 @@
 <span class="irc-date">[19:43]</span> <span class="irc-black">&lt;atinm|sick&gt; I'm watching "Rounders"</span><br />
 <span class="irc-date">[19:43]</span> <span class="irc-black">&lt;atinm|sick&gt; screw android.</span><br />
 <span class="irc-date">[19:43]</span> <span class="irc-brick">* Unhelpful is still not sure this route will work. numeric adjustment may be our best bet.</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-navy">* t-ready (~burrell@wormhole.cbl.umces.edu) Quit (Quit: Captivate - Phoenix ROM)</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; anyone know what goofy headphone thing the Nexus comes with?</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-navy">* UberPinguin (~uber@gentoo/user/uberpinguin) Quit (Quit: leaving)</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-green">* UberPinguin (~uber@gentoo/user/uberpinguin) has joined this channel.</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;Unhelpful&gt; interesting, sure looks like adjusting fine offset by as much as 40k does not impact sensor readings.</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what units is that in?</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: i *don't know*. :(</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-green">* prayii (~prayii@96-35-1-136.dhcp.stls.mo.charter.com) has joined this channel.</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;Unhelpful&gt; oh! i've gone too far, maybe. looks like it's clamped to -16384-16384</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh noes buffer overflows</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;Unhelpful&gt; no, range violations are checked and discarded in the driver, it seems.</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; that sounds smart....are you sure?</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-navy">* prayii (~prayii@96-35-1-136.dhcp.stls.mo.charter.com) Quit (Quit: leaving)</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;Unhelpful&gt; less sure now. i'm looking at the code but not sure what path is actually followed through this mess. :/</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;Frd^&gt; ;/</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;Unhelpful&gt; more and more tempted to just do this by calculating/correcting bias on final outptu.</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-green">* designfears_ (~df@cpe-184-57-163-79.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; just tell people to make sure their BT GPS unit does the compass thing and call it a day :)</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;Unhelpful&gt; uhhhh :P</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-green">* prayii (~prayii@96-35-1-136.dhcp.stls.mo.charter.com) has joined this channel.</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;Unhelpful&gt; i think i found a bug... in not-dropping-precisions in the correction routine, i missed a consumer of its data</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;Frd^&gt; me to, bed bug =)</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;Frd^&gt; need to go hug billow =)</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;Frd^&gt; nn</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-green">* Zilch25 (~Zilch25@adsl-065-006-177-166.sip.bct.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;Zilch25&gt; so remember that guy who came in here asking how to flash a 2e kernel?</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;Zilch25&gt; and we sent him to cmsgs?</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;Zilch25&gt; hes still there</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;Zilch25&gt; still trying to figure it out</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;Zilch25&gt; D:</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;Zilch25&gt; i give him points for tenacity</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-navy">* designfears (~AndChat@32.168.91.48) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-navy">* ytt3r (~evan@adsl-88-54-77.asm.bellsouth.net) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-green">* prayii (~prayii@96-35-1-136.dhcp.stls.mo.charter.com) has left this channel.</span><br />
