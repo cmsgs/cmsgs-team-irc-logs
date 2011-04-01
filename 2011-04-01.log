@@ -125,3 +125,41 @@
 <span class="irc-date">[1:31]</span> <span class="irc-black">&lt;atinm|night&gt; off, can't stay up anymore./</span><br />
 <span class="irc-date">[1:34]</span> <span class="irc-black">&lt;Kaik541&gt; feel better!</span><br />
 <span class="irc-date">[1:41]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|night: nah, easier to import it whole, then upstream changes will be easy to integrate... i mean, except that they don't seem to have a repository.</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;chaembian&gt; hi techmik67, Kaik541: repo sync is still in progress. Is there anything else that I can do for the testing set up?</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;techmik67&gt; not really until its done...=)</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;chaembian&gt; :) alright!</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;techmik67&gt; then you can test the build =)</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;chaembian&gt; From the amount that's downloaded, I'm at 4.3G. So, still a LOOONG way to go.</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if you can tell me what LPM_MODE does in the battery files that would be great :)</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;techmik67&gt; no idea</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;chaembian&gt; Anyways, I'm half-done, half-more to go</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;chaembian&gt; "Syncing work tree: 100% (239/239), done."</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;techmik67&gt; yay</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;chaembian&gt; That's it, or should I have to run the repo sync again?</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;techmik67&gt; nope you done</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;techmik67&gt; now you may continue to build</span><br />
+<span class="irc-date">[2:25]</span> <span class="irc-black">&lt;chaembian&gt; checking the size</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;chaembian&gt; the system directory is still only 3.7G :/</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;techmik67&gt; you are fine</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;techmik67&gt;  if you sync again, it'll check</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;techmik67&gt; prob wont bring in anything, and it'll take 30 seconds</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;chaembian&gt; naah, du says 8.3G</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;chaembian&gt; OK, I think I'm good on the repo front</span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-black">&lt;chaembian&gt; I'll proceed to the build</span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;chaembian&gt; I can free 'CLEAN KERNEL DIRECTORY' this one time, right?</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;techmik67&gt; dont need to lcean it, you havent dirtied it =)</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;chaembian&gt; :)</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;chaembian&gt; Alright, build prepare is on the roll</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-navy">* designfears (~df@cpe-184-57-163-79.cinci.res.rr.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[2:44]</span> <span class="irc-black">&lt;chaembian&gt; Does '. ./build.sh prepare' close the terminal it's launched from?</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;ytt3r&gt; happened to me a few times</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;ytt3r&gt; not sure why... eventually it worked</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;chaembian&gt; ok, there are exits coded in the build.sh</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;ytt3r&gt; yea, but it doesn't exit if it works right.... or maybe it works right if it exits?</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;ytt3r&gt; who really knows.</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;ytt3r&gt; :P</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;chaembian&gt; I don't think there is any validation as such</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-black">&lt;chaembian&gt; OK, there are bunch of apks under ~/android/system/vendor/cyanogen/proprietary/</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-black">&lt;chaembian&gt; I see RomManager.apk and a bunch of Google*.apk</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;chaembian&gt; I'll proceed with the build</span><br />
