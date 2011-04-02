@@ -565,3 +565,53 @@
 <span class="irc-date">[20:52]</span> <span class="irc-black">&lt;atinm&gt; I could commit it and you submit to gerrit</span><br />
 <span class="irc-date">[20:54]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm about halfway there, but i'm going to need to finish later. it's not a big job, i'll just finish it tonight.</span><br />
 <span class="irc-date">[20:55]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;atinm&gt; kang: sorry, yes - else ifeq doesn't require closing endifs for each</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;atinm&gt; so it works. they just spell out the whole elif</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;atinm&gt; but it works</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;atinm&gt; thanks</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;kang&gt; atinm: yep</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;kang&gt; no prob lol</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;atinm&gt; I was looking for the elif :)</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;kang&gt; most stuff in makefile is "annoying"</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;atinm&gt; and missed the section in the middle</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;kang&gt; weird calls, declarations etc</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;kang&gt; loops and stuff are crap too lol</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;atinm&gt; at work we use scons</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;atinm&gt; instead of make</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;atinm&gt; which figures out dependencies</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;kang&gt; i like make cuz its everywhere and for simple stuff its quick to use</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;kang&gt; but then your project grows</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;kang&gt; and its less fun</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;kang&gt; that said it still works out</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;atinm&gt; yes, that's what happened to us</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;kang&gt; i dunno which one is the fastest at analyzing files and dependencies also</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;atinm&gt; we grew too big and so rewrote our compilation stuff</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;kang&gt; and parallelizing best</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;kang&gt; make do not seems to be super efficient for the dependencies (but its not too bad)</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;atinm&gt; scons you don't have to specify the dependencies</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;atinm&gt; it goes into the files</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;atinm&gt; to figure out header file dependencies at least</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;atinm&gt; tho you do have to tell it that something depends on a lib somewhere else</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;kang&gt; well i mean to check out what rules are needed by what and which files are "dirty" and stuff</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;kang&gt; on cm.. typing make = at start it checks that stuff</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;kang&gt; takes a little while lol</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;atinm&gt; anyway, looks like we'll be getting this merged soon too</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;atinm&gt; hopefully tonight</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;atinm&gt; if koush works late</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;kang&gt; thats cool</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;atinm&gt; coolya, you here?</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;atinm&gt; I think we need to rename a couple of repos . . .</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;atinm&gt; android_kernel_samsung, and android_device_samsung_common</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;atinm&gt; not sure if we've broken android_kernel_samsung for nexus s</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;atinm&gt; but maybe it should be more specific, something like android_kernel_samsung_aries or just kernel_aries</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;atinm&gt; kernel_sgs</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;atinm&gt; and android_device_samsung_common should be android_device_samsung_aries</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;atinm&gt; will make it easier to merge because then they won't be able to complain about nexus s not being in the common</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;atinm&gt; unless it is.</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;atinm&gt; but still, common is not a good name</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;atinm&gt; k, building everything with new Makefile</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;atinm&gt; including encore</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;atinm&gt; back later.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;atinm|away&gt; dinner</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
