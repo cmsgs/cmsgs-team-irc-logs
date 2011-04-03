@@ -1,0 +1,95 @@
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;Kaik541&gt; especially since they're completely dependant upon CM development to get something working</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;techmik67&gt; is it weird that cyanogenmod/android_build is updated with our merge, but hacksung isnt?</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm&gt; we're not fully merged yet</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm&gt; so we haven't pointed our repo at cyanogenmod/build/core yet</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm&gt; we need one more review</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm&gt; before its done</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm&gt; I'm testing now</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://review.cyanogenmod.com/#change,4127">http://review.cyanogenmod.com/#change,4127</a></span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm&gt; you can test it too</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;techmik67&gt; gotcha</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;Unhelpful&gt; i think v8 or v9 of #4127 is merged in ours?</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;atinm&gt; I think techmik meant that since cyanogenmod merged, how come we don't see it</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;atinm&gt; and its because build/core is still ours rather than the upstream because we need 4127 to get merged before we can get rid of our build/core and point to upstream</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;atinm&gt; I'm just building a few phones</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;atinm&gt; a</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;atinm&gt; nd then will apply to captivate and call it +1 again</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;atinm&gt; I think koush might be waiting for some +1 from us first</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: @ this point i'm still only post-filtering data from the magnetometer. sending calibration data *to* it requires that i know what to send.</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, well whatever you're doing, keep at it... I would have gotten  way too frustrated by now</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; we need someone more anal than me to go thru mach-aries.c on froyo and our kernel, and compare the gpio settings.</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; and pull in everything we missed from froyo into our kernel</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; I lose patience ..</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; and then it breaks.</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm&gt; the more irritating thing is that froyo really has 3 files, one for each phone</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm&gt; while we have the one so have to look in three places</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm&gt; except taht the captivate one also has some vibrant stuff</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; on froyo</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; it gets confused</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; and confusing</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;atinm&gt; I'm nominating TMC_Sherpa.</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm&gt; he's not here - so he's it.</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm&gt; (Unhelpful, I still can't get my head around you not working in a software development role)</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm&gt; (that's just wrong...)</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;techmik67&gt; i'm looking at our mach-aries.c... wherer can i find a "generic" froyo? xcal's has bln and stuff......</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;atinm&gt; i downloaded all three phones from opensource.samsung.com</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;atinm&gt; the froyo versions are available on there now</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;atinm&gt; for captivate, vibrant and galaxys</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;techmik67&gt; cap, 9000, vib?</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;atinm&gt; SGH-I897, SGH-T959 and GT-I9000</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: think of it as me getting to decide *exactly* how i spend my efforts in that area.</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;atinm&gt; well, I know if I start another company, I'll be recruiting you really hard.</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;atinm&gt; tho I doubt I will again - but even if I go to another good startup</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;techmik67&gt; jpx?</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;techmik67&gt; or jpm?</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;atinm&gt; (successful startups are worth going to :) )</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;atinm&gt; (the challenge is to know it will be successful before it is :) )</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;atinm&gt; techmik67: whichever is later and is froyo</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm&gt; this part should basically be the same.</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm&gt; and it is not easy code to decipher</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm&gt; basically that code set up the gpio and the sleep settings in two different places, and sometimes three</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm&gt; our code does it all in one or two places in a much cleaner place (table driven)</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm&gt; so you'll get lost if you don't know C well.</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm&gt; it is hard enough for me . . . tho mostly because everything is named stuff like GPH2(2)</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm&gt; so they run into each other when you're lookign at 4 files</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm&gt; all of which use the same values, except in some strategic places where captivate might differ</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm&gt; or vibrant might</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm&gt; etc</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm&gt; easier to complain about than actually do something about ;)</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;atinm&gt; I'll run a decent careful diff/merge soon - just have to be feeling very alert which I'm not.</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;techmik67&gt; gotta reboot... brb</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;techmik_laptop&gt; i was just gonna diff them</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; that won't work - they're too different</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; things have moved around, been rewritten etc</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; one basically has to go gpio by gpio and check its settings</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-brick">* techmik_laptop knew it couldnt be that ez</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; on all devices.</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; and compare on  ours</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; pain in the ass.</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; which is why it isn't done completely yet</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm&gt; we have been doing what we know we needed</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm&gt; but I keep running into things that have different sleep values than what we have, so I think some hardware is left in a wake state when we put hardware to sleep</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm&gt; eating battery</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;techmik_laptop&gt; that would explain alot</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; and A1026 is another thing</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; that has a separate gpio set</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; that we don't do anything with</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; and an i2c block</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; etc</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; just painful - but has to be done...</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; I wish samsung would just drop code ...</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; and start with captivate :)</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm&gt; it would actually be easier to go frmo captivate code to galaxys than the other way around</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm&gt; since captivate is a superset on basic functionality like voice processing</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm&gt; but ideal is of course, have both.</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm&gt; we'll get galaxys tho - so i still have to do A1026 anyway</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm&gt; *grumble*</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm&gt; back later.</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
