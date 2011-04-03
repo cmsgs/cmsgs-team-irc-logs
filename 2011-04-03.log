@@ -454,3 +454,20 @@
 <span class="irc-date">[13:30]</span> <span class="irc-black">&lt;Wout`&gt; well, when you read this, was wondering if your BLN implementation uses wakelocks for the blinking?</span><br />
 <span class="irc-date">[13:46]</span> <span class="irc-black">&lt;mikebeecham&gt; afternoon peeps</span><br />
 <span class="irc-date">[13:53]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;kang&gt; Wout`: no, it "doesnt" that is, android does the blinking via the pulse option. it just light up/off when requested, the chipset powers on on request and the sysfs interface is just kernel stuff so no wakelock. it uses a gpio message to keep the leds on while the rest of the touchkey is "unpowered"</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;Wout`&gt; so blinking shouldnt consume more battery than having them constantly on?</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;kang&gt; probably uses more</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;kang&gt; since android does the blinking</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;kang&gt; that part needs to stay on</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;Wout`&gt; k</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;kang&gt; those wakelocks are managed by android itself</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;kang&gt; either leds blink because they're instructed to (regular leds) either android makes them blink via the pulse option (our case)</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;Wout`&gt; right, so with proper leds android can just send an instruction to blink, and the led firmware then handles it?</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;kang&gt; yes</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;Wout`&gt; ok, thx for the clarification :)</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-navy">* chaembian (~chaembian@122.174.177.144) Quit (Ping timeout: 255 seconds)</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-green">* nullghost (~quassel@c-76-18-157-237.hsd1.tn.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;coolya&gt; Android expected FM Radio handling vs. our ASoC == Boooom</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-brick">* Wout` loves explosions</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-black">&lt;Frd^&gt; kang: did your modification increase batterylife?</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-black">&lt;kang&gt; which one</span><br />
