@@ -203,3 +203,40 @@
 <span class="irc-date">[9:09]</span> <span class="irc-black">&lt;uberushaximus&gt; so um, when I mount via usb it still doesn't mount the external sd</span><br />
 <span class="irc-date">[9:09]</span> <span class="irc-black">&lt;uberushaximus&gt; is that expected behavior at this point?</span><br />
 <span class="irc-date">[9:23]</span> <span class="irc-black">&lt;Kaik541&gt; yes</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;atinm|away&gt; yes</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;atinm|away&gt; guess I could have put more in the changelog</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;coolya&gt; atinm|away: you tweeted you hav a idea about battery?</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-black">&lt;atinm|away&gt; I was looking at the sleep blocks</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;atinm|away&gt; and saw that we were different on a few gpios that I want to go over to make sure. we might be turning some devices on and not putting them to sleep</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;atinm|away&gt; I was going to go thru the s5pv210 manual</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;atinm|away&gt; and just go gpio by gpio</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;atinm|away&gt; rather than doing diffs</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;atinm|away&gt; more systematic</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm|away&gt; today is my day with my  son while wife does her research work</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm|away&gt; so won't get to a lot of it</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;atinm|away&gt; but thats the goal</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;atinm|away&gt; basically we get no logs, the main cpu goes to sleep</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;atinm|away&gt; but we stil get battery drain</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[10:50]</span> <span class="irc-black">&lt;atinm|away&gt; which can only mean external devices</span><br />
+<span class="irc-date">[10:50]</span> <span class="irc-black">&lt;coolya&gt; maybe gps i remember i only added the power on / off code</span><br />
+<span class="irc-date">[10:50]</span> <span class="irc-black">&lt;atinm|away&gt; and it is hard to do diffs against froyo source because it has changed.</span><br />
+<span class="irc-date">[10:51]</span> <span class="irc-black">&lt;atinm|away&gt; so going gpio by gpio might not be a bad way to do it, check each individually - I'll also mark up the UM to say which gpio corresponds to what device on each phone</span><br />
+<span class="irc-date">[10:51]</span> <span class="irc-black">&lt;atinm|away&gt; might even help with uboot :)</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;atinm|away&gt; wonder if I should ask the guy for uboot code</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;atinm|away&gt; or bootloader code in general</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;atinm|away&gt; and what he'll say</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;coolya&gt; there is a samsung uboot repo</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;coolya&gt; with code für S5PC210</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;coolya&gt; s/für/for</span><br />
+<span class="irc-date">[10:53]</span> <span class="irc-black">&lt;atinm|away&gt; I understood ;)</span><br />
+<span class="irc-date">[10:53]</span> <span class="irc-black">&lt;atinm|away&gt; yes, wanted to go into it too</span><br />
+<span class="irc-date">[10:53]</span> <span class="irc-black">&lt;coolya&gt; i screwed alsa complety :-(</span><br />
+<span class="irc-date">[10:53]</span> <span class="irc-black">&lt;atinm|away&gt; but we need some phones with jtag to play with it</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-black">&lt;coolya&gt; sounds like a fun project but girlfriend will kill me if i spent that much time i spent on android the last month in future</span><br />
+<span class="irc-date">[10:56]</span> <span class="irc-black">&lt;atinm|away&gt; lol . . . I made an agreement with wife. I work on this on friday/saturday</span><br />
+<span class="irc-date">[10:56]</span> <span class="irc-black">&lt;atinm|away&gt; and not on sunday</span><br />
+<span class="irc-date">[10:56]</span> <span class="irc-black">&lt;atinm|away&gt; evenings I'm allowed</span><br />
+<span class="irc-date">[10:56]</span> <span class="irc-black">&lt;atinm|away&gt; because she does research</span><br />
+<span class="irc-date">[10:57]</span> <span class="irc-black">&lt;coolya&gt; i think i have to do something similar :-)</span><br />
+<span class="irc-date">[10:57]</span> <span class="irc-black">&lt;atinm|away&gt; <a href="http://wenku.baidu.com/view/be2a3d573c1ec5da50e27024.html">http://wenku.baidu.com/view/be2a3d573c1ec5da50e27024.html</a></span><br />
