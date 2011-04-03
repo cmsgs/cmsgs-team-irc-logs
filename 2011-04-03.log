@@ -269,3 +269,124 @@
 <span class="irc-date">[11:34]</span> <span class="irc-black">&lt;Frd^&gt; yes, now dual 24" at home</span><br />
 <span class="irc-date">[11:37]</span> <span class="irc-black">&lt;coolya&gt; :-(</span><br />
 <span class="irc-date">[11:38]</span> <span class="irc-black">&lt;coolya&gt; no fm radio support in AOSP alsa HAL</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;atinm|away&gt; I know nothing about ALSA . . .</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;atinm|away&gt; btw, have you looked at the USB stuff yet?</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;atinm|away&gt; there were some commits on nexus</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;atinm|away&gt; but I don't think we pulled them in</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;coolya&gt; usb commits ?</span><br />
+<span class="irc-date">[12:14]</span> <span class="irc-black">&lt;atinm|away&gt; yes</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;atinm|away&gt; let me see</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;coolya&gt; kernel =?</span><br />
+<span class="irc-date">[12:16]</span> <span class="irc-black">&lt;atinm|away&gt; <a href="http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=a5f5537aea383e7ddf4166993155f67d9172c2d8">http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=a5f5537aea383e7ddf4166993155f67d9172c2d8</a></span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;atinm|away&gt; but don't know how far back we have already</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;atinm|away&gt; let me check</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;coolya&gt; it should be merged</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;Kaik541&gt; lol @ the author</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;coolya&gt; but codeworkx fucked the histrory with his rebase</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;Kaik541&gt; kang in his name</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;atinm|away&gt; ok, yes that's merged</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;atinm|away&gt; going to try setting the CONFIG_USB options that we had on captivate for froyo</span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-black">&lt;atinm|away&gt; coolya, <a href="http://review.cyanogenmod.com/#change,4127">http://review.cyanogenmod.com/#change,4127</a></span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-black">&lt;atinm|away&gt; +1 it again.</span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-black">&lt;atinm|away&gt; and then lets bother Koush again :)</span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-black">&lt;coolya&gt; k iwill build an install on encore</span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-black">&lt;coolya&gt; is it in our repo ?</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;atinm|away&gt; yes, but that's from before</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;atinm|away&gt; we'd already done the merges</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;atinm|away&gt; oh, not the latest</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;atinm|away&gt; I just did the git fetch thing</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;coolya&gt; k i will too</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-green">* chaembian (~chaembian@122.174.177.144) has joined this channel.</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;atinm|away&gt; we need to decide what to do about renaming android_device_samsung_common to android_device_samsung_aries_common or just aries</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;atinm|away&gt; and android_kernel_samsung to android_kernel_samsung_aries</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;atinm|away&gt; so as not to confuse with crespo</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;atinm|away&gt; they may want aries to be separate</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;coolya&gt; FUUUUUUUUUUU ALSA</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;chaembian&gt; Good morning, guys!</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;atinm|away&gt; *grin* android_device_samsung_aries/aries</span><br />
+<span class="irc-date">[12:32]</span> <span class="irc-black">&lt;atinm|away&gt; but that's fine . . .</span><br />
+<span class="irc-date">[12:32]</span> <span class="irc-black">&lt;atinm|away&gt; or we could rename the lower dir something else</span><br />
+<span class="irc-date">[12:32]</span> <span class="irc-black">&lt;atinm|away&gt; libs</span><br />
+<span class="irc-date">[12:32]</span> <span class="irc-black">&lt;coolya&gt; it should be android_device_samsung_aries-common</span><br />
+<span class="irc-date">[12:33]</span> <span class="irc-black">&lt;coolya&gt; then its the same like passion</span><br />
+<span class="irc-date">[12:33]</span> <span class="irc-black">&lt;atinm|away&gt; ok, that's good then</span><br />
+<span class="irc-date">[12:33]</span> <span class="irc-black">&lt;atinm|away&gt; and android_kernel_samsung?</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;atinm|away&gt; samsung=aries?</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;coolya&gt; the cm7 kernel has branches named like the cpu MSMblah</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;atinm|away&gt; urk</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;atinm|away&gt; so we have to create a branch cpu-s5pv210?</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;coolya&gt; they have on kernel git and different branches</span><br />
+<span class="irc-date">[12:35]</span> <span class="irc-black">&lt;coolya&gt; maybe leav the repo like it is and just make a new branch for aries ?</span><br />
+<span class="irc-date">[12:35]</span> <span class="irc-black">&lt;atinm|away&gt; I'm think of how we merge to mainline. we'll have to end up in cm-kernel/aries</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-black">&lt;coolya&gt; maybe we should have done the at the beginning befor we started hacking on it</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-black">&lt;atinm|away&gt; or cm-kernel/cpu-aries or cpu-s5pv210</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-black">&lt;coolya&gt; dunno</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-black">&lt;atinm|away&gt; yeah :)</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-black">&lt;atinm|away&gt; we can push our kernel to a cm-kernel/branch</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-black">&lt;coolya&gt; i would like to keep it in an extra git because cm kernel is only shipped as a prebuild kernel</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-black">&lt;atinm|away&gt; we'll keep our history</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-black">&lt;coolya&gt; and head is sometime not stable</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-black">&lt;atinm|away&gt; wel, lets see if it flies :)</span><br />
+<span class="irc-date">[12:37]</span> <span class="irc-black">&lt;atinm|away&gt; koush may agree because we are different. it just is another cm kernel repo, don't see why it matters</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;atinm|away&gt; oh, I see why it matters ... hmm.</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;atinm|away&gt; sec, let me see their build instructions</span><br />
+<span class="irc-date">[12:38]</span> <span class="irc-black">&lt;coolya&gt; yes we don't share that much common stuff then the htc boards</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-black">&lt;atinm|away&gt; how the hell do they pick a kernel?</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-black">&lt;atinm|away&gt; they just repo init with -b gingerbread</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-black">&lt;coolya&gt; it shipped as prebuild image</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-black">&lt;coolya&gt; in the device folder</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-black">&lt;atinm|away&gt; oh</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-black">&lt;coolya&gt; they onla attach the ramdisc</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-black">&lt;atinm|away&gt; right</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[12:39]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;atinm|away&gt; we're not the same . . . crap.</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;coolya&gt; but i think that would be ok</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;atinm|away&gt; well, but given that we have to build our initramfs into the kernel, they should be ok with us having a separate repo.</span><br />
+<span class="irc-date">[12:40]</span> <span class="irc-black">&lt;coolya&gt; that we do it a completly different way</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;atinm|away&gt; I'm just thinking about how someone will repo init -b gingerbread and get samsung aries kernel</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;coolya&gt; it should be included in the main manifest</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;atinm|away&gt; that's where I think we'll get complaints because htc doesn't have to have kernel</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;coolya&gt; but only when you build an aries devices it is needed</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;atinm|away&gt; so they dont download it</span><br />
+<span class="irc-date">[12:41]</span> <span class="irc-black">&lt;atinm|away&gt; we'll increase everyone's time to sync</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;coolya&gt; you are downloading tons of GB i think 300MB won't matter</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;atinm|away&gt; guess this is something we can talk to koush about</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;coolya&gt; the hole prebuild folder is much bigger then the kernel folder</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;atinm|away&gt; I personally agree - but lets see. we may still want to rename it though</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;atinm|away&gt; just in case they do allow it</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;atinm|away&gt; android_kernel_samsung-aries?</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;coolya&gt; i think that would be fine</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;atinm|away&gt; wonder how git and repo deal with repo renames :)</span><br />
+<span class="irc-date">[12:43]</span> <span class="irc-black">&lt;atinm|away&gt; and how we'll screw forks.</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;atinm|away&gt; github allows rename easily</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;atinm|away&gt; so we should only have to do that and modify default.xml</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;coolya&gt; repo doesn't know the rename it will delete the old one and redownload</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;atinm|away&gt; but don't know the effects downstream</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;atinm|away&gt; ok, so anyone doing a repo sync will still work</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;atinm|away&gt; anyone who forked the git repo I don't know</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;coolya&gt; will see the new name as source</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;atinm|away&gt; ok. then its all cool</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;coolya&gt; only the links in gitconfig will fail</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;atinm|away&gt; kang will let us know :)</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;atinm|away&gt; when we break him</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;coolya&gt; xD</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;atinm|away&gt; and miui.</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;atinm|away&gt; fuck miui.</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;coolya&gt; fuck downstream :-D</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;atinm|away&gt; lol</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;atinm|away&gt; ok, will do it later unless you do it first - son is  up</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;coolya&gt; getting merged &gt; pain in the ass for downstream</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;atinm|away&gt; so I'm gone until his nap time</span><br />
+<span class="irc-date">[12:47]</span> <span class="irc-black">&lt;coolya&gt; ok i will try something on audio</span><br />
+<span class="irc-date">[12:47]</span> <span class="irc-black">&lt;atinm|away&gt; unhelpful will have some comment about rename too.</span><br />
+<span class="irc-date">[12:47]</span> <span class="irc-black">&lt;coolya&gt; if i get stuck i will renmae the repos</span><br />
+<span class="irc-date">[12:47]</span> <span class="irc-black">&lt;atinm|away&gt; so I'll wait for him to give input.</span><br />
+<span class="irc-date">[12:47]</span> <span class="irc-black">&lt;coolya&gt; ok</span><br />
+<span class="irc-date">[12:47]</span> <span class="irc-black">&lt;atinm|away&gt; ok, that's fine - see ya</span><br />
+<span class="irc-date">[12:47]</span> <span class="irc-black">&lt;coolya&gt; see ya</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.14.242.adsl.012.net.il) Quit (Ping timeout: 246 seconds)</span><br />
