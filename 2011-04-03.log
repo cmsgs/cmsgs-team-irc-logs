@@ -390,3 +390,67 @@
 <span class="irc-date">[12:47]</span> <span class="irc-black">&lt;atinm|away&gt; ok, that's fine - see ya</span><br />
 <span class="irc-date">[12:47]</span> <span class="irc-black">&lt;coolya&gt; see ya</span><br />
 <span class="irc-date">[12:57]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.14.242.adsl.012.net.il) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[13:00]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: it matters because we need the kernel source in the android source tree :/</span><br />
+<span class="irc-date">[13:01]</span> <span class="irc-black">&lt;Unhelpful&gt; nobody else does (though i really don't see why devices with kernel source are using prebuilt kernels, android takes *much* longer to build than kernel)</span><br />
+<span class="irc-date">[13:01]</span> <span class="irc-green">* stickpin (~stickpin@80.178.0.120.adsl.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[13:02]</span> <span class="irc-black">&lt;atinm|away&gt; I see that, I meant whether they'll be bothered by us adding to their trees</span><br />
+<span class="irc-date">[13:02]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: i don't think it will matter is we have it in the tree ... it take not much disc space 7 bandwith on downloading</span><br />
+<span class="irc-date">[13:02]</span> <span class="irc-black">&lt;atinm|away&gt; and so whether we should be in a separate repo, or a branch of cm-kernel</span><br />
+<span class="irc-date">[13:03]</span> <span class="irc-black">&lt;atinm|away&gt; and I think cm-kernel doesn't get pulled down on repo sync</span><br />
+<span class="irc-date">[13:03]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: yes, but everybody else is keeping kernels outside of the android repo.</span><br />
+<span class="irc-date">[13:03]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[13:03]</span> <span class="irc-black">&lt;atinm|away&gt; we cannot tho like you said.</span><br />
+<span class="irc-date">[13:03]</span> <span class="irc-black">&lt;atinm|away&gt; we need to build initramfs into the kernel.</span><br />
+<span class="irc-date">[13:04]</span> <span class="irc-black">&lt;atinm|away&gt; we should discuss with koush how we should do this. but rename to android_kernel_samsung-aries should still be done</span><br />
+<span class="irc-date">[13:04]</span> <span class="irc-black">&lt;atinm|away&gt; I htink he understands our issues</span><br />
+<span class="irc-date">[13:04]</span> <span class="irc-black">&lt;atinm|away&gt; so he'll ok it.</span><br />
+<span class="irc-date">[13:04]</span> <span class="irc-black">&lt;coolya&gt; the only real problem is see is building on OSX and Windows</span><br />
+<span class="irc-date">[13:04]</span> <span class="irc-black">&lt;atinm|away&gt; I hope :)</span><br />
+<span class="irc-date">[13:04]</span> <span class="irc-black">&lt;coolya&gt; does the kernel build on those?</span><br />
+<span class="irc-date">[13:04]</span> <span class="irc-black">&lt;atinm|away&gt; havent tried</span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-black">&lt;atinm|away&gt; at all</span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-black">&lt;atinm|away&gt; Ive had trouble building on OSX in general</span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Client Quit)</span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-black">&lt;atinm|away&gt; was just easier to go to ubuntu</span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-black">&lt;atinm|away&gt; but I can try and see</span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-brick">* coolya checks the wiki is something other then linux is supported</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm|away&gt; ubuntu and mac</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm|away&gt; now windows</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm|away&gt; no</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm|away&gt; I can try mac</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;coolya&gt; oh it seperated by device</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-green">* Wout` (Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: it needs gcc, gmake, bash... i don't *think* perl is needed but maybe? and it needs a host-gcc.</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;Wout`&gt; ola</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;atinm|away&gt; it should work.</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;atinm|away&gt; but had run into weird booting problems when I tried before</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;atinm|away&gt; in eclair days</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;atinm|away&gt; and so finally just used my linux box</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;atinm|away&gt; the instructions are basically the same</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;coolya&gt; <a href="http://wiki.cyanogenmod.com/index.php?title=Compile_CyanogenMod_for_Vibrant_(Mac)">http://wiki.cyanogenmod.com/index.php?title=Compile_CyanogenMod_for_Vibrant_(Mac)</a></span><br />
+<span class="irc-date">[13:09]</span> <span class="irc-black">&lt;atinm|away&gt; yes, its very similar to ubuntu</span><br />
+<span class="irc-date">[13:09]</span> <span class="irc-black">&lt;atinm|away&gt; just volume crap that is osx specific</span><br />
+<span class="irc-date">[13:09]</span> <span class="irc-black">&lt;coolya&gt; looks like it works</span><br />
+<span class="irc-date">[13:09]</span> <span class="irc-black">&lt;coolya&gt; <a href="http://ben-collins.blogspot.com/2010/07/cross-compiling-linux-kernel-from-mac.html">http://ben-collins.blogspot.com/2010/07/cross-compiling-linux-kernel-from-mac.html</a></span><br />
+<span class="irc-date">[13:10]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, we can ignore mac vs ubuntu I think</span><br />
+<span class="irc-date">[13:10]</span> <span class="irc-black">&lt;atinm|away&gt; its the same ..</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;atinm|away&gt; and windows is not supported</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;atinm|away&gt; so we're good</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;atinm|away&gt; so rename two repos, and modify default.xml and we're good</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm|away&gt; well, and Koush.</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm|away&gt; our breakwater.</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm|away&gt; or I guess our tsunami wall.</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm|away&gt; where we're the tsunami . . .</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm|away&gt; we'll overwhelm eventually...</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;atinm|away&gt; son is up - gotta go</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|away&gt; (was ignoring them till now ...)</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;coolya&gt; k</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[13:20]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[13:21]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[13:23]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[13:29]</span> <span class="irc-black">&lt;Wout`&gt; kang, you there?</span><br />
+<span class="irc-date">[13:30]</span> <span class="irc-black">&lt;Wout`&gt; well, when you read this, was wondering if your BLN implementation uses wakelocks for the blinking?</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;mikebeecham&gt; afternoon peeps</span><br />
+<span class="irc-date">[13:53]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) Quit (Ping timeout: 246 seconds)</span><br />
