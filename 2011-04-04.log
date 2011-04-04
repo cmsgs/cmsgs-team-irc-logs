@@ -406,3 +406,83 @@
 <span class="irc-date">[18:33]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
 <span class="irc-date">[18:53]</span> <span class="irc-black">&lt;Wout`&gt; g'evening</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;techmik67&gt; hi</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;nitam|work&gt; think I can force the git checkout in captivate.mk</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;nitam|work&gt; if the branch exists locally, check it out, otherwise create a tracking branch locally</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;nitam|work&gt; trying it out</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;nitam|work&gt; coolya, ping koush about getting our last Makefile merged so we can get rid of our build/core</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;nitam|work&gt; I already did - got ignored :)</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;Wout`&gt; inform xda that koush needs reminding...instant harrasment</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-navy">* nullghost (~quassel@c-76-18-157-237.hsd1.tn.comcast.net) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: Unhelpful talked to him about that last night</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;nitam|work&gt; ok, didn't know that. what happened?</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;nitam|work&gt; more changes?</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;coolya&gt; i guess Unhelpful wanted to have a look at the kernel.mk from froyo or similar</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: he mentioned a kernel.mk</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;nitam|work&gt; ah. ok. so basically a kernel.mk that sits in cm-kernel and figures out how to build if kernel has to be built?</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Unhelpful&gt; i haven't looked yet, BiasModel needs more work, some i'm doin' some hardcore stats dilettante'ing.</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;nitam|work&gt; k, I'll look</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;nitam|work&gt; tonight.</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;nitam|work&gt; $(hide) cd $(ANDROID_BUILD_TOP)/cm-kernel;git branch -l | (grep android-samsung-aries-2.6.35 &amp;&amp; (git checkout -q android-samsung-aries-2.6.35)) || git checkout -q -b android-samsung\</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;nitam|work&gt; -aries-2.6.35 origin/android-samsung-aries-2.6.35</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;nitam|work&gt; ugh</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;nitam|work&gt; hmm, but seems to be working</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;nitam|work&gt; put that line under out/target/product/captivate/kernel_build/.config: in captivate.mk</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;nitam|work&gt; and modified Makefile in usr to point to cm-kernel</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;nitam|work&gt; cheating. should do the kernel.mk</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;Wout`&gt; so, are we just one cm-approval away of being ready for mainline merge?</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;nitam|work&gt; no. there are a lot of other merges. but are samsung aries specific, so hopefully will give us less pain.</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;nitam|work&gt; this one is a big one because it looks like we have to rework again</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; plus, I'm also unsure about how they do RC versions. we're nowhere near other phones' RC7</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; or whatever their number is now</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; it looks like they go off head.</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; which will make us seem like we're RC7 - which we most certainly aren;t</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;nitam|work&gt; I can't even imagine the rage on XDA if that happens :)</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;nitam|work&gt; "this is RC7?! this sucks, you devs are worse than my 13 year old"</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;Wout`&gt; ok</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;nitam|work&gt; "who took a logo class and is an expert programmer because he can set up my machine to download movies from something called torrent!"</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;Wout`&gt; :'(</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;nitam|work&gt; oh it'll happen.</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;nitam|work&gt; but I'm not really that gung ho on merge, just need to do the pieces.</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;nitam|work&gt; actually being in mainline doesn't mean that much</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;Wout`&gt; the smiley was in relation to the torrent comment :P</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;nitam|work&gt; not like suddenly our things will start working.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;nitam|work&gt; but being ready for mainline is the goal so we will continue to do the pieces necessary and keep pushing for it.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;nitam|work&gt; but it isn't the magic bullet.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;nitam|work&gt; getting external sd to mount, getting battery usage more tolerable, getting compass working, getting weird audio things working are more bang.</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;Wout`&gt; anyway, should be easier to build the latest when we're part of mainline, right?</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;Wout`&gt; because right now you guys have to merge the new updates yourself, right?</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;nitam|work&gt; and none of those are helped in any way by merge (not hurt, its a noop)</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;nitam|work&gt; only for the things we're forked on, which is very little now</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;Wout`&gt; agreed</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; if anything.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; build/core is still forked.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; but its not really stopping anything</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; not like we merge it a lot - not a lot of work goes in there.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;Wout`&gt; but the system stuff, android framework, is that seperate from cyanogen?</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;nitam|work&gt; framework isn't</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;nitam|work&gt; system/core still is - not sure what we have in there. so is bootable/recovery but I thought we were merged now</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;nitam|work&gt; coolya knows that one.</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;Wout`&gt; did the mtd/bml flash got merged yet? it's been on the issue tracker for some time</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;Wout`&gt; think thats pretty important for cwm</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;nitam|work&gt; system/core should be easy to merge.</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;Wout`&gt; (code does bad block mapping when flashing kernel)</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, we need to merge bootable/recovery still</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;nitam|work&gt; dunno if coolya has submitted that yet</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;nitam|work&gt; don't think so.</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;Wout`&gt; one of the perks of CM is the rom manager integration, would be nice to have that working :) but like you said, feature completeness is prio #1</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;coolya&gt; i didn't sent it yet</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;coolya&gt; system/core can go away</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;coolya&gt; its merged</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;nitam|work&gt; k</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;nitam|work&gt; so biggest pieces are bootable/recovery and build/core still</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; other than that are mostly samsung aries specific things</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; that we should have an easier time with.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; should.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; doesnt' mean we will</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;coolya&gt; recovery will get in i think i will send it</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;coolya&gt; but</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;coolya&gt; currently we don't even use bml over mtd</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; we would have to modify our update script to flash kernel with it</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;Wout`&gt; but without it, you're forcing users to turn to odin/heimdall, correct?</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; currently its using write_raw command</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; Wout`: useres with bad block in ther kenel, yes</span><br />
