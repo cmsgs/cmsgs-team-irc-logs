@@ -26,3 +26,23 @@
 <span class="irc-date">[0:54]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[0:57]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Ping timeout: 252 seconds)</span><br />
 <span class="irc-date">[0:57]</span> <span class="irc-green">* techmik is now known as techmik_laptop</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;atinm|away&gt; bah, too tired to figure it out. but it looks like we're losing the information that we have something other than external storage that can be mounted over usb</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm|away&gt; there are some places it just checked the external_storage_path directly, and that maps to /mnt/sdcard</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;atinm|away&gt; which also means that samsung releasing source isn't going to help because this is in android world</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;atinm|away&gt; and they don't release anything there</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;atinm|away&gt; so actually have to debug it ourselves..</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-green">* chaembian (~chaembian@122.174.90.18) has joined this channel.</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-green">* ohayden (ohayden@2001:440:eeee:fffb::2) has joined this channel.</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://www.samsung.com/us/support/owners/product/GT-I9020A">http://www.samsung.com/us/support/owners/product/GT-I9020A</a></span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;Kaik541&gt; I like that it has info about AT&amp;T</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;Kaik541&gt; i9020 = nexus s</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: note the "a"... perhaps an AT&amp;T variant?</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; i heard 850 and 1900 bands.....</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, yes, and if you scroll down you see the "getting the most out of your AT&amp;T phone"</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;techmik67&gt; hey</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;techmik67&gt; look what i just found.... never saw this in their tree before.... blind i guess</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/CyanogenMod/samsung-kernel-galaxys">https://github.com/CyanogenMod/samsung-kernel-galaxys</a></span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;techmik67&gt; not very updated</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;techmik67&gt; me should do a giant merge =)</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;techmik67&gt; we*</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;techmik67&gt; 9 months worth of changes</span><br />
