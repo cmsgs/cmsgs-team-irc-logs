@@ -112,3 +112,40 @@
 <span class="irc-date">[11:37]</span> <span class="irc-brown">-anthony.freenode.net- *** Checking Ident</span><br />
 <span class="irc-date">[11:37]</span> <span class="irc-brown">-anthony.freenode.net- *** Found your hostname</span><br />
 <span class="irc-date">[11:37]</span> <span class="irc-brown">-anthony.freenode.net- *** No Ident response</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-brown">-anthony.freenode.net- *** Looking up your hostname...</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-brown">-anthony.freenode.net- *** Checking Ident</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-brown">-anthony.freenode.net- *** Found your hostname</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-brown">-anthony.freenode.net- *** No Ident response</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-green">* cmsgsteam-logger (~PircBot@cmsgs.com) has joined this channel.</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-green">* Topic is 'SGS CyanogenMod - mergelist: <a href="http://kan.gd/1dt">http://kan.gd/1dt</a> ask coolya for write access  - for pastebin: <a href="http://cmsgsteam.pastebin.com">http://cmsgsteam.pastebin.com</a> - <a href="http://www.cmsgs.com/'">http://www.cmsgs.com/'</a></span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-green">* Set by coolya!~coolya@microdoof.net on Sun Mar 27 08:10:46 GMT 2011</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-brown">-ChanServ- [#__topsecret__] SGS CyanogenMod developers and testers (and other kernel and android hackers) - <a href="http://www.cmsgs.com/">http://www.cmsgs.com/</a></span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-green">* ChanServ sets mode +o cmsgsteam-logger</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-green">* nitam|work sets mode +o coolyaz</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-green">* ChanServ sets mode -o coolyaz</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;nitam|work&gt; hmph</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-navy">* KBme (~KBme@9angled-2-pt.tunnel.tserv5.lon1.ipv6.he.net) Quit (*.net *.split)</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-navy">* mxracer_linux (~mxracer@adsl-222-142-232.clt.bellsouth.net) Quit (*.net *.split)</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (*.net *.split)</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-green">* KBme (~KBme@9angled-2-pt.tunnel.tserv5.lon1.ipv6.he.net) has joined this channel.</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-green">* mxracer_linux (~mxracer@adsl-222-142-232.clt.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;atinm&gt; coolyaz isn't registered, so can't op</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;Zilch25&gt; tsk tsk</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-green">* chaembian (~chaembian@122.174.208.234) has joined this channel.</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-green">* nullghost (~quassel@c-76-18-157-237.hsd1.tn.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.16.111.adsl.012.net.il) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;nitam|work&gt; going to be focusing on USB and external card mounting for a bit. seems like an easier problem to solve than A1026 support and definitely easier than battery . . .</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;nitam|work&gt; was looking thru the code and it looks like code in MountService, StorageManager and Vold that needs to do this. There is a lot of code in there that still thinks the only card possible is whatever is in EXTERNAL which is /mnt/sdcard for us.</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;nitam|work&gt; so will need to do some reworkd.</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;nitam|work&gt; then I found some wolfson code for WM8994 - they have their own git repositories</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;nitam|work&gt; it is possible that curio got his code from there, but I haven't checked.</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;nitam|work&gt; their's is definitely cleaner.</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;nitam|work&gt; and is meant to work with ALSA.</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;nitam|work&gt; It is actually part of the ASOC stuff (ALSO system on chip).</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;nitam|work&gt; so I got interested. mostly because I was looking into good portable DACs to play music and many of the best ones have the WM8994 chip in them!</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;nitam|work&gt; so we really do have some of the best hardware out there.</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;nitam|work&gt; just our software totally sucks.</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;Zilch25&gt; well... its going to be a perpetual work in progress... there's so much stuff on our devices that can be improved</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;Zilch25&gt; its really sad that samsung HAS all of the specs and code at their fingertips, yet they opted to give us... well what they gave us</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-black">&lt;nitam|work&gt; Samsung should just open source everything and get out of the way..</span><br />
