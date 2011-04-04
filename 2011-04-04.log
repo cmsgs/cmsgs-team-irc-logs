@@ -356,3 +356,53 @@
 <span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; ah</span><br />
 <span class="irc-date">[17:52]</span> <span class="irc-navy">* chaembian (~chaembian@122.174.208.234) Quit (Ping timeout: 258 seconds)</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;nitam|work&gt; techmik67, here you go: <a href="https://github.com/teamhacksung/cm-kernel">https://github.com/teamhacksung/cm-kernel</a></span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;nitam|work&gt; there is an android-samsung-aries-2.6.35 branch on there</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;nitam|work&gt; that is our code.</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;nitam|work&gt; the repo is forked from cyanogenmod's cm-kernel</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;nitam|work&gt; after I speak with unhelpful and coolya, we can make our world point there instead.</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;nitam|work&gt; it seems to fit how they do things.</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;nitam|work&gt; they have branches for different phones/versions of kernel</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;nitam|work&gt; so we have one for us too.</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;nitam|work&gt; will need to modify a few things to make this work, but shouldn't be terrible</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: that won't work if we merge</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;coolya&gt; we can not select a branch at build time</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;nitam|work&gt; I thought us being on a different branch would be fine. they seem to have a different branch per phone and version</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;coolya&gt; it is selected on checkout</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;nitam|work&gt; oh yes, fuck. yes</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;nitam|work&gt; you're right.</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;nitam|work&gt; crap.</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;coolya&gt; buildbot can't handle that right i guess</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; yeah . . . we need a specific branch checked out when building aries</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; but the default.xml for cyanogenmod is common for gingerbread</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; oh well.</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; deleting the repo from teamhacksung.</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;nitam|work&gt; techmik67 - we'll just be commiting android-samsung-aries-kernel</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;nitam|work&gt; or something along those lines</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;coolya&gt; is there a way to hook a git command into the build process ?</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;nitam|work&gt; dunno</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;techmik67&gt; a completely separate repo that will have nothing to do with cm's existing samsung-kernel-galaxys</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;coolya&gt; if yes, we could just check out the branch and all is fine</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;coolya&gt; the old aries kernel is totally outdated</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, that thing needs to just get deleted :)</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;nitam|work&gt; but luckily it doesn't have a gingerbread branch</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;nitam|work&gt; so we could just add it.</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;techmik67&gt; oh, i figured that part, just didnt know if it would be updated, or replaced</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;nitam|work&gt; is that kernel repo in their manifest?</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;coolya&gt; no kernel in the manifest for gingerbread</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, just saw.</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;nitam|work&gt; pain in the ass - how could they have assumed that every kernel would work one way ...</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;nitam|work&gt; a non-linux way at that.</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;nitam|work&gt; I guess I see how. but now it needs to change.</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;coolya&gt; it was in there in foryo</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-navy">* designfears (~AndChat@32.169.75.118) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;coolya&gt; it was build if the device didn't had a pre build kernel</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;nitam|work&gt; we should just rename ours to android_samsung_aries_kernel, and have that added to gingerbread manifest when we're ready</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;coolya&gt; there was a kernel.mk that handled it</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;nitam|work&gt; so we need a way to have a git command happen during build like you said</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-green">* designfears (~AndChat@32.169.75.118) has joined this channel.</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;nitam|work&gt; let me check something</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;Wout`&gt; g'evening</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;techmik67&gt; hi</span><br />
