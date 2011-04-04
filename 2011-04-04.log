@@ -520,3 +520,39 @@
 <span class="irc-date">[20:58]</span> <span class="irc-navy">* Scepterr (~Scepterr@mte.rootmy.mobi) Quit (*.net *.split)</span><br />
 <span class="irc-date">[20:58]</span> <span class="irc-navy">* uberushaximus (~uberushax@71-13-134-35.dhcp.ftbg.wi.charter.com) Quit (*.net *.split)</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-navy">* Wout` (Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-green">* mxracer_linux (~mxracer@adsl-222-142-232.clt.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-green">* KBme (~KBme@9angled-2-pt.tunnel.tserv5.lon1.ipv6.he.net) has joined this channel.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-green">* rwicl|work (work@work.com) has joined this channel.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-green">* ohayden (ohayden@2001:440:eeee:fffb::2) has joined this channel.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-green">* Scepterr (~Scepterr@mte.rootmy.mobi) has joined this channel.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-green">* uberushaximus (~uberushax@71-13-134-35.dhcp.ftbg.wi.charter.com) has joined this channel.</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-navy">* t-ready (~burrell@wormhole.cbl.umces.edu) Quit (Quit: Captivate - Phoenix ROM)</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; quick sanity check....and you know if I'm asking here something is wrong with me :/</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-green">* t-ready (~burrell@wormhole.cbl.umces.edu) has joined this channel.</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if I cook up a script to evaluate all the idfefs, blow out all the code that isn't used then diff -p to see what functions are different and put the ifdefs back...I should have 2.2 source that can build anything right?</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;nitam|work&gt; hmm?</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-navy">* t-ready (~burrell@wormhole.cbl.umces.edu) Quit (Client Quit)</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;nitam|work&gt; using what code are root?</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;nitam|work&gt; since they're confused. galaxys doesnt' hae the others, captivate has some t959</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;nitam|work&gt; and t959 seems to have some captivate</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;nitam|work&gt; ideally its take only galaxys from galaxys, i897 from i897 and t959 from t959, separating code by #ifdefs when they collide.</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;nitam|work&gt; painful.</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and the captivate has some t959 but the code in those blocks are different</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;nitam|work&gt; plus right now I just want to check our gpio settings across phones.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;nitam|work&gt; make sure we are setting them up as input/output, pull_up/down/none and SLP appropriately</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;nitam|work&gt; we can't really make progress until we know our gpio settings are correct</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;nitam|work&gt; it is just painful work . . . and I keep wanting to do something else . . .</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;nitam|work&gt; so I'm focusing on external sdcard mounting over usb now</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;nitam|work&gt; which implies working in android code rather than kernel, which sort of sucks . . . I'd rather be in kernel, but someone has to do it.</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; thats part of the reason I want to rip out the ifdefs, diff is pulling up crap thats different between the sources but but some of it is in blocks that are not used for that phone</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;nitam|work&gt; we can't wait on samsung for this piece because they're not going to release any code in the android layers as always</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;nitam|work&gt; I jsut went thru at least captivate and got rid of all ifdefs</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;nitam|work&gt; only keeping captivate code</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;nitam|work&gt; doing that for all the phones is the first step, yes.</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I agree, I just want to make the computer do it rather than me</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;nitam|work&gt; yes, that's fine if your script works :)</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it doesn't exist yet, thats why I wanted to know if I was stupid for trying</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; rather than any of the other reasons :P</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-66-68-164-213.austin.res.rr.com) has joined this channel.</span><br />
