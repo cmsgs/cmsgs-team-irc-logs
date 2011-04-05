@@ -475,3 +475,19 @@
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;nitam|work&gt; (I'm actually not convinced about kernel.mk ...)</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;nitam|work&gt; why not let every target figure out how to build its own kernel</span><br />
 <span class="irc-date">[19:00]</span> <span class="irc-black">&lt;nitam|work&gt; like we do</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;nitam|work&gt; kernel.mk is making assumptions about which modules need to be copied etc</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;nitam|work&gt; we could very conceivably end up with 4 different kernel trees for the different devices if samsung was to open all source and clean it up. it would be cleaner than #ifdef everywhere.</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;nitam|work&gt; but regardless, I don't really see the point of having one kernel.mk that is supposed to work for all targets that need to build kernel</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;nitam|work&gt; just makes it harder to merge for new targets</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;nitam|work&gt; that do something differently</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;nitam|work&gt; other than the fact that "we did it that way in froyo", I don't see why we have to resurrect it.</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;nitam|work&gt; our method keeps the common tree clean.</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-green">* mbizzle (a9ea7512@gateway/web/freenode/ip.169.234.117.18) has joined this channel.</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;techmik&gt; ubuntu kernel 2.3.38-8.... woohoo!</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;dasunsrule32&gt; gcc-4.5 works correctlyt</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-navy">* mbizzle (a9ea7512@gateway/web/freenode/ip.169.234.117.18) Quit ()</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;techmik&gt; 2.6.38-8*</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-green">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-green">* ciwrl is now known as ciwrl|bbl</span><br />
