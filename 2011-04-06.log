@@ -139,3 +139,146 @@
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;Wout&gt; mnita|work: which patch? afaik curio is still actively developing voodoo sound</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;nitam|work&gt; when you're here</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;nitam|work&gt; Wout: he'd put out a patch once that is what everyone started with, applying that patch to the kernel and moving on from there</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-green">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) has joined this channel.</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;nitam|work&gt; it basically adds a wm_voodoo.c/h and callouts to stuff there from the wm8994 driver files</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;Wout&gt; yeah, I think people are now pulling in stuff from the repo, patch hasnt been touched in a while</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;nitam|work&gt; and so I am wondring if there was more.</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;kang&gt; mnita|work: voodoo 7 is the latest afaik and thats the special patch ofc. if youre talking about the additions that went to mainline i would suppose they're on android.kernel.org</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;Wout&gt; wait, voodoo stuff made it to mainline?</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-navy">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;nitam|work&gt; there was stuff that went to mainline?</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;nitam|work&gt; on like upstream google mainline?</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;kang&gt; not voodoo-voodoo, just 2 options he made.. and i think they went mainline yes</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;kang&gt; you integrated them at some point</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; ok, yes</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;kang&gt; i can't garantee it i havent verified lol</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;kang&gt; but i think so</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, that's fine. I meant the full shebang with the extra wm_voodoo stuff and the sysfs mods</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;kang&gt; anyhow the driver is hooking the driver yes</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; is it just the patch you did?</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;kang&gt; ;D</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;kang&gt; yes</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;kang&gt; theres the voodoo driver which is in a .c</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; ok, no additional stuff beyond?</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;kang&gt; and hooks for that in the original driver</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; right. that's what I meant</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;kang&gt; for voodoo sound, nope</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;nitam|work&gt; what you did for voodoo sound.</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;nitam|work&gt; ok, backing up.</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;kang&gt; yep</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;kang&gt; u need the voodoo app to control the sysfs "ofc"</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;nitam|work&gt; what are the pieces needed to see the latest stuff related to voodoo sound that I can then compare to wolfson</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;nitam|work&gt; can you point me at them, either on your repo or his . . .</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;kang&gt; <a href="https://github.com/project-voodoo/linux_samsung/commits/nexus-s-voodoo-sound">https://github.com/project-voodoo/linux_samsung/commits/nexus-s-voodoo-sound</a></span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;nitam|work&gt; wolfson has their own repos. so I want to see what curio added, and how wolfson wants things.</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;nitam|work&gt; because wolfson doesn't have a sysfs when I looked at it quickly</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;nitam|work&gt; thanks.</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;Wout&gt; kang: you managed about 30h on your batt test, right?</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;kang&gt; np, ive no idea what wolfson does ^^</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;kang&gt; Wout: yes</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;kang&gt; Wout: 35 ^^</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;Wout&gt; not bad</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;Wout&gt; 3g on?</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;kang&gt; yes</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;kang&gt; +2 emails accts in push</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;kang&gt; power notification widget and battery % display off</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;Wout&gt; do you also know how it did with powerwidget on?</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;kang&gt; wifi off on screen off</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;kang&gt; -50mV at 100mhz</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;kang&gt; rest is "stock"</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;nitam|work&gt; wolfson uses alsa.</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;kang&gt; my kernel also but beside the undervoltage theres no real diff for battery</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;nitam|work&gt; or at least has code that is supposed to use it</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;nitam|work&gt; we'll see.</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-brick">* Wout hasnt even noticed te improvements voodoo sound brings</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;kang&gt; hm it doesn help</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;kang&gt; does*</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;Wout&gt; except for the incredible change to recording quality ofc</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;kang&gt; lol</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;nitam|work&gt; trying to decide between external sd and this. external sd is more visible and more needed so i guess I'll work on that first.</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;Wout&gt; kang: so, you're suspecting a batt drain bug in the powerwidget code?</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;kang&gt; the app ain't really required imo except for recording presets</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;kang&gt; its more like tick all buttons</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;kang&gt; ^^</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;Wout&gt; mnita|work: maybe you could just kang curio's paramter changes for the microphone</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;Wout&gt; that is one of the biggest voodoo improvements</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;kang&gt; mnita|work: external sd would be nicer i guess</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;nitam|work&gt; I haven't looked at his code at all</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;nitam|work&gt; so I have no idea what he's done</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;kang&gt; i can prolly kang them that way</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;kang&gt; but hes going to hate me</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;nitam|work&gt; I just saw the call outs from the main driver, and thought "bleah" and left it alone</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;kang&gt; so i wont</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;kang&gt; its quite simple really</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;Wout&gt; mnita|work: be basicly tweaked the AGC settings, so now you have actualt decent sound when recording video in noisy environments</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;Wout&gt; instead of just static</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;nitam|work&gt; I'll look sometime soon. Pity that external sd is more useful if less fun.</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;kang&gt; camera, too.</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;nitam|work&gt; camera is coolya's.</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;kang&gt; i opened camera stuff</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;kang&gt; then closed it.</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;kang&gt; then opened.</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;kang&gt; then closed.</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;nitam|work&gt; sound happens to be in drivers I've been mucking in anyway</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;kang&gt; i'm at this step so far xD</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) Quit (Quit: WeeChat 0.3.4)</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;kang&gt; well adding the voodoo stuff is prolly 10min to an hour and can't rly go wrong</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;kang&gt; so u can always do it on top i suppose</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;kang&gt; for the headphones, sound etc</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;kang&gt; i heard many complains lol</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;kang&gt; vibrant guys especially</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, because vibrant still doesnt' work right</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;nitam|work&gt; I need a vibrant in my hands.</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;nitam|work&gt; only way I can really work on it.</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;Wout&gt; this is pretty impressive for a  loud environment <a href="http://www.youtube.com/watch?v=6gRByGJA-i4&amp;feature=related">http://www.youtube.com/watch?v=6gRByGJA-i4&amp;feature=related</a></span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;Wout&gt; tried something like that when I just got my i9000, audio was a complete mess</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;nitam|work&gt; and I don't want to do the sound stuff like curio has done. would rather make it integrate with alsa</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;nitam|work&gt; learn alsa in the process</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;Kaik541&gt; mnita|work, recently chaembian_ said he was going to go through and list all the GPIO's one by one and I told him that's something you'd love done</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;nitam|work&gt; yes.</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;Kaik541&gt; so hopefully you can get that monkey off your back</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;Kaik541&gt; Wout, that's surprisingly impressive capture</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;nitam|work&gt; I want all the gpios listed, and what their settings are for the 3 phones and what we are setting them to in our code . . . it is a painfully busy amount of work</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;Wout&gt; Kaik541: the mic in our phones is actually pretty awesome, it's just samsung letting us down again with crappy code</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;Wout&gt; mnita|work, kang: this is the code responsible for fixing the mic input gain. No idea how easy it is to cleanly implement this in cm</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;Wout&gt; <a href="http://pastebin.com/Cup6azua">http://pastebin.com/Cup6azua</a></span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;codeworkx&gt; Wout: <a href="http://www.youtube.com/watch?v=S8GA1Qj35uI&amp;NR=1">http://www.youtube.com/watch?v=S8GA1Qj35uI&amp;NR=1</a></span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;Wout&gt; damn</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;Wout&gt; that's what I'm talking about</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;codeworkx&gt; 1st nexus s then galaxy s</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;nitam|work&gt; kang, do you know if curio actually got documentation from wolfson?</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;kang&gt; i don't know</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;nitam|work&gt; ok...he must have, no way one can just do stuff like that without it</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) has joined this channel.</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;knowsnotmuch&gt; even if he did - i vaguely remember him mentioning an NDA around it</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;Wout&gt; the question is....does samsung have those docs :P</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;Kaik541&gt; mnita|work, I feel like he did and talked directly to one of the wolfson developers... but I know he spent a lot of long nights with thick headaches trying to decipher it</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;Kaik541&gt; so even if they did reveal some stuff, it clearly wasn't all of it</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;knowsnotmuch&gt; he surely got the datasheet</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;knowsnotmuch&gt; not sure about the other docs</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: he did</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;knowsnotmuch&gt; mnita|work, this is mostly on FM ..but has some links to wm8994 <a href="http://forum.xda-developers.com/showpost.php?p=7831869&amp;postcount=126">http://forum.xda-developers.com/showpost.php?p=7831869&amp;postcount=126</a></span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-navy">* Wout (~Wout@s53758cbd.adsl.wanadoo.nl) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@115.184.59.179) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;Kaik541&gt; how much effort do you think it would take to domesticate bears?</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;Kaik541&gt; because I think I have a new goal in life</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;kang&gt; &lt;strike&gt;new&lt;/strike&gt;</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;kang&gt; where are the bears?!</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;Kaik541&gt; I shall capture some</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;kang&gt; maybe they could be taught to fetch honey and bring it home</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;Kaik541&gt; I want small, rideable bears</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;Kaik541&gt; not winne the pooh</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;kang&gt; to each their own.</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;codeworkx&gt; bears? i prefere beers</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;Kaik541&gt; they were able to do it with foxes in like 20 generations</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;Kaik541&gt; bears probably won't take that much longer... I'll have a legacy to pass on</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-black">&lt;kang&gt; could teach them to bring beers, too.</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-black">&lt;Kaik541&gt; I'm sure they have honey-based brews</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;kang&gt; reminds me the last time i went to the sea</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;kang&gt; had sea-beer.</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;kang&gt; beer with salted sea water inside.</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;kang&gt; why would they do such a thing.</span><br />
