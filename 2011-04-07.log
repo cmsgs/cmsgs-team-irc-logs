@@ -309,3 +309,50 @@
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;Wout`&gt; awesome</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;atinm&gt; basically modified code to not assume there was just one external card</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;atinm&gt; should be fun getting this merged . . .</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;atinm&gt; ah frick.</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;atinm&gt; it didn't remount them back to the phone . . . or didn't remount the external sd</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;techmik67&gt; i created a "usb" branch.....</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;atinm&gt; it isn't just config stuff</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;atinm&gt; I also modified MountService</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;atinm&gt; and its not done yet, unmount isn't working right</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;techmik67&gt; ok, i am just getting prepared... no rush =)</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;atinm&gt; crap. it worked this time.</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;atinm&gt; only weirdness is that the notification bar is still saying it usb mounted ...</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;techmik67&gt; weird....</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;techmik67&gt; i actually just set up the usb branch in kernel and frameworks_base without referring to my pastie of your directions =)</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;Unhelpful&gt; um, no RNDIS -&gt; no tether, i would think?</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;atinm&gt; first I have to figure out what I did and whether disabling RNDIS was really it :)</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;atinm&gt; br</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;atinm&gt; b</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;kang&gt;  uhm</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;kang&gt; i suppose jvk kernel might just boot if we exchange the ramdisk</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;kang&gt; :P</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;atinm&gt; what is the thing that sets the usb connection status on the notification bar</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-green">* ytt3r (~evan@adsl-88-54-105.asm.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; just to prove I am doing some work <a href="http://pastiebin.com/?page=p&amp;id=4d9dceb4e725e">http://pastiebin.com/?page=p&amp;id=4d9dceb4e725e</a></span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;atinm&gt; awesome</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;atinm&gt; yes, that's great - when you're done, we should have the gpios right</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I need to go back and see where that stuff is in the files...and then I need to check it the other way ie looking for GPIO_BT_UART_RXD rather than S5PV210_GPA0(0)</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;atinm&gt; yeah . . . that's the sort of thing I just lost patience with ..</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dono why they define all that stuff then use the S5Pxxxx all over the place instead</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;techmik67&gt; to make your life difficult, of course! =)</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;techmik67&gt; or perhaps, cause they're idiots?</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I know they watch me...always watching</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; any time I get heavy into a diff project they drop new code</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so...sorry for slacking off for a few months or we would have ice cream already/  my bad</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; on a side note, my phone has been up for 2d6h and it's telling me I have 70% battery left.... I'm pretty sure it's lying to me or I've been visited by the battery fairies</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; JPX with reorient #100 so don't get too excited</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm&gt; whatever the f I did, the sdcards work now</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm&gt; but I'm sure I broke tethering.</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; att doesn't want us tethering anyway so, no big deal *whistles innocently*</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Quit: Get MacIrssi - <a href="http://www.sysctl.co.uk/projects/macirssi/)">http://www.sysctl.co.uk/projects/macirssi/)</a></span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;atinm&gt; yeah, I broke tethering.</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;atinm&gt; damn it.</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;atinm&gt; it is actually thinking usb isn't up</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;Wout`&gt; but remounting the cards works?</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;Wout`&gt; nice</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;atinm&gt; going to try to do it so tethering doesn't break ..</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;Wout`&gt; would be even nicer :P</span><br />
