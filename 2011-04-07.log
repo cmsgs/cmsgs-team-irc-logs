@@ -224,3 +224,88 @@
 <span class="irc-date">[18:51]</span> <span class="irc-black">&lt;atinm&gt; but I don't know what that actually means . . .</span><br />
 <span class="irc-date">[18:51]</span> <span class="irc-black">&lt;atinm&gt; like, does the driver then do something usb related on write</span><br />
 <span class="irc-date">[18:51]</span> <span class="irc-black">&lt;atinm&gt; we do the write in Vold</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;atinm&gt; aha</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;atinm&gt; f_mass_storage.c</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-navy">* ohayden (ohayden@2001:440:eeee:fffb::2) Quit (Quit: ...)</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-green">* ohayden (ohayden@2001:440:eeee:fffb:1::3) has joined this channel.</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;techmik67&gt; atinm: i browsed thru that file before, not having much idea what i was looking at.....</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;mikebeecham&gt; evening</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;techmik67&gt; hi</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: <a href="http://en.wikipedia.org/wiki/Logical_Unit_Number">http://en.wikipedia.org/wiki/Logical_Unit_Number</a> &lt;- only storage-related "LUN" i know, i think the naming for that control file is quite silly. :P</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;atinm&gt; I'm sort of down some rabbit hole</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;atinm&gt; found that it was using 179:8 instead of 179:9</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;atinm&gt; so fixed that.</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;atinm&gt; but not better . . . now in usb/gadget/android.c</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;atinm&gt; there is stuff related to RNDIS</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;atinm&gt; etc</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;atinm&gt; that wasn't there before.</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;atinm&gt; I think that has to do with tethering</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;atinm&gt; froyo code didn't have that enabled in captivate.</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;atinm&gt; maybe that's why tethering didn't work?</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;atinm&gt; but tethering seems to disable usb mass storage mode</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-green">* designfears_ (~df@cpe-71-64-204-109.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;atinm&gt; so something is weird</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-brick">* techmik67 thinks atinm's day off was good for him......</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;Wout`&gt; atinm: google updates nexus s source on github, is that of any use for us?</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;Wout`&gt; seems to be wifi related</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;atinm&gt; when was the last update?</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-navy">* designfears (~AndChat@32.144.48.123) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;techmik67&gt; asked yesterday =)</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;atinm&gt; CONFIG_USB_ANDROID_RNDIS_WCEIS</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-green">* designfears (~AndChat@32.144.48.123) has joined this channel.</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;atinm&gt; wtf is that.</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;Wout`&gt; nm, old news</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-navy">* designfears (~AndChat@32.144.48.123) Quit (Client Quit)</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: RNDIS is microsoft's "we didn't want to use CDC-ether" USB network protocol.</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;atinm&gt; so it should be turned on?</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;atinm&gt; to be able to mount on windows</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm&gt; it seems to conflict tho</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm&gt; I have to read thru this driver.</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't know... there was a working RNDIS driver *somewhere* in froyo, i had tethering working fine once i properly told android which devices were tetherable. it has nothing to do w/ storage.</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-navy">* designfears_ (~df@cpe-71-64-204-109.cinci.res.rr.com) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;atinm&gt; we have it turned on</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;atinm&gt; still just trying to figure out *what* makes a card mount to the computer.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;atinm&gt; it is something that tells the computer "hey, we have a usb gadget now"</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;atinm&gt; but don't know what and how it it triggered</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;atinm&gt; if I could figure that out, I'd figure out why external sd isn't mounting . . .</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm&gt; it seems to be a write to the backing file for the lun1</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm&gt; and lun0</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm&gt; lun0 works, lun1 doesn't.</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;atinm&gt; and we write /dev/block/vold/179:1 for lun0</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;atinm&gt; and /dev/block/vold/179:9 for lun1</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;atinm&gt; (we were writing :8)</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;atinm&gt; but I fixed that . . . I *think* it is supposed to be 9</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;techmik67&gt; ok, we know i know nothing about this, but i am randomly searching with google...... this is from an old post (2009), but is it of any use?</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;techmik67&gt;  I have disabled CONFIG_USB_FUNCTION and enabled CONFIG_USB_GADGET</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;techmik67&gt; &gt;&gt; &gt;&gt; and CONFIG_USB_GADGET_MSM_72K.</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;techmik67&gt; apoplogies if its no use and/or stupid =)</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;atinm&gt; nah, its just a config setting for some other device.</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;atinm&gt; msm is htc I think</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;atinm&gt; I'm doing some logging - lets see</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;atinm&gt; oh, and what is MTP</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;atinm&gt; I remember that used to pop up on eclair</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;Wout`&gt; some media protocol afaik</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;Wout`&gt; <a href="http://en.wikipedia.org/wiki/Media_Transfer_Protocol">http://en.wikipedia.org/wiki/Media_Transfer_Protocol</a></span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;techmik67&gt; oh, i know that its not our device, it was the idea i wondered about... te disabling of CONFIG_USB_FUNCTION and enabling instead of CONFIG USB GADGET</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;atinm&gt; pretty.</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;atinm&gt; I have INTERNAL and EXTERNAL.</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;atinm&gt; EXTERNAL has everything it should.</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-navy">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;atinm&gt; so does INTERNAL</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;atinm&gt; voila.</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;atinm&gt; i turned RNDIS off</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;atinm&gt; and turned on MTP</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;atinm&gt; now to figure out what changes I actually made to make this work . . .</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;Wout`&gt; i think samsung uses mtp for kies</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;Wout`&gt; atinm: do you need any logcats/dmesg from a samsung firmware doing usb sharing?</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;atinm&gt; nah, its working now.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;Wout`&gt; external too?</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;atinm&gt; just have to figure out what all I did that was useful vs not.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;atinm&gt; ys.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;Wout`&gt; awesome</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;atinm&gt; basically modified code to not assume there was just one external card</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;atinm&gt; should be fun getting this merged . . .</span><br />
