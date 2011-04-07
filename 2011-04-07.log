@@ -62,3 +62,71 @@
 <span class="irc-date">[10:40]</span> <span class="irc-black">&lt;Unhelpful&gt; uuuuuugh sick. started a big fat code reorg for BiasModel... currently in a useless state :/</span><br />
 <span class="irc-date">[11:14]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.242.181.220) has joined this channel.</span><br />
 <span class="irc-date">[11:41]</span> <span class="irc-green">* t-ready (~burrell@wormhole.cbl.umces.edu) has joined this channel.</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;knowsnotmuch&gt; hello atinm - would the headset changes in the last release anyway affect mic on incoming calls? People are not able to hear me when they call - but its fine when i call</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;knowsnotmuch&gt; i posted logcat here: <a href="http://code.google.com/p/cyanogenmod7-for-samsung-galaxys/issues/detail?id=213&amp;colspec=ID%20Type%20Status%20Priority%20Device%20Owner%20Summary">http://code.google.com/p/cyanogenmod7-for-samsung-galaxys/issues/detail?id=213&amp;colspec=ID%20Type%20Status%20Priority%20Device%20Owner%20Summary</a></span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;knowsnotmuch&gt; strangely it works fine even if i swap in kang 's kernel on top of 26th release</span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-black">&lt;Kaik541&gt; knowsnotmuch, which device? and do other button features still work with kang's kernel? (i.e. music controls)</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;Kaik541&gt; i9000's fixes are incomplete (as well as vibrant)</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;knowsnotmuch&gt; Kaik541, i9000</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;knowsnotmuch&gt; ahh ok</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-black">&lt;Kaik541&gt; captivate is the only one he could debug since that's the only one he has</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;Kaik541&gt; which is why he wants all the GPIO's listed one by one and what they do, which I believe chaembian_ said he's gonna try and do</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;knowsnotmuch&gt; i am kind of surprised more people arent reporting it ... tells you how many people actually receive calls :))</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;Kaik541&gt; or how many people use headsets for calls (I never do)</span><br />
+<span class="irc-date">[12:26]</span> <span class="irc-black">&lt;knowsnotmuch&gt; Kaik541, i DONT use headset</span><br />
+<span class="irc-date">[12:26]</span> <span class="irc-black">&lt;knowsnotmuch&gt; this issue is just with the phone's speaker</span><br />
+<span class="irc-date">[12:26]</span> <span class="irc-black">&lt;knowsnotmuch&gt; or mic rather</span><br />
+<span class="irc-date">[12:26]</span> <span class="irc-black">&lt;Kaik541&gt; oh, I must've misread</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;knowsnotmuch&gt; well it could be related to the headset changes - because thats the major change between 26th and 31st release</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;Kaik541&gt; well GPIO's were messed with around microphone stuff, but kang's kernel should have it as well since he rebases</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;knowsnotmuch&gt; thats the strange part</span><br />
+<span class="irc-date">[12:28]</span> <span class="irc-black">&lt;knowsnotmuch&gt; with 26th CM release and Kang's kernel - it works fine</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;knowsnotmuch&gt; kang, 's 1st April kernel</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;Kaik541&gt; when you have issues with this, do you ever make a call first and THEN get a call? or is the receiving of the call ALWAYS the first call? or never?</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;knowsnotmuch&gt; well... its an issue i had quite often. but in the logcat i posted - i had flashed and asked my wife to call me immediately</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;knowsnotmuch&gt; so no received call preceded it</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;Kaik541&gt; hmm, can you attempt to replicate it under both conditions?</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;knowsnotmuch&gt; yeah - can do.</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;Kaik541&gt; reboot, receive and test AND reboot, call out, and then receive and see if it happens under both conditions?</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;knowsnotmuch&gt; sure</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;knowsnotmuch&gt; will flash back to 31st</span><br />
+<span class="irc-date">[12:31]</span> <span class="irc-black">&lt;Kaik541&gt; maybe something isn't getting started until after the first call is placed, though if it happens under both conditions then that rules that out</span><br />
+<span class="irc-date">[12:32]</span> <span class="irc-black">&lt;knowsnotmuch&gt; my wild guess was that it was getting initialized assuming headset was plugged in</span><br />
+<span class="irc-date">[12:32]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[12:33]</span> <span class="irc-black">&lt;Kaik541&gt; it's possible, but then I imagine they wouldn't hear you *at all* not just quietly</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-black">&lt;knowsnotmuch&gt; yeah - true - they seem to suggest it fades away</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-green">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) has joined this channel.</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.5.79.adsl.012.net.il) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[12:52]</span> <span class="irc-black">&lt;knowsnotmuch&gt; Kaik541, this is messy and maybe inconsistent...</span><br />
+<span class="irc-date">[12:52]</span> <span class="irc-black">&lt;knowsnotmuch&gt; but here goes</span><br />
+<span class="irc-date">[12:53]</span> <span class="irc-black">&lt;knowsnotmuch&gt; scenario 1 - i receive a call first</span><br />
+<span class="irc-date">[12:53]</span> <span class="irc-black">&lt;knowsnotmuch&gt; voice appears to sound mettalic and caller cant hear me clearly</span><br />
+<span class="irc-date">[12:53]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[12:53]</span> <span class="irc-black">&lt;knowsnotmuch&gt; scneario 2 - i call and then receive - it seems fine</span><br />
+<span class="irc-date">[12:54]</span> <span class="irc-black">&lt;knowsnotmuch&gt; but after scenario 2, caller calls back - metallic again</span><br />
+<span class="irc-date">[12:54]</span> <span class="irc-black">&lt;Kaik541&gt; so from the sound of things, something is getting turned on when you first place a call out</span><br />
+<span class="irc-date">[12:54]</span> <span class="irc-black">&lt;Kaik541&gt; and is turned off after you hang up from a recieved call</span><br />
+<span class="irc-date">[12:54]</span> <span class="irc-black">&lt;Kaik541&gt; but not getting turned back on with a recieved call</span><br />
+<span class="irc-date">[12:55]</span> <span class="irc-black">&lt;knowsnotmuch&gt; lol @ "from the sound of things"</span><br />
+<span class="irc-date">[12:55]</span> <span class="irc-black">&lt;Kaik541&gt; ah, puns :P</span><br />
+<span class="irc-date">[12:55]</span> <span class="irc-black">&lt;knowsnotmuch&gt; anyway the other thing is</span><br />
+<span class="irc-date">[12:56]</span> <span class="irc-black">&lt;knowsnotmuch&gt; after a few seconds (15 sec thereabouts) - caller hears me better</span><br />
+<span class="irc-date">[12:56]</span> <span class="irc-black">&lt;Kaik541&gt; so it sounds like it is getting turned on... but takes time</span><br />
+<span class="irc-date">[12:56]</span> <span class="irc-black">&lt;knowsnotmuch&gt; yes</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-black">&lt;Kaik541&gt; now, I know absolutely nothing about how this works, so I'm just going to ask anyone who might know more than me</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-black">&lt;knowsnotmuch&gt; and is it safe to infer - its NOT in the kernel?</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-black">&lt;Kaik541&gt; when GPIO's are "turned on", is there a way to tune the voltage and could that possibly have an effect?</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-black">&lt;knowsnotmuch&gt; because 26h release with kang 's kernel from 1st Apr works fine</span><br />
+<span class="irc-date">[12:57]</span> <span class="irc-black">&lt;Kaik541&gt; the other option is that it's just an issues with the 03/31 build</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;Kaik541&gt; but from ROM, not from kernel</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;knowsnotmuch&gt; yes</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;knowsnotmuch&gt; i hazard to guess that its ROM related</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;Kaik541&gt; if it's not too much to ask, try the 03/31 build with kang's newest kernel</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;Kaik541&gt; and see if the issue persists</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-black">&lt;Kaik541&gt; and then same kernel on old build</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;knowsnotmuch&gt; i ahve done that before - it persists</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-navy">* chaembian_ (~chaembian@122.174.95.111) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;Kaik541&gt; and then when you use that same kernel on an older build, it behaves?</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;knowsnotmuch&gt; same kernel old build was where i was - no issues</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;Kaik541&gt; then I'm gonna say it's build date related</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-black">&lt;knowsnotmuch&gt; i'd agree</span><br />
