@@ -93,3 +93,85 @@
 <span class="irc-date">[2:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 10.10 (or earlier I guess) or 11.4?</span><br />
 <span class="irc-date">[2:59]</span> <span class="irc-black">&lt;chaembian_&gt; Ubuntu 10.10</span><br />
 <span class="irc-date">[2:59]</span> <span class="irc-black">&lt;chaembian_&gt; Anything else I should setup?</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k, for the samsung stuff I just use the ubuntu arm cross compile packages</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;chaembian_&gt; What package is that?</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; erm.... dono lemme check</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;chaembian_&gt; gcc-arm-linux-gnueabi</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; do you want the command line name of the packages or should I jsut tell you to look up arm in the package mangler and select gcc?</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; thats the one</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;chaembian_&gt; Anything should be fine?</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;chaembian_&gt; I'm looking at <a href="http://marcin.juszkiewicz.com.pl/2010/10/19/how-to-cross-compile-arm-kernel-under-ubuntu-10-10/">http://marcin.juszkiewicz.com.pl/2010/10/19/how-to-cross-compile-arm-kernel-under-ubuntu-10-10/</a></span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I've got 4.4.4.9</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; depends which version it grabs, I haven't had any luck with 4.5 with the sammy source</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but then again I didn't have much luck with 11.4 in general so it may have just been me</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;chaembian_&gt; apt-get is fetching 4.4.4.9 here</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;chaembian_&gt; Will it be simple make or are there overrides through swicthes?</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; simple</span><br />
+<span class="irc-date">[3:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j(whatever)</span><br />
+<span class="irc-date">[3:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I have a few scripts, mostly so I don't have to remember what defconfig I need to call</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and a cheesy amake script that just has make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi-  $1 in it</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-navy">* stickpin (~stickpin@80.178.5.79.adsl.012.net.il) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-brick">* TMC_Sherpa is lazy and willing to work hard to stay that way</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; smokey brb</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;chaembian_&gt; aargh, I missed your instructions</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hm?</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;chaembian_&gt; the makefile has the ARCH correctly setup. Only CROSS_COMPILE flag defaults to codesourcery libs. I just did a 'CROSS_COMPILE=arm-linux-gnueabi- make -j4'</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;chaembian_&gt; Seems compilation went fine</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dont touch anything :)</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the next bit is a find</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; figure out how long it's been since you started and add two min or so</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; then type find . -amin -(however many minuts has passed since you started the compile+2ish) -type f &gt; ../some_file_name_you_will_remember</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;chaembian_&gt; ok</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; rember the - after the amin or it will look for files that are only that many minuts old</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ask me how I know</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;chaembian_&gt; how?</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; minutes...dono how I managed to screw that up a couple times in a row</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I skipped that part of the man and kept coming up with an empty file</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you should have a file in the directory above where ever you build your kernel, hopefully it starts with .tmp or something?</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; (inside the file)</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the sad thing is some monkey from xda is going to read the logs and learn all my secrets.... ah well</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;chaembian_&gt; I keep coming to a empty file as well</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;chaembian_&gt; the dash preceding the number means &lt;= n, right?</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; find . -amin -20 -type f &gt; ../t959_skel</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;chaembian_&gt; did a -10 and that did the trick</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; however long you need it to be</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; alright, so there is stuff in the file now?</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;chaembian_&gt; 1566 files here</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;chaembian_&gt; Should I push up the window?</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it only picked up 1566 files?</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; mine is 7891 but that inclused all the genereated stuff</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;chaembian_&gt; I did a -20 and it picked up all the files.</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;chaembian_&gt; I did a -12 and it picked up 100+ files.</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; lol k, delete the skel directory and lets try that again</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I usually wait 15 min or so after I guild the directory so I know there is a big window between when the files were created and when the build accessed them</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-navy">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; build*</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; everyone else getting this? 'cus your device may be next</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;chaembian_&gt; OK, I'll do just that</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; just note the time when the tar finishes, wait 10 min or so then build.  like right now I would go 10:31, alright wait till 10:40, when the build finishes subtract the time down to 10:35 or so that wa I know I've got everything</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;chaembian_&gt; ok, time starts now :)</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; jebus I can't type tonight</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;chaembian_&gt; be back</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; kaik, you writing all this down so the fascinate and epic guys can do this when their devices come up for review?</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;Kaik541&gt; wut</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; nothing, go back to sleep :P</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;Kaik541&gt; fuck CDMA :D</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;Kaik541&gt; they're not using our kernels</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; lol</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; alright, then I9000 then</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm a little worried about posting the find /rm command.... somehow I think that one is going to bite me in the ass</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; does the anon thing still work?</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;Kaik541&gt; yeah</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; cool ty</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;Kaik541&gt; I feel like you said something important I should go back and read since you mentioned I should be writing this down</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;Kaik541&gt; but so lazy</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; *shrug* once I type it it's gone.  I'm not worried about it</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;techmik67&gt; it's in tyh logs =)</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;techmik67&gt; the*</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-navy">* sixstringsg (~Jason@pool-173-74-150-29.dllstx.fios.verizon.net) Quit (Quit: sixstringsg)</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;chaembian_&gt; about 7300 files</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; just do a wc file_name</span><br />
