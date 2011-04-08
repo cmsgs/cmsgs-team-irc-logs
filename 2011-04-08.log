@@ -674,3 +674,67 @@
 <span class="irc-date">[16:55]</span> <span class="irc-black">&lt;atinm&gt; I don't follow him anymore, so haven't kept up</span><br />
 <span class="irc-date">[16:55]</span> <span class="irc-black">&lt;atinm&gt; he emailed me tho</span><br />
 <span class="irc-date">[16:58]</span> <span class="irc-green">* acdbx (~acdbx@66.75.28.44) has joined this channel.</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;atinm&gt; hey coolya</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;coolya&gt; hi</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;atinm&gt; I can either get 2 sd cards to work, or tethering to work :)</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;atinm&gt; for some reason they won't work together..</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;coolya&gt; if you get both sd card tethering is broken? strange shit</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;atinm&gt; yeah...the code in android.c is a little funky</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;atinm&gt; drivers/usb/gadget/android.c</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;atinm&gt; putting in some printk to see what the hell it is actually doing</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;atinm&gt; but that printk broke everything ...</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-navy">* t-ready (~burrell@wormhole.cbl.umces.edu) Quit (Quit: Captivate - Phoenix ROM)</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;coolya&gt; crazy shit :-)</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;atinm&gt; if (!!f-&gt;disabled != disable) {</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;atinm&gt; I got a cramp when I saw that</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;coolya&gt; wth</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ...if not not f?</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;atinm&gt; yup :) android.c</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;coolya&gt; any other germany speaking person here ?</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;coolya&gt; s/germany/german</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;atinm&gt; I thought it was just you and codeworkx</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;atinm&gt; but it is funny . . . we have germans and english here, but no french</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;coolya&gt; hmm ok, i need a good translation for "extended power menu"</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;atinm&gt; and curio gets beat up on ;)</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;coolya&gt; :-D</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;atinm&gt; wtf.</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;atinm&gt; argh . . . now all usb is dead.</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;atinm&gt; no adb even</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;coolya&gt; you killed it :-)</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;atinm&gt; I only added a stupid printk.</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;atinm&gt; gah ..</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; interesting Only in nexus_skeleton/drivers/usb/gadget: android.c</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what they heck are they doing in there?</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;atinm&gt; that's where all the usb magic happens</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;atinm&gt; f_mass_storage.c, f_rndis.c, u_ether.c</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;atinm&gt; and android.c</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah but where didi they do it before :)</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;atinm&gt; in the same dir. but I forget which files</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;atinm&gt; the code was in there</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;atinm&gt; but hacked in</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;atinm&gt; rather that separated out like now</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; like everything else then</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; except for the stuff the merged instead... I'll shut up now</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; <a href="http://pastebin.com/x0bP4PG5">http://pastebin.com/x0bP4PG5</a></span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; now I remember why I haven't looked at that stuff</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;mikebeecham&gt; atinm, nahhh the thing with supercurio is about some work that he wants me to do</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm&gt; going to take a break.</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;atinm&gt; ah</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;mikebeecham&gt; I'm trying to explain that I cant tell him if I'm available if he cant tell me exactly what he needs me to do and when</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;atinm&gt; it is most probably icons for his app</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;mikebeecham&gt; nope</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-navy">* acdbx (~acdbx@66.75.28.44) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;mikebeecham&gt; evening codeworkx</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;codeworkx&gt; hi</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;mikebeecham&gt; how're you mate? all good?</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;mikebeecham&gt; ARGGGGHHHH supercurio...why?</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;codeworkx&gt; all good :-)</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;Wout`&gt; kang: what is this idea of yours about merging cm7 initramfs with jvk kernel? what would that do?</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;codeworkx&gt; waiting for samsung to release .35 sources</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;mikebeecham&gt; codeworkx, I wouldn't stop breathing whilst you wait!</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-green">* t-ready (~burrell@wormhole.cbl.umces.edu) has joined this channel.</span><br />
