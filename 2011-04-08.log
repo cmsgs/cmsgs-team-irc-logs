@@ -789,3 +789,51 @@
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;coolya&gt; 1 if the compiler is working like i guess</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; xS</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; xD</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-brick">* Unhelpful can't recall for certain if the C spec requires that ! produce 0-1 output...</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;Unhelpful&gt; i think so ;)</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;atinm&gt; and its that code which is screwing up ... if I disable rndis so that it isn't used, two cards work</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;atinm&gt; well, I had to modify vold and mountservice too</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;atinm&gt; but if I don't disable rndis, those don't change anything</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;Unhelpful&gt; hm.</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;atinm&gt; basically the code is *supposed* to disable ums and mtp if rndis is enabled</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;atinm&gt; and enable ums and mtp (if used) when rndis is disabled</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;Unhelpful&gt; as in, if it's currently active?</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;atinm&gt; nah, in the driver it just sets it to disabled</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;atinm&gt; the functions</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;atinm&gt; look at android.c</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;atinm&gt; line 316</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;atinm&gt; drivers/usb/gadget/android.c</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;atinm&gt; if that code block isn't used, I have two sdcards, but no tethering obviously</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;atinm&gt; but two sdcards.</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;Unhelpful&gt; *sigh* :(</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;atinm&gt; actually no, its worse.</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;atinm&gt; I have to enable both mass storage and mtp</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;atinm&gt; then I get two cards</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;atinm&gt; why the two are related I have no idea.</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-navy">* KBme (~KBme@2001:470:1f13:94::3) Quit (Excess Flood)</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;atinm&gt; and I'm getting sick of it.</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-green">* KBme (~KBme@2001:470:1f13:94::3) has joined this channel.</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; how is samsung mounting the second card, it's not nfs or something stupid is it?</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;atinm&gt; froyo code is different</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-brick">* Wout` has the android.c from honeycomb in front of him</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;atinm&gt; which tablet?</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;Wout`&gt; eee transformer, has 2 working sd cards</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;Wout`&gt; interested?</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;atinm&gt; it looks almost the same</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;Wout`&gt; ah, you have it too</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;atinm&gt; it works differently in some places, they actually have an ASUS RNDIS</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;atinm&gt; but code is cleaner.</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;atinm&gt; let me see if I can use it</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-brick">* Wout` crosses his fingers</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; froyo has adb_ums_acm_mtp_rndis.c not sure how everything lines up</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; #if !defined(CONFIG_ARIES_NTT) // disable tethering xmoondash</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; #include "f_rndis.h"</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; #include "u_ether.h"</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; #endif</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; is kind of a pisser tho</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;atinm&gt; yeah, I'm going to leave that alone. seems like a samsung thing</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: nfs woud be something great! i could still use the card on the phone at the same time. :P</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-70-112-175-254.austin.res.rr.com) Quit (Ping timeout: 264 seconds)</span><br />
