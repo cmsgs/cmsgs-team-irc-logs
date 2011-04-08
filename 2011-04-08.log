@@ -175,3 +175,111 @@
 <span class="irc-date">[3:58]</span> <span class="irc-navy">* sixstringsg (~Jason@pool-173-74-150-29.dllstx.fios.verizon.net) Quit (Quit: sixstringsg)</span><br />
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;chaembian_&gt; about 7300 files</span><br />
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; just do a wc file_name</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;chaembian_&gt; a min later  3497</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 7891 in mine</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;chaembian_&gt; I got 7300 here</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;chaembian_&gt; The build took about 2 mins</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;chaembian_&gt; I did a -amin -3</span><br />
+<span class="irc-date">[4:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k, well we will see what we get</span><br />
+<span class="irc-date">[4:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the next part is dangerous</span><br />
+<span class="irc-date">[4:04]</span> <span class="irc-black">&lt;chaembian_&gt; pastebin?</span><br />
+<span class="irc-date">[4:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; like killing kittens</span><br />
+<span class="irc-date">[4:04]</span> <span class="irc-black">&lt;chaembian_&gt; :O</span><br />
+<span class="irc-date">[4:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it's a find with a rm on it, if your not in the right directory you can hose a bunch of stuff</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; although I guess with out a sudo in front of it you can't murder your system</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; wieuhfwehfwh ignore the sudo</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;chaembian_&gt; :)</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; make sure your inside the skeleton directory</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;chaembian_&gt; On a -12 min window, I got about 7898 files</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'd go with that one</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;chaembian_&gt; ok</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;chaembian_&gt; I'm in the skel directory</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; once we're done here I'm going to have you tar up the directory, tyr and build in there and see what comes out. if everything compiles properly when we know it worked</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; are you sure you are in the directory</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;chaembian_&gt; yes</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; <a href="http://pastebin.com/jdVqt9ki">http://pastebin.com/jdVqt9ki</a></span><br />
+<span class="irc-date">[4:10]</span> <span class="irc-black">&lt;chaembian_&gt; delete all files recursively under current dir, just keeping a shell of directories?</span><br />
+<span class="irc-date">[4:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yup</span><br />
+<span class="irc-date">[4:11]</span> <span class="irc-black">&lt;chaembian_&gt; ok, done</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the only thing it doesn't catch is in arch/arm/microblaze/boot/dts</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; crap</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; arch/microblase.boot/dts</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ggrrrrrr</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;chaembian_&gt; manually go and delete?</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; arch/microblaze/boot/dts</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; there is a link in there that isn't a 'file'</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;chaembian_&gt; I'm there. I see a broken link</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; nuke it</span><br />
+<span class="irc-date">[4:14]</span> <span class="irc-black">&lt;chaembian_&gt; ok, done</span><br />
+<span class="irc-date">[4:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it doesn't hurt anything if it stays but every time you run a grep or diff you get an annoying warning about file not found</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;chaembian_&gt; ok, got it. Good to know that you can read my mind. :)</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; not as well as I used to.....do yourself a favor, don't get old</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;chaembian_&gt; ah, i wish.</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; in the head of that tree there is a directory called .tmp_versions, prolly delete that as well</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-navy">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; brb</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;Frd^&gt; morning</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;chaembian_&gt; ok, done!</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[4:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; is it morning already?</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ok here is where my script foo falls down and I look like an idiot, open whatever you called the build file</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; lemme close down some windows here</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you should have two directories right? one you did the build in and one you just did the untar with?</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;chaembian_&gt; yes</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;chaembian_&gt; And I removed all the files from the dir I did the build</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k, with the skel file open, do a replace all on ./ with cp ./nobuilddirectory/</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; then open... just shoot me..... an open office spreadsheet</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hang on, cat is trying to do something stupid(er than usual)</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;chaembian_&gt; prepare the respective destinations at the folder level using OO?</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; select all in your skel file and paste it into column a</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; we're going to make a cheesy batch file</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;chaembian_&gt; ok</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ctrl-z your skel file so it's back to ./ then replace all ./ with ./skelecondirectory/</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; select all and paste that into column b</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; can not type tonight</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;chaembian_&gt; nice</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;chaembian_&gt; oh bad, are you ok?</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; save the oo as a csv</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; who me? just got a case of fast finger or something</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-navy">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;chaembian_&gt; as a CSV?</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;chaembian_&gt; replace , with space?</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I just leave it alone, once it's saved I remove the .csv off the end and open it in a text editor, replace all the " with nothing and the comma with a space</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; although I guess you could tell it not to use " or , and be done with it.</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; *shrug* I don't trust the machine that much</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;chaembian_&gt; i just copied the two columns, pasted into a text file. Replaced \t with space.</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or you could do that</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; save it into whatever directory is above your two build dirs</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;chaembian_&gt; ok</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; chmod 755 that sucker, run it  and it will copy the stuff over.  there will be a ton of error messages 'cus the nobuild isn't going to have all the .o files and stuff</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;chaembian_&gt; ah, I was going to ask you about that</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I guess you could pull them all out but it would take some time, it's not worth it really</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;chaembian_&gt; the batch file should be placed alongside the two directories, right?</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yup</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;chaembian_&gt; ok</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; chmod and run</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;chaembian_&gt; ok, done</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; there should be some stuff in your skel directory now, a few makefiles, some kconfigs</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; a crap ton of .c and .h files in your /arch/arm/mach-s5pv210</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well .c the .h should be in the include/mach folder</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;chaembian_&gt; right</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; \0/</span><br />
+<span class="irc-date">[4:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; archive the skel folder, tar it, zip it whatever.  you can't clean it or mrproper 'cus not everything you need is in there</span><br />
+<span class="irc-date">[4:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 'course you can't do that with the regular directory either, there is a driver/fsr folder or something missing</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;chaembian_&gt; ok</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; try to build in your skel</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if it works, rem the folder and replace it from your archive</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if your feeling balsy you can do the same thing with your 2.1 stuff.  the GPIO information should be the same and you don't have to worry about all the vib+, hawk and...there is a third one in there I can't think of at the moment</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;chaembian_&gt; I'll have to copy the Makefile from the untouched directory as well, right?</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it should have done that in the copy</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;chaembian_&gt; I did not get the Makefile from the copy</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if it didn't then yeah, copy it over and make a note so it gets put into a new archive</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if it totally pukes you get to start all over :)</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;chaembian_&gt; :)</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; afk a sec</span><br />
