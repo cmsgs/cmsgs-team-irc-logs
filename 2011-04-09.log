@@ -942,3 +942,84 @@
 <span class="irc-date">[18:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 4d3h and 38% battery left..... did my phone find another battery cell or something?  I felt for sure the battery indicator was off (it's happened to me before) but now I'm scared if I plug it in the smoke will come out.  (2.2 reorient #100)</span><br />
 <span class="irc-date">[18:20]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Remote host closed the connection)</span><br />
 <span class="irc-date">[18:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sigh someone remind me to alias grep to exclude logo_rgb24_wvga_portrait.h</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: i don't have any changes to accelerometer, just magnetometer. and i need to be less tired so i can figure out why it soft-booted w/o ever doing correction. :(</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;Unhelpful&gt; the orientation changes to the accelerometer code aren't going to change, though, the captivate has the part mounted in a different position than other devices.</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;techmik67&gt; so you are *adding* to that</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;techmik67&gt; not replacing</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;Unhelpful&gt; as far as the orientation of the magnetometer, well, right now readings from it are so far off-center that you can't really figure out which way it should point. try enabling it, mine juts swings between N and NW as i turn it full-circle :(</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;techmik67&gt; did we ever decide if the strange camera orientation stuff was due to sensors or camera app?</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;Unhelpful&gt; "Steve Wozniak told Reuters he would consider returning to an active role at Apple, the company he co-founded, and believes the consumer electronics giant could afford to be more open than it is." &lt;- hahahahah no shit!</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: i think the camera app, since right now we're turning off the magnetometer, and reading only the accelerometer, which is already fixed up.</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Unhelpful&gt; did anybody ever try the very simple thing i suggested, of looking at the files w/ a hex editor and checking vs exif spec, or running them through something that can dump and verify exif?</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;techmik67&gt; i would love to, if i had any idea how =)</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-brick">* techmik67 has nothing but time</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;Unhelpful&gt; well, easiest thing is if something automatic can be found</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-brick">* techmik67 and would love to actually contributer other than testing and building</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;techmik67&gt; exiftool?</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;Unhelpful&gt; maybe!</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;Unhelpful&gt; i've used it before, i just don't know if it's clever about finding "bad" things like invalid or multiple tags.</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;techmik67&gt; or photome?</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;techmik67&gt; also suggested at the same forum.....</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;techmik67&gt; the question was: "I need a software that can not only read, but write to file the info inside the EXIF metadata to a readable file, does anyone know of any?"</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;techmik67&gt; and those were the 2 suggestions</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;techmik67&gt; another forum mentions IrfanView or XnView</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;techmik67&gt; wow!</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;techmik67&gt; direct from a forum answer:</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;techmik67&gt; Also, software can sometimes rotate images based on their EXIF orientation tag, leading to incorrect rotations. If you don't reset the EXIF tag, then with auto-rotate engaged, the image will appear wrong, when it is indeed correct. Eeeek!</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;techmik67&gt; as you said,  Unhelpful</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;techmik67&gt; is any of this something a novice can do? cause i'll be happy to try.....</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;atinm&gt; first open the image and look at its EXIF info</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;atinm&gt; see if first there is a program that can show you the info in english</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;atinm&gt; it might talk about orientation</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;atinm&gt; and see if you can edit that info</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;atinm&gt; if there are programs that can do it.</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;atinm&gt; otherwise, google for the EXIF specification.</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;atinm&gt; what it is is a bunch of bytes in a certain format. the spec will tell you what it is.</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;atinm&gt; then open the image file in a hex editor, and see where the orientation bits are</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;atinm&gt; and change them</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;atinm&gt; and see</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;atinm&gt; reading a spec and opening the file in a hex editor can be done by novices, with a little sweat.</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; see? easy as that</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;techmik67&gt; lol, i can try.... cant hurt......</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;atinm&gt; it actually might be fun to try.</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;atinm&gt; for someone who wants to learn this stuff, its actually a good place.</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;atinm&gt; to learn nitty gritty stuff</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;techmik67&gt; sounds good</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;atinm&gt; since the image is already in a valid format. you can open any image in a hexadecimal editor.</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;atinm&gt; oh, I guess first you need to learn to read hex.</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;atinm&gt; google hexadecimal.</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;atinm&gt; and understand that that means in terms of bytes</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;atinm&gt; many here can help</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;atinm&gt; you know, I should just upload the vibrant and captivate builds for external sd with the note that it breaks usb tethering.</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;atinm&gt; and fix without stress..</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;techmik67&gt; i agree</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;techmik67&gt; let them choose</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-navy">* designfears_ (~AndChat@cpe-71-64-204-109.cinci.res.rr.com) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm&gt; ttyACM0</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;techmik67&gt; ok, i view this pic in windows live gallery and its 90 degrees ccw</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;techmik67&gt; but in XnView, its correct</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;techmik67&gt; exif data says taken by gt-i9000 and orientation top-left</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;techmik67&gt; which i gather is what you want</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;techmik67&gt; top left, i mean</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;techmik67&gt; i can also view as hex</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;atinm&gt; but the question is, was the image actually in top left</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;atinm&gt; or was it really rotated 90, if so then just changing the exif orientation should fix it</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik67&gt; i have it open in both windows live viewer and xnview and its weird that 1 sees it rotated and 1 correct</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;atinm&gt; yeah, that one I'm not getting.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;atinm&gt; are the images rotated on our phones?</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;atinm&gt; (I haven't checked)</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; the windows thumbnail shows it rotated</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;atinm&gt; as in, what are we trying to fix?</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; if you take a pic in portrait</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: iirc top-left *should* mean rotate 90° CW to correct</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; it is rotated 90 degrees ccw</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;Unhelpful&gt; ie i *believe* it means "top" is on the "left" of the encoded image data</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: thats what i thought, but windopws sees it wrong....</span><br />
