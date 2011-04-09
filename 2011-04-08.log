@@ -865,3 +865,31 @@
 <span class="irc-date">[22:32]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
 <span class="irc-date">[22:33]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
 <span class="irc-date">[22:54]</span> <span class="irc-navy">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) Quit (Quit: TMC_Sherpa)</span><br />
+<span class="irc-date">[23:04]</span> <span class="irc-brick">* Unhelpful likes tab-character indents, tbh... set tab width if you like to 4 or 8 or whatever. :P</span><br />
+<span class="irc-date">[23:05]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: could this have to do w/ some sort of usb endpoint assignment? maybe rndis has a fixed endpoint it tries to use, and is conflicting w/ extsd?</span><br />
+<span class="irc-date">[23:08]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;atinm|away&gt; I dunno . . . the code *looks* like it knows all about coexisting, and explicitly enables/disables things when rndis is enabled/disabled.</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;atinm|away&gt; trying one more thing</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;atinm|away&gt; right now I'm seeing that I have to have MTP turned on too</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;atinm|away&gt; which is weird.</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;atinm|away&gt; just mass storage and rndis failed. just mass storage breaks all usb</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;atinm|away&gt; so now trying all 3 :)</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;Unhelpful&gt; perhaps somebody who knows usb is going to need to look at this? :/</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;atinm|away&gt; what is tegra?</span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;atinm|away&gt; atrix?</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;Unhelpful&gt; yay, looks like Point.h is in good shape... i guess i ought to test it some, eh?</span><br />
+<span class="irc-date">[23:40]</span> <span class="irc-black">&lt;sixstringsg&gt; atinm|away: Tegra is in tablets. I don't think it's in the atrix.</span><br />
+<span class="irc-date">[23:40]</span> <span class="irc-black">&lt;atinm|away&gt; k</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;atinm|away&gt; someone tweeted me a kernel panic</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;sixstringsg&gt; I lied. It is in the atrix.</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;sixstringsg&gt; I just googled it.</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;atinm|away&gt; and it seems to have tegra on it and the comment was "can you solve this <a href="http://pastebin.com/gD0Uj3BR">http://pastebin.com/gD0Uj3BR</a> or find NULL if you do we unlock atrix bootloader"</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;atinm|away&gt; and it didn't look familiar</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-green">* KaikHole (~Rawr@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-70-112-175-254.austin.res.rr.com) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-green">* KaikHole is now known as Kaik541</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-black">&lt;Kaik541&gt; yeah that logcat is definitely from an atrix</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-black">&lt;Kaik541&gt; &lt;4&gt;[    0.000000] Machine: Olympus</span><br />
+<span class="irc-date">[23:59]</span> <span class="irc-black">&lt;Unhelpful&gt; *grumbles* ok, it was some work, but i have a class that is reasonably efficient for storing and manipulating coordinates (TNT::Vector has some issues here, since it's meant to be resizeable)</span><br />
