@@ -518,3 +518,57 @@
 <span class="irc-date">[4:54]</span> <span class="irc-black">&lt;ytt3r&gt; distcc[16629] ERROR: compile scripts/mod/empty.c on localhost failed</span><br />
 <span class="irc-date">[4:54]</span> <span class="irc-black">&lt;ytt3r&gt; harumph</span><br />
 <span class="irc-date">[4:57]</span> <span class="irc-black">&lt;chaembian_&gt; I can see 14G and 2G yay!!</span><br />
+<span class="irc-date">[5:06]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[5:14]</span> <span class="irc-black">&lt;chaembian_&gt; [357930.861149] usb 1-2: new high speed USB device using ehci_hcd and address 13</span><br />
+<span class="irc-date">[5:14]</span> <span class="irc-black">&lt;chaembian_&gt; [357931.107861] usbcore: registered new interface driver cdc_ether</span><br />
+<span class="irc-date">[5:14]</span> <span class="irc-black">&lt;chaembian_&gt; [357931.109572] usb 1-2: bad CDC descriptors</span><br />
+<span class="irc-date">[5:14]</span> <span class="irc-black">&lt;chaembian_&gt; [357931.109592] usbcore: registered new interface driver rndis_host</span><br />
+<span class="irc-date">[5:14]</span> <span class="irc-black">&lt;chaembian_&gt; That's after I enabled USB tethering</span><br />
+<span class="irc-date">[5:23]</span> <span class="irc-navy">* chaembian_ (~chaembian@122.174.95.111) Quit (Quit: WeeChat 0.3.2)</span><br />
+<span class="irc-date">[5:25]</span> <span class="irc-black">&lt;Unhelpful&gt; ytt3r: i never said it would be trivial to do in android ;)</span><br />
+<span class="irc-date">[5:26]</span> <span class="irc-black">&lt;ytt3r&gt; ??</span><br />
+<span class="irc-date">[5:26]</span> <span class="irc-black">&lt;Unhelpful&gt; also distcc doesn't know about java compilation *at all* ;)</span><br />
+<span class="irc-date">[5:26]</span> <span class="irc-black">&lt;Unhelpful&gt; distcc :)</span><br />
+<span class="irc-date">[5:26]</span> <span class="irc-black">&lt;ytt3r&gt; oh i see</span><br />
+<span class="irc-date">[5:26]</span> <span class="irc-black">&lt;ytt3r&gt; i was compiling the kernel though</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-black">&lt;Unhelpful&gt; right, but you probably have to feed it the right info about where compilers are, and which compilers you are using. :)</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-brick">* ytt3r explodes</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;Unhelpful&gt; and the kernel is such a small part of building android. for that matter, there are a *lot* of .java files with which distcc won't help you, and worse, you'll probably make them slower if you try to build too many at once locally.</span><br />
+<span class="irc-date">[5:35]</span> <span class="irc-green">* chaembian (~chaembian@122.174.95.111) has joined this channel.</span><br />
+<span class="irc-date">[5:36]</span> <span class="irc-black">&lt;chaembian&gt; usb tethering did not work. I just hooked it to a laptop (running Linux), disable WiFi.</span><br />
+<span class="irc-date">[5:37]</span> <span class="irc-black">&lt;chaembian&gt; I got a 'Tethered' blue-icon in the notification. But that's about it.</span><br />
+<span class="irc-date">[5:37]</span> <span class="irc-black">&lt;chaembian&gt; dmesg had 'bad CDC descriptors'</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;chaembian&gt; Let me know if I have missed anything obvious</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;techmik67&gt; hmmm</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;techmik67&gt;  i just noticed....</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;chaembian&gt; dmesg is from the laptop</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;techmik67&gt;  my laptop has no bios??? just "InsydeH20 setup tility"?</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;chaembian&gt; Let me check what I got in the Android</span><br />
+<span class="irc-date">[5:39]</span> <span class="irc-black">&lt;techmik67&gt; and i have no advanced settings..... those bastards!</span><br />
+<span class="irc-date">[5:40]</span> <span class="irc-black">&lt;chaembian&gt; What laptop is that, techmik67?</span><br />
+<span class="irc-date">[5:40]</span> <span class="irc-black">&lt;techmik67&gt; acer aspire 5552-7803</span><br />
+<span class="irc-date">[5:41]</span> <span class="irc-black">&lt;techmik67&gt; i found an article saying my mobo is oc-able</span><br />
+<span class="irc-date">[5:44]</span> <span class="irc-black">&lt;techmik67&gt; i see that i am supposed to have an "advanced" tab</span><br />
+<span class="irc-date">[5:44]</span> <span class="irc-black">&lt;techmik67&gt; between "main" and "security"</span><br />
+<span class="irc-date">[5:44]</span> <span class="irc-black">&lt;techmik67&gt; but its not there</span><br />
+<span class="irc-date">[5:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; aaaaaaggggghhhhhhhh 5891 lines down to 484.  if I never see another gpio it will be to soon</span><br />
+<span class="irc-date">[5:48]</span> <span class="irc-black">&lt;chaembian&gt; 5891 to 484? How?</span><br />
+<span class="irc-date">[5:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; brute force</span><br />
+<span class="irc-date">[5:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; most of it was just telling me there were no differences</span><br />
+<span class="irc-date">[5:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; for any specific gpio</span><br />
+<span class="irc-date">[5:51]</span> <span class="irc-black">&lt;chaembian&gt; no differences between captivate and vibrant?</span><br />
+<span class="irc-date">[5:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; <a href="http://pastiebin.com/?page=p&amp;id=4d9fa17762532">http://pastiebin.com/?page=p&amp;id=4d9fa17762532</a></span><br />
+<span class="irc-date">[5:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah so like  S5PV210_GPJ1_1_GPIO_INT19_1 is the same between cap and vib (just a define so it's not used)</span><br />
+<span class="irc-date">[5:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but my output file has the ***** crap in it to tell me what's going on</span><br />
+<span class="irc-date">[5:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so diff finds it</span><br />
+<span class="irc-date">[5:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; anyway, there is still junk in there but I can't get my brain working so I'm done for the night</span><br />
+<span class="irc-date">[5:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; O7 fly safe</span><br />
+<span class="irc-date">[5:54]</span> <span class="irc-black">&lt;techmik67&gt; aha.... i think i may be on to something.....</span><br />
+<span class="irc-date">[5:54]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[5:55]</span> <span class="irc-black">&lt;techmik67&gt; the newest bios available on the acer site for my model is dated 3/21/2011</span><br />
+<span class="irc-date">[5:55]</span> <span class="irc-black">&lt;techmik67&gt; no way that is whats on my laptop</span><br />
+<span class="irc-date">[5:56]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;techmik67&gt; bios version 2.09</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;techmik67&gt; newest is 2.10</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;techmik67&gt; but that doesnt explain why no advanced tab</span><br />
+<span class="irc-date">[5:58]</span> <span class="irc-black">&lt;Kaik541&gt; most manufacturer built machines don't come with configurable BIOS</span><br />
