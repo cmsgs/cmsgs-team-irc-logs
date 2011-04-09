@@ -232,3 +232,113 @@
 <span class="irc-date">[2:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what I really want to see is 2.1 vibrant vs 2.2 so all the hawk and vib+ stuff can get ripped out, however samsung changed all the v110 to v210 so that will also be messy</span><br />
 <span class="irc-date">[2:50]</span> <span class="irc-black">&lt;chaembian_&gt; <a href="http://lwn.net/SubscriberLink/437162/47f17ca4dce2debd/">http://lwn.net/SubscriberLink/437162/47f17ca4dce2debd/</a> -- an interesting article I read yesterday</span><br />
 <span class="irc-date">[2:52]</span> <span class="irc-black">&lt;chaembian_&gt; ok</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;techmik67&gt; looks like its all good, atinm ... even no more e:misc  error</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;techmik67&gt; gratz!</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;chaembian_&gt; TMC_Sherpa: how did you run that diff?</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;atinm&gt; now to push stuff..</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;atinm&gt; maybe I should wait till tomorrow</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I set up a skeleton captivate directory just like the vibrant one</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;chaembian_&gt; OK, and ran a diff on the skels?</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; did the grep for GPIO in captivate, make the pull script. did the same thing over in vibrant then diffed the output files</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;chaembian_&gt; OK, I should setup a skel for CM7?</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you can, I've done it for the nexus stuff</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;techmik67&gt; how do i discard changes in working directory in git? dont wanna commit, didnt add (it's in red on git status), just wanna go back to unmodified version.....</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;atinm&gt; git reset --hard</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik67&gt; thx</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;techmik67&gt; now, if i had not done that, what error would i have got, soince i made the change locally that i just pulled in on repo sync?</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;techmik67&gt; since*</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;techmik67&gt; it was the 2 lines in bootable/recovery</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;atinm&gt; oh damn it.</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;atinm&gt; system/vold and frameworks/base are both on cyanogenmod now</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;atinm&gt; hate that ..</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;atinm&gt; have to fork them again</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;atinm&gt; ok, forked, pushed</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;atinm&gt; you can try building too techmik67</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;atinm&gt; and in fact, everyone's should work . . .</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;atinm&gt; not just captivate.</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;atinm&gt; just can't test the others.</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;techmik67&gt; 45 mins my build will finish</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;atinm&gt; k, will be in bed by then</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;ytt3r&gt; 20 minutes good?</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;ytt3r&gt; make -j3</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;atinm&gt; I'll submit the patches to gerrit soon</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;atinm&gt; I'll be done in a few minutes</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;atinm&gt; so I can test again too</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;ytt3r&gt; I can have it done in 20 minutes</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;atinm&gt; but was jsut saying that you can try it as well</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;atinm&gt; in fact, try - I might have forgotten to commit something</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;atinm&gt; you need to repo sync</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;chaembian_&gt; i'll repo sync and build too?</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;atinm&gt; sure</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;atinm&gt; it should fix vibrant as well</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;chaembian_&gt; awesome!</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;techmik67&gt; are you leaving the sourceforge one with bad in the title?</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;atinm&gt; no, its gone</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;techmik67&gt; ready to handle the xda flood</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;atinm&gt; I'm not going to upload anything</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;ytt3r&gt; atinm, do you want me to take over nightlies? I already have a crontab building every night at 1 am, it would be easy to have it copy to my dropbox, you could just link there</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;Kaik541&gt; your dropbox account would get overwhelmed in like two days</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;atinm&gt; given that the only time there is a need to upload a "nightly" is when I actually have something.</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;atinm&gt; there is no point</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;techmik67&gt; dropbox has a bandwidth limit monthly</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;techmik67&gt; 250gb/week for a paid account</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;ytt3r&gt; people would still get the changes in cm. didn't know that techmik</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik67&gt; i asked =)</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik67&gt; didnt want to have a prob back when i had a similart idiea</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;Kaik541&gt; free accounts is even less :P</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik67&gt; to host stuff</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;Kaik541&gt; they just notice high traffic on individual files and block it</span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;atinm&gt; eh, don't worry about it. I'll set it up sometime</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;atinm&gt; so it just goes to the sourceforge dir</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;atinm&gt; for now I find it easier to track what is going on when it is a version I'm running.</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;techmik67&gt; so we'll have this on gerrit, and Unhelpful still working on both what he was and compass both?</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;atinm&gt; he's focused on compass</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;atinm&gt; hasn't looked at the Makefile/kernel.mk</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;atinm&gt; and I looked but was too distracted by this</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;techmik67&gt; must be a bitch..... he has been hard at work on that crazy math</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;atinm&gt; anyway, too tired to do anything - don't want to upload because I want to run some stuff by coolya and unhelpful</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;atinm&gt; so for now everyone can continue to live with one sd card.</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;Kaik541&gt; isn't the "BAD" update still up?</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;atinm&gt; took that off too</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;Kaik541&gt; oh, nope</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;atinm&gt; ppl can wait.</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;atinm&gt; if not, they can build it themselves</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;atinm&gt; I hope</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;atinm&gt; we'll know after techmik tried</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;techmik67&gt; i'll let them know its still being tesated</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;techmik67&gt; tested*</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;atinm&gt; why . . . ppl are already asking?</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;techmik67&gt; they saw the bad</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;techmik67&gt; and then i said 2 cards was coming</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-navy">* KBme (~KBme@2001:470:1f13:94::3) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-black">&lt;techmik67&gt; if my build works, should i tell the impatient they can build if they want?</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;atinm&gt; no, wait. :)</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;atinm&gt; I really don't want to be thinking about it in bed.</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;atinm&gt; and I can't sleep if I make a new release just before bed</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;atinm&gt; and that is the same thing</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;atinm&gt; plus I know I've missed something</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;atinm&gt; just can't think what.</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;atinm&gt; too tired.</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-green">* KBme (~KBme@2001:470:1f13:94::3) has joined this channel.</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;atinm&gt; it came to me earlier</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;atinm&gt; when I was building . . . and I thought I'll check it after it completes and now I've forgotten</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;atinm&gt; so that'll keep me up anyway.</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;techmik67&gt; lol, i do that all the time</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-green">* atinm is now known as atinm|night</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;techmik67&gt; night</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;ytt3r&gt; git diff</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;ytt3r&gt; w00t</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;ytt3r&gt; gnight</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;chaembian_&gt; build done</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;ytt3r&gt; +1 jsut finished</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;ytt3r&gt; just*</span><br />
