@@ -1023,3 +1023,92 @@
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; it is rotated 90 degrees ccw</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;Unhelpful&gt; ie i *believe* it means "top" is on the "left" of the encoded image data</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: thats what i thought, but windopws sees it wrong....</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;Unhelpful&gt; so perhaps it's rejecting the tag outright for some reason?</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;techmik67&gt; i have options to remove exif or all metadata</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;Unhelpful&gt; does exiftool have a strict-compliance mode where it reports all deviations from spec as error?</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;techmik67&gt; i'm in windows using xnview atm</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;Unhelpful&gt; make a copy. remove exif. open it. see what you get?</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;Unhelpful&gt; if the "top" of the tag-less image is on the "left", then i would *guess* that somehow we are writing tags that are ignored</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;techmik67&gt; aha!!</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;techmik67&gt; i removed thumbnal exif</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;techmik67&gt; fixed in windows, both thumbnail and view</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;atinm&gt; the thumbnail image and the view image are two different images?</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;atinm&gt; (don't know exif)</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;techmik67&gt; the original thumbnail, in windows, shows rotated......</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;techmik67&gt; but</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;techmik67&gt; if ytou open it</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;techmik67&gt; in windows photo viewer, it matches the rotation of the thumb</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;techmik67&gt; in xnview, thumb is rotated, but pic is correct</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;techmik67&gt; so</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;techmik67&gt; in xnview, i told it to "remove thumbnail exif data"</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;techmik67&gt; and then saved</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;techmik67&gt; the thumbnail rotated on my desktop to correct</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;techmik67&gt; and opening it in windows viewer is also correct</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;Unhelpful&gt; that would be because windows generated a new thumbnail, probably?</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;Unhelpful&gt; just out of curiosity, what do they say about the tags after you "removed" the tags?</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;techmik67&gt; aha</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;techmik67&gt; thumbnail data</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;techmik67&gt; orientation right top (6)</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;techmik67&gt; lemme check the copy</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;techmik67&gt; hmmm... exactly the same? somethings not right there.....</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;techmik67&gt; see, i open the copy, whose thumbnail on my desktop is rotated, and the actual pic is not rotated.... lemme see if i can just edit the info</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-brick">* Unhelpful suspects multiple tags</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;techmik67&gt; it looks like i cant edit, just export or remove</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-brick">* Unhelpful thinks it's time for exiftool ;)</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;techmik67&gt; under tools, it has "rotate based on exif value" which did nothing</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;techmik67&gt; strike that</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;techmik67&gt; rotate fixed the thumbnal</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;techmik67&gt; now both thumbs are correct</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;techmik67&gt; and its correctly rotated in picture viewer</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;Unhelpful&gt; that probably rotated the image and saved it</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;atinm&gt; but basically it seems that the camera app is writing the thumbnail exif in correctly?</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;Unhelpful&gt; forget the thumbnail ;)</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;Unhelpful&gt; worry about the *image* first</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;atinm&gt; well yeah, I thought the image was fine</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;techmik67&gt; in windows viewer the image and thumb seem linked, but not xnview</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;Unhelpful&gt; if rotate based on tags fixes the image, then the tool that did the rotation understood the tag correctly. but i think we need to figure out why some things *don't*.</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;techmik67&gt; ok, this pic was taken with the phone cam and is clearly rotated, agreed? <a href="http://db.tt/5fPgR7L">http://db.tt/5fPgR7L</a></span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;techmik67&gt; on my desktop, the thumb is rotated, and when i poen with win pic viewer, it matched the thumb</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;techmik67&gt; open*</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-green">* ciwrl|away is now known as ciwrl|around</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;techmik67&gt; again, xnview opens it properly rotated</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;atinm&gt; backing up, is the thumbnail a different image?</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;techmik67&gt; this is now, yes</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;atinm&gt; the phone is generating two image files?</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;techmik67&gt; oh, no</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;atinm&gt; ok, then ignore the thumbnail</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;atinm&gt; just care about what the exif info on the camera generated image is</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;techmik67&gt; copy user exif comment to comment is one option i have</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;techmik67&gt; export exif data</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;techmik67&gt; and remove</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;techmik67&gt; are my choices</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;atinm&gt; do an export</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;atinm&gt; what does it generate</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://dl.dropbox.com/u/10818379/exportpic.txt">http://dl.dropbox.com/u/10818379/exportpic.txt</a></span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;atinm&gt; ok, that's good.</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;atinm&gt; it does actually have two exif sections</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;atinm&gt; [Camera]</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;atinm&gt; and [Thumbnail]</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;atinm&gt; which have different orientations</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;techmik67&gt; windows keeps them linked, it look slike</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;techmik67&gt; but xnview sees the diff</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;atinm&gt; xnview sees one rotated?</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;techmik67&gt; no, it doesnt show the thumb, but when i click the win7 generated thumb on my desk, xnview opens it image rotated, not thumb...</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;techmik67&gt; so it sees the image exif</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;atinm&gt; we need a dumber program</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;atinm&gt; something that just reads the two as they are.</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;atinm&gt; and shows them so you see what each image is. the image file is one, but seems to contain embedded thumbnail data as well</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;techmik67&gt; k... gimme a few... will keep playing.... brb</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;atinm&gt; if this exifdata is from the image directly from the camera</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;atinm&gt; rather than something windows saved</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;techmik67&gt; remember the phone saees the same as windows, both image and thumb rotated</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;atinm&gt; yeah, but what I want to know is which one's orientation in the exif is correct</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;atinm&gt; most probably windows and the apps on the camera are just looking at the main image orientaiton</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;atinm&gt; and orienting the thumbnail the same way</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;atinm&gt; would make sense..</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;atinm&gt; but then we could just make the camera save images with different orientation to make it work . . .</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;atinm&gt; which is what unhelpful was getting at. just trying to find out what the exif info is, and how to modify it - or whether the apps that are reading the images are interpreting phone orientation and then applying the image orientation. i am sure they are.</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;atinm&gt; but lets assume the display programs are consistent. one way to test. fix the orientation on the image, put it back on the camera</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;atinm&gt; and view it there. see if it shows correctly</span><br />
