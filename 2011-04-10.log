@@ -815,3 +815,55 @@
 <span class="irc-date">[18:57]</span> <span class="irc-black">&lt;zachy_md&gt; yes, that would be a prerequisite</span><br />
 <span class="irc-date">[18:57]</span> <span class="irc-black">&lt;atinm&gt; coolya, let me know when you get to test the changes on other devices. I'm ready to push to gerrit</span><br />
 <span class="irc-date">[18:57]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: you could take over compass! ;)</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;aarcane&gt; I need to sue samsung and AT&amp;T...  they sold me a compass that now doesn't even point north :-S</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: I know my limits :)</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm&gt; next up, headset and sound stuff</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;atinm&gt; we seem to actually have one of the best audio chips on our phones</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;atinm&gt; (I was looking for a portable gig for music...)</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;atinm&gt; and it turns out I already have it. just needs to be programmed right. so between curio and wolfson, I should be able to get something</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm&gt; am seriously thinking of using bonus money from work to buy an eval board that has the wm8994 on it</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm&gt; and maybe even a1026</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm&gt; if I can find one such. but just wm8994 would be fine too - that company seems to be big in audio</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm&gt; so learning it would be good anyway</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm|away&gt; gone</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;atinm|away&gt; (evaluation boards come with device documentation :) )</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-brick">* Unhelpful gets tired of being treated like a genius because he can copy down formulae from research papers. ;P</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;Unhelpful&gt; yay?</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;Unhelpful&gt; might just be pushing *some* of it, though...</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;coolya&gt; es looks like that</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;codeworkx&gt; bml_over_mtd patch for releasetools is ready</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;codeworkx&gt; but have to test first</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;coolya&gt; push teh shit</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;techmik67&gt; i just synced and a lot came in....</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;coolya&gt; lol if i push a new branch the twitter acc turns crazy xD</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/commit/15334c052a4fdbc6af27e5f5e4f4adbecf0124a8">https://github.com/teamhacksung/android_device_samsung_galaxys/commit/15334c052a4fdbc6af27e5f5e4f4adbecf0124a8</a></span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; + /tmp/bml_over_mtd scan boot</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; No bad blocks.</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; + status=0</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; + test 0 -eq 15</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; + echo Running flash_image...</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; Running flash_image...</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; + /sbin/flash_image boot /tmp/boot.img</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 0</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 40000</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 80000</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at c0000</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 100000</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 140000</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 180000</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 1c0000</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 200000</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 240000</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 280000</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 2c0000</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 300000</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 340000</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; mtd: successfully wrote block at 0</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; flashing boot from /tmp/boot.img</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; + exit</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;codeworkx&gt; ok, this worked</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;codeworkx&gt; what about devices with bad blocks on boot?</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;codeworkx&gt; gimme some</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;coolya&gt; eifert has one</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;coolya&gt; he can test</span><br />
