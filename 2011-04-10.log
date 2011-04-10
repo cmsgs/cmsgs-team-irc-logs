@@ -14,3 +14,127 @@
 <span class="irc-date">[0:47]</span> <span class="irc-black">&lt;Unhelpful&gt; specs. hex editor. ;)</span><br />
 <span class="irc-date">[0:48]</span> <span class="irc-black">&lt;techmik67&gt; xnview does have a hex editior in it</span><br />
 <span class="irc-date">[0:48]</span> <span class="irc-black">&lt;techmik67&gt; view in hex mode....</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;Unhelpful&gt; 'k, there's only one exif chunk afaict</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;techmik67&gt; weird</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;techmik67&gt; in linux now</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;techmik67&gt; the thumb is upside down</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;techmik67&gt; exif reports -orientation as rotate 180</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;techmik67&gt; but</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;techmik67&gt; if i just click it it opens in picture viewer rightside up</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;techmik67&gt; exiftool reports*</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;techmik67&gt; and gimp opens it rotated 180</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;techmik67&gt; so gimp, exiftool, and thumbnail agree</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;techmik67&gt; but viewer doesnt</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;Unhelpful&gt; mine is portrait, and feh and gwenview both show in rotated. two different tagreaders on the phone give two different answers.</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't know if gimp automatically applies exif orientation?</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-brick">* techmik67 wonders what kind of can of worms he opened here.....</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;techmik67&gt; it asked if i wanted to rotate properly</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;techmik67&gt; "this image appears to be rotated..."</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;techmik67&gt; so only image viewer is wrong</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;Unhelpful&gt; olook! Error: Directory Samsung2 with 3845 entries considered invalid; not read.</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;Unhelpful&gt; exiv2 says this.</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; echmik@michaels-laptop:~/android/system$ exiftool -orientation=rotate 90 ~/Desktop/test2.jpg</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; Warning: Can't convert IFD0:Orientation (matches more than one PrintConv)</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; Nothing to do.</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;Unhelpful&gt; it also sees very few tags compared to exiftool. something is invalid, and failing in some exif parsers, but not others.</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;techmik67&gt; more than 1 printconv?</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't know what that's about ;)</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;techmik67&gt; searching.....</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;Unhelpful&gt; aaaaargh this is as much a jpeg spec as it is an exif spec!</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;Unhelpful&gt; i-know-how-jpeg-works-i-have-worked-on-a-decoder. :P</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;atinm|away&gt; its just a straight interface numbering issue</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;atinm|away&gt; both rndis and ums want to start at 0</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;atinm|away&gt; depending on the order the two are brought up in, one or the other works</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;atinm|away&gt; this suck.s</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;atinm|away&gt; I doubt it works anywhere else.</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;atinm|away&gt; should go look in froyo code someplace</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;atinm|away&gt; the ums interface number not being 0 is fine for the first interface.</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;atinm|away&gt; but then the next one ends up at 2</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;atinm|away&gt; while all I have are 0 and 1</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;atinm|away&gt; so 1 works, but then 2 shows up</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;atinm|away&gt; its stupid.</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;atinm|away&gt; now to try to fix it..</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;Unhelpful&gt; can you tell one to start at a different number?</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;atinm|away&gt; and not get divorced in the process.</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;Unhelpful&gt; hah.</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;Unhelpful&gt; please don't get divorced. you would probably not be able to work on sgs at all then, divorce is messy.</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-brick">* Unhelpful is sensitive. ;)</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;atinm|away&gt; I just have to be very good tomorrow</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;atinm|away&gt; as in, zero work</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;atinm|away&gt; I haven't moved from this computer all day</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;Unhelpful&gt; well, that was the deal, you get saturday, right?</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;atinm|away&gt; yes</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-brick">* Unhelpful will see you when the kids are in bed, then :)</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;atinm|away&gt; she's not happy about it :)</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;atinm|away&gt; because I actually took the whole day</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;atinm|away&gt; all of it.</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;atinm|away&gt; she's putting him to bed</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;Unhelpful&gt; ...i thought that was the deal?</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;atinm|away&gt; so let me try to finish this because I might be gone soon</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;Unhelpful&gt; don't get yourself divorced. ;)</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;atinm|away&gt; yes, but I don't think I read it as she did</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;atinm|away&gt; to me "I can work as long as I want"</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;atinm|away&gt; to her "be reasonable, participate in family"</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;atinm|away&gt; so we'll see...there is going to be a discussion :)</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;Unhelpful&gt; ah, ok, exiftool shows a MakerNotes directory w/ invalid offset :/</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;atinm|away&gt; but in the meantime, have to fix this!</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;techmik67&gt; something is really wrong in the pics...... i keep trying to edit and getting the following:</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;techmik_laptop&gt; techmik@michaels-laptop:~/android/system$ exiftool -orientation='Rotate 90 CW' ~/Desktop/test2.jpg</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;techmik_laptop&gt; Warning: [minor] Entries in IFD0 were out of sequence. Fixed. - /home/techmik/Desktop/test2.jpg</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;techmik_laptop&gt; Error: Error reading image data - /home/techmik/Desktop/test2.jpg</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;techmik_laptop&gt;     0 image files updated</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;techmik_laptop&gt;     1 files weren't updated due to errors</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;techmik67&gt; the warning i bet is significant somehow....</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;techmik67&gt; or does that relat eto what you just said?</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; aha</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; invalid size</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; and bad makernotes</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;techmik67&gt; i see!!</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;techmik67&gt; i'm not sure what to do with it....</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;techmik67&gt; but</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;techmik67&gt; exiftool -a -u -g1 file</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;techmik67&gt; under IFD0</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;techmik67&gt; orientation is 2x</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;techmik67&gt; different</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;techmik67&gt; 1st rotate 180</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;techmik67&gt; then at the bottom horizontal (normal)</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;Unhelpful&gt; and the other is under IFD1?</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;Unhelpful&gt; IFD1 is information about the embedded thumbnail.</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;techmik67&gt; no both under IFD0</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;techmik67&gt; IFD! says horizontal (normal)</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;techmik67&gt; and IFD0 has both</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;techmik67&gt; rotate 180 and horizontal (normal)</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;techmik_laptop&gt; Unhelpful: <a href="http://www.pastie.org/1777297">http://www.pastie.org/1777297</a></span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;Unhelpful&gt; and that's from the file straight from the phone?</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;techmik67&gt; hmmm</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;techmik67&gt; lemme take fresh pic to test with</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;Unhelpful&gt; please don'tmess with them this time,we're trying to see what's wrong, not trying to fix the file after the fact. :)</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm|away&gt; usb tether, internal and external sdcards.</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm|away&gt; stupid random checks in the middle of code.</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;techmik67&gt; yes!!!</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;techmik67&gt; excellent!@!</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm|away&gt; disabled the damn check.</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;Unhelpful&gt; w00000000t?</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;atinm|away&gt; now have to clean all my debug printks out</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;atinm|away&gt; my phone is a dog right now :)</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;atinm|away&gt; I basically turned on every possible debug i could</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;atinm|away&gt; and then added a few printks on top</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;atinm|away&gt; but order still matters. ums has to be before rndis</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://www.pastie.org/1777306">http://www.pastie.org/1777306</a></span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;atinm|away&gt; even though the comment says rndis has to be first</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;atinm|away&gt; since I made ums ignore the interface number check</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: straight from the phone</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;atinm|away&gt; but rndis is too complicated for me to understand.</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;atinm|away&gt; right now anyway.</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;Unhelpful&gt; D/Sensors (  150): device/samsung/common/aries/libsensors/BiasModel.cpp:101 bool BiasModel&lt;dType&gt;::updateBias(dType*, dType*) [with dType = float]: preparing to calculate &lt;- andt then disappears into a damn black hole :(</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm|away&gt; mine never wakes :)</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm|away&gt; it stays black</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm|away&gt; because of all the printks</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm|away&gt; then will randomly light up</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm|away&gt; when things slow down</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm|away&gt; ok, back in a few</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm|away&gt; have to do some cleanup</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm|away&gt; while making sure I don't blow away whatever I fixed ;)</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;techmik67&gt; it looks like its just that theres an extra orientation.... in IFD0</span><br />
