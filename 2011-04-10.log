@@ -138,3 +138,164 @@
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm|away&gt; have to do some cleanup</span><br />
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm|away&gt; while making sure I don't blow away whatever I fixed ;)</span><br />
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;techmik67&gt; it looks like its just that theres an extra orientation.... in IFD0</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;Unhelpful&gt; COMMIT FIRST PLOX</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;techmik67&gt; IFD! too</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;techmik67&gt; IFD1 also</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;techmik67&gt; weird... 2 orient readings in both</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: i think that one of them is probably added by camera app?</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;techmik67&gt; the 1st one in the pastie is the wrong 1</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;techmik67&gt; both times</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;techmik67&gt; its horiz</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: this picture is already in the correct rotation?</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;techmik67&gt; unless......</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;techmik67&gt; no it was taken in portrait, but shows as 90 ccw</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;techmik67&gt; does the camera maybe equate normal(horizontal=landscape?</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;techmik67&gt; roommate is gonna be calling for a ride home any minute i think</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;techmik67&gt; why line 15 and 16 repeated?</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: yes, "up" for my camera appears to be the right side of the screen.</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;techmik67&gt; aha!!</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;techmik67&gt; so you were right</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;techmik67&gt; the camera is doing it all</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;Unhelpful&gt; doing what?</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;techmik67&gt; messing it up.... not something in te kernel, or the way we fixed orientation</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;Unhelpful&gt; afaict the picture is always oriented the same. something tags it as orientation normal, something tags it as based on current orientation.</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;techmik67&gt; but if you take the pic in landscape, all is well i think</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;Unhelpful&gt; my guess is that the camera generates jpeg data w/ some exif embedded, and that the framework adds an orientation without stripping any existing one.</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;techmik67&gt; testing</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: yes, because then both orientations should agree.</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;Unhelpful&gt; my guess is that some things keep the *first* orientation they read, and some keep the *last*</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;atinm|away&gt; what in framework would do that?</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;atinm|away&gt; I would have thought it was something camera did</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;atinm|away&gt; it took the picture, it knew what the orientation was</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;atinm|away&gt; when it took it</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://www.pastie.org/1777336">http://www.pastie.org/1777336</a></span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;atinm|away&gt; and it generated the exif. I hope</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;techmik67&gt; that is a landscape pic</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;techmik67&gt; yup, they are the same here</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;atinm|away&gt; huh...well, there goes that theory</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;atinm|away&gt; since camera should have done the same thing to anything</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;techmik67&gt; so in landscape, the "2" agree, but not in portrait</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;atinm|away&gt; we saw that the exif had two data sections</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;atinm|away&gt; each with its own orientation field</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;atinm|away&gt; is the "main" image correct but the thumbnail embedded in it not?</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;techmik67&gt; in te portrait, it says rotate 90, then normal, in both IFD) and IFD1</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;atinm|away&gt; depending on which way the phone is oriented when you took the camera?</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;atinm|away&gt; picture?</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;techmik67&gt; all 4 agree on normal in landscape, but 1 and 3 say cw and 2 and 4 say normal in portrait</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: i assumed the camera lib was somewhere in framework? is it not? :)</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;Unhelpful&gt; whatever our code is that manages exif data, wherever it is. :P</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;Unhelpful&gt; my guess is it needs to strip existing orientation tags if writing orientation.</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;Unhelpful&gt; and probably needs to dump the MakerNotes subdirectory if we can't make it work nicely.</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;Unhelpful&gt; this is a problem w/ exif, everything is offsets from start-of-data, so you can't just move something w/o updating it, and if it's proprietary, you can't update it.</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;techmik67&gt; dogs want out..... back in 10......</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;atinm|away&gt; guess I could attack that next.</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;techmik67&gt; is the other stuff committed so we can build?</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;techmik67&gt; sdcard/tether</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;atinm|away&gt; no, I'm testing again</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-navy">* chaembian (~chaembian@122.174.95.111) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;techmik67&gt; back</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 atinm * 916cdc3 (2 files in 2 dirs): Allow ums to use interface numbers higher than 0. ... - <a href="http://bit.ly/eyQKzL">http://bit.ly/eyQKzL</a></span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;atinm|away&gt; k, that should fix it</span><br />
+<span class="irc-date">[2:35]</span> <span class="irc-black">&lt;techmik67&gt; k, building</span><br />
+<span class="irc-date">[2:36]</span> <span class="irc-black">&lt;techmik67&gt; ok, i'm a little confused tho... i just remembered from yesterday... we are forked again in 2 other repos?</span><br />
+<span class="irc-date">[2:36]</span> <span class="irc-black">&lt;atinm|away&gt; yes</span><br />
+<span class="irc-date">[2:36]</span> <span class="irc-black">&lt;atinm|away&gt; but repo sync will pull them for you</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;atinm|away&gt; it is using our system/vold and frameworks/base now</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;atinm|away&gt; rather than cyanogenmod</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;techmik67&gt; was thinking of how close/far we are to merging...</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;atinm|away&gt; luckily system/vold doesnt' change a lot</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;atinm|away&gt; but frameworks/base does</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;atinm|away&gt; so that is a pain - I am merging twice a day</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;atinm|away&gt; and pushing to ours</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;techmik67&gt; they just changed a bunch of upstrewam</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;atinm|away&gt; y</span><br />
+<span class="irc-date">[2:39]</span> <span class="irc-black">&lt;atinm|away&gt; hmm, frameworks/base has a Camera.java</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;atinm|away&gt; but that just looks like the base class.</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;atinm|away&gt; or no</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;atinm|away&gt; there is a native side</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;techmik67&gt; should i build, or is sometihng else going up ?=)</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;atinm|away&gt; no</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;techmik67&gt; keep seein tweets</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;atinm|away&gt; that's it</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;atinm|away&gt; I'm building now</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;atinm|away&gt; building captivate and vibrant</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;atinm|away&gt; but won't upload until someone can test</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;atinm|away&gt; preferably after midnight ;)</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;atinm|away&gt; so I can have a different date</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;techmik67&gt; i'll be done it 45</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;techmik67&gt; in*</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;atinm|away&gt; k</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;atinm|away&gt; I'm going to go watch a movie</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;atinm|away&gt; I'm *done*</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-black">&lt;techmik67&gt; lol, great day!</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-black">&lt;atinm|away&gt; I spent two days straight on this.</span><br />
+<span class="irc-date">[2:43]</span> <span class="irc-black">&lt;techmik67&gt; why do i stare at the text flyingh by? its not gonna make it go faster......</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;atinm|away&gt; I have to close the window because I am running on my servers</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;atinm|away&gt; at work</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;atinm|away&gt; so it destroys my internet</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;atinm|away&gt; if I watch it</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;atinm|away&gt; :)</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;atinm|away&gt; really wish there was at least one vibrant person around...</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;techmik67&gt; got the code flying by in the laptop to my right, and te 2 monitors and tv in front of me.... =P</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;atinm|away&gt; I'm ignoring the questions on the vibrant thread</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;techmik67&gt; sorry, laptop=left</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;techmik67&gt; i do</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;techmik67&gt; cant go there</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;atinm|away&gt; I uploaded vibrant, so I looked in</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;atinm|away&gt; and ppl are hitting the usual sorts of problems</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;atinm|away&gt; but I can't even tell whether it works for anyone at all</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;atinm|away&gt; because no one says "it works"</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;atinm|away&gt; and I haven't had anyone test :)</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;techmik67&gt; idiots</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;Unhelpful&gt; what sort of wack-assery is this... it hangs in a loop that just writes into an array. a bad alloc problem, maybe?</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;atinm|away&gt; in BiasModel?</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;Unhelpful&gt; yah</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;atinm&gt; or a very long array&gt;? :)</span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-black">&lt;Unhelpful&gt; i keep a TNT::Matrix and TNT::Vector around, since they're what the solver needs, and are resizeable... so rather than creating new objects, i resize, fill, solve.</span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-black">&lt;atinm&gt; how does it resize?</span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-black">&lt;techmik67&gt; you put up the build that all work with?</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;atinm&gt; some kinds of resize (depending on the datastruct) can get worse.</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;techmik67&gt; on vib?</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-navy">* Unhelpful (~quassel@rockbox/developer/Unhelpful) Quit (Quit: <a href="http://quassel-irc.org">http://quassel-irc.org</a> - Chat comfortably. Anywhere.)</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;atinm&gt; I haven't put any</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;atinm&gt; up</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;techmik67&gt; oh</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;atinm&gt; I put up the one previous</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-green">* Unhelpful (~quassel@rockbox/developer/Unhelpful) has joined this channel.</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-green">* ChanServ sets mode +o Unhelpful</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;atinm&gt; the one that broke tether</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;techmik67&gt; got it</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;atinm&gt; figured they'd be happy about 2 sdcards</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;atinm&gt; no one said it worked tho - just "no misc partition"</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-black">&lt;atinm&gt; or one that said his device == vibrant was failing</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-black">&lt;Unhelpful&gt; it checks the size, and does a delete/new if the size changes (on its internal array of values)</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-black">&lt;atinm&gt; and another that had some other such weirdness</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-black">&lt;atinm&gt; how big are these arrays?</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;techmik67&gt; bad downloads?</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;Unhelpful&gt; 16x4 and 16... nothing amazing.</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;atinm&gt; I assume so. no one came around to help them :)</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;atinm&gt; and no one said "it works"</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;atinm&gt; So I'm ignoring the community</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;techmik67&gt; many people reporting bad download and cannot mount to intall update errorsa</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;atinm&gt; as it is obviously *not* one.</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;Unhelpful&gt; but maybe a brand-new object might help? i'll try tomorrow.</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;atinm&gt; yeah. dunno - need someone who knows what they're doing to test it</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;atinm&gt; it is possible sourceforce isn't working right</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;atinm&gt; or bad upload..</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;atinm&gt; who knows</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;atinm&gt; they could buy me a vibrant</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;atinm&gt; crap, shouldn't have deleted the vibrant uploads</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;atinm&gt; someone could at least have checked md5sum</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;atinm&gt; but whatever.</span><br />
