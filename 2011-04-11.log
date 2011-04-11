@@ -165,3 +165,55 @@
 <span class="irc-date">[2:58]</span> <span class="irc-black">&lt;Kaik541&gt; I think so, yes</span><br />
 <span class="irc-date">[2:58]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: i tried to use bml_over_mtd before, and afaik it has *always* asked you to give the addresses of the partitions in blocks along with their names.</span><br />
 <span class="irc-date">[2:59]</span> <span class="irc-black">&lt;techmik67&gt; k, thanks.... that does indeed clear that up</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;techmik67&gt; i'm testing if a perceived typo is really one and if it makes a difference</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;Unhelpful&gt; that i don't know at all</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libcamera/SecCamera.h">https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libcamera/SecCamera.h</a></span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;sixstringsg&gt; I know it has little to do with us, but CM7 was just released as final.</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;techmik67&gt; line 145 and 146</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;techmik67&gt;  is it videotemp or videotmp?</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;techmik67&gt; or it should be different?</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;techmik67&gt; when i made both videotemp_ i got no preview</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;techmik67&gt; blackscreen</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;Unhelpful&gt; if it's really just a temporary file, and everything that uses it uses the same one, then... ;)</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;techmik67&gt; so it doesnt matteer =(</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;Unhelpful&gt; *if*. :)</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;techmik67&gt; building with both as temp</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;techmik67&gt; would you think i need to clean each time with this cam stuff?</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;techmik67&gt; or can i just rebuild, saving 40 minutes =)</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;Unhelpful&gt; i can't really see why you should need to. i test sensor stuff by just building the sensor lib, pushing it, and rebooting. :P</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;techmik67&gt; i hate asking all these mostly uninformed questions.... i browse thru the files and look for things that stad out to my no-code-knowing eyes....</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;Kaik541&gt; at least your questions are a million times more sophisticated than half the ones asked on xda</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;techmik67&gt; god i hope so! =)</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; half?</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;techmik67&gt; "..how... make... phone... work...?"</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, the other half are infinitely more retarded</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik67&gt; found another one that i wonder about..... we were checking and having problems with the tags in the photos.....</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libcamera/Android.mk">https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libcamera/Android.mk</a></span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik67&gt; line 44</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik67&gt; optional?</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;Kaik541&gt; you know you can direct link the line</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;techmik67&gt; doh!</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;Kaik541&gt; by hitting the "44" on the left side it'll append #L44 like tihs: <a href="https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libcamera/Android.mk#L44">https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libcamera/Android.mk#L44</a></span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;techmik67&gt; i just saw</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;techmik67&gt; thx</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;techmik67&gt; good tip</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;Kaik541&gt; it's useful in huge files</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;techmik67&gt; absolutely</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;techmik67&gt; gotta take dogs out... brb</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: unlikely that that matters, lots of things "optional" are still built when called for. :)</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;techmik67&gt; damn</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;Kaik541&gt; for anyone having issues with the wifi on the latest build I can upload the zImage and an odin-flashable zImage.tar and that should resolve their issues for now right?</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;Kaik541&gt; CM7 stable just landed?</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://www.cyanogenmod.com/blog/cyanogenmod-7-0-released">http://www.cyanogenmod.com/blog/cyanogenmod-7-0-released</a></span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-navy">* nullghost (~quassel@c-76-18-157-237.hsd1.tn.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: if i wanted to play with that line, what could i change "optional" to? or would i remove the whole line?</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;Unhelpful&gt; removal will fail your build. :)</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;techmik67&gt; ok, no to that then =)</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://ca.kotaku.com/5790310/unless-youre-easily-offended-meet-the-babes-of-duke-nukem-forever">http://ca.kotaku.com/5790310/unless-youre-easily-offended-meet-the-babes-of-duke-nukem-forever</a> oh duke, how did we get by without you for so long</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik67&gt; aha!</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik67&gt; "Each module must use a LOCAL_MODULE_TAGS in its Android.mk. Possible tags declared by a module:"</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik67&gt; optional, debug, eng, tests, samples</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-navy">* designfears__ (~df@cpe-71-64-204-109.cinci.res.rr.com) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-navy">* stickpin (~stickpin@87.68.254.219.adsl.012.net.il) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-green">* ciwrl|away is now known as ciwrl</span><br />
