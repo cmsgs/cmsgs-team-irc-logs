@@ -516,3 +516,158 @@
 <span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; anyway, gone for a few hours now</span><br />
 <span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; work</span><br />
 <span class="irc-date">[17:51]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-green">* zachy_md (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;zachy_md&gt; Hi @ all</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;zachy_md&gt; is there a way to get include/linux/bounds.h from somewhere for the CM7 kernel sources ?</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;zachy_md&gt; I just looked at the at the teamhacksung repo and it's missing</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;zachy_md&gt; seems this is a long standing side-effect that it gets deleted after a "make clean"</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;zachy_md&gt; and never re-appears</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;Unhelpful&gt; what do you need it for? is the kernel failing to compile?</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;Unhelpful&gt; it *sounds* like it's a generated file</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt; yes, I'm trying a "-fwhole-program --combine" approach</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt; with more aggressive flags and it spits following error:</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt;   CC      kernel/bounds.s</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt;   GEN     include/generated/bounds.h</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt;   CC      arch/arm/kernel/asm-offsets.s</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt; In file included from include/linux/topology.h:32:0,</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt;                  from include/linux/sched.h:78,</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt;                  from arch/arm/kernel/asm-offsets.c:13:</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt; include/linux/mmzone.h:252:5: warning: "MAX_NR_ZONES" is not defined</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt; include/linux/mmzone.h:254:7: warning: "MAX_NR_ZONES" is not defined</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt; include/linux/mmzone.h:256:7: warning: "MAX_NR_ZONES" is not defined</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt; include/linux/mmzone.h:301:32: error: 'MAX_NR_ZONES' undeclared here (not in a function)</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt; In file included from arch/arm/kernel/asm-offsets.c:14:0:</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md&gt; include/linux/mm.h:467:63: warning: "NR_PAGEFLAGS" is not defined</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;zachy_md&gt; include/linux/mm.h:515:62: warning: "NR_PAGEFLAGS" is not defined</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;zachy_md&gt; make[1]: *** [arch/arm/kernel/asm-offsets.s] Error 1</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;zachy_md&gt; make: *** [prepare0] Error 2</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;zachy_md&gt; make: *** Waiting for unfinished jobs....</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;zachy_md&gt;   HOSTLD  scripts/mod/modpost</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;zachy_md&gt; Failed to make kernel</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;zachy_md&gt; google pointed me into the direction of a missing bounds.h</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;zachy_md&gt; interesting: ./include/generated/bounds.h</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;zachy_md&gt; so it's something else</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;zachy_md&gt; thanks Unhelpful !</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;Unhelpful&gt; 1) use pastebin 2) compilers should warn or error on missing includes, and the log clearly shows a step generating it 2) i don't think the kernel supports -fwhole-program yet</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;Unhelpful&gt; ...3) obviously. :)</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;zachy_md&gt; afaik I've been doing this since 2.6.3*-something with mainline linux + performance patches added on top and it worked :(</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;zachy_md&gt; yeah, my bad: will use pastebin in the future</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;Unhelpful&gt; 3&lt;what&gt; though? ;)</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;zachy_md&gt; android / AOSP seems to have trouble with it - I guess ?</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;zachy_md&gt; or it triggers &amp; shows issues in the code that I wasn't aware of (not pointing at your direction or blaming it on myself) - it might be from upstream ???</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;nitam|work&gt; who all are doing the alternate captivate kernels?</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;nitam|work&gt; ytt3r. who else?</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;Unhelpful&gt; maybe. building a kernel "with AOSP" is not anything special though, the build system is still the linux kernel one.</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;nitam|work&gt; and what the hell is the commit on ytt3r's kernel that modifies something related to frequency from 60 to 72?</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;nitam|work&gt; and another that some other kernel has that changes mm.h MAX_READAHEAD to 2048 from 128</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;zachy_md&gt; @atinm: afaik it's me, bilboa1, TheEscapist</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;zachy_md&gt; don't know of any other CM7 kernel for the cappy</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;nitam|work&gt; k</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;zachy_md&gt; that proved to improve read performance &amp; overall system responsiveness (at least for me) from around 11-12 MiB/s to 17 MiB/s</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;zachy_md&gt; that value is from my external SD</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;nitam|work&gt; VM_MAX_READAHEAD from 128 to 2048</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;nitam|work&gt; hm</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;zachy_md&gt; more specifically it:s "echo "2048" &gt; /sys/devices/virtual/bdi/179:0/read_ahead_kb"</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;nitam|work&gt; ok . . . guess I'm leaving that alone.</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;nitam|work&gt; dont' want to be modifying stuff in include/linux/mm.h</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;nitam|work&gt; there must be a more architecture dependent way of modifying it</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;nitam|work&gt; any idea what the <a href="https://github.com/ytt3r/android_kernel_samsung/commit/f35c0785124c1a3bfd40840daa57ae7211733c6b#L0L315">https://github.com/ytt3r/android_kernel_samsung/commit/f35c0785124c1a3bfd40840daa57ae7211733c6b#L0L315</a> is about?</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;techmik67&gt; i sw that a while back on someone elses... supposed to increse fps cap</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;nitam|work&gt; and does your kernel have voodoo sound stuff?</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;nitam|work&gt; I figured it was based on the commit msg - but does it?</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;nitam|work&gt; I dont' knlw what that code does - so figured I'd ask before digging into the code</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;techmik67&gt; i think it was a pull request by kang a while back, and i made the changes to try it.... no diff on neocore</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;techmik67&gt; i can test it if you want</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;nitam|work&gt; (and I have to remind ytt3r to send a pull request, or at least point us to any mods that he thinks are appropriate for the generic kernel)</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;nitam|work&gt; I'd rather he just pointed them to us</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;nitam|work&gt; so we can take a look before we go into the pull request</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;nitam|work&gt; I still have to look at the BLN pull request from kang.</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;techmik67&gt; aha</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;techmik67&gt; different kernel, too</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;techmik67&gt; 2.6.35.11</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; ytt3r pulled in the stuff from whatsisname</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; when the guy copied/merged the 2.6.35.11 tag</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; *shudder*</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; but try it - I only care about the fps thing</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;techmik67&gt; i can make the change and try it</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-green">* chaembian|l1 (~chaembian@122.174.158.113) has joined this channel.</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;nitam|work&gt; yeah</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;nitam|work&gt; better</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;nitam|work&gt; thanks. gone again</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;Wout`&gt; i feel dirty</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;Wout`&gt; playing around with a desire s, and sense is actually pretty nice</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;zachy_md&gt; yes, it's raising the FPS limit for the GPU resulting in smoother - see: <a href="https://github.com/kangsterizer/android_kernel_samsung/commit/46912b19ee54efea972182ceb9754129f3854afa">https://github.com/kangsterizer/android_kernel_samsung/commit/46912b19ee54efea972182ceb9754129f3854afa</a></span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;zachy_md&gt; afaik the max frequency at quadrant std was around 56 without it</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;zachy_md&gt; now I'm hitting 65 (the limit)</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;nitam|work&gt; can you send a pull request - hopefully coolya can take a look</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;nitam|work&gt; (lcd etc are out of my experience range at the moment)</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;nitam|work&gt; what is the link to kangs or your kernel?</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;nitam|work&gt; or the thread</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;zachy_md&gt; that won't work since I've forked from kangsterizer's kernel</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;zachy_md&gt; it was the link to kangsterizer's kernel</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;nitam|work&gt; I mean the image itself.</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;nitam|work&gt; I want to try some things related to voodoo sound</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;nitam|work&gt; if you have it</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;nitam|work&gt; want to hear what it actually does</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;nitam|work&gt; I've never tried it.</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;nitam|work&gt; tokens = time_delta * shaper_control-&gt;output_shaping_rate / (double)MICROS_PER_MILLI;</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;Wout`&gt; I cant hear the difference tbh</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;Wout`&gt; but I'm not much of an audio-guru</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;zachy_md&gt; believe me: it definitely sounds more "full" (kind of more highs and more bass)</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;zachy_md&gt; but you have to experience Voodoo pimped sound yourself ^^</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;zachy_md&gt; my kenrel source: <a href="https://github.com/zachariasmaladroit/android_kernel_samsung">https://github.com/zachariasmaladroit/android_kernel_samsung</a></span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;Wout`&gt; mic gain changes is still the reason I use it</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;mikebeecham&gt; evening kind peeps</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;nitam|work&gt; like I said, need a link to a kernel image that does it so I can try it quickly</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;zachy_md&gt; kangsterizer's / bilboa1's kernel source: <a href="https://github.com/kangsterizer/android_kernel_samsung">https://github.com/kangsterizer/android_kernel_samsung</a></span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;zachy_md&gt; ah - now I get it ;)</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;zachy_md&gt; you need a compiled kernel source - binary</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;zachy_md&gt; "flubber": <a href="http://forum.xda-developers.com/showpost.php?p=12772074&amp;postcount=57">http://forum.xda-developers.com/showpost.php?p=12772074&amp;postcount=57</a></span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;zachy_md&gt; @atinm: you're using a captivate ?</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;nitam|work&gt; yeah - tho pull requests or commit links in channel are good too for things tested and known to work/improve things</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;zachy_md&gt; ok, then that should work</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-green">* polyrhythmic (~polyrhyth@174.61.184.254) has joined this channel.</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;nitam|work&gt; how the hell is MIUI RC4..</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;nitam|work&gt; I'm sure that is what ppl were talking about when they said CM7 for Captivate had RC in the title.</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;zachy_md&gt; if you prefer trying a kernel more close to mainline: kang's kernel comes in 4 flavors: <a href="http://kang.project-voodoo.org/">http://kang.project-voodoo.org/</a></span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;zachy_md&gt; beware: my kernel comes with 2 scripts (actually 3: also a modified 04modules) so you need to remove those if you want to go back to vanilla state (/system/etc/init.d/  ; 90screenstate_scaling; 89system_tweak)</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;zachy_md&gt; removing the 2 scripts and replacing the 04modules with the default one</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;techmik67&gt; ok, just got avg 49.8 fps on nenamark</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;techmik67&gt; on stock kernel</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;techmik67&gt; building with the changes</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;nitam|work&gt; that's fine, I am always flashing a full ROM all the time anyway</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;nitam|work&gt; and if there are things I like in your stuff, I'll kang :)</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;Wout`&gt; zachy_md: isnt your kernel basically kang's version with opimizations?</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;zachy_md&gt; yes, I've - for now - dropped my old kernel source (it was based on teamhacksung vanilla base)</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;zachy_md&gt; that way it was faster to troubleshoot some issues I was seeing</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;zachy_md&gt; :)</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;zachy_md&gt; several things of it are included in higher versions of 2.6.35 anyway</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;zachy_md&gt; is it only the tag or is the kernel source really at 2.6.35.7 ?</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;mikebeecham&gt; I used kangs kernel for a while, but I found that it locked up my soft buttons :S</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;Wout`&gt; he fixed that</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-navy">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;mikebeecham&gt; would Kangs be the best alternative kernel to go for?</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;zachy_md&gt; if you want a kernel as close to stock CM7 (teamhacksung) kernel - then yes</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;mikebeecham&gt; do we use stock cm7 in our releases?</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;mikebeecham&gt; or is that the same thing???</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;zachy_md&gt; my kernel adds OOM, writeback, etc. and other fixes &amp; improvements from newer kernels (2.6.35* up to 2.6.40)</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;mikebeecham&gt; &lt;&lt;&lt;&lt; desginer!!</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Wout`&gt; mikebeecham: kangs kernel is basically stock+bln+voodoo and some other stuff</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;mikebeecham&gt; ok</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;mikebeecham&gt; well, I dont really need BLN</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;zachy_md&gt; stock == the one you get directly from the teamhacksung repo (also included in nightly updates)</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;mikebeecham&gt; and voodoo is...</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;mikebeecham&gt; well</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;mikebeecham&gt; ok</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;zachy_md&gt; for me kangs kernel is not smooth enough :p</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;aarcane&gt; any particular reason cmsgsteam doesn't use git revision ids to indicate versions for nightly and changelog ?</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;mikebeecham&gt; zachy_md, I would love a kernel that provides smoothness, good battery life tweaks, and maybe a little work on the wifi</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;nitam|work&gt; aarcane: none</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;nitam|work&gt; beyond the average xda user (who is our main audience) not knowing what the hell that means.</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;zachy_md&gt; sorry to ask this rather lame question: how are you directing conversations to another person directly other than opening up a dialog window ?</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;zachy_md&gt; I've been away from IRC a rather long time</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;nitam|work&gt; you mean a /msg?</span><br />
