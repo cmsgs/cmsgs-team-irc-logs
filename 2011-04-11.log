@@ -483,3 +483,36 @@
 <span class="irc-date">[16:45]</span> <span class="irc-black">&lt;zachy_md&gt; GT-I9000_Kernel_4_7_7_OK Sources available here <a href="http://www.multiupload.com/4J7C7PNX7J">http://www.multiupload.com/4J7C7PNX7J</a></span><br />
 <span class="irc-date">[16:45]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
 <span class="irc-date">[16:58]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-navy">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-green">* zachy_md (~zacharias@chello084114179145.16.15.vie.surfer.at) has left this channel.</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: <a href="http://pastebin.com/CiXCKdqN">http://pastebin.com/CiXCKdqN</a></span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-green">* quad-work (415241e3@gateway/web/freenode/ip.65.82.65.227) has joined this channel.</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: talk to coolya</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-navy">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: what is that from?</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;nitam|work&gt; and again, there is some unreliability because many people were having weird flashes that were failing on kernel install</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;nitam|work&gt; just haven't received a log from one of those people because they flashed the kernel directly using Odin or Heimdal and haven't gone back to the previous version to help us test.</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;techmik67&gt; i had sourceforge issues..... when i tested the last update, i had to download 3x before i stopped getting "installation aborted (bad)"</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;techmik67&gt; related?</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;codeworkx&gt; maybe</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;codeworkx&gt; bad download</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work:  this pastebin was from bml_over_mtd flash on a device with bad blocks. looks good</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;techmik67&gt; i hate feeling like i'm asking a stupid or obvious questions, but, isnt this <a href="https://github.com/teamhacksung/releasetools/blob/gingerbread/initial-tools/galaxys/bmlovermtd.sh#L34">https://github.com/teamhacksung/releasetools/blob/gingerbread/initial-tools/galaxys/bmlovermtd.sh#L34</a> supposed to be the same as this <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/commit/15334c052a4fdbc6af27e5f5e4f4adbecf0124a8#L0R38">https://github.com/teamhacksung/android_device_samsung_galaxys/commit/15334c052a4fdbc6af27e5f5e4f4adbecf0124a8#L0R38</a> ?</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;nitam|work&gt; not bad download, they checked the md5sum. It flashed the ROM fine, just the kernel wasn't updated.</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;nitam|work&gt; but no one who failed has sent me the log</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;techmik67&gt; mnita|work: your 2 open submissons are the last 2 on the 1st page!! o no!!</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;techmik67&gt; no one will look at page 2 =)</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;techmik67&gt; many submissions today</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;nitam|work&gt; that's ok.</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;nitam|work&gt; I'm going to go over the frameworks/base submission some more - I want to get to the bottom of the deadlock that happens sometimes when sharing is enabled</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;nitam|work&gt; its a pity that the last time I saw it, I didn't keep the information around (it happened before the whole thing was done, so I wasn't sure what it was)</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;nitam|work&gt; adb shell still works when that deadlock happens</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;techmik67&gt; yes, i saw that, i used it to push, then updated</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; it is the package manager and mountservice who seem to be contending for the same lock</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; or maybe it was vold</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; anyway, gone for a few hours now</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; work</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
