@@ -217,3 +217,73 @@
 <span class="irc-date">[3:46]</span> <span class="irc-navy">* designfears__ (~df@cpe-71-64-204-109.cinci.res.rr.com) Quit (Ping timeout: 252 seconds)</span><br />
 <span class="irc-date">[3:48]</span> <span class="irc-navy">* stickpin (~stickpin@87.68.254.219.adsl.012.net.il) Quit (Ping timeout: 276 seconds)</span><br />
 <span class="irc-date">[3:49]</span> <span class="irc-green">* ciwrl|away is now known as ciwrl</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: Are you here?</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; maybe</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;chaembian&gt; :)</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;chaembian&gt; For the GPIO comparison, will the #defines be enough?</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I wish</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-navy">* sixstringsg (~Jason@173.74.150.29) Quit (Quit: sixstringsg)</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;chaembian&gt; Right!</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; part of the problem is in how they are used</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; lemme see if I can find an example</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;chaembian&gt; From our earlier conversation, that's how I got it. So, I had CM7's list grep for #defines. When I did KA6's, I forgot to do this and I got quite a bit.</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;techmik67&gt; ok, i played a little.... took a pic..... sent it to dropbox.... on my linux laptop, here's what i got.....</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;chaembian&gt; I went to see what I did different this time. That's how I caught it this time. I was wondering if the grep on #define's really necessary.</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the defines grep cuts things down for the script I ran</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;chaembian&gt; Ah, right! It makes sense now.</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; some stuff is defined more than once (for some readon) so there are still dupes</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;techmik67&gt; the thumb is rotated, like teppic and preview is on the phone.... if i open in image viewer, it is normal, if i open with gimp, it tells me "according to EXIF data, this image is rotated"</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ah here we go</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; &lt; ***i897*** GPIO_TA_CURRENT_SEL_AP **********</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; &lt; arch/arm/mach-s5pv210/include/mach/gpio-aries-setting.h:	{S5PV210_GPG3(3), S3C_GPIO_SLP_INPUT, S3C_GPIO_PULL_NONE},		//GPIO_TA_CURRENT_SEL_AP</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; &gt; ***T959***GPIO_TA_CURRENT_SEL_AP**********</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; &gt; arch/arm/mach-s5pv210/include/mach/gpio-aries-setting.h:	{S5PV210_GPG3(3), S3C_GPIO_SLP_INPUT, S3C_GPIO_PULL_UP},		//GPIO_TA_CURRENT_SEL_AP</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; one of them is  a pull_none while the other is a pull_up</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so they both get called but do different things to GPIO3(3)</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;chaembian&gt; OK! Got it!</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;chaembian&gt; I got confused! :)</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or GPG3(3)</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;chaembian&gt; OK!</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-brick">* TMC_Sherpa went fishing all day and is trying to remember what he was doing yesterday</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;chaembian&gt; OK, gotcha!</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the trick is most things have moved between 2.2 and 2.3 so it's not enough to know which file the differences are in, the function names are more important</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or as important</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, you put it in the log is all I remember</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; thanks Kaik, big help :)</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;Kaik541&gt; :P</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;Kaik541&gt; [6:03] &lt;TMC_Sherpa&gt; I'm pretty sure some of that crap is from hark and the latina captivate... or wahtever it's called, can't think straight right now</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;Kaik541&gt; [6:03] &lt;TMC_Sherpa&gt; hawk</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;Kaik541&gt; [6:04] &lt;TMC_Sherpa&gt; thats it, just wanted that in the log so I remember what the heck I was doing tomorrow</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gingers should never go out into the daylight.  no matter the SPF we still burn after a winter of hibernation</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; YES thats right, pulling more trash out of this pull diff</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://pastiebin.com/?page=p&amp;id=4d9fa17762532">http://pastiebin.com/?page=p&amp;id=4d9fa17762532</a></span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;Kaik541&gt; see I can be helpful sometimes</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;Kaik541&gt; who'd'a thunk?</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 'cept I stopped working on it and I'm trying to make a 2.2 kernel that will build i9000 i897 and t959</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so chambian, if you want to go over whatever I pasted yesterday and see which of the &gt; lines come from blocks inside IFDEF HAWK or VIB+ or whatever that would be great</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you should only need to worry about stuff thats &gt;***T959 only</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;chaembian&gt; "go over whatever I pasted yesterday" -- pastie's from yesterday's log?</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Kaik just re pasted it</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and between that and the build going on in the background dang near murdered my computer</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;chaembian&gt; OK, I got the pastie from Kaik541</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;chaembian&gt; :)</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or work on the 2.2 2.3 I'm easy</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;chaembian&gt; I'll juggle between them both, swapping work, when I want to take a break. ;)</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;chaembian&gt; Hopefully, I'll stay sane</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;chaembian&gt; Today, I should get a 2 to 3 hour break at work.</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; nope sorry.  just let it go, it will be easier on yourself</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the sane thing</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;chaembian&gt; If I have the diff's in hand, I can go through the respective files.</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;chaembian&gt; go through the files in the Windows land</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: lol</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I can paste the two files I started with if you like</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; lots of noise in them tho</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and stupid stuff I should have pulled before doing the diff</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; maybe I'll just keep them to myself untill I have a change to clean them up and make me look awesomer</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;chaembian&gt; The pastiebin should be fine for now. Lets see where that takes me.</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;rhcp&gt; any of you guys need a epic platniuum case with clip?</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;rhcp&gt; cheap?</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-black">&lt;rhcp&gt; need to get rid of it</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-green">* crypta (~KP@port-13499.pppoe.wtnet.de) has joined this channel.</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-navy">* crypta1 (~KP@port-92838.pppoe.wtnet.de) Quit (Ping timeout: 276 seconds)</span><br />
