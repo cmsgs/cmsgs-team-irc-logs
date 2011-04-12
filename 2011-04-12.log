@@ -347,3 +347,210 @@
 <span class="irc-date">[17:42]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread Daniel Hillenbrand * 3115e38 (1 files in 1 dirs): CyanogenMod/android_system_core - <a href="http://bit.ly/hyVcM0">http://bit.ly/hyVcM0</a></span><br />
 <span class="irc-date">[17:42]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;nitam|work&gt;  #if defined(CONFIG_SAMSUNG_VIBRANT) //hate ifdefs? here's a nested one for your pleasure . . .</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;nitam|work&gt; that would be me</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: weird - no one changed that</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;nitam|work&gt; does that help init?</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;techmik67&gt; josh stone was added as reviewer on your 2 submissions mnita|work</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;nitam|work&gt; I added him</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;techmik67&gt; thought seve or koush did</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;nitam|work&gt; since he commented on the previous sd card related commits</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;techmik67&gt; steve*</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;nitam|work&gt; figured I'd get him to look again</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;techmik67&gt; almost done with 3.0 d/l</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: look at your local init.c and search for samsung</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;codeworkx&gt; system/core/init/init.c</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;codeworkx&gt; if theres no samsung, then it is the problem</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;nitam|work&gt; there isn't.</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;codeworkx&gt; lol</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;codeworkx&gt; there's no commit that changed system/core to teamhacksung</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;nitam|work&gt; how did that happen tho</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;nitam|work&gt; yeah..</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;codeworkx&gt; can't explain</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;codeworkx&gt; thats strange</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;nitam|work&gt; it just suddenly stopped working yesterday</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;codeworkx&gt; blame git</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;techmik67&gt; wow</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;nitam|work&gt; now I'm afraid github has screwed soemthing up</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;techmik67&gt; weird</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;nitam|work&gt; restore from backup and lost history?</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;techmik67&gt; i have no access... wasnt me =P</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;nitam|work&gt; but not for every repo ..</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;zacharias&gt; if you guys need a backup - just holler: it's April 10th</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;zacharias&gt; (5.8G Apr 10 16:46 android-system_10042011_.tbz2)</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;codeworkx&gt; i'll diff manifest with mainline</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;nitam|work&gt; ok, but shouldn't we be using our own system/core?</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;nitam|work&gt; or did our stuff get merged upstream for system/core?</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;codeworkx&gt; got merged on feb 23</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;codeworkx&gt; lol</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;nitam|work&gt; grep -r SAMSUNG *?</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;nitam|work&gt; and hopefully see SAMSUNG?</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;nitam|work&gt; I don't remember what we'd changed</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;nitam|work&gt; ah yes, BOOTMODE</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread codeworkx * 261aaa7 (1 files in 1 dirs): merge - <a href="http://bit.ly/gNjsZY">http://bit.ly/gNjsZY</a></span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;codeworkx&gt; seems to be ok</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;techmik67&gt; so now i should be able to build after sync and my kernel will boot? or not yet?</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;techmik67&gt; crap... all the attempts i made at the fps cap increase were invalid.....</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;techmik67&gt; oh well, i'll try today =)</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;zacharias&gt; @techmik67: try to raise it to 68 - afaik the Nexus S has that, with bilboa1's/kang's patch it's at 65 now from what I saw</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;zacharias&gt; :)</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;techmik67&gt; will do =)</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;techmik67&gt; thx</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;zacharias&gt; thanks to you :)</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;zacharias&gt; anyone thought of using a newer wifi driver ?</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;techmik67&gt; think they are looking at the new drop...</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;zacharias&gt; I'm currently test-driving 4.218.248-23</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;zacharias&gt; which is included in ir-kernel (2.6.37.6) and it seems to work fine</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;zacharias&gt; is supposed to give some nice improvement in power usage</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;zacharias&gt; <a href="https://github.com/intersectRaven/ir-kernel/commit/bbc25ddccfc25a23536d136f0258b5fc1ecdcb60">https://github.com/intersectRaven/ir-kernel/commit/bbc25ddccfc25a23536d136f0258b5fc1ecdcb60</a></span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;zacharias&gt; I replaced ours with it 1:1 and the result is. <a href="https://github.com/zachariasmaladroit/android_kernel_samsung/commit/a5e741e09407ad5bc776f29abd7f3956bded930c">https://github.com/zachariasmaladroit/android_kernel_samsung/commit/a5e741e09407ad5bc776f29abd7f3956bded930c</a></span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;zacharias&gt; (as long as the repo is still up and doesn't require a forced update XD )</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-green">* embizzle (~mbizzle@vp117018.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;zacharias&gt; you mean the one for the Nexus S ? yeah, that might be the best choice - if it can be used with our phone - that is</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;techmik67&gt; yes, that's what i was talking about =)</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; intersectRaven lives.</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;embizzle&gt; ugh, I can't follow the xda thread</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;embizzle&gt; too much stupidity</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;techmik67&gt; so if i wanted to try that 2nd commit, just pull to a branch like any other testing?</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;embizzle&gt; techmik the latest nightly keeps booting into cwr for me, I saw in the thread some others were having similar problems. what are we doing about it? you guys need logs or anything?</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;techmik67&gt; we think we fixed it</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;techmik67&gt; building now</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;embizzle&gt; ok I'll try it out. I just compiled around 3 hours ago though.</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;techmik67&gt; i should say they fixed it</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;techmik67&gt; nope</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;techmik67&gt; last 15 minutes or so</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;embizzle&gt; k I just checked github</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; its to the repo</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; resync the repo</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; something went weird in it</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;nitam|work&gt; what threads..</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;embizzle&gt; the one you won't respond to anymore :P</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;embizzle&gt; unless they were talking about a different problem. I couldn't figure out what people were complaining about, so I gave up and came in here</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;nitam|work&gt; oh, those ... jeez.</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;nitam|work&gt; I wasnt' reading xda ..</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;embizzle&gt; zacharias you still around?</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;coolya&gt; kang: ping</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;nitam|work&gt; btw, I didn't think I'd put up any updates that just boot into recovery</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;nitam|work&gt; so what the fux is the guy talking about?</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;embizzle&gt; me?</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;nitam|work&gt; it was either booting without drivers, or booting fine.</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;nitam|work&gt; no, xda</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;nitam|work&gt; anyone building their own is getting the issue yes</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;coolya&gt; hi :)</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;nitam|work&gt; until they do a repo sync again</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;nitam|work&gt; but ppl just installing the update I posted on 4/10 and 4/11 should not be getting the reboot into recovery loop</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;embizzle&gt; that latest nightly was doing it</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;nitam|work&gt; 4/11?</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;embizzle&gt; yeah</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;embizzle&gt; after I built my own, had the issue, I tried the nightly from sourceforge</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;embizzle&gt; got the same issue</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;embizzle&gt; just the 4/11, the 4/10 worked fine</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;nitam|work&gt; hmm, didn't know that I'd actually put up a broken build.</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;techmik67&gt; still happened</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;techmik67&gt; just build kernel after sync</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;embizzle&gt; well the thing is, if someone knows what he's doing then he should post in there: these are my exact steps and here's the issue and then you wouldn't have to be guessing what the heck is he doing</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;nitam|work&gt; techmik67: did you try 4/11?</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;nitam|work&gt; on sourceforge?</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;techmik67&gt; just got a forced update, lemme try again</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;techmik67&gt; think so... i'll try that too</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;nitam|work&gt; please - if it is broken, I shouldn't leave it up</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;embizzle&gt; techmik it still happened? did you clean first? I did not :(</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;nitam|work&gt; I thought the breakage happened after I had uploaded.</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;embizzle&gt; 4/11 nightly is definately broken for me</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;embizzle&gt; well now this guys is saying 4-10 is broken too. but that works for me, so I have no clue what is going on</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-green">* stickpin (~stickpin@84.94.109.203.cable.012.net.il) has joined this channel.</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;embizzle&gt; techmik you finished building and it's still broken for you?</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;nitam|work&gt; hey coolya, I was going to start a petition for your gf.</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;nitam|work&gt; to let you work on android.</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;nitam|work&gt; because I am tired of supporting vibrant</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;embizzle&gt; zacharias you still around?</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;coolya&gt; i can work on android in about a week</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;coolya&gt; :)</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;coolya&gt; but codeworkx started to go crazy till im gone :-P</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;codeworkx&gt; in 1 week his gf got enough coolya for the next few weeks</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;codeworkx&gt; it's still booting into recovery. oO</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;codeworkx&gt; wtf</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;coolya&gt; codeworkx: device override</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;coolya&gt; in aries</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;coolya&gt; ?</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;nitam|work&gt; *I* started going crazy</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;embizzle&gt; you need any information or just sit tight until you figure it out on your own?</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;nitam|work&gt; sit tight</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;coolya&gt; codeworkx is kanging code :-P</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;codeworkx&gt; WHAT TEH HELL</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;nitam|work&gt; and I'm letting him</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;embizzle&gt; lol</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;coolya&gt; haptic feedback ;)</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;nitam|work&gt; I dont want to go near it</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;techmik67&gt; brb... d/l-ing the update to test....</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;embizzle&gt; you guys using smartass governor?</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;nitam|work&gt; no</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;embizzle&gt; I'm not all that impressed with it</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;nitam|work&gt; not on stock cm7 kernel (which is all we really do in this channel - sorry guys)</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread codeworkx * af944fa (0 files in 0 dirs): removed unused stuff - <a href="http://bit.ly/fQtGVv">http://bit.ly/fQtGVv</a></span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;embizzle&gt; oh I forgot. I was just making conversation</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;aarcane&gt; smartass governor ?  what's that one do ?</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;nitam|work&gt; it is hard enough keeping track of the standard kernel.</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;embizzle&gt; yeah my bad</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;embizzle&gt; wasn't looking for help, just bored conversation :)</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;embizzle&gt; (while my phone is looping :P)</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;codeworkx&gt; embizzle: haha</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;mikebeecham&gt; evening all</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: you've killed it!!!!</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;nitam|work&gt; I did not.</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;nitam|work&gt; I thought it was you.</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;codeworkx&gt; you did because.... ahm...</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;codeworkx&gt; because you did</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;nitam|work&gt; that's why I was missing coolya.</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;nitam|work&gt; someone to blame.</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;codeworkx&gt; coolya was it</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;coolya&gt; i was it</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;nitam|work&gt; 4/11 worked for me</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;nitam|work&gt; embizzle: what phone?</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so your saying I shouldn't have sorted all the code by the color they came up with in gedit?</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;nitam|work&gt; color?! :)</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;embizzle&gt; captivate</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;nitam|work&gt; wtf.</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;embizzle&gt; 4/11 worked for you? I'll recheck</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;embizzle&gt; wt</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;nitam|work&gt; just downloaded and booted</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;embizzle&gt; wtf is going on</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; something happened in the repository that isn't logged</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;codeworkx&gt; aliens on github</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;codeworkx&gt; heeeelp</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-brick">* codeworkx is crying for help</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;coolya&gt; stfu</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;coolya&gt; :-P</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-brick">* aarcane will gladly assign blame to the blamesink.</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;nitam|work&gt; qs_config.shaper_control.per_core_burst = ((double)co_get_max_write_rate(co_qs_instance) * (double)co_get_burst_time(co_qs_instance)) / total_output_cores;</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;nitam|work&gt; argh!</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what IS that? I thought unhelpful was the only one working with strange math?</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;nitam|work&gt; output shaping of network output packets over tcp sockets</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;nitam|work&gt; in the face of bursts</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;embizzle&gt; lol 4/11 works for me now</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-brick">* embizzle thinks it was silently updated...</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;nitam|work&gt; I wish.</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;nitam|work&gt; It actually broke for me after</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;aarcane&gt; simple bursts never work, you need logarithmic smoothing over a linear sampling rate...</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;aarcane&gt; with a hierarchical token bucket to ensure that you're bursting the proper packets.</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;embizzle&gt; 411 nightly is working for you or not working for you?</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;mikebeecham&gt; is codeworkx crying again?</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;nitam|work&gt; yes, that is the goal. but something got really screwed up so I'm going back to where we came from</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;codeworkx&gt; mikebeecham: hopefully not</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;mikebeecham&gt; he really needs to stop doing that...frankly it gets embarrassing</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;nitam|work&gt; before I go back to the token bucket</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;nitam|work&gt; basically have some connections that are taking lots of packets, others taken low numbers. it is getting almost too complicated</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;nitam|work&gt; but yes, you're correct :)</span><br />
