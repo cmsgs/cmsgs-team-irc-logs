@@ -858,3 +858,46 @@
 <span class="irc-date">[21:49]</span> <span class="irc-green">* freat (~ron@c-98-216-38-131.hsd1.ma.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[21:50]</span> <span class="irc-green">* zacharias (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
 <span class="irc-date">[21:51]</span> <span class="irc-green">* zacharias is now known as zacharias|busy</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;nitam|work&gt; leave it be . . . it doesnt' really do anything.</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;nitam|work&gt; its just a part of the code that is under GPL.</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;nitam|work&gt; which as we know is a small part</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;techmik67&gt; it stopped my build =(</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;stickpin&gt; strange... build is fine... but latest build doesnt boot</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;techmik67&gt; stickpin: you need a patch to build atm or it loops on recovery afaik</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;techmik67&gt; stickpin: <a href="http://review.cyanogenmod.com/#change,4628">http://review.cyanogenmod.com/#change,4628</a></span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;stickpin&gt; im out of recovery loop... its stuck at cyanogen(mod) 7 boot animation...</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;techmik67&gt; i havent had that problem</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;nitam|work&gt; I've uploaded latest captivate build</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;stickpin&gt; trying to boot again...</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;techmik67&gt; so sourceforge is good, i'll test.... but to build you need to apply codeworkx patch, right?</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;nitam|work&gt; I will fork build/core later.</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;techmik67&gt; my build almost done</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;nitam|work&gt; hopefully koush will have merged before then</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;nitam|work&gt; tho I doubt it</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-brick">* techmik67 crosses fingers</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;zacharias|busy&gt; hi guys</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;zacharias|busy&gt; just to make clear</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;zacharias|busy&gt; cd ~/android/system</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;zacharias|busy&gt; ./build.sh prepare</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;zacharias|busy&gt; ./build.sh galaxys</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;zacharias|busy&gt; will leave me with a looping system at the recovery right now ?</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;zacharias|busy&gt; I just synced the repos</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;zacharias|busy&gt; or are you talking about something else ?</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;Kaik541&gt; if you're getting your build/core from CM, then you'llh ave to apply that patch</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;zacharias|busy&gt; so I guess it's the case since I'm doing the steps in following howto: <a href="http://forum.cyanogenmod.com/topic/15513-all-models-cyanogenmod-7-developer-thread/">http://forum.cyanogenmod.com/topic/15513-all-models-cyanogenmod-7-developer-thread/</a></span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;zacharias|busy&gt; ?</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;zacharias|busy&gt; just to be sure - the patch is at: <a href="http://review.cyanogenmod.com/#change,4628">http://review.cyanogenmod.com/#change,4628</a></span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;Kaik541&gt; yes</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;zacharias|busy&gt; ah, ok found the file affected - it's build/core/Makefile (for reference)</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;zacharias|busy&gt; @Kaik: thanks</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;Kaik541&gt; no worries</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;techmik67&gt; crap.... is there any way i can tell if i remembered to pull in the change to port the wifi driver? not sure if i rememered to cherry-pick before the build.....</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;techmik67&gt; git reflog, i got it</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;techmik67&gt; it works</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;techmik67&gt; connected wifi</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;techmik67&gt; lets see if its any different</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;techmik67&gt; i am always on wifi</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;chaembian_&gt; Good morning, guys! :)</span><br />
