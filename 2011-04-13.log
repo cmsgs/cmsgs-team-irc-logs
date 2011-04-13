@@ -239,3 +239,116 @@
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;kang&gt; legal wattage is 100mW</span><br />
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;kang&gt; thats 20dbm</span><br />
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;kang&gt; might be they didnt fix it</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;techmik67&gt; ok, 45 mins til my build is done</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;rhcp&gt; it takes alot for me to give the hell up</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;rhcp&gt; but i dono</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;rhcp&gt; i cant build a C file on osx that runs on a phone</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;rhcp&gt; 8rhs</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;rhcp&gt; i give up</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;chaembian_&gt; techmik67: how do I switch to the stock branch when I'm done play around?</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;techmik67&gt; in the same directory, "git checkout gingerbrerad"</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;techmik67&gt; checkout is git version of cd</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;techmik67&gt; gingerbread*</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;techmik67&gt; change branch</span><br />
+<span class="irc-date">[4:14]</span> <span class="irc-black">&lt;techmik67&gt; kang: still here?</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;kang&gt; kinda</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_kernel_samsung/commit/67e9744bf1587bc95ec938ed8f0fee36ec22892f#L11R595">https://github.com/techmik/android_kernel_samsung/commit/67e9744bf1587bc95ec938ed8f0fee36ec22892f#L11R595</a></span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;techmik67&gt; that is what you refer to?</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;kang&gt; yeah ight be its just moved or whatever</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;techmik67&gt; i'll have my build in about 30 mins and i'll pastie the iwconfig again</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;chaembian_&gt; Hmmm</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-black">&lt;chaembian_&gt; It's like dirtying my local gingerbread and overwriting with the remote when I'm done?</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-black">&lt;techmik67&gt; no, the branches stay separate unless you tell em different</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;chaembian_&gt; I haven't done any branches. Its stock repo now.</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;techmik67&gt; if you just pull, then yes, you are dirtying your regular build</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;chaembian_&gt; inside kernel/samsung/2.6.35/ when I do 'git branch' it should list branches, right?</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;chaembian_&gt; I get a '* (no branch)'</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;techmik67&gt; correct</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;techmik67&gt; now</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;techmik67&gt; create gingerbrread, tracking the main gingerbread with:</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-black">&lt;techmik67&gt; git branch --track gingerbread github/gingerbread</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-black">&lt;techmik67&gt; go ahead andf do that</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-black">&lt;chaembian_&gt; fatal: Not a valid object name: 'github/gingerbread'.</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-black">&lt;techmik67&gt; it'll tell you it made a new branch</span><br />
+<span class="irc-date">[4:24]</span> <span class="irc-black">&lt;techmik67&gt; hmmm</span><br />
+<span class="irc-date">[4:24]</span> <span class="irc-black">&lt;techmik67&gt; git branch -a</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;chaembian_&gt; * (no branch)</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;chaembian_&gt;   remotes/github/android-samsung-2.6.35</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;chaembian_&gt;   remotes/github/battery_test</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;chaembian_&gt;   remotes/github/headset_mic</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;chaembian_&gt;   remotes/m/gingerbread -&gt; github/android-samsung-2.6.35</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;techmik67&gt; aha</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;techmik67&gt; last one</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;techmik67&gt; so</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;techmik67&gt; make it</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;chaembian_&gt; OK! That's not how it is in your system?</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;techmik67&gt; git track --gingerbread github/android-samsung-2.6.35</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;chaembian_&gt; ok, done</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;techmik67&gt; it is, i forgot the kernel is different</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;techmik67&gt; now</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;chaembian_&gt; next is checkout</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;techmik67&gt; git checkout gingerbread</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;techmik67&gt; now you are on it</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;techmik67&gt; now, create your new branch, usually with a descriptive name</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;techmik67&gt; git branch wifi</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;techmik67&gt; since thisa is a wifi fix</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;techmik67&gt; git checkout wifi</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;techmik67&gt; then</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;techmik67&gt; git fetch git://github.com/zachariasmaladroit.git</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;chaembian_&gt; I see</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;chaembian_&gt; hmmm, ok, not yet :)</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;techmik67&gt; then cherry-pick the commit</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;techmik67&gt; oh, i think...</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;techmik67&gt; git fetch git://github.com/zachariasmaladroit/android_kernel_samsung.git</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;techmik67&gt; if the 1st one doesnt work</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;techmik67&gt; gotta walk dogs... 10 mins.....</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;chaembian_&gt; how do I cherry-pick?</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;techmik67&gt; git cherry-pick a5e741e09407ad5bc776</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;techmik67&gt; the commit #</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;techmik67&gt; is whats after "cherry-pick"</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;chaembian_&gt; OK! How did you figure out that commit to cherry-pick?</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;techmik67&gt; i was walked thru it =)</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;techmik67&gt; pay it forward =)</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;chaembian_&gt; Is there a way to list the commits available?</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;chaembian_&gt; ok</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;techmik67&gt; yours? or others?</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;techmik67&gt; lemme tell ya when done</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;techmik67&gt; dogs freaking</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;chaembian_&gt; ok, I meant, list of commits available from zachariasmaladroit</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;chaembian_&gt; ok, I meant, list of commits available from zachariasmaladroit's repo</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;chaembian_&gt; github lists the specific wifi commit in question. That does make it look easy, but what's the git equivalent? :)</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;techmik67&gt; well, you can see all commits like so</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;techmik67&gt; go to a persons page</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;techmik67&gt; click a repo</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; night boys</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;techmik67&gt; check which brach you want</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;techmik67&gt; branch*</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;techmik67&gt; then click "commits"</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;techmik67&gt; to see the EXACT changes, click on the commit # (the long string on the right side)</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;techmik67&gt; or do you mean if this was *your* repo and you wanted to make and commit changes?</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;chaembian_&gt; Hmmmm, lets say that all I know is Z's repo has a commit that has a experimental code I'm interested in (in this case, wifi)</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;chaembian_&gt; I don't know the SHA id yet</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;chaembian_&gt; How do I determine the commit from with in git?</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;techmik67&gt; you would browse the 1st exampple then, afaik.... click the repo, the branch, commits and start looking.....</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;chaembian_&gt; There should be a way to list available commits from Z's repo?</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;chaembian_&gt; Or I got this all wrong?</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;techmik67&gt; i'm sure there is, but i dont know it</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;techmik67&gt; git reflog?</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;chaembian_&gt; click the repo -- do you mean github?</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: you there and wanna educate us? =)</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;techmik67&gt; on his github page</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;chaembian_&gt; ok</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;chaembian_&gt; :)</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;techmik67&gt; now click a repo</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;techmik67&gt; anyone</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;techmik67&gt; it shows the last commit</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;chaembian_&gt; Yeah, that bit I got. Getting the commit id from github.</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;techmik67&gt; but if you click commits, it shows a history</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;techmik67&gt; example <a href="https://github.com/techmik/android_kernel_samsung/commits/">https://github.com/techmik/android_kernel_samsung/commits/</a></span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-navy">* EgoElf (~Egotistic@adsl-074-244-120-216.sip.asm.bellsouth.net) Quit (Quit: Leaving)</span><br />
