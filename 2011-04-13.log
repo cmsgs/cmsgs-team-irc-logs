@@ -922,3 +922,117 @@
 <span class="irc-date">[21:55]</span> <span class="irc-black">&lt;zachy_md&gt; these were the commands i were looking for :)</span><br />
 <span class="irc-date">[21:56]</span> <span class="irc-black">&lt;zachy_md&gt; in the past i only had used patch -p1 &lt; ../path/to/patch</span><br />
 <span class="irc-date">[21:56]</span> <span class="irc-black">&lt;zachy_md&gt; and had wondered why stuff got omitted</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;nitam|work&gt; actually, ignore the part about it comes from a git tree (it does, but not needed)</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;nitam|work&gt; just use git-am</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;zachy_md&gt; k</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;nitam|work&gt; and pull requests: <a href="http://help.github.com/pull-requests/">http://help.github.com/pull-requests/</a></span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;nitam|work&gt; so you can send one to teamhacksung even tho you forked from kang</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;nitam|work&gt; but that only works if the repo you want to send to is in your lineage.</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;techmik67&gt; i',m now all setup correctly</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;techmik67&gt; and build finished</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;nitam|work&gt; (including siblings and forks it seems - so you'd see teamhacksung there)</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;techmik67&gt; mnita|work: if you dont rush it, it doesnt seem to freeze on usb mount</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;techmik67&gt; ok, mnita|work ..... <a href="https://github.com/kangsterizer/android_kernel_samsung/commit/0a4d9dd24ca20a49d9d46b4d11cfc882e167416b">https://github.com/kangsterizer/android_kernel_samsung/commit/0a4d9dd24ca20a49d9d46b4d11cfc882e167416b</a></span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;techmik67&gt; so i would follow that back to morfic?</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;nitam|work&gt; eh . . . just pull from kang. some of this is just hacky.</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;techmik67&gt; aha... it *based* off morfics, but not the same... kangs is the one</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;nitam|work&gt; cherry pick it</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;nitam|work&gt; they're the ones that broke it ;)</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;nitam|work&gt; not you</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;techmik67&gt; he bumped to 72 from 68 even... i went from 60 to 68</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;nitam|work&gt; some of this is just bullshit anyway - do you best, but if it doesn't work forget it.</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;zachy_md&gt; @atinm: once again - thanks !</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;techmik67&gt; i got this now =)_</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;zachy_md&gt; wow - it's easy as that: " In a great majority of cases, the defaults will be right; however, if any of this information is incorrect, press the Change Commits button."</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;nitam|work&gt; when samsung releases kernel source, all this goes out the window and we will have to do merges all over again</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;techmik67&gt; lol, but i'll have learned so much =)</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;nitam|work&gt; because samsung does not release git repos</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;nitam|work&gt; not looking forward to that hell.</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;nitam|work&gt; which is why it was such a bad idea to pull in stuff using a wholesale diff/merge</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;nitam|work&gt; at least when you pull in git commits, you have history on each commit</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;nitam|work&gt; and some hope of being able to recall what the merge is doing</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; middle of april right? 'course they didn't day which year</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;nitam|work&gt; they aren't in code freeze yet according to our "contact"</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;nitam|work&gt; of course, he could just not know . . .</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so say that like it might stop them from doing it anyway :P</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hell you have already done most of the work for them</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, who knows whether they know when :)</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;nitam|work&gt; I just keep hoping for whoever leaks stuff to one day leak a source.tar.gz</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and they have documents (???) for the parts that need fixing</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-brick">* TMC_Sherpa channel is logged, will keep comments to self</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;nitam|work&gt; one hopes they have docs.</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;nitam|work&gt; I pointed them at our git repos</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I have seen comments in the code that says they do...LOL</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;nitam|work&gt; the guy asked me this morning what devices GB was up on when he was congratulating the "CM7 team" for getting to final.</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;nitam|work&gt; so I told him every damn HTC phone.</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; :)</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;nitam|work&gt; none of which have Gingerbread officially.</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;nitam|work&gt; my next phone will not be a Samsung</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;nitam|work&gt; tho this has been fun</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;nitam|work&gt; it is stressful too</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;nitam|work&gt; I thrive on stress emotionally, but it isn't good for my physically.</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_kernel_samsung">https://github.com/techmik/android_kernel_samsung</a></span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; att is fine in my area and I've always been on their network so I didn't have much of an android choice</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;nitam|work&gt; I didn't have a choice either</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;nitam|work&gt; but now ATT is getting more android phones</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;nitam|work&gt; so by the time it is time to renew, I'll have more options.</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; point</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;nitam|work&gt; I'll keep a samsung phone purely for hacking.</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;nitam|work&gt; because they'll always need help</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; us or samsung :)</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;nitam|work&gt; given what I know of them, they're disfunctional as a software unit</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;nitam|work&gt; and so anyone stuck with a samsung phone will need CyanogenMod to get ported :)</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;nitam|work&gt; but that population will get smaller.</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;nitam|work&gt; anyone who knows about CyanogenMod, will know that there are better phones that run it.</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;nitam|work&gt; well, comparable phones that run it flawlessly.</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;nitam|work&gt; while we'll always be the stepchildren. always.</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;nitam|work&gt; there is not a lot samsung can do to change it either.</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;nitam|work&gt; not like they can change the bootloader.</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;nitam|work&gt; and convert the file systems</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;nitam|work&gt; they *could* open source it</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;techmik67&gt; we need your 2 commits to get reviewed already =) we need merge... that's almost the last 1!!!</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;nitam|work&gt; and provide driver modules we can use.</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;nitam|work&gt; I meant the running flawlessly part.</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;nitam|work&gt; we'll always have the weirdness related to reboot into recovery, download, ROM Manager</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;nitam|work&gt; well, no.</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;nitam|work&gt; once we have params.ko, it will improve.</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I wonder what #ifdef CUSTOMER_HW_SAMSUNG turned into in GB</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;techmik67&gt; absolutely no disrespect intended to you guys, but isnt koush the recovery specialist? cant he do something? or there's just no way around the samsung crap?</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;nitam|work&gt; there is just now way around it.</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;techmik67&gt; reboot recovery and download i refer to</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I don't know jack man so I hope that wasn't directed at me :)</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;nitam|work&gt; except to have param.ko that works</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;techmik67&gt; got it</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;nitam|work&gt; recovery is open source - and both unhelpful and I have been thru it a bit</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;nitam|work&gt; so we do know it as well :)</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;nitam|work&gt; gotta g</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-green">* nitam|work (work@work.com) has left this channel.</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;techmik67&gt; almost everyone in here knows more than me, but i have a great aptitute and perserverence to learn when i'm into something... and i'm fascinated by all this.... best day of my life in *years* was deciding to get trhis phone which led to linux and all this</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;techmik67&gt; its funny to imagine that in july, i never used linux and barely used command line</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; its like a Hallmark moment, should be an interesting 2 hour special</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; crap what did I just click</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;techmik67&gt; havent playrd a facebook game since i got this phone =)</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;techmik67&gt; played*</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;techmik67&gt; i've been learning stuff instead</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I've been slacking in EVE trying to sort out code</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; although I guess if I started mining I could do both</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;techmik67&gt; yeah, but look at the hugeness you are contributing toward..... battery drain!! big problem!</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; until atinm said something (like today) I didn't know</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;techmik67&gt; he kept saying he had no time to sort out the gpio's</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I just diff stuff, thats how I got drug in here</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; there is a difference between time and suck.  gpio is much higher on the suck side</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;techmik67&gt; i cant code, so my contribution is building and testing....</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and that alone puts you at the top 1% on xda</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;techmik67&gt; lol, but i NEVER would have got my phone, much less found my way here, without xda....</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;techmik67&gt; started reading the forums 2 weeks before i got my phone</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;techmik67&gt; that led to dg's cognition channel and my discovery of freenode</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; from now on can you just say the ROM that shall not be named?</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; maybe, but you tested and then did something about it</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I thought samsung releasing different sources for the different phones was stupid so I started diffing them, no one else was posting anything (on the captivate side anyway) so I started a thread and posted what I found.  No clue what it ment, but I knew what was different</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; a bunch of people trying to port the gal rom over were having problems and the bigtg one people were moaning about was rotation being screwed up.  dug into my files and came up with yamaha.c (which is a weird place to look seeing as its in the compass folder)  I can't build a kernel to save my life but xcal grabbed it and ran</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; next thing you know we have reorient.  he went off and fixed the sound and most of the other big problems and bam, I have the phone with the ROM on it I have today</span><br />
