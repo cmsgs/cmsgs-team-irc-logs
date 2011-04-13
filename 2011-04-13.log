@@ -827,3 +827,98 @@
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nitam|work&gt; I'm going to leave the speed part alone . . .</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nitam|work&gt; as we'll do that later when we're stable.</span><br />
 <span class="irc-date">[21:00]</span> <span class="irc-black">&lt;techmik67&gt; i tested wifi and fps increase and both work without breaking anything</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-navy">* mikebeecham (~mikebeech@2.97.37.190) Quit (Quit: Oops..I think I might have hit something...)</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;coolya&gt; people are really paying money for voodoo m(</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;techmik67&gt; i was testing pull request and forgot i added my "it does stuff" bootlogo in a commit.....</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Matt B * f9977a6 (13 files in 2 dirs): port new bcm4329 driver from 2.6.37 - better powermanagement - <a href="http://bit.ly/gT3ao5">http://bit.ly/gT3ao5</a></span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;coolya&gt; can someone test ?</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;techmik67&gt; got new manifest... syncing</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;techmik67&gt; building..... will tell ya in 45 mins</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;coolya&gt; k</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;techmik67&gt; i know, get an i7... =)</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;zachy_md&gt; @atinm: related to stability it's several race-fixes, fixes for deadlocks, (potential) data loss/memory corruption fixes</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;zachy_md&gt; i still need to give the current release some testing love - after that i can tell you</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;zachy_md&gt; at least theoretically it should be more stable ;)</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;zachy_md&gt; and better in terms of data safety</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;zachy_md&gt; it also includes 2 patches from Nick Piggin's inode integrity patchset</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;techmik67&gt;  i like the fps cap increase.... seems like adw drawer scrolls smoother with it</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;techmik67&gt; brb... dog walk</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;nitam|work&gt; zachy_md: do you cherry-pick back from a later kernel version?</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;nitam|work&gt; because I don't see any history on the bcm4329 files</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;nitam|work&gt; and so it looks like you did a diff/copy?</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;nitam|work&gt; (which is not cool . . . )</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;nitam|work&gt; ideally you should try to keep the attribution chain</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;zachy_md&gt; yeah, like I wrote: copy &amp; paste</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;zachy_md&gt; sorry, I'm not too experienced with git yet</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;nitam|work&gt; learn :) - this is all public code, the person who actually did the work should be credited with it.</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;zachy_md&gt; I googled it up but I didn't find anything suitable for merging directories only ?</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-green">* ciwrl (~ciwrl@pool-173-79-48-3.washdc.fios.verizon.net) has joined this channel.</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; I'd have to see where that commit came from to see how to pull it</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; be glad you didn't do that to voodoo anything</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;nitam|work&gt; you would hear about it, very loudly</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;techmik67&gt; i made a commit msg "copied from zach's port from kangsterizer"</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;nitam|work&gt; or maybe curio only pays attention when it is CM7 that does a commit with the name voodoo :)</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;nitam|work&gt; techmik67: dont' worry about it - but basically you go back to where it came from and pull the commit. like say kang got it from someplace upstream. then kang's git repo will have the history.</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;nitam|work&gt; so the next downstream person would pull that</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;nitam|work&gt; and it would maintain history. every person in the chain has to do the correct thing. otherwise the attribute chain is broken.</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;techmik67&gt; i see</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;techmik67&gt; or at least i think i do =)</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;nitam|work&gt; which is why git really does not encourage copying/pasting from one repo into another.</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;nitam|work&gt; always use git cherry-pick, git pull etc which maintain chain</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;nitam|work&gt; it is one thing to test locally with a copy.</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;nitam|work&gt; and this is one way that the kernel can become tainted with non-GPL stuff</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; if someone goes and copies non-gpl source code into the tree and commits it</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; and it gets merged upstream.</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; that's why there has to be an attribution chain</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; so you know exactly where it all came from</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;techmik67&gt; so when i pull from a code review awaiting approval, if i were to commit it, the credits would be there, or no?</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; they would</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;techmik67&gt; tehn i do get it =)</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;techmik67&gt; then*</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; since it was a git pull, from a repo on review.cyanogenmod.com</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; and the code there was pushed by someone using git</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; etc</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;techmik67&gt; i had a small bug i noticed, but its not our problem i dont think....</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;nitam|work&gt; basically, everything should be done using git when it has to do with source code files in the tree.</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;techmik67&gt; lately, not sure when it started</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;techmik67&gt; i use adw launcher that is stock</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;zachy_md&gt; hey i have an excuse: i couldn't do it back then ;)</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;techmik67&gt; and i was using ubuntu theme</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;zachy_md&gt; so most of the patches I use in this kernel are from local patches</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;zachy_md&gt; i have the owners, email addresses, etc. locally</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;techmik67&gt; in the app drawer, the 2nd line of the app names were replaced by boxes</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;zachy_md&gt; but it seemingly doesn't get submitted to the git repo</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;nitam|work&gt; how are you getting the patches?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;techmik67&gt; i switched to honeycomb theme for adw, and its fine</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;zachy_md&gt; downloading from marc.info</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;zachy_md&gt; from time to time I'm following the ml linux-kernel</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;coolya&gt; nite</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;techmik67&gt; nite coolya</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;zachy_md&gt; good night coolya</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;techmik67&gt; is a blue-ish theme really bad for my screen? or is that untrue?</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;zachy_md&gt; i added a commit note in my repo</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;techmik67&gt; who made the fps cap increaase patch?</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;zachy_md&gt; shall i add it to teamhacksung, too for easier following the attribution chain ?</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;zachy_md&gt; @techmik: good question, it might have been kangsterizer - not sure though</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;techmik67&gt; i think it was kang, copied from morfic?</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;techmik67&gt; if i remember right</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;coolya&gt; copied from stock</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;nitam|work&gt; marc.info comes off some git tree</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;zachy_md&gt; ah - afaik he adapted it from someone - yeah, sounds familiar</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) Quit (Quit: WeeChat 0.3.4)</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;nitam|work&gt; but you should also be able to use git apply</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;nitam|work&gt; to apply the patch</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;nitam|work&gt; those patches should maintain attribution</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;nitam|work&gt; man git-am</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;nitam|work&gt; and man git-apply</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;nitam|work&gt; to see what you need to do with those patches</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;nitam|work&gt; those patches are real git patches, and are meant to be used with git</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;zachy_md&gt; thanks a lot atinm</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;zachy_md&gt; these were the commands i were looking for :)</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;zachy_md&gt; in the past i only had used patch -p1 &lt; ../path/to/patch</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;zachy_md&gt; and had wondered why stuff got omitted</span><br />
