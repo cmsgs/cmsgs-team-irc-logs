@@ -183,3 +183,59 @@
 <span class="irc-date">[2:30]</span> <span class="irc-black">&lt;chaembian_&gt; atinm|away: I haven't flashed the latest nightly yet. I'll do it today and report back. Any specific reports you are looking at?</span><br />
 <span class="irc-date">[2:31]</span> <span class="irc-black">&lt;chaembian_&gt; ok, got it</span><br />
 <span class="irc-date">[2:32]</span> <span class="irc-black">&lt;chaembian_&gt; Doing a repo sync now</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;chaembian_&gt; Just to confirm -- bcm changes have been pulled into stock CM7 kernel?</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;Kaik541&gt; yes</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;Kaik541&gt; well</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;Kaik541&gt; no</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;Kaik541&gt; not yet</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt; repo sync listed few changes in the bcm files :/</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt; kernel/samsung/2.6.35/: manifest switched refs/heads/android-samsung-2.6.35...android-samsung-2.6.35</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt; project kernel/samsung/2.6.35/</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt; Updating 2b25f78..1e0c10e</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt; Fast-forward</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt;  drivers/net/wireless/bcm4329/Makefile             |    1 +</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt;  drivers/net/wireless/bcm4329/bcmsdh_linux.c       |   12 +-</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt;  drivers/net/wireless/bcm4329/bcmsdh_sdmmc_linux.c |   10 +-</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;Kaik541&gt; then go check out the commit, I don't know</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt;  drivers/net/wireless/bcm4329/dhd.h                |   19 ++-</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt;  drivers/net/wireless/bcm4329/dhd_common.c         |   49 +++-</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt;  drivers/net/wireless/bcm4329/dhd_custom_gpio.c    |   49 ++++-</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt;  drivers/net/wireless/bcm4329/dhd_linux.c          |   53 +++--</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt;  drivers/net/wireless/bcm4329/dhd_sdio.c           |   60 -----</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt;  drivers/net/wireless/bcm4329/include/epivers.h    |   10 +-</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;chaembian_&gt;  drivers/net/wireless/bcm4329/include/wlioctl.h    |   23 ++-</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;chaembian_&gt;  drivers/net/wireless/bcm4329/linux_osl.c          |   35 ++--</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;chaembian_&gt;  drivers/net/wireless/bcm4329/wl_iw.c              |  296 +++++++++++++++------</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;chaembian_&gt;  drivers/net/wireless/bcm4329/wl_iw.h              |   56 +++--</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;chaembian_&gt;  13 files changed, 434 insertions(+), 239 deletions(-)</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;techmik67&gt; chaembian_: pastebin next time =)</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;techmik67&gt; yes, itsa a new wifi driver</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;techmik67&gt; coolya pulle dem in bedore he went to bed</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;techmik67&gt; type much? =P</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;Kaik541&gt; didn't think it had been pulled in much</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;Kaik541&gt; s/much/yet</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik67&gt; yes, a few hours ago</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-green">* designfears (~AndChat@cpe-71-64-204-109.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;Kaik541&gt; when I was asleep xD</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;Kaik541&gt; thinking it was 8 AM</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik67&gt; seems to work better... my wifi using less than cell standby, which never happened b4</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;chaembian_&gt; techmik67: Sorry about that</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;chaembian_&gt; Sure, will use pastebins from now on</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik67&gt; np =)</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;chaembian_&gt; TMC_Sherpa: Finally got around creating the cm7/ka6 diff on GPIOs</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;chaembian_&gt; Would you like to have a look?</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sorry, ran off for a smoke sure</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-brick">* TMC_Sherpa hates mach-aries</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;chaembian_&gt; The diff itself: <a href="http://dl.dropbox.com/u/25745513/gpio.diff">http://dl.dropbox.com/u/25745513/gpio.diff</a></span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;chaembian_&gt; GPIO list from CM7: <a href="http://dl.dropbox.com/u/25745513/CM7_gpio_grep_out">http://dl.dropbox.com/u/25745513/CM7_gpio_grep_out</a></span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;chaembian_&gt; GPIO list from KA6: <a href="http://dl.dropbox.com/u/25745513/KA6_gpio_grep_out">http://dl.dropbox.com/u/25745513/KA6_gpio_grep_out</a></span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;chaembian_&gt; OK, that's not GPIO lists, but rather grep outputs</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well shit what do you need me for :)</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;chaembian_&gt; GPIO list for CM7: <a href="http://dl.dropbox.com/u/25745513/CM7_gpio_list_v3">http://dl.dropbox.com/u/25745513/CM7_gpio_list_v3</a></span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;chaembian_&gt; GPIO list for KA6: <a href="http://dl.dropbox.com/u/25745513/KA6_gpio_list_w4">http://dl.dropbox.com/u/25745513/KA6_gpio_list_w4</a></span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;chaembian_&gt; Do they look sane?</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;chaembian_&gt; If they look good, I'll go ahead reading through the differences</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;chaembian_&gt; Else, go back to grep'ing :)</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I only gave it a quicky but yeah looks about right</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;chaembian_&gt; OK, cool!</span><br />
