@@ -1036,3 +1036,64 @@
 <span class="irc-date">[22:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I thought samsung releasing different sources for the different phones was stupid so I started diffing them, no one else was posting anything (on the captivate side anyway) so I started a thread and posted what I found.  No clue what it ment, but I knew what was different</span><br />
 <span class="irc-date">[22:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; a bunch of people trying to port the gal rom over were having problems and the bigtg one people were moaning about was rotation being screwed up.  dug into my files and came up with yamaha.c (which is a weird place to look seeing as its in the compass folder)  I can't build a kernel to save my life but xcal grabbed it and ran</span><br />
 <span class="irc-date">[22:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; next thing you know we have reorient.  he went off and fixed the sound and most of the other big problems and bam, I have the phone with the ROM on it I have today</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;techmik67&gt; i was sorta trying to do that with the camera..... just browse files and look for something that looks wrong or mentions what is messed up... not knowing code, tho, makes it difficult to really know</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the big pig is half of the stuff changed and the other half moved in GB.  with Froyo they just changed all the frick'n variables</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;techmik67&gt; wow...... good think cog is not a logged channel.......</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;techmik67&gt; political discussions with racial slurs</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the exif stuff (in froyo) is in in ./drivers/media/video/ce147.c or the stuff I found last night anyway that file is gone now, I'm not sure where it went/name changed/merged</span><br />
+<span class="irc-date">[23:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh I see, we just copied it over</span><br />
+<span class="irc-date">[23:05]</span> <span class="irc-black">&lt;zachy_md&gt; @TMC_Sherpa: you're running linux ?</span><br />
+<span class="irc-date">[23:06]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: we need j4fs, and for that we need the STL block mapping, too. probably we could treat param filesystem as raw flash, *if* there are no bad blocks... but otoh you see where our attempts at handling the bml block-mapping have gotten us, and i expect STL is worse as it attempts to emulate sector sizes smaller than the flash erase-block size.</span><br />
+<span class="irc-date">[23:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; at home, osx pre-intel here at work</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;zachy_md&gt; k,</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: thank you =)</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;zachy_md&gt; you use find &amp; grep</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;zachy_md&gt; for those operations ?</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;zachy_md&gt; finding stuff</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;zachy_md&gt; for me they're nearly indispensable</span><br />
+<span class="irc-date">[23:08]</span> <span class="irc-black">&lt;Unhelpful&gt; afaict param.ko just reads things from the mounted filesystem. it would make more sense to have init deal with that, probably. the hard problems are stl and j4fs itself, and we're unlikely to get real docs for any of that.</span><br />
+<span class="irc-date">[23:08]</span> <span class="irc-black">&lt;techmik67&gt; of course =)</span><br />
+<span class="irc-date">[23:08]</span> <span class="irc-black">&lt;techmik67&gt; why would they make it easy?</span><br />
+<span class="irc-date">[23:08]</span> <span class="irc-black">&lt;zachy_md&gt; e.g. in root of kernel dir:   find . | grep ce147</span><br />
+<span class="irc-date">[23:09]</span> <span class="irc-black">&lt;Unhelpful&gt; stl is their proprietary ftl magic. they percieve it as being a competitive advantage, even though anybody else who makes flash has one, too. j4fs might be the same, or might be something they licensed from somebody *else* who feels that way, i don't know.</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;zachy_md&gt; and searching for a string e.g. in the whole kernel (or android directory): grep -iR "-fprofile-arcs -ftest-coverage" .</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;zachy_md&gt; @TMC_Sherpa: but you probably already know them ^^</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sorry, wondered off, yeah find, grep and diff are my friends.  10-15 years ago when I was a unix admin I did tons of stuff with sh scripts so I'm relearning sed awk and a few other string manipulators</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;techmik67&gt; hey.... wouldnt lines 304 and 327 conflict here? <a href="https://github.com/techmik/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/media/video/ce147.c">https://github.com/techmik/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/media/video/ce147.c</a></span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-brick">* Unhelpful sees mention of exif, and camera drivers... are we still chasing the extra orientation tag?</span><br />
+<span class="irc-date">[23:12]</span> <span class="irc-black">&lt;techmik67&gt; i am =)</span><br />
+<span class="irc-date">[23:12]</span> <span class="irc-black">&lt;techmik67&gt; while you smart people are working on other things =()</span><br />
+<span class="irc-date">[23:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; techmik is working on it, get back to the compass :)</span><br />
+<span class="irc-date">[23:12]</span> <span class="irc-black">&lt;techmik67&gt; i'd just love to help and save some time for you guys</span><br />
+<span class="irc-date">[23:12]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-black">&lt;zachy_md&gt; @TMC_Sherpa: great minds on this project :)</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, yes, time to ditch TNT for Eigen :P</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-black">&lt;techmik67&gt; i feel like i've searche dthe entire drivers directory for every instance of "EXIF"</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-brick">* Unhelpful hopes you used grep -i ;)</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;techmik67&gt; i literally scroll down te github pages and use "find"</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;techmik67&gt; linux only on laptop</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ....in your browser?</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;techmik67&gt; 23" monitor in windows, yes in browser</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;techmik67&gt; firefox</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;techmik67&gt; github.com is my friend =)</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;techmik67&gt; i find stuff there, and compare to the actual local sources on my laptop</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; <a href="http://unxutils.sourceforge.net/">http://unxutils.sourceforge.net/</a></span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-brick">* Unhelpful tells techmik67 about dual boot ;)</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://dl.dropbox.com/u/10818379/NewCommandCentral.JPG">http://dl.dropbox.com/u/10818379/NewCommandCentral.JPG</a></span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;Unhelpful&gt; best thing? i never actually want to shut down linux to use windows. ;)</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;techmik67&gt; laptop is dual boot, tho i almost never boot windows on it</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I used to use something similar, don't remember which package they were but I got fed up typing ls in a dos prompt</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;techmik67&gt; dual monitor desktoop is windows, laptop is linux</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; anyway, works done back in an hour or so</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;techmik67&gt; so i am here in desktop, multi taking on 2 monitors....</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;techmik_laptop&gt; while i buiold here</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;techmik_laptop&gt; build8</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-brick">* techmik67 still cant type tho =)</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: full-screen vnc from laptop on one monitor. only sane solution. ;)</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;techmik67&gt; hmmmm... not the worst idea i ever heard =)</span><br />
+<span class="irc-date">[23:21]</span> <span class="irc-navy">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[23:53]</span> <span class="irc-navy">* kang (~kang@rsbac/developer/kang) Quit (Quit: Changing server)</span><br />
+<span class="irc-date">[23:53]</span> <span class="irc-green">* kang (~kang@rsbac/developer/kang) has joined this channel.</span><br />
