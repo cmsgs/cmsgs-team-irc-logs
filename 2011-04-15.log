@@ -952,3 +952,116 @@
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;techmik67&gt; i figured it out! i can read code!! =P</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;techmik67&gt; thats what you meant by stuff needing to be changed....</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;atinm&gt; ok, go bother coolya</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ifdef can be a pita.  you can get stupid stuff like ifndef !(something) although I don't think I've sen anything quite that bad yet</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;coolya&gt; hm? :D</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;atinm&gt; anyway, ignore that code for now - first need to know where the problem really is</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;atinm&gt; the image shows up fine - so it is only in the writing of it.</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;atinm&gt; as in, open camera - the viewfinder is fine</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; so it is purely in the writing down.</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;techmik67&gt; yes, and why the conflict in exif tags?</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; its all just in the writing of exif tags.</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; need some logging to tell where it is happening. I'll be back.</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-green">* Wout` (~Wout@85.151.118.244) has joined this channel.</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; grep -ir for exif in stock nexus only comes up with 2 lines, both #def I think they may have moved all that stuff out of the kernel.  which we put back in with the ce147 files but thats just a guess</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;aarcane&gt; techmik67, why not try commenting all the exif related stuff in the camera apk, then see if you still get bad tags.  if you do, it'll be somewhere else that's placing them.</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;coolya&gt; atinm: whats up with cam ?</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;atinm&gt; its not the camera, its the thing that writes exif tags on captivate - they're rotated when you take in portrait mode</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;atinm&gt; rotated anti-clockwise 90</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;coolya&gt; the exinf is right</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;atinm&gt; or I guess, clockwise 270 since android thinks in clockwise</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;coolya&gt; if you open the picture with a editor like gimp it will tell that the exinf contains a rotation info and it wants to rotate</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;aarcane&gt; I thought it was 3pi/2 radians..</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;atinm&gt; not for captivate - viewfinder is correct, but exif is off - there are two sections in the exif and one is incorrect</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;techmik67&gt; but exiftool finds 2 different, coonflicting exif tags for IFD0 and IFD1... each has 2 i mean</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;coolya&gt; in the kernel there is some exinf setup</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;coolya&gt; maybe we can just disable one</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://www.pastie.org/1798264">http://www.pastie.org/1798264</a></span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-brick">* coolya looks at the source</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;coolya&gt; both 90° CW ? what is conflicting ?</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;techmik67&gt; there's 2 orientation in each IFDx</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;techmik67&gt; lower it says normal (horizontal</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;techmik67&gt; line 28, line 35</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;coolya&gt; i see</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;techmik67&gt; image viewer in linux ignores the rotated thumbnal view and shows it normal, but gimp, as you said, says its rotated</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; froyo captivate just to compare <a href="http://www.pastie.org/1798287">http://www.pastie.org/1798287</a></span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well, re-oriented froyo I9000 anyway</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.64.245) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;techmik67&gt; so its doubling IFD0 and IFD1</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;techmik67&gt; aha</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;atinm&gt; I see something calls setParameters in SecCameraHWInterface.cpp to tell it to rotate 90</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it's a nice shot use it for bg at home :P</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;techmik67&gt; in addition to sharing "BAD MakerNOtes</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;techmik67&gt; we have "Invalid EXIF text encoding"</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; crap, phone just fell off the network</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; which camera thingy are you using?</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;coolya&gt; hmm</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;coolya&gt; ce147_regbuf_rot[0] = state-&gt;exif_orientation_info;</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;coolya&gt; i hate samsung</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;coolya&gt; we missed that i think</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;coolya&gt; it is set by V4L2_CID_CAMERA_EXIF_ORIENTATION</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; that stuff is only there 'cus we moved it, the 'empty' nexus source doesn't do anything with exif that I can find</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;atinm&gt; nothing seems to send it down tho</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;coolya&gt; so its always 0</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;aarcane&gt; I just installed the latest nightly with modem JL2 installed, and my modem crashed on unlocking the sim card the first time.  I switched modems and it's fine, but it might be worth investigating.</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;coolya&gt; maybe we should just remove the i2c write and look whats happening</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;atinm&gt; up in android land, something is saying Rotation = 90 when it started as 0</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;coolya&gt; just remove <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/media/video/ce147.c#L2024">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/media/video/ce147.c#L2024</a></span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;coolya&gt; because it looks like one rotation is right maybe that will remove one of the tags</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; cept its prolly the one from ce147 thats correct.  I doubt that the camera is checking</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but getting rid of one of them will point to the problem</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;atinm&gt; its all in an #if 0?</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;atinm&gt; set_capture_exif looks like its empty</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;atinm&gt; (I hate samsung too)</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if 0....bane of my life lately</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; that and CONFIG_ARIES_NTT</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://twitter.com/#!/supercurio/status/58957950433243136">http://twitter.com/#!/supercurio/status/58957950433243136</a></span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;techmik67&gt; !!!!</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; that sounds about right, been busting my ass in diff land</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, atinm, this rotation problems exists on i9000 FFC too</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://code.google.com/p/cyanogenmod7-for-samsung-galaxys/issues/detail?id=233&amp;colspec=ID%20Type%20Status%20Priority%20Device%20Owner%20Summary">http://code.google.com/p/cyanogenmod7-for-samsung-galaxys/issues/detail?id=233&amp;colspec=ID%20Type%20Status%20Priority%20Device%20Owner%20Summary</a></span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;coolya&gt; the ffc is total broken</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;coolya&gt; its not a exiof problem</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;coolya&gt; only preview streaming is working</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;coolya&gt; nothing more</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;coolya&gt; retotation can be fixed by just correcting rotation in HAL but that won't give you a working picture</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;Kaik541&gt; I'm just saying that captivate doesn't seem to be the only affected by "portrait picture snap" :)</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;coolya&gt; if samsung would be so close to that release why doesn't out source give us source? ...</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;coolya&gt; they should be through all the legal stuff for a while when they would push a release today ...</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;atinm&gt; our source is in a different department ;)</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;atinm&gt; and departments don't talk to each other.</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; maybe they dont want to push broken code..... ha, I kill myself sometimes</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;Wout`&gt; i really thought jkv would be final</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;Wout`&gt; damnit tegra2 sucks</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;Wout`&gt; will only do mp4 baseline @ 1080p</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;coolya&gt; android sux</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;Wout`&gt; while the hummingbird does 1080p anything without a problem</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;atinm&gt; ooh - one of my favorite fantasy books is going to be on HBO starting sunday</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-green">* Scepterr|AFK is now known as Scepterr</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;techmik67&gt; which?</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; game of thrones</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;techmik67&gt; never read</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://www.hbo.com/#/game-of-thrones/about/video/exclusive-preview.html/eNrjcmbOUM-PSXHMS8ypLMlMDkhMT-VLzE1lzmcu1CzLTEnNh8k45+eVpFaUsDFyMjKySSeWluQX5CRW2pYUlaayMQIAUmYXOA==">http://www.hbo.com/#/game-of-thrones/about/video/exclusive-preview.html/eNrjcmbOUM-PSXHMS8ypLMlMDkhMT-VLzE1lzmcu1CzLTEnNh8k45+eVpFaUsDFyMjKySSeWluQX5CRW2pYUlaayMQIAUmYXOA==</a></span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; awesome, "violence, nudity, profanity etc etc" :)</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;atinm&gt; it looks really good actually ... (I loved lord of the rings)</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;techmik67&gt; of course, it was awesome =)</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-green">* zacharias|away (~zacharias@chello084114179145.16.15.vie.surfer.at) has left this channel.</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm&gt; wonder how it ends - the writer hasn't finished the series yet!</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; rocks fall. everyone dies</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm&gt; lol</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;atinm&gt; (watching the preview)</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;atinm&gt; screw camera orientation</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;coolya&gt; xD</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;techmik67&gt; *never*split up.....</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm&gt; oh, the kid is an idiot</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;Wout`&gt; I just realised another way samsung will be screwing people this summer</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;aarcane&gt; galaxy 2 ?</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;Wout`&gt; with sgs 2</span><br />
