@@ -133,3 +133,52 @@
 <span class="irc-date">[3:53]</span> <span class="irc-navy">* acdbx (~acdbx@66.75.28.44) Quit (Ping timeout: 260 seconds)</span><br />
 <span class="irc-date">[3:54]</span> <span class="irc-green">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) has joined this channel.</span><br />
 <span class="irc-date">[3:55]</span> <span class="irc-navy">* zacharias|away (~zacharias@chello084114179145.16.15.vie.surfer.at) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;Unhelpful&gt; ah! i found the trouble. it collects sixteen points to estimate the noise level - that works - and then it's supposed to only accept new points above the noise level, until it has enough to estimate the bias. the function that compares incoming data to the noise level was always replacing data, so that there was *only one point* in the array at any time - can't estimate bias from one point.</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-brick">* Unhelpful will re-test in a bit</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;Unhelpful&gt; found a decent on-phone log viewer, w/ regex filters, so i can test non-crashing versions myself. ;)</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-navy">* mersault (~mersault@home.nullpointer.ca) Quit (Quit: mersault)</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-green">* ciwrl|bbl is now known as ciwrl</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-black">&lt;Unhelpful&gt; woooooooo, got an estimate. then a softboot.</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: heeeey! you wanna re-download and give this another try? i expect you'll get softbooted, too, but w/ adb you can probably get a logcat out right after that might catch what went wrong. :)</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;techmik67&gt; sure</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-navy">* gdanko (~gdanko@ip68-111-171-185.sd.sd.cox.net) Quit (Quit: Computer has gone to sleep)</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm guessing there'll probably be an abort or something, probably you'll see a bunch of sensor debug crap, an abort w/ trace, and then the sensor daemon being restarted</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;Unhelpful&gt; at least it did something, my last version died on its first attempt at estimation</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;techmik67&gt; i could actually use your help with something... about , you guessed it, the camera! =).... i copied somestuff from the honeycomb snapshot into samsung_common, then a second commit to put back some of what it took out.... i just took a regular vid with the cam, it looks good, but i have a very nice viewfinder, but regular camera when i click to take pic, makes the sound, screen goes all green and freezes camera app... cant back</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;techmik67&gt; out, have to use home button</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_device_samsung_common/commits/honey">https://github.com/techmik/android_device_samsung_common/commits/honey</a></span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;techmik67&gt; last 2 commits</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;Unhelpful&gt; what'd you do! ;P</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;techmik67&gt; it works for video!</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;techmik67&gt; =P</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;techmik67&gt; and i bet you can tell hy it freezes</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;techmik67&gt; why*</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;techmik67&gt; i dont know code... that was my 1st 2 ifndef statements =)</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;techmik67&gt; did you lnk the file you want me to test? or i usse the same link?</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;techmik67&gt; use*</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;Unhelpful&gt; same link, i've been re-uploading it to test on mine until i got to something i can't debuge w/ aLogcat :)</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;techmik67&gt; rebooting... i figured =)</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;techmik67&gt; its the changes to CecCameraHWInterface.cpp that have to be it</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;techmik67&gt; fSec*geez</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;techmik67&gt; me typezgood</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;techmik67&gt; hey</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;techmik67&gt; its working on compass!</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;techmik67&gt; i move it it stays N!</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://dl.dropbox.com/u/10818379/log2.txt">http://dl.dropbox.com/u/10818379/log2.txt</a></span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;techmik67&gt; i tihnk you may have done it, sir!</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-black">&lt;Unhelpful&gt; so, you can turn it around and it points the right way?</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;Unhelpful&gt; ...and it didn't softboot on you? ;/</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;techmik67&gt; i held it portrait, N was pointing at me... as i rotated phone, arrow kept coming back to me</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;techmik67&gt; still going strong =)</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;Unhelpful&gt; i kind of wanted a log on the crash that happened on mine ;)</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;Unhelpful&gt; but it consistently tells you north is in the same direction when you turn it?</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;techmik67&gt; i'll test by walking arond a litlle, here, instead of just rotating... sec</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-brick">* Unhelpful has never understood what the "figure-eight" calibration instructions were asking users to do - just move the phone in a figure-eight without rotating it? wtf will that do? afaict you must turn it about some to determine the sensor bias.</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;techmik67&gt; it told me to calibrate =)</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;techmik67&gt; then</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;techmik67&gt; i walked from my desk, around the corner and down the hall to bedroom, turned into bathroom, came back</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;techmik67&gt; still pointing at me, whgich i do believe is north =)</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;techmik67&gt; which*</span><br />
