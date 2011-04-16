@@ -334,3 +334,106 @@
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;Kaik541&gt; yeah atinm|away mentioned at one point that it's in your source tree, but no idea if it's actually in use</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;atinm|away&gt; yes, those are actually captivate gpios</span><br />
 <span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm|away&gt; but do exist in your source tree.</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm|away&gt; we're trying to figure out what all the gpios should be for all three targets</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;chaembian_&gt; Ah, OK!</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;chaembian_&gt; These GPIOs aren't if-def'ed as well</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm|away&gt; so it does need to be kept track of. galaxy and vibrant most probably set them to something while captivate to something else</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm|away&gt; those are just constants. its where they're used that matters</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;chaembian_&gt; Righto, will keep that in mind</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;chaembian_&gt; There is also a powergating.c in the KA6 source. It refers to S5PC110* variables. I have not been able to locate its counterpart in CM7. Where should I be looking?</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;atinm|away&gt; they should all be in similar places</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;atinm|away&gt; tho GB is using s5pv210</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;atinm|away&gt; and I thought froyo was as well</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;atinm|away&gt; maybe froyo was inconsistent . . . GB uses s5pv210</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm|away&gt; hmm...</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm|away&gt; "Whoever is doing the XOOM kernel thing, mount the sdcard as /sdcard and internal as /emmc please. Not as /sdcard2 and /sdcard respectively."</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm|away&gt; should we be the same? that is, sdcard as /sdcard and internal as /emmc?</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;Kaik541&gt; no</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;Kaik541&gt; it was like that in 6.1</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;Kaik541&gt; meant that if you didn't have an external sd card</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;Kaik541&gt; anything depending on sd card wouldn't work</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;Kaik541&gt; i.e. camera, gallery, etc</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, which is why I don't know why koush said that..</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;atinm|away&gt; tho I thought it was whatever we set EXTERNAL_STORAGE to point to was what was required.</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;Kaik541&gt; some things specifically check for /sdcard I believe</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;Kaik541&gt; like camera</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;atinm|away&gt; oh right.</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;atinm|away&gt; so again, no idea why koush wants that for Xoom tho - glad he hasn't said anything about SGS yet</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;atinm|away&gt; well, or rather, hasn't told use to switch.</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;atinm|away&gt; brb, rebooting machine ... too many updates.</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: no</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-navy">* atinm|away (~atin@unaffiliated/atinm) Quit (Quit: atinm|away)</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;techmik67&gt; morning all..... so , jvb released........ over/under on how long tiol source?</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;Kaik541&gt; I'm hedging within 10 days</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;Kaik541&gt; optimistic is tuesday morning</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-green">* mersault (~mersault@home.nullpointer.ca) has joined this channel.</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, codeworkx was gonna tell you something before you left</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;atinm&gt; ?</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;Kaik541&gt; all he said was "no" I think he was waiting till you got back to finish</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;atinm&gt; don't remember what I said last.</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: sdcard = internal. if someone doesn't use a external card how he should use the recovery?</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;atinm&gt; that's fine - I'm wondering why koush is telling Xoom ppl to use it that way</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;atinm&gt; (they do have it wrong with sdcard2 of course)</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;atinm&gt; Boston Red Sox. 2-10. Worst in baseball.</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;atinm&gt; worst.</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;atinm&gt; jeez.</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;atinm&gt; they could go on a 8-0 tear now and only be a 0.500 team.</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;atinm&gt; Celtics start playoff hobble tomorrow.</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;atinm&gt; MIA today.</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;atinm&gt; I wish 76ers could actually beat the heat . . .</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;atinm&gt; but it'll be celtics heat . . .</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;atinm&gt; I hope.</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-black">&lt;techmik67&gt; i dont bet, but my money would be on the heat/bulls in the conf finals and the heat winning it all.....</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-black">&lt;techmik67&gt; no matter who wins the west</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-black">&lt;techmik67&gt; *especailly* if haslem can return and mesh up</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;techmik67&gt; from twitter: Banks crash the US economy and launder drug money, no one goes to jail. OTOH, online Casinos are taken down in force</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;polyrhythmic&gt; heat have been too inconsistent this season</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;polyrhythmic&gt; spurs are going all the way</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;techmik67&gt; uh... hello?</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;polyrhythmic&gt; I expect spurs v celtic or bulls</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;techmik67&gt; who cares about the whole season, they are 15-3 over the last 18 gamews</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;polyrhythmic&gt; I do</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;techmik67&gt; and have been blowing everyone out</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;techmik67&gt; yeah? tell lebron he actually won the championship last year when they had the best regular season recod =)</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;polyrhythmic&gt; haha</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;techmik67&gt; reg season=tune-up</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;polyrhythmic&gt; look at their last games, most of them haven't been that hard</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;techmik67&gt; heat hit their strida at just the right time</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;polyrhythmic&gt; washington, cleveland, milwaukee, charlotte</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;polyrhythmic&gt; ofc they won</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;techmik67&gt; boston?</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;techmik67&gt; blowout?</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;polyrhythmic&gt; oh wait, they LOST to cleveland</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;techmik67&gt; boston+lakers+spurs/..... last games against them, we avg victory by TWENTY!!!</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;polyrhythmic&gt; they also got blown out by the spurs</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;techmik67&gt; not the last timwe</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;techmik67&gt; revenge is sweet</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;polyrhythmic&gt; well my point is, they are unreliable</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;techmik67&gt; we''ll just see, no? =P</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;polyrhythmic&gt; ;D it'll be exciting regardless</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;techmik67&gt; celtics fucke dupo with the trade</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;Kaik541&gt; what are these "sports" of which you speak?</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;techmik67&gt; they destroyd their chemistry</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;techmik67&gt; lol, Kaik541</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;polyrhythmic&gt; yeah I was expecting a little better of the celtics this year</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;techmik67&gt; they were doing VERY well tilthat trade</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;polyrhythmic&gt; yeah, bad move</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;techmik67&gt; demoralized everyone</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;techmik67&gt; it wasnt broke = dont fix it</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;Kaik541&gt; so, how about that weather</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;Kaik541&gt; it's all... weathery</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;polyrhythmic&gt; same it's been since last oct</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;polyrhythmic&gt; gray</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;techmik67&gt; why they no review us? no likey our code?</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;polyrhythmic&gt; &lt;- seattle</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;techmik67&gt; and, a dumb question here...... what would happen if i went into ce147.c and removed *every time* it says "EXIF"?</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;techmik67&gt; no work at all?</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://assets.diylol.com/hfs/d04/2d9/aa7/resized/y-u-no-meme-generator-cyanogen-y-u-no-review-code-79b7ed.jpg?1302969342">http://assets.diylol.com/hfs/d04/2d9/aa7/resized/y-u-no-meme-generator-cyanogen-y-u-no-review-code-79b7ed.jpg?1302969342</a></span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;atinm&gt; lol!</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;atinm&gt; I should send them that with links to the two pending reviews</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;Kaik541&gt; haha</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;Kaik541&gt; I don't think they'd appreciate that</span><br />
