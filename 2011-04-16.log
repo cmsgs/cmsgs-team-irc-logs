@@ -38,3 +38,38 @@
 <span class="irc-date">[3:48]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.64.245) has joined this channel.</span><br />
 <span class="irc-date">[3:52]</span> <span class="irc-black">&lt;Unhelpful&gt; i didn't!</span><br />
 <span class="irc-date">[3:54]</span> <span class="irc-black">&lt;Unhelpful&gt; i looked at the debug logs on my device, where the compass still seems a bit funny, and i have a suspicion about the problem. i'm developing and testing solutions right now, but tbh i know pretty much nothing about stats, so this. is. pretty. hard. :P</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;chaembian_&gt; OK! I was comparing the readings from my phone and colleague's. Mine were about -24 degress.</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;chaembian_&gt; *degrees</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;Unhelpful&gt; data modelling is hard, let's go shopping!</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;chaembian_&gt; Oh, I convinced him that Samsung got it wrong and the readings off my compass is right. ;)</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;Unhelpful&gt; hah</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;Unhelpful&gt; did it also decide north was in a slightly different direction as you turned it?</span><br />
+<span class="irc-date">[4:10]</span> <span class="irc-black">&lt;chaembian_&gt; Let me check</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;chaembian_&gt; Right, it does</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;Unhelpful&gt; good. i might be right about the problem, then.</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;Unhelpful&gt; the bias can drift over time. it can also be misestimated. i think one of these conditions is getting you stuck on a bad bias.</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-black">&lt;chaembian_&gt; atinm|away: The latest update off Sourceforge is working well. The USB share/unshare works without a glitch so far.</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-green">* ciwrl|away is now known as ciwrl</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;polyrhythmic&gt; is there any way to check the radio frequency band from CM7 ?</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;polyrhythmic&gt; I read that the ussd/mmi codes don't work from anything but samsung roms</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;polyrhythmic&gt; ...if that is true</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;knowsnotmuch&gt; whats the code polyrhythmic in sammy?</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;knowsnotmuch&gt; some work some dont</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;knowsnotmuch&gt; for ge 4636 works</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;knowsnotmuch&gt; * eg</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;polyrhythmic&gt; *#0011#</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;polyrhythmic&gt; and *#2263# gives a menu to select bands</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;knowsnotmuch&gt; nope</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;polyrhythmic&gt; in stock rom</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;knowsnotmuch&gt; they dont work</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;knowsnotmuch&gt; i dont know what the criteria is for what works - but those 2 dont</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;polyrhythmic&gt; yeah... I can see that those menus still exist in the modem binary... I suppose CM just doesn't know how to talk to the modem correctly</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;polyrhythmic&gt; I wonder where in the samsung ROM that information is stored</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;knowsnotmuch&gt; yeah.. people had the 3g toggle setting persist into CM7</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;knowsnotmuch&gt; where there is no way to change it back</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;polyrhythmic&gt; interesting</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;polyrhythmic&gt; but flashing CM7 initial flashes a new modem</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;polyrhythmic&gt; so the settings must be stored elsewhere</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;knowsnotmuch&gt; yes</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;polyrhythmic&gt; if they persist from modem to modem, then the band selection persists too? but not all modems have the same bands</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.64.245) Quit (Quit: Zzzz)</span><br />
