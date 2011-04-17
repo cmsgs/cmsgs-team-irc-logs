@@ -157,3 +157,20 @@
 <span class="irc-date">[14:21]</span> <span class="irc-black">&lt;Kaik541&gt; yeah I don't see any uploads xD</span><br />
 <span class="irc-date">[14:22]</span> <span class="irc-black">&lt;Kaik541&gt; maybe they're still in the process</span><br />
 <span class="irc-date">[14:52]</span> <span class="irc-green">* Fire2fly (~yaaic@62.140.137.137) has joined this channel.</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.64.245) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: there are still problems to solve. maybe somebody else could take a crack at solving them.</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;Unhelpful&gt; i strongly suspect that chaembian's problem was that BiasModel got stuck on a not-quite-right measurement of the compass bias. on further testing he found that "north" could move if he turned the phone, which is essentially where we are without BiasModel, just, you know, *less* wrong than before.</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;techmik67&gt; i havent had an issue with the compass beoing wrong since i pulled it in, but on and off, my phone goes from "at&amp;t" to "no service" or "emergency xalls only"</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;Unhelpful&gt; that's not me. ;P</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;techmik67&gt; tested the compass aon dog walk and it worked well</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;techmik67&gt; on*</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-green">* Fire2fly (~yaaic@62.140.137.137) has left this channel.</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-navy">* sixstringsg (~Jason@pool-173-74-150-29.dllstx.fios.verizon.net) Quit (Quit: sixstringsg)</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-green">* sixstringsg|M (~yaaic@32.151.131.65) has joined this channel.</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-navy">* mikebeecham (~mikebeech@78.149.235.127) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-green">* mikebeecham (~mikebeech@78.149.235.127) has joined this channel.</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;Unhelpful&gt; basically, th parts i know work are 1) estimate bias by fitting measured values to a sphere 2) the specific sphere-fitting algorithm used</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;Unhelpful&gt; deciding what to do w/ piles of measurements per second, how to decide when to fit and from which data points, is the in-progress part.</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;Unhelpful&gt; anybody w/ stats, feel free to do better, please. ;P</span><br />
