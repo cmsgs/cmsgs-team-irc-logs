@@ -174,3 +174,83 @@
 <span class="irc-date">[15:54]</span> <span class="irc-black">&lt;Unhelpful&gt; basically, th parts i know work are 1) estimate bias by fitting measured values to a sphere 2) the specific sphere-fitting algorithm used</span><br />
 <span class="irc-date">[15:55]</span> <span class="irc-black">&lt;Unhelpful&gt; deciding what to do w/ piles of measurements per second, how to decide when to fit and from which data points, is the in-progress part.</span><br />
 <span class="irc-date">[15:55]</span> <span class="irc-black">&lt;Unhelpful&gt; anybody w/ stats, feel free to do better, please. ;P</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;techmik67&gt; i've been having an intermittant strange problem with sdcards..... connect, mount..... it hods for 3-5 seconds, then acts as if i temporarily unplugged and replugged usb....</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;techmik67&gt; holds*</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, WHERE ARE YOUR LOGCATS!?! haven't you learned?! :P</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;techmik67&gt; the att/not connected thing happenend overnite... was fine when i went to sleep, woke up messed up, and with 4% battery even tho i was plugged in.... i turned off and replaced battery b4 logcat/dmesg occurred</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;techmik67&gt; to me</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;techmik67&gt; and the usb thing hasnthappened yet today, but i will logcat as soon as it does, if it does</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;techmik67&gt; btw, adb is fine, its only mounting</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;techmik67&gt; that gives the prob</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;techmik67&gt; i have a question.....perhaps stupid.... how can i test the uv stuff i branched to test? do i just have to wait and see battery life, or is there some tests or readings i can get?</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;Kaik541&gt; you can check time_in_state</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;zachy_md|away&gt; you need "pimp my cpu" or xan's voltage control</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;zachy_md|away&gt; to set up voltage values</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;zachy_md|away&gt; "apply for now" or write to init script to persist for next boots</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-navy">* sixstringsg|M (~yaaic@32.151.131.65) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;Kaik541&gt; cat /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;zachy_md|away&gt; afaik there are no readings - MIUI seems to show µa values or something</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;Kaik541&gt; oh you said UV, not OC</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;zachy_md|away&gt; spare parts, cpu spy</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;zachy_md|away&gt; can show you were the cpu spends most of its time and what processes cause load</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;zachy_md|away&gt; then according to that you can e.g. undervolt 400 MHz more</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;zachy_md|away&gt; if that gets used more often</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;zachy_md|away&gt; but generally only the battery runtime shows if it helps and/or is effective</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;techmik67&gt; well, i pulled in and modified stuff form morfic...... <a href="https://github.com/techmik/android_kernel_samsung/commits/morfic-uv">https://github.com/techmik/android_kernel_samsung/commits/morfic-uv</a></span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;techmik67&gt; it's buit and running</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;techmik67&gt; built*</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-green">* sixstringsg (~yaaic@32.150.216.154) has joined this channel.</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;Kaik541&gt; install xan's</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;Kaik541&gt; see if it recognize the states and voltages</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;zachy_md|away&gt; damn ! 1600 MHz</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;techmik67&gt; is therer something newer of xan's than 3.0? i have had it installed forever and when i click it it says unsupported kernel</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;zachy_md|away&gt; yes in the market</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;techmik67&gt; cool</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;zachy_md|away&gt; could you try if 1400 works for you with these changes ?</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;zachy_md|away&gt; of course make sure you're not using too high values</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;zachy_md|away&gt; only e.g. running quadrant and whether that gets you high benchmark scores</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;zachy_md|away&gt; since I'm looking for sauce to bump up my OC features from 1.3 to 1.4 or more :)</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;zachy_md|away&gt; UV values for me:</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;zachy_md|away&gt; 1000 MHz: -50 mV</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;zachy_md|away&gt; 200-800 MHz: -75 mV</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;zachy_md|away&gt; 100 MHz: -125 mV</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;techmik67&gt; "package file was not signed correctly"?</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;zachy_md|away&gt; but those are for the OC/UV implementation that TheEscapist in "Le kernel du jour!" uses - I forked from bilboa1/kangsterizer so that also might be different</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;techmik67&gt; from the market, after d/l</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, uninstall your current one</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;techmik67&gt; duh</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;Kaik541&gt; it's probably using a testsigned key</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;Unhelpful&gt; do samsung kernels *still* not use the hummingbird's AVS hardware? :(</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;Unhelpful&gt; also, do they still use the GPIO voltage scaling where the voltages in the table are not actually relevant? ;)</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;Unhelpful&gt; because i was adjusting that table for a while before i figured out it was not being used.</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;zachy_md|away&gt; worked for me</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;chaembian_&gt; Samsung kernels do not use AVS hardware?</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;zachy_md|away&gt; 3.0.3 installed flawlessly</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;zachy_md|away&gt; AV what ?</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;techmik67&gt; xan's app says incompatible kernel</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;zachy_md|away&gt; video acceleration ?</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;zachy_md|away&gt; then you've missed some parts :(</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;zachy_md|away&gt; you'd need to add more commits</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;techmik67&gt; my commit shows what i took from him.... didnt take everything.....</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, it has to be changed in three different places in the new kernel</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;techmik67&gt; for instance, in several places, he has ifdef's that we were already set at</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;techmik67&gt; i have 6 changed files</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;techmik67&gt; well</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;techmik67&gt; 4 and 2 new</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;techmik67&gt; hmmmm</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;techmik67&gt; i have a thought</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;techmik67&gt; arch/arm/mach-s5pv210/Kconfig.morfic</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;techmik67&gt; where/how is that being called?</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;techmik67&gt; if it is....</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; that's a config file to set things up &amp; chose from</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-navy">* sixstringsg (~yaaic@32.150.216.154) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; gotta go out - bye guys</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-green">* zachy_md|away (~zacharias@chello084114179145.16.15.vie.surfer.at) has left this channel.</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;techmik67&gt; oh, i figured that part out, just not wherer it's being called and if i should change something from "Kconfig" to Kconfig.morfic"</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;techmik67&gt; its "make menuconfig", isnt it?</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;techmik67&gt; thats where my problem is i bet</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-green">* sixstringsg (~yaaic@32.150.216.154) has joined this channel.</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;techmik67&gt; of course, now thgat i'm tryong to logcat the usb problem its not doing it =)</span><br />
