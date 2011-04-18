@@ -1743,3 +1743,151 @@
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;zachy_md|away&gt; ONFIG_CMDLINE="console=ttySAC2,115200 init=/init"</span><br />
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;zachy_md|away&gt; btw ?</span><br />
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;zachy_md|away&gt; linuxrc -&gt; init</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;GuiPer&gt; our init binary is called init</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;zachy_md|away&gt; ah, ok</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;zachy_md|away&gt; thanks GuiPer</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;zachy_md|away&gt; cloning the repo right now</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;zachy_md|away&gt; while it's still cloning</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;zachy_md|away&gt; so this kernel samsung_cm7_merge is basically the JVB kernel with some adaptations to make it work with CM7 ?</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;Wout`&gt; yup</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;zachy_md|away&gt; k</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;Wout`&gt; but I dont think anyone got it to boot yet</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;GuiPer&gt; will give a fast try before going to the bed</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;GuiPer&gt; 10 in 100 it will boot :)</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-brick">* Wout` crosses fingers</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;GuiPer&gt; btw no adb yet :)</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;GuiPer&gt; so not much log</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;GuiPer&gt; straight reboot :(:(</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;Wout`&gt; :/</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;zachy_md|away&gt; hm, my git-fu is too weak</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;zachy_md|away&gt; git branch -r</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;zachy_md|away&gt;   origin/HEAD -&gt; origin/android-samsung-2.6.35</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;zachy_md|away&gt;   origin/android-samsung-2.6.35</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;zachy_md|away&gt;   origin/headset_mic</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;zachy_md|away&gt;   origin/samsung_cm7_merge</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;zachy_md|away&gt;   origin/samsung_gt_i9000_20110418</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;zachy_md|away&gt; how to i fetch &amp; checkout the new samsung_cm7_merge branch ?</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;GuiPer&gt; at least device is not bricked :)</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;GuiPer&gt; git clone .... -b branchname</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;zachy_md|away&gt; oh noes - cloning again</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;zachy_md|away&gt; i had hoped there would be a way to add that branch and fetch the differences ;)</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ! 		.gain = WM8994_IN1L_VU | 0x17    /* +18dB */</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ! 		.gain = WM8994_IN1L_VU | 0x18		/* +19.5dB */</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;Wout`&gt; same old crappy mic settings again?</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; diffing sucks</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;zachy_md|away&gt; TMC_Sherpa what program do you use for diffing ?</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;zachy_md|away&gt; I use kdiff3 and that's quite convenient</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; at work? diff.  old mac so I don't have that many toys</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; just doing a quick check of _herring vs _aries</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;zachy_md|away&gt; ok,</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the diff file is 3248 lines but most of it is BS 18dB vs 19.5dB crap</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;zachy_md|away&gt; that's bad that you don't have nicer toys to play with :(</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I have better toys at home</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;zachy_md|away&gt; :)</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;zachy_md|away&gt; copying over build.sh to the main kernel directory and building</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;zachy_md|away&gt; via ./build.sh galaxys</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;zachy_md|away&gt; should be all right ?</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;zachy_md|away&gt; currently I'm trying to compile the new kerne</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;zachy_md|away&gt; hahahahahaah</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;zachy_md|away&gt; samsung is funny:</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;zachy_md|away&gt; make: /opt/toolchains/arm-2009q3/bin/arm-none-linux-gnueabi-gcc: Command not found</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;zachy_md|away&gt; scripts/kconfig/conf -s arch/arm/Kconfig</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;zachy_md|away&gt; make: /opt/toolchains/arm-2009q3/bin/arm-none-linux-gnueabi-gcc: Command not found</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah you need to edit that</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;zachy_md|away&gt; done</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;zachy_md|away&gt; migrated to 2010.09</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;zachy_md|away&gt; that is better anyway ^^</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;zachy_md|away&gt; shees samsung: can't they do their stuff right</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;zachy_md|away&gt; drivers/media/video/samsung/tv20/s5p_stda_grp.c: In function 's5ptvfb_set_par':</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;zachy_md|away&gt; drivers/media/video/samsung/tv20/s5p_stda_grp.c:614:12: error: lvalue required as left operand of assignment</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;zachy_md|away&gt; make[5]: *** [drivers/media/video/samsung/tv20/s5p_stda_grp.o] Error 1</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;zachy_md|away&gt; make[4]: *** [drivers/media/video/samsung/tv20] Error 2</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;zachy_md|away&gt; make[3]: *** [drivers/media/video/samsung] Error 2</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;zachy_md|away&gt; make[2]: *** [drivers/media/video] Error 2</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;zachy_md|away&gt; make[1]: *** [drivers/media] Error 2</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;zachy_md|away&gt; make[1]: *** Waiting for unfinished jobs....</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;GuiPer&gt; i had no problems compiling</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;GuiPer&gt; what was strange :S</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;atinm|away&gt; compiling is fine - booting isn't :)</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;zachy_md|away&gt; that's probably the reason why it didn't boot ?</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;zachy_md|away&gt; why are they using an older toolchain if there is a newer one (with tighter rules) available ?</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;atinm|away&gt; it compiled fine.</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;zachy_md|away&gt; i meant stricter rules</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;zachy_md|away&gt; atinm|away what toolchain did you use</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;zachy_md|away&gt; the one recommended by sammy ?</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;GuiPer&gt; should I change to new toolchain?</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; because the stricter rules break their code</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;zachy_md|away&gt; then they don't do it right</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;zachy_md|away&gt; :P</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gcc 4.5 doesn't like it very much 4.4.3 is ok, or at least it compiles</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;atinm|away&gt; 4.4.3</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;atinm|away&gt; same as nexus s</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;atinm|away&gt; same as cm7</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;GuiPer&gt; no idea why no boot :S</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;zachy_md|away&gt; ok so you're using google's / cm7's pre-packaged toolchain</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;GuiPer&gt; maybe FIQ thing?</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;GuiPer&gt; will enable it</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;atinm|away&gt; yes, no reason to change from it.</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;atinm|away&gt; maybe, FIQ yes.</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;atinm|away&gt; only thing that looked major :)</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;atinm|away&gt; back after dinner</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;zachy_md|away&gt; tiny_fsr gets nixed out in the resulting .config anyway</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;zachy_md|away&gt; config_bcm4329 changes to config_broadcom_wifi</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;zachy_md|away&gt; a new unset variable appears:</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;zachy_md|away&gt; # CONFIG_VT_HW_CONSOLE_BINDING is not set</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; and the tv20 (tv-out ?) too</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_VIDEO_TV20=y</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; # CONFIG_HDMI_CEC is not set</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; # CONFIG_HDMI_HPD is not set</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; # CONFIG_TV_FB is not set</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; # CONFIG_VIDEO_G2D is not set</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; i guess when i disable it - it will compile fine</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; another additional variable appears:</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_ANDROID_BUF_NUM=1</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; part of the reason it's taking me so long to get a good gpio list is the ifdefs are wrong.  So in a captivate file it will say kepler UP t959 NONE and in the vibrant file the same thing will be kepler UP t959 DOWN.  removing all the trash is a pita</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_USB_ANDROID_RNDIS_WCEIS=y</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_USB_ANDROID_RNDIS_DWORD_ALIGNED=y</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;zachy_md|away&gt; will be disabled in .config</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;zachy_md|away&gt; ah - my bad</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;zachy_md|away&gt; tiny_fsr actually is only almost moved to the very end</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;zachy_md|away&gt; it built fine ^^</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;GuiPer&gt; last try with FIQ</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;GuiPer&gt; and bed</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;zachy_md|away&gt; attempting to flash</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;zachy_md|away&gt; wish me luck ^^</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;Wout`&gt; g'luck</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; luck</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;GuiPer&gt; also</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;GuiPer&gt; btw heimdall works great</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;zachy_md|away&gt; Galaxy S splash screen for approx. 30 secs</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;zachy_md|away&gt; then a reboot</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;zachy_md|away&gt; O.o</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;zachy_md|away&gt; now at splash again</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;GuiPer&gt; same here</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;GuiPer&gt; enabled FIQ thing?</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-green">* techmik is now known as techmik67</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;zachy_md|away&gt; no :(</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;GuiPer&gt; no luck anyway</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;GuiPer&gt; :S</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;zachy_md|away&gt; yeah :(</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;zachy_md|away&gt; no adb at all also</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;GuiPer&gt; something is missing</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;GuiPer&gt; tomorrow :)</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;GuiPer&gt; good luck guys</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;zachy_md|away&gt; til next time</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;zachy_md|away&gt; :)</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;GuiPer&gt; something is segfaulting :S</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;zachy_md|away&gt; I got the same with FIQ missing with pre-gingerbread (from sammy) merged</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;zachy_md|away&gt; while fiq was disabled XD</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;zachy_md|away&gt; but it can't be that fiq thing</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;zachy_md|away&gt; since samsung has it disabled, too</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;zachy_md|away&gt; weird</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;GuiPer&gt; maybe revert everything</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;GuiPer&gt; and start slowly again :S</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;zachy_md|away&gt; yeah, sort of manual git bisect</span><br />
