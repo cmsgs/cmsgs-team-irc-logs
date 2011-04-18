@@ -1072,3 +1072,156 @@
 <span class="irc-date">[17:56]</span> <span class="irc-black">&lt;zachy_md|away&gt; besides if there are still these weird lines in cam</span><br />
 <span class="irc-date">[17:56]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;coolya&gt; why are we using fucking pmem again?</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;zachy_md|away&gt; hm, sammy uses it too so maybe the drivers they share are broken too</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;zachy_md|away&gt; (Android/PMEM: The PMEM (physical memory) driver is used to provide contiguous physical memory regions to userspace libraries that interact with the digital signal processor (DSP) and other hardware that cannot cope with scatter-gather.)</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;coolya&gt; pmem is crap</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;coolya&gt; ashmem is the way to go</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-brick">* coolya looks at the commits, starts to cry and goes home</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; start writing, we'll follow you</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;nitam|work&gt; don't mind my commits - theyr'e all on a branch!</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;zachy_md|away&gt; ok, it booted seems to work fine so far</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;nitam|work&gt; and all I'm trying to do right now is build samsung kernel within cm7</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;nitam|work&gt; with minimal changes.</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;zachy_md|away&gt; picture quality of back &amp; front cam are significantly better</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;zachy_md|away&gt; there are still slightly noticable lines in preview but haven't seem them in the pic (probably very lightly)</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: samsung_cm7_merge atinm * 0469df8 (2 files in 1 dirs): Samsung code drop changes. ... - <a href="http://bit.ly/gO8L4P">http://bit.ly/gO8L4P</a></span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;zachy_md|away&gt; cam app still crashing while taking pic with FF cam (as expected - no change in that area yet)</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;zachy_md|away&gt; codeworkx, anything else you want tested ?</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;codeworkx&gt; 3d</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;zachy_md|away&gt; everyday usage patterns ?</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;zachy_md|away&gt; ok</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;nitam|work&gt; techmik67: you need to branch device/samsung/captivate too</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;nitam|work&gt; then it should all build.</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;nitam|work&gt; (I haven't modified the others yet)</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;techmik67&gt; i'm booted with the kernel built</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;zachy_md|away&gt; codeworkx, will run some benchmarks &amp; see how results are</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: no i don't mind yours</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;zachy_md|away&gt; gun bros &amp; angry birds rio also should be good indication if it's smooth</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;nitam|work&gt; techmik67: I can't test right now</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;nitam|work&gt; so going to let you do it</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * c1c4c3b (6 files in 2 dirs): Moved cypress up to main keyboard dir. ... - <a href="http://bit.ly/ihhybB">http://bit.ly/ihhybB</a></span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-green">* sixstringsg|M (~yaaic@COX-24-248-245-194-static.coxinet.net) has joined this channel.</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Client Quit)</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;zachy_md|away&gt; codeworkx, planet sim at quadrant at 11 fps</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;zachy_md|away&gt; anything other to be expected ?</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;codeworkx&gt; flash this <a href="http://www.multiupload.com/WMQRWMD85C">http://www.multiupload.com/WMQRWMD85C</a> and try again</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;zachy_md|away&gt; an3dbenchxl xl around 24500</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;zachy_md|away&gt; k</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;uberushaximus&gt; did we get new 3d drivers from sammy?</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;Kaik541&gt; from somewhere</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;Kaik541&gt; MIUI team is using it</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;uberushaximus&gt; are we allowed to use them?</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;Kaik541&gt; shh</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;uberushaximus&gt; ;)</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;Kaik541&gt; asking questions is bad for your health</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;Zilch25&gt; just lay back and accept it</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;Kaik541&gt; Zilch25, attitudes like that are why rape trials exist :D</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;Zilch25&gt; pfft no way, if attitudes like that were the norm words like "rape" wouldn't exist</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;Kaik541&gt; I didn't say the norm, just that they do exist... SEMANTICS FTW</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;uberushaximus&gt; are they in teamhacksung yet?</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;Kaik541&gt; uberushaximus, the 3D driver? no, they're in that multiupload zip if you wanna try them though</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;uberushaximus&gt; precompiled? I need a cap build</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;Kaik541&gt; it's a zip with just the binary for the GPU</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-green">* sixstringsg (~yaaic@COX-24-248-245-194-static.coxinet.net) has joined this channel.</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-navy">* sixstringsg|M (~yaaic@COX-24-248-245-194-static.coxinet.net) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;Kaik541&gt; no target</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-green">* GuiPer (5ee69802@gateway/web/freenode/ip.94.230.152.2) has joined this channel.</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;Zilch25&gt; damn... meeting, ill try to be on later- good luck with the pile of possibly unfinished source ;)</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-navy">* Zilch25 (~Zilch25@32.160.220.60) Quit ()</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-navy">* sixstringsg (~yaaic@COX-24-248-245-194-static.coxinet.net) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;nitam|work&gt; coolya, are you working on the samsung kernel dump?</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;nitam|work&gt; I am not going to be able to work on this for a bit. work is quite stressful.</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;nitam|work&gt; so I want to just dump it on you. get galaxys working, and I'll port over to captivate</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;GuiPer&gt; Ill also to give a hand</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;GuiPer&gt; where I can</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;Wout`&gt; are you guys merging cm into jvb, or jvb into cm?</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;nitam|work&gt; thanks. right now I've got a samsung_cm7_merge branch set up for kernel and device/samsung/captivate</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;GuiPer&gt; try to give an hand</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;nitam|work&gt; and it builds, but no idea if it will work.</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;zachy_md|away&gt; quadrant (std) at the planet sim 55-57 FPS</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;Wout`&gt; with new driver?</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;zachy_md|away&gt; jupp</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;Wout`&gt; nice</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;zachy_md|away&gt; 10-11 with the old one</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;zachy_md|away&gt; score 1429</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;uberushaximus&gt; methinks i need to build a new kernel</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;kang&gt; talking about the gl lib?</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;zachy_md|away&gt; it's not kernel related</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;zachy_md|away&gt; kang, yes</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;kang&gt; oks :)</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;kang&gt; was just checking xda and saw it lol</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;Wout`&gt; zachy_md|away: have you tried to take a pic in low-light?</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;kang&gt; suppose it should go in cm7 if theres no regression</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;zachy_md|away&gt; Wout` will do</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; 1st benchmark has to finish Xd</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; brrrr wrong smiley</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;zachy_md|away&gt; XD</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;Wout`&gt; has anyone looked into the new sammy bootloaders yet? what's changed, do we need to switch?</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-green">* sixstringsg (~yaaic@COX-24-248-245-194-static.coxinet.net) has joined this channel.</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;Unhelpful&gt; where did these binaries come from, anyway? and this is w/ the same-old kernel driver? (i know, most of the 3d is in userspace)</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;kang&gt; i suspect they're from jvb</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;zachy_md|away&gt; Wout` still red, green, blue (?) lines in one direction with low-light - at least in preview</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;Wout`&gt; :/</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;zachy_md|away&gt; will take a pic to see if it's also present on it</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;kang&gt; will be =/</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;zachy_md|away&gt; yes, it is :(</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;Wout`&gt; well, the fix is in there somewhere</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;Wout`&gt; will probably be found in time</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;Unhelpful&gt; are they the same md5sum as from jvb? ;)</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;kang&gt; i was going to check</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;kang&gt; actually</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;kang&gt; i was going to copy jvb ones over</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;kang&gt; but didnt flash cm7 back yet</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;kang&gt; lol</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;kang&gt; might need to copy over the camera fw blob too</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;kang&gt; yes</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;kang&gt; its jvb's files</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;nitam|work&gt; we need to start a petition for coolya's girlfriend to let him work on android for a few days.</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-brick">* Unhelpful goes off to grab some jvb then</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: don't forget to include mtd stuff, otherwise your bootloader will go away</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;nitam|work&gt; techmik67: btw, don't flash anything right now. it is quite broken and no use.</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;kang&gt; mnita|work: pretty sure that stuff doesnt work</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: I haven't done anything beyond put all the code on the repo and made it build :)</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;kang&gt; mnita|work: make them break up.</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-navy">* GuiPer (5ee69802@gateway/web/freenode/ip.94.230.152.2) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-green">* enl_ (571d436f@gateway/web/freenode/ip.87.29.67.111) has joined this channel.</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;nitam|work&gt; the actual hard part is still to come where we have to do diffs and merges etc</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;Unhelpful&gt; kang: anybody with photoshop can do *that*! ;)</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;Unhelpful&gt; um, there are *three* JVBs on samfirmwares?</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;nitam|work&gt; and I don't have the time right now ..</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, the changes are all CSC related</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;kang&gt; i took JVB from doc's romkitchen</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: maybe you can do it :)</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Unhelpful&gt; hotfile... h8888888.</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;kang&gt; hopefully he got it from a reliable source</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;kang&gt; also his host is fast</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: there is the long easter weekend there i will have some time for android</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: i just unpack the odintarfiles, and extract the .rfs contents w/ mtools. :)</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-navy">* sixstringsg (~yaaic@COX-24-248-245-194-static.coxinet.net) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;Kaik541&gt; I just mount -o loop -t vfat</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;Unhelpful&gt; my solution does not need root ;)</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;kang&gt; Unhelpful: getting it from romkitchen doesnt even need mount ;&gt;</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, well I have root on my home machine so it's nothing to worry about :P</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;kang&gt; tv20 is tvout ;&gt;</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;rhcp&gt; galaxy S gingerbread src out</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;rhcp&gt; i guess this helps you guys</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;nitam|work&gt; rhcp now!!</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;nitam|work&gt; really?</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;rhcp&gt; yep</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;nitam|work&gt; damn . . .</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;kang&gt; nah hes lying</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;rhcp&gt; no im not</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;kang&gt; u can't trick me</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;Kaik541&gt; rhcp, they've only been talking about it for the past 12 hours &gt;_&gt;</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;nitam|work&gt; man, how'd you find out?!</span><br />
