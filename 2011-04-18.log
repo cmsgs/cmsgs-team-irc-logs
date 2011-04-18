@@ -1510,3 +1510,236 @@
 <span class="irc-date">[20:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge Guilherme * 0c3a1fc (1 files in 1 dirs): Add changes to OneNand driver layout to depend on the device. Need updated config files, to be done. - <a href="http://bit.ly/fLTeG1">http://bit.ly/fLTeG1</a></span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;GuiPer&gt; you tried it??</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;GuiPer&gt; :O:O</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-navy">* sixstringsg (~yaaic@32.168.132.101) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-green">* sixstringsg (~yaaic@32.168.132.101) has joined this channel.</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;nitam|work&gt; wtf.</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;nitam|work&gt; argh.</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;nitam|work&gt; it commited something other than what I wanted.</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * b94319c (1 files in 1 dirs): Merged JVB for Captivate (for real...) ... - <a href="http://bit.ly/fkb2ju">http://bit.ly/fkb2ju</a></span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;GuiPer&gt; CONFIG_CMDLINE="console=ttySAC2,115200 init=/linuxrc"</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;GuiPer&gt; with init=/linuxrc no luck :)</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;nitam|work&gt; changed that to init</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;nitam|work&gt; for captivate.</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;nitam|work&gt; haven't got to the others yet</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-navy">* t-ready1 (~burrell@wormhole.cbl.umces.edu) Quit (Quit: Captivate - Phoenix ROM)</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;GuiPer&gt; doing galaxys</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;GuiPer&gt; CONFIG_MTD=y</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;GuiPer&gt; also this one, most important one</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;GuiPer&gt; what about the kernel compression things?</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;GuiPer&gt; we need LZMA?</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * 86afc12 (1 files in 1 dirs): Use qt602240 driver instead of mxt224. ... - <a href="http://bit.ly/h2ERp6">http://bit.ly/h2ERp6</a></span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; that's what I have</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; compare to aries_captivate_defconfig as well</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; I've done that one.</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;zachy_md|away&gt; lzma works for me</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;nitam|work&gt; so see if you spot any mistakes.</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;zachy_md|away&gt; (prior to any sammy changes)</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;nitam|work&gt; bzr commit --amend</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;nitam|work&gt; crap</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-green">* t-ready (~burrell@wormhole.cbl.umces.edu) has joined this channel.</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;nitam|work&gt; and bzr doesn't have an --amend.</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;GuiPer&gt; mnita|work: what about this one?</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;GuiPer&gt; CONFIG_SAMSUNG_FM_SI4709=m</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;GuiPer&gt; you removed it</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;nitam|work&gt; we don't have fm on captivate.</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;GuiPer&gt; oki, I'll let it for us</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;nitam|work&gt; so not needed, but should be on the others.</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;GuiPer&gt; CONFIG_ANDROID_PMEM=y</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;GuiPer&gt; #</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;GuiPer&gt; # Reserved memory configurations</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;GuiPer&gt; #</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;GuiPer&gt; CONFIG_ANDROID_PMEM_MEMSIZE_PMEM=8192</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;GuiPer&gt; CONFIG_ANDROID_PMEM_MEMSIZE_PMEM_GPU1=3072</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;nitam|work&gt; I took it out because coolya said to :)</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;GuiPer&gt; CONFIG_ANDROID_PMEM_MEMSIZE_PMEM_ADSP=6144</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;GuiPer&gt; i like this PMEM...</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;GuiPer&gt; will let it for now</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;GuiPer&gt; will not hurt i guess</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;nitam|work&gt; I don't know anything about PMEM, but coolya was very unhappy to see it, so I took it out :)</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-navy">* t-ready (~burrell@wormhole.cbl.umces.edu) Quit (Client Quit)</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;zachy_md|away&gt; the config is currently broken in the git repo: <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/0902689c46f40ebb3c448a2780d69f33353014b1">https://github.com/teamhacksung/android_kernel_samsung/commit/0902689c46f40ebb3c448a2780d69f33353014b1</a></span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;Wout`&gt; wouldnt it be easier to get it to boot first, then fix what doesnt work, then optimize?</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;GuiPer&gt; I guess we are far away from booting :S</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;GuiPer&gt; CONFIG_FB_S3C_NR_BUFFERS=2</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;GuiPer&gt; i'll let 2 for now</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;nitam|work&gt; zachy_md|away: that's old.</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.64.245) Quit (Quit: Zzzz)</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;nitam|work&gt; we're trying to boot.</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;Wout`&gt; GuiPer: well, kernel + mtd stuff should at least get through initialising all hardware, right?</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;nitam|work&gt; no one is trying to optimize right now.</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;nitam|work&gt; we're just trying to get the drivers all up</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;Wout`&gt; k</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;zachy_md|away&gt; mnita|work: yeah, just saw that it should be working with newer state</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;nitam|work&gt; all the drivers we depend on</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;zachy_md|away&gt; thanks</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;GuiPer&gt; it's always messy these merges :S</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;nitam|work&gt; yeah. I've basically run an emerge on aries_captivate_defconfig on cm7 and jvb and picked one or the other based on what I thought should be correct. :)</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;GuiPer&gt; mnita|work: guess you forgot this lines</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;GuiPer&gt; CONFIG_DECOMPRESS_BZIP2=y</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;GuiPer&gt; CONFIG_DECOMPRESS_LZMA=y</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;GuiPer&gt; will commit mine now</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;nitam|work&gt; k</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;nitam|work&gt; didn't have them on cm7 ...</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;nitam|work&gt; wonder how it worked.</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge Guilherme * bd15390 (1 files in 1 dirs): Merged Defconfig for Galaxy S International. Maybe some more tuning is required. - <a href="http://bit.ly/evZkut">http://bit.ly/evZkut</a></span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;GuiPer&gt; some kamikaze to try to boot it?</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;nitam|work&gt; maybe not needed - the initramfs uses gzip</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;Wout`&gt; GuiPer: you? :P</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;GuiPer&gt; hehehe</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;GuiPer&gt; need phone tomorrow I guess :D</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;GuiPer&gt; and I don't even have heimdall installed</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;Wout`&gt; zachy_md|away?</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;Wout`&gt; i think he's running cm7 atm on i9000</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * 654bac5 (1 files in 1 dirs): Added decompress for bzip2 and lzma. ...</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * 3332a03 (1 files in 1 dirs): Merge branch 'samsung_cm7_merge' of git://github.com/teamhacksung/android_kernel_samsung into samsung_cm7_merge</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge commits bd15390...3332a03 - <a href="http://bit.ly/en4T7C">http://bit.ly/en4T7C</a></span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;nitam|work&gt; I don't think he is . . . he'd need to have done the same stuff we're doing.</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;nitam|work&gt; unless he has done it but hasn't sent any pulls</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;Wout`&gt; he's running a pre jvb-kernel, but just saying that he has a i9000</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;Wout`&gt; so could test the changes</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;nitam|work&gt; ah, ok.</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;nitam|work&gt; I think pressure is going to get less on CM7 because now a lot of the ROM ppl will be able to use Samsung ROMs</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;nitam|work&gt; so things like serendipity, cognition etc etc will be able to start working.</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;Wout`&gt; but they'll still contain that touchwiz crap</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;GuiPer&gt; and will be slow..</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, but a lot of people don't actually care.</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;Wout`&gt; true</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;nitam|work&gt; the main reason so many were coming to CM7 was to get gingerbread.</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;Wout`&gt; have to admit, i do like dlna and hw accelerated mkv, but the speed difference is so big</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;nitam|work&gt; and would have been perfectly happy with a lagfix based gingerbread</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;freat&gt; so do all mods not include dlna and mkv support at this point?</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;Wout`&gt; aosp based ones dont</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;coolya&gt; install dlna app from the market ...</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;coolya&gt; there are better than the samsung one</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;nitam|work&gt; I'm actually cool with that . . . fewer newbies.</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;freat&gt; heh I'm a n00b but I'm just lurking mostly</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;nitam|work&gt; tho I can't wait for the "CM7 is obsolete" tweet again from DG :)</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;nitam|work&gt; you know its coming..</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;coolya&gt; one german forums they are posting it when the first leak hit the web</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;coolya&gt; nite</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; you have german designgears :)</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; he's multiplying..</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;coolya&gt; more than one ;)</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;freat&gt; I've been running speedmod kernel with 2.2 based ROM and was very happy once speedmod applied</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;nitam|work&gt; wth are you doing here?</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;zachy_md|away&gt; just went through the config comparing ours with sammy's</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;zachy_md|away&gt; I don't know what that config changes but mmc-related:</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;zachy_md|away&gt; from CONFIG_S3C_DEV_HSMMC1=y</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_S3C_DEV_HSMMC2=y</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;zachy_md|away&gt; to CONFIG_S3C_DEV_HSMMC3=y</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;zachy_md|away&gt; dunno what changed</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;zachy_md|away&gt; naming of the phones</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;GuiPer&gt; it will be replaced by KCONFIG</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;GuiPer&gt; take a look at the .config, i'm quite sure...</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;zachy_md|away&gt; what does CONFIG_DVFS_LIMIT=y do ?</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;zachy_md|away&gt; that seems to be new</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;zachy_md|away&gt; tiny_fsr is the rfs-related thingy</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-navy">* sixstringsg (~yaaic@32.168.132.101) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;zachy_md|away&gt; there seem to be ACL now for CONFIG_FB_S3C_TL2796</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; arch/arm/mach-s5pv210/cpu-freq.c:#ifdef CONFIG_DVFS_LIMIT</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_FB_S3C_TL2796_ACL=y</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;nitam|work&gt; still no boot.</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;nitam|work&gt; crap.</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;GuiPer&gt; really?</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zachy_md|away&gt; new sound related options:</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_SND_S5P_RP=y</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_SND_S3C_SOC_PCM=y</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_SND_C110_PCM=y</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;nitam|work&gt; yeah..</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-navy">* blyfoten (~AndChat@m83-186-129-95.cust.tele2.se) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;freat&gt; voip stack related?</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;nitam|work&gt; nothing. just straight to boot screen</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zachy_md|away&gt; new usb_android_acm option and usb_dun</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_USB_ANDROID_ACM=y</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_USB_DUN_SUPPORT=y</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;GuiPer&gt; tried recovery?</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-green">* blyfoten (~AndChat@m80-170-181-67.cust.tele2.se) has joined this channel.</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zachy_md|away&gt; allowing for usage as wireless modem</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|away&gt; their famous mtp stuff (can we use this ?)</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; GuiPer: not yet - will have to do it at home</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|away&gt; # CONFIG_USB_ANDROID_RNDIS_WCEIS is not set</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_USB_ANDROID_SAMSUNG_COMPOSITE=y</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|away&gt; # CONFIG_USB_ANDROID_SAMSUNG_ESCAPE is not set</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|away&gt; # CONFIG_CONFIG_USB_ANDROID_SAMSUNG_RNDIS_WITH_MS_COMPOSITE is not set</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_USB_ANDROID_SAMSUNG_MTP=y</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; can't really keep phone off</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|away&gt; and a new number generator:</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|away&gt; CONFIG_CRYPTO_DEV_S5P_ACE=y</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; zachy_md|away: look at the aries_galaxys_defconfig and aries_captivate_defconfig</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; that we've pushed to the samsung_cm7_merge branch.</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; it should be very close to what we need.</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|away&gt; ok, will have a look</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|away&gt; thanks</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;nitam|work&gt; GuiPer: I flashed back to working cm7 kernel because still at work</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;GuiPer&gt; i finished compiling, but maybe it's better wait for tomorrow</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;GuiPer&gt; its almost 00:00 here</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; oh c'mon, you can do it :)</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; I'll work at home.</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; but you'all will be in bed. I'll still have unhelpful tho</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; but he's busy with compass.</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;zachy_md|away&gt; OMG samsung is soo lame: just noticed - it's still 2.6.35.7 !</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;zachy_md|away&gt; 2.6.35 is already at 2.6.35.11</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;nitam|work&gt; zachy_md|away: that's why we didn't do the diff/merge to .35.11</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;nitam|work&gt; to make it easier on us when doing diffs.</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;nitam|work&gt; so we don't get false positives.</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;zachy_md|away&gt; mnita|work wise decision :)</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;nitam|work&gt; we used to have someone who wanted us to move to 35.11 but he left.</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Wout`&gt; lol</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Wout`&gt; 'he left'</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;nitam|work&gt; he did. :)</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;Wout`&gt; he did indeed</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;GuiPer&gt; anybody to try a zImage? zachy_md|away ?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;GuiPer&gt; i need to go soon, and not even have heimdall</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;nitam|work&gt; zachy_md|away: has a i9000 right?</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;nitam|work&gt; or are you captivate</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;nitam|work&gt; I'm off, time to get home. will log on there.</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-green">* nitam|work (work@work.com) has left this channel.</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;zachy_md|away&gt; yes i9000</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;zachy_md|away&gt; but it's painful to reboot into windows if anything breaks ;)</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;zachy_md|away&gt; still comparing &amp; checking the configs</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;GuiPer&gt; ? why not heimdall?</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;zachy_md|away&gt; doesn't work</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;GuiPer&gt; ? I used it for long time</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;zachy_md|away&gt; well, I havne tried after upgrading from 2.6.37 to 2.6.38</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;zachy_md|away&gt; but i wanted to flash a zImage but the phone didn't get detected in download mode</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;zachy_md|away&gt; maybe due to usb power management</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;zachy_md|away&gt; is tiny_FSR even needed ?</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;zachy_md|away&gt; or would that interfere with things ?</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;Wout`&gt; <a href="https://github.com/project-voodoo/linux_gt-i9000/commit/6c8f989f58999770d23236bb172c3a4e1c80586b">https://github.com/project-voodoo/linux_gt-i9000/commit/6c8f989f58999770d23236bb172c3a4e1c80586b</a></span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;Wout`&gt; its needed I think</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;Wout`&gt; JVB sources wouldnt boot without that commit</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;GuiPer&gt; i guess tiny_FSR is RFS filesystem</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;GuiPer&gt; if im not wrong</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;zachy_md|away&gt; it's related to cramfs</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;zachy_md|away&gt; tinyfsr i mean</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;zachy_md|away&gt; probably some semi-open samsung shit</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;zachy_md|away&gt; no descriptions for it :(</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;zachy_md|away&gt; ah: eXtended Sector Remapper device</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;zachy_md|away&gt; so it's probably taking care of bad blocks / sectors</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;zachy_md|away&gt; nice</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;GuiPer&gt; so maybe it's needed</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;GuiPer&gt; just disabled it</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;zachy_md|away&gt; yeah, better safe than sorry</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;zachy_md|away&gt; there's also a folder named BML behind the CORE folder</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;GuiPer&gt; shitty kconfigs !!! looks like it's changing a lot of things :S</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;GuiPer&gt; CONFIG_MTD=m its changing from y to M</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;GuiPer&gt; defconfig and it looks better :)</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;zachy_md|away&gt; why did you guys change CONFIG_CMDLINE="console=ttySAC2,115200 init=/linuxrc"</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;zachy_md|away&gt; to</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;zachy_md|away&gt; ONFIG_CMDLINE="console=ttySAC2,115200 init=/init"</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;zachy_md|away&gt; btw ?</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;zachy_md|away&gt; linuxrc -&gt; init</span><br />
