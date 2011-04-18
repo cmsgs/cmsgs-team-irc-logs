@@ -1361,3 +1361,152 @@
 <span class="irc-date">[19:52]</span> <span class="irc-black">&lt;coolya&gt; but our ASoC does it another way</span><br />
 <span class="irc-date">[19:52]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 250 seconds)</span><br />
 <span class="irc-date">[19:58]</span> <span class="irc-green">* wegah (~wegah@189-69-49-74.dsl.telesp.net.br) has joined this channel.</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-navy">* Fire2fly (~yaaic@62.140.137.144) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;GuiPer&gt; coolya what you think its critical to make the kernel boot?</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;GuiPer&gt; i would say mostly the mtd changes</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;coolya&gt; if we add the mapping and the config it should work just like our</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;GuiPer&gt; should be easy no?</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;GuiPer&gt; anything more you think its important?</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;coolya&gt; copy &amp; paste, double checking everything</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;nitam|work&gt; pls work in the samsung_cm7_merge branch.</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;nitam|work&gt; so we can all see what is going on</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;nitam|work&gt; I guess I should first merge the _defconfigs.</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;nitam|work&gt; to make sure the things we had on are going to stay on</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;GuiPer&gt; hum, we need the MTD, some things related with INITRAMFS etc</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;GuiPer&gt; but not much more I would say</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;GuiPer&gt; there are some 30 commits to defconfig, half are related to sensors and FB things</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;GuiPer&gt; that "should work out of box now</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;nitam|work&gt; what is pmem?</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;nitam|work&gt; and do we care?</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;nitam|work&gt; CONFIG_ANDROID_PMEM_MEMSIZE_PMEM=8192</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;nitam|work&gt; etc</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;GuiPer&gt; no idea... but if it's on samsung kernel...</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;coolya&gt; i think we don't need pmem</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful:</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;nitam|work&gt; CONFIG_INPUT_BMA023=y</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;nitam|work&gt; CONFIG_INPUT_YAS529=y</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;nitam|work&gt; CONFIG_INPUT_YAS529_POSITION=7</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;nitam|work&gt; CONFIG_INPUT_ORIENTATION=y</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;nitam|work&gt; ^</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt; all perfect :)</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt; Ill take care of it, dont worry</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-navy">* designfears (~AndChat@32.146.181.75) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: i'm using position=0 on my captivate w/ good results</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;Unhelpful&gt; good-ish, anyway, i'm still working out all the ways that input can break BiasModel, and how to guard vs them.</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;nitam|work&gt; CONFIG_MODEM_HAS_CRAPPY_BOOTLOADER=y - that's a definite we want.</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;nitam|work&gt; what is CONFIG_TINY_FSR?</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;coolya&gt; STL flash access from samsung</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;nitam|work&gt; ignore then</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;Unhelpful&gt; INPUT_ORIENTATION? what's that actually do?</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;GuiPer&gt; excellent question :)</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;nitam|work&gt; CONFIG_FIQ?</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;GuiPer&gt; hopefully give us compass working, via some miracle :):)</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: debuger over serial port</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful will kill someone if that is what INPUT_ORIENTATION does.</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;nitam|work&gt; or at least, maim.</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;coolya&gt; if ou turn it of on nexus s kernel kernel dies on open("dev/console") in init</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: erm... go check my github. ;)</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;nitam|work&gt; ok.</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;nitam|work&gt; samsung has it off</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;nitam|work&gt; so maybe we dont' need it anymore?</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;Unhelpful&gt; bias correction for compass. our compass "doesn't work" because there is an offset in the sensor reading that is larger than the geomagnetic field. ;)</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: find out what it actually *does*. ;)</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;coolya&gt; i think they use that serial port in their sec debug code like on froyo</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;nitam|work&gt; they turned it off in the GB source.</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;nitam|work&gt; CONFIG_FIQ I mean.</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: yes when its off the kernel writes directly to the serial port</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;nitam|work&gt; the galaxys GB source.</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;coolya&gt; or can write directly to the port</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;nitam|work&gt; so I turn it off too?</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;nitam|work&gt; to keep what samsung is doing?</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful, in a few.</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;nitam|work&gt; CONFIG_SLOW_WORK . . . samsung turned it off. we have it on. what is that?</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: you should be using menuconfig to ask these questions, it has help. :)</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;nitam|work&gt; I'm using emerge ;)</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;nitam|work&gt; to just do a straight A to B merge.</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;nitam|work&gt; those are the only ones I didn't know what to do with :)</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;Unhelpful&gt; well, make a list, run make menuconfig, type / to search on config names. :)</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;kang&gt; Unhelpful: nconfig &gt; menuconfig</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;kang&gt; x)</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;kang&gt; use nconfig its vastly improved over menuconfig, especially for search and help in fact</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;nitam|work&gt; google. I can read what it says - doesn't mean I understand what it says. :)</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;kang&gt; as in shortcuts works</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;nitam|work&gt; so the "real" question I'm asking is - what do I do? ;)</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;nitam|work&gt; I guess I'll leave it on</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;GuiPer&gt; I would go for samsung choice</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Documentation/slow-work.txt:If CONFIG_SLOW_WORK_DEBUG is enabled, a debugfs file is made available:</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;GuiPer&gt; if we donºt know :)</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;kang&gt; its just debug</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; shit...well that one is. stupid grep</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;zachy_md|away&gt; mnita|work config_slow_work isn't used anywhere - at least not with our drivers</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; include/linux/slow-work.h:#ifdef CONFIG_SLOW_WORK kernel/sysctl.c:#ifdef CONFIG_SLOW_WORK</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; almost no one has it on (in defconfig)</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;nitam|work&gt; I'm leaving it on - doesnt' hurt anything.</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;nitam|work&gt; since we had it in CM7.</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;zachy_md|away&gt; I grepped through the source and only driver's we're not using have it</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;zachy_md|away&gt; before it was off anyways</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;zachy_md|away&gt; mnita|work yeah, no adverse effects noticed ;)</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;nitam|work&gt; it was on in CM7 defconfigs.</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;nitam|work&gt; so I left it.</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;nitam|work&gt; can take it off</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;nitam|work&gt; but leaving it for now.</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;nitam|work&gt; lets see.</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;  *</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;  * Copyright (C) 2008 Red Hat, Inc. All Rights Reserved.</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;  * Written by David Howells (dhowells@redhat.com)</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;  *</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;  * This program is free software; you can redistribute it and/or</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;  * modify it under the terms of the GNU General Public Licence</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;  * as published by the Free Software Foundation; either version</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;  * 2 of the Licence, or (at your option) any later version.</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;  *</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;  * See Documentation/slow-work.txt</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;  */</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; crap, cut off the only line I ment to paste</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh noes I broke it</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Worker thread pool for slow items, such as filesystem lookups or mkdirs</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; durp /* comment</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-green">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;zachy_md|away&gt; wow: INCOMING !</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;zachy_md|away&gt; xwjva gingerbread for lux is out</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;zachy_md|away&gt; sammy is really doing well lately</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;zachy_md|away&gt; faster than the others</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I would hope so, they've been working with the goog for a while on nexus S</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;Wout`&gt; lux?</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-navy">* sixstringsg (~yaaic@32.168.132.101) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;zachy_md|away&gt; probably luxembourg</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;Wout`&gt; right, so jvb with different region stuff</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;zachy_md|away&gt; back to the fiq thing: it's probably also performance related</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;nitam|work&gt; I won't be happy until I get captivate.</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;zachy_md|away&gt; so if sammy has it disabled it couldn't hurt</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;zachy_md|away&gt; I built a kernel 2 days ago and it would end at the samsung + cyanogenmod splash</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;nitam|work&gt; as it is the only one with the audience chip</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;zachy_md|away&gt; and keep on rebooting</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;zachy_md|away&gt; XD</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-green">* sixstringsg (~yaaic@32.168.132.101) has joined this channel.</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;zachy_md|away&gt; is fiq really disabled ?</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;zachy_md|away&gt; I only see: # CONFIG_FIQ_DEBUGGER is not set</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;zachy_md|away&gt; the rest is set during make &amp; the compilation</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;nitam|work&gt; unless it is on by default.</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-navy">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-green">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;nitam|work&gt; we specifically enabled it in CM7</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;GuiPer&gt; mnita|work: can I merge the onenand driver?</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;nitam|work&gt; I guess from nexus s.</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;nitam|work&gt; go ahead</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;nitam|work&gt; I just pushed the captivate defconfig again</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * 0902689 (1 files in 1 dirs): Merge Samsung and CM7 defconfig for Captivate. ...</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * 804b3b1 (1 files in 1 dirs): Merge JVB. ...</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge commits c1c4c3b...804b3b1 - <a href="http://bit.ly/hy1dSn">http://bit.ly/hy1dSn</a></span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;nitam|work&gt; that enables MTD etc</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-green">* blyfoten (~AndChat@m83-186-129-95.cust.tele2.se) has joined this channel.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;nitam|work&gt; doesnt' even boot :)</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;nitam|work&gt; adb shell</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;nitam|work&gt; crap, nothing at all.</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge Guilherme * 0c3a1fc (1 files in 1 dirs): Add changes to OneNand driver layout to depend on the device. Need updated config files, to be done. - <a href="http://bit.ly/fLTeG1">http://bit.ly/fLTeG1</a></span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
