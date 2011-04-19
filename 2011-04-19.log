@@ -1173,3 +1173,215 @@
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;zachy_md|busy&gt; libglslcompiler.so from where ?</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;zachy_md|busy&gt; just saw it :P</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;nitam|work&gt; push that, and go back to previous non-kang hack kernel</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;zachy_md|busy&gt; you mean the one without string modified ?</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;zachy_md|busy&gt; k</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-green">* uberushaximus (~uberushax@71-13-134-35.dhcp.ftbg.wi.charter.com) has joined this channel.</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-green">* mersault (~Mersault@home.nullpointer.ca) has joined this channel.</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;GuiPer_Work&gt; going home</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;zachy_md|busy&gt; rebooting now ...</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;zachy_md|busy&gt; garbled screen</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;zachy_md|busy&gt; hm, no good:</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;zachy_md|busy&gt; &lt;6&gt;[   27.422943] PVR_K:(Error): BridgedDispatchKM: Driver initialisation not completed yet. [3809, drivers/gpu/pvr/bridged_pvr_bridge.c]</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;zachy_md|busy&gt; &lt;6&gt;[   27.423516] PVR_K:(Error): BridgedDispatchKM: Driver initialisation not completed yet. [3809, drivers/gpu/pvr/bridged_pvr_bridge.c]</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;zachy_md|busy&gt; it's waiting for the intialization ???</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;zachy_md|busy&gt; system_server still being killed</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;zachy_md|busy&gt; seems system_server depends on the gpu initialization</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;zachy_md|busy&gt; logcat: <a href="http://nopaste.info/f41519ed30.html">http://nopaste.info/f41519ed30.html</a></span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;nitam|work&gt; (11:17:21 AM) mnita|work: # CONFIG_PVR_BUILD_RELEASE is not set</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;nitam|work&gt; (11:17:21 AM) mnita|work: CONFIG_PVR_BUILD_DEBUG=y</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;nitam|work&gt; (11:17:21 AM) mnita|work: CONFIG_PVR_DEBUG_BRIDGE_KM=y</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;nitam|work&gt; (11:17:21 AM) mnita|work: CONFIG_PVR_DEBUG_TRACE_BRIDGE_KM=y</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;nitam|work&gt; (</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;nitam|work&gt; add those to the config</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;nitam|work&gt; lets see if we get more debug output</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-navy">* GuiPer_Work (5ab5b80d@gateway/web/freenode/ip.90.181.184.13) Quit (Ping timeout: 253 seconds)</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;zachy_md|busy&gt; dmesg: <a href="http://pastebin.com/GqbHakvh">http://pastebin.com/GqbHakvh</a></span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mount:</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, I got that too</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;zachy_md|busy&gt; <a href="http://pastebin.com/7SY2BK1U">http://pastebin.com/7SY2BK1U</a></span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;nitam|work&gt; only thing left to try is add more debugging, and use new bootloader</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;nitam|work&gt; mount looks good</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;nitam|work&gt; back in a bit</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;nitam|work&gt; (not going to install bootloader tho)</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;nitam|work&gt; so only i9000 can try it.</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; with the non string-modified (now) there is no motion</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; with the previous kernel there was</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;nitam|work&gt; motion?</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;nitam|work&gt; dmesg?</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; on the screen</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; a few lines high color change :P</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;nitam|work&gt; we are hoping that the non string modified version and the libs should match up now</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;nitam|work&gt; dmesg?</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;zachy_md|busy&gt; <a href="http://pastebin.com/GqbHakvh">http://pastebin.com/GqbHakvh</a></span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;zachy_md|busy&gt; updated dmesg: <a href="http://pastebin.com/VTZPGJQM">http://pastebin.com/VTZPGJQM</a></span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-green">* aarcane__ (~aarcane@c-98-238-138-177.hsd1.ca.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;nitam|work&gt; cannot execve('/system/vendor/bin/pvrsrvinit'): Permission denied</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;nitam|work&gt; chmod +x it</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;zachy_md|busy&gt; weird</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;zachy_md|busy&gt; I chmodded it</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;nitam|work&gt; oh, that dmesg was old?</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;nitam|work&gt; sec</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;nitam|work&gt; same</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;nitam|work&gt; ls -l it</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;nitam|work&gt; make sure it really is +x</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ok, now it does:</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ls -l /system/vendor/bin</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;zachy_md|busy&gt; -rwxr-xr-x    1 root     shell      1691888 Apr 19 15:54 gpsd</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;zachy_md|busy&gt; -rwxrwxrwx    1 root     root         18535 Apr 19 15:54 pvrsrvinit</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;zachy_md|busy&gt; will reboot</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.64.245) has joined this channel.</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;zachy_md|busy&gt; booting ...</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;zachy_md|busy&gt; white screen -&gt; garbled colored screen</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;zachy_md|busy&gt; (like before)</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-navy">* aarcane_ (~aarcane@c-98-238-138-177.hsd1.ca.comcast.net) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-green">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;zachy_md|busy&gt; fuuuu</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;zachy_md|busy&gt; &lt;6&gt;[   38.341989] PVR_K:(Error): BridgedDispatchKM: Initialisation failed.  Driver unusable. [3785, drivers/gpu/pvr/bridged_pvr_bridge.c]</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;zachy_md|busy&gt; &lt;6&gt;[   38.342615] PVR_K:(Error): BridgedDispatchKM: Initialisation failed.  Driver unusable. [3785, drivers/gpu/pvr/bridged_pvr_bridge.c]</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;zachy_md|busy&gt; hm, the string changed</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;zachy_md|busy&gt; what does 3809 &amp; 3785 mean anyway ?</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;nitam|work&gt; the whole dmesg pls..</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;zachy_md|busy&gt; dmesg: <a href="http://pastebin.com/z5bRdaH3">http://pastebin.com/z5bRdaH3</a></span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;zachy_md|busy&gt; system_server still crashing</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;zachy_md|busy&gt; logcat: <a href="http://nopaste.info/02ca2e5943.html">http://nopaste.info/02ca2e5943.html</a></span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;nitam|work&gt; so still driver mismatch</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; logcat doesn't matter right now . . . driver isn't starting.</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-green">* techmik is now known as techmik_laptop</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;nitam|work&gt; something is returning a later version number.</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;nitam|work&gt; try kang's version string hack kernel again, make sure pvrsrvinit is +x</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;nitam|work&gt; and try again</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ;)</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;zachy_md|busy&gt; k</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;nitam|work&gt; and then final try would be to go to new bootloader.</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-navy">* enl_ (4e073452@gateway/web/freenode/ip.78.7.52.82) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;zachy_md|busy&gt; flashed kernel, reboot</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;techmik67&gt; i know things are changing repidly, but do we have any idea why those who need to arent reviewing those 2 submissions, mnita|work?</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;techmik67&gt; rapidly*</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; cyanogen is off somewhere</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;zachy_md|busy&gt; no graphics error</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;techmik67&gt; i saw koush review a frameworks thing last nite tho =(</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;zachy_md|busy&gt; system_server still being killed</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;zachy_md|busy&gt; seems like we need a rewrite of the framework:</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; E/IMGSRV  (  530): hal.c:272: LoadFrameBufferAppHints: Composition bypass requires at least 4 frame buffers. Requesting 4 frame buffers.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; W/IMGSRV  (  530): framebuffer.c:387: framebuffer_device_open: Cannot flip with requested number of buffers.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; E/FramebufferNativeWindow(  530): couldn't open framebuffer HAL (Bad address)</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; or something else</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; that's way over my head</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;zachy_md|busy&gt; logcat: <a href="http://nopaste.info/b9efb6bf4b.html">http://nopaste.info/b9efb6bf4b.html</a></span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;zachy_md|busy&gt; i need to give my phone a break</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;zachy_md|busy&gt; it's getting way too hot</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, you following the discussion of the CM7 development thread for cappy on xda?</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;techmik67&gt; just logging in th xda</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;techmik67&gt; to*</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;Kaik541&gt; never more have I wanted to internet slap someone in the head than tkjeeper</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;techmik67&gt; lol, sec</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-navy">* Wout|laptop|busy (~Wout@s559776f4.adsl.wanadoo.nl) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;techmik67&gt; that was a very restrained reply you made =P</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-green">* Zilch25 (~Zilch25@166.194.168.254) has joined this channel.</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;Zilch25&gt; morning folks</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;Kaik541&gt; I figured it was better than calling him a dumbass and to get the fuck out</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;techmik67&gt; Zilch25 is here, now we'll be ok... =P</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;Zilch25&gt; hahaha</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;mersault&gt; is there comedy gold being dug on xda?</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13031700&amp;postcount=4606">http://forum.xda-developers.com/showpost.php?p=13031700&amp;postcount=4606</a></span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;Kaik541&gt; no, just someone being an idiot</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;Zilch25&gt; im catching up on todays episode of "The Retardeds: XDA Edition"</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;techmik67&gt; lol, Zilch25</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;nitam|work&gt; zachy_md|busy: dmesg pls</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;techmik67&gt; yay.... my new switch is finally giving gigabit speed.... =)</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;nitam|work&gt; logcat is useless. let me repeat that another time. logcat is useless when driver is not coming up.</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;knowsnotmuch&gt; Kaik541, use kang 's line - it is the best response i've read in a while <a href="http://goo.gl/iGqw9">http://goo.gl/iGqw9</a></span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;techmik67&gt; i was only betting 100Mb</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;techmik67&gt; getting*</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;techmik67&gt; now it's 1000</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;Zilch25&gt; wow kaik... that was surprisingly soft of yo</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;Zilch25&gt; u</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;Kaik541&gt; knowsnotmuch, next time someone asks a stupid question...</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;Kaik541&gt; Zilch25, that's my reaction when I'm more exasperated than angry</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;zachy_md|busy&gt;  dmesg: <a href="http://pastebin.com/z5bRdaH3">http://pastebin.com/z5bRdaH3</a></span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;zachy_md|busy&gt; logcat: <a href="http://nopaste.info/02ca2e5943.html">http://nopaste.info/02ca2e5943.html</a></span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;Kaik541&gt; exasperated, flabbergasted, more big words</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;Zilch25&gt; when rage finally boils over into being rational</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13031902&amp;postcount=4607">http://forum.xda-developers.com/showpost.php?p=13031902&amp;postcount=4607</a></span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, what just happened? when did you become the dick and I became the calm one?</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;Kaik541&gt; :P</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;techmik67&gt; we switch off =P</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;techmik67&gt; i just woke up and am partaking for the 1st time today.... note: dont let me post b4.....</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;techmik67&gt; =P</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;techmik67&gt; ah.... a little coffee and stuff to wake up..... i'm like a new person..... a nice one</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;Kaik541&gt; this is me on "I've been awake for 26 hours" mode</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work seems like the only way now is to flash JVB ?</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;techmik67&gt; ewven in basic training, *everyone* joked, "geez, leave HIM alone... NOT a morning person!!!" =PP</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;techmik67&gt; i did something that woulda made you proud, Kaik541</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, punched a baby?</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;techmik67&gt; i was a squad leader, so i was in charge of like 10 guys and their responsiblity in the morning was cleaning the latrine</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;techmik67&gt; one guy was pretending to check the tightness of his sheets on his bunk..... he ws napping under there.....</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-brick">* zachy_md|busy gives myself and my phone a break</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;techmik67&gt; so i picked it up and dropeed it =)</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;techmik67&gt; dropped</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;techmik67&gt; *not* a happy soldier =) he complained to te drill sgt</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;nitam|work&gt; yes, flash jvb and then go back to non kang string hack kernel</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;nitam|work&gt; and try again.</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;techmik67&gt; drill sgt told him, "were you sleeping?"</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;nitam|work&gt; zachy_md|busy: that was for you</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work i know ^^</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;nitam|work&gt; lots of unrelated chatter going on. where's the moderator here.</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;Kaik541&gt; +m</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;nitam|work&gt; we need to clean up some.</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;techmik67&gt; i'm unfocused while coffee takes effect =)</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;nitam|work&gt; .kick techmik67 kaik541 zilch25</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;techmik67&gt; couldnt find ther sugar</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;techmik67&gt; ouch!</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;Kaik541&gt; who would manage your threads then!</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;techmik67&gt; ok, back to work.. =) i'm ready</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;Kaik541&gt; you'd have to deal with the end users directly!</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; wait what did Zilch do?</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;Kaik541&gt; existed.</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;nitam|work&gt; right now we need to find out if new bootloader is necessary to use sgx.</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;zachy_md|busy&gt; eww all user data lost from my last backup restore</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;nitam|work&gt; that would totally and complete suck donkeys.</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;Kaik541&gt; yes, it really would</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;techmik67&gt; so wait, i assume those crazy diffs i did are useless?</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;zachy_md|busy&gt; *still downloading JVB*</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;nitam|work&gt; back after lunch and then I'm going to be busy.</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;nitam|work&gt; but I'll see your status zach</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;nitam|work&gt; later..</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;techmik67&gt; later</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; do we know if the source code makes a valid kernel 'stock'?</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, it does not</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;Kaik541&gt; well, it doesn't if you "make clean"</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-green">* blyfoten (~AndChat@m83-190-104-18.cust.tele2.se) has joined this channel.</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;Kaik541&gt; since it wipes out the proprietary rfs module</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; none of them do if you make clean</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm just wondering if anyone has built the stupid thing and put it on stock GB, it wouldn't be the first time sammy released incomplete sources</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, I know _renaud_ did</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;Kaik541&gt; in #project-voodoo</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;Kaik541&gt; he just had to add something to the fs makefile</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;Kaik541&gt; oh and you have to make modules match the name wholly</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;Kaik541&gt; but only on samsung fw with bml/rfs</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; alright but it does work so thats one problem down</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;Kaik541&gt; there's a "for sure" working source tree up on project-voodoo I believe <a href="https://github.com/project-voodoo/linux_gt-i9000">https://github.com/project-voodoo/linux_gt-i9000</a></span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;Kaik541&gt; default gingerbread-samsung branch</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;zachy_md|busy&gt; kang CONFIG_FB_S3C_NR_BUFFERS is set to "4" for your kernel, right ?</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-green">* GuiPerPhone (~androirc@85.160.206.27) has joined this channel.</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;GuiPerPhone&gt; Hi, any progress?</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;zachy_md|busy&gt; anyone know a source where to get the 3-part JVB download + pit ?</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-navy">* blyfoten (~AndChat@m83-190-104-18.cust.tele2.se) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;zachy_md|busy&gt; k</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;zachy_md|busy&gt; found one: <a href="http://forum.xda-developers.com/showthread.php?t=1011901">http://forum.xda-developers.com/showthread.php?t=1011901</a></span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;kang&gt; zachy_md|busy: yeah i think so</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;kang&gt; zachy_md|busy: left the place i was at atm can't check</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;kang&gt; ^.</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;zachy_md|busy&gt; k</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;zachy_md|busy&gt; thx</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;zachy_md|busy&gt; is there some nice how-to what files match with what for heimdall ?</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;kang&gt; zachy_md|busy: uses whatever GuiPer commited + the version thing</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;zachy_md|busy&gt; I've 7 files in the directory to flash</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;kang&gt; heimdall flash --kernel zImage i think</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;kang&gt; rest is prolly in the --help</span><br />
