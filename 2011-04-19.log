@@ -393,3 +393,101 @@
 <span class="irc-date">[2:59]</span> <span class="irc-black">&lt;atinm&gt; coolya/codeworkx can fix the framebuffer/init - whatever it is.</span><br />
 <span class="irc-date">[2:59]</span> <span class="irc-black">&lt;atinm&gt; and if codeworkx gets on - tell him to work on the samsung_cm7_merge branch!</span><br />
 <span class="irc-date">[2:59]</span> <span class="irc-black">&lt;techmik67&gt; back</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;atinm&gt; or create a new branch called cm7_samsung_merge ;)</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;atinm&gt; since samsung_cm7_merge branch seems to be taking samsung code and making it cm7</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;atinm&gt; and he's taking cm7 code and well, merging samsung into it</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;zacharias|busy&gt; disabling CONFIG_VT als led to boot loops</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt; we should end up at the same place, but the work should be in a branch.</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;zacharias|busy&gt; ok, that's all I can come up for now</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt; g'nite.</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-green">* atinm is now known as atinm|night</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;zacharias|busy&gt; nite</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm|night&gt; zacharias|busy: I'm going to let you continue :)</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;zacharias|busy&gt; atinm|night no way  - I'm also going to sleep ;)</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;atinm|night&gt; we need some more ppl who can try things out or just look and see what's wrong . . . brain isn't working right now.</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;techmik67&gt; i wish i kneew whati was doing....</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;atinm|night&gt; k. at least we are booting now.</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;atinm|night&gt; no outright dead crash.</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;zacharias|busy&gt; it's a start :)</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;atinm|night&gt; techmik67: if you pull the kernel now, you should be able to build a zImage. but it boots up into recvoery fine, and it will boot but the screen just stays AT&amp;T</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;atinm|night&gt; like it doesn't go into bootanim or anything</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;atinm|night&gt; even linux boot logo doesn't show up.</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;zacharias|busy&gt; atinm|night recovery works for you ???</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;atinm|night&gt; but adb shell/dmesg is fine</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;atinm|night&gt; zacharias|busy: yes.</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;atinm|night&gt; I can boot into recovery with that kernel</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;atinm|night&gt; and flash back to old</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;zacharias|busy&gt; wow, didn't tried that out</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;zacharias|busy&gt; lol</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;atinm|night&gt; so kernel is "fine"</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;atinm|night&gt; not fine fine. init isn't starting or something</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;atinm|night&gt; hmm. they had it set to linuxrc</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;atinm|night&gt; wonder if that is also hardcoded somewhere else.</span><br />
+<span class="irc-date">[3:06]</span> <span class="irc-black">&lt;atinm|night&gt; hmm.</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@christiantechsaz.com) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;Unhelpful&gt; if adb stats, init is starting.</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;Unhelpful&gt; also, running from initramfs always == start /init iirc.</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.64.245) has joined this channel.</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;atinm|night&gt; then it must be in the framebuffer...</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;atinm|night&gt; tho I don't see any other processes I see like bootanim etc</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;atinm|night&gt; which is why init is still suspicious.</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;techmik67&gt; atinm|night: drivers/video/samsung/s3cfb.c</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;techmik67&gt; line 42</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;techmik67&gt; thats why no logo?</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;atinm|night&gt; no, we have ARIES_EUR defined right now</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;techmik67&gt; oh</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm|night&gt; so it pulls in whatever samsung has.</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm|night&gt; we should replace it with ours :)</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm|night&gt; we'll do that once we have it working.</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm|night&gt; unless you can find me the sha quickly for the commit</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm|night&gt; that commited our logo</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;Unhelpful&gt; bootanim dies when video fails somehow? recovery video and android video are not the same.</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm|night&gt; found it.</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;techmik67&gt; atinm|night: <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/488d3b5147b39e6207903d25b774b5399501a991">https://github.com/teamhacksung/android_kernel_samsung/commit/488d3b5147b39e6207903d25b774b5399501a991</a></span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;ytt3r&gt; where does the kernel get flashed to on the mtd partitions?</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-navy">* zacharias|busy (~zacharias@chello084114179145.16.15.vie.surfer.at) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;techmik67&gt; brb, dog walk</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;atinm|night&gt; nice, apple is suing samsung because galaxys phone and tab copy iphone and ipad</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;ytt3r&gt; atinm, which is the recovery partition?</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;ytt3r&gt; mtdblock*</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;ytt3r&gt; or mmcblk*</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;atinm|night&gt; dunno, didn't think we had a separate one</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;atinm|night&gt; k</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;ytt3r&gt; separate?</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;ytt3r&gt; whoops I keep saying recovery</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;ytt3r&gt; I meant kernel</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;ytt3r&gt; kernel partition*</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;atinm|night&gt; 0 is boot</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;atinm|night&gt; 1 is recovery</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;atinm|night&gt; 2 is system</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;atinm|night&gt; 3 cache</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;ytt3r&gt; that's what I needed to know, thanks :)</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;atinm|night&gt; and I forget the rest</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-navy">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-green">* wegah (~wegah@189-69-49-74.dsl.telesp.net.br) has left this channel.</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * 7e737b9 (1 files in 1 dirs): new cm bootlogo ... - <a href="http://bit.ly/gC028t">http://bit.ly/gC028t</a></span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;atinm|night&gt; wtf, it was supposed to do a cherry-pick.</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;atinm|night&gt; crap.</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * 42080cb (1 files in 1 dirs): Revert "new cm bootlogo" ... - <a href="http://bit.ly/htfqOV">http://bit.ly/htfqOV</a></span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;techmik67&gt; hmmm.... my kernel is on a reboot cycle</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="http://review.cyanogenmod.com/#change,4726">http://review.cyanogenmod.com/#change,4726</a>  If anyone wants to look at, and possibly test, this, I'd appreciate it. I don't have a lot of devices on which to test, myself.</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;UberPinguin&gt; I don't expect it to break anything else, but..</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;atinm|night&gt; umm, that doesn't look right.</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;atinm|night&gt; at least based on the comment</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge Kaik541 * b9dd291 (1 files in 1 dirs): new cm bootlogo ... - <a href="http://bit.ly/dLynRR">http://bit.ly/dLynRR</a></span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;atinm|night&gt; hope that's the right side of the logo :)</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;atinm|night&gt; (got a merge conflict)</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;atinm|night&gt; and the file is impossible to read.</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;atinm|night&gt; now to bed for real.</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;atinm|night&gt; (UberPinguin that "doesn't look right" was for you)</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;techmik67&gt; nite</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;atinm|night&gt; since it touches every phone and the comment implies that true was intentional.</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;atinm|night&gt; g'nite</span><br />
