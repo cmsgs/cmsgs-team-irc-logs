@@ -2160,3 +2160,102 @@
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;GuiPer&gt; so should we port modem kernel driver into samsung kernel?</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;GuiPer&gt; from nexus S one?</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;GuiPer&gt; which driver is it? know exactly?</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;coolya&gt; are you trying to use the samsung source?</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;coolya&gt; and just merge our stuff?</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;Wout|bbl&gt; yeah</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;coolya&gt; hmm</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;Wout|bbl&gt; this is modified jvb kernel plus cm7 on top</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-green">* Wout|bbl is now known as Wout</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;coolya&gt; k</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;Wout&gt; have the devs already agreed on the best course of action?</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;Wout&gt; jvb+cm7, or merging bit into the existing cm7 kernel?</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;Kaik541&gt; I don't think anyone knows what the final goal is =/</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;coolya&gt; i would prever the second, but i didn't even look at any sammy source</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;GuiPer&gt; right now it boots, missing RIL and small things</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;coolya&gt; and i think i won't have a look at it anytime (soon)</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;GuiPer&gt; coolya can I just kang modemctl?</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;coolya&gt; i think so</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;Wout&gt; would be nice if jvb+cm7 gets all the gpio stuff right so all hardware sleeps when it shoul</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;Wout&gt; d</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; working on it</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;coolya&gt; Wout: then we have crappy koran ifdef hell source again, no real way to get think fast from upstream</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;zachy_md|busy&gt; good read on the lawsuit from Apple vs. Samsung: <a href="http://thisismynext.com/2011/04/19/apple-sues-samsung-analysis/">http://thisismynext.com/2011/04/19/apple-sues-samsung-analysis/</a></span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;GuiPer&gt; coolya: Sammy source is quite good this time, they started from Google one</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-70-112-175-254.austin.res.rr.com) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;GuiPer&gt; or at least parts of it.... herring etc</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;coolya&gt; and there the mess starts ...</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;coolya&gt; our board is aries</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;coolya&gt; not herring</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;GuiPer&gt; its everything for ARIES for us, but HERRING is there</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;GuiPer&gt; so they used Google as source</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;coolya&gt; is it mach_aries.c they used? afaik they had a herring build id on jvk ...</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;coolya&gt; but didn't look at the source so i can'T sue any one for anything</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;GuiPer&gt; it's on mach_aries :)</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;GuiPer&gt; they just used MACHINE_START ("herring"), but everything is on aries</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;UberPinguin&gt; mnita|work: WRT the preventScreenOn() patch, I agree. It's a hack. I'm working on tracing where the actual bug is right now.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;UberPinguin&gt; It'd be helpful if there were flowcharts for the Android system though</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;coolya&gt; UberPinguin: what are you working on ?</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;UberPinguin&gt; coolya: <a href="http://review.cyanogenmod.com/#change,4726">http://review.cyanogenmod.com/#change,4726</a>   # something causes preventScreenOn(false) to not work on the Epic and Fascinate during incoming call. As a hackaround, stopping it from being set to 'true' works.</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;coolya&gt; we had that problem back in cm6 on the i9k too</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;coolya&gt; and used the same hackaround</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;UberPinguin&gt; Yeah. Still there in CM7, just split out into a different file.</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;UberPinguin&gt; Does i9k have it on CM7?</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;coolya&gt; nite guys have fun with source :) i be back when you are done with kanging samsung stuff ;)</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;UberPinguin&gt; nite</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;coolya&gt; UberPinguin: no its not present</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;UberPinguin&gt; hmm</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;Wout&gt; later coolya</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-navy">* t-ready (~burrell@wormhole.cbl.umces.edu) Quit (Quit: Captivate - Phoenix ROM)</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;UberPinguin&gt; I wonder if it's something in the phone mk files</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;coolya&gt; maybe some complex race condition with samm ril</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;UberPinguin&gt; That's a strong possibility too</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;coolya&gt; nite</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;GuiPer&gt; problems with kanging RIL things :S</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;GuiPer&gt; not so straighforward</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;zachy_md|busy&gt; nite coolya</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;nitam|work&gt; coolya, its mach_aries</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;nitam|work&gt; and it does use ARIES</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;nitam|work&gt; so its not bad.</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;nitam|work&gt; but right now all I care about is kernel boot.</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;nitam|work&gt; then I'll look at other drivers..</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;GuiPer&gt; still no luck? need to ask Kang :S</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;zachy_md|busy&gt; Kang: we need kernel config !</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;GuiPer&gt; and ril may be a problem :S</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;nitam|work&gt; I give up.</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;nitam|work&gt; will wait for kang.</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;nitam|work&gt; kernel actually got worse somehow.</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|busy&gt; why is no one compiling in:</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|busy&gt; CONFIG_IKCONFIG=y</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|busy&gt; CONFIG_IKCONFIG_PROC=y</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|busy&gt; btw ?</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;zachy_md|busy&gt; that would make stuff much easier</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;nitam|work&gt; agreed - will add.</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * b677872 (2 files in 1 dirs): Added CONFIG_IKCONFIG and CONFIG_IKCONFIG_PROC ... - <a href="http://bit.ly/fl7h1I">http://bit.ly/fl7h1I</a></span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;nitam|work&gt; don't know how I went backwards tho.</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;GuiPer&gt; just revert everything ?</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-navy">* KBme (~KBme@2001:470:1f13:94::3) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;Wout&gt; we definitely need gralloc</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;UberPinguin&gt; Gotta be RIL.. I can't think of anything else that would interfere during a incoming call but at no other time.</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;nitam|work&gt; wout, boot == kernel alive.</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;nitam|work&gt; then we have screen alive, bootanim etc.</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;nitam|work&gt; right now we're still on just trying to get kernel alive.</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;Wout&gt; does the current repo still bootloop? or does it give the version mismatch?</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;nitam|work&gt; it gives you a shutdown.</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;Wout&gt; ah, k</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; crashes hard to black.</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; thats fine, it will help with the battery life :P</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-green">* KBme (~KBme@2001:470:1f13:94::3) has joined this channel.</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;GuiPer&gt; something that changed between 16 (kang build) and 21?</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;GuiPer&gt; CET time</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-green">* atinm (~amalaviya@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-navy">* atinm (~amalaviya@unaffiliated/atinm) Quit (Client Quit)</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-navy">* Wout (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-green">* eXistZ-Away (~RobBeane@CPE-76-177-230-163.natcky.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 276 seconds)</span><br />
