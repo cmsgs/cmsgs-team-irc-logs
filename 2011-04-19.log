@@ -287,3 +287,109 @@
 <span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; can take it from here now.</span><br />
 <span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; sec</span><br />
 <span class="irc-date">[1:57]</span> <span class="irc-navy">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;atinm&gt; it gets stuck in mmc</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;zacharias|busy&gt; how do you know ?</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;zacharias|busy&gt; dmesg ?</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;atinm&gt; looking in recovery to see what happens</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;zacharias|busy&gt; you have bad blocks on your device ?</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;atinm&gt; at least kernel boots.</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;atinm&gt; back in a bit</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;atinm&gt; so I don't know if FIQ matters.</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;atinm&gt; the kernel command line is never actually passed in</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;atinm&gt; so it is always the ttySAC2</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;techmik67&gt; atinm, you see pm?</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;zacharias|busy&gt; ah, saw it: console [ttySAC2] enabled</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;zacharias|busy&gt; but it also says: console [ttyFIQ0] enabled</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;atinm&gt; dunno where those come from.</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-green">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;atinm&gt; zacharias|busy: so how far do you get?</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;atinm&gt; it boots to what point?</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;zacharias|busy&gt; sec</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;zacharias|busy&gt; gotta re-flash with heimdall</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;zacharias|busy&gt; just tried out tinyfsr</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;zacharias|busy&gt; and it seems to break it</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;zacharias|busy&gt; k</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;zacharias|busy&gt; 1) galaxy s screen</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;zacharias|busy&gt; 2) it still stays but the screen gets significantly brighter and the softkeys light up</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;zacharias|busy&gt; nothing more concerning screen output</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;atinm&gt; k, same.</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;atinm&gt; I think it has to do with framebuffers</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;atinm&gt; coolya or codeworkx knows the details</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;atinm&gt; I'm foggy</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;zacharias|busy&gt; yeah, me too</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;zacharias|busy&gt; enough for now ^^</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;zacharias|busy&gt; coolya and codeworkx hopefully will figure out how to get it work</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge Kolja Dummann * 5aec3d9 (1 files in 1 dirs): Add workaround for crappy bootloader on SGS Modem</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * 9b99595 (2 files in 1 dirs): Enabled FIQ and PMEM (sorry coolya) ...</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge commits 144ceee...9b99595 - <a href="http://bit.ly/g72Y19">http://bit.ly/g72Y19</a></span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[2:25]</span> <span class="irc-black">&lt;atinm&gt; kernel is fine up to a point</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;atinm&gt; that is, it boots</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;atinm&gt; recovery works.</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;atinm&gt; so most probably an issue in init now.</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;techmik67&gt; got somwthing for ya:</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;atinm&gt; and too tired to follow up</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;atinm&gt; when codeworkx, coolya get on - tell them to continue, maybe the problem is framebuffer or init</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;atinm&gt; I'm leaning towards init now.</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;zacharias|busy&gt; ok, the only thing that jumps right at the eye is: CONFIG_FB_S3C_LCD_INIT=y</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;zacharias|busy&gt; do we have lcd ?</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;zacharias|busy&gt; lol</span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-black">&lt;atinm&gt; if they have it as y in GB dump, then yes :)</span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://www.pastie.org/1809953">http://www.pastie.org/1809953</a></span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-black">&lt;techmik67&gt; its that diff</span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-black">&lt;techmik67&gt; i mentioned</span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-black">&lt;atinm&gt; k, yes - that's all stuff I added</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-black">&lt;atinm&gt; so he hasn't done anything yet.</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-black">&lt;techmik67&gt; worth a shot =)</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-black">&lt;atinm&gt; but keep track. he is the one that gets captivate working quickly on galaxy kernel</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-black">&lt;techmik67&gt; oh, i will</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-black">&lt;atinm&gt; so he'll be a good one to watch</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-black">&lt;techmik67&gt; prob gonna be an all nighter.... =)</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;atinm&gt; I'm too tired.</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;atinm&gt; passing on to coolya and codeworkx. and if unhelpful wants to take a break from compass.</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;techmik67&gt; you been up a lot longert... i got up at 10</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;atinm&gt; I know its something simple.</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;atinm&gt; but don't know what . . . this was stuff coolya and codeworkx did.</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;techmik67&gt; or, nite, if you go =)</span><br />
+<span class="irc-date">[2:36]</span> <span class="irc-black">&lt;atinm&gt; what is MDNIE?</span><br />
+<span class="irc-date">[2:36]</span> <span class="irc-black">&lt;zacharias|busy&gt; some color enhancement technology for the screen i guess</span><br />
+<span class="irc-date">[2:36]</span> <span class="irc-black">&lt;zacharias|busy&gt; ah - yes: <a href="http://readatech.com/2010/06/12/mobile-digital-natural-image-engine-mdnie-598/">http://readatech.com/2010/06/12/mobile-digital-natural-image-engine-mdnie-598/</a></span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;atinm&gt; those are the only two things that look promising</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;atinm&gt; MDNIE and LCD_INIT</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-green">* ytt3r (~evan@adsl-88-54-105.asm.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt; wouldn't work wihtout MDNIE - that's the error I wrote before:</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt; drivers/video/samsung/s3cfb.c: In function 's3cfb_draw_logo':</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt; drivers/video/samsung/s3cfb.c:144: error: 'S5P_INFORM5' undeclared (first use in this function)</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt; drivers/video/samsung/s3cfb.c:144: error: (Each undeclared identifier is reported only once</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt; drivers/video/samsung/s3cfb.c:144: error: for each function it appears in.)</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt; drivers/video/samsung/s3cfb.c: In function 's3cfb_map_video_memory':</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt; drivers/video/samsung/s3cfb.c:230: warning: assignment makes pointer from integer without a cast</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt; make[3]: *** [drivers/video/samsung/s3cfb.o] Error 1</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt; make[2]: *** [drivers/video/samsung] Error 2</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt; make[1]: *** [drivers/video] Error 2</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt; make[1]: *** Waiting for unfinished jobs....</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt;   LD [M]  drivers/net/wireless/bcm4329/dhd.o</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt;   LD      drivers/net/built-in.o</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;zacharias|busy&gt; make: *** [drivers] Error 2</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-black">&lt;zacharias|busy&gt; Failed to make kernel</span><br />
+<span class="irc-date">[2:43]</span> <span class="irc-black">&lt;atinm&gt; the rest looks fine.</span><br />
+<span class="irc-date">[2:44]</span> <span class="irc-black">&lt;zacharias|busy&gt; ok, disabling the lcd_init and the other 2 things for the lcd panel support compiled fine</span><br />
+<span class="irc-date">[2:45]</span> <span class="irc-black">&lt;atinm&gt; k, back in a few</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;atinm&gt; I wonder if I broke windows when I started calling us captivate again if it was a captivate phone</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;atinm&gt; would be funny since that's the one system I don't test on</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;atinm&gt; techmik67: have you installed the latest nightly and tried mounting and adb'ing from windows ever?</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;zacharias|busy&gt; boot loop XD</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;atinm&gt; ..</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;chaembian&gt; Good morning!</span><br />
+<span class="irc-date">[2:59]</span> <span class="irc-black">&lt;atinm&gt; I'm going to bed.</span><br />
+<span class="irc-date">[2:59]</span> <span class="irc-black">&lt;atinm&gt; coolya/codeworkx can fix the framebuffer/init - whatever it is.</span><br />
+<span class="irc-date">[2:59]</span> <span class="irc-black">&lt;atinm&gt; and if codeworkx gets on - tell him to work on the samsung_cm7_merge branch!</span><br />
+<span class="irc-date">[2:59]</span> <span class="irc-black">&lt;techmik67&gt; back</span><br />
