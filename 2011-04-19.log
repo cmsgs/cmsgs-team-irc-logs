@@ -560,3 +560,72 @@
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;atinm|night&gt; well, off now ... sorry.</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-black">&lt;kang&gt; cya^^</span><br />
 <span class="irc-date">[9:59]</span> <span class="irc-navy">* atinm|night (~atin@unaffiliated/atinm) Quit (Quit: atinm|night)</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;kang&gt; i wouldnt be surprised that they're missing the new boot loader</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;kang&gt; its init the screen differently</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;kang&gt; since recovery displays</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-black">&lt;kang&gt; makes sense</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;Wout`&gt; kang: do you have time to work on it today?</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;kang&gt; i dunno:p</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;kang&gt; as i said</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;kang&gt; will prolly look tonight</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;kang&gt; unless something else come up (irl)</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;GuiPer_Work&gt; partitions got mounted??</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;Wout`&gt; k, i'll wipe my phone tonight then</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;Wout`&gt; so I can help with testing</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;kang&gt; i've to wipe mine too its still jvb :)</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;GuiPer_Work&gt; atinm you took a look at df or mount?</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-navy">* blyfoten (~AndChat@m80-170-215-78.cust.tele2.se) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;kang&gt; GuiPer_Work: hes gone</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;GuiPer_Work&gt; ahah ups :D</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;kang&gt; i hope mtd etc is in lol</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;GuiPer_Work&gt; maybe it's the problem</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;GuiPer_Work&gt; i did the merge, expect some problems there :D:D</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;kang&gt; qq</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;GuiPer_Work&gt; (on the MTD thing)</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-green">* codeworkx (~yaaic@tmo-106-58.customers.d1-online.com) has joined this channel.</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;Wout`&gt; oi codeworkx</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;codeworkx&gt; hi</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;GuiPer_Work&gt; codeworkx: take a look at the dmesg</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;GuiPer_Work&gt; <a href="http://pastebin.com/ZzWSUndn">http://pastebin.com/ZzWSUndn</a></span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;GuiPer_Work&gt; still no logcat :S</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;GuiPer_Work&gt; so maybe some mount problem?</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;codeworkx&gt; doesn‘t start services</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;codeworkx&gt; only adb service is started</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;codeworkx&gt; init.aries.rc ?</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;Wout`&gt; atin suspected either an init or fb problem</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;codeworkx&gt; think it doesnt include init.aries.rc because of stupid naming samsung did</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;codeworkx&gt; try init.herring.rc</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;codeworkx&gt; have a look at mach-aries.c line 3603</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;GuiPer_Work&gt; you think only that? :D</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;GuiPer_Work&gt; we used old initramfs, so it's init.aries.rc. Probably we need to change it there</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;GuiPer_Work&gt; I have no chance to try, forgot to install ssh-server on new ubuntu box at home</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;codeworkx&gt; cat /proc/cpuinfo</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;codeworkx&gt; there should be the hardware name</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;codeworkx&gt; this will be parsed from init</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;codeworkx&gt; and loads init.hardwarename.rc</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;GuiPer_Work&gt; we need atinm or zach to try to it</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;codeworkx&gt; we should change it back to aries, because a lot more things are expecting aries</span><br />
+<span class="irc-date">[10:51]</span> <span class="irc-black">&lt;GuiPer_Work&gt; i just only there is herring on the whole mach file</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@61.247.253.235) has joined this channel.</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;GuiPer_Work&gt; # CONFIG_MACH_HERRING is not set CONFIG_MACH_ARIES=y</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;GuiPer_Work&gt; it should be ok, samsung was just lazy to change it to aries</span><br />
+<span class="irc-date">[10:53]</span> <span class="irc-black">&lt;GuiPer_Work&gt; somebody with captivate willing to try? SGS needs further work</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-brick">* Wout` will offer his i9000 testing services tonight</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge GuiPerPT * f0846b7 (1 files in 1 dirs): Changed MACHINE START from herring to aries, it should boot now. - <a href="http://bit.ly/fABMnc">http://bit.ly/fABMnc</a></span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-black">&lt;atinm&gt; duh.</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-black">&lt;atinm&gt; thanks Guiper</span><br />
+<span class="irc-date">[10:56]</span> <span class="irc-black">&lt;GuiPer_Work&gt; codeworkx found the problem</span><br />
+<span class="irc-date">[10:56]</span> <span class="irc-black">&lt;GuiPer_Work&gt; :)</span><br />
+<span class="irc-date">[10:58]</span> <span class="irc-black">&lt;codeworkx&gt; atinm are u running the new kernel?</span><br />
+<span class="irc-date">[10:58]</span> <span class="irc-black">&lt;codeworkx&gt; pls.   cat /proc/cpuinfo</span><br />
+<span class="irc-date">[10:58]</span> <span class="irc-black">&lt;GuiPer_Work&gt; only yesterday I guess, it didn't start the init.rc</span><br />
+<span class="irc-date">[10:58]</span> <span class="irc-black">&lt;GuiPer_Work&gt; so probably he restored</span><br />
+<span class="irc-date">[10:59]</span> <span class="irc-black">&lt;kang&gt; codeworkx: it's herring</span><br />
