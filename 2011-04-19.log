@@ -95,3 +95,195 @@
 <span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm&gt; nope, still bad.</span><br />
 <span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm&gt; damn it.</span><br />
 <span class="irc-date">[0:56]</span> <span class="irc-green">* techmik is now known as techmik_laptop</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;techmik67&gt; no error yet......</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;atinm&gt; not build error, doesn't boot.</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;zacharias|busy&gt; you guys already tried it with FIQ enabled ?</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;zacharias|busy&gt; won't work, right ?</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;atinm&gt; doesn't boot either with or without</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;atinm&gt; its not used on CM7 kernel</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;atinm&gt; but enabling it didn't help either.</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;zacharias|busy&gt; i played around with diff settings and disabling CONFIG_FB_S3C_TL2796_ACL and CONFIG_FB_S3C_MDNIE</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;zacharias|busy&gt; led it to fail</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;zacharias|busy&gt; it said something about logo, bla bla bal</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;atinm&gt; I'm almost back to straight what they put up.</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;zacharias|busy&gt; so there also must be a logo in the kernel</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;atinm&gt; ther eis a logo in the kernel</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;zacharias|busy&gt; you mean the default tux ones ?</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;zacharias|busy&gt; yeah, but it seemed like a samsung specific thing</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;atinm&gt; no, samsung ones.</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;atinm&gt; its just a logo file - techmik67 can tell you all about it. its his favorite file.</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;atinm&gt; back in a bit.</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;zacharias|busy&gt; wow</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;zacharias|busy&gt; my phone actually seems to do something</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;zacharias|busy&gt; the lights are just brighter and the softkeys are on</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;atinm&gt; mine did the same thing, then died to dead black.</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;zacharias|busy&gt; adb is ONLINE</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;zacharias|busy&gt; well, at least I could log in</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;zacharias|busy&gt; lol</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;zacharias|busy&gt; dmesg</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;zacharias|busy&gt; works</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;zacharias|busy&gt; logcat does not seem to work</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;atinm&gt; screw logcat. first dmesg.</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;atinm&gt; what device are you on?</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;zacharias|busy&gt; SGS GT-i9000</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;atinm&gt; ah pfft.</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;techmik67&gt; instaling</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;zacharias|busy&gt; <a href="http://pastebin.com/ZzWSUndn">http://pastebin.com/ZzWSUndn</a></span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;zacharias|busy&gt; that's all it does</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;zacharias|busy&gt; no progress after that</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;zacharias|busy&gt; I've modified the config</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;zacharias|busy&gt; changes in a sec</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;zacharias|busy&gt; FIQ is enabled and seems to do the job, besides that I made some additional changes</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; paste it to pastie</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;zacharias|busy&gt; let me re-capitulate what I did</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; or pastebin</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; just pastebin your defconfig</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; quicker</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;zacharias|busy&gt; <a href="http://pastebin.com/vhxrmmVH">http://pastebin.com/vhxrmmVH</a></span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;atinm&gt; FIQ0?</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;zacharias|busy&gt; yeah,</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;zacharias|busy&gt; besides that I reverted one commit from you:</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;zacharias|busy&gt; and added another from coolya</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;zacharias|busy&gt; Moved-cypress-up-to-main-keyboard-dir.</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;zacharias|busy&gt; &lt;-- reverted</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;zacharias|busy&gt; Add-workaround-for-crappy-bootloader-on-SGS-Modem</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;zacharias|busy&gt; &lt;-- applied</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;atinm&gt; just post yoru working defconfig to pastebin</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;zacharias|busy&gt; k</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;atinm&gt; how did you manage to build the kernel - do you build kernel separately?</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;atinm&gt; I had to move it because it wont' build under android otherwise.</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;zacharias|busy&gt; <a href="http://pastebin.com/2zZfHkGQ">http://pastebin.com/2zZfHkGQ</a></span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;zacharias|busy&gt; it's building like always:</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;zacharias|busy&gt; ~/android/system/kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;zacharias|busy&gt; and I used the toolchain named by Samsung</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;zacharias|busy&gt; arm-2009q3-67-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;atinm&gt; like I said, you're not building using the android make system.</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;zacharias|busy&gt; ok, the phone is getting quite warm (probably due to the display being on all the time ;) )</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;atinm&gt; you're hand building the kernel?</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;zacharias|busy&gt; yes</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;zacharias|busy&gt; it's a start</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;zacharias|busy&gt; via ./build.sh</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;techmik67&gt; i flashed old kernel with heimdall and its booting</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;zacharias|busy&gt; the one that is also included in your kernel directory</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;zacharias|busy&gt; adb shell</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;zacharias|busy&gt; still works</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;zacharias|busy&gt; do you want anything specific ?</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;atinm&gt; yeah, that works fine. its the android make system that doesn't build if cypress is sitting below.</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;atinm&gt; but moving that shouldn't matter.</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;atinm&gt; your defconfig didn't pastie right.</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;techmik67&gt; my build just kept flashing att screen, then reboot, then att screen, then reboot......</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;zacharias|busy&gt; hm</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;zacharias|busy&gt; will upload it</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;atinm&gt; and give me the link to the commit you pulled in</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;zacharias|busy&gt; I looked it up locally but it should be:</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;zacharias|busy&gt; 95ed0b6eaa12cd358d4cfb13327e76ae295200f4</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;zacharias|busy&gt; shall I try it with the prebuilt toolchain too ?</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;zacharias|busy&gt; config: <a href="http://www.ponack.net/zachariasm/sammy_source_drop/cm7/">http://www.ponack.net/zachariasm/sammy_source_drop/cm7/</a></span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;zacharias|busy&gt; besides that I also removed the tinyfsr thing since I had the impression / thought that it might interfere with our mtd</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;zacharias|busy&gt; <a href="https://github.com/zachariasmaladroit/linux_gt-i9000/commit/6c8f989f58999770d23236bb172c3a4e1c80586b">https://github.com/zachariasmaladroit/linux_gt-i9000/commit/6c8f989f58999770d23236bb172c3a4e1c80586b</a></span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@christiantechsaz.com) has joined this channel.</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;atinm&gt; shouldn't matter if it isn't enabled.</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;zacharias|busy&gt; it DOES get enabled in the resulting .config ;)</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;zacharias|busy&gt; therefore i removed it</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://www.ponack.net/zachariasm/sammy_source_drop/cm7/GB_aries_galaxys_defconfig_1st-boot">http://www.ponack.net/zachariasm/sammy_source_drop/cm7/GB_aries_galaxys_defconfig_1st-boot</a></span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;atinm&gt; page not found</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;atinm&gt; and there is nothing else there</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;zacharias|busy&gt; wow - what is up with that ???</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;zacharias|busy&gt; another place where I could upload it ?</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;techmik67&gt; dropbox?</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;atinm&gt; yeah, dropbox</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;zacharias|busy&gt; I just uploaded it to multiupload</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;zacharias|busy&gt; maybe some overkill but - oh well</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;zacharias|busy&gt; <a href="http://www.multiupload.com/923YCQ1ZAD">http://www.multiupload.com/923YCQ1ZAD</a></span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;zacharias|busy&gt; ok, will use dropbox in the future</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;zacharias|busy&gt; thx</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;zacharias|busy&gt; ok, that works</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;atinm&gt; how the hell is TINY_FSR showing up</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;zacharias|busy&gt; probably via all of the different Makefiles</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;zacharias|busy&gt; drivers/Makefiles</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;zacharias|busy&gt; drivers/Makefile</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;atinm&gt; in .config</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;zacharias|busy&gt; and Kconfig</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;zacharias|busy&gt; stuff set to y</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;atinm&gt; ah, damn it.</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;zacharias|busy&gt; ah, yes</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;zacharias|busy&gt; if you don't set it explicitly:</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;zacharias|busy&gt; config TINY_FSR</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;zacharias|busy&gt; 	bool "Using TinyFSR for Cramfs"</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;zacharias|busy&gt; 	default y</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;zacharias|busy&gt; 	help</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;zacharias|busy&gt; 	  eXtended Sector Remapper device</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;zacharias|busy&gt; so either:</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;zacharias|busy&gt; default n</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;zacharias|busy&gt; or removing the line supercurio introduced</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;zacharias|busy&gt; in drivers/Makefile</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;techmik67&gt; atinm: in my previous, pre-deleted repo of our kernel, when i cherry-picked the commits for oc-uv, i saw what you meant about keeping the history... it was cherrypicked from kang,who credited morfic and someone else in the commit msg... that all showed up, with kang as author and me as just commiter =)</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;zacharias|busy&gt; next stop: graphical output ?</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * 144ceee (3 files in 3 dirs): More merging. ... - <a href="http://bit.ly/gQDg2B">http://bit.ly/gQDg2B</a></span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;zacharias|busy&gt; or: at least logcat running ?</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;zacharias|busy&gt; testing with stock cm7/google toolchain</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;zacharias|busy&gt; now</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;techmik67&gt; do i have to rebuild clean, or just build?</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;atinm&gt; no point until I say so</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;atinm&gt; it isn't booting yet</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;techmik67&gt; oh, i saw the last commit</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;techmik67&gt; so i pulled and started build =)</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; ok, its asking me all those questions again....</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; Samsung Modem Control/IO Driver Bootloader is crap (MODEM_HAS_CRAPPY_BOOTLOADER) [N/y/?] (NEW)</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;zacharias|busy&gt; that should be set in the conifg</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;zacharias|busy&gt; and set to y</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; well, yes or no ?=P</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; thx</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; that was the only question</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;techmik67&gt; now it continued</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-navy">* blyfoten (~AndChat@m80-170-181-67.cust.tele2.se) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;zacharias|busy&gt; where's the rest of that "MODEM_HAS_CRAPPY_BOOTLOADER" commit ?</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;zacharias|busy&gt; only setting it in drivers/misc/Kconfig ?</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;zacharias|busy&gt; something's missing</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;zacharias|busy&gt; cb8b02648a084ea8b1a66b13ca94918ec48ad03f</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;zacharias|busy&gt; atinm I still get the seemingly same result with stock/cm7 toolchain :)</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;atinm&gt; somethings missing from?</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-green">* kalpik_ (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;zacharias|busy&gt; from <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/144ceeecc542156d14720d7252f4b207fec4b6d7">https://github.com/teamhacksung/android_kernel_samsung/commit/144ceeecc542156d14720d7252f4b207fec4b6d7</a></span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;zacharias|busy&gt; cb8b02648a084ea8b1a66b13ca94918ec48ad03f</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;zacharias|busy&gt; should contain the changes in modem_ctl</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;zacharias|busy&gt; or how that file is called</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/8b9848a4702d1fe86a808bb0bcdf3d57fc931437">https://github.com/teamhacksung/android_kernel_samsung/commit/8b9848a4702d1fe86a808bb0bcdf3d57fc931437</a> is what you're talking about?</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;zacharias|busy&gt; yes</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;zacharias|busy&gt; that</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;zacharias|busy&gt; and</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;zacharias|busy&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/%20cb8b02648a084ea8b1a66b13ca94918ec48ad03f">https://github.com/teamhacksung/android_kernel_samsung/commit/%20cb8b02648a084ea8b1a66b13ca94918ec48ad03f</a></span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;zacharias|busy&gt; &lt;-- that also needs to be merged</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;atinm&gt; ah</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;zacharias|busy&gt; dunno if it's still needed</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;zacharias|busy&gt; but it made it boot</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;zacharias|busy&gt; it can be removed later</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;zacharias|busy&gt; so: cm7/google toolchain also works ^^</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-green">* kalpik_ is now known as kalpik</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;atinm&gt; yes, I saw. doesnt' work for captivate.</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;zacharias|busy&gt; maybe it's a config or driver issue</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;zacharias|busy&gt; SAMMY - GIVE SAUCE !</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;atinm&gt; .. you think?</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;zacharias|busy&gt; CAPPY WANTS SAUCE</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;atinm&gt; its captivate config..</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;zacharias|busy&gt; could be</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;zacharias|busy&gt; I compared the captivate config, too</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;zacharias|busy&gt; but it looked ok</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;zacharias|busy&gt; strange</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;zacharias|busy&gt; great thing heimdall works ^^</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; dmesg is up</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; but still not booting.</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; fully that is.</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;techmik67&gt; i'm getting the same reboot cycle... is that what you get, atinm?</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; can take it from here now.</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; sec</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-navy">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) Quit (Quit: Leaving)</span><br />
