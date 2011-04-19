@@ -1,0 +1,97 @@
+<span class="irc-date">[0:02]</span> <span class="irc-green">* sixstringsg (~Jason@pool-173-74-150-29.dllstx.fios.verizon.net) has joined this channel.</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;atinm|away&gt; CONFIG_USB_ANDROID_RNDIS_WCEIS=y should be enabled</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;atinm|away&gt; and the DWORD too</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;atinm|away&gt; but doesn't affect boot</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;atinm|away&gt; its for usb tethering.</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;kang&gt; atinm|away: just FYI samsung kernel doesnt use the NS touchkey driver. even if its there</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;kang&gt; they copied the old one next to it and use it</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;kang&gt; copying over the NS driver works tho</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;kang&gt; doesnt have fw loading</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;kang&gt; ill prolly do it for u later for led.</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;kang&gt; dont like the old driver, too dirty</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm|away&gt; cypress-touchkey.c and other stuff under cypress/ ?</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;kang&gt; cypress-touchkey.c is the NS driver</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;kang&gt; cypress/cypress-touchkey.c is the froyo sammy driver</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;kang&gt; the 2nd one is the active one in their kernel</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|away&gt; the makefile uses the one under cypress</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;kang&gt; can just point to the proper driver from the makefile or copy the .c over</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;kang&gt; yeah</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|away&gt; so I just moved it all up</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;kang&gt; oks</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;kang&gt; just fine</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|away&gt; because the stupid thing was somehow trying to get a .d dependency file from the dir.</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|away&gt; but we build in a different place</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;kang&gt; its kinda dumb what they did lol</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|away&gt; so it got confused and I said screw it.</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;kang&gt; newer driver is better anyhow.</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|away&gt; shit. pmem is back.</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|away&gt; mach-aries.c won't compile for me for some reason now - and it turns out there is an include for media.h</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|away&gt; that is dependent on ANDROID_PMEM</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;techmik67&gt; i bot a new build error now</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;techmik_laptop&gt; make[3]: *** [arch/arm/mach-s5pv210/mach-aries.o] Error 1</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, me too. let me look at the logs</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;atinm|away&gt; something got committed maybe</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;kang&gt; put back pmem</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;kang&gt; check cm7 log</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;kang&gt; coolya did some commit concerning pmem there</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;kang&gt; prolly will point out the solution</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;kang&gt; was about.. media and pmem from the commit msg lol</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;kang&gt; so likely to be that</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, codeworkx is working directly on the main tree.</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;atinm|away&gt; so now I don't trust it anymore..</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: work in the branch man ..</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;atinm|away&gt; (whenever you see this)</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;Unhelpful&gt; so, um, *don't* sync the kernel, then? ;)</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;atinm|away&gt; well, he hasn't messed things up yet I don't think</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;atinm|away&gt; but it is only a matter of time :)</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm|away&gt; that's why I created the samsung_cm7_merge branch.</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm|away&gt; so we can screw around with merging in there.</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm|away&gt; without breaking what we know works..</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://www.pastie.org/1809719">http://www.pastie.org/1809719</a></span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm|away&gt; fixing it.</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-brick">* Unhelpful is currently hung up a bit on how to solve what he hopes is the last remaining way for biasmodel to go bad. :)</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;atinm&gt; I have half a mind to let JVB alone until someone else gets it working for a change.</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;atinm&gt; for captivate and other phones.</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;atinm&gt; and then pull in for CM7 :)</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;atinm&gt; people have been living off CM7 kernel for a while now, its their turn to drag this weight around for a bit. and they have an easier task..</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;Unhelpful&gt; and when we do, they'll be all "kangers gonna kang"...</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;atinm&gt; well duh. :)</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;Unhelpful&gt; wolfram alpha is not helping me. <a href="http://www.wolframalpha.com/input/?i=transform+ax+%2B+by+%2B+cz+%2B+d+%3D+0+to+the+xy+plane">http://www.wolframalpha.com/input/?i=transform+ax+%2B+by+%2B+cz+%2B+d+%3D+0+to+the+xy+plane</a></span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm&gt; a = 0,   b = 0,   c = 0,   d = 0</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm&gt; we're good.</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm&gt; ;(</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;kang&gt; 564cdf615f61b5994bd595f03ac0f0a16b4d1590 add pmem devices to mediadivices</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;kang&gt; bd6a94c29d34004312cdc27a2c61f92a4ada7757 corrected video memsizes</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;kang&gt; 12dfe86f5a76566d96ced56ddec4ee97fb64bbc2  higher video memsizes to be sure</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm&gt; where are you reading these from?</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;kang&gt; a7355a783f37447313405518cea077e7b7954c9e  add pmem config from define and not config [MAYBE]</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;kang&gt; cb35324d48c7eb2d7f3cf95066ce20480c73f7fb remove pmem config</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;kang&gt; e30c4451ac90fa21a765687473bad7904d481bb0 fix compiler error when no pmem config</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: well, that *is* a solution for all x,y,z :)</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;kang&gt; from CM7 kernel log</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;kang&gt; u can just git show them from any CM7 git repo</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;kang&gt; likely to contain a fix already</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;kang&gt; just extracted the ones matching</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm&gt; only thing I did was pull the media.h and other file out of the #ifdef</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;Unhelpful&gt; and it's smart enough to figure that x,y,z are free variables and a,b,c,d are parameters</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm&gt; since coolya said we dont' use PMEM</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;Unhelpful&gt; kang: not a bad idea, at the least it's worth looking at the diff for those commits...</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm&gt; so I am not defining it.</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;kang&gt; yeah CONFIG_ANDROID_PMEM is not there</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;kang&gt; although i don't know if its needed or not</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;kang&gt; for example the CM7 kernel doesn't have MDNIE</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;techmik67&gt; when you finsh fixing, pull from branch, not repo sync, correct?</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;kang&gt; samsung's has it</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;kang&gt; also CM7 is not using the DSP</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;kang&gt; stuff like that</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * a141843 (2 files in 2 dirs): Moved media.h includes out of #ifdef for PMEM. ... - <a href="http://bit.ly/e4Z0or">http://bit.ly/e4Z0or</a></span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm&gt; techmik67: yes</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-green">* techmik_laptop is now known as techmik</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm&gt; nope, still bad.</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm&gt; damn it.</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-green">* techmik is now known as techmik_laptop</span><br />
