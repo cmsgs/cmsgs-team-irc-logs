@@ -629,3 +629,104 @@
 <span class="irc-date">[10:58]</span> <span class="irc-black">&lt;GuiPer_Work&gt; only yesterday I guess, it didn't start the init.rc</span><br />
 <span class="irc-date">[10:58]</span> <span class="irc-black">&lt;GuiPer_Work&gt; so probably he restored</span><br />
 <span class="irc-date">[10:59]</span> <span class="irc-black">&lt;kang&gt; codeworkx: it's herring</span><br />
+<span class="irc-date">[11:00]</span> <span class="irc-green">* neldar (~neldar@217.25.166.97) has joined this channel.</span><br />
+<span class="irc-date">[11:00]</span> <span class="irc-black">&lt;- *neldar* Bot Sentry eingeschalten:  Sie werden jetzt ignoriert!  Ihre Nachricht wird übermittelt wenn sie die folgenden Fragen innerhalb von 10 Minuten richtig beantworten:  How do you spell the result of ten div_ided by 2?</span><br />
+<span class="irc-date">[11:00]</span> <span class="irc-black">&lt;kang&gt; sammy just mixed up names &amp; drivers a lot</span><br />
+<span class="irc-date">[11:00]</span> <span class="irc-black">&lt;atinm&gt; thanks. I am not running the new kernel right now</span><br />
+<span class="irc-date">[11:00]</span> <span class="irc-black">&lt;atinm&gt; have to go soon</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;codeworkx&gt; yeah then this is the problem</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;atinm&gt; ouch.</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;GuiPer_Work&gt; kang: in this case, I guess their init binary just does not care of the init.rc shit</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;atinm&gt; we're still bad on captivate.</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;GuiPer_Work&gt; just loads what they want</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;atinm&gt; now screen is garbage.</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;codeworkx&gt; it tries to load init.herring.rc</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;GuiPer_Work&gt; maybe new bootloader??</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;atinm&gt; PVR_K:(Error): BridgedDispatchKM: Initialisation failed.  Driver unusable. [3785, /home/atin/src/android/teamhacksung/ke\</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-black">&lt;atinm&gt; rnel/samsung/2.6.35/drivers/gpu/pvr/bridged_pvr_bridge.c]</span><br />
+<span class="irc-date">[11:03]</span> <span class="irc-black">&lt;GuiPer_Work&gt; atinm you tried to boot with new MACHINE_START?</span><br />
+<span class="irc-date">[11:04]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;GuiPer_Work&gt; and now screen garbage?</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;GuiPer_Work&gt; kang egl folder from JVB?</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;GuiPer_Work&gt; and / or bootloader?</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;atinm&gt; not bootloader.</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;atinm&gt; but I'm in mix and match mode right now</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm&gt; so running old android, but new kernel</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm&gt; so it should break</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;codeworkx&gt; default framebuffer window</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm&gt; but I thought maybe it was the framebuffer. we have number of buffers = 4 on captivate in cm7</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm&gt; here we have 2.</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;GuiPer_Work&gt; i would start with userspace libs</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;kang&gt; GuiPer_Work: ? x)</span><br />
+<span class="irc-date">[11:08]</span> <span class="irc-black">&lt;GuiPer_Work&gt; mainly the graphics related on egl folder</span><br />
+<span class="irc-date">[11:08]</span> <span class="irc-black">&lt;atinm&gt; codeworkx, default is 2?</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-black">&lt;atinm&gt; tho something is happening on the screen.</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-black">&lt;atinm&gt; just garbage.</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-black">&lt;atinm&gt; like bad sync or something</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm&gt; vertical/horizontal</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm&gt; sync</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;codeworkx&gt; whats default on sammy kernel?</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm&gt; was sammy it is 2</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm&gt; we had it 2 on cm7 as well</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm&gt; but number of buffer=4 on cm7, 2 here.</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;codeworkx&gt; try jvb egl</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;Wout`&gt; doesnt this new kernel from sammy need the new 2.3.3 bootloader too?</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;Wout`&gt; with old bootloaders and cm7 there was also some weird screen corruption</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm&gt; can't now. can you create a branch and use it?</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm&gt; for jvb egl</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm&gt; I don't think it is  bootloader.</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;GuiPer_Work&gt; I can upload them in 3 minutes if you want</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;kang&gt; i think unhelpful has been pushing the egl stuff</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm&gt; ok, thanks. commit to github, but create a sammy_cm7_merge branch for whatever repo its in.</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm&gt; lets start using a sammy_cm7_merge branch until we've got this sorted and then we can move to mainline</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;GuiPer_Work&gt; no luck for upload, would need to download a full rom :S</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm&gt; our mainline :)</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm&gt; ok, have to go now</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm&gt; good luck.</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm&gt; oh, does i9000 not give garbage?</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm&gt; or has no one tried? :)</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;GuiPer_Work&gt; im at work :( and our defconfig still need merge</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;atinm&gt; I have to get kid ready for preschool and then go to work too</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;atinm&gt; so later</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-navy">* atinm (~atin@unaffiliated/atinm) Quit (Quit: atinm)</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;codeworkx&gt; it can be bootloader related</span><br />
+<span class="irc-date">[11:25]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[11:25]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge GuiPerPT * 617faf2 (1 files in 1 dirs): More merges. - <a href="http://bit.ly/fo1JgD">http://bit.ly/fo1JgD</a></span><br />
+<span class="irc-date">[11:25]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[11:26]</span> <span class="irc-black">&lt;Wout`&gt; even if you do get it to boot, there will probably be other issues because the kernel was built around the new bootloader</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;kang&gt; i highly doubt its egl related</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;kang&gt; although jvb bins should still be used</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;kang&gt; it fixes some stuff</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;kang&gt; like *cough* quadrant lol</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;Wout`&gt; need to step out for minute, will be back in about an hour</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;kang&gt; and its quite likely to be boot loader</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;kang&gt; pretty easy to test anyhow</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;Wout`&gt; will be available for i9000 testing then</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;Wout`&gt; if any devs are around</span><br />
+<span class="irc-date">[11:29]</span> <span class="irc-black">&lt;GuiPer_Work&gt; For me it's simply the egl :)</span><br />
+<span class="irc-date">[11:29]</span> <span class="irc-black">&lt;GuiPer_Work&gt; PVR_K:(Error): BridgedDispatchKM: Initialisation failed.  Driver unusable.</span><br />
+<span class="irc-date">[11:29]</span> <span class="irc-black">&lt;kang&gt; but i can init sammys kernel on the "old" lib</span><br />
+<span class="irc-date">[11:29]</span> <span class="irc-black">&lt;kang&gt; (i run jvb but its the +- same kernel x)</span><br />
+<span class="irc-date">[11:29]</span> <span class="irc-black">&lt;kang&gt; thats why i doubt it</span><br />
+<span class="irc-date">[11:30]</span> <span class="irc-black">&lt;kang&gt; u can get them easily from romkitchen.org/beta, downloads faster than most mirrors and its zipped, no need to mount loop stuff anyway</span><br />
+<span class="irc-date">[11:30]</span> <span class="irc-black">&lt;GuiPer_Work&gt; how old lib? if you run JVB you got the new libs no?</span><br />
+<span class="irc-date">[11:31]</span> <span class="irc-black">&lt;kang&gt; i was mixing up stuff yesterday</span><br />
+<span class="irc-date">[11:31]</span> <span class="irc-black">&lt;kang&gt; ran with whatever froyo libs</span><br />
+<span class="irc-date">[11:31]</span> <span class="irc-black">&lt;kang&gt; atm im running with jvb libs</span><br />
+<span class="irc-date">[11:31]</span> <span class="irc-black">&lt;kang&gt; the different was just poor performance in some apps</span><br />
+<span class="irc-date">[11:31]</span> <span class="irc-black">&lt;kang&gt; difference*</span><br />
+<span class="irc-date">[11:31]</span> <span class="irc-black">&lt;kang&gt; as if it was falling back to software in some cases, but not all</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;kang&gt; in any case drivers should be updated to jvb</span><br />
+<span class="irc-date">[11:34]</span> <span class="irc-green">* Wout` is now known as Wout|brb</span><br />
+<span class="irc-date">[11:39]</span> <span class="irc-black">&lt;codeworkx&gt; yes use jvb drivers</span><br />
+<span class="irc-date">[11:39]</span> <span class="irc-black">&lt;codeworkx&gt; and jvb bootloader</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-black">&lt;GuiPer_Work&gt; if it will not work again shitty FB problems :S</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-green">* t-ready (~burrell@wormhole.cbl.umces.edu) has joined this channel.</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-navy">* cmsgsteam-logger (~PircBot@unaffiliated/atinm) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-navy">* Disconnected.</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-brown">-anthony.freenode.net- *** Looking up your hostname...</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-brown">-anthony.freenode.net- *** Checking Ident</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-brown">-anthony.freenode.net- *** Found your hostname</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-brown">-anthony.freenode.net- *** No Ident response</span><br />
