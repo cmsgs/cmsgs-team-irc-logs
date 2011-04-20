@@ -1,0 +1,182 @@
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;Kaik541&gt; normal shaders! EVERYWHERE!</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;rhcp&gt; koush_: <a href="https://www.dropbox.com/gallery/2708097/1/macbook?h=0e90aa#/">https://www.dropbox.com/gallery/2708097/1/macbook?h=0e90aa#/</a></span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;rhcp&gt; got today</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;koush_&gt; rhcp: just report the same thing every time for RM</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;koush_&gt; can still hac kit</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: yes, we don't really have a choice about that, our bootloaders are proprietary and don't support a separate initramfs.</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: what i was talking about in #cwr is this</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;koush_&gt; currently your packed zImage looks something like:</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;koush_&gt; header|initramfs|zimage</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;koush_&gt; what i'm proposing is this:</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;koush_&gt; header|stub-loader-initramfs|zImage|recovery|boot</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;koush_&gt; the stub loader just looks at the end of the image for what it realy wants to load</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;koush_&gt; loads it, then continues</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;koush_&gt; so a secondary initramfs loading process</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;Kaik541&gt; I think we've done something like that before</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, you created a multi-stage init right?</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;atinm&gt; wassup?</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-green">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;atinm&gt; in froyo days</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;atinm&gt; I'm coming in the middle of this - what's going on?</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;Unhelpful&gt; i like that idea a lot. i assume the stub just reads from the mtd device?</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;atinm&gt; I'm sorry - I have to go for a few minutes</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;koush_&gt; atinm: Unhelpful: why was that idea dropped?</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;atinm&gt; kid has to be put to bed ...</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;atinm&gt; back in 10-15min.</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;koush_&gt; np</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;Unhelpful&gt; the "multi-stage" init was iirc only part of the voodoo script-as-init business.</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;Kaik541&gt; I think it was only used because it wouldn't fit by default</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;Kaik541&gt; so he used extra space elsewhere on the device (he ended up using sdcard I think, but is there any reason we couldn't use bml8 since ours is empty?)</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;koush_&gt; why would a multistage take more than a normal init?</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;koush_&gt; take more space* rather</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;Kaik541&gt; it was used for packaging CWM+voodoo+a few other things, I wasn't very knowledgeable (not that I really am now) back then, so I may be misremembering</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;atinm&gt; sorry. at the time we didn't have source for the kernel</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-navy">* neldar (~neldar@217.25.166.97) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;atinm&gt; all we had was the kernel from samsung, so wrote a script to extract the initramfs from it, and insert it back into it. but we couldnt' have a bigger initramfs than what the kernel started with</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;atinm&gt; so when we wanted more space, I ended up creating a 2 step one, the first just loaded the initramfs from the sdcard at init time</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;atinm&gt; (still don't know what we're talking about - reading back the logs)</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: 1) voodoo added a *lot* to the initramfs 2) we had to fit it in original initramfs space - so it loaded the "real" contents via script.</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;Unhelpful&gt; and it still doesn't solve the problem of detecting requested boot mode, we need to mess w/ the parameter filesystem for that, since it's what bootloader uses for lpm.</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;Unhelpful&gt; i guess the "pre-init" could have that code, too, so it needn't "pollute" the init source ;)</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;atinm&gt; dang, I need to catch up, both here and #cwr.</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;atinm&gt; why are we still talking rfs ..</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;atinm&gt; or is the idea to try to keep samsung roms working</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;koush_&gt; well, my goal is to get a cwr that doesnt suck fucking dick on samsung</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;koush_&gt; and that means rfs support sadly</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;koush_&gt; even though i hate it</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm&gt; yes, the one good thing about doing cm7 for samsung has been the lack of rfs in my life</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; and therefore lack of every damn lagfix crap on the planet . . .</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; but I see your point.</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;Unhelpful&gt; we would really, *really* rather be able to move away from rfs as the base filesystem for cm on sgs.</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; we basically have it. our biggest issue is the param.lfs. not rfs.</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: i 100% agree</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;koush_&gt; atinm: elaborate?</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; we don't have rfs. koush_ have you actually tried CM7 on sgs? :)</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; we basically complete replaced it with mtd/yaffs2/ext4.</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;Unhelpful&gt; param.lfs is where the boot stuff is stored. it's not rfs, it's j4fs, and as near as we can tell, essentially a fixed on-disk structure.</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; after you flash the first update kernel, we convert the filesystems and never have to deal with rfs again.</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm&gt; param.lfs is the only open issue for us - that's where the boot params to the kernel come in at</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm&gt; so next thing is going to be to just read it block wise.</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm&gt; and get at them.</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm&gt; its supercurio etc who are not CM7 that are still in rfs world.</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm&gt; CM7 is clean. :)</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;Unhelpful&gt; and horrid compass sensor crap, i'm talking with somebody in #eigen about how to finish the job there. :)</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; you should get your captivate out of the drawer and flash CM7 on it :)</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; (you used to have a captivate if I remember right)</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; (which is why I'm not contributing to the discussion in #cwr - to me is it unrelated to CM7.x for SGS . . .)</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; lagfix discussions are so last year.</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; ;)</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-brick">* Unhelpful had a good laugh the other day at a big deal being made on twitter of adding no_auto_da_alloc to ext4 mount options</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm&gt; oh god . . .</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm&gt; btw, anyone made any more progress on the kernel?</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; I had to leave for work related stuff</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; but I'm getting tired of the SGX crap - using the new libraries just kills the captivate dead black.</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; I am thinking of attacking it in the other direction.</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm&gt; we have working CM7 now. pull in pieces of the samsung GB dump for the parts we need to fix/update. leave the rest alone.</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm&gt; ANDROID_PMEM seems to be needed on captivate for some reason I haven't figured out yet.</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;techmik67&gt; atinm: i didnt get black screen, i got theh multicolor screen forever</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;techmik67&gt; the*</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;techmik67&gt; with the laast build attempt</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;atinm&gt; techmik67: I reverted a couple of my commits</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;atinm&gt; haven't pushed yet.</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;atinm&gt; was trying a few different things. I hate just playing in the defconfig which is all we seem to be doing right now. I am back to the state I was in last night where kernel comes up, but framebuffers are fucked.</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: i'm of the opinion we should make any merges of the samsung source drops selective. a wholesale merge will only make it harder to track nexus-s and mainline android kernels, where we see updates *with usable history*</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;atinm&gt; recovery comes up tho</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;atinm&gt; yeah, starting to think the same.</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;Unhelpful&gt; this just seems to me a lot of work to basically make our kernel hard to merge.</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;atinm&gt; was hoping that Samsung dropping GB source would mean it would "just" work if we added mtd and yaffs2 and our initramfs</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;atinm&gt; but no such luck.</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;Unhelpful&gt; what is in their gb sources that we need so badly? what are we missing?</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;atinm&gt; I only really care about the mach-s5pv210 tree</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;atinm&gt; the gpios.</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;atinm&gt; since we still don't have sleep working completely.</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;atinm&gt; as seen by the battery complaints.</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;atinm&gt; I'll also go into the sound ASoc for wm8994 and pull what we need.</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;Unhelpful&gt; right, butthere we really just need to go over what *any* kernel for sgs shuts off on sleep, and make sure we do the same.</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;atinm&gt; the rndis/ums seems to be implemented correctly now too.</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;Unhelpful&gt; which i thought TMC_Sherpa started already?</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, but you already fixed that. ;)</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;atinm&gt; he has.</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm&gt; crap, kid just woke up - back in a few</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm&gt; I did - but will compare to theirs anyway. they also enable MTP</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm&gt; I guess for kies or something</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I have gpio diffs in froyo land, working on lining things up with our source</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; in cm7</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm&gt; koush_: whatever you do . . . remember that we have merges that are CM7 based as well. I think we've got recovery merged now.</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm&gt; so maybe not important.</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: well, i don't know if kies uses it, but stock fw also supports transfer of media files via mtp. i don't really care about that. ;)</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;koush_&gt; atinm: gotcha</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;atinm&gt; the rest of the folks on #cwr aren't really thinking of SGS as a CM7 phone . . . what with lagfix etc . . .</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;koush_&gt; signal to noise is a little low</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;koush_&gt; i just want a way to fakeflash really</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;atinm&gt; wow . . . funny really, voodoo lagfix on gingerbread. funny and sad. Samsung really sucks donkeys.</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm&gt; we have to get param.lfs working . . .</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm&gt; or at least, our kernel reading the damn thing.</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;Unhelpful&gt; or some utility, anyway.</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm&gt; and we can be completely clear of samsung issues related to file systems.</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm&gt; I'm hoping coolya comes back now that I'm coming to my senses and are just going to take pieces of Samsung gingerbread code</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm&gt; rather than attempting to make it play nice with CM7 as is.</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm&gt; *am just going</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm&gt; which is not happening. SGX stuff is crazy weird.</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm&gt; koush_: hate to ask - who looks at frameworks/base and system/vold?</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-brick">* Unhelpful is sorry about any part he played in convincing you to throw work away ;)</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm&gt; have a couple of pending merges on review related to mounting dual sd cards</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;koush_&gt; atinm: i can look at that</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;koush_&gt; what has two sd cards?</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;atinm&gt; well, SGS with internal/external. we weren;t able to  mount external over USB</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;atinm&gt; in CM7</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;koush_&gt; oh that</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;koush_&gt; i added support for that</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;koush_&gt; htc inc has internal external as well</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;koush_&gt; you just need to use ro.additionalmounts</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;koush_&gt; grep for that in both</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;atinm&gt; no no - there's more.</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;koush_&gt; o</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; there was a vold change needed.</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; because we share a major device</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; let me find the reviews.</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; techmik - you have the links?</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://review.cyanogenmod.com/4578">http://review.cyanogenmod.com/4578</a></span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://review.cyanogenmod.com/4579">http://review.cyanogenmod.com/4579</a></span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm&gt; my guys are awesome ;)</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;techmik67&gt; i was looking at where they were on the list as you asked =)</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; koush_: vold needed another #ifdef VOLD_EMMC_SHARES_DEV_MAJOR like it does in another place.</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; otherwise it was going to the wrong partition.</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;Unhelpful&gt; true, certain persons here can fetch links in less time than it takes me to remember that somebody linked it. :)</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;techmik67&gt; i have like 14 windows/tabs open =)</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm&gt; yeah, that's why I always ask techmik or Kaik541 rather than go look myself ;)</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-brick">* Unhelpful doesn't really even know why VOLD_EMMC_SHARES_DEV_MAJOR is anything but default behavior - partitions are very much allowed to share a major device number with their disk.</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: ...that's all?</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm&gt; I think that's the only pending merges at the moment</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm&gt; everything else is SGS specific</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;techmik67&gt; lol... all the xda tabs = 1 window, code review window (lotsa F5), github window with all the tabs, twitter.....</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm&gt; so we get these, I'm calling us good and send all SGS stuff upstream! ;-)</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: and get something solved re:param.lfs ;)</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm&gt; well yeah . . .</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm&gt; but that would be kernel doing it, so doesn't need the same reviews.</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm&gt; I didn't say "supported"</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm&gt; I realized that to be officially supported we need to "just work"</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;Unhelpful&gt; tbh, it would be just plain nifty if we could fake up *just* the reservoir and param, and maybe boot, recovery partitions w/ tinyfsr and use samsung stl/bml on them.</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;Unhelpful&gt; could...could we *do* something like that, and still use mtd for the other partitions?</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;atinm&gt; koush_: we do have a question tho . . . say we are never able to do a first install of CM7 straight via a ROM Manager update. That make us forever unsupported?</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;koush_&gt; atinm: why cant you do it via RM&gt;</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: if we could, then we could just be in RM then.</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;koush_&gt; atinm: why cant your zip work via RM is my question</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;atinm&gt; koush_: right now we have to install a new kernel that goes and converts all the filesystems etc to start using MTD devices</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: because coming from a stock kernel, you can't even use mtd/yaffs2, for one.</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;atinm&gt; then we install a second update that does the real install.</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;koush_&gt; atinm: RM supports that :)</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: that's a happy thing for us to hear. ;)</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;techmik67&gt; wow... the xda users will be in love =)</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah so dont tell them</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;koush_&gt; can you elaborate on the process a bit more</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;koush_&gt; what exactly happens</span><br />
