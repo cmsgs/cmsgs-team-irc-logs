@@ -1526,3 +1526,68 @@
 <span class="irc-date">[10:58]</span> <span class="irc-black">&lt;dasunsrule32&gt; oh</span><br />
 <span class="irc-date">[10:58]</span> <span class="irc-black">&lt;codeworkx&gt; i think their init binary loads recovery.rc + init.aries.rc</span><br />
 <span class="irc-date">[10:58]</span> <span class="irc-black">&lt;codeworkx&gt; thats bad</span><br />
+<span class="irc-date">[11:02]</span> <span class="irc-navy">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[11:03]</span> <span class="irc-black">&lt;atinm|away&gt; google squashed samsung GB JVB</span><br />
+<span class="irc-date">[11:03]</span> <span class="irc-black">&lt;atinm|away&gt; so its not there anymore.</span><br />
+<span class="irc-date">[11:03]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[11:03]</span> <span class="irc-black">&lt;atinm&gt; but we're going to get CWM  working for real.</span><br />
+<span class="irc-date">[11:04]</span> <span class="irc-black">&lt;atinm&gt; as a side project, I'm still interested in us reading/writing params.lfs so we get download mode as well</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;atinm&gt; but not high priority . . . I am just as happy taking it out of the ROM as an option for shutdown</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;Unhelpful&gt; we need it for lpm mode to work, too, but yeah, it's a ways out :)</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm&gt; so actual real projects for me and unhelpful are 2 stage initramfs and reboot into recovery</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm&gt; and compass.</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm&gt; and kernel merges. but I'm leaving kernel merges to codeworkx now</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;atinm&gt; codeworkx, new tactic. pull in Samsung GB kernel pieces as needed into our tree</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;atinm&gt; rather than trying to make the whole damn thing work</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm very close there! i can taste it. it is delicious.</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;atinm&gt; something is very screwed in the GB kernel and I'm not going to just sit and waste time figuring .config.</span><br />
+<span class="irc-date">[11:08]</span> <span class="irc-black">&lt;atinm&gt; if someone else wants to get it working for the phones we support, cool.</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-black">&lt;atinm&gt; I'll do the sound driver merge too and any other pieces I touched recently like USB mount</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm&gt; but a whole replace of our kernel with samsung's is in many ways a step back because we'll just be fixing the same bugs again</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm&gt; so codeworkx, you're free to do what you started :)</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm&gt; tho of course, codeworkx is off in the weeds trying to support CM7 on top of bml</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm&gt; there are snakes in those weeds codeworkx.</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm&gt; ooh . . . $8 off dominos pizza is today's groupon . . .</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm&gt; I'd forgotten there *was* a dominos.</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;Unhelpful&gt; there always are. when the hell did i start this compass stuff?</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm&gt; no $8 for one.</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm&gt; even better.</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: I dunno . . . but way to long.</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm&gt; tch tch. ;)</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm&gt; ack, kid up</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;codeworkx&gt; atinm we should only focus on bugs</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm&gt; off - I'll log in from work</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm&gt; codeworkx: agreed.</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;codeworkx&gt; sound is working, so no need</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm&gt; so we'll leave the merge we started in its branch</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm&gt; not for captivate :)</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm&gt; well, not fully</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm&gt; and headset for vibrant</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;codeworkx&gt; param, gpu and ril is left?</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm&gt; so it'll be nice to make sure we have everything correct by looking at galaxy s driver and comparing with nexus s</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm&gt; gpu yes.</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm&gt; param we don't *have* to support if we do the workaround koush suggested</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm&gt; but good to have</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm&gt; for lpm too</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm&gt; we will do the workaround because its a quick and dirty</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm&gt; just my style ;)</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;atinm&gt; but gpu and ril.</span><br />
+<span class="irc-date">[11:16]</span> <span class="irc-black">&lt;atinm&gt; and any other low hanging fruit like sound. I do want to merge mach-s5pv210 tree</span><br />
+<span class="irc-date">[11:16]</span> <span class="irc-black">&lt;atinm&gt; so we get sleeps correct and might manage to fix battery issues</span><br />
+<span class="irc-date">[11:16]</span> <span class="irc-black">&lt;atinm&gt; still a lot. but not a wholesale merge</span><br />
+<span class="irc-date">[11:16]</span> <span class="irc-black">&lt;atinm&gt; ok, off now</span><br />
+<span class="irc-date">[11:16]</span> <span class="irc-navy">* atinm (~atin@unaffiliated/atinm) Quit (Quit: atinm)</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;codeworkx&gt; what has koush said about recovery?</span><br />
+<span class="irc-date">[11:26]</span> <span class="irc-black">&lt;kang&gt; codeworkx: koush said to hack it up to boot in recovery with some kind of flag</span><br />
+<span class="irc-date">[11:26]</span> <span class="irc-black">&lt;blyfoten&gt; Check the logs... they had quite a long conversation last night..</span><br />
+<span class="irc-date">[11:26]</span> <span class="irc-black">&lt;kang&gt; codeworkx: eg touch /data/.recovery =&gt; use recovery at init and del that flag</span><br />
+<span class="irc-date">[11:28]</span> <span class="irc-black">&lt;codeworkx&gt; but then we have to patch init again to parse it</span><br />
+<span class="irc-date">[11:30]</span> <span class="irc-black">&lt;codeworkx&gt; and in init you‘ve nothing mounted</span><br />
+<span class="irc-date">[11:30]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[11:30]</span> <span class="irc-black">&lt;kang&gt; codeworkx: the actual chat: <a href="http://pastie.org/private/rqnaw2pptnjnrgg0dihia">http://pastie.org/private/rqnaw2pptnjnrgg0dihia</a></span><br />
+<span class="irc-date">[11:33]</span> <span class="irc-black">&lt;codeworkx&gt; i‘ll have a look at init today</span><br />
+<span class="irc-date">[11:33]</span> <span class="irc-green">* t-ready (~burrell@wormhole.cbl.umces.edu) has joined this channel.</span><br />
+<span class="irc-date">[11:34]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@59.97.73.5) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-navy">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[11:46]</span> <span class="irc-navy">* blyfoten (~AndChat@m83-190-54-146.cust.tele2.se) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[11:46]</span> <span class="irc-green">* blyfoten (~AndChat@83.186.137.230) has joined this channel.</span><br />
