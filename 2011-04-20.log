@@ -2077,3 +2077,87 @@
 <span class="irc-date">[18:39]</span> <span class="irc-black">&lt;codeworkx&gt; to 6</span><br />
 <span class="irc-date">[18:40]</span> <span class="irc-black">&lt;nitam|work&gt; thanks</span><br />
 <span class="irc-date">[18:42]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) has joined this channel.</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;mikebeecham&gt; evening all</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-green">* thedeanius is now known as TheDeaniusG2x</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-navy">* mikebeecham (~mikebeech@78.150.4.101) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-navy">* Zilch25 (~Zilch25@32.160.112.227) Quit ()</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;dasunsrule32&gt; ah shutup TheDeaniusG2x</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;dasunsrule32&gt; :-S</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;dasunsrule32&gt; :p</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;dasunsrule32&gt; showoff</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;dasunsrule32&gt; ;)</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;TheDeaniusG2x&gt; lol</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-green">* evaluate (~cristi@unaffiliated/evaluate) has joined this channel.</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;evaluate&gt; hello</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;techmik67&gt; hi</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-green">* mikebeecham (~mikebeech@78.150.4.101) has joined this channel.</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-navy">* Kaik541 (~Kaik541@cpe-70-112-175-254.austin.res.rr.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-navy">* TheDeaniusG2x (~dean@64.151.21.178) Quit (Quit: TheDeaniusG2x)</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;nitam|work&gt; urk, build/core/Makefile has a bug in it somehow when using combined recovery</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;nitam|work&gt; wait . . . are you kidding me?!</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-brick">* Unhelpful has arrived in FC city :(</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;Unhelpful&gt; what's the bug?</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;Unhelpful&gt; OH! my /datadata is pretty much full. :/</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful, can you take a look at Makefile in build/core</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;Unhelpful&gt; briefly :)</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;nitam|work&gt; line 772. somehow we managed to make it so it won't work because we copy recovery.fstab in there so dir is not empty</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;nitam|work&gt; I guess I'll just fix it, but then we're forked again.</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;nitam|work&gt; argh.</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; so had to add rm -rf $(TARGET_RECOVERY_ROOT_OUT)/misc/etc before the mv</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; guess I'll fork and send up another gerrit.</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;nitam|work&gt; law of conservation of gerrit reviews</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;nitam|work&gt; thine shall always have &gt; 2.</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;nitam|work&gt; &gt; 1 . . .</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;Unhelpful&gt; i would just force-remove /misc further up, i think.</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;nitam|work&gt; I wanted to do minimal damage. we explicitly copy etc into misc there, so it is ok to remove etc.</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;nitam|work&gt; didnt' want to do more in case we add something else to misc we need . . . was easier ;)</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;nitam|work&gt; oh wait.</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;nitam|work&gt; we are renaming there right?</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;nitam|work&gt; not moving etc into /misc</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;Unhelpful&gt; no, see, we actually move /etc *to* /misc right now.</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;Unhelpful&gt; exactly.</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;nitam|work&gt; we want to be renaming</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;nitam|work&gt; but are moving into</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;nitam|work&gt; correct?</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;Unhelpful&gt; so /misc needs to be removed, else we end up doing move-into instead of rename.</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;nitam|work&gt; right, ok gotcha</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;Unhelpful&gt; *or* we should change recovery.rc, and make sure /misc *does* exist, and move /etc under it.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;nitam|work&gt; ?</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;nitam|work&gt; btw, how did koush get at recovery.fstab last night?</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;nitam|work&gt; since the code is looking at /etc</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;Unhelpful&gt; we symlink /misc to /etc in recovery.rc</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-green">* Kaik541 (~Rawr@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;nitam|work&gt; oh right . . . ok.</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;Unhelpful&gt; the trouble seemed to be that fakeflash did rm -fr /etc :)</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;nitam|work&gt; ookey :)</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;mikebeecham&gt; how're things today guys?</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;mikebeecham&gt; better?</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;mikebeecham&gt; more productive I Hope</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; alright, if I change recovery.rc, then no gerrit review needed</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;nitam|work&gt; actually I have to do the rm anyway</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;nitam|work&gt; in Makefile</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; define 'productive' :P</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;nitam|work&gt; I'm just going to do it that way and leave recovery.rc alone for now</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;mikebeecham&gt; TMC_Sherpa, better than yesterday :D</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;nitam|work&gt; only because we stopped doing what we were doing</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;mikebeecham&gt; have you guys managed to boot on the SGS kernel?</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: either you have to do rm, or you have to mkdr /misc so that we guarantee it *is* a move instead of rename. :)</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;nitam|work&gt; namely porting Samsung kernel to ours</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;nitam|work&gt; we're not trying to boot SGS kernel anymore</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;nitam|work&gt; at least I'm not.</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;nitam|work&gt; we'll take pieces of it as needed.</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;nitam|work&gt; but not the whole thing. it isn't needed.</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well, I have half a script for junk removal but my mac has a crap version of grep so it wont run....and whatever cc is on this POS has a broken LD so I can't even compile GNU grep to fix it.  one tiny step forward one giant leap backward</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; on the other hand, the script evaluates all the IFDEF that are true (in the defconfig) so I only need to work out the false half which isn't that bad as long as I can come up with a good list for false</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; that will get rid of most of the garbage in the tree (commented out stuff is still a problem) so I can get good data to compare</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-brick">* Unhelpful hopes you just use cpp to evaluate those ;)</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;Unhelpful&gt; erm, crap, except that evaluates all other macros. :(</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; which makes the --exclude part very important :)</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread atinm * 4f16fd6 (1 files in 1 dirs): Fork android_build again. - <a href="https://github.com/teamhacksung/android/commit/4f16fd67ab4346524e6905bc3cbcba8c92abbe84">https://github.com/teamhacksung/android/commit/4f16fd67ab4346524e6905bc3cbcba8c92abbe84</a></span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; however OSx grep pukes when I exclude a directory so.....</span><br />
