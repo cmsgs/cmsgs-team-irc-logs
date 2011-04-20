@@ -180,3 +180,235 @@
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah so dont tell them</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;koush_&gt; can you elaborate on the process a bit more</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;koush_&gt; what exactly happens</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;atinm&gt; unhelpful, you do it.</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;atinm&gt; you understand that better than I do.</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;koush_&gt; i dont need tehcnical details on how its converted</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;koush_&gt; just the genrael workflow</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;atinm&gt; 1. install a kernel that is running CWM 3.x; 2. install an update that backs up efs data</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: afaik first boot w/ a mtd kernel just tries to mount the partitions as yaffs2, and they get formatted when they fail. the point is mainly that the kernel and the rest of the update must be in separate updates for the first install.</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm&gt; then boot with custom initial kernel that converts to mtd/yaffs2</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: can you just say: package1.zip does the update</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;koush_&gt; package2.zip does another CM install?&gt;</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;koush_&gt; in the samerecovery session?</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: no, because we can not write yaffs2 filesystems without booting a new kernel.</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: derp yeah that makes sense.</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;Unhelpful&gt; unless we work up a module to do mtd access to the onenand while tinyfsr/stl/bml are still in place...i guess *maybe* that might be possible?</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;atinm&gt; urk ...</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: so, what we can do in one go is to unpack a stage2 update, back up efs, and write the new kernel.</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;Unhelpful&gt; the new kernel can format things as yaffs2, install th backed-up efs, and write the rest of th system files.</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;zacharias|busy&gt; with the new sammy-based kernel it resulted in bootloops mtd (?) and tinyfsr enabled at the same time</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;zacharias|busy&gt; so it likely would be difficult</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;atinm&gt; don't want.</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;atinm&gt; lets see if we can first try to figure a way without having to go that route.</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;Unhelpful&gt; we could just use a custom kernel for the firstboot, with the "real" kernel in the second stage.</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ls</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; frick'n window focus</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;Unhelpful&gt; the firstboot kernel could just have a recovery initramfs w/ the init script modified to write instructions to /cache for recovery to install the second-stage update</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;atinm&gt; supercurio is hogging koush right now. :)</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;koush_&gt; im reading :)</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;koush_&gt; multitasking</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;atinm&gt; wait, yeah . . . I guess we can do that in recovery</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;Kaik541&gt; oh god single zip install.. so many happy noobs :D</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;koush_&gt; how does your recovery work</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;koush_&gt; i imagine you arent using mine../.</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;atinm&gt; oh we are.</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;koush_&gt; wait whaaat</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;atinm&gt; we're actually merged too</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;koush_&gt; different device vendor?</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;DAGr8&gt; [21:11] &lt;Kaik541&gt; oh god single zip install.. so many happy noobs :D</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;DAGr8&gt; actually I resent that</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;DAGr8&gt; LO</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;DAGr8&gt; L</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;techmik67&gt; we need those last 2 that we share then all shared are merged i think</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;techmik67&gt; vold and frameworks_base</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;techmik67&gt; woot</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;atinm&gt; we have new vendor files for each device now.</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;atinm&gt; cyanogen_captivate etc.</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;atinm&gt; sec.</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/teamhacksung">https://github.com/teamhacksung</a> that be us. let me see if we're still forked on bootable/recovery</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;atinm&gt; crap, we are.</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;atinm&gt; tho I thought we were merged.</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;atinm&gt; hrm.</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;techmik67&gt; i thought unhelpfuls last commit was merged too</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/teamhacksung/android_bootable_recovery">https://github.com/teamhacksung/android_bootable_recovery</a></span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;atinm&gt; unhelpfuls makefile stuff is merged.</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;atinm&gt; so coolya still needs to send up bootable/recovery to gerrit.</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;atinm&gt; and we need the two sd card reviews on gerrit already</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;atinm&gt; and we should be done with all pending things</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;atinm&gt; all pending "common" things.</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: well, if we have koush's multi-stage initramfs we won't even need those makefile changes any more... hah. :/</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; and vendor/samsung/common, device/samsung/captivate etc etc all.</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;techmik67&gt; and... the kernel, mwahaha.....</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;atinm&gt; you'll have to get me up to speed on what koush is doing multistage. same idea as mine for froyo roms?</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;atinm&gt; (I do like being able to build kernel as I'm building all of CM7 - but that's cause we on SGS are used to building our own kernels)</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;atinm&gt; (and I try to only work in the kernel..)</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-navy">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;atinm&gt; it just hit me - we're going to have most favored status with RM and clockworkmod since we're CM ;-)</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm&gt; so I'm going to not worry about what they're proposing doing (mostly because its too hard to keep up on cwr)</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm&gt; because everytime they say RFS, a brain cell dies somewhere.</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: but we need to think about how we're going to support clean install for real via RM.</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;atinm&gt; I'm going to take a break from samsung GB porting.</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;atinm&gt; because it is going nowhere. codeworkx has the right idea, go the other way</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;atinm&gt; pull in the pieces we need. and he's already started.</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: yes, we do, but if it's a goal to have in-kernl initramfs go away, and that is *also* a mainline blocker, we need to work on both.</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;atinm&gt; I'm going to leave the samsung_cm7_merge branch there</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;atinm&gt; for spare time hacking.</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;atinm&gt; ah! now I get why 2 stage.</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;atinm&gt; lol, so then we won't need to build the kernel . . . ok, finally caught up :)</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: yes, the idea is to use a prebuilt kernel w/ a stub initramfs, that only has enough in it to extract either the boot or recovery initramfs from after the kernel image, and then we can just build kernel when we update it, and use a binary kernel like every other target.</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;atinm&gt; and the initramfs will be shoved in after the kernel image like in other phones?</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;atinm&gt; the 2nd initramfs</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;Unhelpful&gt; probably not *precisely* like other phones, is what i expect.</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;Unhelpful&gt; afaik they use boot.img, and it looks like that has a header before the actual kernel, and we need the actual kernel first, or no boot.</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;atinm&gt; right.</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;atinm&gt; the bootloader bites us in the ass again.</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;atinm&gt; but close enough approximation</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;atinm&gt; (what is the problem we're trying to solve tho . . . it is really that painful to have an in-kernel initramfs?)</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;atinm&gt; is it</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;atinm&gt; guess now I should read what #cwr is talking about</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;Unhelpful&gt; but yeah, not that big a deal. we could honestly just concatenate a boot and then recovery initramfs, w/ some marker that makes it clear that's what they are, and extract those.</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;Unhelpful&gt; well, no other device does, and it means we *have to* build kernel to build a boot image.</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-navy">* zerojay (~jay@Maemo/community/contributor/zerojay) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;atinm&gt; yes, that's what I was thinking. my extract scripts were using the gzip markers.</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;atinm&gt; ok, 2 stage it is.</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;Unhelpful&gt; even better, since our kernel is lzma there shouldn't be false gzip markers ;)</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;atinm&gt; for now (until we're fully merged), I think higher priority is reading params</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;atinm&gt; so coolya better get back to android soon.</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;atinm&gt; I'm getting burnt out@</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;atinm&gt; btw koush, we need a way to *stop* ppl from flashing SGS clockworkmod when in CM7 . . . temporarily . . .</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;atinm&gt; not many people do, but the ones that do really have a good time . . .</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;atinm&gt; since it flashes the froyo 2.x clockworkmod, except is doesn't reboot (because we dont/cant read param) - just all kinds of fail.</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;atinm&gt; almost painful to hear about.</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, it doesn't actually "flash" anything</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;Kaik541&gt; it just puts a file named update.zip on the sd card</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;atinm&gt; yeah, I know - but this guy was very upset with me because he couldn't flash it :)</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;Kaik541&gt; then it must suck to be that stupid :D</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;atinm&gt; maybe there needs to be a version check.</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;atinm&gt; I've started ignoring PMs on XDA now.</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;atinm&gt; and twitter.</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;atinm&gt; ok, basically today has been a lot of fail.</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;atinm&gt; Samsung still sucks. even after they drop Gingerbread.</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;atinm&gt; who'd have thunk it.</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;atinm&gt; I think getting sued by Apple is going to be good for them.</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;atinm&gt; they'll come to us and request we port CM7 to Galaxy S.</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;atinm&gt; and actually give us the code we requested.</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;atinm&gt; its funny - they put all that effort in trying to look like iPhone. they could have just gone AOSP/CM7 and been better off.</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;atinm&gt; and now they're getting their ass sued.</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;atinm&gt; idiots.</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;atinm&gt; so pending list right now:</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; stuff like that happens all the time.  they wave their patent penis in each others face, settle out of court and live happily ever after</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;atinm&gt; 1. gpios from mach-s5pv210 tree</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; with some cross license deal</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;atinm&gt; 2. look into params.lfs block read to get at the damn kernel arguments</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;atinm&gt; 3. 2 level initramfs.</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;atinm&gt; a lot more fun than trying to get Samsung code to work by futzing with CONFIG variables</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;atinm&gt; 1. TMC_Sherpa.</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;atinm&gt; 2. Coolya.</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;atinm&gt; 3. hrm . .. crap. me.</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; do you just want that dir?</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;atinm&gt; unhelpful keeps on doing eigen :)</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;atinm&gt; eigen == black hole.</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;koush_&gt; ok im back</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;koush_&gt; i just read scrollback</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;koush_&gt; i dont see where you guys explained how my current recovery works on cmsgs?</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;koush_&gt; is it a complete rebuild?</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;koush_&gt; from source?</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;koush_&gt; can i see your device vendor?</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; unicorns</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;Unhelpful&gt; we have everything on github :)</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;koush_&gt; link me!</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/teamhacksung">https://github.com/teamhacksung</a></span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;atinm&gt; everything</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;koush_&gt; oh shit</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;koush_&gt; mtd :)</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;koush_&gt; loool</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;koush_&gt; i love you guys</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;atinm&gt; we aim to please.</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;techmik67&gt; brb, dog walk.....</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;koush_&gt; ok, so here's what i just finished implementing...</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;koush_&gt; samsung is fragemnted to fucking hell</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;koush_&gt; so i give up :)</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;koush_&gt; i cant support every fragment/fork</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; tell us about it</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;atinm&gt; we have completely ignored everyone but CM7 now.</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;atinm&gt; everyone.</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;koush_&gt; i added something to RM that basically lets me flag a device as unsupported</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;koush_&gt; here lemme just give you the apok</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;koush_&gt; apk</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;koush_&gt; whats the init.rc you guys use</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; logged channel</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;koush_&gt; is it still init.smdk1000.rc or whatever</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;atinm&gt; each device has - sec.</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;koush_&gt; i see init.aries.rc now</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;ytt3r&gt; init.aries.rc and init.herring.rc</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;ytt3r&gt; I see both</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/teamhacksung/android_device_samsung_captivate">https://github.com/teamhacksung/android_device_samsung_captivate</a> - and yes, init.aries.rc</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;koush_&gt; oh my this is perfect.</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;atinm&gt; similar for galaxys, vibrant, etc</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;ytt3r&gt; ah wait herring is gone, had it earlier &gt;_&lt;</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;koush_&gt; aries == vibrant, captivate, galaxys?</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-green">* zerojay (~jay@blk-138-9-123.eastlink.ca) has joined this channel.</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;koush_&gt; awesome</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;koush_&gt; let me do this</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;atinm&gt; we're ignoring epic and fascinate for now - their devs aren't working with us</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;koush_&gt; <a href="http://mirror.kanged.net//recoveries/RomManager.apk">http://mirror.kanged.net//recoveries/RomManager.apk</a></span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;koush_&gt; install that :)</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;koush_&gt; include it in your builds</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-black">&lt;koush_&gt; and let me add the appriate entries</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;koush_&gt; appropriate*</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;koush_&gt; and it  will show up</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;koush_&gt; gimme as ec</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;koush_&gt; so... is your recovery different?</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;koush_&gt; is there any reason i cant just fork your shit and add it to cM?</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;koush_&gt; your devices</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;koush_&gt; for recovery at least</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;atinm&gt; no. go ahead.</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;koush_&gt; k lets see what happens</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;koush_&gt; atinm: whats your device</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;koush_&gt; i'll build yours first</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;atinm&gt; captivate</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;freat&gt; yeah I need to build for captivate so I can install CM7</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't think we *have* great big changes in recovery @ present.</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;koush_&gt; atinm: ahh it needs a kernel build</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;Unhelpful&gt; and tbh i don't have anywhere further to go w/ compass atm, so maybe i'll look into secondary initramfs soon. :)</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;atinm&gt; koush_: no problem. I need to reset some branches back to mainline stuff. gimme a few</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;Unhelpful&gt; maybe at work, where i'm less able to stick to code for long periods, i'll be able to track down all the bits i need for the next job.</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;koush_&gt; atinm: ok, here's the plan</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;koush_&gt; users can do your current migration-to-cm process</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;koush_&gt; i'm gonna treat these mtd samsungs as different phones</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;koush_&gt; so you wont even see the normal SGS roms in your list</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;atinm&gt; great.</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;koush_&gt; so you can use RM</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;koush_&gt; do i need just the kernel source to ubild the recovery then?</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;koush_&gt; you mentioned saomething about resetting branches?</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;koush_&gt; or is there a way i can build without having to pull down the entire kernel....</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;atinm&gt; branches was just for me locally. you cna just build</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;atinm&gt; you do need it tho .. sorry.</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;atinm&gt; we dont post a kernel image with initramfs into github</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;atinm&gt; we used to</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;atinm&gt; you should first just install CM7 from us. then build so you can just install updates.</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;atinm&gt; (you have a captivate?)</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;atinm&gt; or just building</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;koush_&gt; atinm: not anymore</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; its basically the same process as building CM7 mainline</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; our build just builds kernel as well</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; since we modified the Makefile to handle inkernel initramfs</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-navy">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;atinm&gt; techmik, which dirs did I tell you to checkout the samsung_cm7_merge branches on? :)</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;atinm&gt; kernel, device/samsung/captivate, vendor/samsung/common</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;atinm&gt; right?</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;atinm&gt; guess I can look on github to see what all I committed to</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;koush_&gt; atinm: your cpativate.mk doesnt support captivat-eng or full_captivate-eng?</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;koush_&gt; i need the cm vendor too i think</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
