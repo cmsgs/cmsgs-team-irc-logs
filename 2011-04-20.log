@@ -998,3 +998,161 @@
 <span class="irc-date">[3:58]</span> <span class="irc-black">&lt;atinm|night&gt; sec.</span><br />
 <span class="irc-date">[3:58]</span> <span class="irc-black">&lt;atinm|night&gt; I might be faster since I'm on my 8 core server</span><br />
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;techmik67&gt; building kernel</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;atinm|night&gt; no . . . I am still on my samsung_cm7_merge branch. so will take me a few minutes</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;atinm|night&gt; to rebuild the world</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;techmik67&gt; i went all back to ginger, built, then branched "koush" in captivate =)</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;atinm|night&gt; the change he wants can go and stay.</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;atinm|night&gt; but I can do that.</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_device_samsung_captivate/commit/32cdf9cf5c65abcbd0d941fc133eac00f0b6fa39">https://github.com/techmik/android_device_samsung_captivate/commit/32cdf9cf5c65abcbd0d941fc133eac00f0b6fa39</a></span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;techmik67&gt; right?</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;atinm|night&gt; yea</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;techmik67&gt; less than 5 mins</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;atinm|night&gt; I'm not sure the initramfs built.</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;atinm|night&gt; go into out/target/product/captivate</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;techmik67&gt; why? this is regular gingerbread branch,,,</span><br />
+<span class="irc-date">[4:03]</span> <span class="irc-black">&lt;techmik67&gt; there</span><br />
+<span class="irc-date">[4:03]</span> <span class="irc-black">&lt;atinm|night&gt; and then into recovery/root</span><br />
+<span class="irc-date">[4:03]</span> <span class="irc-black">&lt;atinm|night&gt; after build is done, take a look to see what recovery.rc has in it</span><br />
+<span class="irc-date">[4:03]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[4:04]</span> <span class="irc-black">&lt;techmik67&gt; what am i looking for... i'm therre....</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;atinm|night&gt; out kernel depends on cpio, but not sure if the dependencies make it all the way back to .rc files</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;atinm|night&gt; make sure the recovery.rc in there is the same</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;atinm|night&gt; as what you want - without the oneshot</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;atinm|night&gt; and disabled taken out</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;Unhelpful&gt; they're supposed to. the cpio depends on all of the recovery stuff.</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;techmik67&gt; good</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;atinm|night&gt; good</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;atinm|night&gt; wanted to make sure.</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;techmik67&gt; flash it?</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;atinm|night&gt; and unhelpful is here. so I'm gone. :)</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;atinm|night&gt; yes, flash it</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;atinm|night&gt; and retry the update.zip</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;atinm|night&gt; the one you downloaded off web</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;atinm|night&gt; first we make sure that zip works, then we figure out why RM couldn't get it.</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;atinm|night&gt; or got something else . . .</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;techmik67&gt; bootsplash</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;atinm|night&gt; s/we/you</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;atinm|night&gt; me going to bed.</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;techmik67&gt; boot ani</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;atinm|night&gt; g'nite</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;techmik67&gt; nite</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;atinm|night&gt; not bad only 15 min between my first good night and now</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;atinm|night&gt; anything under 30min is respectable.</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;techmik67&gt; checkng update =)</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;atinm|night&gt; ok, I'll wait</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;koush&gt; techmik67: that zip that originally failed</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;koush&gt; it should work after you reflash the kernel</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;techmik67&gt; wow</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;atinm|night&gt; ?</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;techmik67&gt; lots of error</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;atinm|night&gt; paste</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;Unhelpful&gt; we probably just kept that "oneshot" from samsung, lol. :)</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;Unhelpful&gt; will you never learn to just pastebin it first?! ;)</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;atinm|night&gt; yeah</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;techmik67&gt; failed to open /etc/recovery.fstab (no such file)</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;atinm|night&gt; paste man</span><br />
+<span class="irc-date">[4:10]</span> <span class="irc-black">&lt;techmik67&gt; E:inknown volume for path [/cache/recovery/command</span><br />
+<span class="irc-date">[4:10]</span> <span class="irc-black">&lt;techmik67&gt; its on the phone screen</span><br />
+<span class="irc-date">[4:10]</span> <span class="irc-black">&lt;atinm|night&gt; recovery.log</span><br />
+<span class="irc-date">[4:10]</span> <span class="irc-black">&lt;techmik67&gt; pulling</span><br />
+<span class="irc-date">[4:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://pastie.org/1814176">http://pastie.org/1814176</a></span><br />
+<span class="irc-date">[4:11]</span> <span class="irc-black">&lt;atinm|night&gt; hmm, our recovery.fstab is in misc</span><br />
+<span class="irc-date">[4:11]</span> <span class="irc-black">&lt;atinm|night&gt; not /etc</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;atinm|night&gt; cat recovery.fstab</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;atinm|night&gt; urk</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;Unhelpful&gt; where is it in the zip?</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;atinm|night&gt; it isn't</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;atinm|night&gt; its in our ramdisk</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;atinm|night&gt; in /misc</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;atinm|night&gt; something looked in /etc for it</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;atinm|night&gt; recovery I think</span><br />
+<span class="irc-date">[4:14]</span> <span class="irc-black">&lt;atinm|night&gt; yes</span><br />
+<span class="irc-date">[4:14]</span> <span class="irc-black">&lt;atinm|night&gt; roots.c fopen("/etc/recovery.fstab"</span><br />
+<span class="irc-date">[4:14]</span> <span class="irc-black">&lt;atinm|night&gt; why is it is misc for us?</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;atinm|night&gt; its like there all alone.</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|night: because /etc needs to be created as a symlink to /system/etc</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;atinm|night&gt; oh right.</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;Unhelpful&gt; because we boot with the same initramfs we use for recovery</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;atinm|night&gt; shit. koush ..</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;koush&gt; atinm|night: oh right</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;koush&gt; easy enough</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;koush&gt; remove etc from your init ramfs</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;koush&gt; and add it to your init.aries.rc</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;koush&gt; symlink etc /system/etc</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;koush&gt; so that way its not in the initramfs</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;koush&gt; done! :)</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;techmik67&gt; you doing or telling me what to do atinm|night?</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;atinm|night&gt; that's how we do it . . . its not in the initramfs</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;atinm|night&gt; etc that is</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;atinm|night&gt; but recovery.fstab can't be in /etc because the symlink gets created in init.</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-green">* ciwrl|away is now known as ciwrl</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;atinm|night&gt; so it sits in /misc</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;atinm|night&gt; recovery.rc has     symlink /misc /etc</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-black">&lt;atinm|night&gt; unhelpful, you get to take it from here. I have to get to bed. wife will kill if I'm not up tomorrow as kid is mine in the morning :)</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-black">&lt;techmik67&gt; i'm eager to play =P</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;atinm|night&gt; and my meds are making me woozy anyway. an crap. 30 min since first goodnight.</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;atinm|night&gt; so I'm over now . .. as usual</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;atinm|night&gt; gnite!</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;techmik67&gt; nite... again</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;Unhelpful&gt; 'nite :)</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; works fine, go to bed</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;koush&gt; atinm|night: oh i gotcha</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no ping! he's no good to us if he is dead</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;koush&gt; yea create a symlink for etc</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;koush&gt; for recovery mode</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and for some damn reason it doesn't matter what is says on the end of his name, he's always watching anyway</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;techmik67&gt; i am looking and Unhelpful is here... we'll play =)</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;techmik67&gt; in recovery.rc</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;techmik67&gt; i see symlink /misc to /esc for recovery</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;Unhelpful&gt; where does /etc point after you try to run the fakeflash recovery?</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;techmik67&gt; if you are asking me, tell me how to find out =)</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;techmik67&gt; the recovery log?</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;Unhelpful&gt; adb, ls -l /etc :)</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;Unhelpful&gt; erm, ls -ld /etc ;)</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;techmik67&gt;  system/etc</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;Unhelpful&gt; ... righto, then. :)</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;techmik67&gt; aha</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;techmik67&gt; that was booted up normally</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;Unhelpful&gt; right.</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;techmik67&gt; i just did it from recovery, after the error msg</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;techmik_laptop&gt; rwxrwxrwx    2 root     root             0 Apr 20 04:34 /etc</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;koush&gt; can you check i n</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;koush&gt; so i can see what you changed</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;koush&gt; dont you want a symlink from etc to misc</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;koush&gt; vs the other way around</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;koush&gt; ie, ln -s misc etc</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;techmik67&gt; you mean from before, when you  said remove oneshot?</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;Unhelpful&gt; updater-script</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;Unhelpful&gt; run_program("/sbin/busybox", "sh", "-c", "busybox rm -f /etc ; busybox mkdir -p /etc;");</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;koush&gt; do i do that?</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;Unhelpful&gt; that's from <a href="http://mirrorbrain.cyanogenmod.com/cm/recoveries/recovery-clockwork-3.0.2.5-captivatemtd.zip">http://mirrorbrain.cyanogenmod.com/cm/recoveries/recovery-clockwork-3.0.2.5-captivatemtd.zip</a></span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;koush&gt; Unhelpful: oh</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;koush&gt; fuck</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-green">* blyfoten (~AndChat@m83-190-54-146.cust.tele2.se) has joined this channel.</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: are we using aries captivate defconfig or eur cefconfig on the merge branch?</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;techmik67&gt; eur defconfig*</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't know, i'm not on the merge branch?</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-navy">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; should be captivate eur_def is I9000</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; in the stock source anyway</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://pastie.org/1814264">http://pastie.org/1814264</a></span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;Unhelpful&gt; ... -u please ffs?</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-black">&lt;techmik67&gt; didnt know that one... it does?</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-black">&lt;Unhelpful&gt; makes diffs much less horrid.</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-navy">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://pastie.org/1814272">http://pastie.org/1814272</a></span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-green">* acdbx (acdbx@137.110.37.149) has joined this channel.</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I um....didn't tell him about -u</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-navy">* chaembian (~chaembian@122.174.161.25) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;techmik67&gt; now i know =)</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;Unhelpful&gt; ...what's this diff of?</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I use -p so it's mostly the same</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;techmik67&gt; xcaliburinhands reoriented i9000 for i897 kernel, gb version, first commit after initial</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/xcaliburinhand/I9000-Reoriented-for-I897-Ginger/commit/3ae6f1461323bc291dae9f7a16e2cf9c4bd38f69">https://github.com/xcaliburinhand/I9000-Reoriented-for-I897-Ginger/commit/3ae6f1461323bc291dae9f7a16e2cf9c4bd38f69</a></span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;techmik67&gt; i know atink said we had config issues keeping us frpoom booting with that stuff</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;techmik67&gt; atinm*</span><br />
