@@ -2040,3 +2040,40 @@
 <span class="irc-date">[17:55]</span> <span class="irc-black">&lt;techmik67&gt; back shortly</span><br />
 <span class="irc-date">[17:56]</span> <span class="irc-black">&lt;nitam|work&gt; send up bootable/recovery when you can. fewer common dirs forked, the better.</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-green">* Wout (~AndChat@s53758cbd.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-green">* Guest27236 (~kalpik@59.177.15.254) has joined this channel.</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@209-147-146-96.nat.asu.edu) has joined this channel.</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-green">* koush_ (~koush@74.202.210.58) has joined this channel.</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-navy">* koush_ (~koush@74.202.210.58) Quit (Client Quit)</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-green">* koush__ (~koush@74.202.210.58) has joined this channel.</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-green">* koush__ is now known as koush________</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;techmik67&gt; ok, back</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; koush getting a long tail . . .</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-green">* koush________ is now known as koush__</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; touch /cache/.recovery</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; urk</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;techmik67&gt; lolk</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;koush__&gt; mnita|work: can you make sure i'm on the reviewer list for those commits</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;koush__&gt; so they show up in my workflw</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;koush__&gt; otherwise i never see them :P</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;nitam|work&gt; sec</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;nitam|work&gt; done</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;nitam|work&gt; had josh stone go over the one in frameworks because of interaction with package manager and deadlock and got that fixed too</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@209-147-146-96.nat.asu.edu) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;nitam|work&gt; anyone know where init's INFO stuff shows up?</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;codeworkx&gt; what do you mean?</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;nitam|work&gt; init.c has INFO("blah") etc in there</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;nitam|work&gt; but don't know where I can see those logs</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;nitam|work&gt; I see dmesg has init: etc a lot.</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;nitam|work&gt; but not seeing all my logs.</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;codeworkx&gt; log_init() is writing to /dev/kmsg</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;codeworkx&gt; #define INFO(x...)    log_write(6, "&lt;6&gt;init: " x)</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;codeworkx&gt; #define ERROR(x...)   log_write(3, "&lt;3&gt;init: " x)</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;codeworkx&gt; #define NOTICE(x...)  log_write(5, "&lt;5&gt;init: " x)</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;nitam|work&gt; k, found it as well</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;nitam|work&gt; thanks</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;codeworkx&gt; set the loglevel higher</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;codeworkx&gt; to 6</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;nitam|work&gt; thanks</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) has joined this channel.</span><br />
