@@ -2223,3 +2223,156 @@
 <span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; it seems I'm trying to mount too early - and /dev/block/mtdblock aren't available but are a little later.</span><br />
 <span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; but don't know what starts the devs getting created.</span><br />
 <span class="irc-date">[21:57]</span> <span class="irc-navy">* Fire2fly (~yaaic@dsl-083-247-028-056.solcon.nl) Quit (Quit: Yaaic - Yet another Android IRC client - <a href="http://www.yaaic.org)">http://www.yaaic.org)</a></span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;nitam|work&gt; got it.</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;nitam|work&gt; shit.</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;nitam|work&gt; can't see how I can read /cache before we have gone thru initializing block devices, which happens later during /sys traversal</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;nitam|work&gt; dunno how koush did it for droid</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;nitam|work&gt; which traversal happens during coldboot</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;nitam|work&gt; which is started after we've already read the init.rc files</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: drivers/mtd/onenand/samsung.c</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;nitam|work&gt; maybe I should go hack on params.lfs</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;codeworkx&gt; writing at a low level?</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;nitam|work&gt; yeah</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;codeworkx&gt; add a new command to init called "parse"</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-70-112-175-254.austin.res.rr.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;codeworkx&gt; in init.rc you mount only cache, have a look at it and the you parse init.aries.rc or recovery.rc xD</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: add a "wait"</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;zachy_md|busy&gt; anyone been starring at arch/arm/mach-s5pv210/cpuidle.c ?</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;codeworkx&gt; wait until /dev/block/mtdblockX exists</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;codeworkx&gt; then go on</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;nitam|work&gt; wait didn't work</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;codeworkx&gt; why? xD</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;nitam|work&gt; because coldboot is started later.</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;nitam|work&gt; and coldboot is what does all of that.</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;codeworkx&gt; damn</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;codeworkx&gt; hate samsung</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;nitam|work&gt; yeah..</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;nitam|work&gt; hell yeah.</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;codeworkx&gt; need teh new bootloader</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;codeworkx&gt; uboot + fastboot</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;nitam|work&gt; where does params.lfs live? you put something but commented it out</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;codeworkx&gt; btw <a href="http://forum.xda-developers.com/showthread.php?t=1018862">http://forum.xda-developers.com/showthread.php?t=1018862</a></span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: yes, added param as partition</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;codeworkx&gt; to do some testing</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;codeworkx&gt; reading it</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;codeworkx&gt; like bml_over_mtd does</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;nitam|work&gt; I'm thinking I should just go write that byte.</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;nitam|work&gt; its just one location we need to write to.</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;nitam|work&gt; just have to find that location :)</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; just a quick glance here zachy_md|busy</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;nitam|work&gt; and one of the issues said it was byte 84?</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/mtd/onenand/samsung_galaxys.h#L91">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/mtd/onenand/samsung_galaxys.h#L91</a></span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;codeworkx&gt; mtdblock8</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;codeworkx&gt; if you uncomment</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;nitam|work&gt; k</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;codeworkx&gt; you can write it at kernel</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;codeworkx&gt; but you have to find out what to write and where</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;nitam|work&gt; yeah . ..</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;nitam|work&gt; that's what I'm worried about.</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;nitam|work&gt; we need more phones.</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;codeworkx&gt; and to find out i've mapped param to mtdblock8</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;nitam|work&gt; for when I start writing to it.</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;codeworkx&gt; but you cannot kill param. if its fucked up it will be rewritten by sbl</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;nitam|work&gt; I guess odin can just write over it</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;nitam|work&gt; so its fine</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;nitam|work&gt; yeah</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;zachy_md|busy&gt; TMC_Sherpa you think it would make a big change merging stuff from it to the current sources ?</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; TMC_Sherpa I'm actually a bit at loss &amp; overwhelmed from all this change samsung introduced</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;nitam|work&gt; going to look a little more into mounting /dev/block/mtdblock3 onto /cache early - maybe koush can point me at his droid code</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;nitam|work&gt; since he must have had to solve it too</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;codeworkx&gt; ping koush__</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;koush__&gt; hi</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;codeworkx&gt; damn fast</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;nitam|work&gt; ! :)</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;nitam|work&gt; hey koush, been trying to read /cache earlier than when we read init.rc etc in init. but the devices aren't available at that point (they become available after coldboot)</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;zachy_md|busy&gt; TMC_Sherpa they added lots of powersaving stuff which doesn't seem to be used much right now</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;nitam|work&gt; so /dev/block/mtdblock3 (which is /cache for us) isn't there to mount.</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;koush__&gt; mnita|work: cant you dev wait</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no clue, they added a bunch of stuff and changed some others</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;zachy_md|busy&gt; TMC_Sherpa or at least seem to use it: clock gating, power gating and the didle mode</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;zachy_md|busy&gt; yeah, way too much</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;nitam|work&gt; didn't work - coldboot is queued later, wait just waits for the timeout which always happens because coldboot won't run until later.</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;zachy_md|busy&gt; a git changelog would have been nice ;)</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;nitam|work&gt; so there are dirtier and dirtier hacks we could do . . .</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; preaching to the choir my friend</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;nitam|work&gt; like not reading recovery.rc/init.aries.rc until after coldboot . . . doing it from within init.rc by a new command etc</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well, its not all that much I guess, the diff file is 529 lines</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;nitam|work&gt; so was wondering how you did it on droid. you wouldn't have the dev either.</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;koush__&gt; on droid x, i replaced teh logwrapped binary</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;nitam|work&gt; only things available that early are the initramfs things and /proc, /sys etc.</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;koush__&gt; which is called during init</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;koush__&gt; and umounted everything</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;koush__&gt; to prevent android boot</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;koush__&gt; and then booted recovery</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;koush__&gt; lol</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;koush__&gt; the logwrapper* binary</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;nitam|work&gt; urk :)</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;nitam|work&gt; I'm thinking I shoudl jsut attack params.lfs and just get it to do what it should.</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;koush__&gt; yea gross</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;koush__&gt; ok</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: don't mount param as yaffs2. you'll get a lost+found folder on it xD</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; these guys were working on it zachy_md|busy but I haven't been to xda to check up on them in ages <a href="http://forum.xda-developers.com/showthread.php?t=784270">http://forum.xda-developers.com/showthread.php?t=784270</a></span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so I don't know if they ever changed kernels</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;nitam|work&gt; no, I have to think about what I'll do . . . has anyone done any exploration of what that format is?</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;nitam|work&gt; is it just another fat derivative?</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;koush__&gt; can you read it at all?</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;nitam|work&gt; right now no - haven't tried, haven't mapped it to anything</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;nitam|work&gt; it'll show up as /dev/block/mtdblock8</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;techmik67&gt; i *thought* unhelpful said param was j2fs? maybe?</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: i'll take a look @ doing something w/ this toniht. :)</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;nitam|work&gt; after uncommenting stuff. but need to figure out where the bootmode is sitting.</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: its ext2 modified</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;koush__&gt; why not do a mtd read against that and see what u get</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: "j4fs"</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;codeworkx&gt; you can mount it ext2</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;koush__&gt; or does that corrupt it</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;techmik67&gt; there he is =)</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;zachy_md|busy&gt; TMC_Sherpa thanks for the link, yeah I know that thread seem like they didn't do any work on it anymore - maybe now with GB it'll continue</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: what is, j4fs?</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;codeworkx&gt; ext2 + samsung hack?</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;nitam|work&gt; params.lfs is ext2 modified&gt;</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;nitam|work&gt; ?</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;codeworkx&gt; koush__: sbl will rebuild it</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;codeworkx&gt; so we can play</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it was a fun find when I was doing all my diffs I just don't go to xda anymore.  well, sometimes for my nook :P</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful, maybe hand this off to you then. I'm not sure how much I'll get done tonight.</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;nitam|work&gt; you dont' need to work on 2 initramfs yet anyway</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;nitam|work&gt; its not "critical"</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-navy">* Unhelpful (~quassel@rockbox/developer/Unhelpful) Quit (Quit: <a href="http://quassel-irc.org">http://quassel-irc.org</a> - Chat comfortably. Anywhere.)</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;nitam|work&gt; oh c'mon.</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: [19:20] &lt;birdman&gt; you can mount it with ext2 :</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: where is that from?</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;codeworkx&gt; irc</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;nitam|work&gt; that's all he said?</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://www.cmsgs.com/cmsgs-team-irc-logs/index.php?date=2011-01-07">http://www.cmsgs.com/cmsgs-team-irc-logs/index.php?date=2011-01-07</a></span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;nitam|work&gt; lol :)</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;nitam|work&gt; I need to allow search on our logs</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;nitam|work&gt; wait what? "you will end up with a stone instead of a phone"</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;codeworkx&gt; but mtd -&gt; ext2 ? no good idea xD</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;nitam|work&gt; &lt;coolya&gt; if it breaks you will end with a stone in stead of a phone :-D</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;nitam|work&gt; &lt;coolya&gt; bootloader reads it befor it reads the buttons ... it that fails you can't go to download mode</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;codeworkx&gt; it will be rewritten. that was the last finding</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;nitam|work&gt; ..</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;codeworkx&gt; i've mounted mine yaffs2, got a lost+found dir and it's still working xD</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;nitam|work&gt; did it get reset?</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;codeworkx&gt; think so. it's still working</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;nitam|work&gt; ok, log on from home.</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;codeworkx&gt; jig -&gt; download mode -&gt; flash param</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;codeworkx&gt; thats the way if something will totally fail</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;nitam|work&gt; so an hour or so between drive and subbwe</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;nitam|work&gt; dinner</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;nitam|work&gt; I don't *have* a jig yet.</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;nitam|work&gt; but I guess I have enough usb cables</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;nitam|work&gt; screw it, first read.</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;nitam|work&gt; then anything else</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;nitam|work&gt; back later.</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;nitam|work&gt; and I'm still thinking about how I could just mount something early</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-navy">* eXistZ-Away (~RobBeane@CPE-76-177-230-163.natcky.res.rr.com) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-green">* eXistZ-Away (~RobBeane@76.177.230.163) has joined this channel.</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-navy">* eXistZ-Away (~RobBeane@76.177.230.163) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-navy">* gdanko (~gdanko@66.162.32.185) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;zachy_md|busy&gt; interesting samsung included 1 additional upstream patch so far: [PATCH] vmscan: raise the bar to PAGEOUT_IO_SYNC stalls</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;zachy_md|busy&gt; at least what I found so far</span><br />
