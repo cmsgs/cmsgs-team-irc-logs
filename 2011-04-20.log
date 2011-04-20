@@ -1681,3 +1681,75 @@
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;Kaik541&gt; so what I'm hearing is we tell all users to never let their phone sleep</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;Kaik541&gt; sounds good to me!</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;Kaik541&gt; "you will play angry birds all night and you will like it!"</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;GuiPer_Work&gt; :)</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;GuiPer_Work&gt; zachy_md|busy: care to share the kernel?</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;zachy_md|busy&gt; sure, but you might need to change the default scheduler while the screen is on to "ondemand" or "conservative", several seem to have issues with "interactive" ^^</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;zachy_md|busy&gt; sec</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;zachy_md|busy&gt; searching post</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;GuiPer_Work&gt; we should analyze better the mach_kernel if we are going to plan b :S</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;GuiPer_Work&gt; I don't like it, but maybe we will be forced to, start with Google kernel and try to merge with Samsung things</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;zachy_md|busy&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13045683&amp;postcount=1060">http://forum.xda-developers.com/showpost.php?p=13045683&amp;postcount=1060</a></span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-green">* gdanko (~gdanko@66.162.32.185) has joined this channel.</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;zachy_md|busy&gt; UV (undervolting) values: 100 MHz: -125 mV; 200 -75 mV; 400 -75 mV; 600 -75 mV; 800 -75 mV; 1000 MHz -50 mV</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;zachy_md|busy&gt; with Xan's Voltage app</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.64.245) has joined this channel.</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;zachy_md|busy&gt; it uses a 2-based screen on/off cpufreq governor switching script</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;zachy_md|busy&gt; SLEEP_GOVERNOR="powersave"</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;zachy_md|busy&gt; for max power saving</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;zachy_md|busy&gt; AWAKE_GOVERNOR="interactive"</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;zachy_md|busy&gt; when switching to "conservative"</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;zachy_md|busy&gt; uncommenting the 3 commented out lines for conservative governor</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;zachy_md|busy&gt; might yield better results in terms of responsiveness</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;zachy_md|busy&gt; GuiPer_Work enjoy ! :)</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;zachy_md|busy&gt; or: we could tell everyone to use powersave governor, UV to the max and be happy with it ever after *g*</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;GuiPer_Work&gt; thanks trying it now</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;GuiPer_Work&gt; we need somebody to loose some time analysing gpios etc</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;GuiPer_Work&gt; i would say complete mach-aries.c</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;zachy_md|busy&gt; GuiPer_Work FYI: that governor script is called 90screenstate_scaling</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;zachy_md|busy&gt; locate in system/etc/init.d</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;GuiPer_Work&gt; can I simply delete it ? :D</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;Kaik541&gt; GuiPer_Work, there are already three people doing that</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;GuiPer_Work&gt; it was stuck for some time on 100mhz</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;GuiPer_Work&gt; but finally changed</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;techmik67&gt; so an exciting nightof talking with koush.....</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;GuiPer_Work&gt; looks quite good now</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;techmik67&gt; i fell asllep aroung 4:30-5</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;techmik67&gt; asleep</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-green">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.64.245) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;kang&gt; bleh scrollback of connectbot broke</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;kang&gt; me saw more kang pings</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt; zachy_md|busy: you sure you getting better battery?</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt; with the merge?</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;zachy_md|busy&gt; it's only the 1st night so I need to have it running longer</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work but: yes - generally (afaik) it was 2-3% and now it's something like less than 1 or around 1%</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;zachy_md|busy&gt; (with the Momax battery -&gt; 2.7% with stock, previously so it was around 3-4%)</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;zachy_md|busy&gt; GuiPer_Work sure, you can delete those 2 scripts: 90screenstate_scaling mostly takes care of memory-tweaks &amp; switching the governor</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;zachy_md|busy&gt; 89system_tweak takes care of GSM/UMTS, security and other tweaks</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;zachy_md|busy&gt; kang we need your config of test6 kernel :P</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;kang&gt; but.</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;kang&gt; me in train</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;kang&gt; its the same conf i believr</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;kang&gt; i sent it a few. hours ago</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;GuiPer_Work&gt; anyway I was able to boot yesterday the samsung kernel</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;GuiPer_Work&gt; no ril :S</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;GuiPer_Work&gt; main problem</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;kang&gt; i use gcc4.5 and fixed a cast in tv code</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;kang&gt; doubt it changes anything</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;GuiPer_Work&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/625c255fc054924400acea41d549e32035457541">https://github.com/teamhacksung/android_kernel_samsung/commit/625c255fc054924400acea41d549e32035457541</a> I'm quite sure at least this commit helped somehow on battery drain</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;codeworkx&gt; ya think so</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;GuiPer_Work&gt; codeworkx: going to try full mach-aries?</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;zachy_md|busy&gt; kang k, sorry, didn't read back the logs</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;techmik67&gt; so i didntmiss any change to the updater-script for cwm 3.0.2.5, right?</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@christiantechsaz.com) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;techmik67&gt; besides this one, i mean <a href="https://github.com/techmik/android_device_samsung_captivate/commit/32cdf9cf5c65abcbd0d941fc133eac00f0b6fa39">https://github.com/techmik/android_device_samsung_captivate/commit/32cdf9cf5c65abcbd0d941fc133eac00f0b6fa39</a></span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;zachy_md|busy&gt; just a quick question: I can't access my external SD anymore :P</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;zachy_md|busy&gt; so I need to flash back JM2 bootloader ?</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;zachy_md|busy&gt; right ?</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-green">* Wout|laptop|busy (~Wout@s53758cbd.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-navy">* Wout|laptop|busy (~Wout@s53758cbd.adsl.wanadoo.nl) Quit (Client Quit)</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-navy">* mikebeecham (~mikebeech@78.150.4.101) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;zachy_md|busy&gt; kang did you remove the bootloaders from your git repo ?</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
