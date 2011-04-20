@@ -1995,3 +1995,48 @@
 <span class="irc-date">[16:51]</span> <span class="irc-black">&lt;codeworkx&gt; if needed</span><br />
 <span class="irc-date">[16:53]</span> <span class="irc-black">&lt;nitam|work&gt; that's fine</span><br />
 <span class="irc-date">[16:53]</span> <span class="irc-black">&lt;nitam|work&gt; sec</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-green">* mikebeecham (~mikebeech@78.150.4.101) has joined this channel.</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I think we can just take mach-s5pv210 from I9000 complete mach-aries.c is the only thing in there I need to still check (saving the "best" for last)</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; most of the differences appear to be related to non-samsung lcd panels</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and a few defines that herring doesn't have</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; unless we did that already and I'm just looking at old code</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hrm, looks like there was a lot of work done in -aries</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;codeworkx&gt; TMC_Sherpa: no we cannot use it</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;codeworkx&gt; they've did a lot on drivers too</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; shocking</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;codeworkx&gt; will result in using their kernel xD</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;codeworkx&gt; we'll only port what we really nead</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;codeworkx&gt; *need</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;codeworkx&gt; like camera</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well we should be able to grab gpio-aries.h and irq.h</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;codeworkx&gt; no, some different naming</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah for CAM_FLASH, its two lines :P</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; mostly _AF that are different anyway</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;codeworkx&gt; i'll push some merges to my fork and then we can pick the cherrys</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;codeworkx&gt; camera: <a href="https://github.com/codeworkx/android_kernel_samsung/commit/244448c8ead06bf4e515c723a3ae86f5b2a18604">https://github.com/codeworkx/android_kernel_samsung/commit/244448c8ead06bf4e515c723a3ae86f5b2a18604</a></span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;coolya&gt; why are you mergin back to samsung driver ?</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;nitam|work&gt; coolya: the other thing is 2 stage initramfs</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;nitam|work&gt; so we have a kernel that is like the others, and ours then reads the 2nd stage from like a known offset.</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;nitam|work&gt; so we can have a recovery initramfs and a normal</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful is going to look at that.</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;coolya&gt; what should solve that ?</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;coolya&gt; if kernel is broken some reason we can</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; well, mostly not needed to build kernel all the time.</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;coolya&gt; 't boot</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; it doesnt' solve any immediate needs tho</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; but an interesting problem.</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; well, it would make our merge easier tho :)</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;coolya&gt; sure</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; because everyone won't need to also have sgs kernel in their tree</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;nitam|work&gt; ok, gone for a bit.</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;coolya&gt; ok</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;nitam|work&gt; oh, is our bootable recovery merged to CM?</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;coolya&gt; except bml_over_mtd: yes</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;nitam|work&gt; koush said he'd look at my two sdcard thing</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;nitam|work&gt; so after that we'd be down to zero reviews pending.</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;techmik67&gt; back shortly</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;nitam|work&gt; send up bootable/recovery when you can. fewer common dirs forked, the better.</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-green">* Wout (~AndChat@s53758cbd.adsl.wanadoo.nl) has joined this channel.</span><br />
