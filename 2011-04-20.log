@@ -754,3 +754,247 @@
 <span class="irc-date">[2:59]</span> <span class="irc-black">&lt;koush&gt; to choose how you boto</span><br />
 <span class="irc-date">[2:59]</span> <span class="irc-black">&lt;atinm&gt; the idiot bootloader is the one that uses it.</span><br />
 <span class="irc-date">[2:59]</span> <span class="irc-black">&lt;koush&gt; oh</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;koush&gt; another reason to use multistage :)</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;atinm&gt; we'll get it working - we haven't taken the time yet.</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;atinm&gt; we think it is just a block device we can read.</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;atinm&gt; and write</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;koush&gt; can you try unzipping that zip on your computer atinm</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;atinm&gt; I did, that failed.</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;koush&gt; strange</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;atinm&gt; sec</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;koush&gt; lemme d it</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;koush&gt; dl it</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;techmik67&gt; same here</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt; Archive:  update.zip</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt;   End-of-central-directory signature not found.</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt; ither this file is not</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt;   a zipfile, or it constitutes one disk of a multi-part archive.  In the</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt;   latter case the central directory and zipfile comment will be found on</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt;   the last disk(s) of this archive.</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt; unzip:  cannot find zipfile directory in one of update.zip or</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt;         update.zip.zip, and cannot find update.zip.ZIP, period.</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt; urk</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt; sorry</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt; but that's the error</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;koush&gt; <a href="http://mirrorbrain.cyanogenmod.com/cm/recoveries/recovery-clockwork-3.0.2.5-captivatemtd.zip">http://mirrorbrain.cyanogenmod.com/cm/recoveries/recovery-clockwork-3.0.2.5-captivatemtd.zip</a></span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;koush&gt; thats what it downloaded</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;atinm&gt; wait</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;atinm&gt; sec.</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;koush&gt; i was able to download and unzip fine</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;atinm&gt; adb shell</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;atinm&gt; ls clockworkmod/download/mirrorbrain.cyanogenmod.com/cm/recoveries</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;atinm&gt; unzip recovery-clockwork-3.0.2.5-captivatemtd.zip ?</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;koush&gt; sure</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;atinm&gt; same error.</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;atinm&gt; hrm.</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;atinm&gt; something is wrong.</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;koush&gt; why is it in cm/recoveries</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;atinm&gt; dunno - thats where I found it. nothing like that in /sdcard directly</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;koush&gt; is it actually there on your sd card</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;koush&gt; wtf</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;atinm&gt; it should be named that? or update.zip?</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;atinm&gt; adb pull /sdcard/clockworkmod/download/mirrorbrain.cyanogenmod.com/cm/recoveries/recovery-clockwork-3.0.2.5-captivatemtd.zip</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;atinm&gt; that's where I found it</span><br />
+<span class="irc-date">[3:06]</span> <span class="irc-black">&lt;koush&gt; size/md5?</span><br />
+<span class="irc-date">[3:06]</span> <span class="irc-black">&lt;koush&gt; MD5 (recovery-clockwork-3.0.2.5-captivatemtd.zip) = 935811c822aa4bcbf4458d956701c566</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;koush&gt; -rw-rw-r--  1 koush  786072727  1339516 Apr 19 20:05 recovery-clockwork-3.0.2.5-captivatemtd.zip</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;techmik67&gt; replacing stock recovery.......</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;atinm&gt; 11f92cd0d05d77b8f5bc4e53b68153a5  recovery-clockwork-3.0.2.5-captivatemtd.zip</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;atinm&gt; wtf.</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;koush&gt; techmik67: oh it works for you now</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;koush&gt; ?</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;techmik67&gt; i downloaded the 2nd link you just put up</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;koush&gt; oh</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;atinm&gt; yeah, your link has the correct md5</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;atinm&gt; but not what it downloaded</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;koush&gt; its gotta be mirrorbrain fucking pj</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;koush&gt; up*</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;atinm&gt; techmik67: /sdcard/update.zip is the same file</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;atinm&gt; same bad file</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;uberushaximus&gt; <a href="http://code.google.com/p/cyanogenmod7-for-samsung-galaxys/issues/detail?id=12">http://code.google.com/p/cyanogenmod7-for-samsung-galaxys/issues/detail?id=12</a></span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;techmik67&gt; it worked when i d/l diirect the link... i unzipped and saw meta-inf, etc....</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-green">* gdanko (~gdanko@ip68-111-171-185.sd.sd.cox.net) has joined this channel.</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;atinm&gt; uberushaximus: yes . . . ?</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;atinm&gt; techmik67: I think the host is screwing up somehow</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;atinm&gt; or just somethign bad got uploaded. what's your md5sum update.zip?</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;atinm&gt; adb pull /sdcard/update.zip and then md5sum it</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-green">* aarcane (~aarcane@c-98-238-138-177.hsd1.ca.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;atinm&gt; frick, 11:10pm</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;atinm&gt; koush is west coast . . . :)</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;atinm&gt; and unhelpful isnt here . . . dunno if this is one of his all nighter nights.</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;techmik67&gt; atinm, check dropbox</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;Unhelpful&gt; um, housework tonight. :)</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;Unhelpful&gt; i'll be up until probably at least six or so</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; dang. we have koush here. can't let him be here without at least one of us 4 here! :)</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; (coolya, unhelpful, codeworkx and me)</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;Unhelpful&gt; hah. i'll be here a fair bit :)</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;Unhelpful&gt; it's only laundry and garbage</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;Unhelpful&gt; the rest is code time or movie time :)</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;techmik67&gt; i'll be here all nite, but all i can do is test =(</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-navy">* aarcane_ (~aarcane@c-98-238-138-177.hsd1.ca.comcast.net) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm&gt; ok. koush, techmik67 and unhelpful are both captivate.</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;techmik67&gt; Kaik541 also</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm&gt; and techmik67 is great at following directions and can build CM7 etc if it is needed too. so you can use them.</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm&gt; Kaik541 isn't using Cm7 tho</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik67&gt; oh, right</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;Unhelpful&gt; the bastard ;)</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;atinm&gt; not right now - not until I port Audience chip</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;atinm&gt; which I might be able to do soon with Samsung dropping GB kernel source</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik67&gt; hmmm</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik67&gt; seems frozen on replacing stock recovery with clockwork</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;atinm&gt; what did you do?</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;atinm&gt; I didn't try to install the web downloaded recovery.zip</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;techmik67&gt; named it update.zip (its in our dropbox)</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;techmik67&gt; rebooted to recovery</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;techmik67&gt; apply update.zip</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;atinm&gt; which zip? the web downloaded one?</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;techmik67&gt; looked like it was working, but it should have finished by now =)</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;techmik67&gt; the "recovery...." named one</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;techmik67&gt; yes, the web download</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;atinm&gt; the one that RomManager downloaded was bad</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;atinm&gt; ah, ok.</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;atinm&gt; the web downloaded one failed to update via cwm?</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;atinm&gt; it started but didn't finish?</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;techmik67&gt; also, i'm building a nightly from gingerbread branch</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;atinm&gt; can you get into adb?</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;techmik67&gt; lets see</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;atinm&gt; crap, forgot my meds - brb</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;techmik67&gt; insufficient permissions</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;techmik67&gt; for device</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;koush&gt; ??</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;techmik67&gt; stuck on "replacing stock recovery with clockwork"</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik67&gt; adb shell gave me insufficient permissions for device</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;koush&gt; thats bizarre</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;atinm&gt; koush, this is with the zip he downloaded from the web directly</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;koush&gt; ya</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;atinm&gt; and put on /sdcard/ as update.zip.  k.</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik67&gt; then i "apply update.zip"</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;koush&gt; what will it take for you guys to get param.lfs workin anyways</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;koush&gt; what exactly is that</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;atinm&gt; insufficient permissions is that other thing.</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;atinm&gt; the sudo start-server crap</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;techmik67&gt; ok, list of devices shows ????? no permissions</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;atinm&gt; or that etc.d file - I forget what it was</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;koush&gt; sudo adb shell</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;koush&gt; try that</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;atinm&gt; sudo adb kill-server;sudo adb start-server . . . I think it'll work after normally</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;Unhelpful&gt; koush: it's a proprietary filesystem over a proprietary ftl over samsung's proprietary flash driver. so we'll probably just cheat about the layout etc. :)</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-navy">* gdanko (~gdanko@ip68-111-171-185.sd.sd.cox.net) Quit (Quit: Get MacIrssi - <a href="http://www.sysctl.co.uk/projects/macirssi/)">http://www.sysctl.co.uk/projects/macirssi/)</a></span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-navy">* wegah (~wegah@189-69-49-74.dsl.telesp.net.br) Quit (Quit: Fuiii!!!!)</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;atinm&gt; we don't know yet what we'll do - but I think someone poked in there and saw that byte 84 seems to be the bootmode indicator</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;atinm&gt; so if we can read/write that we're golden</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;atinm&gt; techmik67: which ubuntu version?</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;techmik67&gt; 11.04</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;techmik67&gt; had to add adb to root path</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;techmik67&gt; got adb not found as root =)</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;atinm&gt; do you have a udev rule?</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;techmik67&gt; no</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;techmik67&gt; remember, linux noob, relatively</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;techmik67&gt; i just followe directions well =)</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;atinm&gt; ok, sec.</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;atinm&gt; let me pull my udev file up that allows anyone to run adb</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;atinm&gt; not just root</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://pastie.org/1814104">http://pastie.org/1814104</a></span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;atinm&gt; create that file with those contents (the first line in the pastie shows where that file is and what it is called for me)</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;atinm&gt; and the sudo restart udev</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;atinm&gt; after that adb shell should not give you the permissions thing</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;atinm&gt; you'll have to create the file as root</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;atinm&gt; ok, so where were we</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;atinm&gt; techmik67: you're still stuck trying to install via clockwork?</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;techmik_laptop&gt; gonna see what it saysd on adb in a sec</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;atinm&gt; it doesn't do a whole lot in updater-script that looks anything.</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;atinm&gt; well, except the kill-recovery</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;atinm&gt; dunno what that would do</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;techmik_laptop&gt; what do i need to not logout but update my path?</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;techmik_laptop&gt; almost done with noghtly</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;techmik_laptop&gt; nightly*</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;atinm&gt; koush: if [ -f /init.smdkc110.rc ]</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;atinm&gt; in killrecovery.sh - not sure it matters.</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;atinm&gt; but it won't go in /sbin/recovery the way it is.</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;atinm&gt; since we have init.aries.rc</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;atinm&gt; still don't know why RM failed to get the zip tho.</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;atinm&gt; so two issues at the moment, zip itself doesn't install when using cwm directly on it after putting the zip on sdcard/update.zip</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;atinm&gt; and RM doesn't get the same file when it flashes CWM</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok, brb, logging off/on</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;koush&gt; you dont have that file there though at</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;koush&gt; though atinm *</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;koush&gt; i assume?</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;koush&gt; recovery should automatically restart</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;koush&gt; since its a service defined in your init.rc</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;koush&gt; or recovery.rc</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;atinm&gt; yeah, I was just saying killrecovery.sh as it is will skip - in case it matters. just noticed that. don't think that's why techmik is hung tho</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;koush&gt; link me the cmsgs repo again please</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/teamhacksung">https://github.com/teamhacksung</a></span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;atinm&gt; I'm fading...was up too early since kid wakes up with the birds . . .</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;techmik67&gt; ok, stiill frozen, but got adb shell up.....</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;techmik67&gt; logcat?</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;atinm&gt; but unhelpful and techmik can keep working with you thru the night (or until its late on the west coast)</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;atinm&gt; techmik67: trying to remember where recovery has a log</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;atinm&gt; koush: cwm keeps a log, right?</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;atinm&gt; I think ...</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;koush&gt; atinm: err in /tmp/recovery.log yes</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;koush&gt; if you can pull it, do that</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-navy">* Kaik541 (~Rawr@cpe-70-112-175-254.austin.res.rr.com) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;atinm&gt; techmik67: adb pull /tmp/recovery.log</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;atinm&gt; (I haven't tried with the working zip off the web)</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;atinm&gt; and have to get to bed soon.</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;techmik_laptop&gt; this is dmesg</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;atinm&gt; coolya and codeworkx will be up soon :)</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;atinm&gt; techmik_laptop: pull the recovery.log - that's more what we want</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;atinm&gt; dmesg not needed</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;atinm&gt; meds are kicking in . . . techmik, work with koush. and before he leaves, remind him of my two reviews on gerrit relating to sdcard mounting over usb :)</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;atinm&gt; unhelpful should be here soon too.</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;atinm&gt; gnite</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-green">* atinm is now known as atinm|night</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://pastie.org/1814141">http://pastie.org/1814141</a></span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik_laptop&gt; nite atinm|night</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;techmik67&gt; that's the recovery log, koush</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;atinm|night&gt; wtf...</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;atinm|night&gt; lot of fail there.</span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;techmik67&gt; i see that now on review</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;atinm|night&gt; this is koush's domain :)</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;atinm|night&gt; off!</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;techmik67&gt; ok, well i'll be here to test all nite</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;techmik67&gt; skipped the sleep meds, so i'll be up til 5 or 6</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;techmik67&gt; nite</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;koush&gt; atinm|night: hahah i knew it</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;koush&gt; service recovery /sbin/recovery</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;koush&gt;     oneshot</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;koush&gt; remove that oneshot :)</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;koush&gt; that'll fix it</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;atinm|night&gt; techmik67: go into device/samsung/captivate</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;koush&gt; recovery.rc</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;koush&gt; remove the "oneshot" line under /sbin/recovery</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;koush&gt; and while youre there</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;koush&gt; remove the disabled from adbd</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;atinm|night&gt; you're going to have to rebuild the kernel and flash it to get that change in.</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;koush&gt; ya</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;koush&gt; but at least its caughg</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;koush&gt; caught</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;atinm|night&gt; shouldn't take long - no need to clean</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-black">&lt;atinm|night&gt; I think. hrm.</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-black">&lt;atinm|night&gt; where is the cpio file, remove that.</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-black">&lt;atinm|night&gt; and then rebuild</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;techmik67&gt; what cpio?</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;techmik67&gt; got the rest</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;atinm|night&gt; rm out/target/product/captivate/*.cpio - thought I think it'll just do it.</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;atinm|night&gt; dependencies are supposed to work :)</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;atinm|night&gt; I just never trust them</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;atinm|night&gt; so rm and then rebuild kernel</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;atinm|night&gt; should be fast.</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;atinm|night&gt; sec.</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;atinm|night&gt; I might be faster since I'm on my 8 core server</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;techmik67&gt; building kernel</span><br />
