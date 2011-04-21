@@ -699,3 +699,76 @@
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;Kaik541&gt; touch /sdcard/Voodoo/disable-lagfix</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;Kaik541&gt; before flashing</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;UberPinguin&gt; Kaik541: OK. It doesn't include CWM, right?</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;Kaik541&gt; I'm pretty sure it does</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;UberPinguin&gt; hrm ok. Guess I can include the stock recovery in reflash.</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-green">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-navy">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-green">* enl_ (5270c4ce@gateway/web/freenode/ip.82.112.196.206) has joined this channel.</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;zachy_md|busy&gt; codeworkx yeah, perhaps that could help</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;zachy_md|busy&gt; codeworkx I don't have one though</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-green">* Fire2fly_ (53f71c38@gateway/web/freenode/ip.83.247.28.56) has joined this channel.</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;zachy_md|busy&gt; anyone has an usb-cable that doesn't power on the phone here ?</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;zachy_md|busy&gt; with a GT-i9000 phone ?</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;techmik67&gt; can someone tall me what the benchmark idiots are talking about? build from last nite...... 1st run quadrant, 1450+. 2nd, 3rd and 4th run=1850-1900</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;techmik67&gt; tell*</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;techmik67&gt; i was testing the 3d, btw, thats why i was runing quadrant</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;codeworkx&gt; zachy_md|busy: to include didle clearly, we can simply use sammy kernel xD</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-green">* thedeanius (~dean@64.151.21.178) has joined this channel.</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;techmik67&gt; last thing i cant figure about github, atm anyway, is, ..... now that i committed and pushed a couple of changes, they show as techmik committed, not michael, but my gravatar not showing =(</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;nitam|work&gt; dunno - never paid attention because I only use the one id</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;zachy_md|busy&gt; codeworkx why not ? ;)</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;zachy_md|busy&gt; codeworkx I'm only wondering what causes these issues not allowing to wake up</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;nitam|work&gt; what are you debugging?</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;zachy_md|busy&gt; the samsung kernel btw has very high battery charging temperatures:</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;zachy_md|busy&gt; #if !defined(CONFIG_ARIES_LATONA)</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;zachy_md|busy&gt; #define HIGH_BLOCK_TEMP			 630</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;zachy_md|busy&gt; #define HIGH_RECOVER_TEMP		 580</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;zachy_md|busy&gt; and/or</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;zachy_md|busy&gt; #else</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;zachy_md|busy&gt; #define HIGH_BLOCK_TEMP			 530</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;zachy_md|busy&gt; #define HIGH_RECOVER_TEMP		 480</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;codeworkx&gt; i like hot things</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ^^</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;zachy_md|busy&gt; it seems like the kernel only allows for charging for 6 hours max</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;zachy_md|busy&gt; and 1.5 hours recharge period</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;zachy_md|busy&gt; maybe we can raise that if we don't allow temps as high as sammy ?</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;codeworkx&gt; k, ported mtd to sammy kernel</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;codeworkx&gt; who wants to try? xD</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;zachy_md|busy&gt; codeworkx I think I give your test-kernel a spin: update-cm-7-04212011-TEST-GalaxyS-signed.zip correct ?</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;codeworkx&gt; yep</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;nitam|work&gt; we should just change our charging temps to match sammy</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;zachy_md|busy&gt; what was changed ? new libs for gpu, gpu string - dildo ?</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;zachy_md|busy&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13083885&amp;postcount=6954">http://forum.xda-developers.com/showpost.php?p=13083885&amp;postcount=6954</a></span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work probably not so good - sammy has several things sleeping and drawing less energy so the whole phone will be cooler</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;codeworkx&gt; ya</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;zachy_md|busy&gt; than ours atm</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;nitam|work&gt; yes, but max is the same - that's all that matters.</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;zachy_md|busy&gt; IMO it should be at least 2-4°C lower than them</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;zachy_md|busy&gt; to don't risk frying our phones</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;nitam|work&gt; its the max that would shut off the phone.</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;nitam|work&gt; we might hit it quicker</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;nitam|work&gt; that's all</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ok</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-navy">* freat (~ron@c-98-216-38-131.hsd1.ma.comcast.net) Quit (Quit: leaving)</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-green">* freat (~ron@c-98-216-38-131.hsd1.ma.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;zachy_md|busy&gt; codeworkx: PEBKAC <a href="http://forum.xda-developers.com/showpost.php?p=13088114&amp;postcount=6987">http://forum.xda-developers.com/showpost.php?p=13088114&amp;postcount=6987</a></span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;zachy_md|busy&gt; maybe we should try the sammy kernel again ?</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;codeworkx&gt; wtf?</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;codeworkx&gt; i'm already trying</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;zachy_md|busy&gt; how's it going ?</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;codeworkx&gt; crashes xD</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;zachy_md|busy&gt; what a mess ;)</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;zachy_md|busy&gt; when does it crash ?</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;codeworkx&gt; when the cyanogen kernel bootlogo should appear</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;nitam|work&gt; what is the mix of kernel + libs?</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;zachy_md|busy&gt; well, we've already solved that step</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;zachy_md|busy&gt; anyone has the config around that work for Wouk ?</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;zachy_md|busy&gt; afaik kang test6 ?</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commits/samsung_cm7_merge/">https://github.com/teamhacksung/android_kernel_samsung/commits/samsung_cm7_merge/</a></span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;zachy_md|busy&gt; I want that new kernel working so badly XD</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-navy">* Fire2fly_ (53f71c38@gateway/web/freenode/ip.83.247.28.56) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://dl.dropbox.com/u/14477030/aries_galaxys_defconfig">http://dl.dropbox.com/u/14477030/aries_galaxys_defconfig</a></span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;nitam|work&gt; that was the config that worked for Wout according to kang</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;Wout`&gt; oi</span><br />
