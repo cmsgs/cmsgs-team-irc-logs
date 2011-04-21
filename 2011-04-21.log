@@ -1,0 +1,126 @@
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: do you need something to test that can wreck your shit? ;)</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;techmik67&gt; can, or will? =)</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;Unhelpful&gt; likely "will" on the first attempt ;)</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;techmik67&gt; wreck as in unrecoverable, or just wipe and start over? =)</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;Unhelpful&gt; in all likelihood, wreck as in "flash a good kernel w/ heimdall and try again" :)</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;atinm|away&gt; oh, koush - adding |work to your nick munges your nick in the logs, and adding |anon removes you from the logs.</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;techmik67&gt; np, then</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;atinm|away&gt; that's why I did the |anon up there.</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;Unhelpful&gt; basically looking @ how to do nicer recovery etc handling</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;atinm|away&gt; ok, what status?</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;atinm|away&gt; (eating too . . . but figured I'd ask . . . )</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;atinm|away&gt; you're into params.lfs?</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;techmik67&gt; atinm merged!</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;techmik67&gt; frameworks/base and build</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;atinm|away&gt; yes, I have to update our manifest</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;atinm|away&gt; vold is pending still, but that one is the easier one so hopefully get it soon</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;techmik67&gt; vold approved</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;techmik67&gt; not merged, but approved</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: i'm not at that point yet, i'm looking at how to make a stage1 initramfs that can be compiled into a prebuilt kernel and load another initramfs attached to it.</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;atinm|away&gt; no, not yet. steve and arcee have to as well</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;atinm|away&gt; that's the one with the BOARD_VOLD_EMMC_SHARES_DEV_MAJOR</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;atinm|away&gt; which should be default as far as I'm concerned</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;techmik67&gt; i saw koush approved</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;techmik67&gt; and verified</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;atinm|away&gt; since that is a completely valid thing.</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;techmik67&gt; ah, i see that patch message</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;techmik67&gt; missed it b4</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-navy">* Guest27236 (~kalpik@59.177.15.254) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;Unhelpful&gt; koush__: what would be allowable languages for a host utility to attach initramfs to kernel? i would assume i can just use python, as we need that for repo?</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;atinm|away&gt; unhelpful, just saw your earlier message about 2 stage+init</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: i think this is very, very doable. :)</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;atinm|away&gt; you make it sound easier than it would be if I was doing it :)</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;koush__&gt; Unhelpful: yea sure</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;Unhelpful&gt; the format i'm thinking of is basically &lt;kernel&gt;&lt;ascii header&gt;&lt;boot&gt;&lt;recovery&gt;, with all padded to a block size. the header will be formatted to be parsed w/ shell eval, and will give the block offsets and lengths of the attached initramfs.</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread atinm * b43f87c (1 files in 1 dirs): Use upstream build/core and frameworks/base. - <a href="http://bit.ly/gozZAt">http://bit.ly/gozZAt</a></span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;Unhelpful&gt; the stage1 initramfs will pretty much be utility busybox, some /dev contents, and a script /init.</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm&gt; SGS vs other phones would be different some because of header before kernel on others</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm&gt; but that sounds right</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;koush__&gt; Unhelpful: is this to hack around our issue with not being able to get into recovery programatically?</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; koush__: it buys us that, and allows us to have a small kernel like other phones that we attach initramfs to rather than having to build.</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-navy">* koush__ (~koush@74.202.210.58) Quit (Quit: koush__)</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; urk</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: we have to make sure that small initramfs still boots tho</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: yeah, but our phone *must* put kernel before headers, because boot wants a plain kernel image there.</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; right?</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; otherwise bad initramfs and nothing?</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;Unhelpful&gt; what do you mean "still boots"? it won't if you don't attach a boot initramfs to the kernel.</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; I guess that's fine .  .</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm&gt; its no different from us having a bad kernel+initramfs</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm&gt; so yeah, ignore.</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: it's double fun for me.... practicing git-fu by branching and building, then testing =)</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, if you install this kernel w/o attaching stuff to it, it's broken. ;)</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm&gt; woo, down to one pending review?</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm&gt; of course, as soon as that merges, bootable/recovery will get put up</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-green">* wegah (~wegah@189-69-49-74.dsl.telesp.net.br) has joined this channel.</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm&gt; but you know, I am quite encouraged.</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; there actually seems to be an end in sight.</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; we're not forever orphaned.</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; I'm beat..</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread atinm * 80c80fd (1 files in 1 dirs): Removed oneshot for recovery. ... - <a href="http://bit.ly/fdja27">http://bit.ly/fdja27</a></span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;techmik67&gt; atinm: is adbd enabled?</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;techmik67&gt; no, its disabled.....</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxysb: gingerbread atinm * bccbad1 (1 files in 1 dirs): Removed oneshot from recovery. ... - <a href="http://bit.ly/ezSAXR">http://bit.ly/ezSAXR</a></span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_vibrant: gingerbread atinm * 71c98e8 (1 files in 1 dirs): Removed oneshot from recovery. ... - <a href="http://bit.ly/eChVV7">http://bit.ly/eChVV7</a></span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;chaembian&gt;  Good morning, folks!</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;techmik67&gt; hiya</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread atinm * 67a789f (1 files in 1 dirs): Removed oneshot from recovery. - <a href="http://bit.ly/i9JaPr">http://bit.ly/i9JaPr</a></span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;chaembian&gt; Unhelpful: Turbosky is playable :)</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;atinm&gt; techmik67: that's fine. still works.</span><br />
+<span class="irc-date">[0:38]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm&gt; It end up depending on property or something</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;chaembian&gt; the motion is little jerky, but it does work</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm&gt; so since Unhelpful took both initramfs and reboot into recovery</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm&gt; I'm going to bed.</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm&gt; ;)</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm&gt; sometimes XDA just goes into random idiot's brain cell fires, out pops a question mode.</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm&gt; or is that always . ..</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm&gt; what would happen if I ran this kernel with gb rom.</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm&gt; I loved the "nothing good"</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;techmik67&gt; i just saw that</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;atinm&gt; "Would it be possible to get the kernel only to test on Miui?"</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;techmik67&gt; hahaha</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; lots of people saying their battery is improved.</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; but I don't know what codeworkx changed!</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; I saw the always on thing</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; so maybe that's it. but hoping for some sleep goodness from mach tree as well</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-navy">* blyfoten (~AndChat@c-8fd3e455.04-17-73746f2.cust.bredbandsbolaget.se) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; oh techmik did you get around to testing to make damned sure you can mount sdcards over usb in windows?</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;techmik67&gt; i have been fine, but i'll test again right now</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; the weird questions about "not recognized anymore" have me slightly worried because I changed the names.</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; so it is a captivate instead of nexus s etc</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm&gt; when sharing.</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;techmik67&gt; autoplay drive d and drive k just popped up on mount =)</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm&gt; does Odin see 'em?</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm&gt; err, see the phone</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;techmik67&gt; god... havent used odin in forever =).. checking</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-green">* wergeld (~IceChat7@cpe-173-170-151-39.tampabay.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;wergeld&gt; evening</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;rwicl|work&gt; hi</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm&gt; howdy</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;techmik67&gt; odin sees =)</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm&gt; ok, goodness then.</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;wergeld&gt; what is the most up-to-date repo for vibrant CM7?</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;techmik67&gt; saving that cwm update to try</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;techmik67&gt; teamhacksung</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-green">* blyfoten (~AndChat@m83-182-177-134.cust.tele2.se) has joined this channel.</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;wergeld&gt; thanks</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;techmik67&gt; np</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;wergeld&gt; going to try it out. finally got my nix box back up</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-navy">* Kaik541 (~Kaik541@cpe-70-112-175-254.austin.res.rr.com) Quit (Ping timeout: 252 seconds)</span><br />
