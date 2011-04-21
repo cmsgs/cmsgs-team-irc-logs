@@ -1282,3 +1282,89 @@
 <span class="irc-date">[20:44]</span> <span class="irc-black">&lt;zachy_md|busy&gt; Unhelpful yeah ^^</span><br />
 <span class="irc-date">[20:44]</span> <span class="irc-black">&lt;zachy_md|busy&gt; so it probably is also something entirely non-related to that</span><br />
 <span class="irc-date">[20:44]</span> <span class="irc-black">&lt;zachy_md|busy&gt; just throwing in my 2ct</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;GuiPer&gt; zachy_md|busy: are you trying it_</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ?</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;GuiPer&gt; if you are trying sammy kernel :)</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;GuiPer&gt; where the sleep does not wake up, after sleep</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;GuiPer&gt; *the device, im tired</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;GuiPer&gt; fuck! no debug output at all :S:S</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;zachy_md|busy&gt; GuiPer ah - sorry currently not - I'm experimenting with my own kernel right now :P</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;GuiPer&gt; ah oki, :) no problem at all</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-navy">* eXistZ (~RobBeane@76.177.230.163) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;GuiPer&gt; so if mytracks is running, no deep sleep, no problem, can wake it up</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;Wout&gt; because its not really sleeping then?</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;Kaik541&gt; so to maximize battery life, we'll have them run GPS all the time</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;Kaik541&gt; problem solved</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;GuiPer&gt; :D</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;zachy_md|busy&gt; yeah, most probably</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;GuiPer&gt; it's just "deep sleep" problem</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;zachy_md|busy&gt; is there a *SUSPEND* anything option in the resulting .config ?</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;Kaik541&gt; GuiPer, <a href="http://cdn2.knowyourmeme.com/system/icons/2611/original/close_enough.png?1273013490">http://cdn2.knowyourmeme.com/system/icons/2611/original/close_enough.png?1273013490</a></span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;GuiPer&gt; want pastebin of config_</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="http://pastebin.com/nQQ5w3ha">http://pastebin.com/nQQ5w3ha</a></span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;GuiPer&gt; there are a couple of suspends</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;GuiPer&gt; so one more info, atin, FB=4 = no boot at all!</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-green">* Fire2fly_ (53f71c38@gateway/web/freenode/ip.83.247.28.56) has joined this channel.</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-navy">* Fire2fly (53f71c38@gateway/web/freenode/ip.83.247.28.56) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-navy">* Wout (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ok the early_suspends should be fine</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;zachy_md|busy&gt; or familiar to earlier configs</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;zachy_md|busy&gt; new is: config_suspend_nvs</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; hm:</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; The saving of the ACPI NVS area during hibernation and suspend and</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; restoring it during the subsequent resume is entirely specific to</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ACPI, so move it to drivers/acpi and drop the CONFIG_SUSPEND_NVS</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; configuration option which is redundant.</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;zachy_md|busy&gt; does our phone even support acpi ?</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;zachy_md|busy&gt; I doubt it makes a change</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;zachy_md|busy&gt; but GuiPer could you try following patch if you're still working with the kernel ?</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;zachy_md|busy&gt; <a href="https://lkml.org/lkml/2011/1/6/65">https://lkml.org/lkml/2011/1/6/65</a></span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;zachy_md|busy&gt; I'm right now busy testing my kernel :P</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;GuiPer&gt; im trying to make it compile :S</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;GuiPer&gt; give me some minutes</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;zachy_md|busy&gt; k</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;zachy_md|busy&gt; thx</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;zachy_md|busy&gt; seems like config_suspend_nvs is an deprecated config option with &gt;2.6.38</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;zachy_md|busy&gt; it only exists with 2.6.35 to 2.6.37</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;GuiPer&gt; should I try to remove it_</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-green">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;zachy_md|busy&gt; yeah, sure you could try</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;zachy_md|busy&gt; I'm not sure why it's needed anyway:</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;zachy_md|busy&gt; it appears to be related to acpi, bios and windows (!)</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;zachy_md|busy&gt; <a href="https://patchwork.kernel.org/patch/102978/">https://patchwork.kernel.org/patch/102978/</a></span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-green">* eXistZ (~RobBeane@76.177.230.163) has joined this channel.</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;zachy_md|busy&gt; and probably limited to x86 platform only</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;zachy_md|busy&gt; more info: <a href="http://lkml.org/lkml/2008/7/3/52">http://lkml.org/lkml/2008/7/3/52</a></span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; which cpuidle.c file are you kids using? hacksung or gb-i9000?</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;GuiPer&gt; we kanged all samsung kernel, so I assume samsung</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;GuiPer&gt; but curio did some changes</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; shocking</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-green">* Fire2fly (~yaaic@62.140.137.148) has joined this channel.</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-green">* Fire2fly_ (53f71c38@gateway/web/freenode/ip.83.247.28.56) has left this channel.</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-green">* icezar1 (~quassel@unaffiliated/icezar) has joined this channel.</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;zachy_md|busy&gt; codeworkx does the nightly update from today already includes all the updated libs to also get a kernel with samsung sources running ?</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;codeworkx&gt; samsung kernel needs jvb libs</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;zachy_md|busy&gt; codeworkx ok, you have an update package available with all those libs integrated in case I want to try out &amp; do some experiments with sammy's kernel ?</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;zachy_md|busy&gt; thanks</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;codeworkx&gt; no. loopmount the system image</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;codeworkx&gt; samfirmware</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-navy">* iravid (~iravid@87.69.234.127) Quit (Quit: leaving)</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;GuiPer&gt; zachy_md|busy: what is default samsung governor??</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;GuiPer&gt; may be the problem :)</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ondemand</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;zachy_md|busy&gt; lol</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;GuiPer&gt; not really :S</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ondemand already caused me some trouble in the past ;)</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;GuiPer&gt; same problem with performance</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;GuiPer&gt; deep sleep = crash :S</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;zachy_md|busy&gt; you tried conservative ?</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;zachy_md|busy&gt; powersave actually might make it really laggy &amp; slow but it keeps everything closer to the sleep state so perhaps it can wake up again</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;zachy_md|busy&gt; might be worth a try :P</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;GuiPer&gt; maybe</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;GuiPer&gt; same shit</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;GuiPer&gt; last try and bed :)</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;GuiPer&gt; maybe bootloader?? think its possible?</span><br />
