@@ -1368,3 +1368,130 @@
 <span class="irc-date">[21:56]</span> <span class="irc-black">&lt;GuiPer&gt; same shit</span><br />
 <span class="irc-date">[21:56]</span> <span class="irc-black">&lt;GuiPer&gt; last try and bed :)</span><br />
 <span class="irc-date">[21:57]</span> <span class="irc-black">&lt;GuiPer&gt; maybe bootloader?? think its possible?</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; erm	/* s5pv210_didle_resume</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 	 *</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 	 * resume code entry for bootloader to call</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 	 *</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 	 * we must put this code here in the data segment as we have no</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 	 * other way of restoring the stack pointer after sleep, and we</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 	 * must not write to the code segment (code is read-only)</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 	*/</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;kang&gt; didle!</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;codeworkx&gt; w00</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;codeworkx&gt; t</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so maybe we should leave that part out</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: which bootloader youre using?</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;GuiPer&gt; old one :S</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;GuiPer&gt; grrrrrrrr</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;Kaik541&gt; sounds like new bootloader would fix then</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;GuiPer&gt; should I try new one???</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;kang&gt; yep</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;GuiPer&gt; is it safe? with heimdall?</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;GuiPer&gt; any tar with it?</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm just glad it was in a comment, I can't read assembler for poop</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;Kaik541&gt; from what I've seen it'd actually be just as useful for us captivate users to switch to that bootloader =/</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;Kaik541&gt; makes getting into recovery/download mode easier</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;GuiPer&gt; any link for bootloader?</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;Kaik541&gt; vol down + power = one, vol up + power = other</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;Kaik541&gt; GuiPer, the only ones I know of are full ROM's</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; really? that sounds....useful</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, yeah, it doesn't really destroy our recovery methods and actually makes it a good deal quicker</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;Kaik541&gt; but there's always the fun risk of flashing a new Sbl!</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;codeworkx&gt; i have teh bins</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;codeworkx&gt; but you have to tar it</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;codeworkx&gt; wait</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;GuiPer&gt; can you tar?</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;GuiPer&gt; think I can trust heimdall?</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;GuiPer&gt; shit :S</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;kang&gt; i did it with heimdall</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;GuiPer&gt; need 2 tars I guess</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;kang&gt; but ive heard some ppl who fucked it up</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;GuiPer&gt; kang did you need 2 tars?</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-green">* icezar1 is now known as Cezar</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;kang&gt; i suppose they did it wrong</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;kang&gt; no i just upgraded sbl</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://dl.dropbox.com/u/22829919/JVB_Bootloader.tar">http://dl.dropbox.com/u/22829919/JVB_Bootloader.tar</a></span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://dl.dropbox.com/u/22829919/JPK_Bootloader.tar">http://dl.dropbox.com/u/22829919/JPK_Bootloader.tar</a></span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;GuiPer&gt; only sbl?</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;codeworkx&gt; both</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;kang&gt; yeah but that's cuz im dumb</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;kang&gt; i mean, its not safe to just upgrade sbl</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;kang&gt; worked tho ^^</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;GuiPer&gt; but where to put in heimdall?</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;GuiPer&gt; maybe better windows no?</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;codeworkx&gt; flash with odin as pda</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;kang&gt; heimdall --help if u use heimdall ;-)</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;GuiPer&gt; too risky, going to windows :)</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;zachy_md|busy&gt; IMO heimdall ist much more convenient</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;zachy_md|busy&gt; try heimdall-frontend :)</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;GuiPer&gt; i have it...</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;GuiPer&gt; but it asks 2 files</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;kang&gt; i like heimdall command line it works well.. anyhow.. odin works just fine too</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;zachy_md|busy&gt; yeah: primary bootloader, secondary bootloader</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;GuiPer&gt; primary and secondary</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;GuiPer&gt; prefer Odin :)</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;GuiPer&gt; did it before and worked</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;zachy_md|busy&gt; primary=boot.bin</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;GuiPer&gt; brb</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;zachy_md|busy&gt; secondary Sbl.bin</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;GuiPer&gt; think it's safe??</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;zachy_md|busy&gt; it worked for me using the frontend</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;codeworkx&gt; did it 2 times today</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;zachy_md|busy&gt; haven't used console version though</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;zachy_md|busy&gt; flashed once to the 2.2 bootloader and then back afterwards</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;zachy_md|busy&gt; should be safe</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; quit bragging codeworkx some of us....oh flash your phone nm</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;GuiPer&gt; well looks like worked :)</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;GuiPer&gt; but same problem :S</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;GuiPer&gt; deep sleep = death</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;codeworkx&gt; but your bootpixels are gone</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;GuiPer&gt; they are</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;GuiPer&gt; last_kmsg</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;GuiPer&gt; [   67.427499] max8998-pmic max8998-pmic: max8998: SET1:1, SET2:0</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;GuiPer&gt; [   67.427654] Freezing user space processes ... (elapsed 0.01 seconds) done.</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;GuiPer&gt; [   67.443548] Freezing remaining freezable tasks ... (elapsed 0.01 seconds) done.</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;GuiPer&gt; [   67.459164] PM: Entering mem sleep</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;GuiPer&gt; [   67.459378] Suspending console(s) (use no_console_suspend to debug)</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;GuiPer&gt; No errors detected</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no_console_suspend....that sounds good</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; we just need to pass the boot param to the kernel....how hard can that be</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;GuiPer&gt; where?</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;zachy_md|busy&gt; lol</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;GuiPer&gt; try back old console... we changed it</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;GuiPer&gt; ttySAC2</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;zachy_md|busy&gt; the bad thing with the Galaxy family is that there's no such thing like grub.conf</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-green">* iravid (~iravid@87.69.234.127) has joined this channel.</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;zachy_md|busy&gt; or boot.txt ?</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; don't HTC phones have something like a grub.conf ?</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; hm :\</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; grub could be fun, boot GB, boot CM7</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;GuiPer&gt; how does kernel talks with bootloader? via console?</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;GuiPer&gt; this ttySAC2 thing?</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;zachy_md|busy&gt; let's just hardcore this in the source - for now at least</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: the commandline comes from bootloader. doesn't matter what you set</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;codeworkx&gt; cat /proc/cmdline</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;GuiPer&gt; ~ # cat /proc/cmdline</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;GuiPer&gt; console=ttySAC2,115200 loglevel=4</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;GuiPer&gt; ok, so I'm out of ideas :S</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;zachy_md|busy&gt; <a href="http://pastebin.com/hkmx3Ept">http://pastebin.com/hkmx3Ept</a></span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;zachy_md|busy&gt; would changing:</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;zachy_md|busy&gt; int console_suspend_enabled = 1;</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;zachy_md|busy&gt; to</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;zachy_md|busy&gt; int console_suspend_enabled = 0;</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;zachy_md|busy&gt; suffice ?</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;GuiPer&gt; probably</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;GuiPer&gt; tomorrow :)</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;GuiPer&gt; its late here, and have to work tomorrow</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;kang&gt; disable dummy console mb</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;kang&gt; xd</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;GuiPer&gt; try to :):)</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;kang&gt; ive no work tomorrow</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;kang&gt; wohooo</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;GuiPer&gt; FRAMEBUFFER Console is different in CM7 and Sammy kernel</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;GuiPer&gt; give it a try :)</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-navy">* thedeanius (~dean@64.151.21.178) Quit (Quit: thedeanius)</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-navy">* Cezar (~quassel@unaffiliated/icezar) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;GuiPer&gt; good night, and good luck if somebody will try to make it work :S</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-green">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) has joined this channel.</span><br />
