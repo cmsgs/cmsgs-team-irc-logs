@@ -848,3 +848,78 @@
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;nitam|work&gt; for sharing two sd cards?</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;nitam|work&gt; the only two other than galaxys phones that have BOARD_VOLD_EMMC_SHARES_DEV_MAJOR are encore and htc/inc</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;nitam|work&gt; so optimus 2x is irrelevant.</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;nitam|work&gt; because it obviously doesn't share the major device number and so will not see the issue.</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;nitam|work&gt; I have a co-worker who has the htc incredible except he's too chicken to even root his phone, let alone run CM</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;nitam|work&gt; and he's a developer.</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: yes</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-green">* AndChat- (~AndChat@c-8fd3e455.04-17-73746f2.cust.bredbandsbolaget.se) has joined this channel.</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;nitam|work&gt; I'll never understand devs that don't root their phones instantly</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;coolya&gt; my nook didn't even boot its stock firmware once</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-navy">* blyfoten (~AndChat@m83-186-166-30.cust.tele2.se) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;nitam|work&gt; ok, can you comment on <a href="http://review.cyanogenmod.com/#change,4579">http://review.cyanogenmod.com/#change,4579</a> - with the note that encore also shares the major device number and that this fix works?</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;nitam|work&gt; and doesn't break anything? L:)</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;coolya&gt; but it was working on nook before that change</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;coolya&gt; i can coment on it sure</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;nitam|work&gt; the key part is "may report" - not sure what makes it "may" instead of always or never</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;nitam|work&gt; but we definitely get the wrong minor number get reported.</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;nitam|work&gt; do you know how devices are assigned major/minor pairs?</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;coolya&gt; nope</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;nitam|work&gt; vold.fstab looks fine. external is auto</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;nitam|work&gt; can you pastie the vold.fstab for the encore?</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;nitam|work&gt; or I can see it</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;nitam|work&gt; brb</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;coolya&gt; its a bit different but logical the smae</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;nitam|work&gt; can you tell me what the major/minor numbers are for the sd cards?</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;nitam|work&gt; on encore</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;nitam|work&gt; on the encore the partition number is being specified for the EMMC.</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;nitam|work&gt; we have auto.</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;nitam|work&gt; because we are using the first usable partition. encore has p8 as its internal storage.</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;coolya&gt; because it has more than one fat partition on it</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;coolya&gt; vold would try to share /boot on the encore if you set it to auto</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;coolya&gt; because that is the first vfat partition</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;nitam|work&gt; yes. but I think that is why it was working</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;nitam|work&gt; because emmc is explicitly set to 8 in vold.encore.fstab</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;nitam|work&gt; is "shares" but shares by making it explicit that it is using a certain partition.</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;nitam|work&gt; I'm sure it woudl still work if BOARD_VOLD_EMMC_SHARES_.. is not set</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;coolya&gt; hmm i'm not sure but i guess i tried setting it explicit on SGS</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;nitam|work&gt; we have ours set to 1 for sdcard and auto for emmc</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;nitam|work&gt; encore has sdcard set to auto and emmc set to 8</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;nitam|work&gt; its sort of different</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;nitam|work&gt; I think encore woudl return the same partition number for emmc whether board_shares is on or not</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;nitam|work&gt; because it is explicit where emmc is</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;coolya&gt; ok</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;nitam|work&gt; but it is on, and it still works with my fix</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;nitam|work&gt; so one of the two phones that care about this is fine.</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;nitam|work&gt; and arcee's "Optimus 2x works" is a red herring.</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;nitam|work&gt; hopefully he'll see my comment</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;nitam|work&gt; I guess we just need to build street cred . . . :)</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;coolya&gt; ;-)</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;nitam|work&gt; I did not expect this one to be questioned at all.</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I can make a shiv if you think that would help :P</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;nitam|work&gt; ok, back after lunch</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-green">* techmik_captivat (~techmik@32.160.99.211) has joined this channel.</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;techmik_captivat&gt; Comcast down</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; awesome</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;techmik_captivat&gt; Wifi tether gave me error</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;nitam|work&gt; what'd it say</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;techmik_captivat&gt; Must connect with SASL</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;nitam|work&gt; wha</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;techmik_captivat&gt; Now on phonethru hsupa</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;Zilch25&gt; i get that while tethered everytime i use freenode</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;Zilch25&gt; had to get a script for mIRC</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;wergeld&gt; Any recommendations on using x64 WUBI to do android rom dev?</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;nitam|work&gt; back later</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-green">* techmik_laptop (~techmik@32.160.99.211) has joined this channel.</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;techmik_laptop&gt; this is usb tehter</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-navy">* techmik_captivat (~techmik@32.160.99.211) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-green">* techmik_captivat (~techmik@32.160.99.211) has joined this channel.</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;techmik_laptop&gt; odd.... if i disconnect the phone from andchat, i cant tether andchat on laptop,.... using konvo</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: do you have seen that on sammy kernel are no framebuffer devices? xD</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-green">* gdanko (~gdanko@ip68-111-171-185.sd.sd.cox.net) has joined this channel.</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-green">* koush__ (~koush@74.202.210.58) has joined this channel.</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-navy">* gdanko (~gdanko@ip68-111-171-185.sd.sd.cox.net) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-green">* gdanko (~gdanko@nat/yahoo/x-kskbqfquooyakrhd) has joined this channel.</span><br />
