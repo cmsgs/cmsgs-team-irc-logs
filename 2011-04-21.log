@@ -772,3 +772,79 @@
 <span class="irc-date">[15:57]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://dl.dropbox.com/u/14477030/aries_galaxys_defconfig">http://dl.dropbox.com/u/14477030/aries_galaxys_defconfig</a></span><br />
 <span class="irc-date">[15:58]</span> <span class="irc-black">&lt;nitam|work&gt; that was the config that worked for Wout according to kang</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;Wout`&gt; oi</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work thanks !</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-navy">* enl_ (5270c4ce@gateway/web/freenode/ip.82.112.196.206) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;Wout`&gt; just to confirm, I did have the sleep of death thing with jvb kernel and cm7</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;Wout`&gt; but was doing debugging also, so probably only noticed once because rest of the time it was on usb</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;nitam|work&gt; but that won't work as is.</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;UberPinguin&gt; Figured out why the Captivate was wiping itself after flashing :D cache.rfs had a recovery/command script that flashed sec_csc,zip, wiped cache, and wiped /data.</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;nitam|work&gt; I don't know *what* kang was doing . . .</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;nitam|work&gt; he's not using our initramfs for one</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;nitam|work&gt; but some of the other CONFIGS need to be looked at as well</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;zachy_md|busy&gt; hm, the phone turned off while locking the screen</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;zachy_md|busy&gt; well - no it seems to sleep but won't wake up - a living brick ! XD</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you say that like its a bad thing</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;zachy_md|busy&gt; TMC_Sherpa lol - it's actually a good thing that it's not bricked - but it's only usable while the screen is not locked</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;zachy_md|busy&gt; add to that the RIL polling issue and you have a nice laggy Galaxy Player ;)</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;zachy_md|busy&gt; with an amazing battery lifetime</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; codeworkx what sources are you using while trying the samsung kernel ?</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; the samsung_cm7_merge repo ?</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;codeworkx&gt; mine</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;codeworkx&gt; its booting</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;codeworkx&gt; missed to include yaffs xD</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; O.o</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;zachy_md|busy&gt; kang's config actually looks pretty similar to ours &amp; harmless - I'd like to know what gets selected beyond that due to "default y" and other settings in the kernel</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;zachy_md|busy&gt; the ridiculous thing is samsung added NO line of documentation to that kernel (Documentation folder)</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;zachy_md|busy&gt; curious what that DVFS setting does</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well, this is the half of my scripts that works <a href="http://pastebin.com/XB8xzNZi">http://pastebin.com/XB8xzNZi</a> if anyone is feeling brave or stupid</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Documentation? hell I don't trust the comments they put in the file</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; s</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; nothing like having diff pull up a line 'cus the comment changed (x210 vs x201 or whatever) when the code is the same</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;zachy_md|busy&gt; yeah there were several renames I noticed in the code</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-navy">* Kaik541 (~Kaik541@cpe-70-112-175-254.austin.res.rr.com) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-navy">* mikebeecham (~mikebeech@2.99.39.73) Quit (Quit: Oops..I think I might have hit something...)</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: <a href="https://github.com/CyanogenMod/android_frameworks_base/commit/05dff2cbc148a23d028948a0f9d9ea984e1605ec">https://github.com/CyanogenMod/android_frameworks_base/commit/05dff2cbc148a23d028948a0f9d9ea984e1605ec</a></span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;codeworkx&gt; wow</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;nitam|work&gt; yup. one more left.</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;nitam|work&gt; the vold o ne</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;codeworkx&gt; arcee said this is kernel related</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;codeworkx&gt; because on the lge optimus 2x it works without vold patch</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;nitam|work&gt; does his extra sd share a major device?</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;nitam|work&gt; because that's what ours does.</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;codeworkx&gt; 2x has internal and external and can both shared</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;nitam|work&gt; and it is perfectly valid to share a major device, and that #ifdef should be the default ...</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;nitam|work&gt; without it, the framework is sending down 179:8 to the kernel when it should be 179:9</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;nitam|work&gt; its the same test that is already done in another file.</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-green">* Kaik541 (~Kaik541@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;techmik67&gt; can you  put all that you just said in the commit msg, maybe, so arcee sees why?</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;nitam|work&gt; I did.</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;nitam|work&gt; he hasn't commented.</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;nitam|work&gt; so dunno where he said it is in the kernel</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;nitam|work&gt; I don't care if it works on the optimus 2x - if his devices dont' share a major device number then he won't need it. But sharing a major device number is legal and should work and the code has a bug in it as it is.</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;techmik67&gt; got it =)</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;Wout`&gt; how is gps reception for you guys?</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;Wout`&gt; it used to be crap for me, across all roms, then I tried this <a href="http://forum.xda-developers.com/showthread.php?t=1043034">http://forum.xda-developers.com/showthread.php?t=1043034</a></span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;Wout`&gt; difference is night and day</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;techmik67&gt; i dint really use it much without network assistance checkbox checked, and i'm inside now.....</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;techmik67&gt; dont*</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;codeworkx&gt; E/FramebufferNativeWindow(  191): couldn't open framebuffer HAL (No such device)</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;codeworkx&gt; damn it</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;Wout`&gt; had that too codeworkx, looking back through logs to see what we did after that to fix it</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;Wout`&gt; ok, after that error codeworkx pushed these files <a href="https://github.com/teamhacksung/android_vendor_samsung_common/commit/0c1e5f6504bd96b409ca1cd889a4371a0c592e88">https://github.com/teamhacksung/android_vendor_samsung_common/commit/0c1e5f6504bd96b409ca1cd889a4371a0c592e88</a></span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;codeworkx&gt; gralloc :-)</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Quit: Computer has gone to sleep)</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;Wout`&gt; codeworkx: do you have CONFIG_FB_S3C_NR_BUFFERS set to 4?</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;Wout`&gt; i give up, tried to find out through logs which changes actually made it boot</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;Wout`&gt; too cluttered</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-green">* Wout` is now known as Wout|f00dz</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;codeworkx&gt; baaaaaaaaaaaaad</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;codeworkx&gt; system/vendor/lib/hw/gralloc.aries.so</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;codeworkx&gt; E/HAL     (  184): Cannot load library: reloc_library[1311]:    91 cannot locate 'PVRSRVDebugPrintf'...</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;codeworkx&gt; E/FramebufferNativeWindow(  184): Couldn't get gralloc module</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;codeworkx&gt; wtf</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;nitam|work&gt; coolya, encore has 2 sd cards, right?</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;nitam|work&gt; and it works with my fix?</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;nitam|work&gt; for sharing two sd cards?</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;nitam|work&gt; the only two other than galaxys phones that have BOARD_VOLD_EMMC_SHARES_DEV_MAJOR are encore and htc/inc</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;nitam|work&gt; so optimus 2x is irrelevant.</span><br />
