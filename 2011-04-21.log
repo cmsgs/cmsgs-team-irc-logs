@@ -1495,3 +1495,58 @@
 <span class="irc-date">[22:50]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 264 seconds)</span><br />
 <span class="irc-date">[22:59]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Quit: Ex-Chat)</span><br />
 <span class="irc-date">[22:59]</span> <span class="irc-green">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ok, so s5pv210_didle_resume is the function call which is hooked into S5P_INFORM0 which is S5P_CLKREG(0xF000)</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; which is in cpuidle.c as well as pm.c</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no big surprise there</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; interesting, the nexus source doesn't have it in cpuidle</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: the console= line is telling the kernel to make the primary console a serial device.</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gb-i9000 static void s5p_enter_didle(void) froyo captivate static void s5p_enter_idle2(void) are the calls to S5P_INFORM0</span><br />
+<span class="irc-date">[23:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the nexus has enter_idle and enter_idle_normal</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; who the hell is in charge of naming shit?</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, drunks</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; that would explain a lot</span><br />
+<span class="irc-date">[23:20]</span> <span class="irc-navy">* gdanko (~gdanko@nat/yahoo/x-kskbqfquooyakrhd) Quit (Quit: Computer has gone to sleep)</span><br />
+<span class="irc-date">[23:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sweet I can blame  gdanko</span><br />
+<span class="irc-date">[23:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gotta find some food later boys. lemme know how it turns out O7</span><br />
+<span class="irc-date">[23:21]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;techmik67&gt; omg.... in gb sources and ours...... ce147.c........</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;techmik67&gt; LOGV("%s WTH GPS in KERNAL", __func__);</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;techmik67&gt; kernAL??????</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;kang&gt; most common typo</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;codeworkx&gt; kernalz!!</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;freat&gt; nuggets</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;codeworkx&gt; samsung kanged our stuff</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;techmik67&gt; i love it</span><br />
+<span class="irc-date">[23:29]</span> <span class="irc-black">&lt;zachy_md|busy&gt; codeworkx FOR REAL ?</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-black">&lt;zachy_md|busy&gt; kanging our stuff and making it less stable &amp; working than before ?</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-black">&lt;zachy_md|busy&gt; wtf ?!</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-black">&lt;zachy_md|busy&gt; kangers gotta kang :P</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;kang&gt; ping ping ping</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;kang&gt; &gt;&lt;</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;codeworkx&gt; pong pong pong</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;codeworkx&gt; LOGV("%s WTH GPS in KERNAL", __func__);</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;codeworkx&gt; i would say this comes from coolya</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;zachy_md|busy&gt; lol</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;codeworkx&gt; we have to ask him xD</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/8ba246d0e61128658e5e8c45a3f442ecb65add5f#L0R1968">https://github.com/teamhacksung/android_kernel_samsung/commit/8ba246d0e61128658e5e8c45a3f442ecb65add5f#L0R1968</a></span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-black">&lt;codeworkx&gt; !!!!!!!!!!!!!!!!!!!!</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-black">&lt;codeworkx&gt; epic!</span><br />
+<span class="irc-date">[23:40]</span> <span class="irc-green">* gdanko (~gdanko@ip68-111-171-185.sd.sd.cox.net) has joined this channel.</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: in gb sources are no LOGV for ce147</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/samsung_gt_i9000_20110418/drivers/media/video/ce147.c">https://github.com/teamhacksung/android_kernel_samsung/blob/samsung_gt_i9000_20110418/drivers/media/video/ce147.c</a></span><br />
+<span class="irc-date">[23:43]</span> <span class="irc-navy">* koush___ (~koush@74.202.210.58) Quit (Quit: koush___)</span><br />
+<span class="irc-date">[23:45]</span> <span class="irc-green">* thedeanius (~dean@c-24-2-24-87.hsd1.mo.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[23:55]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[23:55]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;atinm&gt; 'ullo</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;techmik67&gt; hiya</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;atinm&gt; kid sick...</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;atinm&gt; so not going to be available much</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;atinm&gt; but things alright?</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;atinm&gt; uploads for captivate and vibrant ok?</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;atinm&gt; I uploaded and had to leave soon after</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;techmik67&gt; havent seen/had problem..... anytthing particular to look out for?</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-navy">* gdanko (~gdanko@ip68-111-171-185.sd.sd.cox.net) Quit (Quit: Computer has gone to sleep)</span><br />
+<span class="irc-date">[23:59]</span> <span class="irc-black">&lt;atinm&gt; just usual stuff. weird install problems, black screens :)</span><br />
+<span class="irc-date">[23:59]</span> <span class="irc-black">&lt;atinm&gt; fire</span><br />
+<span class="irc-date">[23:59]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
