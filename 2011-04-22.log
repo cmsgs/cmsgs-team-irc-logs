@@ -898,3 +898,144 @@
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;zacharias|away&gt; it probably wouldn't have gotten saved</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;zacharias|away&gt; dunno</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;techmik67&gt; so.... <a href="http://git.secretlab.ca/?p=u-boot.git;a=commit;h=008a351a8a6b6dda8cd6d6d5813a44bdd4a455df">http://git.secretlab.ca/?p=u-boot.git;a=commit;h=008a351a8a6b6dda8cd6d6d5813a44bdd4a455df</a> ..... thoughts?</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;zacharias|away&gt; u-boot - that's too risky for me :P</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;atinm&gt; its the bootloader.</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;atinm&gt; not touching it unless I have another phone that has jtag/riff</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;atinm&gt; plus we've seen this code - I think its in our repos</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;techmik67&gt; hmmmm..... my google-fu bad today... why cant i find a spec picture of my laptop to know where the RAM is?</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;techmik67&gt; a little out of date, but i think maybe this: <a href="http://www.insidemylaptop.com/replace-upgrade-memory-acer-aspire-5500-laptop/">http://www.insidemylaptop.com/replace-upgrade-memory-acer-aspire-5500-laptop/</a></span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;atinm&gt; well crap. wifi driver didn't come up</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;atinm&gt; dhdsdio is failing ...</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;atinm&gt; and I so didn't want to debug this.</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;atinm&gt; is i9000 dhd.ko coming up?</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm&gt; we have like 35 ppl here . . . anyone?</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;techmik67&gt; i had to switch back to mainline, not the merge build</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;zacharias|away&gt; there's lots of additional stuff besides the kernel module spread across folders for WIFI in the factory.rfs file</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;techmik67&gt; i posted those dmesg and logcat tho</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;zacharias|away&gt; maybe adding that helps ?</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;atinm&gt; techmik67: that's fine, I have captivate</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;atinm&gt; wanted to know if i9000 wifi driver was coming up at all</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;techmik67&gt; just let me know what/when you need</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;zacharias|away&gt; didn't try yet</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;zacharias|away&gt; and Guiper currently isn't here</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;zacharias|away&gt; anyone else ?</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;zacharias|away&gt; kang ?</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;zacharias|away&gt; codeworkx ?</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;atinm&gt; dhd_bus_start failed.</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; brb</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-green">* blyfoten (~AndChat@c-8fd3e455.04-17-73746f2.cust.bredbandsbolaget.se) has joined this channel.</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;kang&gt; kang!</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;kang&gt; im kang!</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;blyfoten&gt; Have you konsidered kanging your name? :-p</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;kang&gt; no.</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;kang&gt; in case of implosion look directly at implosion.</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm&gt; timeleft = dhd_os_ioctl_resp_wait(bus-&gt;dhd, &amp;bus-&gt;rxlen, &amp;pending);</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm&gt; why the hell is it returning 0.</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;atinm&gt; for rxlen. it thinks the bus isn't there.</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; I need to look at i9000 dmesg</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;techmik67&gt; yay! easy memory access!</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; anyone running samsung kernel on i9000?</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;atinm&gt; how the hell do they get a bcm4329 driver.</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;kang&gt; i run that</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;atinm&gt; I get a dhd.ko</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;atinm&gt; from drivers/net/wireless/bcm4329</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;kang&gt; i have only a dhd.ko</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;kang&gt; and its used as the wifi driver</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;kang&gt; and it works</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;kang&gt; jvb kernel/rom</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-green">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;atinm&gt; I know - I'm questioning how they have a system/modules/bcm4329.ko</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;kang&gt; oh</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;atinm&gt; in their system tree</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;kang&gt; its a left over i think</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;kang&gt; its not used</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;atinm&gt; and I don't see a dhd.ko</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;kang&gt; they use /lib/modules also "now"</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;kang&gt; which is the proper path also lol</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;kang&gt; /system/modules was wrong before</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;atinm&gt; ah, ok.</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;kang&gt; they must have forgotten it</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;atinm&gt; I need to get a look at JVB system tree</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;kang&gt; yeah</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;kang&gt; the bcm429</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;kang&gt; is for the wrong kernel</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;kang&gt; left over.</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;kang&gt; samsung 100 logic 0</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;atinm&gt; I still can't explain why it is not coming up</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;atinm&gt; dhd</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;kang&gt; this stuff makes my day every time lol</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;kang&gt; get a zip from there if u want the filesystem easily <a href="http://beta.romkitchen.org/beta/?s=home">http://beta.romkitchen.org/beta/?s=home</a></span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;kang&gt; zipped and fast</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;kang&gt; disregard option</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;kang&gt; doesnt matter</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;kang&gt; on jvb my dhd loads</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;kang&gt; what does it says when u insmod manually?</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;atinm&gt; dhdsdio_probe: failed</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;kang&gt; uhm so it inserts but doesnt work</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;atinm&gt; right</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;atinm&gt; fails when trying to start the bus</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;kang&gt; suppose ill have to reinstall cm7 at some point</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;kang&gt; xd</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;atinm&gt; your dhd works?</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;atinm&gt; comes up?</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;kang&gt; yes but thats jvb</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;kang&gt; kernel made from sources tho</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;kang&gt; but it works</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;kang&gt; uhm in fact proper module path that is setup on jvb is /system/lib/modules.. but they use /lib/modules like linux anyhow</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;kang&gt; x)</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;kang&gt; heh</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;kang&gt; removing module</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;kang&gt; and loading</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;kang&gt; actually fails</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;kang&gt; on jvb</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;kang&gt; unbalanced irq @ kernel/irq/manage.c +377 set_irc_wake</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;kang&gt; odd</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;kang&gt; lets reboot and retry a few times</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;kang&gt; uhm</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;kang&gt; atinm: that will interest u</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;kang&gt; atinm: loading module with insmod fails at probe etc</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;kang&gt; atinm: loading via android works</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;kang&gt; atinm: do you know what android does to load the module that's different to insmod?</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-navy">* t-ready (~burrell@wormhole.cbl.umces.edu) Quit (Quit: Captivate - Phoenix ROM)</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;atinm&gt; and it fails for me outright during boot</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;kang&gt; mines jvb buti suppose somethings pretty wrong going on</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;atinm&gt; so may be a captivate vs i9000 difference</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;atinm&gt; your wifi comes up?</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;kang&gt; only if loaded by android</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;kang&gt; manually = everything goes crazy :p</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;atinm&gt; yeah, that's all mine does except it fails</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;zacharias|away&gt; kang it's the same with our current CM7 wifi module</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;kang&gt; maybe you can just replace it by nexus's driver</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;kang&gt; and wipe samsung one off:p</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;zacharias|away&gt; when adding an insmod line to 04modules</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;zacharias|away&gt; and the module is in the kernel</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;zacharias|away&gt; wifi (the gui) will spit out an error message</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;atinm&gt; which one is the newer tho</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;zacharias|away&gt; seems like the system wants the freedom to load and unload the module</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;atinm&gt; what does linux tree have</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;kang&gt; do u know which part of android source does module loading?</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;atinm&gt; the usual way I go about it is by greping :)</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;kang&gt; yeah</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;atinm&gt; well, TAGS</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;kang&gt; i wanted to avoid it</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;kang&gt; x)</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;zacharias|away&gt; atinm take a look at intersectRaven's kernel source that one should pretty up-to-date: <a href="https://github.com/intersectRaven/ir-kernel">https://github.com/intersectRaven/ir-kernel</a></span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;kang&gt; nothing like cscoping android</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;atinm&gt; you know, screw it. our wifi works with nexus driver.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;kang&gt; i feel like the samsung's version is not very clean</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;kang&gt; so i'd rather use nexus s</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;kang&gt; but i'm curious of the diff ofc</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;zacharias|away&gt; samsung has bcm4329 related stuff planted in several powermanagment related sections of the kernel so maybe that one consumes less energy ?</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;kang&gt; likely</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;kang&gt; and some of their irq's aren't balanced</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;atinm&gt; if we can make it work.</span><br />
