@@ -1039,3 +1039,76 @@
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;kang&gt; likely</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;kang&gt; and some of their irq's aren't balanced</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;atinm&gt; if we can make it work.</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;kang&gt; android calls the syscall directly</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;atinm&gt; the samsung driver is "For Aries only"</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;atinm&gt; so they did custom crap</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;atinm&gt; damn it.</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;kang&gt; its kinda odd that it loads only via android</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;kang&gt; they must have modified the loading lol</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;atinm&gt; ok, wait. you're not running cm7?</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;kang&gt; nope, jvb</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;kang&gt; can only use wifi if it's loaded by system/core/init/builtins.c (insmod)</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;kang&gt; in aosp it seems to do what insmod does</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;kang&gt; so i suppose in samsung's source its diff</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;kang&gt; and does w/e hack</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;kang&gt; works around some bug lol</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;atinm&gt; and raven's kernel is closer to nexus s</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;atinm&gt; driver I mean</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;kang&gt; id say go ahead and use nexus s driver for now</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;kang&gt; we can try to make the samsung one working later</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;kang&gt; or just pickup whatever they did</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;kang&gt; and port it to nexus</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;kang&gt; its probably some irq magic at some special spots in the kernel</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;kang&gt; or some smart dude will figure out what they rly did wrong</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;kang&gt; maybe can just strace what their binary loader does or smth</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;atinm&gt; at the moment it looks like I have to be that guy ..</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;atinm&gt; ah well.</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;atinm&gt; I'll look at it.</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;kang&gt; well at least they dont remove some irq properly</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;kang&gt; before shut down</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;kang&gt; theres prolly some more bad stuff at startup</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;kang&gt; ok there is</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;kang&gt; lets compare dmesg between insmod and android</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;kang&gt; <a href="http://pastie.org/1823538">http://pastie.org/1823538</a> insmod, fresh boot, jvb</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;kang&gt; that's prolly what u get in cm7</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-green">* andy_ (~andy@109.110.251.16) has joined this channel.</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm&gt; no, there is no crash - just a failure to probe</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;kang&gt; hm well i got both</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;atinm&gt; oh, you mean after insmod manually</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;atinm&gt; I don't do that.</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;kang&gt; yea</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;atinm&gt; I</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;kang&gt; first it doesnt execute probe properly</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;atinm&gt; I am just trying to debug why android can't do it :)</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;kang&gt; then an irq is wrong so kernel is angry</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;atinm&gt; rm -rf drivers/net/wireless/bcm4329</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;atinm&gt; ;-)</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;atinm&gt; going to use nexus s</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;kang&gt; now the fun part</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;kang&gt; if only it would like to reboot &gt;&lt;</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;atinm&gt; maybe I should really work on sleep death</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;atinm&gt; well, lets see if I can get the drivers up first</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;atinm&gt; then sleep death</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;atinm&gt; my last sleep death showed no kmsg</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;zacharias|away&gt; atinm changing int console_suspend_enabled = 1;</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;zacharias|away&gt; to</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;zacharias|away&gt; int console_suspend_enabled = 0;</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;zacharias|away&gt; <a href="http://pastebin.com/hkmx3Ept">http://pastebin.com/hkmx3Ept</a></span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;zacharias|away&gt; might help</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;zacharias|away&gt; in kernel/print.k</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;atinm&gt; huh</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;atinm&gt; what..</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;kang&gt; <a href="http://pastie.org/1823577">http://pastie.org/1823577</a></span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;kang&gt; im supposing the samsungs module has loading options</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;kang&gt; i'll look at the source later</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-green">* gdanko (~gdanko@nat/yahoo/x-hcejmuplmanqdxve) has joined this channel.</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: yeah, but you do insane things for crazy people ;)</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;atinm&gt; doesn't detect headphone jack</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-green">* embizzle (~mbizzle@vp117009.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-green">* embizzle is now known as mbizzle</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-navy">* andy_ (~andy@109.110.251.16) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
