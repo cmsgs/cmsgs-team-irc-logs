@@ -604,3 +604,191 @@
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;atinm&gt; anyway, deep sleep death</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;techmik67&gt; oh i figured, but i still dont wanna be in there =)</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;atinm&gt; with samsung kernel</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread atinm * 8e63531 (1 files in 1 dirs): Use CyanogenMod/android_system_vold again after merge. - <a href="http://bit.ly/fDC3wr">http://bit.ly/fDC3wr</a></span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;atinm&gt; so I guess I work on sleep death no.</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;atinm&gt; now</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;atinm&gt; wait. has anyone else got samsung kernel working with CM7 tree?</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;zacharias|away&gt; not yet</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;zacharias|away&gt; it probably needs some libs to work</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;zacharias|away&gt; here's a list of interesting files from Samsung's factory.rfs and libs that Nexus S users need for AOSP:</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;zacharias|away&gt; <a href="http://pastebin.com/BVWVi7dK">http://pastebin.com/BVWVi7dK</a></span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;zacharias|away&gt; just went through the loop-mounted file</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;zacharias|away&gt; hope it helps</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;techmik67&gt; ok, so, default.xml, has buildscripts, releasetools, bootable recovery, our 5 samsung repos, vendor cyanogen, vendor/samsung/common, kernel, iniramfs, vendor/teamhacksung</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;Kaik541&gt; hahaha the samsung "sidekick" device is just a touchwiz phone with a theme</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;techmik67&gt; all the rest is mainline =)</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;Kaik541&gt; so lazy, samsung</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;atinm&gt; wait, we still have initramfs?</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;techmik67&gt; its ii default.xml.....</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;techmik67&gt; in*</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;techmik67&gt;   &lt;project path="initramfs/samsung/captivate" name="teamhacksung/gingerbread-captivate-initramfs" remote="github" revision="master" /&gt;</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-navy">* iravid (~iravid@87.69.234.127) Quit (Quit: leaving)</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;Kaik541&gt; it does have a theme changer though, that's a fairly interesting move by samsung</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread atinm * 64eccc8 (1 files in 1 dirs): Removed initramfs dirs from manifest. - <a href="http://bit.ly/hnCH7l">http://bit.ly/hnCH7l</a></span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;atinm&gt; so they can easily change touchwiz to not look like iphone</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;atinm&gt; so again, what did Guiper get working - I thought galaxys was able to boot with jvb kernel + cm7 rom</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;atinm&gt; except for sleep death</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;Kaik541&gt; I just noticed this <a href="http://stats.cyanogenmod.com/">http://stats.cyanogenmod.com/</a></span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;Kaik541&gt; tracks installs by device for those who opt-in</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;Kaik541&gt; captivate is high up on the list</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;Kaik541&gt; so is galaxys</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;atinm&gt; add up captivate, galaxys and vibrant</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;atinm&gt; not bad - ~4700</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;techmik67&gt; almost 5k</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;Kaik541&gt; 4817</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;techmik67&gt; nice</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;Kaik541&gt; and those are just the opt-ins</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;Kaik541&gt; I bet we're all the "RC0" installs in the last 24 hours xD</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;atinm&gt; more than encore optins</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;Kaik541&gt; or are we nightly?</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;atinm&gt; nightly</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;atinm&gt; well, yeah - I think that's what we would be showing up as</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;Kaik541&gt; there's one called "mooncake"... what on earth is that device o.O</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;Kaik541&gt; fascinate only has 34</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;atinm&gt; I feel sorry for fascinate users (and happy AT&amp;T went with captivate)</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;atinm&gt; its the least like ours I think</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;Kaik541&gt; there's still one sgh-i897 out there somewhere</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;Kaik541&gt; someone is running an OLD build</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;atinm&gt; somehow orient is working correctly</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;Kaik541&gt; orientation is in ROM, not kernel</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;Kaik541&gt; ROM hasn't changed</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;techmik67&gt; damn! you type fast, Kaik541=)</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;techmik67&gt; beat me</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;atinm&gt; actually no, it isn't working</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;Kaik541&gt; I lied</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;atinm&gt; just in vertical mode.</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;Kaik541&gt; orientation is in kernel</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;atinm&gt; and it is in the kernel</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;atinm&gt; better than just in horizontal ;-)</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;techmik67&gt; oh, right, it's not like we originally did....</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;atinm&gt; guess I'll just wait for xcaliburinhand to reorient it ;-)</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;uberushaximus&gt; am i the guy identifying as sgh-i897?</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;atinm&gt; when are you running from?</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;atinm&gt; what is pl330</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;uberushaximus&gt; i assume the o2x</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;uberushaximus&gt; as the g2x is p999</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;atinm&gt; samsung s3c dma controller</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;techmik67&gt; crap</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;techmik67&gt; i tthink isccrewed up</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;atinm&gt; uberushaximus: sorry, kernel driver</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;uberushaximus&gt; i got lazy and flashed your latest nightly atinm</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;atinm&gt; then you shouldn't be sgh-i897</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;uberushaximus&gt; i still have sgh-i897 under device name</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;atinm&gt; where?</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;Kaik541&gt; o.O</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;atinm&gt; model number is sgh-i897</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;Kaik541&gt; it should say Captivate</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;techmik67&gt; i had cherry picked only certain commits from xcals sources, ignoring sound dock support and such.. but  just freaking pulled and it said "merge made by recursive" ..... i just pulled the other commits by pulling, didnt i?</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm&gt; where do you get device name?</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;uberushaximus&gt; oh derp, in the stats screen it"s fine</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm&gt; techmik67: all the ones are in our samsung_cm7_merge branch</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;uberushaximus&gt; i was talking about phone info</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm&gt; I pulled them in myself</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;techmik67&gt; ok, ok</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;atinm&gt; had to edit some</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;techmik67&gt; i cherry picked only keymapping, cwm, configs and branding, and initramfs i think</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;techmik67&gt; my git-fu grows... =)</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;atinm&gt; cherry pick won't help there</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;atinm&gt; the code needs mods</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;atinm&gt; unless you are trying to just build his with samsung rom</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;techmik67&gt; tho i still cheat..... for istance, i would normally delete this repo and refork to fix.... but thats not the right way to fix, is it? =)(</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;atinm&gt; if you are just trying to do his kernel with samsung rom, better to just clone his repo directly</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;techmik67&gt; no, i was just playing with cherry-pick and trying to just add what we wanted, not "extras"</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;techmik67&gt; tho why i consider headset support "extra" i dont know =)</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;atinm&gt; don't cherry pick - you still have to edit. and I have all the commits anyway</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;atinm&gt; pushed to samsung_cm7_merge branch</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;techmik67&gt; gotcha</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;atinm&gt; move to that branch for vendor/samsung/common, device/samsung/captivate, kernel/samsung/2.x and clean build</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;atinm&gt; well, just rm out/target/product/captivate/kernel_build</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;atinm&gt; and build and it should boot</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;techmik67&gt; is anything new in the other repos? or just kernel?</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;zacharias|away&gt; atinm you're currently running the samsung kernel ?</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;zacharias|away&gt; hi btw :)</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;techmik67&gt; vendor/samsung/common, device/samsung/captivate both said already up-to-date</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;atinm&gt; yes, I am.</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;techmik67&gt; hi zach</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;atinm&gt; jsut kernel</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;techmik67&gt; building clean</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;zacharias|away&gt; hey techmik67, Kaik541</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;zacharias|away&gt; atinm what did you change in your system ?</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;zacharias|away&gt; to get it working ?</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;techmik67&gt; if/when i doubke my ram to 8gb, will that also increase compile speed?</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;zacharias|away&gt; no "sleep-of-death" anymore ?</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;atinm&gt; nothing recently.</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;atinm&gt; I am still getting sleep death</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;techmik67&gt; double*</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;zacharias|away&gt; k</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;atinm&gt; you are on galaxys</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;zacharias|away&gt; yeah</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;atinm&gt; captivate was not booting</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-navy">* chaembian (~chaembian@122.174.172.126) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;atinm&gt; now it is at the same place galaxys is</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;zacharias|away&gt; excaliburinhand's reorient ^^</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;zacharias|away&gt; i see - so i guess - you're running it with cable connected ?</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;techmik67&gt; went from 90+ mins to 45 mins when i went from dual core 2 ghz to quad core 2.1 ghz</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;atinm&gt; not really. I pulled his sound stuff</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-green">* chaembian (~chaembian@122.174.172.126) has joined this channel.</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;atinm&gt; he hasn't changed anything else</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;uberushaximus&gt; ram helps techmik yes</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;techmik67&gt; cool</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;techmik67&gt; next month =P</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;zacharias|away&gt; hi uberushaximus</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-brick">* techmik67 hopes this laptop has ez access to ram</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;zacharias|away&gt; techmik67 ram helps A LOT</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;techmik67&gt; well the cpu upgrade was HUGE =)</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;techmik67&gt; bus speed is way better on this laptop too</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;Kaik541&gt; RAM makes the most difference in compiling</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;Kaik541&gt; more you can keep in memory, less writes to disk</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;Kaik541&gt; disk is slower than RAM</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;Kaik541&gt; therefore, RAM &gt; CPU speed for compiling</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;techmik67&gt; that cant really be the case.... old laptop had 4gb ram also, just a slower bus speed</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;techmik67&gt; and took over 2x as long</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;techmik67&gt; wait</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;Kaik541&gt; CPU matters as well</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;Kaik541&gt; it's not *just* RAM</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;techmik67&gt; damn, where did i stash the comparision between old laptop and new with cpu-id report?</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; near as I can tell, we should be CONFIG_INPUT_YAS529_POSITION=4 on the captivate</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sorry, orientation gets my goat :P</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;atinm&gt; ok, I had it at 0</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://dl.dropbox.com/u/10818379/MICHAELS-LAPTOP.txt">http://dl.dropbox.com/u/10818379/MICHAELS-LAPTOP.txt</a></span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;atinm&gt; galaxys has it as 7</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://dl.dropbox.com/u/10818379/MICHAELS-NEW-LAPTOP.txt">http://dl.dropbox.com/u/10818379/MICHAELS-NEW-LAPTOP.txt</a></span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;techmik67&gt; compiile time cut in half on new laptop</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;zacharias|away&gt; nice - that should be accurate</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;techmik67&gt; so if i go to 8GB ram i should be ablt to get under 30 mins, i hope</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;zacharias|away&gt; for me compile time was cut to a third - performance tripled: dual core core 2 duo e6600 with 4 GB vs. quad core core i7 860 (with HT - so 8 threads) 8 GB</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;zacharias|away&gt; no laptop though</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;zacharias|away&gt; sure</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;zacharias|away&gt; techmik67 are you using linux ?</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;techmik67&gt; so now i just nee to figure if its easy access ram....</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;techmik67&gt; dual boot laptop, never booted to windows, and pc is windows 7</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;techmik67&gt; my man-cave: <a href="http://dl.dropbox.com/u/10818379/NewCommandCentral.JPG">http://dl.dropbox.com/u/10818379/NewCommandCentral.JPG</a></span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;techmik67&gt; only the left side laptop is linux</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;techmik67&gt; dual moonitor pc is windows, and the tv is also a 3rd monitor i use when watching netflix</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;uberushaximus&gt; a moonitor sounds pretty trippy</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh it is using _b5 yeah I could see 0 (it's been a long frick'n time since I've looked at this code)</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;zacharias|away&gt; atinm ok to get it correct - to run samsung compiled kernel (for cm7) only installing latest cm7 nightly is enough right ?</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;zacharias|away&gt; sorry if I'm asking stuff again</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;zacharias|away&gt; currently my head is spinning at little</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;zacharias|away&gt; seems my mind is clouded atm</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;zacharias|away&gt; ok</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;zacharias|away&gt; userland + kernel land need to match</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;zacharias|away&gt; latest nightly modified with added samsung libs + samsung kernel</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;zacharias|away&gt; ?</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm&gt; branch samsung_cm7_merge for vendor/samsung/common, device/samsung/galaxys (I don't know if that is up to date), kernel</span><br />
