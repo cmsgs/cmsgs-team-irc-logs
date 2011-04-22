@@ -232,3 +232,39 @@
 <span class="irc-date">[2:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; \o/ script three liiivvvveeeessss</span><br />
 <span class="irc-date">[2:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or at least you can compile after you run it.  which is a big improvement</span><br />
 <span class="irc-date">[2:57]</span> <span class="irc-black">&lt;uberushaximus&gt; oh sweet, we have the MIUI gpu driver?</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;Unhelpful&gt; is MIUI doing *anything* special beyond using the JVB vendor binaries? because, well, i pushed those to my phone a few days ago. :)</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-green">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; this output is looking really good guys, there is still commented out code but I'm not sure I can remove that easily</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;Unhelpful&gt; i doubt you can w/o removing all comments, and you probably don't want that?</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well, I just want it stupid clean to diff with</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;Unhelpful&gt; congrats on your code-comparing monster.</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so if I loose them all its not world ending</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;Unhelpful&gt; is there a tool besides git that can produce diffs w/ the patienc algorithm? i found these to be very nice in some cases for human reading :)</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what I'm worried about is BS code in /* */ blocks</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but I can check for that in the diff output and nuke what I need to</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-navy">* eXistZ (~RobBeane@76.177.230.163) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-green">* eXistZ (~RobBeane@76.177.230.163) has joined this channel.</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I've seen enough of the inside of captivate code that I need no tools to make it a better read :P  You would be surprised how often the butler didn't do it :)</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;Unhelpful&gt; well, here's a mini-example of the sort of difference it produces vs common implementations: <a href="http://bramcohen.livejournal.com/73318.html">http://bramcohen.livejournal.com/73318.html</a></span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-navy">* eXistZ (~RobBeane@76.177.230.163) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-navy">* chaembian_ (~chaembian@122.174.91.7) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; holy poop Unhelpful I could use me some of that</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-brick">* Unhelpful wonders *why* exactly regular diff so often decides that a closing brace is the right place to start an insert</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 'course I could also use some code style standardization in the various kernel trees *shakes fist at the Samsung gsg teams*</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sgs...you get the point</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;Unhelpful&gt; you're worried about them standardizing *code style*? there is *so much else* they do in completely fucked-up ways. :P</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; my priorities are messed up, I'll admit to that</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-green">* icezar1 (~quassel@ip-62-245-101-21.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-navy">* icezar1 (~quassel@ip-62-245-101-21.net.upcbroadband.cz) Quit (Changing host)</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-green">* icezar1 (~quassel@unaffiliated/icezar) has joined this channel.</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Hi, I'm TMC_Sherpa and I've been clean from diffing for almost 5 minutes</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; thats the first step right? admitting you have a problem?</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;Unhelpful&gt; there are tools, for some languages, that compare the parsed AST of the two inputs instead of their text. this makes them entirely insensitive to little details like how far one indents or where one places braces. :)</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; look man, we should have flying cars and I should be able to shout at my computer and have it figure that stuff out by now</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it doesn't have to answer everything, I'd settle for 'what the fuck is wrong with you!' for right now</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;Unhelpful&gt; again, an example is helpful. shame the tool is commercial. <a href="http://www.semanticdesigns.com/Products/SmartDifferencer/CppSmartDifferencerExample.html">http://www.semanticdesigns.com/Products/SmartDifferencer/CppSmartDifferencerExample.html</a></span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;Unhelpful&gt; why nobody is working on a free equivalent of this sort of thing i'm not really sure :/</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well, that will give you something to do once your done with the compass :P</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; although $250 maybe worth it</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gotta run. night kids. good luck on whatever it is you individually are working on</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has left this channel.</span><br />
