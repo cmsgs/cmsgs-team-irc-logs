@@ -470,3 +470,75 @@
 <span class="irc-date">[15:55]</span> <span class="irc-black">&lt;techmik67&gt; who can answer my question from last night? about merge/pull request?</span><br />
 <span class="irc-date">[15:57]</span> <span class="irc-black">&lt;techmik67&gt; to refresh, the question was:</span><br />
 <span class="irc-date">[15:57]</span> <span class="irc-black">&lt;techmik67&gt; i mayhave done something good..... or stupid..... i combined our vendor/cyanogen with cm's, built with the combined vendor cyanogen stuff and it works!! however, when i open a pull request, it's 67 commits (our last commit was on the 2nd)...... but if we do this commit, then we can submit to gerrit ......one of our repo's that still need merge repo =)</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-green">* zacharias (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-green">* zacharias is now known as zacharias|busy</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;atinm|away&gt; we can't merge that one yet</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;atinm|away&gt; that would basically be the last one we can merge</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;atinm|away&gt; after all our stuff is in</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;techmik67&gt; but what is the right way to do it? for such a big submission, is it better to leave 67 separate commits, or 1 giant merge that includes all the 67 commits? If I had to guess, i'd say the former, so that single commits can be dealt with as needed, as well as it would preserve the history better....</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;atinm|away&gt; that's the one that makes us available to anyone.</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;atinm|away&gt; there shouldn't be a large commit</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;atinm|away&gt; it is only like 4 files</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;techmik67&gt; i kept trying to make a separate branch and merge them, but it was coming out wrong....</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, what they'll do is pull in latest, apply their patches and submit it as one or two things</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;atinm|away&gt; what exactly where you trying to do?</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;atinm|away&gt; but basically you need to pull their tree.</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;techmik67&gt; i took our vendor/cyanogen, i pulled in cm's vendor cyanogen</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, you're doing it backward</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;techmik67&gt; thats why it had 67 commits</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;atinm|away&gt; and it'll then be just the captivate, galaxys, galaxys, and vibrant .mk files</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;Kaik541&gt; you start from CM and apply all the accumulating patches as (ideally) one thing</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;kang&gt; atinm|away: any luck with wifi ? ;-)</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm|away&gt; just go into vendor/cyanogen</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm|away&gt; remote add the cyanogenmon android_vendor_cyanogen</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm|away&gt; and git pull cm gingerbread</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm|away&gt; and you'll be back down to just our files</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm|away&gt; kang, haven't tried.</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;techmik67&gt; yup, Kaik541 is right, idid it exactly backward =)</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;atinm|away&gt; for whatever reason, now the build doesn't boot correctly anymore due to graphics stuff</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;techmik67&gt; wsait, i built last nite and it was fine....</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;techmik67&gt; wait*</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;atinm|away&gt; bad DDK revision again</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;atinm|away&gt; I dunno.</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;techmik67&gt; right after midnite</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;atinm|away&gt; I had that happen yesterday</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;atinm|away&gt; Incompatible driver DDK revision (3947)/device DDK revision (4061)</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;atinm|away&gt; I thought that we had committed the libs that were 3947 to the samsung_cm7_merge branch of vendor/samsung/common</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;atinm|away&gt; so this is not making sense</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;techmik67&gt; hmmm.... i tried it by pulling the cm remote branch into ours.... now it says "you are asking teamhacksung to pull 172 commits into teamhacksung:gingerbread from techmik:gingerbread"</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, why are you trying to merge the two?</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;techmik67&gt; practive....</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;techmik67&gt; practice</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;Kaik541&gt; just pull theirs into a separate area and add in the appropriate .mk files =/</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;Kaik541&gt; since that would be the commit anyway that's submitted if I read atinm's thing right</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;techmik67&gt; i assumed there was a somple git was to merge the 2 branches</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;techmik67&gt; simple*</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm|away&gt; I just pushed the merge up.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm|away&gt; so you don't have to.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm|away&gt; all you have to do is:</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm|away&gt; cd vendor/cyanogen</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm|away&gt; git remote add cm git@github.com:CyanogenMod/android_vendor_cyanogen.git</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;atinm|away&gt; git branch --track gingerbread github/gingerbread</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;atinm|away&gt; git checkout gingerbread</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;atinm|away&gt; git pull cm gingerbread</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: how did we fix SGXInit: Incompatible driver DDK revision (3947)/device DDK revision (4061).</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;atinm|away&gt; just by using JVB libs and gralloc, right?</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;codeworkx&gt; a</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;atinm|away&gt; oh weird, my samsung_cm7_merge was pointing to gingerbread files</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;atinm|away&gt; I must have done some weird checkout</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;mikebeecham&gt; evening all</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;mikebeecham&gt; all ok?</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; too early to tell mike</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;mikebeecham&gt; really?</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;mikebeecham&gt; whats on then?</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;techmik67&gt; oh, i remember what my goal was.... so we could switch to cm/vendor/cyanogen......</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; cleaning source code, same as usual :P</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;techmik67&gt; i was looking at our stuff that still points at us....</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;techmik67&gt; thats how it all started last nite,.</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-navy">* chaembian_ (~chaembian@122.174.93.243) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-green">* chaembian_ (~chaembian@122.174.93.243) has joined this channel.</span><br />
