@@ -1236,3 +1236,125 @@
 <span class="irc-date">[22:44]</span> <span class="irc-green">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) has joined this channel.</span><br />
 <span class="irc-date">[22:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hrm, I wonder if <a href="http://docwiki.gumstix.org/GPIO_event">http://docwiki.gumstix.org/GPIO_event</a> would work with newer kernels</span><br />
 <span class="irc-date">[22:56]</span> <span class="irc-navy">* koush__ (~koush@74.202.210.58) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;zacharias|away&gt; anyone has an idea why there's no media ?</span><br />
+<span class="irc-date">[23:07]</span> <span class="irc-black">&lt;zacharias|away&gt; <a href="http://pastebin.com/vLngSR9Z">http://pastebin.com/vLngSR9Z</a></span><br />
+<span class="irc-date">[23:08]</span> <span class="irc-black">&lt;zacharias|away&gt; dmesg: <a href="http://pastebin.com/hkNpNp0F">http://pastebin.com/hkNpNp0F</a></span><br />
+<span class="irc-date">[23:09]</span> <span class="irc-black">&lt;Kaik541&gt; zacharias|away, this is a samsung-cm7 kernel?</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;zacharias|away&gt; Hi Kaik541</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;zacharias|away&gt; yes</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;zacharias|away&gt; mount: <a href="http://pastebin.com/gPYTuAuE">http://pastebin.com/gPYTuAuE</a></span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;zacharias|away&gt; sdcard doesn't get mounted</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;zacharias|away&gt; besides that I currently know what's missing else</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;zacharias|away&gt; *don't know</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;zacharias|away&gt; screen is at the galaxys + cyanogenmod splash</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;zacharias|away&gt; and the keys are lit up</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-green">* wergeld_ is now known as wergeld</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-black">&lt;wergeld&gt; heyo</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-black">&lt;Kaik541&gt; zacharias|away, what about your vold binaries and whatnot?</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;zacharias|away&gt; good question, I just found out that /devices</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;zacharias|away&gt; folder is missing</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;zacharias|away&gt; I'll check if they are there</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;zacharias|away&gt; thanks</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;zacharias|away&gt; system/bin/vold is there</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;wergeld&gt; question about compiling from source for first build. following WIKI and running into issue with "/radio.sh vibrant JK4" it says no such file or directory for /radio.sh</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;Kaik541&gt; zacharias|away, what about vold.conf ?</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;Kaik541&gt; wergeld, ./radio.sh no /radio.sh</span><br />
+<span class="irc-date">[23:15]</span> <span class="irc-black">&lt;zacharias|away&gt; afaik vold.conf &amp; vold.fstab too</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;zacharias|away&gt; yes system/etc/vold.fstab &amp; vold.conf</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;Kaik541&gt; well check to match the "official" CM7 ones</span><br />
+<span class="irc-date">[23:16]</span> <span class="irc-black">&lt;Kaik541&gt; my English has slowly become more and more broken today...</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;zacharias|away&gt; I'll do a backup-restore and flash the kernel only</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;Kaik541&gt; heh, CM7 for captivate thread has almost 1 million views</span><br />
+<span class="irc-date">[23:18]</span> <span class="irc-black">&lt;zacharias|away&gt; nice :)</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;zacharias|away&gt; the kernel was also embedded in an update-package with several new libs from sammy</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;Kaik541&gt; more views than any other thread and opened at least a month or two after most of the other "big name" guys</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;Kaik541&gt; you're going tpo need some of those libs like sgx drive I think</span><br />
+<span class="irc-date">[23:19]</span> <span class="irc-black">&lt;zacharias|away&gt; I'm wondering what went wrong</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;zacharias|away&gt; wow - either it's a kernel thing or I'm getting crazy</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;techmik67&gt; hey Kaik541, tell xda there is something weird with the media scanner..... i dropped some new stuff in various folders, and i had to both play them manually and reboot a few times before they showed up in playlists</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;zacharias|away&gt; I just restored a backup and only flashed the kernel</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;techmik67&gt; but then they showed up</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, you tell them, I'm not even on the ROM so can't confirm xD</span><br />
+<span class="irc-date">[23:24]</span> <span class="irc-black">&lt;zacharias|away&gt; and I get the same error with "no media" :\</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;techmik67&gt; i should knw exactly what/why it happened.... =)</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;techmik67&gt; i'll get them</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;Kaik541&gt; so must be kernel related</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: the uboot source is not for aries</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;techmik67&gt; zacharias|away: so the music player or whatever doesnt see them, but the file manager does?</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;codeworkx&gt; it's for an s5pv210 dev board</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, I thought it was? or was I misinformed?</span><br />
+<span class="irc-date">[23:25]</span> <span class="irc-black">&lt;Kaik541&gt; ah shit</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;Kaik541&gt; I misunderstood then</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;codeworkx&gt; i've added aries xD</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-navy">* eXistZ-Away (~RobBeane@76.177.230.163) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;zacharias|away&gt; techmik67 no the phone doesn't even boot up</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: you're still working on uboot? :D</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[23:26]</span> <span class="irc-black">&lt;zacharias|away&gt; well, it's running on the kernel</span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-black">&lt;zacharias|away&gt; sdcard doesn't get mounted</span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-black">&lt;zacharias|away&gt; and the only thing being displayed is the Galaxy S + cyanogenmod splash</span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-black">&lt;zacharias|away&gt; and the keys are lit up</span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-black">&lt;zacharias|away&gt; sounds familiar ?</span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-black">&lt;zacharias|away&gt; ok here again:</span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-black">&lt;zacharias|away&gt; logcat: <a href="http://pastebin.com/vLngSR9Z">http://pastebin.com/vLngSR9Z</a></span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-black">&lt;zacharias|away&gt; dmesg: <a href="http://pastebin.com/hkNpNp0F">http://pastebin.com/hkNpNp0F</a></span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-black">&lt;zacharias|away&gt; mount: <a href="http://pastebin.com/gPYTuAuE">http://pastebin.com/gPYTuAuE</a></span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-black">&lt;zacharias|away&gt; booting into recovery works though</span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-black">&lt;zacharias|away&gt; and the sdcard is accessible for flashes</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-black">&lt;codeworkx&gt; 0p2 is mounted and 0p1 not?</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-black">&lt;codeworkx&gt; are you talking about sammy kernel?</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-black">&lt;Kaik541&gt; yes he is</span><br />
+<span class="irc-date">[23:31]</span> <span class="irc-black">&lt;codeworkx&gt; check /devices/platform/s3c-sdhci.0/mmc_host/mmc0</span><br />
+<span class="irc-date">[23:31]</span> <span class="irc-black">&lt;codeworkx&gt; maybe it's different on sammy kernel then you have to edit vold.fstab</span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;zacharias|away&gt; devices folder is not-existant</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;zacharias|away&gt; so I actually do anything wrong ?</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;zacharias|away&gt; :P</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;zacharias|away&gt; *didn't do</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;codeworkx&gt; check vold.fstab from jvb</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-black">&lt;codeworkx&gt; mount -o loop factoryfs.rfs directory</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;zacharias|away&gt; yeah, already mounted all the time :)</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;zacharias|away&gt; looks different</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;zacharias|away&gt; it uses:</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;zacharias|away&gt; ums_path = /sys/devices/platform/usb_mass_storage/lun0/file</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;zacharias|away&gt; 	discard = disable</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;zacharias|away&gt; 	asec = disable</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;zacharias|away&gt; before the command</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;zacharias|away&gt; (mounting internal sd)</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;zacharias|away&gt; dang - reflash again :P</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;codeworkx&gt; zacharias|away /sys//devices/platform/s3c-sdhci.0/mmc_host/mmc0</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;zacharias|away&gt; just restored a backup and safely booted</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;codeworkx&gt; the /sys is not written in vold.fstab normally</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-black">&lt;zacharias|away&gt; ah - got it thanks !</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-black">&lt;zacharias|away&gt; dev_mount sdcard /mnt/sdcard 1 /devices/platform/s3c-sdhci.0/mmc_host/mmc0</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-black">&lt;zacharias|away&gt; so it's the same command like for cm7 / we are using right now</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-black">&lt;zacharias|away&gt; only the ums_path thing is before that</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-black">&lt;zacharias|away&gt; I'll add that &amp; try again</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-black">&lt;codeworkx&gt; they've crippled vold</span><br />
+<span class="irc-date">[23:39]</span> <span class="irc-black">&lt;codeworkx&gt; thats not standard syntax</span><br />
+<span class="irc-date">[23:40]</span> <span class="irc-black">&lt;codeworkx&gt; vold will kill you xD</span><br />
+<span class="irc-date">[23:40]</span> <span class="irc-black">&lt;Kaik541&gt; kerberos bites you</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;codeworkx&gt; on cm6 we never got it running. then we've used sammy vold binary and fstab</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-green">* eXistZ-Away (~RobBeane@76.177.230.163) has joined this channel.</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;zacharias|away&gt; samsung did that to it ?</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;zacharias|away&gt; or android ?</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;codeworkx&gt; samsung modified vold</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;zacharias|away&gt; pffff</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;zacharias|away&gt; lots of stupid - non-conforming stuff</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;codeworkx&gt; they're normally crippling every code you give them</span><br />
+<span class="irc-date">[23:43]</span> <span class="irc-black">&lt;codeworkx&gt; samsung "android" is no android</span><br />
+<span class="irc-date">[23:47]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[23:50]</span> <span class="irc-black">&lt;zacharias|away&gt; ok so what changes from Wout's build to mine that it doesn't mount stuff ???</span><br />
+<span class="irc-date">[23:50]</span> <span class="irc-black">&lt;zacharias|away&gt; weird,</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;zacharias|away&gt; I'm using the sources from samsung_cm7_merge branch</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-black">&lt;techmik67&gt; wow.... diff gives very stupid output sometimes, huh?</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-black">&lt;techmik67&gt; i see what Unhelpfulwas talking about</span><br />
+<span class="irc-date">[23:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://pastebin.com/HU6P7Hf3">http://pastebin.com/HU6P7Hf3</a>    diff between us and mainline bootable_recovery</span><br />
+<span class="irc-date">[23:54]</span> <span class="irc-black">&lt;techmik67&gt; so much is the same</span><br />
+<span class="irc-date">[23:54]</span> <span class="irc-black">&lt;atinm|away&gt; bootable/recovery is the last merge we need to do to common stuff (as of now)</span><br />
+<span class="irc-date">[23:54]</span> <span class="irc-black">&lt;atinm|away&gt; but I'm letting coolya do it.</span><br />
+<span class="irc-date">[23:54]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[23:54]</span> <span class="irc-black">&lt;techmik67&gt; i know, thats why i was looking at how different we are =)</span><br />
+<span class="irc-date">[23:55]</span> <span class="irc-black">&lt;techmik67&gt; andf that output shows alot of same stuff unless i read it wrong</span><br />
