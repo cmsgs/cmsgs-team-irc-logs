@@ -1,0 +1,126 @@
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;zacharias|away&gt; I don't know what actually went wrong but what's the best way to get the sammy kernel up to the state that it's able to boot into Android &amp; only shows that stupid sleep issue ?</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;zacharias|away&gt; 1) use current nightly</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;zacharias|away&gt; 2) apply the kernel</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;zacharias|away&gt; 3) add missing libs via adb push ?</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;zacharias|away&gt; concerning 3): those are all for the 3d graphics at the current stage ?</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;techmik67&gt; i built myself, cause you need the samsung_cm7_marge branch on 3 repos</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;techmik67&gt; merge*</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;zacharias|away&gt; ah - ok</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;zacharias|away&gt; forgot that</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;zacharias|away&gt; it got posted yesterday afaik</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;zacharias|away&gt; *looks through notes*</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;techmik67&gt; kernel, vendor_samsung_common, and device_samsung_captivate</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;zacharias|away&gt; haha techmik67 you're fast :)</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;zacharias|away&gt; dang my git-fu is too weak :(</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;zacharias|away&gt; I know that I need to create a new branch but besides that I'm currently lost</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;techmik67&gt; git to directory tyou want</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;techmik67&gt; make sure you are on "gingerbread" branch</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;techmik67&gt; with "git branch"</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;techmik67&gt; if not "git checkout gingerbread"</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;techmik67&gt; then "git checkout -b samsung_cm7_merge"</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;zacharias|away&gt; fatal: not a git repository</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;techmik67&gt; you didnt start in the directory</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;zacharias|away&gt; git branch --track samsung_cm7_merge ?</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;zacharias|away&gt; I'm currently in vendor</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;techmik67&gt; i think that works too</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;techmik67&gt; vendor_samsung_common</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;techmik67&gt; aha! the light dawns!</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;techmik67&gt; i just figured something out....</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;techmik67&gt; if you use "--track" rather than my wasy, you can repo sync!</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;techmik67&gt; because it *will* track upstream....</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;zacharias|away&gt; dang: fatal: Not a git repository</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;zacharias|away&gt; do I need to do a git init before ?</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;techmik67&gt; what dirctory you in?</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;zacharias|away&gt; vendor</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;techmik67&gt; cd samsung/common</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;zacharias|away&gt; D'oh !</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;techmik67&gt; damn</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;techmik67&gt; dogs freaking</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;techmik67&gt; gotta walk em</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;techmik67&gt; back i 10 mins</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;techmik67&gt; in*</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;zacharias|away&gt; k</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;techmik67&gt; back</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;techmik67&gt; i'm so happy to have put that together =)</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;zacharias|away&gt; :)</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;zacharias|away&gt; still not much further</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;zacharias|away&gt; I created a new branch and checked it out:</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;zacharias|away&gt; git checkout -b samsung_cm7_merge</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;zacharias|away&gt; ok got it</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;atinm|away&gt; cd /vendor/samsung/common</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;zacharias|away&gt; already updated :)</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;atinm|away&gt; git branch --track samsung_cm7_merge github/samsung_cm7_merge</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm|away&gt; git checkout samsung_cm7_merge</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm|away&gt; do that to all three dirs</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm|away&gt; ok, I'm disconnecting for a bit</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;zacharias|away&gt; does that also exist for the galaxys ?</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;zacharias|away&gt; thanks atinm|away !</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-navy">* Kaik541 (~Kaik541@cpe-70-112-175-254.austin.res.rr.com) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-green">* neldar (~neldar@dsl-217-174-100.pool.bitel.net) has joined this channel.</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;- *neldar* Bot Sentry eingeschalten:  Sie werden jetzt ignoriert!  Ihre Nachricht wird übermittelt wenn sie die folgenden Fragen innerhalb von 10 Minuten richtig beantworten:  How do you spell the result of ten div_ided by 2?</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm|away&gt; only one you need to do different is device/samsung/galaxys</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm|away&gt; different as in, you have to pick that instead of captivate</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm|away&gt; but same commands</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm|away&gt; even there</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm|away&gt; git branch -a</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm|away&gt; to see all the available branches</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm|away&gt; g'nite</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;zacharias|away&gt; nite atinm|away</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm|away&gt; going to go watch game of thrones</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;zacharias|away&gt; enjoy :)</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm|away&gt; so don't need sound pings in the background from this :)</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-navy">* atinm|away (~atin@unaffiliated/atinm) Quit (Quit: atinm|away)</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://review.cyanogenmod.com/4779">http://review.cyanogenmod.com/4779</a></span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;codeworkx&gt; the last one</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;kang&gt; zacharias|away: ur running cm7 "sammy-gb"?</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;zacharias|away&gt; hi kang currently building</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;techmik67&gt; codeworkx: excellent</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;kang&gt; zacharias|away: thats going to take long ? ^.^</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;techmik67&gt; and koush is even right hee!</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;techmik67&gt; here*</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;zacharias|away&gt; kang yeah 15-50 minutes</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;kang&gt; damn</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;techmik67&gt; so after that its just our specific stuff.... nice</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;zacharias|away&gt; depending on how much stuff is in the cache</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;kang&gt; i dont rly wanna wipe jvb til its not useful anymore to debug</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;kang&gt; cuz switching roms sux</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;kang&gt; ^.^</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;kang&gt; wanna see if the wifi fix works for cm7</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;zacharias|away&gt; actually i'd prefer to try out jvb</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;zacharias|away&gt; right now ^^</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;kang&gt; it has nothing interesting</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;kang&gt; just works as a sammy rom does</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;zacharias|away&gt; I need a break from cm7 and want to see the other side where "the grass is always greener" ;)</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;kang&gt; the perf/low ram sux</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;zacharias|away&gt; oh - ok O.o</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;kang&gt; and no song switch on vol +-</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;kang&gt; camera works.</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;kang&gt; tv out/fm radio too</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;kang&gt; gallery is f. slow</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;techmik67&gt; zach, i had that wrong</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;kang&gt; media scanner is f. slow</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;zacharias|away&gt; dang - it's asking for kernel config :(</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;zacharias|away&gt; Enable support for sec_log (SEC_LOG) [Y/n/?] (NEW) aborted!</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;techmik_laptop&gt; zacharias|away: the proper format is "git branch --track samsung_cm7_merge github/samsung_cm7_merge"</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;zacharias|away&gt; techmik67 yeah did that :)</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;techmik67&gt; thats not what i typed before.....</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;zacharias|away&gt; techmik67 I did some research - my google-fu is quite strong</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;zacharias|away&gt; ^^</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;techmik67&gt; k =)</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;zacharias|away&gt; wow I can't believe that samsung is doing it again</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;zacharias|away&gt; they're crippling code and throwing all conventions &amp; rules over board</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;zacharias|away&gt; instead of using CONFIG_SEC_LOG they're using SEC_LOG</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;zacharias|away&gt; wtf ?!?!?!?</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;zacharias|away&gt; hm</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;zacharias|away&gt; set in the config file but still no compile</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;zacharias|away&gt; halp !</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;kang&gt; what does it says</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;kang&gt; (cool crap: <a href="http://kan.gd/dvn)">http://kan.gd/dvn)</a></span><br />
