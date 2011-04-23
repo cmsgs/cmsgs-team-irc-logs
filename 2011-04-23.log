@@ -124,3 +124,99 @@
 <span class="irc-date">[0:58]</span> <span class="irc-black">&lt;zacharias|away&gt; halp !</span><br />
 <span class="irc-date">[0:58]</span> <span class="irc-black">&lt;kang&gt; what does it says</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;kang&gt; (cool crap: <a href="http://kan.gd/dvn)">http://kan.gd/dvn)</a></span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;zacharias|away&gt; <a href="http://pastebin.com/Ars4QcwN">http://pastebin.com/Ars4QcwN</a></span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;kang&gt; have to add it in the def config</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;kang&gt; xd</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;zacharias|away&gt; I did :(</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;kang&gt; make mrproper</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;kang&gt; ^^</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;zacharias|away&gt; I'm building the whole android rom</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;zacharias|away&gt; not only the kernel</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;kang&gt; but that's the kernel here</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;zacharias|away&gt; yeah</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;kang&gt; if its not clean / config clean</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;zacharias|away&gt; there's also no build.sh in the kernel dir</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;kang&gt; it prolly doesnt rebuild it properly</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;kang&gt; it builds from some makefile in some other dir</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;zacharias|away&gt; ok, it's running :)</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;zacharias|away&gt; let's see</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;codeworkx&gt; kang: grub -&gt; boot cm7 -&gt; boot jvb</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;codeworkx&gt; cm7 from nand and jvb from sdcard?</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;zacharias|away&gt; which I really would like to know where it resides in</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;kang&gt; codeworkx: didnt know grub works</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;codeworkx&gt; make it working xD</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;kang&gt; oh i c</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;kang&gt; :p</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;zacharias|away&gt; still failing :(</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;zacharias|away&gt; that thing is driving me nuts</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;zacharias|away&gt; where are the kernel configs stored ????</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; arch/arm/configs?</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or are you talking about something else</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;zacharias|away&gt; Hi TMC_Sherpa yeah - I'm talking about those</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;zacharias|away&gt; but the android build seems to ignore those</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;zacharias|away&gt; <a href="http://pastebin.com/Ars4QcwN">http://pastebin.com/Ars4QcwN</a></span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;kang&gt; ./device/samsung/galaxys/galaxys.mk</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;kang&gt; kernel and config are built from there</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I just run someting like make kepler_rev02_defconfig</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;zacharias|away&gt; I copied build.sh from an other kernel directory to it and locally only the kernel builds now</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;zacharias|away&gt; let's see how it goes</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;zacharias|away&gt; hopefully after the kernel has finished it'll continue :(</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-green">* designfears_ (~AndChat@cpe-71-64-204-109.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;zacharias|away&gt; still getting that abort</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;zacharias|away&gt; WTF ?</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;zacharias|away&gt; techmik67 didn't you also get one of these errors that the kernel asked for input ?</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;zacharias|away&gt; what did you do to solve it ?</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;techmik67&gt; i gave it input =)</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;techmik67&gt; what did it ask?</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;zacharias|away&gt; Enable support for sec_log (SEC_LOG) [Y/n/?] (NEW) aborted!</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-navy">* Cezar (~quassel@unaffiliated/icezar) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;techmik67&gt; didnt get that one</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;zacharias|away&gt; I'm executing ./build.sh from ~/android/system</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;zacharias|away&gt; ./build.sh galaxys</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;zacharias|away&gt; wow don't know what's wrong:</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;zacharias|away&gt; config SEC_LOG</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;zacharias|away&gt; 	default y</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;zacharias|away&gt; in init/Kconfig</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;zacharias|away&gt; so it's supposed to be =y</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;techmik67&gt; well, try it with yes, and if that doesnt work, try again with no? -</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;zacharias|away&gt; but it's still asking for it</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;techmik67&gt; it asked 1nce</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;techmik67&gt; then seemed to remember</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;kang&gt; xname.org = shit :p</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;zacharias|away&gt; ok, I wipe some stuff from the out/target directory and dropped the kernel-config manually in the kernel_build dir</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;zacharias|away&gt; now it builds</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;zacharias|away&gt; ok this is getting annoying:</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;zacharias|away&gt; cypress/cypress-touchkey.c:764: fatal error: opening dependency file drivers/input/keyboard/cypress/.cypress-touchkey.o.d: No such file or directory</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;zacharias|away&gt; compilation terminated.</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;zacharias|away&gt; the famous samsung non-clean kernel build error :P</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;zacharias|away&gt; fffffffffuuuuuuuuuuuuuuuuuuuuuuuuuuuu</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;zacharias|away&gt; any idea on how to recover from that ?</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;ytt3r&gt; make mrproper?</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;chaembian&gt;  /away</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;chaembian&gt; Hmmm, that doesn't seem to work. :)</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;chaembian&gt; Good morning!</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;ytt3r&gt; no space</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;ytt3r&gt; er /back because you're away right now</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;zacharias|away&gt; hi ytt3r thanks !</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;ytt3r&gt; ;)</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;zacharias|away&gt; unfortunately I already had done make clean mrproper before that</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;zacharias|away&gt; luckily I had a backupped directory in store :)</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;uberushaximus&gt; damnit samsung, why can't you be more like lg</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;ytt3r&gt; dammit lg why can't you be more like samsung?!11</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;chaembian&gt; ytt3r: weechat doc says /away &lt;message&gt; sets up away status, while plain /away resets back.</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;ytt3r&gt; fry "/back</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;ytt3r&gt; try* "</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;uberushaximus&gt; ytt3r: lg apparently included instructions on how to build aosp for thir g2x in the kernel sauce</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;zacharias|away&gt; wow not asks:</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;zacharias|away&gt;  Samsung Modem Control/IO Driver Bootloader is crap (MODEM_HAS_CRAPPY_BOOTLOADER) [N/y/?] (NEW) aborted!</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;zacharias|away&gt; but i've set it in out/target/product</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;zacharias|away&gt; this is crazy</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;zacharias|away&gt; samsung really starts to fed me up :(</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;chaembian&gt; '/away' in the server window did the trick</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;ytt3r&gt; the reason it didn't work before was because you had a space before your slash ;)</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;chaembian&gt; ah :)</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;uberushaximus&gt; aw sheet</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;uberushaximus&gt; I have to drive down to the airport and it's going to rain hard again</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-navy">* wergeld (~leviathan@cpe-173-170-151-39.tampabay.res.rr.com) Quit (Quit: Ex-Chat)</span><br />
