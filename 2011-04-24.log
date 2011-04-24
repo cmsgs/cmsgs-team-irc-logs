@@ -1,0 +1,43 @@
+<span class="irc-date">[0:07]</span> <span class="irc-navy">* Cezar` (~quassel@unaffiliated/icezar) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;koush&gt; codeworkx: ?</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;codeworkx&gt; koush?</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;koush&gt; you rang?</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-green">* icezar1 (~quassel@unaffiliated/icezar) has joined this channel.</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;codeworkx&gt; koush: yeah, how to get a mtd partition start adress?</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;koush&gt; cat /proc/mtd?</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;koush&gt; no idea really</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;codeworkx&gt; only size and erasesize</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;koush&gt; well if theyre sequential</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;koush&gt; you can assume</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;codeworkx&gt; they're not xD</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;koush&gt; blah</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;koush&gt; what you need that for?</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;codeworkx&gt; to make it more user friendly</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;codeworkx&gt; atm you have to set the start adresses when you call bml_over_mtd for flashing</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;codeworkx&gt; thats bad</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;koush&gt; so</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;koush&gt; you guys wrote mtd layer on top of bml righjt</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;codeworkx&gt; maybe i should talk with eifert</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;codeworkx&gt; it does only mapping of bad blocks the bml way</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;codeworkx&gt; because of this damn bootloader</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;Unhelpful&gt; you mean bml on top of mtd?</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;koush&gt; i thought it was mtd on top of bml</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;koush&gt; but i dont know</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;Unhelpful&gt; koush: no, bml normally runs on samsung's non-mtd driver for the onenand flash. we use an mtd driver that works directly on the flash, and bml_over_mtd is a utility that imitates the bml eraseblock mapping that samsung's bootloader expects for the boot partition</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;koush&gt; Unhelpful: oh ok that makes sense</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-green">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;techmik67&gt; i had to: <a href="http://forum.xda-developers.com/showpost.php?p=13152421&amp;postcount=4861">http://forum.xda-developers.com/showpost.php?p=13152421&amp;postcount=4861</a></span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-navy">* Kaik541 (~Kaik541@cpe-70-112-175-254.austin.res.rr.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;ytt3r&gt; lmao</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;zacharias|busy&gt; techmik67 haha weird definition of "stable"</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;techmik67&gt; i couldnt resist the "show me where..."</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;techmik67&gt; ok, here:</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;techmik67&gt; i am afraid to try gnome3...</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;kang&gt; don't</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;kang&gt; it suk</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;kang&gt; :p</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
