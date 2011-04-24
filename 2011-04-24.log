@@ -681,3 +681,36 @@
 <span class="irc-date">[21:33]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Ping timeout: 250 seconds)</span><br />
 <span class="irc-date">[21:41]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has left this channel.</span><br />
 <span class="irc-date">[21:46]</span> <span class="irc-green">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: can't donate plasma? why?</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-navy">* uberushaximus (~uberushax@71-13-134-35.dhcp.ftbg.wi.charter.com) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;atinm|away&gt; koush, what is the way we're supposed to handle things where another phone's config is in error, but happened to work before and once we fix something else it breaks?</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;koush&gt; atinm|away: i'll make sure they fix it</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;koush&gt; or you can fix it</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;atinm|away&gt; I'm going to look at their config . . .</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;techmik67&gt; btw, atinm|away gratz on celtics =(</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;koush&gt; basically it seems they are using that ro.additionalmounts improperly</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;koush&gt; tobe able to mount stuff with vold</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;koush&gt; we may just need another setting</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;atinm|away&gt; that or their kernel/vold config is wrong because they only have the one lun</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;koush&gt; or that</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;atinm|away&gt; one sec, just thought of something</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;atinm|away&gt; ah crap, he didn't post a dmesg</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;atinm|away&gt; lol! they also need BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;atinm|away&gt; since it does share the major dev.</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;koush&gt; oh</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;koush&gt; that'll do it</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;koush&gt; is there any way we can detect that</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;koush&gt; rather than have a board define</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;atinm|away&gt; it should actually be always that way - I think it would return the correct partition always.</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: you here?</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;atinm|away&gt; (he's the expert - but I think its true)</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;atinm|away&gt; I don't think it is ever incorrect to use the device nodes</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;atinm&gt; we actually crashed in MountService.java when it failed, that's not good.</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-navy">* Kaik541 (~Kaik541@cpe-70-112-175-254.austin.res.rr.com) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;atinm&gt; eh, I guess we catch it</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;Unhelpful&gt; koush: i'm pretty sure if we just always used that version of the code that it ought not to break anybody. it's treated as a special case, but it's not actually special.</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; dinner time here. lets see what preshoot returns with after setting that</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;atinm&gt; and ro.additionalmounts to just /mnt/emmc</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;atinm&gt; which would be the same as ours</span><br />
