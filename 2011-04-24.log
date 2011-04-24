@@ -71,3 +71,46 @@
 <span class="irc-date">[1:45]</span> <span class="irc-black">&lt;zacharias|busy&gt; anyone has a prebuilt update zip-file to share for i9000 with the samsung_cm7_merge changes included ?</span><br />
 <span class="irc-date">[1:49]</span> <span class="irc-black">&lt;kang&gt; still hacking on my stuff</span><br />
 <span class="irc-date">[1:59]</span> <span class="irc-navy">* h8rift (h8rift@ip70-178-29-47.ks.ks.cox.net) Quit ()</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;techmik67&gt; zacharias|busy: i dont have any idea how to use your pastie to test on cmy aptivate =)</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;techmik67&gt; mycaptivate*</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;zacharias|busy&gt; techmik67 click on "raw" and download it as a file</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;zacharias|busy&gt; then patch -p1 --dry-run &lt; /path/to/patch/suspend-fix_build_test.diff</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;zacharias|busy&gt; patch -p1 --dry-run only simulates it</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;zacharias|busy&gt; suspend-fix_build_test.diff</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;zacharias|busy&gt; is how I named it</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-navy">* chaembian_ (~chaembian@122.174.93.243) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;zacharias|busy&gt; without --dry-run it should apply it</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;zacharias|busy&gt; techmik67 I'm also dry-running a patch before actually applying it</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;techmik67&gt; run that in the kernel directory on the the branch, correct?</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;zacharias|busy&gt; to see whether there some work or trouble when applying</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;zacharias|busy&gt; correct :)</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;zacharias|busy&gt; you're testing the sammy sources ?</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;zacharias|busy&gt; cause that's for them</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;zacharias|busy&gt; and should (potentially) address the not waking up from sleep</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;zacharias|busy&gt; I modified it since meanwhile names got changed</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; diff -wrB captivate/no_build galaxy/no_build|wc 132561  649221 16222818</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; diff -wrB i897_skeleton i9000_skeleton|wc 3836   13457  121162</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; THAT is slightly like it</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; more like it</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; less like it</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; whatever I dont even care anymore</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-navy">* gdanko (~gdanko@nat/yahoo/x-vleauvjtqtoczelt) Quit (Quit: Get MacIrssi - <a href="http://www.sysctl.co.uk/projects/macirssi/)">http://www.sysctl.co.uk/projects/macirssi/)</a></span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; diff -wrb t959_skeleton i9000_skeleton|wc 5009   16540  144179</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; diff -wrB i897_skeleton t959_skeleton|wc 1866    6686   58259</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;kang&gt; how is the sleep of death supposed to occur?</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;codeworkx&gt; kang: it's no sleep of death. there's only nobody who will do the wakeup as far as i know</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;kang&gt; uhm but practically</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;kang&gt; so far my phone has been waking up</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;kang&gt; atinm|away: if you make clean that fix is required to compile webcore <a href="http://trac.webkit.org/changeset/84123/trunk/Source/WebCore/dom/make_names.pl">http://trac.webkit.org/changeset/84123/trunk/Source/WebCore/dom/make_names.pl</a> in external/webkit/WebCore/dom/make_names.pl and i hope u have a away backlog :p</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;codeworkx&gt; this channel is logged</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;kang&gt; yeah but he has to also read it</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;kang&gt; ^^</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;codeworkx&gt; he'll do</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;kang&gt; fine! :p</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;Unhelpful&gt; FFFFFFFFFFFFFFFUUUUUUUUUUUUUUUu dr who writers</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Tom Baker for life yo</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;techmik67&gt; timing=)</span><br />
