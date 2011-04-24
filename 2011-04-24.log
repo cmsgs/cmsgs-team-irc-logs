@@ -539,3 +539,44 @@
 <span class="irc-date">[16:57]</span> <span class="irc-black">&lt;atinm|away&gt; anyway, do whatever works for you</span><br />
 <span class="irc-date">[16:57]</span> <span class="irc-black">&lt;atinm|away&gt; back later.</span><br />
 <span class="irc-date">[16:57]</span> <span class="irc-black">&lt;atinm|away&gt; debugging this wifi thing</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-green">* DJNgoma (~DJNgoma@94.175.239.226) has joined this channel.</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;techmik67&gt; hmmm</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;techmik67&gt; norton detected threats it cannot remove? Trojan.Gen.2</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;techmik67&gt; remove failed</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;techmik67&gt; never saw norton fail; =)</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: samsung_cm7_merge atinm * 1cc7019 (2 files in 1 dirs): Fixed BCM4329 configs for captivate. Added firmware defines. ... - <a href="http://bit.ly/gLGMTu">http://bit.ly/gLGMTu</a></span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;atinm|away&gt; we've managed to break the pvr stuff again</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;atinm|away&gt; just don't know how.</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;techmik67&gt; so, i still cant repo sync while checkout in other branches, correct?</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;koush&gt; techmik67: atinm|away: yeah the changes I wanted are minor</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;atinm|away&gt; thanks koush - yes, codeworkx is working in there now</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;atinm|away&gt; so I'm leaving it to  him :)</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;techmik67&gt; koush:  i have to ask these questions, as i have almost zero coding knowledge..... feel free to ignore the newbish questions, as someone usually will explain... =)</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;Unhelpful&gt; koush: so, move the bml utility into one of the devie-specific utility dirs... bml or mtd? and integrate a check for bml in flash/dump_raw so that recovery will use it?</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;koush&gt; Unhelpful: either bml or mtd, its up to you</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;koush&gt; i just dont want it in the flashutils dir</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;Unhelpful&gt; koush: right, because that's supposed to be generic.</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;koush&gt; and then also build it conditionally on a board define</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;koush&gt; so it doesnt show up on shit like the g2 etc.</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-green">* zacharias (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-green">* zacharias is now known as zacharias|busy</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;koush&gt; and regarding my last comment about running it automatically, dont worry about that</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;koush&gt; that was just a suggestion</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;koush&gt; i think codeworkx is already looking into making it more user friendly</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;koush&gt; but if you do the first two changes ill submit it</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: codeworkx: lets do this in two steps then. lets get this submitted so it is in the correct place, and built conditionally</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-navy">* chaembian (~chaembian@122.174.190.206) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-brick">* Unhelpful really wishes there were some way for the mtd layer to report raw block offsets :/</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm|away&gt; &lt;-- has to go for a bit.</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm|away&gt; I seem to be "off" but have to go do grocery shopping.</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;mikebeecham&gt; afternoon all</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;mikebeecham&gt; Happy Easter!!</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm|away&gt; so my "off" time isnt' meant for hacking it seems</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm|away&gt; see ya later</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;mikebeecham&gt; later atinm|away</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;mikebeecham&gt; hows the wonderful world of SGS CM7 today?</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;mikebeecham&gt; progressing?</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-navy">* DJNgoma (~DJNgoma@94.175.239.226) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-green">* chaembian (~chaembian@122.174.81.63) has joined this channel.</span><br />
