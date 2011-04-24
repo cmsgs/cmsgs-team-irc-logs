@@ -189,3 +189,45 @@
 <span class="irc-date">[9:21]</span> <span class="irc-navy">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) Quit (Ping timeout: 260 seconds)</span><br />
 <span class="irc-date">[10:59]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
 <span class="irc-date">[10:59]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-navy">* mbizzle (~mbizzle@vp117009.reshsg.uci.edu) Quit (Quit: leaving)</span><br />
+<span class="irc-date">[11:21]</span> <span class="irc-black">&lt;atinm|away&gt; kang, what is that fix?</span><br />
+<span class="irc-date">[11:21]</span> <span class="irc-black">&lt;atinm|away&gt; I've been compiling clean forever, something changed upstream?</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;atinm|away&gt; this should be done upstream by now.</span><br />
+<span class="irc-date">[11:23]</span> <span class="irc-navy">* Kaik541 (~Kaik541@70.112.175.254) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[11:23]</span> <span class="irc-black">&lt;atinm|away&gt; and wifi was with original JVB source for bcm?</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;atinm|away&gt; I don't want to fork webkit. someone on cyanogenmod already seems to do a svn import from upstream somewhere</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;atinm|away&gt; maybe koush knows</span><br />
+<span class="irc-date">[11:32]</span> <span class="irc-black">&lt;atinm|away&gt; most probably from the webkit.org website</span><br />
+<span class="irc-date">[11:33]</span> <span class="irc-black">&lt;atinm|away&gt; but would be a pain to import svn into git for us and be forked.</span><br />
+<span class="irc-date">[11:33]</span> <span class="irc-black">&lt;atinm|away&gt; I could import it to cyanogenmod and send it up directly without touching our tree. Stop building with 4.6 - we don't have to I don't think.</span><br />
+<span class="irc-date">[11:33]</span> <span class="irc-black">&lt;atinm|away&gt; 4.4.3 works fine</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;atinm|away&gt; I hate being out of sync timings wise.</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;atinm|away&gt; now kang is gone</span><br />
+<span class="irc-date">[11:35]</span> <span class="irc-black">&lt;atinm|away&gt; and I'm just talking to myself.</span><br />
+<span class="irc-date">[11:36]</span> <span class="irc-black">&lt;atinm|away&gt; usually have an hour or so early in the morning</span><br />
+<span class="irc-date">[11:36]</span> <span class="irc-black">&lt;atinm|away&gt; screw it.</span><br />
+<span class="irc-date">[11:36]</span> <span class="irc-black">&lt;atinm|away&gt; ignoring both until kang gets back. webkit not needed unless we upgrade to using gcc 4.6 which I am not going to doyet</span><br />
+<span class="irc-date">[11:36]</span> <span class="irc-black">&lt;atinm|away&gt; and wifi he need to tell me what he did directly</span><br />
+<span class="irc-date">[11:37]</span> <span class="irc-black">&lt;atinm|away&gt; maybe someone can push the jvb firmware</span><br />
+<span class="irc-date">[11:37]</span> <span class="irc-black">&lt;atinm|away&gt; to the samsung_cm7_merge branch</span><br />
+<span class="irc-date">[11:39]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx, can you push the samsung firmware for wifi (bcm4329) up to vendor/samsung/common samsung_cm7_merge branch?</span><br />
+<span class="irc-date">[11:43]</span> <span class="irc-black">&lt;codeworkx&gt; the hcd?</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-black">&lt;atinm|away&gt; the .bin and hcd</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-black">&lt;codeworkx&gt; ya</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-black">&lt;atinm|away&gt; I think even the samsung_mfc_fw.bin?</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-black">&lt;atinm|away&gt; but definitely all the bcm4329 files</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-black">&lt;codeworkx&gt; mfc is codec</span><br />
+<span class="irc-date">[11:45]</span> <span class="irc-black">&lt;codeworkx&gt; but i'll push them</span><br />
+<span class="irc-date">[11:45]</span> <span class="irc-black">&lt;atinm|away&gt; ok, I remember seeing it somewhere - but I was working in sound too</span><br />
+<span class="irc-date">[11:45]</span> <span class="irc-black">&lt;atinm|away&gt; so probably there</span><br />
+<span class="irc-date">[11:45]</span> <span class="irc-black">&lt;atinm|away&gt; what is CE 147?</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;atinm|away&gt; maybe push all because we know they all work on the phones so no danger of flashing somehting bad</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;codeworkx&gt; cw147 is cam</span><br />
+<span class="irc-date">[11:47]</span> <span class="irc-black">&lt;codeworkx&gt; front cam</span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;atinm|away&gt; we know it doesnt' work, so can't hurt to have it?</span><br />
+<span class="irc-date">[11:48]</span> <span class="irc-black">&lt;codeworkx&gt; ya</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-green">* Kaik541 (~Kaik541@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[11:58]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: check wifi at boardconfig. some files have changed (sta, aps, mfs)</span><br />
+<span class="irc-date">[11:59]</span> <span class="irc-black">&lt;atinm|away&gt; yes, ok.</span><br />
+<span class="irc-date">[11:59]</span> <span class="irc-black">&lt;atinm|away&gt; kid is up - so can't work for a few hours.</span><br />
+<span class="irc-date">[11:59]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_vendor_samsung_common/commit/85aa5db9b33034d0d05db634314ecc82fca125a4">https://github.com/teamhacksung/android_vendor_samsung_common/commit/85aa5db9b33034d0d05db634314ecc82fca125a4</a></span><br />
