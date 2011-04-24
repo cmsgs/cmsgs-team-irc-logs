@@ -244,3 +244,104 @@
 <span class="irc-date">[13:13]</span> <span class="irc-black">&lt;codeworkx&gt; oh, typo at WIFI_DRIVER_FW_STA_PATH. should be bcm instead of cm xD</span><br />
 <span class="irc-date">[13:58]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
 <span class="irc-date">[13:58]</span> <span class="irc-green">* gdanko (~gdanko@nat/yahoo/x-pgdumjvvhcjppxtv) has joined this channel.</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;atinm|away&gt; in the driver the module name is bcm4329_wlan</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;atinm|away&gt; that's why I changed it in BoardConfig</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;atinm|away&gt; it is bcm4329 in CM7  think</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;atinm|away&gt; or maybe not - it has bcm4329_wlan as well</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;atinm|away&gt; hrm.</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;techmik67&gt; morning.... tell me when to test =)</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;atinm|away&gt; ok, in a few</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;atinm|away&gt; going to try wifi</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;atinm|away&gt; so do we know if new bootloader work with old code?</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;techmik67&gt; side note... very disappointed...... upgrade the whole laptop, went from 90-100 mins compile clean time..... spent $90 to upgrade from 4-8GB RAM, compile time change 3 freaking minutes!!!</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;iravid&gt; try compiling on a ramdisk</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;iravid&gt; might improve it a bit more</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;iravid&gt; compiling is mostly cpu-bound tho</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;techmik67&gt; i know, going from 2ghz dual core to 2.1 ghz quad core cut time in half....</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;iravid&gt; yep</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;techmik67&gt; but i thought ram might help a bit more than that</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;iravid&gt; my desktop i5 does cm7 in ~29mins</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;iravid&gt; hopefully my soon-to-come MBP will do it in less :]</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;techmik67&gt; 42 mins now</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-black">&lt;iravid&gt; i spent the last few hours digging through smali to apply hebrew fixes to MIUI</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-black">&lt;iravid&gt; i'm seeing opcodes everywhere</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;techmik67&gt; fuck closed source miui... tell them to open up =)</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;atinm|away&gt; don't see the point of working on miui</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;atinm|away&gt; and definitely not in this channel.</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;iravid&gt; some people like the interface better</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-green">* iravid was kicked from this channel by atinm|away</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-green">* iravid (~iravid@87.69.234.127) has joined this channel.</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;atinm|away&gt; screw it - sorry, but no closed source.</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;atinm|away&gt; you want to hang out, try to not mention it.</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;iravid&gt; atinm|away: i'm as big a fan of open source as anyone else</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;iravid&gt; sorry if it offended you.</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;atinm|away&gt; it offends me.</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;atinm|away&gt; miui</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;Kaik541&gt; down with closed source anything.</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;techmik67&gt; hmmmm.... just had an interesting thought...... what's worse offensive in here....... closed source, or dg? =)</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;atinm|away&gt; we have enough closed source to deal with.</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;Kaik541&gt; DG == closed source</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;Kaik541&gt; never shares his sources (even though it's all full of kang anyway)</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;techmik67&gt; i thought you'd say that =0</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;atinm|away&gt; dont' need another crap piece of software that is closed source polluting galaxys.</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;Kaik541&gt; and he works exclusively in "stock ROM's"</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;Kaik541&gt; he even "tags" his stuff so no one else can use it xD</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-black">&lt;techmik67&gt; actually, he posted to twitter a week or 2 ago that his kernel source was up on github ( posted to @supercurio)</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;iravid&gt; i think you guys are being a bit unrealistic; i use linux as my main OS, contribute code to KDE, etc</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;iravid&gt; closed source products are a part of this world</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, yeah he said that, but pretty sure it was a lie</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;techmik67&gt; i didnt see it in his github</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;Kaik541&gt; iravid, that doens't mean we can't avoid it like the plague when it's reasonable</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;Kaik541&gt; such as on our phones</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;atinm|away&gt; iravid. I dont' care - we are dealing with enough closed source stuff from samsung.</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-black">&lt;atinm|away&gt; nothing else on galaxy s needs to be closed.</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;iravid&gt; atinm|away: well, i certainly support that thought</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;iravid&gt; do you honestly believe it to be feasible tho?</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;atinm|away&gt; so screw miui.</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;atinm|away&gt; yes.</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;atinm|away&gt; very much so. nothing else related to framework needs to be closed source.</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;iravid&gt; i'm with you on that, especially regarding GPL violations</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;atinm|away&gt; this is not linux we're dealing with - our eco system is very small.</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;Kaik541&gt; then why work on MIUI at all?</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;atinm|away&gt; one hardware.</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;atinm|away&gt; well, 5 at worst - but basically one hardware.</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;iravid&gt; i'd like israeli users that choose to use it to be able to see their language natively</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;Kaik541&gt; then tell them to isntall something open sourced that already supports it</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;atinm|away&gt; the only things that have to be closed source are samsung things. nothing else they is needed to be closed. and I'm fine with miui existing. just not in my world./</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;atinm|away&gt; and I'd rather not deal with it.</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;Kaik541&gt; I don't see the point in making their lives easier  when we have a viable alternative</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;atinm|away&gt; so the least you can do is stop defending it.</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;iravid&gt; see, that's just forcing them to use something else than what they want</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;Kaik541&gt; then they can learn to do it themself</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;iravid&gt; lol</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;iravid&gt; i get your point guys</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;iravid&gt; but some people have different tastes, and some people don't care about open/closed - they just want to go about their lives with a cool phone</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;atinm|away&gt; then go to a fucking #miui channel</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, we don't honestly give a shit about MIUI in here</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;iravid&gt; sure thing; i was just trying to make some idle conversation</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;Kaik541&gt; well wrong conversation to try and make :)</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;iravid&gt; i came here to watch the development process of cm, since i'm a big fan; no need to be hostile</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;atinm|away&gt; or just shut up about it. dont' give a shit about it at all and sort of unhappy that they build on top of stuff that we did but that's the point. *we* are open source because we don't violate the spirit, nor the letter of GPL.</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;Kaik541&gt; I feel like there's a right to be hostile toward something the exact opposite of what the development is trying to do</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;atinm|away&gt; and to make the spirit of open source is what the apache is about, and to close off pieces of development that build on top of open source apache stuff is just uncool.</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;atinm|away&gt; and I feel hostile towards those who do it.</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;atinm|away&gt; very much so.</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;atinm|away&gt; I have mostly refrained from commenting about miui publicly because it would be misunderstood as being envious or soemthing. like CM7 has anything to be envious about from MIUI.</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;atinm|away&gt; but figured I should make clear, it is the fact that it is closed source that makes me hostile.</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;atinm|away&gt; if it was open, I'd welcome them using everything we've done to build on top of.</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;atinm|away&gt; crap.PVR_K:(Error): BridgedDispatchKM: Driver initialisation not completed yet.</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;Unhelpful&gt; speaking of closed source, has JVB mystaically fixed our compass yet, or do i still have work to do on that?</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;atinm|away&gt; dunno, have to ask someone running jvb</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;atinm|away&gt; I doubt it tho</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;atinm|away&gt; how's 2 initramfs going?</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-black">&lt;Unhelpful&gt; want to test some things over adb... trying to debug it in an upload-and-have-somebody-else-flash-it context was too cumbersome.</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;atinm|away&gt; k</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;Unhelpful&gt; didn't get anything done last night, dr who new season premiered. :P</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;atinm|away&gt; our priorities are messed up</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;atinm|away&gt; I didn't get anything done because I was playing poker.</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, that was a good episode</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-black">&lt;Kaik541&gt; the ending was kinda bleh though</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-black">&lt;Kaik541&gt; but it's a two parter, so I kinda expected that</span><br />
