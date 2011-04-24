@@ -442,3 +442,100 @@
 <span class="irc-date">[15:53]</span> <span class="irc-black">&lt;atinm|away&gt; but dont' know what that is for</span><br />
 <span class="irc-date">[15:53]</span> <span class="irc-black">&lt;atinm|away&gt; it is unused</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;Kaik541&gt; atinm|away, do you still need someone on JVB to do anything for you?</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;Kaik541&gt; I asked in #cmsgs a while back, someone finally answered</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm|away&gt; just go into adb shell</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm|away&gt; a</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm|away&gt; nd</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm|away&gt; and type lsmod</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm|away&gt; and tell me what it says</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;Kaik541&gt; atinm|away, <a href="http://pastebin.com/p1ZP24q6">http://pastebin.com/p1ZP24q6</a></span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm|away&gt; ok, good. it is dhd</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;zerojay&gt; If you guys need anything else from GB, let me know.</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;atinm|away&gt; ths</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;atinm|away&gt; thanks</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;techmik67&gt; so are the changes koush wants big or small here? <a href="http://review.cyanogenmod.com/#change,4779">http://review.cyanogenmod.com/#change,4779</a></span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm|away&gt; I think small, but I haven't looked closely</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx is working on it</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm|away&gt; he wants to do it slightly differently</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm|away&gt; damn it.</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm|away&gt; pvr fucked again</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;atinm|away&gt; I hate it.</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;atinm|away&gt; random stuff seems to make it break.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: samsung_cm7_merge atinm * 2f46445 (1 files in 1 dirs): Changed firmware paths and module name to dhd (it is dhd now as ... - <a href="http://bit.ly/g8VbZE">http://bit.ly/g8VbZE</a></span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: i wanted to make it easier so that bml_over_mtd finds the start adresses of the partitons auto, but that's not possible</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: samsung_cm7_merge atinm * a2d18d3 (1 files in 1 dirs): Changed bcm4329 firmware and module names (it is dhd now). ... - <a href="http://bit.ly/fGZNmy">http://bit.ly/fGZNmy</a></span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;codeworkx&gt; i'll have a talk with eifert first</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;techmik67&gt; man, did you send me on a google rabbit-hole yesterday.... searched google for "find start partition mtd"</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;techmik67&gt; i got sooooo lost =)</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;techmik67&gt; probably mostly cause i dont really knwo what is useful and what isnt =)</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: i just can't believe mtd can't report that, surely bml is not the only remapping ever to care about addresses.</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-green">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;techmik67&gt; so if i repo sync and it shows new stuff pulled into device/..../captivate, but i still need to go to the dir and checkout to that branch and pull, that means i didnt set up to track?</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: it's all in the kernel. but they probably didn't want to confront users with thoose stuff. ;-) in normal cases you don't need the absolute offset</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;atinm|away&gt; I think repo gets confused when we're doing other branches.</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;atinm|away&gt; than what's in the manifest</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: repo sync checks out the branches the manifest *says* to check out.</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;atinm|away&gt; it is only updating the branch in the manifest</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;atinm|away&gt; not our test ones</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;techmik67&gt; aha</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;techmik67&gt; thanks</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: if i patch our kernel it will work. but only on our patched kernel. and this will probably not going to be accepted.</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;techmik67&gt; i'm not clear on the difference between setup a new branch, checkout to it, git pull github newbranch, and git bracnh --track newbranch github/newbranch</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;techmik67&gt; i seem to have problems when i setup tracking, except on the original gingerbread branch setup</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;techmik67&gt; that works fine</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;atinm|away&gt; trouble how?</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;techmik67&gt; i get merge conflicts and the like, when i am only trying to pull latest changes</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;techmik67&gt; i am sure i am just doing something wrong</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;atinm|away&gt; merge conflicts when doing repo sync?</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;techmik67&gt; i sync</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;techmik67&gt;  i go to the dir</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;techmik67&gt; i try to push the new stuff from the sync to my github, which was JUST forked before the update</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;techmik67&gt; conflicts</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;techmik67&gt; repo sync gives me a lot of "rebasing... rewinding to replay your work on top"</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;atinm|away&gt; you're doing something else to your branch somehow</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;atinm|away&gt; after you git branch --track samsung_cm7_merge github/samsung_cm7_merge</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;techmik67&gt; so i usually delete the repos on my github, rm the dirs and resync</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;atinm|away&gt; what do you do?</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;techmik67&gt; sync, if you've just pushed something</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;atinm|away&gt; you can just go to the dir and git pull</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;atinm|away&gt; but ok.</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;techmik67&gt; i *think* i am misunderstanding the tracking branch</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;atinm|away&gt; that won't pull in anything for the samsung_cm7_merge</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;techmik67&gt; remember what you 1st showed me?</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;techmik67&gt; branch, remote add, checkout pull?</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;techmik67&gt; works great</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;techmik67&gt; but if i try to use "--track" when setting up, do i still need to pull from the branch after repo sync?</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;techmik67&gt; or is that the whole point of "--track"</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;atinm|away&gt; you still need to go into the dir, checkout the branch and git pull</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;atinm|away&gt; but don't need to set up the branch again after the first --track</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;techmik67&gt; aha</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;atinm|away&gt; just git checkout; git pull</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;techmik67&gt; so i was misunderstanding</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;techmik67&gt; tought --track did the pull auto on repo sync</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;techmik67&gt; thought*</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;techmik67&gt; this is usual for me, without --track: <a href="http://pastebin.com/5ANFPzS2">http://pastebin.com/5ANFPzS2</a></span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;atinm|away&gt; techmik67: no, for anything other than the main branches that the manifest knows about, you have to do it explicitly</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;techmik67&gt; gotcha</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;atinm|away&gt; but the merge made by recursive etc is saying that you did somethign locally</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;atinm|away&gt; it seems like you created that branch locally without --track?</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;atinm|away&gt; and the pulled?</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;atinm|away&gt; from a branch new tree (or one where you deleted all the local branches with git branch -D samsung_cm7_merge;git branch -D gingerbread)</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;atinm|away&gt; like say cd /vendor/samsung/common</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;atinm|away&gt; git branch -D samsung_cm7_merge</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;atinm|away&gt; git branch --track samsung_cm7_merge github/samsung_cm7_merge</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;atinm|away&gt; git checkout samsung_cm7_merge</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;atinm|away&gt; git pull teamhacksung samsung_cm7_merge</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;atinm|away&gt; the last might not be necessary, I just do it out of habit.</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;atinm|away&gt; the track is mostly for us when we clone upstream directly so we can push back to it without worrying about which branch.</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;atinm|away&gt; but your branch should track upstream, so you do the --track.</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;atinm|away&gt; but  beyond that the two should be the same</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;atinm|away&gt; you still checkout whichever branch you want</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;atinm|away&gt; and you still git pull into it</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;atinm|away&gt; anyway, do whatever works for you</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;atinm|away&gt; back later.</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;atinm|away&gt; debugging this wifi thing</span><br />
