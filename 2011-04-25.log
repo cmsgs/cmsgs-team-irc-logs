@@ -63,3 +63,90 @@
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Unhelpful&gt; (actually people already think modem impacts that as well)</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;zacharias|busy&gt; lol</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;atinm&gt; zacharias|busy: haven't looked at the kmsg. it is zipped, too much work for a image that isn't mine ;-)</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;zacharias|busy&gt; atinm oh well ;)</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;zacharias|busy&gt; atinm but it seems to be related to your stuff and at the very end a bug seems to be exposed</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;zacharias|busy&gt; "unable to handle paging request"</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;Unhelpful&gt; that could simply be memory exhaustion, couldn't it?</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;zacharias|busy&gt; hm, my kernel has the OOM rewrite from 2.6.36 and other related fixes</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;zacharias|busy&gt; so I doubt it</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;zacharias|busy&gt; but yes, could be</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;atinm&gt; since yours in the only one giving these reboots, I'd say one of the other changes you've put in are to blame.</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;atinm&gt; kang's isn't from what I can tell</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;zacharias|busy&gt; k</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;zacharias|busy&gt; I'll have have a closer look then</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;zacharias|busy&gt; the strange thing is: that kernel isn't supposed to work on captivate</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;zacharias|busy&gt; keys are reported to not work</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;zacharias|busy&gt; so why does the bug-report in the 1st place</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;zacharias|busy&gt; weird :\</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;atinm&gt; that came from the vibrant thread</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;zacharias|busy&gt; ah - i see</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;zacharias|busy&gt; ok, seems like I found the culprit</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;atinm&gt; I am uploading both vibrant and captivate</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;atinm&gt; so I keep track of both</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;zacharias|busy&gt; thanks for the report,</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;zacharias|busy&gt; let's see if reverting it will help with stability ...</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;zacharias|busy&gt; reverting *the patch (potentially) causing this</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;atinm&gt; this 2 sdcard mount thing is such a pain.</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;atinm&gt; the bug is on harmony, but I feel responsible.</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;atinm&gt; someone needs to tell him which arch harmony is.</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;atinm&gt; I assume mach-msm.</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;atinm&gt; but which board/device.</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; ./arch/arm/mach-msm/board-incrediblec.c:	.nluns		= 3,</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; ./arch/arm/mach-msm/devices_htc.c:	.nluns = 1,</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; ./arch/arm/mach-msm/board-supersonic.c:	.nluns		= 1,</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; ./arch/arm/mach-msm/board-halibut.c:	.nluns = 1,</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; ./arch/arm/mach-msm/board-msm7x30.c:	.nluns		= 1,</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; ./arch/arm/mach-msm/board-mahimahi.c:	.nluns		= 1,</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; ./arch/arm/mach-msm/board-swordfish.c:	.nluns		= 1,</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; ./arch/arm/mach-msm/board-bravo.c:	.nluns		= 1,</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; from what I can tell, only incrediblec has more than one shareable mount.</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; unless the others have their own kernel trees.</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;atinm&gt; like we do.</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-brick">* Unhelpful is effectively dead as a dev until he sorts out why he can't build a kernel that will boot...</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;atinm&gt; wth . . . from our repo?</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;atinm&gt; I just built.</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;atinm&gt; clean too</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: yeah, but um, from weeks ago. guess i need to stash and update. :)</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-brick">* Unhelpful wonders if it's some sort of weird environment issue... just rebooted, so will clean, stash, sync, build. :)</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;Unhelpful&gt; even though my only local changs are the sensors work, and some debug in the yas529 driver</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;atinm&gt; I hope.</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;atinm&gt; techmik67: have you built recently?</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;techmik67&gt; not since this morning... should i?</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm&gt; nah, wait to see what unhelpful has</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;atinm&gt; I just built.</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;atinm&gt; so I think the repo is fine</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-brick">* Unhelpful imagines this is local</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;atinm&gt; and I lost my poker playing time to harmony debugging.</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;atinm&gt; dang.</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;atinm&gt; lol, ok - he got it working after he got the kernel to know that he needs 2 luns</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;atinm&gt; so I'm off the hook :)</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;koush&gt; looks like its working</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;koush&gt; cool</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;atinm&gt; yeah, :)</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;atinm&gt; no time for any poker tournaments now tho</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;atinm&gt; so, any high priority bugs to fix on galaxys? :)</span><br />
+<span class="irc-date">[1:46]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;atinm&gt; these people are insane. they'll call down to the river holding 4c,2s</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;atinm&gt; who does that?!</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; people who don't know how to play?</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;atinm&gt; but 4 of clubs and 2 of spades! down to the river in the face of a raise.</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;atinm&gt; do they think someone is playing like 3c, 2s?</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;atinm&gt; and raising?</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;atinm&gt; jeez.</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;atinm&gt; I shouldnt complain . . . I can take money off these ppl.</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;atinm&gt; wish I was in this game :)</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I assumed you were talking about a card game.  Other than that I have no idea what your talking about :P</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;atinm&gt; the funny part is, it is only level 2 with blinds at 10/20. and they're already down to 5 players out of 10</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;atinm&gt; meaning at least 5 idiots decided to go all in.</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;atinm&gt; in the very first rounds.</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;atinm&gt; yeah, poker. online</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;atinm&gt; some sites are still up for us players</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;atinm&gt; these were smaller than the big 3.</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;atinm&gt; so the players here are not as good.</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;atinm&gt; tho people are coming here now.</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;atinm&gt; so it'll get tougher.</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;atinm&gt; if I can spot mistakes, there will be real sharks coming by soon.</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;atinm&gt; since I'm a guppy myself.</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;atinm&gt; tho it seems I'm a bigger guppy than I thought.</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;atinm&gt; and can eat these smaller guppys</span><br />
