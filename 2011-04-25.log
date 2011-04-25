@@ -273,3 +273,39 @@
 <span class="irc-date">[3:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; diff3 output sucks</span><br />
 <span class="irc-date">[3:51]</span> <span class="irc-black">&lt;chaembian_&gt; Good morning all</span><br />
 <span class="irc-date">[3:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; evening over here :)</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;chaembian_&gt; TMC_Sherpa: Where are you from?</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; just outside Chicago</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;chaembian_&gt; Its only evening now?</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 11pm, just saying it's not quite morning yet :P</span><br />
+<span class="irc-date">[4:04]</span> <span class="irc-black">&lt;techmik67&gt; midnite here in s florida=)</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 63 stupid files, once I get them cleaned up a bit and get the ifdefs going I'll have an froyo kernel that will (should?) build captivate, vibrant or galaxy from the same tree will all the stupid BS changes intact</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 8630 lines of diff3 output to parse</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;chaembian_&gt; Great going there ...</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://twitter.com/#!/CyanogenMod/status/62366804298829824">http://twitter.com/#!/CyanogenMod/status/62366804298829824</a></span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dono about that chaembian_ but I think I can use the raw output files to compare with hacksung and see where we are at</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; techmik67: lemme know when it says Galaxy</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;techmik67&gt; soon</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; although I guess I would read it here first</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;techmik67&gt; probably</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;chaembian_&gt; I have not made any progress on my task.. i'm hoping that i'll have sometime this week. lets see how it goes.</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; <a href="http://pastiebin.com/?page=p&amp;id=4db4a49134e7c">http://pastiebin.com/?page=p&amp;id=4db4a49134e7c</a>  cleaned up diff3 output</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it doesn't give you any context, just lines.  Putting that back in will be a pig *shrug* can't be any worse that what it took to get to that point</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-brick">* TMC_Sherpa tries not to think about wm8994 files</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;chaembian_&gt; TMC_Sherpa: that looks neat. How did you do it?</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-navy">* TCMAN-dmg (~Dominik@99-103-196-195.lightspeed.sntcca.sbcglobal.net) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; manual labor</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; this is the raw diff3 output <a href="http://www.pastiebin.com/?page=p&amp;id=4db4a756d647d">http://www.pastiebin.com/?page=p&amp;id=4db4a756d647d</a></span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; used sed to change the 1,2,3 to captivate vibrant galaxy and rejiggered stuff</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;chaembian_&gt; very neat!</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-navy">* zacharias|busy (~zacharias@chello084114179145.16.15.vie.surfer.at) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; tried diff -D but it spits out way to much negative logic (ifndef) and only does two files</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so, diff -q, grabbed the file names for i897 vs galaxy and t959 vs galaxy, sorted and cleaned and pumped that into a script to diff3 the files I wanted</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; pardon my language, sed was causing me problems so my variable names changed from what I started with <a href="http://www.pastiebin.com/?page=p&amp;id=4db4a8bee6a62">http://www.pastiebin.com/?page=p&amp;id=4db4a8bee6a62</a></span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hrm, what I really should to do is compare with xcals froyo reorient and see how much of what I've got really should change and how much doesn't matter</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-green">* TCMAN-dmg (~Dominik@99-103-196-195.lightspeed.sntcca.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; for some reason we play with kernel/sysctl.c and change a few  .mode		= 0644 to .mode		= 0777 on the NA phones</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dono if that matters to us or not</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ah well, all in good time. night boys</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has left this channel.</span><br />
