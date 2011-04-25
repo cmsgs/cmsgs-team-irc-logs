@@ -848,3 +848,103 @@
 <span class="irc-date">[18:58]</span> <span class="irc-black">&lt;wergeld&gt; Quirk means work.</span><br />
 <span class="irc-date">[18:58]</span> <span class="irc-black">&lt;zacharias|away&gt; that one should be the best so far - if they've addressed some issues with it</span><br />
 <span class="irc-date">[18:58]</span> <span class="irc-black">&lt;zacharias|away&gt; mobo player makes heavy use of NEON so it'll cut CPU load by half most of the time and it's not laggy (well, most of the time)</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;zacharias|away&gt; wergeld sorry, don't know of any; afaik there are some modded ones out there but I didn't give them attention so don't have links at hand</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;Kaik541&gt; wergeld, do you mean for a Samsung ROM?</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Guilherme * e84eeed (8 files in 5 dirs): New kernel drivers from JVB. Sensors should be fully working now. ... - <a href="http://bit.ly/eFQTKR">http://bit.ly/eFQTKR</a></span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;atinm|away&gt; unhelpful still with us?</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;GuiPer&gt; need help with other devices, captivate will have again rotation problems :S</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;freat&gt; that's nice... so no more battery killing by leaving auto-rotate on?</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;freat&gt; dang... just as I was typing. I have a captivate.</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;GuiPer&gt; should be easy to solve on kernel side</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;freat&gt; just had to do a reboot cause autorotate was being funksy</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;atinm|away&gt; wait, did you just commit a broken rotating?</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;GuiPer&gt; we need to tweak for other devices. Anyway compass is working now</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm|away&gt; don't do that . . . fix before commiting something broken</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm|away&gt; otherwise commit to a branch</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;GuiPer&gt; probably you are right, but not 100% sure</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;GuiPer&gt; can you give a try ?</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; xcal thinks its orientation 1 on captivate</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but that it doesn't work in position 1 in the table</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so someting else is screwy</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;GuiPer&gt; it's for magnetic sensor, I can fix it easily</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;GuiPer&gt; just need feedback it's rotating</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;GuiPer&gt; still need initramfs</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;atinm|away&gt; what needs to be done in initramfs?</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;GuiPer&gt; 2 new services</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;GuiPer&gt; on init.rc</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;atinm|away&gt; techmik, you here?</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm|away&gt; guiper, at least update galaxys initrc</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm|away&gt; from now on, if you are committing something that will break other devices, do it on a branch</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm|away&gt; and let the other devices also work on the branch until all are in sync</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm|away&gt; then merge to head</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread GuiPerPT * c3ec6b2 (1 files in 1 dirs): Compass services  - <a href="http://bit.ly/eMaiZ9">http://bit.ly/eMaiZ9</a></span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;techmik67&gt; i'm here</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;atinm|away&gt; it is not cool to break other devices - the repo is now broken for captivate at least.</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;atinm|away&gt; techmik67: ok, one sec.</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;GuiPer&gt; still miss  one more thing</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;atinm|away&gt; ok ...</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;atinm|away&gt; I'll wait until you have finished galaxys</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;atinm|away&gt; you can do the same stuff on captivate, and ask techmik to test</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;atinm|away&gt; I wish you'd done that before you committed.</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;atinm|away&gt; from now on, please - no commits that break devices. we are supporting at least 3.</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread GuiPerPT * d40d6fc (1 files in 1 dirs): Disabled sensor.aries. we use closed source Samsung one for now. - <a href="http://bit.ly/i6FBup">http://bit.ly/i6FBup</a></span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;atinm|away&gt; we always try to make the commits at the same time for all the devices.</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;GuiPer&gt; i forgot the rotating thing :S sorry atinm|away</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;GuiPer&gt; just remembered after first commit :S anyway we can revert easily</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;GuiPer&gt; I'll do captivate then, should be everything, but not 100% sure</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-navy">* Zilch25 (~Zilch25@32.162.127.176) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm|away&gt; ok, then techmik can work with you to test it</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Guilherme * d347dba (1 files in 1 dirs): Compass for captivate. May break orientation, need feedback ... - <a href="http://bit.ly/dPNBbr">http://bit.ly/dPNBbr</a></span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm|away&gt; I can't work on this until later.</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;atinm|away&gt; but if you do the initrc changes for captivate and vibrant, we'll be in a position to test</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;atinm|away&gt; and the defconfig for both as well. techmik can test captivate after you've commited  he can build.</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;GuiPer&gt; you need a full build, because of new libs</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;GuiPer&gt; and make sure we are getting sensors.aries.so from vendor not compilled, may need help here</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;atinm|away&gt; should all be in galaxys</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;atinm|away&gt; .mk</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;atinm|away&gt; you removed it, but you also need to copy it</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;atinm|away&gt; meaning add to vendor</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;GuiPer&gt; did it before, my first commit</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;GuiPer&gt; building full on mine... hopefully it works</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;GuiPer&gt; just tested manually</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;atinm|away&gt; k</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;techmik67&gt; so i should build for captivate, or there are commits to come?</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;GuiPer&gt; more commits</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;techmik67&gt; just tell me when to build</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 Guilherme * a023fa1 (1 files in 1 dirs): Changes to Vibrant for Compass ... - <a href="http://bit.ly/gcJv9I">http://bit.ly/gcJv9I</a></span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread GuiPerPT * 1ecebc9 (1 files in 1 dirs): Geomagnetic Services - Captivate - <a href="http://bit.ly/gXHqPI">http://bit.ly/gXHqPI</a></span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread GuiPerPT * 9849053 (1 files in 1 dirs): Use libsensors from vendor, instead of our open source one. - <a href="http://bit.ly/f6Ay0r">http://bit.ly/f6Ay0r</a></span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;GuiPer&gt; I guess should be everything</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;GuiPer&gt; techmik for captivate should be ready</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;GuiPer&gt; 90% for sure</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread GuiPerPT * ebb2664 (1 files in 1 dirs): Typo - <a href="http://bit.ly/f7zzCs">http://bit.ly/f7zzCs</a></span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-green">* teamhacksung (~teamhacks@207.97.227.253) has joined this channel.</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_vibrant: gingerbread GuiPerPT * c75fa43 (1 files in 1 dirs): New service using samsung binaries - <a href="http://bit.ly/dOjKMs">http://bit.ly/dOjKMs</a></span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-green">* teamhacksung (~teamhacks@207.97.227.253) has left this channel.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_vibrant: gingerbread GuiPerPT * 2e27a4d (1 files in 1 dirs): Use of samsung closed source sensor userspace, instead of our. - <a href="http://bit.ly/hHCRH1">http://bit.ly/hHCRH1</a></span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;GuiPer&gt; vibrant should be also</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;techmik67&gt; ok, building on laptop, may have to reboot desktop....</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;GuiPer&gt; should be quite easy to fix rotation</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;freat&gt; kernel tainted! (jk)</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;freat&gt; I said taint</span><br />
