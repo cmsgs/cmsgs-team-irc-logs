@@ -701,3 +701,150 @@
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; ah, but depends on wasn't needed</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
 <span class="irc-date">[18:00]</span> <span class="irc-black">&lt;Zilch25&gt; i had some little winmo phone by audiovox in like 02 or 03</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;Zilch25&gt; i dont even remember what it was called</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;atinm&gt; interesting tho.</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;atinm&gt; what is that gerrit complaint</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-brick">* Unhelpful had a moto linphone once. :P</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;atinm&gt; right after koush approved</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: <a href="http://review.cyanogenmod.com/#change,4850">http://review.cyanogenmod.com/#change,4850</a></span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;atinm&gt; Change could not be merged because of a missing dependency.</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;codeworkx&gt; ya</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;techmik67&gt; i think it depends on codeworkx other submission?</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;atinm&gt; we don't need the dependenc?</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;codeworkx&gt; koush: gerrit doesn't like what we're doing <a href="http://review.cyanogenmod.com/#change,4850">http://review.cyanogenmod.com/#change,4850</a></span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;techmik67&gt; oh, says abandoned, nvm</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;atinm&gt; yeah, but since this change depends on that</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;codeworkx&gt; the new change depends on the old one</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;atinm&gt; gerrit is bitching at us</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;Unhelpful&gt; if we don't need the dependency then you need to rebase the change directly on upstream - that will remove the dep.</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;techmik67&gt; oh, the other isnt merged</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;techmik67&gt; i'm learning....</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;atinm&gt; codeworkx: we do need the other also?</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;codeworkx&gt; but gerrit needs it xD</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;codeworkx&gt; to do the merge</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;atinm&gt; ok, so what unhelpful said</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, rebase, resubmit as new patch without dependency</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;Kaik541&gt; well patch set 2 or whatever</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; use some git-fu, rebase</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;codeworkx&gt; i'll abandon and do new</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;codeworkx&gt; don't trust gerrit xD</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;Kaik541&gt; lol or that</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;Kaik541&gt; just don't forget to rebase!</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm&gt; no, koush already approved, you can just send in a new patch</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;atinm&gt; and he'll take it if it merges clean</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;atinm&gt; or screw it, if you feel you can do it cleaner with a new checkout of upstream, do it and beg koush to look again :)</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;Unhelpful&gt; just check out upstream, cherry-pick the change, and push to gerrit, that should do it.</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-brick">* Unhelpful sees no reason to create a new request for it though</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;atinm&gt; yeah.</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;atinm&gt; agreed.</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;codeworkx&gt; already tried to commit the changes into the old one, but it created a new change</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;codeworkx&gt; hate this shit</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;atinm&gt; checkout upstream, cherry pick from gerrit with git fetch <a href="http://review.cyanogenmod.com/p/CyanogenMod/android_bootable_recovery">http://review.cyanogenmod.com/p/CyanogenMod/android_bootable_recovery</a> refs/changes/50/4850/1 &amp;&amp; git cherry-pick FETCH_HEAD</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;atinm&gt; and it should keep the refs so it knows when you push it again that it is a patch 2</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;atinm&gt; hmm, I wonder if I do it what happens. do I suddenly own patch 2? :)</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: try it xD</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;atinm&gt; sec</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;atinm&gt; (we're going to dirty gerrit with this ...)</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;Unhelpful&gt; now, here's the bad news. script took *13s* to unpack the recovery ramdisk. how can we speed this up? :/</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;GuiPer&gt; Unhelpful: got magnetic reader working as it should</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;Unhelpful&gt; it looks like most of the butthurt comes in using grep to extract the header</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: oh?</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;GuiPer&gt; reads look good with new kernel driver + libsensors from JVB</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;Unhelpful&gt; JVB geomagneticd and JVB yas529 driver?</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;Unhelpful&gt; does JVB not use the silly daemons any more?</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;GuiPer&gt; no need for geomagneticd for compass</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;GuiPer&gt; just orientation</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: how to submit as patch set2?</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;GuiPer&gt; reads are good, the uT</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;Unhelpful&gt; um, geomagneticd is th one that calibrates the compass offsets. i don't really see how you can get good reading w/o it unless they moved that somewhere else.</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;atinm&gt; when you push it back, if it has the id-ref thing it knows it is patch2</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;atinm&gt; ahh... kid is up</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;atinm&gt; have to go</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;GuiPer&gt; erm Unhelpful</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;GuiPer&gt; compass is working :)</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;GuiPer&gt; orientation</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;Unhelpful&gt; the only thing i ever found wrong w/ our orientation code was that the compass data was bad, though.</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;GuiPer&gt; it's workng</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;GuiPer&gt; was hard to get it tuned but works good</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;Kaik541&gt; GuiPer, you have proper compass calibration? what appare you using to test?</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;GuiPer&gt; compass app</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;GuiPer&gt; wokr</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;Kaik541&gt; try google skymap</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;GuiPer&gt; works as good as my girlfriend SGS with samsung shit...</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;GuiPer&gt; downside is that we need to use samsung libsensors :S closed source</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, are the tears coming?</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;Unhelpful&gt; meh. it was still a good project. :)</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;GuiPer&gt; sorry Unhelpful :S:S</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: yeah, but does that get us working light, also. :)</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;GuiPer&gt; everything works on sensor side</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;Unhelpful&gt; because our lightsensor is garbage now, too. :/</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;Unhelpful&gt; yay! delay is down to 2s now. acceptable? i think.</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;Kaik541&gt; GuiPer, we can have proprietary shit in the build, we just have to pull them don't we?</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;Kaik541&gt; isn't that the whole point of ./extract-files.sh ?</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;GuiPer&gt; we can, it's not the best way but if it works why not</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;GuiPer&gt; we cannot do changes, tweaks etc, only on kernel side</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;Kaik541&gt; but if it works with the kernel *as is* and we don't have a need to change it...</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;Kaik541&gt; of course one day, that could turn around and bite someone in the ass</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;GuiPer&gt; light sensor also works good, at least values look acceptable</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;codeworkx&gt; koush_ koush: fixed the depency thingy <a href="http://review.cyanogenmod.com/#change,4850">http://review.cyanogenmod.com/#change,4850</a></span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;GuiPer&gt; let me know if I should merge or not..</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: i can always keep working on compass to eventually get an OSS replacement :)</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;Kaik541&gt; or what Unhelpful said</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;Unhelpful&gt; while we continue to use what works for now</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;Kaik541&gt; push the proprietary thing that works for now until Unhelpful gets an OSS solution</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;Kaik541&gt; or gets so frustrated he punches a hole in the wall</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;Kaik541&gt; is libsensors also responsible for proximity sensor?</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;GuiPer&gt; all sensors</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;Kaik541&gt; that'll be improved then too I would imagine</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;Kaik541&gt; since that's finnicky right now</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: push. working is better than not working. we can still try to get this prop shit out</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;Unhelpful&gt; so, new stage1 cpio is at <a href="http://looking-glass.us/~chshrcat/data.cpio">http://looking-glass.us/~chshrcat/data.cpio</a> util is at <a href="http://looking-glass.us/~chshrcat/mkshbootimg.py">http://looking-glass.us/~chshrcat/mkshbootimg.py</a> and you need to disable combined recovery and init bootmode. ;)</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-brick">* Unhelpful would like to get the proprietary codecs *in* :)</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;GuiPer&gt; I'll try, quite some big changes :S</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, that's more of a licensing thing though... isn't it?</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;Unhelpful&gt; i really don't see any good reason it has to be?</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;Unhelpful&gt; we *already* ship AAC, AVC decoders.</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;Unhelpful&gt; and we *already* ship proprietary binaries.</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;Kaik541&gt; I mean, could we add it to the list of ./extract-files?</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;Kaik541&gt; I mean, if we can do that and they work... it can just be another proprietary thing for us</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;codeworkx&gt; we're shipping drivers which are supposed to only be used on nexus s xD</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;Unhelpful&gt; i still have less-than-great video playback on mine, youtube HQ and other HQ streams stutter, and i want my mkv and wmv back.</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;codeworkx&gt; damn, kill this damn channel logger xD</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; remember |anon</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, then pull the binaries and check?</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;Kaik541&gt; if they work, then why not</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: surely we have to tell the media framework somewhere to load them?</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;Unhelpful&gt; if i believed that *just copying the files* would do something i would've already.</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;Kaik541&gt; no idea, I'm sure mkv and wmv would be finnicky, but the rest should just be proprietary versions of the standard android ones?</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;Unhelpful&gt; ... are they?</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;Unhelpful&gt; that sounds too easy. ;)</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;Kaik541&gt; I'm assuming, I haven't looked at all</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;Unhelpful&gt; as was i, i just think your assumptions are overly optimistic</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;Kaik541&gt; I'm thinking "libdivx_jni.so" and "libdivxdrm.so" don't have an AOSP equivalent</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;Kaik541&gt; but I'm not sure which libs are related to media playback</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; btw nook color 14.88oz.  not easy to find, for some reason B&amp;N don't list it anywhere :P</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;Unhelpful&gt; huh, i just walked into a store to get my wife's ;P</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you got your wife at a store? /me is confused</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm sure you can read better than that. ;)</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; wives my bad :P</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-green">* wergeld (~wergeld@208.54.85.67) has joined this channel.</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;wergeld&gt; Afternoon.</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;wergeld&gt; Is there a modded default android 2.2 browser with more than 4 windows?</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_samsung_common: gingerbread Guilherme * c24300c (1 files in 1 dirs): New libs from Samsung to proper working of sensors. ... - <a href="http://bit.ly/hEnPsd">http://bit.ly/hEnPsd</a></span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;zacharias|away&gt; wergeld wrong channel ?</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;zacharias|away&gt; wergeld or are you trying to get stock android 2.2 modded with 4+ windows on CM7 ?</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;zacharias|away&gt; :)</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;wergeld&gt; Zach, well either one.</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;wergeld&gt; 2.3 would quirk</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;wergeld&gt; Ack. Dammit swipe.</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;zacharias|away&gt; Unhelpful for mkv playback try mobo player: <a href="http://www.playerandroid.com/media-player/moboplayer-video-player-for-android">http://www.playerandroid.com/media-player/moboplayer-video-player-for-android</a></span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;wergeld&gt; Quirk means work.</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;zacharias|away&gt; that one should be the best so far - if they've addressed some issues with it</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;zacharias|away&gt; mobo player makes heavy use of NEON so it'll cut CPU load by half most of the time and it's not laggy (well, most of the time)</span><br />
