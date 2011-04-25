@@ -948,3 +948,124 @@
 <span class="irc-date">[19:53]</span> <span class="irc-black">&lt;GuiPer&gt; should be quite easy to fix rotation</span><br />
 <span class="irc-date">[19:54]</span> <span class="irc-black">&lt;freat&gt; kernel tainted! (jk)</span><br />
 <span class="irc-date">[19:55]</span> <span class="irc-black">&lt;freat&gt; I said taint</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;Unhelpful&gt; zacharias|away: that's nice, but i imagine CPU will be even better w/ the vendor libs? i thought they had hw decoding ;)</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;GuiPer&gt; found some small permissions problem :S</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;GuiPer&gt; services just run properly under root, looks like</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-navy">* blyfoten (~AndChat@c-8fd3e455.04-17-73746f2.cust.bredbandsbolaget.se) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: which service? we had that issue w/ cmsgs6, and it had to do w/ service permissions being hardcoded.</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;GuiPer&gt; geomagneticd and orientationd</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;GuiPer&gt; if I start from cmd prompt they work properly from init.rc not really</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, what user does init.rc start them as? probably we don't really want them as root.</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;GuiPer&gt; service orientationd /system/bin/orientationd</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;GuiPer&gt;     user compass</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;GuiPer&gt;     group input</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;Kaik541&gt; wtf is going on here... somehow the "2.3 for captivate rumor" thread in captivate general has become a debate of bush vs obama</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: then you need to say that orientationd is allowed to be started by compass. :)</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;techmik_laptop&gt; moderator</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;GuiPer&gt; how?</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;techmik_laptop&gt; no place for it</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: like i said, that's hardcoded. :)</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;Unhelpful&gt; let me find the right file again</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;Unhelpful&gt; users/groups in android are a horrid mess, some of the stuff is apps db, some is hard-coded.</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;GuiPer&gt; so with service running from init.rc it does not work</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;GuiPer&gt; as soon as I start from shell, geomagneticd it starts to work</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;Unhelpful&gt; right, we had this before, it's a permissions issue, i just need to hunt down the right file again. :)</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;GuiPer&gt; thanks :)</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-green">* blyfoten (~AndChat@c-8fd3e455.04-17-73746f2.cust.bredbandsbolaget.se) has joined this channel.</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm|away&gt; guiper, did you commit stuff to galaxys without having all the pieces tested/working?</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm|away&gt; like initrc, permissions etc?</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;GuiPer&gt; i had it starting as root, it worked...</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;Unhelpful&gt; you need to test *what you are committing*</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;atinm|away&gt; c'mon man . . . this is reason to have commit privs revoked, you don't just commit and break stuff - especially not something of this sort. Little stuff happens, but this is major.</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;GuiPer&gt; agree with you, the problem is being major :S</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;GuiPer&gt; what I didn't test does not break anything, it's just a permission detail</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;GuiPer&gt; and can fix orientation for captivate in 10 minutes... else I was not doing it</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: what daemons need to be added?</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;atinm|away&gt; ok, lets get it working - I'll leave you alone to work with unhelpful</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;GuiPer&gt; geomagneticd and orientationd</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;GuiPer&gt; I would say mainly geomagneticd, the second one from init.rc works</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;Unhelpful&gt; are you starting orientationd as compass or root?</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt; wait</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt; service orientationd /system/bin/orientationd</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt;     user compass</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt;     group input</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt; service geomagneticd /system/bin/geomagneticd</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt;     user compass</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt;     group system input</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;Unhelpful&gt; ok... just a sec :)</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;GuiPer&gt; atin, being something major, completely new kernel drivers and userspace in my point of view it was acceptable to break it for some hours</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;Unhelpful&gt; try applying this in frameworks/base: <a href="http://pastie.org/1832695">http://pastie.org/1832695</a></span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm going to have to go, so i can't really go breaking my phone, but that should get the daemons running</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;GuiPer&gt; maybe put on root by now?</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;GuiPer&gt; workaround?</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;GuiPer&gt; tomorrow let's fix it properly</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;atinm|away&gt; GuiPer: no - stuff like this gets worked on a branch</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;atinm|away&gt; then merged once it is working.</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;atinm|away&gt; because stuff like this is never just a few hours.</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;Unhelpful&gt; no, don't commit run-as-root as a workaround. if this fix works for you it should work for the other targets too.</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;GuiPer&gt; compiling, fixing now rotation on captivate</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-navy">* wergeld (~wergeld@208.54.85.67) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;GuiPer&gt; Unhelpful: where are you inverting now the Y axis of Captivate??</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;GuiPer&gt; for accelerometer</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;GuiPer&gt; techmik any success?</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-green">* Fire2fly (~yaaic@62.140.137.120) has joined this channel.</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;Unhelpful&gt; accel needs x/y swapped, and X (the value that ends up in x, the one that comes from y) inverted.</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;techmik67&gt; crap</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;Unhelpful&gt; and my testing w/ biasmodel has so far said we need position 0 for compass</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;techmik67&gt; anyone familiar with tv tuners?</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;techmik67&gt; btw, finished build</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;GuiPer&gt; oki, can change it later, upon feedback, used 7 for now</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;GuiPer&gt; regarding accelerator, will do it on kernel driver level</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;Unhelpful&gt; no choice for that afaict</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;GuiPer&gt; only captivate? or also vibrant?</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;techmik67&gt; booting</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;GuiPer&gt; compass needs trick to work :)</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;GuiPer&gt; need to write geomagneticd in console</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;GuiPer&gt; #if defined(CONFIG_SAMSUNG_CAPTIVATE)	</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;GuiPer&gt; 	input_report_rel(bma023-&gt;input, REL_X, (-(accel.y)));</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;GuiPer&gt; 	input_report_rel(bma023-&gt;input, REL_Y, accel.x);</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;GuiPer&gt; 	input_report_rel(bma023-&gt;input, REL_Z, accel.z);</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;GuiPer&gt; #else</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;Unhelpful&gt; i think that's right ;)</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: fix it in services ;P</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;techmik67&gt; when fixed, can i rebuild without clean?</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;GuiPer&gt; sure, just need kernel</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;GuiPer&gt; well, maybe not working compass, but hopefully orientation if broken</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;techmik67&gt; its broken =)</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;GuiPer&gt; and compass?</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;GuiPer&gt; need to write geomagneticd in console</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;GuiPer&gt; "geomagneticd &amp;"</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;techmik67&gt; compass wrong too =)</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;GuiPer&gt; what is wrong?</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;techmik67&gt; held 1 way, its off by 90 degrees.... rotate it and its off 180</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;techmik67&gt; neither s correct</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;GuiPer&gt; started the service manually?</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;GuiPer&gt; via adb?</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;techmik67&gt; no no</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;techmik67&gt; just booted up and checked orientation was off</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it that the compass screwing up or the orientation being borked</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;techmik67&gt; now compass froze</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;GuiPer&gt; orientation is borked :)</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;techmik67&gt; got it</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;techmik67&gt; backed out</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;GuiPer&gt; ?</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;techmik67&gt; un froze</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;GuiPer&gt; no compass??</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;techmik67&gt; it was stuck for 10 secs</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;GuiPer&gt; can you try ps | grep geo</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;techmik_laptop&gt;    88 compass    828 S    /system/vendor/bin/geomagneticd</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;techmik_laptop&gt;  1173 root      1652 S    grep geo</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;GuiPer&gt; try "geomagneticd &amp;"</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;GuiPer&gt; should start working</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;GuiPer&gt; techmik can I send you a new kernel with orientation fixed?</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;techmik67&gt; now, when phone held portrait, or 180 degrees portrait, its correct</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;GuiPer&gt; just to try before pushing</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;techmik67&gt; landscape, it flips 180 degrees</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;techmik67&gt; sure</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;GuiPer&gt; you have captivate right?</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;GuiPer&gt; 2 minutes :)</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
