@@ -1216,3 +1216,93 @@
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;techmik67&gt; gonna rebuild now</span><br />
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;GuiPer&gt; if you will build it will stop working because of some security problem :S</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;GuiPer&gt; /android/system/device/samsung/captivate$</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;GuiPer&gt; change init.aries.rc</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;GuiPer&gt; service geomagneticd /system/vendor/bin/geomagneticd</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;GuiPer&gt;     user root</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;GuiPer&gt;     group system input</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;GuiPer&gt; service orientationd /system/vendor/bin/orientationd</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;GuiPer&gt;     user root</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;GuiPer&gt;     group input</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;GuiPer&gt; need user root (sorry spam)</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;techmik67&gt; wait, add those, or change to those?</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;techmik67&gt; orient and geo both say user compass</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;GuiPer&gt; change from user compass to root</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;GuiPer&gt; i'll not change as it is not good politic</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;GuiPer&gt; need to fix on other side</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;Wout`&gt; GuiPer: why just not revert, fix, then push?</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;GuiPer&gt; does not change anything, compass didn't work before, compass does not work now without fix :p</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;GuiPer&gt; and it's like 10 commits :S</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_device_samsung_captivate/commit/91fd59d7b688b24851a8e690d2059960889c1409">https://github.com/techmik/android_device_samsung_captivate/commit/91fd59d7b688b24851a8e690d2059960889c1409</a></span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;GuiPer&gt; thanks techmik67. I really need to learn how to use git properly :S</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;techmik67&gt; np =)</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;GuiPer&gt; going to sleep, hopefully will fix tomorrow security shit</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-green">* Zilch25 (Zilch25@c-76-109-50-219.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-navy">* Zilch25 (Zilch25@c-76-109-50-219.hsd1.fl.comcast.net) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;atinm|away&gt; techmik, which repos have been touched?</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;atinm&gt; I see kernel, vendor/samsung/common, and each device tree</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;atinm&gt; nothing else right?</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;techmik67&gt; i believe thats it</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;Unhelpful&gt; i was *already* setting captivate's position to 0 in defconfig.</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;atinm&gt; should I basically branch sensors and rebase back down to pre these changes?</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;atinm&gt; and leave the sensors branch with this stuff?</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;atinm&gt; cause I can't do anything with things the way they are.</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't really know, if it's only the things i think it is this shouldn't even take long, but i can't do it now.</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;techmik67&gt; i am building with the last captivate only change and i am the only one with it commited</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;atinm&gt; I was not planning on working on sensors, and a little pissed that I'm being forced to.</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;techmik67&gt; oh, what i have is just a workaround?</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;atinm&gt; I think the root thing is.</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;atinm&gt; I don't know the details of this, so I don't want to be the one debugging it.</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-navy">* blyfoten (~AndChat@c-8fd3e455.04-17-73746f2.cust.bredbandsbolaget.se) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; techmik has a snapshot right? roll it back and let him push it into a branch or something</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-green">* blyfoten (~AndChat@m80-170-55-242.cust.tele2.se) has joined this channel.</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or nuke it and have guiper put it back into a branch</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;techmik67&gt; can it be transferred to a branch, then the gingerbread branch reverted?</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;atinm&gt; ok, rebased everything and pushed everything to a 'sensors' branch.</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;atinm&gt; so everyone who synced in the meantime is in hell</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;atinm&gt; I'd just go delete the dirs, and also .repo/projects/android_kernel_samsung.git etc</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;atinm&gt; and repo sync -j16 again</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;atinm&gt; so android_kernel_samsung, device_samsung_captivate/vibrant/galaxys, android_vendor_samsung_common have 'sensors' branch now</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;atinm&gt; with all these changes.</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;atinm&gt; and the main gingerbread (or android-samsung-2.6.35 in the kernel's case) are back to the way they were.</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;techmik67&gt; does sensors have the 1 thing i alone had?</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;atinm&gt; and screw not rebasing public git repos . . . this was just done wrong . . . hopefully no one synced in the meantime and depended on it.</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; prolly but it was a temporary fix so I wouldn't worry about it</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;techmik67&gt; i see</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm sure we will find out atinm.  but thats what we have Kaik for :P</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or tech... I'm not sure whos turn is is</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it is</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;Kaik541&gt; oh I am so not keeping up with this conversation</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;Kaik541&gt; I hope my job is to eat all the ice cream</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dono about all of it but you can have mine if that makes you feel better</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;Kaik541&gt; yes... yes it would</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;Kaik541&gt; especially if it's dippin' dots</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;Kaik541&gt; ice cream of the future</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; andys mint chocolate</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;atinm&gt; yeeha, almost done with Joel</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;atinm&gt; Jobim next up</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Billy had enough albums that a greatest hits makes sense.  Pandora keeps coming up with hits albums for bands that put out like 2-3 albums</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;atinm&gt; I skipped ripping his greatest hits album :)</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;atinm&gt; since I have all the albums!</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sounds like you prolly have it... :) yup</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;atinm&gt; I think his greatest hits album was the first CD I owned</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;atinm&gt; double cd album</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;techmik67&gt; summer highland falls is one of my favorite songs</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; yeah, and I can sing that one :)</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;techmik67&gt; he is awesome, and grew up near me, a lillte earlier =)</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; so that's good</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;techmik67&gt; i wish i could play the piano part</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm&gt; I just play the guitar, so I only play the chords</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; first cd..... I don't remember what it was.  all I remember is it sounded like shit 'cus they didn't know how to do the conversions very well at the time</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Tull maybe? aqualung?</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;atinm&gt; or I should say I used to play the guitar. since my transplant, I haven't really got back into it because my singing voice died.</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;atinm&gt; or the voice is fine, my breath control is gone</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;atinm&gt; I had aqualung on cassette :)</span><br />
