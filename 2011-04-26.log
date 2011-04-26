@@ -994,3 +994,110 @@
 <span class="irc-date">[18:58]</span> <span class="irc-black">&lt;kang&gt; noobed :(</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;kang&gt; mm nothing in device common but i gueess the others fine</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;kang&gt; going to recompile and see now ;)</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;techmik67&gt; frameworks/base, not device common</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;techmik67&gt; kernel, vendor/samsung.common, device/samsung/yourdevice, frameworks/base</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;GuiPer&gt; frameworks base is not needed</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;techmik67&gt; did we add something to device.../common?</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;GuiPer&gt; i guess I did something, wait</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;GuiPer&gt; sorry, not needed</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;GuiPer&gt; it's configured from device one</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;techmik67&gt; oh, and we didnt do this on captivate yet, i dont think... <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/commit/c671a35c8be4c0c2b4fb16f1bb569341454c1495">https://github.com/teamhacksung/android_device_samsung_galaxys/commit/c671a35c8be4c0c2b4fb16f1bb569341454c1495</a></span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;GuiPer&gt; Unhelpful should be taking a look at it</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;techmik67&gt; ak, k</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;GuiPer&gt; mine is not the best way I guess</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;GuiPer&gt; :)</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;nitam|work&gt; zachy_md|study: why are we modifying the HZ? I'm happy with what Samsung put in . . .</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;nitam|work&gt; especially if changing it breaks a driver...</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work you can either get a smoother overall experience or aim for better battery runtime</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work the point is: it worked before</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work actually the new changes break stuff ;)</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work and from my experience raising the timer value the sensors / auto-rotation seems to work more reliably - overall things work more reliably</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;nitam|work&gt; eh, doubling a frequency just for the hell of it without knowing why isn't going to make me do it.</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;nitam|work&gt; especially if it breaks something else.</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;nitam|work&gt; I guess I'm saying you need to debug this more.</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;nitam|work&gt; and I'm not going to speculate about what could be depending on the value of HZ and USER_HZ that breaks keys . . . I don't know enough about it.</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;nitam|work&gt; I don't mean to be rude - stuff from earlier today has me wanting to bite everything so it came off that way. But basically playing with clock frequencies etc is your domain, we're staying with samsung values on mainline kernel.</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;zachy_md|study&gt; <a href="http://en.wikipedia.org/wiki/High_Precision_Event_Timer">http://en.wikipedia.org/wiki/High_Precision_Event_Timer</a></span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;nitam|work&gt; unless given a significant reason to change, it isn't one of the things we're going to do much about.</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-navy">* Zilch25 (~Zilch25@32.133.171.111) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;nitam|work&gt; so for now, you get to make the case for why and what the bug is. sorry . . .</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work the bug is: keys don't work anymore as soon as it's touched; the cause: one of the recent GB-source merges (they can't be easily tested on their own since they depend on each other); the why: raising the timer provides smoother multimedia playback, less lags, more responsiveness of the phone</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;nitam|work&gt; :) so dont' touch it.</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work and shouldn't hurt battery runtime either since it's supposedly using CONFIG_NO_HZ</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;zachy_md|study&gt; meh</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;nitam|work&gt; Hopefully unhelpful can look since he's the one who knows all about this stuff</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work yeah, that would be nice :)</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-green">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-navy">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread codeworkx * 1f582de (1 files in 1 dirs): back to CyanogenMod/android_bootable_recovery, merged - <a href="http://bit.ly/ic7iKX">http://bit.ly/ic7iKX</a></span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-green">* acdbx (acdbx@137.110.37.20) has joined this channel.</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-green">* designfears_ (~df@cpe-71-64-204-109.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;Unhelpful&gt; ...all about. :/</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;techmik67&gt; yay... bml over mtd merged.... just noticed =)</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;techmik67&gt; we can use cm/bootable /recovery now, i think.....</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;techmik67&gt; fun fuin</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;techmik67&gt; closer and closer</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: why captivate is forked? xD</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;nitam|work&gt; forked where?</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;codeworkx&gt; to cm</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;nitam|work&gt; what the hell?</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;Unhelpful&gt; CM merged captivate?</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;nitam|work&gt; oh, koush :)</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;techmik67&gt; koush was doing stuff last week, i think, wasnt he?</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;Wout|Portal2&gt; didnt koush do that?</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;Wout|Portal2&gt; for rm?</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;nitam|work&gt; yeah</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;nitam|work&gt; he intended to delete it</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;codeworkx&gt; how's the sensor stuff working on cappy?</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful and techmik and guiper working on it</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;techmik67&gt; it was great, when i starteds it manually</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;Unhelpful&gt; it's working, i'm trying to resolve some aesthetic issues. :P</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;techmik67&gt; started*</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;techmik67&gt; cool</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;nitam|work&gt; I doing nothing except be a pain in the ass for everyone by waving a big ole bat at everyone not toeing the line.</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;nitam|work&gt; since I'm at work and can't do anything right now</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;Kaik541&gt; mnita|work, so now would be a bad time to mention the audience chip? :P</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;nitam|work&gt; like I said, big ole bat.</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;Kaik541&gt; D:</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;GuiPer&gt; give up with camera !</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;Kaik541&gt; so uh, looking at the default.xml I can't help but notice that the only thing outside of CM official repo's is kernel/device stuff now... once the "adb reboot x" commands work and I guess the single install zip... are we (mostly) good?</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;Kaik541&gt; anonymous,</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;Kaik541&gt; you didn't happen to try to toggle 2g/3g did you?</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;GuiPer&gt; ill try camera later on</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;nitam|work&gt; zachy_md|study: which driver is it that is breaking?</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;nitam|work&gt; on changing CONFIG_HZ?</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;Unhelpful&gt; it sounds like you're saying it *used to* change w/o breaking - so we probably only need to debug the changes, and not the whole driver? ;)</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;nitam|work&gt; I think so - but need to know which driver it is that he's talking about - I lost track.</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;nitam|work&gt; cypress-touchkey I imagine</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; which changed a lot.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; its essentially a new driver</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work I'm not sure which driver is used on the cappy</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;zachy_md|study&gt; I saw some cleanups and removed code from the mxt224</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;zachy_md|study&gt; is that the driver used for captivate ?</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;Unhelpful&gt; cosmetic issue: JVB runs geomagneticd as compass. works fine, you need to change some sysfs perms for it to work. but, um, actually it *doesn't* work on first start. :(</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;Unhelpful&gt; the same daemon, with the same permissions, works if you kill it and let init restart it. :/</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;zachy_md|study&gt; so it could be either cypress-touchkey or mxt224</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;zachy_md|study&gt; users report that "buttons" don't work</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;zachy_md|study&gt; so it's the softkey buttons with backlight</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;zachy_md|study&gt; don't know which driver is responsible for them</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work, Unhelpful: hope that helps</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/f2915de5bb249679d2c4c5f674504d0d5cfed73f">https://github.com/teamhacksung/android_kernel_samsung/commit/f2915de5bb249679d2c4c5f674504d0d5cfed73f</a></span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;nitam|work&gt; funny, lots of udelays changed and msleeps changed</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;nitam|work&gt; and they're just absolute numbers</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what happens if you dont have geo start on boot but let it come up when you activate the compass?</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;Unhelpful&gt; udelay and msleep are both in "regular" time units, though?</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: ummm.... how would i do that?</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;nitam|work&gt; actually, they didn't change. just spacing.</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hell if I know</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, you're sounding more like me</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;Kaik541&gt; "good idea, if that could even possibly be done"</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: afaict geomagneticd doesn't actually interact w/ orientationd or the sensors lib. its only job is to read the geomagnetic_raw sensor, calculate bias, and write the bias settings to a sysfs control file.</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; listen, I'm trying to figure out if all these msleep vs mdelay changes are needed, it looks like msleep is prefered</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Quit: Ik ga weg)</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;zachy_md|study&gt; techmik67, Kaik541: you guys have a captivate with Froyo/Eclair bootloader ?</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: isn't there an ignore-whitespace option?</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; i sure dont have any new bootloader, afaik</span><br />
