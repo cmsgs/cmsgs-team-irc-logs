@@ -1257,3 +1257,107 @@
 <span class="irc-date">[20:58]</span> <span class="irc-black">&lt;techmik67&gt; isnt it?</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;techmik67&gt; no, its sensors, nvm</span><br />
 <span class="irc-date">[21:00]</span> <span class="irc-black">&lt;techmik67&gt; wait, unless i'm reading things wrong, the sensors branch doesnt have the cam stuff</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commits/sensors">https://github.com/teamhacksung/android_kernel_samsung/commits/sensors</a></span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;GuiPer&gt; nop,</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commits/camera">https://github.com/teamhacksung/android_kernel_samsung/commits/camera</a></span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;GuiPer&gt; but the branch camera has everything</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;techmik67&gt; rightg</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;techmik67&gt; right</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;GuiPer&gt; but now need to remove camera shits</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;GuiPer&gt; to test sensors :S</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-green">* maxwell (516b04ce@gateway/web/freenode/ip.81.107.4.206) has joined this channel.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;techmik67&gt; so git checkout sensours</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;techmik67&gt; sensors</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;GuiPer&gt; does not revert changes :S</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;techmik67&gt; and there you are... no cam stuff</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;GuiPer&gt; not really :S</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;techmik67&gt; i am buiding, so i cant actually check locally</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;nitam|work&gt; do you have uncommitted changes in your tree?</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-navy">* maxwell (516b04ce@gateway/web/freenode/ip.81.107.4.206) Quit (Client Quit)</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;GuiPer&gt; no, don't think so</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;nitam|work&gt; so what happens when you get checkout sensors?</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;nitam|work&gt; you still have your camera changes?</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;GuiPer&gt; commited camera things to new branch</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-navy">* Kaik541 (~Kaik541@cpe-70-112-175-254.austin.res.rr.com) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;GuiPer&gt; yep, still have there camera things :S</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;GuiPer&gt; changes</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;GuiPer&gt; guilherme@guilherme-PC:~/android/system/kernel/samsung/2.6.35$ git checkout sensors</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;GuiPer&gt; Already on 'sensors</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;nitam|work&gt; ok, is everything committed?</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;nitam|work&gt; nothing you care about anymore in your tree?</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;nitam|work&gt; git checkout gingerbread</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;GuiPer&gt; ahah, maybe :)</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;nitam|work&gt; git branch -D sensors</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;GuiPer&gt; there are 2 things there that I don't care</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;nitam|work&gt; git branch --track sensors github/sensors</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;GuiPer&gt; vmlinuz</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;nitam|work&gt; or git checkout -b sensors github/sensors</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;nitam|work&gt; and you should be on clean sensors tree</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;nitam|work&gt; and git checkout sensors</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;nitam|work&gt; (if you did git branch --track)</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;nitam|work&gt; wtf, vibrant always starts off in InCallScreen mode</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;nitam|work&gt; when an incoming call happens.</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;nitam|work&gt; so you have to mute/unmute to get out of callscreen</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;nitam|work&gt; is that like some setting somewhere?</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-navy">* t-ready (~burrell@wormhole.cbl.umces.edu) Quit (Quit: Captivate - Phoenix ROM)</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;GuiPer&gt; guilherme@guilherme-PC:~/android/system/kernel/samsung/2.6.35$ git branch --track sensors github/sensors</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;GuiPer&gt; fatal: Not a valid object name: 'github/sensors'.</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;GuiPer&gt; deleted it successfully</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;GuiPer&gt; but next step fails</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;codeworkx&gt; what if you delete kernel/samsung/2.6.35 and resync?</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;codeworkx&gt; need this damn AwesomeogenMod 7 for my 2X</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;nitam|work&gt; GuiPer: git branch -a</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;nitam|work&gt; what do you see</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;GuiPer&gt; delete and repo sync :)</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;GuiPer&gt; working good now</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: sensors Guilherme * f8c80a6 (1 files in 1 dirs): Changes to a more simple and secure execution of the deamon. to be tested yet ... - <a href="http://bit.ly/gzFcEs">http://bit.ly/gzFcEs</a></span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;GuiPer&gt; mnita|work: captivate and galaxys should be ready</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;GuiPer&gt; doing final tests</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;GuiPer&gt; merged now with Unhelpful config</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work, Unhelpful: ok from the results I saw so far the offending commit might be:  f2915de5bb249679d2c4</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work, Unhelpful: mach-aries.c: cleaned up this oled/lcd hell</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, but a lot happened there except nothing seems to care about HZ. But we did change something about virtual keys.</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;nitam|work&gt; that's what I'm thinking could be at issue for Captivate.</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;nitam|work&gt; I will do some tests when I get home.</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work thanks ! :)</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-green">* DocMAX (~docmax@g224157229.adsl.alicedsl.de) has joined this channel.</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-green">* Wout|Portal2 is now known as Wout</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; can't look at anything right now.</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; dealing with stuff at work.</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;nitam|work&gt; I finally went and demanded some test dummies for vibrant.</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;nitam|work&gt; err, vibrant quality assurance people.</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;nitam|work&gt; so 2-3 people should show up sometime</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;nitam|work&gt; that techmik gets to hand-hold.</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;DocMAX&gt; how can i test if led notification works???</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-green">* evzor (~evzor@71.161.106.159) has joined this channel.</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;evzor&gt; hello all. I'm Evzor. Happy to help with anything i can.</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;Wout&gt; do you know c or java?</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;evzor&gt; i'm a little rusty on my java but i've got the basics</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;evzor&gt; same thing for c really</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;Wout&gt; any experience on kernel hacking?</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;evzor&gt; been out of college for like 4 years now and haven't used it since</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;evzor&gt; no but i'd love to learn</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; which phone do you have :)</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-green">* DocMAX2 (~docmax@g224154198.adsl.alicedsl.de) has joined this channel.</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;evzor&gt; i have a vibrant</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;evzor&gt; us tmobile</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; guinea pigs \o/</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;zerojay&gt; Not sure this is a great project to start learning with, but... heh.</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-navy">* DocMAX (~docmax@g224157229.adsl.alicedsl.de) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;Wout&gt; good for testing</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;evzor&gt; yeah i know i realize i may be a little noobish for this room</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;evzor&gt; but hell gotta give it a shot right</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;Wout&gt; evzor: as long as you can produce dmesg/logcat dumps, you can be of use testing</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; as long as you know how to flash a kernel you should be fine</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh and that</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;evzor&gt; lol oh yeah i'm good with all those things</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-navy">* KBme (~KBme@2001:470:1f13:94::3) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;techmik67&gt; testng with a build of device/../captivate and vendor/.../common on sensors and kernel on cam,,,,, compass works, but needed to calibrate 1st.... camera not responding</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-green">* gehzumteufel (4cfcabbb@gateway/web/freenode/ip.76.252.171.187) has joined this channel.</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;GuiPer&gt; normal :):)</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;GuiPer&gt; camera needs more work, tomorrow</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;GuiPer&gt; techmik67: let me know if your battery life improved</span><br />
