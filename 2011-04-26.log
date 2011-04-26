@@ -1101,3 +1101,159 @@
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;zachy_md|study&gt; techmik67, Kaik541: you guys have a captivate with Froyo/Eclair bootloader ?</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: isn't there an ignore-whitespace option?</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; i sure dont have any new bootloader, afaik</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;Kaik541&gt; and I'm not on CM7</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;zachy_md|study&gt; techmik67, Kaik541: could you please give the following kernels from me a try ?</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;nitam|work&gt; I am just looking on github for that commit.</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;zachy_md|study&gt; Kaik541 oh - ok</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;zachy_md|study&gt; techmik67: <a href="http://forum.xda-developers.com/showpost.php?p=13228359&amp;postcount=242">http://forum.xda-developers.com/showpost.php?p=13228359&amp;postcount=242</a></span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;nitam|work&gt; only thing I see is a msleep(50); turned to msleep(25) on touchkey onoff ;-)</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah... but i think msleep is in ms, regardless of what HZ is set to?</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;techmik67&gt; which do you want me to try?</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;GuiPer&gt; Wout|Portal2: success with building sensor thing?</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, which is why I don't know what is going on.</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; zach, you sure its that commit that cause the issue?</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;Unhelpful&gt; have you bisected? ;)</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;nitam|work&gt; I have done nothing - I'm just going by what I've been told for now. haven't compiled with the values that zach tried.</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;zachy_md|study&gt; techmik67 all of them :P</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;nitam|work&gt; so just looking at the commit that zach pointed to</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;techmik67&gt; ah... k</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;zachy_md|study&gt; techmik67 please make a nandroid backup</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;zachy_md|study&gt; techmik67 just in case you need to restore your data later</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;zachy_md|study&gt; techmik67 #3, #4 might break your softkeys, not sure yet</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;zachy_md|study&gt; techmik67 if they don't it's something else</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;zachy_md|study&gt; techmik67 I'm currently looking for the commit + before + after which breaks the keys for the captivate</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I want to say DISPLAY_CS moves around in there between sources but I don't have any of my crap with me</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: just tried what you pushed, it doesn't work, running as system the daemon doesn't have write access to the control file.</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and I know drive strength changed, its something ugly rather than 0x0</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;Unhelpful&gt; just added stuff to change permissions on the control files ;)</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;GuiPer&gt; it is working for me...</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;zachy_md|study&gt; techmik67 it could also be a later commits but afaik there's only one more to test after that that might poentially break it</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; chmod :P</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;GuiPer&gt; just need one calibrate on compass app</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: i'm asking if he bisected them. :)</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: ...now you say that.</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work, Unhelpful: how would I be in the position to bisect if I can't test &amp; some of those commits depend on each other ;)</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;Unhelpful&gt; you never mentioned needing to manually calibrate before?</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;GuiPer&gt; Unhelpful: with my config try rm file, reboot, go to compass app, calibrate, and should work</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;zachy_md|study&gt; in the link I posted I've the names of the commits that are candidates in my opinion for breaking the keys:</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;zachy_md|study&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13228359&amp;postcount=242">http://forum.xda-developers.com/showpost.php?p=13228359&amp;postcount=242</a></span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;GuiPer&gt; it does not work anyway with compass user calibrate</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: with your config i strace'd the geomagneticd and can *see* it failing to write the control file</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;GuiPer&gt; but after rm the file you do need to calibrate</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;GuiPer&gt; strange then :S</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work, Unhelpful: I haven't included the new vibrator settings (0865fc2b728b5b926df4)</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;GuiPer&gt; well if it's fixed push it please</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;Unhelpful&gt; if it can't write the control file, it's not working.</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;GuiPer&gt; i'll give a try</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work, Unhelpful: but to apply it on the teamhacksung repo: 0ec9c46cb49c3975c36d should be fine</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm trying to fix now</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work, Unhelpful:  f2915de5bb249679d2c4 &lt;-- it should be broken</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;zachy_md|study&gt; mnita|work, Unhelpful: in combination of the above mentioned changes to</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;zachy_md|study&gt; 400 if S5P_HIGH_RES_TIMERS</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;zachy_md|study&gt; default 400 if ARCH_EBSA110 || ARCH_S3C2410 || ARCH_S5P6440 || ARCH_S5P6442 || ARCH_S5PV210</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;GuiPer&gt; read(4, "B\1\0\0\222\26\v\0\2\0\1\0����", 1024) = 16</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;Unhelpful&gt; i just added stuff to give input group access to the control files</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;GuiPer&gt; read(4, "B\1\0\0d\27\v\0\2\0\2\0w���", 1024) = 16</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;zachy_md|study&gt; in arch/arm/Kconfig</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;zachy_md|study&gt; and # define USER_HZ	200</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;GuiPer&gt; from strace -p 89</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: look at open/write.</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;zachy_md|study&gt; in arch/arm/include/asm/param.h</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;GuiPer&gt;  89 system     828 S    /system/vendor/bin/geomagneticd</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;Unhelpful&gt; it can read the raw input data just fine. the control file is what matters.</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;nitam|work&gt; right, I'm looking at f2915de5bb249679d2c4 but don't see what even cares about HZ or USER_HZ.</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;Unhelpful&gt; do strace -e !read</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;GuiPer&gt; and kill it?</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;GuiPer&gt; no output</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;GuiPer&gt; chown32(0xc0c0, 0x3e8, 0x3e8)           = 0</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;GuiPer&gt; chmod("/data/system/yas529-backup.cfg", 0644) = 0</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;GuiPer&gt; rename("/data/system/yas529-backup.cfg", "/data/system/yas529.cfg") = 0</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;GuiPer&gt; open("/sys/class/input/input3//offsets", O_WRONLY) = 3</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;GuiPer&gt; on calibrate, from strace</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-navy">* icezar1 (~quassel@unaffiliated/icezar) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;nitam|work&gt; though we did go from using ENABLE_VIRTUAL_KEYS to not</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;codeworkx&gt; i've removed the virtual keys crap</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;codeworkx&gt; "dead code" ;-)</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-navy">* KBme (~KBme@2001:470:1f13:94::3) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;nitam|work&gt; yeah - the question is, was it really dead on captivate :)</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: this: <a href="http://pastie.org/1836627">http://pastie.org/1836627</a></span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;Unhelpful&gt; if you don't see that, eventually, it's not working.</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;Unhelpful&gt; that is the key for what geomagneticd does to make sensors work.</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;GuiPer&gt; open("/sys/class/input/input3//offsets", O_WRONLY) = 3</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;GuiPer&gt; write(3, "19 25 11 -51 -22 -52 2", 22)  = 22</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;GuiPer&gt; close(3)                                = 0</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;GuiPer&gt; see it</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;GuiPer&gt; only on calibrate</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-green">* Fire2fly (~yaaic@62.140.137.100) has joined this channel.</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;Unhelpful&gt; and that's w/ any chown? because what i see is the open failing, and no write, unless i chown the files.</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;GuiPer&gt; i never chowned the file</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;GuiPer&gt; just deleted it one time</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;Unhelpful&gt; ...you can't actually usefully delete a sysfs file. :)</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt; deleted the config and I have the chown on init.aries.rc</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt; i commited it</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;Unhelpful&gt; in fact you can't remove it at all.</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, you do have the chown?</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;GuiPer&gt; open("/sys/class/input/input3//offsets", O_WRONLY) = 3</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-green">* blyfoten (~AndChat@c-b9dbe455.04-17-73746f2.cust.bredbandsbolaget.se) has joined this channel.</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;GuiPer&gt; write(3, "19 25 11 -51 -22 -52 2", 22)  = 22</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;GuiPer&gt; close(3)                                = 0</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/commit/c671a35c8be4c0c2b4fb16f1bb569341454c1495">https://github.com/teamhacksung/android_device_samsung_galaxys/commit/c671a35c8be4c0c2b4fb16f1bb569341454c1495</a></span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;GuiPer&gt; there</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;GuiPer&gt; copy paste from samsung roms :)</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;GuiPer&gt; commited it some time ago</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-navy">* freat (~ron@c-98-216-38-131.hsd1.ma.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;GuiPer&gt; now I understand it :) when you said my config does not work i guess you didn't notice the chowns on init.aries.rc</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;Unhelpful&gt; um, they're not *in* captivate.</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-navy">* AndChat| (~AndChat@c-b9dbe455.04-17-73746f2.cust.bredbandsbolaget.se) Quit (Ping timeout: 248 seconds)</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;GuiPer&gt; pushed only to sgs, as you could get a better solution. Sorry for the misunderstanding</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-green">* KBme (~KBme@2001:470:1f13:94::3) has joined this channel.</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, have daemon running as compass, and chown offsets as compass:input, and it works. :)</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;Unhelpful&gt; most of those you should not need to fiddle w/</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;Unhelpful&gt; but i didn't have to kill it</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;GuiPer&gt; nice one :) probably is better as compass than system</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-green">* freat (~ron@c-98-216-38-131.hsd1.ma.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;GuiPer&gt; if you can push it, I'll give a try</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-navy">* acdbx (acdbx@137.110.37.20) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: sensors Andrew Mahone * d3e4eb9 (1 files in 1 dirs): Set geomagnetic_raw sysfs ownership to compass ... - <a href="http://bit.ly/gCEtem">http://bit.ly/gCEtem</a></span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;Unhelpful&gt; um, i thought it failed...</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;Unhelpful&gt; anyway, you can try, if that's right. i have to go.</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: camera Guilherme * 46662f8 (11 files in 5 dirs): New Camera Branch to try to kang drivers. WIP ... - <a href="http://bit.ly/fve6lO">http://bit.ly/fve6lO</a></span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;GuiPer&gt; can I try?</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer = kang0r!</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;GuiPer&gt; :)</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;GuiPer&gt; almost working camera</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;codeworkx&gt; hope it works</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;GuiPer&gt; but had to kang 10 lib*.so</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;kang&gt; beep !</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;kang&gt; lets use a new expression</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;kang&gt; "i codeworkx stuff from samsung"</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;Wout|Portal2&gt; GuiPer: camera was already working, right?</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;GuiPer&gt; hehehe, not working after kanging driver :)</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;Wout|Portal2&gt; ah</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;aarcane&gt; :-S</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;codeworkx&gt; Wout|Portal2: had some stripes in preview. but was working</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;GuiPer&gt; still not working actually, if it will be easy maybe I'll give a try else focus on back camera</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;GuiPer&gt; front camera</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;codeworkx&gt; Wout|Portal2: Portal 2? funny game</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;Wout|Portal2&gt; awesome game</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;codeworkx&gt; Wout|Portal2: played coop last weekend</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;Wout|Portal2&gt; great storyline too, for a 'puzzle game'</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;codeworkx&gt; Wout|Portal2: i loved it to kill my brothers robo, hehe</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-brick">* Wout|Portal2 is alttabbing back into it, bbl</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;kang&gt; the story line ain't especially original but the characters are fun</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-green">* lucifergil (8444f82b@gateway/web/freenode/ip.132.68.248.43) has joined this channel.</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-navy">* lucifergil (8444f82b@gateway/web/freenode/ip.132.68.248.43) Quit (Client Quit)</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;GuiPer&gt; need help with git.... so i commited my camera things to a new branch called camera</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;techmik67&gt; i saw that</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;GuiPer&gt; now want to go back to sensors branch, trying git checkout sensors</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;GuiPer&gt; then git rebase sensors does not revert camera "changes"</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;techmik67&gt; sensor, no s on the end</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;techmik67&gt; isnt it?</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;techmik67&gt; no, its sensors, nvm</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;techmik67&gt; wait, unless i'm reading things wrong, the sensors branch doesnt have the cam stuff</span><br />
