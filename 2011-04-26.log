@@ -524,3 +524,33 @@
 <span class="irc-date">[9:45]</span> <span class="irc-black">&lt;kang&gt; atinm|night: using firmwares from jvb and specifying proper path in the framework (or via insmod by hand), also proper new driver name</span><br />
 <span class="irc-date">[9:48]</span> <span class="irc-green">* GuiPer_Work (c2e46026@gateway/web/freenode/ip.194.228.96.38) has joined this channel.</span><br />
 <span class="irc-date">[9:55]</span> <span class="irc-green">* Kaik541 (~Kaik541@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-navy">* iravid (~iravid@87.69.234.127) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-green">* iravid (~iravid@87.69.234.127) has joined this channel.</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;atinm|night&gt; techmik, we still have the upstream error on CMParts?</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;atinm|night&gt; its really frameworks I think</span><br />
+<span class="irc-date">[10:14]</span> <span class="irc-black">&lt;GuiPer_Work&gt; Hello atinm|night. Thanks for making a branch for sensors, probably it would be the right way from the beggining</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;atinm|night&gt; no problem, I was doing some testing on sdcard mounting and I wanted a complete build that I was sure worked. I kow you were modifying stuff unrelated to sdcards, but still - whenever you are modifying stuff that affects so many, its better to work on a branch</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;atinm|night&gt; like I did for headsets</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;atinm|night&gt; we'll merge back to head when you and unhelpful say we're ready</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;atinm|night&gt; I want unhelpful to look at this as well</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm|night&gt; but from what I know right now, our build it broken</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm|night&gt; due to something upstream we think. I'm going to start a build and figure that out after</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm|night&gt; gone for a bit</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;GuiPer_Work&gt; hope in the afternoon to finish it. Last point is that daemons need to be run as system user and not as compass user. Anyway I guess not a big issue</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;atinm|night&gt; ok, back later.</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-green">* icezar1_ (~quassel@ip-62-245-101-21.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_vibrant: sensors GuiPerPT * 04d983e (1 files in 1 dirs): Compass user to system user. Due to permissions to write on /data/system - <a href="http://bit.ly/gbCmXJ">http://bit.ly/gbCmXJ</a></span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: sensors GuiPerPT * a45ef2d (1 files in 1 dirs): Compass user to system user. Due to permissions to write on /data/system - <a href="http://bit.ly/dJj9Ww">http://bit.ly/dJj9Ww</a></span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;GuiPer_Work&gt; well should be done for all devices except galaxysb on the branch sensors</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;GuiPer_Work&gt; need somebody to test it</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-navy">* icezar1 (~quassel@unaffiliated/icezar) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-green">* icezar1_ is now known as icezar</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-navy">* icezar (~quassel@ip-62-245-101-21.net.upcbroadband.cz) Quit (Changing host)</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-green">* icezar (~quassel@unaffiliated/icezar) has joined this channel.</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-green">* icezar is now known as Cezar</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-navy">* Cezar (~quassel@unaffiliated/icezar) Quit (Remote host closed the connection)</span><br />
