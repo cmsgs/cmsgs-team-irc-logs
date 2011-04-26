@@ -123,3 +123,65 @@
 <span class="irc-date">[0:56]</span> <span class="irc-black">&lt;techmik67&gt; i'll check, why not....</span><br />
 <span class="irc-date">[0:58]</span> <span class="irc-black">&lt;techmik67&gt; goddam driver is only for 32bit!!</span><br />
 <span class="irc-date">[0:58]</span> <span class="irc-black">&lt;techmik67&gt; and its newer!!</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-brick">* Unhelpful has geomagneticd starting from init.</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;atinm&gt; koush: web interface!</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;atinm&gt; that has to be a trick question . . .</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;Unhelpful&gt; rotate is slow imo but orientation is correct</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;atinm&gt; and I really should just got to bed.</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;Unhelpful&gt; aside from whether sensor position is correct or not, north direction is not consistent.</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;atinm&gt; i'm going to let you wrestle with it while I go to bed. son is more exhausting than coding.</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;atinm&gt; and I had him all day.</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-green">* atinm is now known as atinm|night</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; that sunw link I posted wasn't the one I wanted</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: can you check out the sensors branches for device/samsung/captivate, vendor/samsung/common, and kernel, and add this patch to frameworks/base (<a href="http://pastie.org/1832695)">http://pastie.org/1832695)</a> and try it? i want to see if this is just me, but it sure looks like what i saw before.</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;techmik67&gt; sure</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ok, maybe it was half of what I wanted <a href="http://sunsite.uakom.sk/sunworldonline/swol-12-1996/swol-12-sysadmin.html">http://sunsite.uakom.sk/sunworldonline/swol-12-1996/swol-12-sysadmin.html</a></span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;Unhelpful&gt; that patch is to get the sensors daemons running from init</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;Unhelpful&gt; but it looks *to me* like i still have work to do, and not just to give us an OSS alternative. this looks, to me, and to put it technically, hosed.</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;techmik67&gt; i saved the patch as service_manager.c, on my desktop</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;techmik67&gt; how do i apply it?</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;techmik67&gt; only patched 1nce</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dono man, the old yamaha file had very little inside it, there is a lot more math in the yas529 files and orient</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; man patch :P its almost easier than explaining it</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: um, that orientation.c driver has *no* math. i can't even figure out where the data comes from that it reports.</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well yas anyway</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;atinm|night&gt; techmik67: just cut/paste those two lines ;-)</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;Unhelpful&gt; it, um, really looks pretty much the same to me.</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;atinm|night&gt; without the + in front</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;atinm|night&gt; nononono not frameworks/base.</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;atinm|night&gt; dang it.</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;atinm|night&gt; law of conservation of pending gerrits strikes again</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;techmik67&gt; figures</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;atinm|night&gt; we were *so* close to 0;.</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;atinm|night&gt; well, g'nite guys.</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yas vs the old yamaha? way more functions in yas although I haven't looked at them very hard</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; O7</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;atinm|night&gt; leave you to hold the fort :)</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: no, vs the yas529.c we've *been* using - it's basically the same, just in drivers/input/misc instead of drivers/misc</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oooh gotcha</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;Unhelpful&gt; and none of the correction stuff has ever been in-kernel.</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't know what method they used for bias estimation, i think it's different from the ones i've been toying with, but either is clearly not fit for kernelspace. ;)</span><br />
+<span class="irc-date">[1:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh I know, it just looked to me like they added a bunch of function calls you could hook into rather than trying to figure out what math they used</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you've stared at it much longer than i have</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;Unhelpful&gt; nah, not really. the userspace component has *all* of the calibration stuff. i can get through where it reads data and then OPAQUE WALL OF MATHS</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; thats the best kind of maths</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;Unhelpful&gt; ...yeah, BLUH BLUH EIGENVECTOR THINGY...</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;techmik67&gt; sorry about the delay, i am still syncing from when atinm told me to rm kernel, device and vendor =)</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; takes for ever, not much you can do about it</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; i know</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; not much longer</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; but i gotta build clean cause i already cleaned</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; *shrug* the test isn't going to go anywhere with out you :P</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-brick">* Unhelpful is rather curious because guiper seemed to feel he, you know, had something working.</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;techmik67&gt; well, i will say that thew last build i used maps when io went to the store and it was perfect</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; he has a i9000 tho right?</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;techmik67&gt; i think so</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, but compass is same. :)</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but is it hooked to the same gpio :P</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if it worked back in froyo and eclair days it should stil work in GB</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, i know.... assuming the driver works the way it's supposed to, and we really have *all* of the components needed. :)</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ....no bet</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;Unhelpful&gt; "i don't take sucker bets", eh?</span><br />
