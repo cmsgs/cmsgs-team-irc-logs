@@ -357,3 +357,110 @@
 <span class="irc-date">[6:59]</span> <span class="irc-black">&lt;techmik_laptop&gt; its a workaround?</span><br />
 <span class="irc-date">[6:59]</span> <span class="irc-black">&lt;GuiPer&gt; not sure, need to check if really need it</span><br />
 <span class="irc-date">[6:59]</span> <span class="irc-black">&lt;techmik_laptop&gt; i was told, i know nothing about code...</span><br />
+<span class="irc-date">[7:00]</span> <span class="irc-black">&lt;techmik_laptop&gt; i *think* its instead of the root thing you had as a temp</span><br />
+<span class="irc-date">[7:00]</span> <span class="irc-black">&lt;techmik_laptop&gt; those 2 lines i made root instead of compass?</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;GuiPer&gt; maybe not needed</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;GuiPer&gt; maybe just need a proper chown</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;GuiPer&gt; trying it now</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;GuiPer&gt; anyway it is something minor, worst case scenario compass does not work</span><br />
+<span class="irc-date">[7:02]</span> <span class="irc-black">&lt;techmik_laptop&gt; dont say that..... the work Unhelpful did for a while on compass, if we replace it, i think it needs to work =)</span><br />
+<span class="irc-date">[7:02]</span> <span class="irc-black">&lt;techmik_laptop&gt; he did a LOT of stuff as i understand it</span><br />
+<span class="irc-date">[7:03]</span> <span class="irc-black">&lt;GuiPer&gt; what i mean is that for now github is not broken, at maximum temporarily hopefully until later today compass does not work</span><br />
+<span class="irc-date">[7:03]</span> <span class="irc-black">&lt;techmik_laptop&gt; its ok, i'll be here for a while to test</span><br />
+<span class="irc-date">[7:03]</span> <span class="irc-black">&lt;techmik_laptop&gt; ah</span><br />
+<span class="irc-date">[7:03]</span> <span class="irc-black">&lt;techmik_laptop&gt; actually</span><br />
+<span class="irc-date">[7:03]</span> <span class="irc-black">&lt;techmik_laptop&gt; the build *is* broken</span><br />
+<span class="irc-date">[7:03]</span> <span class="irc-black">&lt;GuiPer&gt; really??</span><br />
+<span class="irc-date">[7:03]</span> <span class="irc-black">&lt;techmik_laptop&gt; not from that</span><br />
+<span class="irc-date">[7:03]</span> <span class="irc-black">&lt;techmik_laptop&gt; i'll show you my pastie of my build make error</span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://www.pastie.org/1833764">http://www.pastie.org/1833764</a></span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;GuiPer&gt; shit, just flashed my kernel on system partition by mistake :S:S</span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;techmik_laptop&gt; i asked koush and he said we are probably missing bits from upstream</span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;techmik_laptop&gt; ouch =/</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;GuiPer&gt; need to rebuilt completely to have it booted</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; but i pulled and re synced and got the same error...... so i did this:</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="https://github.com/techmik/android_packages_apps_CMParts/commit/b8aa3b871372d2cd203d13b739c660fd8032dea5">https://github.com/techmik/android_packages_apps_CMParts/commit/b8aa3b871372d2cd203d13b739c660fd8032dea5</a></span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; and build works</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; just finished</span><br />
+<span class="irc-date">[7:08]</span> <span class="irc-black">&lt;GuiPer&gt; thanks, hopefully I didn't sync</span><br />
+<span class="irc-date">[7:09]</span> <span class="irc-black">&lt;techmik_laptop&gt; i actually need one of you guys who understands the code to look at my pastie errors and see if teres a better fix than just commenting out like i did....</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok, i can safely say there's still a compass issue</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;GuiPer&gt; erm? how?</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;GuiPer&gt; if you did repo sync it's normal :)</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;techmik_laptop&gt; it fluctuates just with yaw changes, up to 45 degrees, when i rotate the phone, north rotaes too, not consistently tho... every orientation of the phone gives different compass heading</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;techmik_laptop&gt; what i mean is....</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;techmik_laptop&gt; i am sitting facing directly east</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;techmik_laptop&gt; ifi just turn on compass, we are good</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;techmik_laptop&gt; but if i let the phone change orientation or even yaw changes (like rolling a pebble off it) change where it says east is</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;techmik_laptop&gt; in 1 orientation it is exactly 180 off</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;GuiPer&gt; you made repo sync?</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;GuiPer&gt; are my changes still there?</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;techmik_laptop&gt; should i logcat with compass on as i rotate?</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; i am on sensors branch for the 4 repos</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;GuiPer&gt; try to calibrate it</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;GuiPer&gt; using compass app</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; kernel,, device/captivate, vendor/samsung/common/frameworks/base</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; i did that 1st</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;techmik_laptop&gt; turned on compass app, it said to calibrate, i did, then tested</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;GuiPer&gt; if you take a look at defconfig of captivate</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;GuiPer&gt; your position is set to 0</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;GuiPer&gt; can you try to play with it?</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;GuiPer&gt; try 7</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;GuiPer&gt; i need to go soon</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;techmik_laptop&gt; where ammi looking? device samsung captivate? or vendor common?</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;GuiPer&gt; kernel :)</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;techmik_laptop&gt; lol</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;GuiPer&gt; arc arm configs</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;GuiPer&gt; aries_captivate_defconfig</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;GuiPer&gt; search for yas529*position</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;techmik_laptop&gt; position is 0 on both main and sensors branch</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;GuiPer&gt; can you try 7, build and test?</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;GuiPer&gt; our galaxys is 7</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;techmik_laptop&gt; sure</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;techmik_laptop&gt; do i need to clean?</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;techmik_laptop&gt; 45 mins for clean build.... less than 15 if not</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;GuiPer&gt; depends on you build</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;GuiPer&gt; go for kernel folder</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;GuiPer&gt; and do ./build.sh from there</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;techmik_laptop&gt; just build kernel?</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;GuiPer&gt; yep enough</span><br />
+<span class="irc-date">[7:31]</span> <span class="irc-black">&lt;techmik_laptop&gt; building</span><br />
+<span class="irc-date">[7:35]</span> <span class="irc-black">&lt;techmik_laptop&gt; booting</span><br />
+<span class="irc-date">[7:37]</span> <span class="irc-black">&lt;techmik_laptop&gt; basically same results</span><br />
+<span class="irc-date">[7:38]</span> <span class="irc-black">&lt;GuiPer&gt; can you try to start geomagneticd in console?</span><br />
+<span class="irc-date">[7:38]</span> <span class="irc-black">&lt;techmik_laptop&gt; shouldnt it have started from that patch of unhelpful? in init?</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;GuiPer&gt; not 100%</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;GuiPer&gt; looks like now...</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;techmik_laptop&gt; what do i type? =)</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;GuiPer&gt; looks like it does not work, :S</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;GuiPer&gt; "geomagneticd &amp;"</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;techmik_laptop&gt; i'm in adb shell</span><br />
+<span class="irc-date">[7:40]</span> <span class="irc-black">&lt;techmik_laptop&gt; done</span><br />
+<span class="irc-date">[7:40]</span> <span class="irc-black">&lt;GuiPer&gt; see if compass is better</span><br />
+<span class="irc-date">[7:41]</span> <span class="irc-black">&lt;techmik_laptop&gt; well look at that.....</span><br />
+<span class="irc-date">[7:41]</span> <span class="irc-black">&lt;GuiPer&gt; works good??</span><br />
+<span class="irc-date">[7:41]</span> <span class="irc-black">&lt;techmik_laptop&gt; yes</span><br />
+<span class="irc-date">[7:41]</span> <span class="irc-black">&lt;GuiPer&gt; :):)</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; but wait</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; i gotta now try in pposition 0</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;GuiPer&gt; can also try 0</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; and manually start it</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; lol</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;GuiPer&gt; yep, Unhelful said it's 0</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; yup</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; i trust him</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; =0</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; sec</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-black">&lt;GuiPer&gt; brb, bath</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[7:45]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-black">&lt;GuiPer&gt; anything?</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-black">&lt;techmik_laptop&gt; yup</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-black">&lt;techmik_laptop&gt; good on 0 if i start it manually</span><br />
+<span class="irc-date">[7:57]</span> <span class="irc-black">&lt;techmik_laptop&gt; so just toss that change to the semnsors branch, we play, atinm will merge later....</span><br />
+<span class="irc-date">[7:57]</span> <span class="irc-black">&lt;techmik_laptop&gt; if you have time</span><br />
+<span class="irc-date">[7:59]</span> <span class="irc-black">&lt;GuiPer&gt; don't know how to do it :)</span><br />
+<span class="irc-date">[7:59]</span> <span class="irc-black">&lt;GuiPer&gt; it works if I start with root....</span><br />
+<span class="irc-date">[7:59]</span> <span class="irc-black">&lt;techmik_laptop&gt; thats badtho, right?</span><br />
