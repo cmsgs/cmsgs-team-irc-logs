@@ -795,3 +795,93 @@
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;GuiPer&gt;     chown system input /sys/class/input/input3/shape</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;GuiPer&gt; copied also these ones from stock</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;Unhelpful&gt; interesting :)</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;Unhelpful&gt; if you used the compass user instead of the system user, running as compass should work</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;Unhelpful&gt; testing now</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;GuiPer&gt; it didn't :S</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;GuiPer&gt; chown system input /dev/i2c-12</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;GuiPer&gt; just system or root</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;GuiPer&gt; give it a try and let me know</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;GuiPer&gt; anyway I'll push my init.aries.rc to the branch</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;GuiPer&gt; it works, you can take a ook</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;Unhelpful&gt; ... it's working right now, for me. i chowned the files to compass, killed the daemon so it would restart, and i am getting good readings.</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;techmik67&gt; just tell me when/what to do.....</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work I'm not quite sure yet but something from the sammy gb-source merge seems to screw with captivate</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work before the merge the highres timer at 400, USER_HZ at 200 work</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work after - to be more precise:  f2915de5bb249679d2c4</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; (at 'mach-aries.c: cleaned up this oled/lcd hell' )</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; the keys seem to be broken</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work I'll attempt to build from the teamhacksung with the only modification being 400/200 raised timer settings</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;GuiPer&gt; techmik67: Unhelpful is finishing details with compass, should be done</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;GuiPer&gt; ill try to take a look at camera, kang the driver</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;GuiPer&gt; to have it working properly, ill need help later probably</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;Unhelpful&gt; my suspicion is that the driver or the hardware adds a partial exif tag - wouldn't even surprise me if the camera itself did, isn't the output *already* in jpeg?</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;Unhelpful&gt; and i think that what happens is we write an orientation in the camera lib, and somehow end up with both values in the file :(</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Client Quit)</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, I'm convinced the problem is in JPEG</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;Kaik541&gt; since it does it in third party apps too (that use the built in method</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: the problem is *in the files*, we've looked at them and seen that there are two different orientation tags written (four actually, two for image, two for thumbnail)</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;Kaik541&gt; yeah I know, I'm saying I tihnk that's being down in the JPEG part, not the camera</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;Kaik541&gt; from RAW -&gt; JPEG</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;Kaik541&gt; because camera "recognizes" when it's in portrait</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;Kaik541&gt; somewhere in between "click" and "rendered JPEG" it gets oriented wrong</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;Unhelpful&gt; well, like i said, there are two orientation tags. one of them is correct. i don't know where *both* of them come from. :)</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: you got th framework fix for starting as compass already, right?</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;GuiPer&gt; yep,, thing I got it on my current buid</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;GuiPer&gt; build</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;Unhelpful&gt; hardcoding those, so stupid. :P</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;Unhelpful&gt; tbh, start/stop service permissions should probably just be bypassed if it's init trying to start/stop the service. :P</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;GuiPer&gt; well I said techmik67 in the morning that probably it didn't help :)</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;GuiPer&gt; but added it anyway</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;GuiPer&gt; btw im trying to fix back cam, not front back</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;techmik67&gt; the frameworks 2 lines?</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;GuiPer&gt; yep</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;techmik67&gt; yes, i built last build without those</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;Unhelpful&gt; the framework lines help if you want to start it as compass.</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;techmik67&gt; last build i did i think was as system</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work ok, I found a kind of BUG please see the link + following post: <a href="http://forum.xda-developers.com/showpost.php?p=13223900&amp;postcount=238">http://forum.xda-developers.com/showpost.php?p=13223900&amp;postcount=238</a></span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work thanks !</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work will build a kernel with default timings and/or supposedly working modified timings</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: very strange, geomagneticd seems to not write offsets until i kill it once :/</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work the only device this is happening is the captivate; SGS + VIBRANT are fine :\</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;GuiPer&gt; strange :(</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;GuiPer&gt; happened the same with me yesterday</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;GuiPer&gt; after we start manually it does work</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;GuiPer&gt; maybe the user does not matter, but the timing?</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;Unhelpful&gt; the user *definitely* matters, or at least whether that user has write permissions for the sysfs files</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;GuiPer&gt; for me now with system, it starts all ok</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;GuiPer&gt; want me to push it?</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: sensors Guilherme * c671a35 (1 files in 1 dirs): New Changes to init.aries.rc regarding compass daemon. ...</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: sensors Guilherme * ba8aebe (0 files in 0 dirs): Working init.aries.rc. ...</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: sensors commits 5be8f1e...ba8aebe - <a href="http://bit.ly/euXKOr">http://bit.ly/euXKOr</a></span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;GuiPer&gt; take a look</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;GuiPer&gt; strange push, but content its there</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;acdbx&gt; what is the state of cm7 ocuv kernels... no updated versions anywehre?</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;Kaik541&gt; that's a lot of stuff to chwon in init o.O</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;Kaik541&gt; acdbx, we don't OC/UV, use a third party kernel</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;Kaik541&gt; they pretty much all have it</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;acdbx&gt; that's what i'm asking about</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;Kaik541&gt; then go use them</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;acdbx&gt; seems like none of them is updated to include the 0421 changes</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;acdbx&gt; seems like none of them is updated to include the 0421 changes</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;Kaik541&gt; then go ask those kernel maintainers</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;nitam|work&gt; thanks zachy_md|busy - I can't look at this right now (at work). Will look tonight.</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;nitam|work&gt; but thanks for trying to debug this and isolating.</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-green">* AndChat| (~AndChat@c-b9dbe455.04-17-73746f2.cust.bredbandsbolaget.se) has joined this channel.</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-navy">* blyfoten (~AndChat@m83-186-135-128.cust.tele2.se) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;mikebeecham&gt; evening guys</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;mikebeecham&gt; how's it going</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;Wout`&gt; it's all in the logs ;)</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;Kaik541&gt; *sigh* why is MIUI hosting on sourceforge?</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;Kaik541&gt; isn't that for open source projects?</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;Kaik541&gt; especially since they have it listed under GNU GPLv3!</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;mikebeecham&gt; Wout`, I refuse to bow to the 'man'</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;mikebeecham&gt; i'm a free spirit dude...logs just hold me back</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;nitam|work&gt; Kaik - can report it for violating ;-)</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;Kaik541&gt; I think I already did once, I'd rather people just follow rules</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;Kaik541&gt; if you can't afford hosting, go to multiupload</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;Kaik541&gt; don't use a legitimate site meant for open source developers</span><br />
