@@ -2010,3 +2010,190 @@
 <span class="irc-date">[21:56]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 240 seconds)</span><br />
 <span class="irc-date">[21:58]</span> <span class="irc-black">&lt;ericdet&gt; ok</span><br />
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;ericdet&gt; Was the mute/unmute ever addressed?</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;techmik67&gt; i know atinm was working on that, but dont know if he accomplished it</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;ericdet&gt; Ok.. I'll wait for him then</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;ericdet&gt; How did you check the build time after the fact?</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;gehzumteufel&gt; I still had the console window open</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;ericdet&gt; ok</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;gehzumteufel&gt; It tells you how long it took to build at the end though</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;gehzumteufel&gt; Are you in front of the box? Or are you remote?</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;ericdet&gt; In front</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;gehzumteufel&gt; Did you close the console window already? Or is it still open from issuing the command?</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;ericdet&gt; About a minute ago on accident.. lol</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;gehzumteufel&gt; haha oops. Not sure you can find out after the fact.</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;gehzumteufel&gt; ugh approaching 2hrs build time</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;gehzumteufel&gt; Not sure why it took so much longer this time</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;ericdet&gt; Yeah that 40 minute thing boggled me a bit cause I know it took mine around an hour.</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; -j ?</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;gehzumteufel&gt; 0</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol I didn't do any -j</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;Wout&gt; anyone on cm7 willing to provide a logcat for something?</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;gehzumteufel&gt; Wout: sure</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;techmik67&gt; its built into the script</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; just wondering if the script puked</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;gehzumteufel&gt; oh I did use different script this time though.</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;gehzumteufel&gt; First time I used the build.sh script. This time I used the one in the wiki</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;gehzumteufel&gt; which is the . ./build/envsetup.sh &amp;&amp; brunch vibrant</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;evzor&gt; i thought it was ". build/envsetup.sh &amp;&amp; brunch vibrant</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; that should count your cores and -j for you</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;techmik67&gt; i believe either work the same</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;ericdet&gt; I used that the first time... Then the one techmik posted the 2nd time.. 2nd time much faster. coincidence or not.</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; . ./ sets the build environment</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;evzor&gt; oh ok so if i already did say a ./build.sh prepare</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;evzor&gt; i dont need to do the ./</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;evzor&gt; i can just do . build</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the prepare is only ./</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; . ./ reloads your ENV variables</span><br />
+<span class="irc-date">[22:12]</span> <span class="irc-navy">* zachy_md|busy (~zacharias@chello084114179145.16.15.vie.surfer.at) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;gehzumteufel&gt; Interesting</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; mind you that tidbit of information comes from a stone tablet I read so things may be different these days</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;gehzumteufel&gt; LOL</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;evzor&gt; i'm going to go grab some taco bell even though i know it's bad for me because i can feed myself for a full week with only 10 dollars</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;evzor&gt; GO CAPITALISM!!!</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;Kaik541&gt; evzor, ramen</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;Kaik541&gt; I'm living for three weeks on $7</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;evzor&gt; cant cook ramen at work</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;evzor&gt; i work at a mall kiosk</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;Kaik541&gt; do it like a boss</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; lets just say when I got around to messing with gnome most of the packages were 0.3.someting</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;Kaik541&gt; bite the ramen still uncooked</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;Kaik541&gt; and pour boiling water down your throat</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;Kaik541&gt; and then snort the seasoning</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;evzor&gt; hahah</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; when you build firefox, it showed that they were thinking about for a UI, there was no render engine</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;evzor&gt; speaking of wich though seriously if anyone lives near the portland mall and wants their phone protected up real nice come see me outside the apple store and i'll hook you up with friend prices</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;evzor&gt; portland maine i mean</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ah good gawd, it's a noreastah</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;evzor&gt; i'm from boston</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;Kaik541&gt; bawstin</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;evzor&gt; just moved here in november to hawk invisible shield at the mall with my brother</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-brick">* TMC_Sherpa likes invisi sheild</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;evzor&gt; hey man all i can say is we got here first so the language we speak is correct</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;evzor&gt; you guys mutated it to shit</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;Kaik541&gt; evzor, wha... please tell me that's a jokE?</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;evzor&gt; lol</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;evzor&gt; of course</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;Kaik541&gt; ok phew</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;Kaik541&gt; sarcasm is hard through text sometimes</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;evzor&gt; i dont even have a boston accent</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;evzor&gt; i think i'ts trashy</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;evzor&gt; i mean i'm sure i have a little bit of an accent but by no means do i pahk my cah</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;Kaik541&gt; jersey accent is worse</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;evzor&gt; i've been to college lol</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;evzor&gt; sometimes yeah it can be</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;evzor&gt; but a real good charlestown MA</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;evzor&gt; thats just tough to get man</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;gehzumteufel&gt; California accent ftw</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;evzor&gt; dude</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;evzor&gt; agreed</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;evzor&gt; lol</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;techmik67&gt; fugetaboudit</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;gehzumteufel&gt; Did I mention it is like 75 out today?</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;gehzumteufel&gt; And sunny</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-brick">* gehzumteufel stops being an ass</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;Kaik541&gt; gehzumteufel, oh yeah well it's... 92 here</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;ericdet&gt; Its been raining here for a month... Wettest month on record.. and that's not a joke.</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;gehzumteufel&gt; haha owned</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-brick">* TMC_Sherpa is trying to remember the last time he could see the sun</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;gehzumteufel&gt; Okay I lied it's 80 today</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, northwest?</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;gehzumteufel&gt; He's in IL</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Chicago</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;gehzumteufel&gt; ugh this build time is too long</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;ericdet&gt; I could have dropboxed it to you by now.. lol</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;gehzumteufel&gt; Dude I know</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;gehzumteufel&gt; It's fucking ridiculous</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; Here it goes. Sanitizing environment.</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; And optimising the damn APKs</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; Which means it's done.</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;Wout&gt; could someone playback this file on cm7 (if it works :P) and post logcat on pastebin? <a href="http://dl.dropbox.com/u/3354956/BigBuckBunny-Android.mp4">http://dl.dropbox.com/u/3354956/BigBuckBunny-Android.mp4</a></span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; Downloading now</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;DocMAX&gt; does anyone know how to change this pin pad??? <a href="http://img88.imageshack.us/img88/3962/1000039c.jpg">http://img88.imageshack.us/img88/3962/1000039c.jpg</a></span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;DocMAX&gt; i tried metamorph and themechanger... nothing did it</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;Wout&gt; DocMAX: nothing to do with cm7 dev</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;DocMAX&gt; Wout, what do you mean? its not possible?</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;DocMAX&gt; its CM7 for sgs</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;gehzumteufel&gt; Wout: fails</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;Wout&gt; right, and this channel is for development and testing, not theming</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;Wout&gt; gehzumteufel: not supported?</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;gehzumteufel&gt; Wout: correct</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;Wout&gt; k, will try another one</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; err</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;Kaik541&gt; DocMAX, I've told you how to do it already and again, that isn't related to CM7 dev</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; shit I should logcat that first</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; haha</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;Wout&gt; gehzumteufel: nah, thats ok</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; You sure?</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;Wout&gt; it needs to play first :)</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;DocMAX&gt; Kaik541, you did told me about some png's.. this didnt help me</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;Wout&gt; then logcat</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; Ah</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;gehzumteufel&gt; In that case, then yeah, fails</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;Kaik541&gt; DocMAX, I told you to look for them in the sourcecode</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;Kaik541&gt; either way, it is not development related, please take the conversation elsewhere</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;Wout&gt; gehzumteufel: try this one <a href="http://dl.dropbox.com/u/3354956/BigBuckBunny-Android2.mp4">http://dl.dropbox.com/u/3354956/BigBuckBunny-Android2.mp4</a></span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;ericdet&gt; Im heading out.. Be back on around 8pm.</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;gehzumteufel&gt; downloading</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;DocMAX&gt; ok last thing: where do i find the sourceode?</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;Kaik541&gt; DocMAX, read the instructions for building cyanogenmod from source</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://kan.gd/1b6">http://kan.gd/1b6</a></span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;Kaik541&gt; though if you don't know where to get the source, I doubt you'll be able to navigate it and ifnd the appropriate files</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;gehzumteufel&gt; Wout: success. I'll logcat right now</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;Wout&gt; awesome</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;gehzumteufel&gt; Okay basically what I did was logcat &gt;output played, let play for a few seconds then exit. then broke logcat op. Correct?</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;Wout&gt; yup</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;gehzumteufel&gt; cool</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-navy">* ericdet (~eric@74-136-162-133.dhcp.insightbb.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;Wout&gt; just need to track what the media framework is doing when playing video</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;gehzumteufel&gt; Cool. You want me to throw it on pastebin?</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;Wout&gt; yes please</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;gehzumteufel&gt; <a href="http://pastebin.com/vDR3rcuB">http://pastebin.com/vDR3rcuB</a></span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;gehzumteufel&gt; I'm on a Vibrant just fyi</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;Wout&gt; kthx</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;gehzumteufel&gt; np</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-green">* zacharias (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-green">* zacharias is now known as zacharias|busy</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;atinm&gt; ok, I got tired of scrolling back . . .</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;atinm&gt; what the hell have you guys been doing since i've been gone?</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;atinm&gt; this channel exploded.</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;techmik67&gt; only issue with sensors is the calibration need on boot</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;techmik67&gt; other than that it *might* be mergeable...... ask Unhelpful</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;Kaik541&gt; out of curiosity, what's wrong with letting compass start as root?</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;techmik67&gt; vibrant and captivate same experience</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;Kaik541&gt; I mean, I guess it's bad practice, but if it works why not?</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;techmik67&gt; i defer the answer to someone who knows......</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;atinm&gt; its more that it should work as compass.</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;atinm&gt; and if not, we need to know why not before we make these sorts of decisions.</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;Wout&gt; atinm: trying to find out differences between cm7 and jvb media framework/codecs</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;techmik67&gt; guiper said if he runs it as root you dont need to calibrate</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;atinm&gt; wut..</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;techmik67&gt; only diff afaik</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;atinm&gt; that doesn't make sense . . . is unhelpful here?</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;gehzumteufel&gt; He was</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;Kaik541&gt; basically a file isn't being properly written to (or proper permissions maybe?)</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;Kaik541&gt; so as root it doesn't matter</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;atinm&gt; yeah . . . I guess if we knew which file (or is it a sysfs)</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yeah that's what he lead me to believe.</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;gehzumteufel&gt; I didn't ask to be honest.</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;atinm&gt; on jvb what does it run as</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-green">* ytt3r (~evan@adsl-88-105-137.asm.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;gehzumteufel&gt; That I don't know. Don't have a JVB compatible device.</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, <a href="https://github.com/xcaliburinhand/I9000-Reoriented-for-I897-Ginger/blob/master/usr/initrd_files/init.rc#L793">https://github.com/xcaliburinhand/I9000-Reoriented-for-I897-Ginger/blob/master/usr/initrd_files/init.rc#L793</a></span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;Wout&gt; atinm: how I check what it runs as?</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-green">* DocMAX2 (~docmax@f053157020.adsl.alicedsl.de) has joined this channel.</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;Kaik541&gt; I just showed him</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13263361&amp;postcount=4979">http://forum.xda-developers.com/showpost.php?p=13263361&amp;postcount=4979</a></span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;Kaik541&gt; oh dear lord are you serious?</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;gehzumteufel&gt; That just has it running as a typical user that is part of the system and input groups</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-navy">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) Quit (Quit: Get MacIrssi - <a href="http://www.sysctl.co.uk/projects/macirssi/)">http://www.sysctl.co.uk/projects/macirssi/)</a></span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;techmik67&gt; oh god, frameworks/baase update upstream</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-navy">* DocMAX (~docmax@92.224.240.34) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;gehzumteufel&gt; hahahaha Kaik541</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;techmik67&gt; omg</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;atinm&gt; Kaik541: fuck.</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;atinm&gt; why why why</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;atinm&gt; jeezus.</span><br />
