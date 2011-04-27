@@ -642,3 +642,180 @@
 <span class="irc-date">[2:58]</span> <span class="irc-black">&lt;atinm&gt; the wiki doesn't have a section for just updates, so I figure leave it at -j16</span><br />
 <span class="irc-date">[2:58]</span> <span class="irc-black">&lt;atinm&gt; the wiki only talks about setting up a build system</span><br />
 <span class="irc-date">[2:58]</span> <span class="irc-black">&lt;atinm&gt; and -j16 is plenty fast for me when just updating</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;atinm&gt; why in hell does params.h have a constant 100</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;atinm&gt; param.h</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;atinm&gt; arch/arm/include/asm/param.h - it has USER_HZ set to 100.</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;atinm&gt; is that a samsung thing or a linux thing?</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;atinm&gt; that value I mean</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;atinm&gt; I must have a linux tree somewhere</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;atinm&gt; its a linux thing</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;atinm&gt; every architecture seems to set it to 100</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;atinm&gt; well, maybe not</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;atinm&gt; but arm does</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm good question :P</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm you want me to look at 2.6.38 source ?</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm I currently have it running here</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;atinm&gt; yea - but I think it is actually 100.</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm: yes - it's: # define USER_HZ	100</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;zachy_md|busy&gt; and the highres or internal timer: # define HZ		CONFIG_HZ	/* Internal kernel timer frequency */</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; is defined via that arch/arm/Kconfig value</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;atinm&gt; so it may not be important. the HZ setting is more for us.</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;atinm&gt; somethign that architectures set.</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm samsung sets it at 256</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; afaik</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;atinm&gt; CONFIG_HZ=256</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm it's just important for me personally and probably also the other following kernel modders that it can be change</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm well, that value in defconfig is ignore :)</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;zachy_md|busy&gt; *ignored</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm you can set it to some insane value but it will get overwritten by arch/arm/Kconfig</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm don't know why it's handled in that way</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;atinm&gt; I just changed mine to <a href="http://pastebin.com/Hb1jjHik">http://pastebin.com/Hb1jjHik</a></span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;atinm&gt; and seems to work fine</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;atinm&gt; its the S5P_HIGH_RES_TIMERS that is setting it.</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; this all seems wrong to me.</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; S5P is samsung?</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; that's why its wrong</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; idiots as always.</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm&gt; see how the others are set.</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm&gt; they refer to other CONFIG variables</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm&gt; so one can actually set those without changing goddamn Kconfig.</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm&gt; who does that/!</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm 512 and 256 USER_HZ sounds like a plan ;)</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;atinm&gt; anyway, my pastie worked without thing.</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;zachy_md|busy&gt; so how's the phone ?</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm more reactive ?</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;atinm&gt; I dunno</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;atinm&gt; maybe</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm at least media *should be* better</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;atinm&gt; but it isn't worse.</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm probably 400 and 200 are "odd" values for the timer and kernel stuff</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;atinm&gt; but I don't like this change regardless.</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;atinm&gt; at least the way its done</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;atinm&gt; tho that is mostly samsung.</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm me neither</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm I don't know why they did hardcode it in the first place</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;atinm&gt; they should have done a S5P_TIMER_HZ type config</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;atinm&gt; and used that.</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;atinm&gt; S5P_HIGH_RES_TIMER_HZ</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;atinm&gt; and S5P_TIMER_HZ</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;atinm&gt; and used those instead of the 256 and 200</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;atinm&gt; and I don't think param.h should be changed. it seems to be constant for all arm chips</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;atinm&gt; which means USER_HZ is supposed to be 100</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;atinm&gt; you should try with USER_HZ at 100 but HZ at 512</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;atinm&gt; see what happens</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; they play with a couple files in /kernel</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;zachy_md|busy&gt; it at least seems to make some specific apps significantly better</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;zachy_md|busy&gt; e.g. labyrinth lite</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;zachy_md|busy&gt; with too low settings (256 seems to be still usable but somewhat slow) e.g. 128 things are getting very laggy</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;atinm&gt; I mean USER_HZ</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;atinm&gt; set that back to 100 in param.h</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;atinm&gt; but leave HZ at 400 or 512 like I do</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;atinm&gt; and see what you get</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ok, I'll try that &amp; hopefully the keys still work :P</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm thanks !</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;atinm&gt; but then, I haven't had the key problem at all yet</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;atinm&gt; so that might still not be solved.</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;zachy_md|busy&gt; that's weird</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;atinm&gt; I haven't tried your kernel</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;atinm&gt; let me try it</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;zachy_md|busy&gt; the kernel I posted you mean ?</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;atinm&gt; crap, you mean I have to go back to some old build?</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;atinm&gt; zachy_md|busy: yes</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm no it's at  a729839d10bfc0bf8184</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;zachy_md|busy&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commits/android-samsung-2.6.35">https://github.com/teamhacksung/android_kernel_samsung/commits/android-samsung-2.6.35</a></span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;atinm&gt; what I just tried was with latest repo, plus the diff I just put on pastebin</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;atinm&gt; ok, so all I did was add that diff</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;zachy_md|busy&gt; yeah so you basically used 512 + 256 instead of 400 + 200</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;atinm&gt; and it still works.</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;atinm&gt; right.</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;atinm&gt; so it is possible some phones don't like it . . .</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm don't know why it would need multiples of 2 in the timer</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;atinm&gt; and they'll still see the problem.</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm the strange thing is that the led/lcd cleanup commit exposed this breakage</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;atinm&gt; I just picked 512 because it was 256 before and it looked like you were doubling.</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm yeah - probably the best &amp; logical step</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm I took 400 + 200 because I had made good experiences with it in the past</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;atinm&gt; and 512 seemed like the correct step given that it was starting at 256. but that was the only reason.</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;atinm&gt; but I should try your kernel</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;atinm&gt; to see if I see the issue at all</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm yes please</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;gehzumteufel&gt; if it stalls and I break it, then re-run the sync, does it start from the beginning?</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-brick">* gehzumteufel hopes not</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it will pick up where you left off</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; give or take</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; sweet</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; ty</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;atinm&gt; zachy_md|busy: what's in the zip?</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;atinm&gt; the zImage only&gt;</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;atinm&gt; or is that a zImage + modules?</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;atinm&gt; I guess so</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;zachy_md|busy&gt; sec</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;atinm&gt; I'll flash it.,</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;gehzumteufel&gt; hmm I got a weird issue now</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm yes, it's for CWM Recovery</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;zachy_md|busy&gt; zImage + modules</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;gehzumteufel&gt; <a href="http://pastebin.com/rkGnWAQC">http://pastebin.com/rkGnWAQC</a></span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;atinm&gt; it happens. just restart</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-navy">* chaembian (~chaembian@122.174.121.182) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;gehzumteufel&gt; Right, I do and look at the bottom part</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;gehzumteufel&gt; it just errors out with some fetch sync errors</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;gehzumteufel&gt; that go on about a read only fs</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;atinm&gt; hrm</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;atinm&gt; secd</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;atinm&gt; zachy_md|busy: yeah, your kernel is porked.</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;atinm&gt; borked too.</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;atinm&gt; but porked as well.</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;atinm&gt; no touchkeys</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;atinm&gt; me no likey.</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm only happens with f2915de5bb249679d2c4 applied</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;zachy_md|busy&gt; :\</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;atinm&gt; yeah, but you saw my diff.</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;atinm&gt; and it still worked.</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm yeah I'll try that in the next test release or release</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm it's strange that it worked for you but not for me :(</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;atinm&gt; I do want you to try USER_HZ back to 100</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;atinm&gt; because it seems all arm wants it at 100</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;atinm&gt; so that one doesn't seem like it should be changed. HZ tho is ours to do with what we want</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;atinm&gt; samsung screwed it by putting a constant in Kconfig</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;atinm&gt; but that one is meant to be per board/device</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm ok, will revert USER_HZ back to 100, with 512/400 (double) of the default values it should be fine at that</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;atinm&gt; and I feel like changing it.</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;atinm&gt; so we can change it in defconfig and have it take.</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm do you now how the CONFIG_HZ and USER_HZ value are inter-related</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm or are they even connected in some way ?</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;atinm&gt; they aren't on first glance. USER_HZ is just a constant on arm</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;atinm&gt; on others it sometimes refers to HZ</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ah</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-navy">* designfears_ (~df@cpe-71-64-204-109.cinci.res.rr.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;atinm&gt; but the fact that it is 100 for all arm makes me think that it shoudl remain that way. we're not that different from everyone else.</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;atinm&gt; and I certainly don't know better than linus what the value should be (or whoever the linus equivalent is for arm)</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-navy">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;atinm&gt; HZ I'm more comfortable with doubling</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;ericDET&gt; building now</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;gehzumteufel&gt; brb I found my issue</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-navy">* gehzumteufel (~gehzumteu@cpe-76-93-100-229.socal.res.rr.com) Quit (Quit: ~ Trillian Astra - www.trillian.im ~)</span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;techmik67&gt; back from dog walk</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-green">* gehzumteufel (~gehzumteu@cpe-76-93-100-229.socal.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;gehzumteufel&gt; This is the bullshit I have hated about Ubuntu with this box. Gentoo never had this issue. The whole FS just chooses to all of a sudden dump and go ro</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;wwyvern&gt; repo sync is getting kinda slow-someone in the neighborhood must be watching a movie...</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;gehzumteufel&gt; nah it's slow here too</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;wwyvern&gt; gotta crash-gotta be up for work in the am</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;atinm&gt; when it nears the end, it  hits the kernel</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;atinm&gt; and then it slows to a crawl</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;wwyvern&gt; joy</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;wwyvern&gt; yup-it's the kernel stuff</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;gehzumteufel&gt; ugh how do I just clear the repo that was downloaded and start over?</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;gehzumteufel&gt; I think something got corrupted and now it just errors out with some stupid local issue</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;atinm&gt; aww man.</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;atinm&gt; rm -rf ..</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;atinm&gt; err</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;atinm&gt; not ..</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;gehzumteufel&gt; LOL</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;gehzumteufel&gt; I know that command :p</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;atinm&gt; rm -rf whatever you just installed to ;-)</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; danger Will Robinson</span><br />
