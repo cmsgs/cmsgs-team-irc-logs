@@ -986,3 +986,58 @@
 <span class="irc-date">[6:08]</span> <span class="irc-green">* KBme (~KBme@2001:470:cabe:666:666:666:666:666) has joined this channel.</span><br />
 <span class="irc-date">[6:13]</span> <span class="irc-green">* blyfoten (~AndChat@m83-186-40-212.cust.tele2.se) has joined this channel.</span><br />
 <span class="irc-date">[6:34]</span> <span class="irc-navy">* Fire2fly (~yaaic@62.140.137.100) Quit (Quit: Yaaic - Yet another Android IRC client - <a href="http://www.yaaic.org)">http://www.yaaic.org)</a></span><br />
+<span class="irc-date">[7:07]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;gehzumteufel&gt; make[3]: *** [kernel/spinlock.o] Error 1</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;gehzumteufel&gt; make[2]: *** [kernel] Error 2</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;gehzumteufel&gt; make[1]: *** [sub-make] Error 2</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;gehzumteufel&gt; make[1]: Leaving directory `/home/ben/android/system/kernel/samsung/2.6.35'</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;gehzumteufel&gt; make: *** [out/target/product/vibrant/kernel] Error 2</span><br />
+<span class="irc-date">[7:15]</span> <span class="irc-black">&lt;gehzumteufel&gt; whack</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;gehzumteufel&gt; Is that even bad?</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;GuiPer&gt; something is wrong gehzumteufel :(</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;GuiPer&gt; strange</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;GuiPer&gt; techmik67: around here?</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;GuiPer&gt; or somebody else with sensors kernel</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;GuiPer&gt; chaembian: ?</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-navy">* HRTheJoey (~HRTheJoey@pool-98-114-194-24.phlapa.fios.verizon.net) Quit (Quit: rpheaney is a mean person :()</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yeah I figured something was wrong. Just dunno how the hell to figure out what.</span><br />
+<span class="irc-date">[7:24]</span> <span class="irc-black">&lt;gehzumteufel&gt; There's plenty of errors, but being that I have compiled a kernel (Gentoo) before, I know that plenty of errors aren't really errors.</span><br />
+<span class="irc-date">[7:24]</span> <span class="irc-black">&lt;GuiPer&gt; try to put here the first error from the log</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;GuiPer&gt; what you put does not help so much</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yeah I figured as much. Where would the build log be stored?</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;GuiPer&gt; stdout, nowhere as far as I know</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;gehzumteufel&gt; hmm</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;GuiPer&gt; maybe try again ./build.sh vibrant &gt; log</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;GuiPer&gt; then take a look at log file</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;gehzumteufel&gt; I forgot to change scrollback to unlimited before I built too.</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yeah</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;GuiPer&gt; chaembian or techmik67 if you are here can you try something "stupid" in name of science if you have sensors branch kernel</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;GuiPer&gt; just remove your sdcard for 1 or 2 days</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;GuiPer&gt; and check for battery life</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; Why would I use the command you referenced above, vs this: . ./build/envsetup.sh &amp;&amp; brunch vibrant</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; The one I just pasted is on the wiki</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;GuiPer&gt; same thing i guess :)</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; Ah okay. /noob</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;GuiPer&gt; wiki is old, ./build.sh is new</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; ah</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;GuiPer&gt; try ./build.sh and check help</span><br />
+<span class="irc-date">[7:28]</span> <span class="irc-black">&lt;gehzumteufel&gt; that one seems to want to build for all devices...</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;GuiPer&gt; you can choose which one you want</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;GuiPer&gt; ./build.sh galaxys or vibrant etc</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;GuiPer&gt; just make it easier</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yeah I used the command as you said. Does it always just use a ton of stuff for other devices?</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;GuiPer&gt; yep, think so</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; Ah okay then my confusion</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;GuiPer&gt; don't worry if you see strange things regarding captivate etc on the log</span><br />
+<span class="irc-date">[7:32]</span> <span class="irc-black">&lt;gehzumteufel&gt; Well I am off to bed. Be back tomorrow.</span><br />
+<span class="irc-date">[7:32]</span> <span class="irc-black">&lt;gehzumteufel&gt; cya</span><br />
+<span class="irc-date">[7:33]</span> <span class="irc-navy">* gehzumteufel (~gehzumteu@cpe-76-93-100-229.socal.res.rr.com) Quit (Quit: ~ Trillian Astra - www.trillian.im ~)</span><br />
+<span class="irc-date">[7:33]</span> <span class="irc-black">&lt;GuiPer&gt; if you are trying sensors branch</span><br />
+<span class="irc-date">[7:33]</span> <span class="irc-black">&lt;GuiPer&gt; ups</span><br />
+<span class="irc-date">[7:37]</span> <span class="irc-black">&lt;GuiPer&gt; 3h on battery, 89%</span><br />
+<span class="irc-date">[7:37]</span> <span class="irc-black">&lt;GuiPer&gt; screen on 10 minutes</span><br />
+<span class="irc-date">[7:44]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[7:45]</span> <span class="irc-green">* HRTheJoey (HRTheJoey@pool-98-114-240-193.phlapa.fios.verizon.net) has joined this channel.</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-navy">* Wout (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[7:54]</span> <span class="irc-navy">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) Quit (Ping timeout: 276 seconds)</span><br />
