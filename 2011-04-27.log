@@ -1556,3 +1556,100 @@
 <span class="irc-date">[18:58]</span> <span class="irc-black">&lt;zachy_md|busy&gt; *clarification</span><br />
 <span class="irc-date">[18:58]</span> <span class="irc-black">&lt;Kaik541&gt; it means we can't modify it :(</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;mikebeecham&gt; zachy_md|busy, thats pretty cool</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;mikebeecham&gt; would be nice to see compass working</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;mikebeecham&gt; *cough* as well as proper camera / 720 recording *cough*</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;Kaik541&gt; someone's working on it, don't worry</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;Kaik541&gt; but I know it gave guiper a terrible headache the other day</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; unfortunately once a signal leaves the kernel we're at the mercy of samsung</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-navy">* dasunsrule32 (~dasunsrul@149-169-110-236.nat.asu.edu) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gp2a has pieces of the light sensor in it but all the if enables are coming from a lib or something</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;mikebeecham&gt; Kaik541, I've every confidence!!</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-green">* Evzor_phone (~android@cpe-76-179-64-103.maine.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@uto-atechols-1.inre.asu.edu) has joined this channel.</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;Evzor_phone&gt; Hey so I am pretty sure I successfully compiled the kernel this morning for shits I just want to check my work with you.</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;gehzumteufel&gt; Well, I have finally successfully compiled a nightly.</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;Evzor_phone&gt; This is directed at tekmik</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;gehzumteufel&gt; same</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;gehzumteufel&gt; I would have had a good build when I woke up this morning, but I didn't have lzma installed. Something that should probably be added to the wiki in the initial package installs</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;Evzor_phone&gt; It should spit out a bc####.ko a zImage and a tun.ko and cifs.ko</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;Evzor_phone&gt; Anything else</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;techmik67&gt; you only did the kernel, or you built a nightly?</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;gehzumteufel&gt; techmik67: I built a nightly.</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;techmik67&gt; gehzumteufel: flash it and make sure everything works</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;Evzor_phone&gt; From ~/android/system I ran ./build.sh vibrant</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;Evzor_phone&gt; Does that mean a night or kernel?</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;Evzor_phone&gt; And is it ok to have taken under 3 minutes?</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;gehzumteufel&gt; That builds a nightly from what I am aware of. And under 3 minutes? Did it say "Package complete: /home...."</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;gehzumteufel&gt; techmik67: is it okay if it had this error at the end of the build? find: `/home/ben/android/system/out/target/product/vibrant/repack.d/ota/system/lib/modules': No such file or directory</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Evzor_phone&gt; Not that I see</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;techmik67&gt; gehzumteufel: did it complete and make a nightly in out/target/product/vibrant?</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;Kaik541&gt; should be like 86 MB iirc</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;techmik67&gt; Evzor_phone: no way 3 mins is right</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;gehzumteufel&gt; It did</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;techmik67&gt; then you are good to install</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;techmik67&gt; oh</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;gehzumteufel&gt; Okay good. Just wanted to make sure. Gotta download it from my home machine</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;techmik67&gt; i bet i knwo what happened., Evzor_phone</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;techmik67&gt; from android/system</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;techmik67&gt; type</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;techmik67&gt; ./build.sh prepare</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;techmik67&gt; when its done</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;techmik67&gt; type</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;techmik67&gt; . build/envsetup.sh &amp;&amp; brunch vibrant</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-green">* DocMAX (~docmax@92.224.240.34) has joined this channel.</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Quit: Ik ga weg)</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;Evzor_phone&gt; Doing so now</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;Evzor_phone&gt; Its a doing something but getting warning overiding old commands for kernel stuff a lot</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;Kaik541&gt; warnings are nothing</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;Kaik541&gt; as long as it doesn't stpo</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;techmik67&gt; in the words of coolya: "real men only worry about errors, not warnings" =)</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;Evzor_phone&gt; Needed schedtool got it</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;Evzor_phone&gt; Mm trying aga</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; depends if your warning is ranlib found no symbols...that one is never good</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-green">* ericdet (~eric@74-136-162-133.dhcp.insightbb.com) has joined this channel.</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;Unhelpful&gt; the sensor really only has five values? how is that even useful?</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, are you saying your reality has more than 5 shades ofbrightness?</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-green">* icezar1 (~quassel@ip-62-245-101-21.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-navy">* icezar1 (~quassel@ip-62-245-101-21.net.upcbroadband.cz) Quit (Changing host)</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-green">* icezar1 (~quassel@unaffiliated/icezar) has joined this channel.</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;gehzumteufel&gt; Update installing. Let's see what happens. lol</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; its probably to keep the backlight from jumping around all over the place</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; although I would think the values would be more evenly distributed</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;DocMAX&gt; how can i change the dialpad screen (i mean the one after the lockscreen)</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;Kaik541&gt; DocMAX, I already told you how in project-voodoo</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-green">* Wout|Portal2 is now known as Wout</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-navy">* Cezar (~quassel@unaffiliated/icezar) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;Wout&gt; DocMAX: this isnt a support channel</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;gehzumteufel&gt; hmm screen went black</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; good lord kaik, you keep a finger in that pie as well?</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;gehzumteufel&gt; keys light up, but nothing on screen</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, I'm everywhere</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;techmik67&gt; gehzumteufel: touch home key</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-brick">* TMC_Sherpa looks behind him</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;gehzumteufel&gt; I hit them all, nothing happened. Just pulled batter and turned back on. Seems to be booting now</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;ericdet&gt; I got mine updated as well</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;techmik67&gt; excellent</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;gehzumteufel&gt; Okay so far, things seem to be working as expected.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;Kaik541&gt; gehzumteufel, wifi?</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;gehzumteufel&gt; Data connection works, apps aren't borked (that I can tell), nothing seems bad.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;gehzumteufel&gt; Let me test that. Was getting to that too.</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;gehzumteufel&gt; Wifi works, and BT turns on.</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;techmik67&gt; excellent</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;techmik67&gt; next step is to learn the branch stuff so you can test stuff that isnt ready to be released yet....... not hard</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-navy">* Zilch25 (~Zilch25@166.192.103.83) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;gehzumteufel&gt; And bt is confirmed to work now too. Can pair and send file.</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;gehzumteufel&gt; techmik67: I'm ready when you are for branch stuff</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-navy">* icezar1 (~quassel@unaffiliated/icezar) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; to test the sensors, for instance, there a 3 repos that need to be branched</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; the kernel</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; device/samsung/vibrant</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; and vendor/samsung/common</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; so</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;techmik67&gt; form adndoid/system</span><br />
