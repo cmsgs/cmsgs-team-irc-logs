@@ -657,3 +657,35 @@
 <span class="irc-date">[10:21]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 260 seconds)</span><br />
 <span class="irc-date">[10:26]</span> <span class="irc-navy">* mothatt (~mothatt@CPE-124-189-160-142.rsqv1.lon.bigpond.net.au) Quit (Quit: Leaving)</span><br />
 <span class="irc-date">[10:48]</span> <span class="irc-navy">* neldar (~neldar@dsl-217-169-186.pool.bitel.net) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm|night&gt; unhelpful, should we have all the symlinks available in sbin always?</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm|night&gt; the busybox ones</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-green">* atinm|night is now known as atinm</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm&gt; we didn't have that before in the froyo days</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm&gt; and am wondering because /system/bin and /sbin things conflict.</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;Wout`&gt; oi</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;atinm&gt; yeah, we used to do the symlink in recovery.rc in froyo days</span><br />
+<span class="irc-date">[11:21]</span> <span class="irc-black">&lt;atinm&gt; and because /sbin is before /system/bin in the PATH, the busybox stuff is found first</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;atinm&gt; for recovery we want /sbin to have the busybox versions I thin</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;atinm&gt; think, but for normal use we don't so that system/bin stuff is used</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;atinm&gt; of course, we found this because Voodoo app wants to do a rmmod</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;atinm&gt; and it wants to rmmod using the system/bin/rmmod</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;atinm&gt; rather than sbin/rmmod</span><br />
+<span class="irc-date">[11:23]</span> <span class="irc-black">&lt;atinm&gt; because the two look in different places for the modules.</span><br />
+<span class="irc-date">[11:23]</span> <span class="irc-black">&lt;atinm&gt; so it is also possible that our module path is wrong anyway - I think it is . . .</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm&gt; we use /system/modules, system/bin/rmmod wants /system/lib/modules</span><br />
+<span class="irc-date">[11:33]</span> <span class="irc-black">&lt;atinm&gt; we shouldn't be using /system/modules anyway</span><br />
+<span class="irc-date">[11:36]</span> <span class="irc-black">&lt;atinm&gt; ./vendor/cyanogen/products/common.mk:KERNEL_MODULES_DIR:=/system/lib/modules</span><br />
+<span class="irc-date">[11:36]</span> <span class="irc-black">&lt;atinm&gt; it is nexus that went bad</span><br />
+<span class="irc-date">[11:36]</span> <span class="irc-black">&lt;atinm&gt; and we copied it</span><br />
+<span class="irc-date">[11:37]</span> <span class="irc-black">&lt;kang&gt; true the module location is wrong^^</span><br />
+<span class="irc-date">[11:37]</span> <span class="irc-black">&lt;atinm&gt; I'll fix it, I'm also going to merge the sensors branch today</span><br />
+<span class="irc-date">[11:37]</span> <span class="irc-black">&lt;atinm&gt; so will just do it all then</span><br />
+<span class="irc-date">[11:37]</span> <span class="irc-black">&lt;kang&gt; yay</span><br />
+<span class="irc-date">[11:39]</span> <span class="irc-black">&lt;atinm&gt; ./device/samsung/crespo/BoardConfig.mk:WIFI_DRIVER_MODULE_PATH     := "/system/modules/bcm4329.ko"</span><br />
+<span class="irc-date">[11:39]</span> <span class="irc-black">&lt;atinm&gt; ./device/samsung/crespo/device.mk:      device/samsung/crespo/bcm4329.ko:system/modules/bcm4329.ko</span><br />
+<span class="irc-date">[11:43]</span> <span class="irc-green">* icezar1 (~quassel@ip-62-245-101-21.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[11:43]</span> <span class="irc-navy">* icezar1 (~quassel@ip-62-245-101-21.net.upcbroadband.cz) Quit (Changing host)</span><br />
+<span class="irc-date">[11:43]</span> <span class="irc-green">* icezar1 (~quassel@unaffiliated/icezar) has joined this channel.</span><br />
+<span class="irc-date">[11:44]</span> <span class="irc-green">* icezar1 is now known as Cezar</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: that will all be taken care of, but i didn't get to do much work because shortly after i finished production for the night, we lost power.</span><br />
+<span class="irc-date">[11:57]</span> <span class="irc-black">&lt;Unhelpful&gt; basically i'm tossing all of that combined recovery business out ;)</span><br />
