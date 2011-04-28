@@ -277,3 +277,204 @@
 <span class="irc-date">[2:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; need to see if it works at all at the moment.  the diff3 file I used to make the patch was from my script stripped skeletons.  the output looked good but until a few builds are done I'm not 100% sure I trust it</span><br />
 <span class="irc-date">[2:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I really hope it works 'cus doing all that crap by hand sucks</span><br />
 <span class="irc-date">[2:59]</span> <span class="irc-green">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;techmik67&gt; building</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;chaembian&gt; building for vibrant on a branch based off main branch</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;techmik67&gt; i did it on sensors</span><br />
+<span class="irc-date">[3:03]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_kernel_samsung/commit/b18fc63fb8695d31437a684874cbcb600ca4f1b5">https://github.com/techmik/android_kernel_samsung/commit/b18fc63fb8695d31437a684874cbcb600ca4f1b5</a></span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;techmik67&gt; the rejects were flase starts</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;techmik67&gt; false *</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-navy">* Evzor_phone (~android@cpe-76-179-64-103.maine.res.rr.com) Quit (Quit: -a-)</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;wwyvern&gt; Hi all..finished the repo sync last night, finally. Now what should I do?</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;techmik67&gt; 1st, repo sync -j16 again, to get anything new since then.... it'll take just a minute or 2 =)</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;wwyvern&gt; ok, will do</span><br />
+<span class="irc-date">[3:06]</span> <span class="irc-black">&lt;gehzumteufel&gt; Tomorrow I should be able to create builds pretty fast. left my box at work syncing and left.</span><br />
+<span class="irc-date">[3:06]</span> <span class="irc-black">&lt;techmik67&gt; then, from same dir (android/system), run "./build.sh prepare"</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;wwyvern&gt; I run that from ~/android/system</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;wwyvern&gt; , right?</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;techmik67&gt; then</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;techmik67&gt; what is your device? vibrant?</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-green">* ytt3r is now known as ytt3r-Away</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-green">* ytt3r-Away is now known as ytt3r</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-navy">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-green">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;wwyvern&gt; vibrant</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;wwyvern&gt;  I'm getting no command repo found</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;wwyvern&gt; grrrr</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; type which repo</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;wwyvern&gt; ok</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;wwyvern&gt; did it</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;wwyvern&gt; no result</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: how do you want this build to be tested?</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;chaembian&gt; (the build on modified gpio)</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k for now from the android/system folder type ~/bin/repo sync -j16</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;wwyvern&gt; no such file or directory</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; chaembian: for right now its just a question of if anything doesn't work anymore, phone sounds whatever</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;wwyvern&gt; do I need to sudo first or something?</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sudo = bad most of the time</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; cd</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ls</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik67&gt; hmmmm.... my service hooks not working and on the asdmin, service hooks page, twiiter's dot is red, not blue......</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;Kaik541&gt; wwyvern, did you sudo when you installed repo?</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;wwyvern&gt; I know, but I can see the files are there-can't figure why not working</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; is there a folder called bin?</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;wwyvern&gt; yes there's a bin folder</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; cd bin</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ls -l</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;wwyvern&gt; I don't think I sudoed when I installed</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;wwyvern&gt; adb fastboot repo</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;gehzumteufel&gt; wwyvern: Did you reboot after you synced?</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;wwyvern&gt; yes</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;gehzumteufel&gt; hmm sounds like an environ variable failed somewhere</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;wwyvern&gt; should I try to sync from here?</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;chaembian&gt; wwyvern: where do you have your repo script? Is it in your ~/bin?</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; for giggles try sudo which repo</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;Kaik541&gt; chmod a+x ~/bin/repo</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;gehzumteufel&gt; ah yeah Kaik541 is probably right</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;wwyvern&gt; repo is in ~/bin</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;chaembian&gt; Check if its executable.</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sudo finds it but not your normal user name?</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;wwyvern&gt; sudo which repo-nothing happens</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;Kaik541&gt; wwyvern, do what I said</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;chaembian&gt; wwyvern: what Kaik541 said</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;Kaik541&gt; chmod a+x ~/bin/repo</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;wwyvern&gt; chmod: cannot access `/home/lisa/bin/repo': No such file or directory</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;Kaik541&gt; what</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;Kaik541&gt; type the output of pwd</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;wwyvern&gt; what I said</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;wwyvern&gt; /home/lisa/android/system/bin</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;Kaik541&gt; ...</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;Kaik541&gt; why are you in android/system/bin</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; s'ok</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; cd ..</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;Kaik541&gt; you did not follow the instructions &gt;_&gt;</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ./bin/repo sync -j16</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; be nice kaik</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;wwyvern&gt; gimme a sec</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, I'm just saying they skipped a step</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;techmik67&gt; why cant i fix the stupid service hooks now....</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the who did what tech?</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;techmik67&gt; you know the page where you set up the service hooks?</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;wwyvern&gt; No such file or directory</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;wwyvern&gt; can I just delete the android folder and start over?</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;techmik67&gt; wwyvern: cp ~/android/system/bin/ ~/</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;wwyvern&gt; ok</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;wwyvern&gt; cp: missing destination file operand after `/home/lisa/android/system/bin/~/'</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: <a href="http://pastebin.com/uaPVcmYt">http://pastebin.com/uaPVcmYt</a></span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;chaembian&gt; Bunch of errors</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;techmik67&gt; space before ~/ at the end</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;Kaik541&gt; wwyvern, you need to put a space</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;wwyvern&gt; ok</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sweet</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;chaembian&gt; The patch did apply cleanly. Let me check if the patch was applied right.</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;wwyvern&gt; bash: !/android/system/bin/: event not found</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;techmik67&gt; TMC_Sherpa: did you check my commit to make sure the patch went right?</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm still building on my machine so I'm not going to say I didn't fat finger anything</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;techmik67&gt; wwyvern: cp ~/android/system/bin ~/</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;techmik67&gt; cut and paste it</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;Kaik541&gt; wwyvern, you should learn to copy/paste</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;wwyvern&gt; ok</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;techmik67&gt; Kaik541: she is one of the newer people atinm|nightasked to help test vibrant...... go easy =)</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;wwyvern&gt; cp: omitting directory `/home/lisa/android/system/bin'</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;Kaik541&gt; copy/paste is going easy :(</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;techmik67&gt; we hve to tutor</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;Kaik541&gt; cp -r</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;wwyvern&gt; I would if I could-xchat won't let me copy from the irc page</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;techmik67&gt; i cheat and use the gui where possible</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; chaembian:  puking on my ifdef ( || ) lines, gimme a sec</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;techmik67&gt; cut n paste</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;wwyvern&gt; p -r?do I do c</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-navy">* koush_ (~koush@c-98-232-66-164.hsd1.wa.comcast.net) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: should I change this 'defined(CONFIG_SAMSUNG_CAPTIVATE || CONFIG_SAMSUNG_VIBRANT)'</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;wwyvern&gt; sorry do I do cp -r?</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;techmik67&gt; wwyvern: cp -r ~/android/system/bin ~/</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;chaembian&gt; to this: defined(CONFIG_SAMSUNG_CAPTIVATE) || defined (CONFIG_SAMSUNG_VIBRANT)</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;chaembian&gt; ?</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gimme a sec  chaembian poking around</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;wwyvern&gt; ok now what?</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-navy">* koush (~koush@98.232.66.164) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;techmik67&gt; is it there in ~/bin now?</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;wwyvern&gt; if I ls I get adb fastboot repo</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;techmik67&gt; excellent</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;techmik67&gt; now go to ~/android/system</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; smeg it should be defined(CONFIG_SAMSUNG_CAPTIVATE) || defined(CONFIG_SAMSUNG_VIBRANT)</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;techmik67&gt; and repo sync -j16</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; lemme fix it</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;techmik_laptop&gt; TMC_Sherpa: <a href="http://pastebin.com/uFt3suFD">http://pastebin.com/uFt3suFD</a></span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; not sure how I screwed that up</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;wwyvern&gt; no command repo found</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;Kaik541&gt; wwyvern, you have to reboot</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;Kaik541&gt; before it'll take effect</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;techmik67&gt; oh, right</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah techmik_laptop chaembian found problems too, working on it</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;wwyvern&gt; will do brb</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;techmik67&gt; i wont have to clean and start over, right?</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; .....no?</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;techmik67&gt; 10-15 mins vs 40 =)</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I know</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-green">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; erm.... OK let me just post the whole file, easier than trying to patch the patched file</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;wwyvern&gt; It's working now...</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;wwyvern&gt; Thanks y'all</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; \0/</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;wwyvern&gt; :)</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;wwyvern&gt; done</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;techmik67&gt; now ./build.sh prepare</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;wwyvern&gt; ok</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;techmik67&gt; then</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;techmik67&gt; . build/envsetup.sh &amp;&amp; brunch vibrant</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;techmik67&gt; and go have a snack =)</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;wwyvern&gt; Smoke break!</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;techmik67&gt; several</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;techmik67&gt; it will take a bit of time to build</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;techmik67&gt; depending on the computer</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-navy">* Kaik541 (~Kaik541@cpe-70-112-175-254.austin.res.rr.com) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; <a href="http://pastebin.com/UPqtL4u3">http://pastebin.com/UPqtL4u3</a></span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;wwyvern&gt; No prob-got time tonight-off tomorrow and no big commitments (tho there are some small ones)</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: No changes are required to line 693?</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; erm...did I mis one?</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;chaembian&gt; ~//android/system/kernel/samsung/2.6.35/arch/arm/mach-s5pv210/include/mach/gpio-settings.h:693:9: error: macro names must be identifiers</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ship</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if defined !(CONFIG_SAMSUNG_CAPTIVATE)</span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;chaembian&gt; ifndef CONFIG_SAMSUNG_CAPTIVATE (no brackets?)</span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;chaembian&gt; Will that work?</span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; probably</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; this is what I get for doing bulk replacement</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;chaembian&gt; which route do you want me to take?</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ifndef</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;chaembian&gt; ok</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; bangs drive me up a wall</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;chaembian&gt; :)</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;chaembian&gt; i dont have to do a clean?</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;chaembian&gt; ok, sweet</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; wait</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; more typos</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh COME ON</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; mach/gpio-settings.h:302:60: error: missing binary operator before token "CONFIG_SAMSUNG_VIBRANT"</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; how did I get (defined(defined?</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; and /mach/gpio-settings.h:302:59: error: missing ')' after "defined"</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;gehzumteufel&gt; <a href="http://www.webmonkey.com/2011/02/cussing-in-commits-which-programming-language-inspires-the-most-swearing/">http://www.webmonkey.com/2011/02/cussing-in-commits-which-programming-language-inspires-the-most-swearing/</a></span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah changing (defined(defined( to just (defined( should take care of both</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; so the line should be....</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; ah</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; defined ( not (defined(</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; screwed myself again doing a replace all on || with ) || defined(</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; OK no errors on aries</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'ma post that one more frick'n time</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; <a href="http://pastebin.com/AdJe9Rr6">http://pastebin.com/AdJe9Rr6</a></span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; smoke break</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;ericdet&gt; I'll be on tomorrow... Night guys.</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;techmik67&gt; night</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-navy">* ericdet (~Wild@74-136-162-133.dhcp.insightbb.com) Quit (Quit: Leaving)</span><br />
