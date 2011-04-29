@@ -685,3 +685,131 @@
 <span class="irc-date">[13:39]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
 <span class="irc-date">[13:43]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: what does the lightsensor give us? only 6 and 5000?</span><br />
 <span class="irc-date">[13:43]</span> <span class="irc-black">&lt;Wout&gt; and some higher values in direct sunlight</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;codeworkx&gt; we can improve this: <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/overlay/frameworks/base/core/res/res/values/config.xml#L46">https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/overlay/frameworks/base/core/res/res/values/config.xml#L46</a></span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: the sensor lib gives us 6, 5000, 9000, 15000</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;atinm|away&gt; and it basically calls everything above 3000 "bright"</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;atinm|away&gt; so it doesn't really matter. it is the low light levels we want that the Nexus S lib has</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;atinm|away&gt; the Nexus S lib has many values between 6 and 5000</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;atinm|away&gt; so the brightness rises slowly</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;codeworkx&gt; we can change it in overlay. the lowest level the is 6, the second lowest is 5000 and so on</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;atinm|away&gt; on our lib, it just goes from dim to bright in on stage</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;atinm|away&gt; one</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;atinm|away&gt; yes, but I think it won't matter - bright is bright</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;atinm|away&gt; 5000 is pretty bright</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;codeworkx&gt; it will work</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;atinm|away&gt; 1000 is overcast day</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;codeworkx&gt; worked on cm6 too xD</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;atinm|away&gt; which is bright anyway</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;atinm|away&gt; so we would need 100% brightness</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;codeworkx&gt; totally darkness = 6, full sunlight = 15000. right?</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;atinm|away&gt; at anything past 3000 anyway</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;atinm|away&gt; yes, but 1000 overcast day</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;atinm|away&gt; which is very bright :)</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;atinm|away&gt; brighter than indoors on a sunny day at a window in the shade</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;atinm|away&gt; that is like 500</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;atinm|away&gt; and I already need full brightness for that</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;atinm|away&gt; we can modify</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;atinm|away&gt; but I don't think it will help. the thing that would help is the table I showed from the nexus s lib</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;codeworkx&gt; if the sensor gives us 15000, set the brightness to max, if it gives us 6, set the brightness to lowest level ...</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;atinm|away&gt; where it had 5 levels between just 619 abd 1200 lux</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;atinm|away&gt; yes</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;atinm|away&gt; but we need it to max even at 5000 and 9000 because it is still too bright outside</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;codeworkx&gt; and if 9000 or 5000 something between max and lowest</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;atinm|away&gt; and phone would need it</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;atinm|away&gt; but we can do it</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;atinm|away&gt; at least to make ppl stop complaining</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;atinm|away&gt; the real complaint is the lux between 10 and 1000</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;atinm|away&gt; basically varying indoor lighting</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;codeworkx&gt; sammy values aren't in lux xD</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;codeworkx&gt; these are just values</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;atinm|away&gt; no, they match what lux values are</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;atinm|away&gt; <a href="http://en.wikipedia.org/wiki/Lux">http://en.wikipedia.org/wiki/Lux</a></span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;codeworkx&gt; sammy = crazy</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;atinm|away&gt; look at the illuminance table - it basically matches up</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;atinm|away&gt; samsung just doesn't have enough levels in their sensor lib</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;atinm|away&gt; nexus s did</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;atinm|away&gt; the 9000 and 15000 levels are uselss</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;atinm|away&gt; they're too bright anyway</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;atinm|away&gt; and need 100%</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;atinm|away&gt; but</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;atinm|away&gt; we shuld modify that xml :)</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;atinm|away&gt; just to let people be happy</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;atinm|away&gt; let me look at it</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;codeworkx&gt; it will work as good as on sammy roms</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;atinm|away&gt; what does sammy rom have?</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;atinm|away&gt; anyway to find their file?</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;codeworkx&gt; smali framework?</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;codeworkx&gt; i prefer try and error</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;codeworkx&gt; if it feels good, it's ok</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;atinm|away&gt; need to find jvb system</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;atinm|away&gt;     &lt;integer-array name="config_autoBrightnessLevels"&gt;</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;atinm|away&gt;         &lt;item&gt;10&lt;/item&gt;</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;atinm|away&gt;         &lt;item&gt;5000&lt;/item&gt;</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;atinm|away&gt;         &lt;item&gt;9000&lt;/item&gt;</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;atinm|away&gt;         &lt;item&gt;15000&lt;/item&gt;</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;atinm|away&gt;     &lt;/integer-array&gt;</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;atinm|away&gt; we need to default to auto-dim on tho</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-navy">* iravid (~iravid@87.69.234.127) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: building with these values and let my brother test it because he's crying on me</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;atinm|away&gt; me too</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;atinm|away&gt; building while I whine about it.</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;atinm|away&gt; I like so want to play poker today instead of this crap</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: then play poker</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;atinm|away&gt; code always come first.</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;atinm|away&gt; :-O</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;atinm|away&gt; code &gt; family &gt; poker</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;atinm|away&gt; &gt; food</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: family &gt; food &gt; poker &gt; code</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; /android/system/device/samsung/captivate/overlay/frameworks/base/core/res/res/values/config.xml</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: <a href="http://uncutandroid.com/2011/04/a-womans-guide-to-living-with-an-android-deventhusiast-uncut/">http://uncutandroid.com/2011/04/a-womans-guide-to-living-with-an-android-deventhusiast-uncut/</a> was this written by your wife?</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;atinm|away&gt; you have your priorities more sane than I do ;-)</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;atinm|away&gt; TMC_Sherpa: yes</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;atinm|away&gt; working on it :)</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; am I too late? did you figure it out already?</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;atinm|away&gt; modified, going to see if can do anything</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; am I typing way to slowly</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: pointed to it just now</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;codeworkx&gt; we had the same problems on cm6. samsung doesn't learb anything</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;atinm|away&gt; but my "contention" is that it won't really help - the problem is the low light readings - the ones between 6 and 5000</span><br />
+<span class="irc-date">[14:32]</span> <span class="irc-black">&lt;codeworkx&gt; learn</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; there is a 1000 level</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;atinm|away&gt; because everything about 1000 is way to bright</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;atinm|away&gt; and so we need 100% brightness anyway</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-green">* iravid (~iravid@87.69.234.127) has joined this channel.</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;atinm|away&gt; but lets see</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;atinm|away&gt; building clean - I was also doing all kinds of hacking in the libsensors code to try to fake it into using samsungs and mine</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;atinm|away&gt; where mine just had light sensor</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;atinm|away&gt; and was trying to make it not conflict.</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;atinm|away&gt; but gave up</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the froyo source has the level calculations in it, there are only 5 but at least I can see what adc values they are using.  it's likie hey, lets move the light stuff into a lib and pull compass stuff out of one just to mess with people</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;atinm|away&gt; TMC_Sherpa: our source does too</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;atinm|away&gt; the adc values are fine</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;atinm|away&gt; its the fucking lib that isn't</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;atinm|away&gt; the one that interprets that adc value to turn into lux temp</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;atinm|away&gt; lux value</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;atinm|away&gt; sorry - language.</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;atinm&gt; people read our logs now</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-black">&lt;atinm&gt; I have to mind my language :)</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; stupid people who are dumb according to some of the posts I've seen ;)</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Quit: Ik ga weg)</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or is that us and not the casual reader I forget</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;atinm&gt; I don't even look at cm6 code</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;atinm&gt; so I never know what we changed and didn't change :)</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gotta get ready for work, just making sure someone found the file</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-green">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;atinm&gt; oh and Wout - in z-devicetest light sensor test, it gives you a few numbers</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;atinm&gt; the lux value, the max range and then it also gives you a %</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;atinm&gt; note that down as well</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-green">* Manadar (~Manadar@AMontsouris-552-1-63-32.w92-140.abo.wanadoo.fr) has joined this channel.</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;Manadar&gt; Hi</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;Wout&gt; atinm: 3000 max range</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;Wout&gt; 166% @ 5000 lux</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-black">&lt;atinm&gt; let me know what it is at 6, 9000, 15000 also when you get the chance</span><br />
