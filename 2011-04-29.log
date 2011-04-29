@@ -648,3 +648,40 @@
 <span class="irc-date">[12:59]</span> <span class="irc-black">&lt;atinm|away&gt; now we just have 2 - bright and dim</span><br />
 <span class="irc-date">[12:59]</span> <span class="irc-black">&lt;atinm|away&gt; right. the question I am asking is whether JVB has the same behavior</span><br />
 <span class="irc-date">[13:00]</span> <span class="irc-black">&lt;atinm|away&gt; in all the different light conditions</span><br />
+<span class="irc-date">[13:01]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, for i9000</span><br />
+<span class="irc-date">[13:01]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[13:04]</span> <span class="irc-black">&lt;atinm|away&gt; that code is fine</span><br />
+<span class="irc-date">[13:04]</span> <span class="irc-black">&lt;atinm|away&gt; the code that is a problem is libsensors.so</span><br />
+<span class="irc-date">[13:04]</span> <span class="irc-black">&lt;atinm|away&gt; which is closed.</span><br />
+<span class="irc-date">[13:04]</span> <span class="irc-black">&lt;atinm|away&gt; and we switched to it from our open source implementation we'd kanged from Nexus S.</span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-black">&lt;atinm|away&gt; yes</span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-black">&lt;atinm|away&gt; it returns fine values</span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-black">&lt;atinm|away&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13311726&amp;postcount=7647">http://forum.xda-developers.com/showpost.php?p=13311726&amp;postcount=7647</a></span><br />
+<span class="irc-date">[13:05]</span> <span class="irc-black">&lt;atinm|away&gt; the full explanation</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm|away&gt; nothing it turns out</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm|away&gt; this is how it is supposed to work according to samsung ;-)</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm|away&gt; but if we could get oss code for accel and magnetometer, we'd go back to open source and be able to fix this as well</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;Wout&gt; maybe they'll fix it in the next 2.3.3 update</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;atinm|away&gt; but unlikely because they're samsung and fools</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;Wout&gt; yup</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;Wout&gt; I always use the brightness powertoggle widget in cm7</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, it is fine for me</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;atinm|away&gt; dim and bright</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;atinm|away&gt; but people are having conniptions over it</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;atinm|away&gt; so I figured I should at least research it.</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-green">* wergeld (~IceChat7@cpe-173-170-151-39.tampabay.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|away&gt; so my general feeling is: screw it.</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|away&gt; if JVB can't do it, no one should expect me to.</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|away&gt; but Wout - can you confirm for me?</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|away&gt; use z-devicetest outdoors as well</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|away&gt; and tell me what you see, you should see 6, 5000, 9000, 15000</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;atinm|away&gt; and the max range should be getting reported as 3000</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;atinm|away&gt; which I think just says, "anything about 3000 lux, call it bright"</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-black">&lt;Wout&gt; atinm|away: will check later, cant go outside now</span><br />
+<span class="irc-date">[13:20]</span> <span class="irc-black">&lt;atinm|away&gt; k</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-green">* icezar1 (~quassel@unaffiliated/icezar) has joined this channel.</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-green">* icezar1 is now known as Cezar`</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: what does the lightsensor give us? only 6 and 5000?</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;Wout&gt; and some higher values in direct sunlight</span><br />
