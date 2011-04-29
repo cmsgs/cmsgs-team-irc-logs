@@ -397,3 +397,68 @@
 <span class="irc-date">[3:57]</span> <span class="irc-black">&lt;techmik67&gt; i didnt clean b4...trying clean now</span><br />
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; greping on my end I don't remember when I synced last</span><br />
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so my nfc may also be bad</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;techmik67&gt; i didnt comment out rhe lines referred to in the error properly i guess when i tried it</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;techmik67&gt; went from 12 errors to 241</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oops</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I think what you need to do is tell it not to build that package</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;techmik67&gt; i basically went to the lines that were referred to in the error and "//" them</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;techmik67&gt; if this fails, then what? go to the manifest and temp comment out that package?</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;techmik67&gt; how do i not build it?</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;techmik67&gt; hmmm</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dono, trying to see where it figures out which ones to build</span><br />
+<span class="irc-date">[4:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; grep gets into a loop in alsa, not sure what the hell is going on there</span><br />
+<span class="irc-date">[4:11]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, it's getting jiggy</span><br />
+<span class="irc-date">[4:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; delete the NFc directory, that should point to wahts calling it</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; grep --exclude-dir=.git -r ApduList *</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; grep: warning: external/alsa-lib/include/alsa: recursive directory loop</span><br />
+<span class="irc-date">[4:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I don't thin I've ever seen that error before</span><br />
+<span class="irc-date">[4:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; shit I keep closing windows instead of minimizing</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; shit....its only captivate with the screwed light sensor?</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;Kaik541&gt; well it works sorta</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;Kaik541&gt; but only two values work (same with every device)</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;Kaik541&gt; CM expects values between 0-3000</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh they are all broken</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;Kaik541&gt; our light sensor reports 6, 5000, and 9000</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;Kaik541&gt; so only two settings work</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-navy">* HRTheJoey (~HRTheJoey@pool-98-114-240-193.phlapa.fios.verizon.net) Quit ()</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;gehzumteufel&gt; Can't they just correlate 6 to 0, 5000 to 1500, and 9000 to 3000?</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; looking at what GB did to gp2a_work_func_light in Froyo you get a nice big ass if else with adc you can play with</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;gehzumteufel&gt; Ah</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;techmik67&gt; same errors... deleted Nfc dir and seeing what happens......</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;gehzumteufel&gt; Well I am off. ttyl</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-navy">* gehzumteufel (~quassel@cpe-76-93-100-229.socal.res.rr.com) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-navy">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;techmik67&gt; it worked, it looks like</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; we need to get ericdet on a build with the newish gpio data, see if that helps with his wifi battery problems</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;techmik67&gt; i built, it got to 30 mins (usually takes 40) and it stopped with those errors.... i deleted Nfc and built again without clean</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; chaembian: is your battery any better or worse than before?</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;techmik67&gt; finising now</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;Unhelpful&gt; perhaps we could tune the default brightness table to work w/ values our sensor can report? i would imagine the defaults are in an xml somewhere that we could overlay?</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;techmik67&gt; that sounds reasonable....</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;Unhelpful&gt; aside from that, there's the oddity that the captivate light sensor is simply not reporting nice values w/ the binary lib</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm trying to see if thats a gpio problem</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: I think its better than before, but I have not been tracking the battery consumption before.</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but gp2a is...less than helpful</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;techmik67&gt; zipping package</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;techmik67&gt; signing package</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;chaembian&gt; After I took off the charger at noon yesterday, it lasted until I woke up in the morning today.</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;techmik67&gt; yay</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; see if wifi murders your device if you could please unless you use wifi all the time</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;techmik67&gt; it doesnt kill</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it looks like erics big battery draw is the wyfys</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;techmik67&gt; 5-6% hr with just sitting there wifi and phone signal connected</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh heh I didn't see a huge wifi bump in your battery graph so I assumed you had it off</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;techmik67&gt; no, thats always commected here at home =)</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gotcha</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; still, nice to see if it works on a vibrant</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;techmik67&gt; if i turned off wifi it'd prob be 3-4% hr</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; which for a phone doing 'nothing' still isn't that great</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;techmik67&gt; yes, good if it works for him</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but better</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;techmik67&gt; better than it was</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;techmik67&gt; ok, booting with the 2 new files</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: can i "git commit --amend" anything besides the last commit? can i do the last 3 commits?</span><br />
