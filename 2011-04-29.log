@@ -872,3 +872,77 @@
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;atinm&gt; codeworkx: let me test this some more</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;atinm&gt; somehow couldn't make the overlay show up tho</span><br />
 <span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm&gt; I could still edit it</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm&gt; after I changed mSensorRange to 15000</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm&gt; so changing some code in CMParts</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm&gt; so another fork</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm&gt; but we should be able to get it to merge</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm&gt; 	mSensorRange = SystemProperties.getInt("ro.sensors.light.maxrange",</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm&gt;                                                (int) ((SensorManager) getSystemService(SENSOR_SERVICE)).getDefaultSensor(Sensor.TYPE_LIGHT).getMaximumRange());</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm&gt; so others will use the getsensor while we would define that variable</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;kang&gt; atinm: ok, will be later when im home. gotta split it so its all nice in a own branch</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;atinm&gt; kang, thanks!</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;ericdet&gt; I just went through the log and TMC_Sherpa said he wanted me to try the new gpio stuff. How would I go about doing that?</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm&gt; techmik will know - you need to pull in stuff from one of them</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;atinm&gt; I don't know who and what tho</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;Kaik541&gt; I'm pretty sure techmik has it in a branch on his github</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;Kaik541&gt; it's the TMC branch</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="https://github.com/techmik/android_kernel_samsung/tree/tmc">https://github.com/techmik/android_kernel_samsung/tree/tmc</a></span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;Kaik541&gt; and it has stuff for cappy and vibrant in there iirc</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;atinm&gt; and how is it working for techmik?</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;atinm&gt; speaking of the devil</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;Kaik541&gt; it didn't explode</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;Kaik541&gt; that's what I recall</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;atinm&gt; TMC_Sherpa: techmik has your gpio stuff in his branch</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/techmik/android_kernel_samsung/commits/tmc">https://github.com/techmik/android_kernel_samsung/commits/tmc</a></span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;atinm&gt; are you doing more stuff with it?</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;atinm&gt; or should I pull in and test?</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;ericdet&gt; Ill get with techmik later for instructions when im at my pc.</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sorry wondered off for a sec.  I think there is more to pull out of gpio-aries.c but techmiks battery looks good so I would put it in there, I can test more later</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sorry, I got that backwards, gpio-settings I think still has some nexus stuff in it, aries adds a few A1026 gpio so it isn't hurting anyone and I have no clue what changing the third file is doing</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;atinm&gt; ok, :)</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; that gpio doesn't get called anywhere else...or even looked at that I can tell *shrug* maybe a lib or something</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;atinm&gt; well, if his SD works</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the comment is GPIO_T_FLASH_CLK</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it mounts and he can still see it over usb...or was that chaembian  *shrug* it worked for someone</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I know it mounted for tech, not sure if he tested over usb</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, did you see the link I posted last night?</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;Kaik541&gt; the new proprietary blobs for NS for 2.3.4?</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;atinm&gt; tho now that we have i9000 blobs, they're more appropriate for us</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://groups.google.com/group/android-building/browse_thread/thread/60d3acf409d7b0af">http://groups.google.com/group/android-building/browse_thread/thread/60d3acf409d7b0af</a></span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;Kaik541&gt; well just saying it's there if we need them</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm&gt; we could take some. codeworkx, you do it.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what I really want is to see ericdet try those gpio settings, his wifi was murdering his battery before</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;Kaik541&gt; oh hey, even easier</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://code.google.com/android/nexus/drivers.html">http://code.google.com/android/nexus/drivers.html</a></span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;Kaik541&gt; they have them all laid out very nicely right there</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;ericdet&gt; TMC: Ill be on at home later and will try it out.</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what not going to build it on your atom :P</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;atinm&gt; I think I'm just going to wait until upstream is settled.</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;atinm&gt; before we move to 2.3.4 and use the new binaries</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;ericdet&gt; Just for test I disabled wifi for the day... Battery life is ages better but still not good by any means.</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;ericdet&gt; TMC: Atom?</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;Kaik541&gt; ericdet, your proc</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I thought you were on a EEPC</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;Kaik541&gt; netbook == atom</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;ericdet&gt; Nope. at work now. Phenom2 at home.</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; anyway still work'n it but it's really messy in there, pulling out changed function names to try and see where they moved to</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;ericdet&gt; I think you're thinking of evozr</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;ericdet&gt; back to work though. ill be on later.</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-navy">* ericdet (~androirc@74.215.26.80) Quit (Quit: AndroIRC)</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oooh yeah thats right</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-green">* sixstringsg (~Jason@pool-173-74-150-29.dllstx.fios.verizon.net) has joined this channel.</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-green">* AndroUser (~androirc@ms-208-102-106-254.gsm.cbwireless.com) has joined this channel.</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-green">* AndroUser is now known as ericdet</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;kang&gt; calendar also</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;kang&gt; uhm i dont mind too much for that</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;kang&gt; 2 bad no one plays the open source game the way "it should be"</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;kang&gt; so we'd get good fixes everywhere</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; does the iphone do it that way? apple prolly has a BS patent</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 'cus you know no one ever rounded off a black rectangle before...or ever scrolled vertically before they showed up</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-navy">* t-ready (~burrell@wormhole.cbl.umces.edu) Quit (Quit: Captivate - Phoenix ROM)</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-green">* ericdet_ (4ad71a50@gateway/web/freenode/ip.74.215.26.80) has joined this channel.</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; <a href="http://www.bestbuy.com/site/olstemplatemapper.jsp?_dyncharset=ISO-8859-1&amp;id=pcat17071&amp;type=page&amp;ks=960&amp;st=Free_Smartphone_Event_20110429&amp;sc=Global&amp;cp=1&amp;sp=&amp;qp=q467265655f536d61727470686f6e655f4576656e745f3230313130343239~~cabcat0800000%23%231%23%235~~cpcmcat190800050010%23%231%23%235~~cabcat0801000%23%231%23%235~~ncpcmcat209400050001%23%230%23%235&amp;list=y&amp;usc=All+Categories&amp;nrp=15&amp;iht=n">http://www.bestbuy.com/site/olstemplatemapper.jsp?_dyncharset=ISO-8859-1&amp;id=pcat17071&amp;type=page&amp;ks=960&amp;st=Free_Smartphone_Event_20110429&amp;sc=Global&amp;cp=1&amp;sp=&amp;qp=q467265655f536d61727470686f6e655f4576656e745f3230313130343239~~cabcat0800000%23%231%23%235~~cpcmcat190800050010%23%231%23%235~~cabcat0801000%23%231%23%235~~ncpcmcat209400050001%23%230%23%235&amp;list=y&amp;usc=All+Categories&amp;nrp=15&amp;iht=n</a>  oh godthelinkiseatingmyface</span><br />
