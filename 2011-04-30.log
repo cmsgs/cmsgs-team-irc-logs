@@ -619,3 +619,33 @@
 <span class="irc-date">[3:58]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: ..um.</span><br />
 <span class="irc-date">[3:58]</span> <span class="irc-black">&lt;Unhelpful&gt; services are not started by the kernel under any init system.</span><br />
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, I'm just having a real hard time following his logic here <a href="http://0pointer.de/blog/projects/why.html">http://0pointer.de/blog/projects/why.html</a></span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm not sure what you have trouble following?</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;ericdet&gt; Did those nfc files need deleted again?</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;techmik67&gt; if you get the error</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, it just seems like a big pile of feature creep and dependency hell to me :/</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;ericdet&gt; ok...Ill check back in 45 or so.</span><br />
+<span class="irc-date">[4:03]</span> <span class="irc-black">&lt;Kaik541&gt; maybe I'm missing something, but that's how it looks to me</span><br />
+<span class="irc-date">[4:03]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: yes and no - otoh sysvinit commonly *requires* a shell to start services, because the service files are shell scripts.</span><br />
+<span class="irc-date">[4:03]</span> <span class="irc-black">&lt;Kaik541&gt; true, I suppose, if it all runs in C that isn't required</span><br />
+<span class="irc-date">[4:04]</span> <span class="irc-black">&lt;Kaik541&gt; it just seems so... odd to have it done in such a way... I dunno</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-green">* chaembianw (~chaembian@223.177.179.34) has joined this channel.</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;Kaik541&gt; I don't claim to understand all of it, which is why I was asking</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;chaembianw&gt; hi guys</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;techmik67&gt; hi</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;chaembianw&gt; at work</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;Kaik541&gt; and this comment got me thinking "So, systemd violated the unix design principle and try to do everything in a single process? pid 1 process should be failsafe. putting everything in it is prone to error."</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;chaembianw&gt; i forgot that i have to be in office and early at that. dang!</span><br />
+<span class="irc-date">[4:10]</span> <span class="irc-green">* ciwrl|FRINGE is now known as ciwrl</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: i can sort of agree there, and maybe helper processes are where we should do things like dbus integration, etc.</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;Kaik541&gt; the lennart guy clarified trying to say that it *doesn't* do that, but it doesn't coney that well</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;Kaik541&gt; convey*</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yours your phone chaembianw?</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hows even</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-navy">* jusama14 (jusama14@gateway/shell/xzibition.com/x-bmyhlsodmzhtneuq) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-green">* jusama14 (jusama14@gateway/shell/xzibition.com/x-arohnrxngzmiamzt) has joined this channel.</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;techmik67&gt; i dont get it.... i have no problems, and sllep seems efficient still according to graph.....</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;techmik67&gt; sleep*</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; captivate vs vibrant...or every phone vs eric I'm not sure</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but thats why it took a while to get, I wanted to make sure the vibrant bits came from vibrant source, captivate from...you get the idea</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
