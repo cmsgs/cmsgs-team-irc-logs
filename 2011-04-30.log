@@ -814,3 +814,78 @@
 <span class="irc-date">[11:56]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
 <span class="irc-date">[11:58]</span> <span class="irc-black">&lt;atinm&gt; hm</span><br />
 <span class="irc-date">[11:58]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[12:00]</span> <span class="irc-black">&lt;atinm&gt; sec</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;atinm&gt; ok, you can let it go</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;atinm&gt; I am going to revert the last commit from TMC</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;atinm&gt; you can try it as well</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;atinm&gt; go into kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;atinm&gt; git log</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;atinm&gt; and then git revert the top hashcode</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;atinm&gt; the one that says sdhci</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;atinm&gt; had the freeze?</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;atinm&gt; oh</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;atinm&gt; so this is different from what ericDET is seeing</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;atinm&gt; because the TMC changes were what he was testing</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;atinm&gt; which are not committed</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;atinm&gt; you had to pull them yourself</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;atinm&gt; ok, crap</span><br />
+<span class="irc-date">[12:03]</span> <span class="irc-black">&lt;atinm&gt; ignore initial</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;atinm&gt; that's way old</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;atinm&gt; it is only supposed to be a way to get at current update</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;atinm&gt; I don't know what he gets</span><br />
+<span class="irc-date">[12:04]</span> <span class="irc-black">&lt;atinm&gt; I haven't seen his dmesg</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;atinm&gt; not that I know of</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;atinm&gt; dalvik is sort of fundamental</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;atinm&gt; kind of like saying are there any script to restart linux</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;atinm&gt; there are, but it will kill everything I think</span><br />
+<span class="irc-date">[12:08]</span> <span class="irc-black">&lt;atinm&gt; same for dalvik</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-navy">* mothatt (~mothatt@CPE-124-189-160-142.rsqv1.lon.bigpond.net.au) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[12:14]</span> <span class="irc-black">&lt;codeworkx&gt; anonymous: kill system-server</span><br />
+<span class="irc-date">[12:16]</span> <span class="irc-black">&lt;atinm&gt; codeworkx: common.py broke</span><br />
+<span class="irc-date">[12:16]</span> <span class="irc-black">&lt;atinm&gt; "Could not find RECOVERY/RAMDISK/etc/recovery.fstab"</span><br />
+<span class="irc-date">[12:16]</span> <span class="irc-black">&lt;atinm&gt; I think they must have just added this</span><br />
+<span class="irc-date">[12:16]</span> <span class="irc-black">&lt;atinm&gt; our recovery.fstab sits in misc</span><br />
+<span class="irc-date">[12:16]</span> <span class="irc-black">&lt;atinm&gt; dang it..</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;atinm&gt; going to see where it is called</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;atinm&gt; but I think it is after the zip is made so it has to be misc for us until Unhelpful is done</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;atinm&gt; weird</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;atinm&gt; sec</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: we have to patch it</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/CyanogenMod/android_build/commit/429feb15a96160bcc0bdd6541a28eb5974dffd86#L7R150">https://github.com/CyanogenMod/android_build/commit/429feb15a96160bcc0bdd6541a28eb5974dffd86#L7R150</a></span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;atinm&gt; right, I foound that and fixed it</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;atinm&gt; but that only fixes for us</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;atinm&gt; after unhelpful is done, we'll be able to have our recovery.fstab in etc</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;atinm&gt; but until then we have to be forked</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;codeworkx&gt;  data = zip.read("RECOVERY/RAMDISK/etc/recovery.fstab")</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;codeworkx&gt; we have to add another "try"</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;codeworkx&gt; for misc</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;atinm&gt; I did.</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;codeworkx&gt; and if both fails then throw error</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;atinm&gt; haven't committed</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;codeworkx&gt; ok</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;atinm&gt;   try:</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;atinm&gt;     data = zip.read("RECOVERY/RAMDISK/etc/recovery.fstab")</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;atinm&gt;   except KeyError:</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;atinm&gt;     try:</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;atinm&gt;       data = zip.read("RECOVERY/RAMDISK/misc/recovery.fstab")</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;atinm&gt;     except KeyError:</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-black">&lt;atinm&gt;       raise ValueError("Could not find RECOVERY/RAMDISK/{etc,misc}/recovery.fstab")</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;atinm&gt; but we have to fork soon anyway</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful has started commiting to build</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;atinm&gt; and we'll stay forked for a while I think given how complicated the changes are</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm&gt; sorry anonymous I learned something too :)</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm&gt; back later</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm&gt; kid up</span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[12:24]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has left this channel.</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: most of it is *moved* code, not changed at all. :)</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;Unhelpful&gt; any idea wtf the problem is w/ $(PRODUCT_OUT)/kernel?</span><br />
+<span class="irc-date">[12:51]</span> <span class="irc-black">&lt;Unhelpful&gt; if you try to build, it actually acts as though $LOCAL_KERNEL is undefined</span><br />
+<span class="irc-date">[12:53]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[12:56]</span> <span class="irc-black">&lt;Unhelpful&gt; it tries to do 'out/host/linux-x86/bin/acp -fpt  out/target/product/captivate/kernel' :/</span><br />
+<span class="irc-date">[12:58]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[12:59]</span> <span class="irc-brick">* Unhelpful thinks he spotted a very stupid mistake. :D</span><br />
