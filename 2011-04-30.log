@@ -889,3 +889,100 @@
 <span class="irc-date">[12:56]</span> <span class="irc-black">&lt;Unhelpful&gt; it tries to do 'out/host/linux-x86/bin/acp -fpt  out/target/product/captivate/kernel' :/</span><br />
 <span class="irc-date">[12:58]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 240 seconds)</span><br />
 <span class="irc-date">[12:59]</span> <span class="irc-brick">* Unhelpful thinks he spotted a very stupid mistake. :D</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-green">* chaembian (~chaembian@122.174.174.103) has joined this channel.</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;chaembian&gt; Good evening all</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;chaembian&gt; let me know if I can pick up from where I left off in the morning</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;chaembian&gt; (atinm's link to a pull request)</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;wergeld&gt; k, how in the hell do i remove a ppa repo in ubuntu 11.04? ppa-purge cant find the repo i want to remove yet when it tries to do it and does an apt-get update  it throws the 404 error ON the package i want to remove.</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;Kaik541&gt; wergeld, add-apt repository --remove</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;Kaik541&gt; or just look at the software sources dialog box and uncheck the ppa</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;wergeld&gt; cant. throws same error. grrr</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;Kaik541&gt; then do the much more violent method</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;Kaik541&gt; sudo rm -f /etc/apt/sources.list.d/name-of-ppa.list</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-black">&lt;wergeld&gt; Warning:  apt-get update failed for some reason</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-black">&lt;Kaik541&gt; yay you broke ap</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-black">&lt;Kaik541&gt; t</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-black">&lt;Kaik541&gt; hahaaha</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-black">&lt;wergeld&gt; Warning:  Could not find package list for PPA:</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-black">&lt;wergeld&gt; sun-java-community-team/sun-java6/ubuntu/dists/natty/main/source Sourcessudo</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-black">&lt;wergeld&gt; wtf</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-black">&lt;Kaik541&gt; you have to remove the .save too</span><br />
+<span class="irc-date">[13:20]</span> <span class="irc-black">&lt;wergeld&gt; same</span><br />
+<span class="irc-date">[13:22]</span> <span class="irc-navy">* mikebeecham (~mikebeech@2.99.39.73) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[13:22]</span> <span class="irc-black">&lt;wergeld&gt; i banged away in the system repo gui and it finally fixed it.</span><br />
+<span class="irc-date">[13:22]</span> <span class="irc-black">&lt;wergeld&gt; ghosts and gremlins...</span><br />
+<span class="irc-date">[13:22]</span> <span class="irc-black">&lt;Kaik541&gt; I told you to open the software sources dialog xD</span><br />
+<span class="irc-date">[13:22]</span> <span class="irc-black">&lt;wergeld&gt; i did before</span><br />
+<span class="irc-date">[13:23]</span> <span class="irc-green">* mikebeecham (~mikebeech@2.99.39.73) has joined this channel.</span><br />
+<span class="irc-date">[13:29]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[13:29]</span> <span class="irc-black">&lt;teamhacksung&gt; android_build: gingerbread codeworkx * 2d53632 (1 files in 1 dirs): also check for misc/recovery.fstab - <a href="http://bit.ly/mc2mCV">http://bit.ly/mc2mCV</a></span><br />
+<span class="irc-date">[13:29]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread codeworkx * 364598c (1 files in 1 dirs): teamhacksung/android_build, merged - <a href="http://bit.ly/kJ5tgk">http://bit.ly/kJ5tgk</a></span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: gingerbread codeworkx * 0083a2a (32 files in 4 dirs): Merge branch 'gingerbread' of git://github.com/CyanogenMod/android_vendor_cyanogen into gingerbread</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: gingerbread codeworkx * f49ac52 (4 files in 1 dirs): bump versions to 7.1.0</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: gingerbread commits 6d56d40...f49ac52 - <a href="http://bit.ly/jfH1xC">http://bit.ly/jfH1xC</a></span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[13:41]</span> <span class="irc-black">&lt;Kaik541&gt; oh god, here comes one thousand questions asking if the version bump means stable or merge or something else</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;mikebeecham&gt; you know the version bump...</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;mikebeecham&gt; is this supposed to mean stable, merge or something else?</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;mikebeecham&gt; :D</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;mikebeecham&gt; 999 left</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: gingerbread codeworkx * 58681d4 (4 files in 1 dirs): fingaprint - <a href="http://bit.ly/mOhAbY">http://bit.ly/mOhAbY</a></span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;Kaik541&gt; oh yay 2.3.4 fingerprint</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;mikebeecham&gt; huh?</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;codeworkx&gt; is it buildable?</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;Kaik541&gt; depends? is NFC still broken?</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;codeworkx&gt; did a sync + clean and i'm trying to build now</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;codeworkx&gt; wait a few minutes then i can tell</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;codeworkx&gt; i really need my new Vertex 3</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;Kaik541&gt; cyanogen just posted a pic of 2.3.4 on his G2x</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;Kaik541&gt; so I'm assuming it builds?</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;codeworkx&gt; cyanogen = freak</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;atinm&gt; my last sync and build worked</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;atinm&gt; but not since codeworkx' merge</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;codeworkx&gt; except common.py right?</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;atinm&gt; haven't tried that</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;atinm&gt; except that</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;codeworkx&gt; i've pushed it</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;atinm&gt; you've also forked build?</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;codeworkx&gt; ya</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;codeworkx&gt; does it help buying some beer for Unhelpful ?</span><br />
+<span class="irc-date">[13:50]</span> <span class="irc-black">&lt;atinm&gt; nah, I think he's like me</span><br />
+<span class="irc-date">[13:50]</span> <span class="irc-black">&lt;atinm&gt; doesn't drink</span><br />
+<span class="irc-date">[13:50]</span> <span class="irc-black">&lt;codeworkx&gt; i'm sure he's crying atm because of the code drop xD</span><br />
+<span class="irc-date">[13:51]</span> <span class="irc-black">&lt;atinm&gt; awesome. ok - will build - just synced too</span><br />
+<span class="irc-date">[13:51]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: build + upload because of teh auto brightness?</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;atinm&gt; yeah, in a few</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;atinm&gt; have to build and I want to check the BLN thing also</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;atinm&gt; led thing</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;atinm&gt; don't know how it is supposed to work :)</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;atinm&gt; I see led notification in cmparts</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;codeworkx&gt; i'll flash and try before ;-)</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;atinm&gt; but how to enable?</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;Kaik541&gt; you have to set it to bright</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;Kaik541&gt; and enable LED for the apps you want</span><br />
+<span class="irc-date">[13:53]</span> <span class="irc-black">&lt;Kaik541&gt; I think there's a setting in MMS</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;atinm&gt; I see led notifications in cyanogenmod settings</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;atinm&gt; &gt; advanced and miscellaneuos</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;atinm&gt; and miscellaneous has list of packages like messaging etc</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;atinm&gt; but inside that is flash color, blink rate, custom color</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;atinm&gt; don't know what to do there</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;atinm&gt; kang!</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;atinm&gt; urk, back in a few</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;mikebeecham&gt; just flashed a kang kernel and forgot it included BLN</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;mikebeecham&gt; backlights up every minute's going to get annoying</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;wergeld&gt; damn, build failed</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;mikebeecham&gt; :(</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;mikebeecham&gt; hehe...supercurio's not spoken to me since I upset him</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;mikebeecham&gt; lol</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;wergeld&gt; ValueError: Could not find RECOVERY/RAMDISK/etc/recovery.fstab</span><br />
