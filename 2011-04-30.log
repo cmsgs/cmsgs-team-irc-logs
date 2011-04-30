@@ -1621,3 +1621,114 @@
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: mach-aries should be fine</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;atinm&gt; ok.</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;atinm&gt; we don't care about nxp right?</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;atinm&gt; libpn544_fw.so</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: whats this? xD</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;atinm&gt; just looking at the binaries</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;atinm&gt; to see which ones we might need</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-navy">* Frd^ (~frd@idlaa.com) Quit (Quit: boot)</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_samsung_common: nexus-2.3.4-merge atinm * 3cec77c (18 files in 2 dirs): Nexus S 2.3.4 binaries. ... - <a href="http://bit.ly/kpF0SC">http://bit.ly/kpF0SC</a></span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;uberushaximus&gt; atinm: do those last two commits break things?</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;atinm&gt; those last two commits are on a branch</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;atinm&gt; and they try to fix.</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;atinm&gt; because at the moment we're broken</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;atinm&gt; due to upstream</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;uberushaximus&gt; oh, derp, I'm blind</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;atinm&gt; I'm testing before I pull into main</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;atinm&gt; I'm building captivate</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;atinm&gt; others can build too</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;atinm&gt; checkout the nexus-2.3.4-merge branch on kernel and vendor/samsung/common</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;atinm&gt; well, repo sync first</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;atinm&gt; th</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;atinm&gt; en</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;atinm&gt; then checkout those two</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;atinm&gt; and build clean</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/eea5fb15e3a1b41e6ed570c0b953bf5a151dc250#diff-23">https://github.com/teamhacksung/android_kernel_samsung/commit/eea5fb15e3a1b41e6ed570c0b953bf5a151dc250#diff-23</a></span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;Kaik541&gt; wasn't there something finnicky about pvr version?</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;atinm&gt; yeah, that's why I also got the binaries that go with this</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;Kaik541&gt; ah ok</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;Kaik541&gt; works</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;Kaik541&gt; wow looks like they added a lot to modemctl</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm&gt; cdma, wimax</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;Kaik541&gt; yeah</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;uberushaximus&gt; I heard that they got their drivers from teamwin</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;uberushaximus&gt; that's pretty cool</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;Kaik541&gt; eh?</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm&gt; some of them are also from cyanogenmod</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm&gt; at least I saw arcee's name</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;Kaik541&gt; from what I saw, cyanogen said they got it from them most likely</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm&gt; on some</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;Kaik541&gt; since they did it in a very similar fashion</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;Kaik541&gt; calling a proprietary jar or something</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;Unhelpful&gt; somebody want to pull my prebuilt_kernel branch from build and test something non-sgs?</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;Unhelpful&gt; i can only test that such things build</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;techmik67&gt; i messed up my setup and am fixing... almost done</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-green">* DJNgoma (~DJNgoma@41-133-155-101.dsl.mweb.co.za) has joined this channel.</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-navy">* chaembianw (~chaembian@110.225.131.204) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-navy">* coolya|away (~coolya@microdoof.net) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://dl.dropbox.com/u/14477030/snap20110430_164240.png">http://dl.dropbox.com/u/14477030/snap20110430_164240.png</a></span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-green">* coolya|away (~coolya@microdoof.net) has joined this channel.</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, is that on the nexus s test branch?</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm&gt; guess it worked</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;atinm&gt; went dead first</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;atinm&gt; was scary</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;atinm&gt; but then it decided tolive</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;Kaik541&gt; woo</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;Kaik541&gt; now update the thread title and rub it in the ROM chefs' faces xD</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;atinm&gt; tonight.</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;atinm&gt; n</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;atinm&gt; ee</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;atinm&gt; need more ppl to test</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;atinm&gt; google video chat would be what we need ;)</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;atinm&gt; damn it</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;atinm&gt; it just goes dark</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;atinm&gt; scary</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;atinm&gt; doesnt' show the bootlogo</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;Kaik541&gt; does it show bootanim?</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;Kaik541&gt; well that's not terribly comforting</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm&gt; have to hit power a couple of times to turn on</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-green">* Manadar (~Manadar@AMontsouris-552-1-149-145.w86-212.abo.wanadoo.fr) has joined this channel.</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm&gt; after that its fine</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;atinm&gt; its like something is waiting too long</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;Kaik541&gt; hey techmik67 remember how you had the SMSC error a while back?</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;Kaik541&gt; seems to have suddenly hit a lot of users simultaneously</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;techmik67&gt; i see some peole having it</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;techmik67&gt; people</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;techmik67&gt; dunno why</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;techmik67&gt; fixed it the 1 time and never had it agian</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;atinm&gt; *what* is that error?</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;atinm&gt; just losing the number?</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;techmik67&gt; can receive but not send text</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Kaik541&gt; it's something that's assigned by the SIM/network though</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-navy">* coolya|away (~coolya@microdoof.net) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Kaik541&gt; so it's disappearance doesn't really make any sense</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Kaik541&gt; it could be AT&amp;T trying to ruin our fun</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, was that about the time you had to tether your phone for a while because your internet cut out or something?</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;techmik67&gt; nope... totally differernt =)</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-green">* coolya|away (~coolya@microdoof.net) has joined this channel.</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;Kaik541&gt; ok, was trying to remember, because if those two things were connected was hoping I could narrow it down to AT&amp;T's hatred of non-official tetherers</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;atinm&gt; it is scary, is shows the Galaxy S for a flash and then black</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;atinm&gt; the nexus branch I mean</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;atinm&gt; phone looks dead</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;atinm&gt; but two clicks at it is actually alive</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;atinm&gt; just sleeping</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;atinm&gt; sleeping very deeply</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;atinm&gt; !</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;Kaik541&gt; I remember reading a while back about a couple people having random boots where it wouldn't show anything</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;Kaik541&gt; but it was like a one off and went away next boot</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;atinm&gt; yeah, here its every boot.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;atinm&gt; hrm</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;atinm&gt; where was the bootlogo?</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;Kaik541&gt; driver/video/samsung</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;uberushaximus&gt; as a side note, apparently att was detecting tethers based on the apn settings they were using, so android user should be safe tethering on att</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;atinm&gt; oh, hmm.</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;Kaik541&gt; logo_rgb blah</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;uberushaximus&gt; s/user/users/</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;Kaik541&gt; uberushaximus, how does android do it then? I thought APN settings were part of it</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;uberushaximus&gt; iirc, it had to do with the iphone app using a tethering specific apn rather than the general data apn</span><br />
