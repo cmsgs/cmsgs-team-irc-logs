@@ -1299,3 +1299,97 @@
 <span class="irc-date">[16:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxysb: gingerbread codeworkx * 5f4d96e (2 files in 1 dirs): moved property override for lightsensor maxrange - <a href="http://bit.ly/mKCL6L">http://bit.ly/mKCL6L</a></span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;codeworkx&gt; kang: i've only seen wimax and lcd stuff</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_vibrant: gingerbread codeworkx * 51d156e (2 files in 1 dirs): moved property override for lightsensor maxrange - <a href="http://bit.ly/m9ENZQ">http://bit.ly/m9ENZQ</a></span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;codeworkx&gt; kang: but nothing usefull</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 248 seconds)</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;kang&gt; maybe i went too far in log and stuff was in 2.3.3 :p</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;techmik67&gt; atinm should update the thread title on xda to 2.3.4 =P</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; OK, rebuilt gpio-settings.h from scratch, found 1 screwup (in the vibrant department DOH) and cleaned some stuff up.  feeling lucky techmik67 :)</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;techmik67&gt; sure</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I even made sure it would compile first :P</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;techmik67&gt; just replace the file?</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; <a href="http://pastebin.com/szwLGHzi">http://pastebin.com/szwLGHzi</a></span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: usb sharing is fucked up completely.</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;techmik67&gt; only from today, i noticed that... was making sure it wasnt just my build</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;techmik67&gt; last nights build it works fine</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;chaembian&gt; hi</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;chaembian&gt; back</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;techmik67&gt; wm</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;techmik67&gt; wb</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;techmik67&gt; *</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh good, I have a new gpio-settings.h to play with :)</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;chaembian&gt; :)</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;techmik67&gt; cool! it auto-updated the pull request.....</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;Kaik541&gt; kang, a lot of stuff I see in 2.3.4 is related to wimax-iness</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;chaembian&gt; That's gonna override the patch atinm wanted to test with?</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;chaembian&gt; Or this is different?</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;chaembian&gt; ok, let me do a repo sync</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;techmik67&gt; yuo can cherry pick the commit from me if you want</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;Kaik541&gt; well, CDMA/wimax... though I'm guessing it'll be nice for them to finally have an AOSP layout for wimax and CDMA</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;Kaik541&gt; since I don't think CDMA has been updated since like 1.5</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;Kaik541&gt; and I think even then it was like a weird GSM wrapper</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;chaembian&gt; dang, forgot to change to the default branch</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;codeworkx&gt; seems usb sharing is fuct mainline</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;techmik67&gt; good... not us =)</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;techmik67&gt; yes, on 2.3.4, it knows usb plugged in but does not register as also debugging turned on</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;techmik67&gt; i had the little plug symbol only</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;techmik67&gt; not the android</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;codeworkx&gt; kang: have you seens any usb-switch related changes in nexus s kernel?</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;codeworkx&gt; kang: we need em</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-navy">* chaembian (~chaembian@122.174.174.103) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;kang&gt; nope</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;kang&gt; theres some usb stuff but idk if its from 2.3.3 or 2.3.4</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;kang&gt; x)</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;kang&gt; some screwing around in the usb  gadget and tethering but i suppose uve seen</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;kang&gt; the mmc stuff could be interesting also if its 234</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;Kaik541&gt; I just did a brief perusal, just saw tons of comments about CDMA and WiMAX</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;Kaik541&gt; the emmc GPIO sleep oculd be nice</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;Kaik541&gt; but I didn't know how much of what I was reading actually made sense to me</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;kang&gt; i think ill rob edeka</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;kang&gt; then maybe ill merge stuff</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-green">* chaembianw (~chaembian@110.225.131.204) has joined this channel.</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;chaembianw&gt; powercut  at home</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-green">* wwyvern (~wwyvern@m315536d0.tmodns.net) has joined this channel.</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; afternoon wwyvern new gpio-settings.h to play with</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;chaembianw&gt; so much for testing today</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;chaembianw&gt; bye</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; poop happens chaembianw</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;wwyvern&gt; Just wanted to pop in and let you guys know that the batterylife on last nights build is pretty bad</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;wwyvern&gt; Hi sherpa</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;chaembianw&gt; right</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;wwyvern&gt; Cant play tho at work</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;chaembianw&gt; see you guys tomorrow</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; later chaembianw</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;chaembianw&gt; will wake up early</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;wwyvern&gt; Its 1:30pm and im at 38 prrcent</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; found a vibrant bug in the file I posted</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;wwyvern&gt; Unplugged at 9:30 am</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-green">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; although CM have been messing with tons of stuff upstream from us so I'm not sure what all is going on</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;wwyvern&gt; Sherpa-what, the patch?</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;wwyvern&gt; Oh..got it</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yes, screwed up GPG3(6)</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;wwyvern&gt; Oops....</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;wwyvern&gt; Gotta run..back to the grind.Might be back on tonight</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; put it under else rather than it's own line.  the comment was different and I missed the fact that the data was too</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; later wwyvern</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;wwyvern&gt; Later</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-navy">* wwyvern (~wwyvern@m315536d0.tmodns.net) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;codeworkx&gt; kang: have a look at the latest commits <a href="https://github.com/CyanogenMod/lge-kernel-star/commits/android-tegra-2.6.32/">https://github.com/CyanogenMod/lge-kernel-star/commits/android-tegra-2.6.32/</a></span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-navy">* mikebeecham (~mikebeech@2.97.39.48) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-green">* paratox (d411599b@gateway/web/freenode/ip.212.17.89.155) has joined this channel.</span><br />
