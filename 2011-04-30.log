@@ -1546,3 +1546,78 @@
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: prebuilt_kernel commits 0000000...2ccdcc1 - <a href="http://bit.ly/mM4Iyg">http://bit.ly/mM4Iyg</a></span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;Unhelpful&gt; there, try that :)</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;Unhelpful&gt; but you'll need to flash out/target/product/captivate/boot.img as your kernel, i don't have releasetools handling the kernel correctly yet</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;ericdet&gt; techmik67: Throw me that patch line when you get a chance. Thanks</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; <a href="http://pastebin.com/szwLGHzi">http://pastebin.com/szwLGHzi</a></span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;atinm&gt; so we should be looking at the nexus s kernel</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-navy">* mikebeecham (~mikebeech@84.13.165.105) Quit (Ping timeout: 250 seconds)</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-navy">* Manadar (~Manadar@AMontsouris-552-1-149-145.w86-212.abo.wanadoo.fr) Quit (Quit: Manadar)</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: i'm already looking</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;atinm&gt; git remote add samsung git://android.git.kernel.org/kernel/samsung.git</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;atinm&gt; urk</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;atinm&gt; you bounced my window up :)</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=908c815ed5e8cdfb93fface601fdd6306e386cd4">http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=908c815ed5e8cdfb93fface601fdd6306e386cd4</a></span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;atinm&gt; hrm</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;atinm&gt; shouldn't this merge have broken every phone?</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;techmik_laptop&gt; Unhelpful: make: *** No rule to make target `bacon'.  Stop.</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;atinm&gt; is all CM7.1 broken right now?</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; lots of commits for the other devices</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;atinm&gt; wtf . . . they're worse than we are</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-green">* designfears (~AndChat@cpe-71-64-204-109.cinci.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm&gt; how do you commit something that breaks everything else</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm&gt; I could just pull in the USB stuff</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-green">* mikebeecham (~mikebeech@78.150.13.69) has joined this channel.</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm&gt; but nexus s has a lot of other things that would be useful for us too</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; fork it baby</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm&gt; not wimax</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm&gt; but other stuff</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;techmik67&gt; no bacon for mr =(</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;techmik67&gt; me</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: can you pick these?</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: pm</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;atinm&gt; fuck</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;atinm&gt; lost the wrong window</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm&gt; crap</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm&gt; cut/paste again somewhere - sorry</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm&gt; I killed one window and accidentally killed the pm</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://pastebin.com/uj4jQhBB">http://pastebin.com/uj4jQhBB</a></span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;atinm&gt; should I just ignore the others and cherry-pick usb gadget stuff?</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: missed something xD</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=450dd88b8180d831aa45ae6c3a3884debbeaf321">http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=450dd88b8180d831aa45ae6c3a3884debbeaf321</a></span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=ecf36bffcb0ba69c712d89003652a15b50712c2a">http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=ecf36bffcb0ba69c712d89003652a15b50712c2a</a></span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;codeworkx&gt; mach-aries</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; lol, yes _ knew I had to do that</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; I'll start cherry-picking</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; from march 1</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;codeworkx&gt; pick in and simply test</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;codeworkx&gt; yes but no wimax stuff</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;codeworkx&gt; and no lcd</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; right just usb and anything else that looks fine.</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: doesn'T matter. herring stuff doesn't affect us</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: so you can simply merge xD</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;atinm&gt; you know, you're right</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;atinm&gt; nah - let me look at it first</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;codeworkx&gt; the usb stuff gets in and we have only to care about mach-aries</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-green">* designfears_ (~AndChat@32.145.90.59) has joined this channel.</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-navy">* designfears (~AndChat@cpe-71-64-204-109.cinci.res.rr.com) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-green">* uberushaximus (~uberushax@68-114-240-129.dhcp.fdul.wi.charter.com) has joined this channel.</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-navy">* designfears_ (~AndChat@32.145.90.59) Quit (Quit: Bye)</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm&gt; Kaik541: what was the link to the latest nexus s binaries?</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm&gt; I think we'll need them now</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, <a href="http://code.google.com/android/nexus/drivers.html">http://code.google.com/android/nexus/drivers.html</a></span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: ...that happened in the top directory?</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;Unhelpful&gt; i-assure-you-the-bacon-target-is-still-defined. :P</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;techmik67&gt; i think i got it</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: nexus-2.3.4-merge atinm * eea5fb1 (60 files in 26 dirs): Nexus S 2.3.4 Kernel merge with aries. ... - <a href="http://bit.ly/l4281i">http://bit.ly/l4281i</a></span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;Unhelpful&gt; however it *is* broken and not going to produce a good package (the kernel will be the stage1 initramfs kernel w/o its stage2 initramfs attached)</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: mach-aries should be fine</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;atinm&gt; ok.</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;atinm&gt; we don't care about nxp right?</span><br />
