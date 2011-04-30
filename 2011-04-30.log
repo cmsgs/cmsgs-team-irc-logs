@@ -1,0 +1,111 @@
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;Kaik541&gt; official has sensor in it now</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;Kaik541&gt; apply GPIO to that</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;wergeld&gt; 91%...sigh</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;ericDET&gt; I synced right before I built that actually...</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;techmik67&gt; any ideas on the whitespace errors?</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;ericDET&gt; Unless something changed</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;Kaik541&gt; ericDET, but you are building on sensor branch or from "official" branch</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ?</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;techmik67&gt; TMC_Sherpa: sec</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;ericDET&gt; No branching.</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;techmik67&gt; curl <a href="https://github.com/teamhacksung/android_kernel_samsung/pull/18.patch">https://github.com/teamhacksung/android_kernel_samsung/pull/18.patch</a> | git am</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;techmik67&gt; the patch</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;techmik67&gt; wwyvern got witespave errors</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;techmik67&gt; whitespace*</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;Kaik541&gt; ericDET, it's possible something is just broken tbh</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;Kaik541&gt; because we're building from like 90% upstream</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;Kaik541&gt; so something could have broken there temporarily</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;Kaik541&gt; resync, build again</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; whitespace errors?</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;Kaik541&gt; build clean*</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;ericDET&gt; i synced.. cleaned, and built..lol</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;ericDET&gt; I can try again I guess</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm|away&gt; ignore the whitespace errors</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;atinm|away&gt; they're warnings.</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;atinm|away&gt; kernel is more finicky than normal about whitespace when git it involved.</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;atinm|away&gt; linus made it so</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;Kaik541&gt; ericDET, my point is things can break at absolutely *any* moment</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;atinm|away&gt; so by default it complains about things like tabs and spaces</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;Kaik541&gt; because things change all the time</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;atinm|away&gt; and lines ending with whitespace etc</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;wergeld&gt; i need beer.</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;Kaik541&gt; sounds like linus learned something from python</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;ericDET&gt; ok. I'll resync clean and build again.</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;ericDET&gt; and apply gpio changes.</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;techmik67&gt; try applying from atinm's patch</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;atinm|away&gt; it has more to do with kernel code needing to be editable on all kinds of terminals etc</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;ericDET&gt; so just run command and it will patch?</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;atinm|away&gt; yes</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;ericDET&gt; ok</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;techmik67&gt; do it on a branch</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;ericDET&gt; techmik67: Clarify.</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;techmik67&gt; cd kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;techmik67&gt; git checkout gingerbread</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;wwyvern&gt; um, what do I do now?</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;techmik67&gt; git checkout -b tmc</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;techmik67&gt; sec wwyvern</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;wwyvern&gt; no prob</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;wwyvern&gt; moving laptop, might lose you a sec</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;wergeld&gt; 98% c'mon!</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-navy">* ericDET (~eric@74-136-162-133.dhcp.insightbb.com) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-green">* ericdet (~eric@74-136-162-133.dhcp.insightbb.com) has joined this channel.</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;ericdet&gt; back</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Ping timeout: 248 seconds)</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;ericdet&gt; Did git checkout gingerbread... already on gingerbread was returned</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;techmik67&gt; git checkout -b tmc</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;ericdet&gt; git checkout -b tmc</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;ericdet&gt; switched</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;techmik67&gt; curl <a href="https://github.com/teamhacksung/android_kernel_samsung/pull/18.patch">https://github.com/teamhacksung/android_kernel_samsung/pull/18.patch</a> | git am</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;ericdet&gt; ok</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-green">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;techmik67&gt; good timing</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;wwyvern&gt; i try</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;ericdet&gt; return to android system, sync, clean, build?</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;wwyvern&gt; ok</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;techmik67&gt; no synv</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;ericdet&gt; ok</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;techmik67&gt; no sync</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;ericdet&gt; clean and build</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;techmik67&gt; when you do this, you just build</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;techmik67&gt; right</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;ericdet&gt; ok no need to clean?</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;techmik67&gt; wwyvern: you did the patch, right?</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;techmik67&gt; clean</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;wwyvern&gt; yes</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;wwyvern&gt; how do I clean</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;techmik67&gt; just go ahead and clean and build</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;Kaik541&gt; rm -rf out/</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: ...what booted, the branch i pushed? it shouldn't w/o the mkshbootimage script.</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm trying to figure out how best to incorporate that into the build.</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: earlier, i switched to the prebuilt-kernal branch and ./build.sh captivate kernel</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;techmik67&gt; i heimdalled</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;techmik67&gt; it booted, but error wifi</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;techmik67&gt; but</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: you flashed what, the one in out/target/product/captivate/kernel</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;ericdet&gt; building</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;Unhelpful&gt; that's not it, then. ;)</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;techmik67&gt; well</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;techmik67&gt; kernel_build/arch/arm/boot</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;techmik67&gt; i did get a build error when i tried to build the rom with that branch tho</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;Unhelpful&gt; right, the major change here is that you'll actually be using the kernel directory's build.sh script, which will install prebuilt modules and kernel into the device tree - the script is pretty much a convenience for us to use when we update the kernel.</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;techmik67&gt; so it fooled me</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;ericdet&gt; phone is fine when booted with usb.. lol reminds me of my tethered jailbreak days</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, set up your android build environment, and run the kernel directory's build.sh - you'll get installed modules and kernels in the device trees</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;Unhelpful&gt; need to bother koush about right way to handle that</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-navy">* zerojay (~jay@blk-138-9-123.eastlink.ca) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-navy">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;wwyvern&gt; build is sure taking it's time</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;techmik67&gt; that it does =)</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;Unhelpful&gt; 19 minutes isn't *really* so long. :P</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;techmik67&gt; grrr =)</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;wwyvern&gt; gonna go play with birds for a minute</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-green">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Kaik541&gt; someone remade all of the starcraft 1 campaign in starcraft 2</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Kaik541&gt; ... why?</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Kaik541&gt; also, I feel compelled to play it</span><br />
