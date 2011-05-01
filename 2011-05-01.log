@@ -159,3 +159,92 @@
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Unhelpful&gt; and again, you'll need to flash the boot.img manually. until i figure out wtf to do to make it part of the install.</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
 <span class="irc-date">[1:00]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm, nfc error eh? :P</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;techmik67&gt; not anymore?</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;techmik67&gt; i didnt get it today</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;techmik67&gt; but if you do</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;techmik67&gt; just rm packages apps Nfc</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;techmik67&gt; and continue build</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;chaembian&gt; techmik67: what about the other gpio changes?</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;chaembian&gt; those have been merged?</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;Kaik541&gt; what other changes?</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;techmik67&gt; thats the important one...feeling adventurous?</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;techmik67&gt; want te other 2?</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;chaembian&gt; LOL! Sure, if there are others I can test them too.</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;techmik67&gt; cd to kernel and checkout tmc</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;techmik67&gt; then</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: i *just* sync'd, shoudn't that have fixed everything?</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;chaembian&gt; That said, I was asking about the changes to gpio-aries.h and setup-sdhci.c</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: yes</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;techmik67&gt; chaembian: git fetch git://github.com/techmik/android_kernel_samsung.git</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;techmik67&gt; chaembian: sec</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;chaembian&gt; Sure</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;techmik67&gt; did you fetch already?</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;chaembian&gt; No</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;techmik67&gt; add the word techmik after fetch</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;techmik67&gt; before git</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;techmik67&gt; the rest is right</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;techmik67&gt; then git pull techmik tmc</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;chaembian&gt; All this from within the kernel/samsung/2.6.35 folder?</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;chaembian&gt; I have a tmc branch created out of the gingerbread branch</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;chaembian&gt; Do I have delete it before I go through this?</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;techmik67&gt; ?</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;techmik67&gt; no, you are pu;lling my commits on top</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;chaembian&gt; OK!</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;chaembian&gt; Did you ask me to do this: 'git fetch techmik git://github.com/techmik/android_kernel_samsung.git'</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;chaembian&gt; ?</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;techmik67&gt; then git pull techmik tmc</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;chaembian&gt; "fatal: 'techmik' does not appear to be a git repository"</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-navy">* mothatt (~mothatt@CPE-124-189-160-142.rsqv1.lon.bigpond.net.au) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;techmik67&gt; forget it wherer i said to put the extra in... use what i originally typed</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-green">* mothatt (~mothatt@CPE-124-189-160-142.rsqv1.lon.bigpond.net.au) has joined this channel.</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: surely we should be telling the build system not to build that instead of removing it? or is it missing a framework merge anyway?</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;chaembian&gt; OK, that went good. But, 'git pull techmik tmc' is failing with the same error message I quote before.</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm, deleting apps/packages/Nfc didn't fix :/</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;Unhelpful&gt; and i do drink, just not beer, and not frequently.:P</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful: more of a hard liquor man? :P</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;Unhelpful&gt; mixed drinks. geez.</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;Kaik541&gt; closest I get to mixed drinks is pouring soda on alcohol that's too strong to drink itself (everclear)</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;Kaik541&gt; mostly because I know nothing of mixed drinks</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;Unhelpful&gt; aaaaaaagh</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;Unhelpful&gt; everclear is nasty and only good for getting messed up fast :/</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful: I'm 21, what do you think my end goal is?</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;Unhelpful&gt; enjoyment! :P</span><br />
+<span class="irc-date">[1:28]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, well, i have NFI why i'm failing to build w/ an issue that was supposedly fixed already :P</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;techmik67&gt; the nfc error? delete and continue building... it works</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;Kaik541&gt; part of the enjoyment is seeing how much you can drink before you pass the fuck out... turns out being of Irish decent and 6'2", 210 pounds means I can outlast most people</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: i did, and it doesnt.</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;techmik67&gt; ????</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;techmik67&gt; wow</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;techmik67&gt; i havent had *that* problem</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;techmik67&gt; buildiing now with the lates from your branches</span><br />
+<span class="irc-date">[1:34]</span> <span class="irc-black">&lt;techmik67&gt; latest*</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;Kaik541&gt; I'm building for shits and giggles and am on kernel... no idea what point that gets done at</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, i just synced and apparently now i'm fucked.</span><br />
+<span class="irc-date">[1:35]</span> <span class="irc-black">&lt;Kaik541&gt; well I just synced like 40 minutes ago?</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;Unhelpful&gt; did you maybe have to remove ./packages/apps/Settings/src/com/android/settings/nfc also?</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;Kaik541&gt; either that NFC thing has been on-again-off-again all day or I haven't hit it yet (stupid dual core!)</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;Unhelpful&gt; anyway, calling it a night</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;chaembian&gt; techmik67: the fetch went well, pull did not</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;techmik67&gt; ??</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;techmik67&gt; chaembian: try this</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;techmik67&gt; git cherry-pick e81c7e7</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;techmik67&gt; then</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;techmik67&gt; git cherry-pick 94ba8f7</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; i know what idid</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;chaembian&gt; fatal: Cannot find 'e81c7e7'</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; you are in the kernl and on tmc branch?</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; git remote add techmik git://github.com/techmik/android_kernel_samsung.git</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;Kaik541&gt; really? usdofiadsf FUCKING JAVA ERROR</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;techmik67&gt; then git pull techmik tmc</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;Kaik541&gt; sorry for that outburst</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;Kaik541&gt; I hate java crashing</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;techmik67&gt; dogwalk.... back</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;techmik67&gt; in 10</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;Kaik541&gt; oh you're just fucking with me now computer... there's no way you can crash java TWICE in 10 minutes</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-navy">* mothatt (~mothatt@CPE-124-189-160-142.rsqv1.lon.bigpond.net.au) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-green">* mothatt (~mothatt@CPE-124-189-160-142.rsqv1.lon.bigpond.net.au) has joined this channel.</span><br />
