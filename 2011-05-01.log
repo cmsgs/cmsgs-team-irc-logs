@@ -1,0 +1,161 @@
+<span class="irc-date">[0:04]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;teamhacksung&gt; android_build: prebuilt_kernel Andrew Mahone * 31eb1ef (1 files in 1 dirs): support for custom boot image build ... - <a href="http://bit.ly/kBcMIi">http://bit.ly/kBcMIi</a></span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;Unhelpful&gt; happy now? ;)</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;techmik67&gt; =)))</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;chaembian&gt; sensors have been mergeed?</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;techmik67&gt; oh yeah... for a day or 2 now</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;chaembian&gt; :)</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;chaembian&gt; alright!</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-brick">* Unhelpful should sync this up then.</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;Unhelpful&gt; is the light problem on captivate fixed?</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;techmik67&gt; i think so</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful: atinm is submitting something to gerrit to try and resolve it, I don't know the status of it though</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;Kaik541&gt; t</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;Kaik541&gt; the problem isn't that cappy is broken, it's that CM expects a max value of 3000 apparently and ours goes up to like 15000</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;Kaik541&gt; so the light levels are confused</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful: <a href="http://r.cyanogenmod.com/#change,4932">http://r.cyanogenmod.com/#change,4932</a></span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: no, that is not the whole problem, the readings on the sensors were all wrong for me.</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;Kaik541&gt; yeah I know, but a lot of people said it was finnicky indoors</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Kaik541&gt; even with finger covering the sensor</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Kaik541&gt; I haven't had a chance to use it, so I can't say</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Unhelpful&gt; ..yeah, i could *not* get mine below 5Klux</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Kaik541&gt; but others could iirc</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Kaik541&gt; even with captivate</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Kaik541&gt; in fact, even some people in the thread are saying it's better than it was before</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;Kaik541&gt; and we're apparently only using two light levels</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;techmik67&gt; did you play with the cmsetting&gt;display&gt;autobacklight&gt;allow light decrease?</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;Unhelpful&gt; ...i did not bother adjusting settings *because the readings show it is not working*.</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;techmik67&gt; someone said that earlier... to check the box</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;chaembian&gt; techmik67: what files are to be pulled for TMC_Sherpa's gpio test?</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;techmik67&gt; easy way?</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful: some people were saying without that enabled it doesn't update the sensor, but it's possible I may be misremembering</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;techmik67&gt; cd kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;Unhelpful&gt; what's atinm's fix, different default levels for sgs?</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;Kaik541&gt; it can't hurt to enable it though</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;Kaik541&gt; to not set the max to 3000, to pull the number from the binary blob</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;Kaik541&gt; and scale appropriately</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/teamhacksung/android_device_samsung_captivate/commit/d4347127fdc8330b52f319e9261fd3cd7a7bf481">https://github.com/teamhacksung/android_device_samsung_captivate/commit/d4347127fdc8330b52f319e9261fd3cd7a7bf481</a></span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;Unhelpful&gt; that changes nothing.</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;Unhelpful&gt; still stuck @ 5K</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;Unhelpful&gt; which makes sense because i could see the same thing in sensors apps :P</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;Kaik541&gt; tbh, I don't know, but other captivate users are saying success</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;Kaik541&gt; so either they're just lying or your phone is being pushy</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67: you've tried the sensor right?</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;techmik67&gt; i covered it and saw a difference only 1 time.....</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;Kaik541&gt; but it did go down?</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;techmik67&gt; that 1 time, yes</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;Kaik541&gt; bah, times like this I regret not being on CM7</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: yes</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;Kaik541&gt; since I clearly can't say one way or another without using it</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;atinm&gt; basically forced the max to 15000</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;atinm&gt; in cmparts</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;Unhelpful&gt; *sigh* need to figure out why i have a sensors problem</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;atinm&gt; and then we can set the values for the 4 levels we have</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;atinm&gt; 6,5000,9000,15000</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;atinm&gt; those are all that the lightsensor returns</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;atinm&gt; the lightsensor lib returns</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;atinm&gt; the adc is fine</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;atinm&gt; but the lightsensorlib translates that to a lux value</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;atinm&gt; and the nexus s has a nice gradient at low light</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;atinm&gt; sgs samsung crap has 4 levels total, with no gradient between 6 and 5000 lux</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;atinm&gt; and samsung crap says it will return 3000 as maxrange</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;atinm&gt; which is wrong</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;atinm&gt; so I forced it to be 15000</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;atinm&gt; so cmparts will allow us to set brightness levels for levels from 0-15000</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm&gt; for the 4 values anyway</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm&gt; but I do get all 4 values</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; from the sensor lib</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; that's light sensor</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; we also have a new branch - nexus-2.3.4-merge</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; in kernel, and vendor/samsung/common</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;Unhelpful&gt; well, we never got good readings w/ the OSS code, either. :/</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; and I can boot it and all</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; but framebuffer is fuxed. recovery won't show at all</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; and boot just goes black</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; tho if I hit power button a couple of times after waiting, it turns on fine</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; it is as if the "init" state is off</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm&gt; adb is fine</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm&gt; dmesg and logcat show stuff</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm&gt; in fact, exactly the same stuff</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm&gt; on yesterday and today's builds</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm&gt; but today's won't turn on screen</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;atinm&gt; and I cannot work on this.</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm&gt; just got an ultimatum from wife.</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;atinm&gt; I haven't been sleeping much and she thinks I am going to fall sick again. her exact words were "I am not going to visit you in the hospital when you are back there. I can hear your shortness of breath already, just like last time"</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; so tonight I have to go, and sleep for real</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;techmik67&gt; go</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;techmik67&gt; we be fine =)</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;techmik67&gt; rest</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; but framebuffer stuff is always beyond me anyway - this is coolya and codeworkx stuff</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; they always fix it</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;atinm&gt; so this time is theirs too</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;techmik67&gt; we'll have them read the logs later</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; so when you see codeworkx, get him to try nexus-2.3.4-merge branch</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;techmik67&gt; yupyup</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; it works, just with two power on/offs after waiting a bit</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; and no screen on recovery</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; goodnight</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-green">* atinm is now known as atinm|night</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;techmik67&gt; i saw, i got the same... and no recovery</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm|night&gt; yes, even tho recovery also allows me to get into adb shell, dmesg etc</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|night&gt; it is alive, and looks healthy</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|night&gt; just screen never got turned on</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|night&gt; the two on/off seems to be that the first one turns it "off"</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|night&gt; and the second "on"</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|night&gt; except that it was already off</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;chaembian&gt; Good night, atinm|night</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-black">&lt;atinm|night&gt; but some other part of the phone thinks it is "on"</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|night&gt; so first power button == off, second time == on</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|night&gt; and it goes and turns on the screen etc</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|night&gt; so screen wakes</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|night&gt; the init state of the screen is messed up</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|night&gt; and that's for someone else to figure out</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|night&gt; the init state seems to be "off"</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-green">* mothatt (~mothatt@CPE-124-189-160-142.rsqv1.lon.bigpond.net.au) has joined this channel.</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm|night&gt; when it should be on</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm|night&gt; gone.</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;techmik67&gt; night</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-green">* techmik is now known as techmik_laptop</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;chaembian&gt; techmik67: what file I have to use to test TMC_Sherpa's branch?</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;techmik67&gt; chaembian: cd kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;techmik67&gt; git checkout tmc</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;chaembian&gt; "&lt;atinm&gt; no, don't sync." -- is this still applicable now?</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;techmik67&gt; you can sync, but do it before you checkout tmc</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;techmik67&gt; be on gingerbread</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;chaembian&gt; yup, that's what I did. Remembered your original instruction. :)</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://pastebin.com/mVJzMLB3">http://pastebin.com/mVJzMLB3</a></span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;techmik67&gt; copy that into a file and name the file gpio-settings.h</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;mothatt&gt; what are the recommended bootloaders for cm7?</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;chaembian&gt; techmik67: OK, thanks. Will report back.</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;techmik67&gt; chaembian:</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;techmik67&gt; after sync, checkout to tmc, and put that file in arch.arm/mach-s5pv210/include/mach</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;chaembian&gt; techmik67: OK, gotcha</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;techmik67&gt; then build</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: prebuilt_kernel Andrew Mahone * 4c0d843 (5 files in 2 dirs): Merge remote-tracking branch 'm/gingerbread' into prebuilt_kernel ... - <a href="http://bit.ly/iB8oUV">http://bit.ly/iB8oUV</a></span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;techmik67&gt; android.process.media keeps fc-ing =(</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-green">* ChanServ sets mode +o Kaik541</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;teamhacksung&gt; android_build: prebuilt_kernel codeworkx * 2d53632 (1 files in 1 dirs): also check for misc/recovery.fstab</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;teamhacksung&gt; android_build: prebuilt_kernel codeworkx * e90dd10 (1 files in 1 dirs): die python die!</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;teamhacksung&gt; android_build: prebuilt_kernel Andrew Mahone * f1d849a (11 files in 3 dirs): Merge remote-tracking branch 'github/gingerbread' into prebuilt_kernel</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;teamhacksung&gt; android_build: prebuilt_kernel commits 31eb1ef...f1d849a - <a href="http://bit.ly/l0sycf">http://bit.ly/l0sycf</a></span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-green">* Kaik541 sets mode -o Kaik541</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-green">* ChanServ sets mode +o Kaik541</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-green">* Kaik541 sets mode -o Kaik541</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: ok, can you pull prebuilt_kernel branch for device/samsung/common, device/samsung/captivate, and build, and try again? ;)</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;techmik67&gt; i'll even clean</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-brick">* Unhelpful is doing that himself now</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-green">* techmik67 sets mode -o techmik67</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Unhelpful&gt; and again, you'll need to flash the boot.img manually. until i figure out wtf to do to make it part of the install.</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm, nfc error eh? :P</span><br />
