@@ -941,3 +941,143 @@
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: good hint</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;codeworkx&gt; kang: <a href="https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libcamera/SecCamera.cpp#L1720">https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libcamera/SecCamera.cpp#L1720</a></span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;kang&gt; uhmf</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;kang&gt; the base orientation from the camera is also in secHWblah near that file</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;kang&gt; how many things rotate the pic before display lolz</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;codeworkx&gt; this one? <a href="https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libcamera/SecCameraHWInterface.cpp#L1518">https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libcamera/SecCameraHWInterface.cpp#L1518</a></span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;kang&gt; yea</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;kang&gt; its set a #L2124</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;codeworkx&gt; this also sets setExifOrientationInfo</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;kang&gt; yeah i wondered if rotation and orientation should actually be diff</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;Wout&gt; are we using cam stuff from jvb or nexus-s?</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;kang&gt; else its going to move picture by 540° i suppose</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;kang&gt; makes like 180</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;kang&gt; im getting a new super i7 soon too. lol.</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;kang&gt; still 2 slow compiling</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;atinm&gt; we should diff the crepo stuff in device/samsung with ours</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;atinm&gt; see if they changed something there that we need to do as well</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;atinm&gt; or vendor/samsung</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;atinm&gt; wherever the stuff sits..</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;chaembian|l1&gt; good night all</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;mikebeecham&gt; guys...just checked my phone....wifi definately switched off with the screen</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;mikebeecham&gt; definately</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k then techmik67 is just messing with me :P</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;mikebeecham&gt; I have mine set to go off with the screen</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;mikebeecham&gt; and it's defiantely working as it should</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;mikebeecham&gt; what is the timeout? 15 mins?</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no clue I turn mine on as needed</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;GuiPer&gt; Unhelpful: orientationd is somehow putting data on the fake orientation device</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;GuiPer&gt; I would say...</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;GuiPer&gt; it has to be enabled for some reason</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: you've broken it!</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;Kaik541&gt; I broke everything!</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;Kaik541&gt; what'd I do this time?</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: don't know, but's your fault. i'm sure!</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;Kaik541&gt; that's what they all tell me :(</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;codeworkx&gt; you trust em?</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;Kaik541&gt; well it's my mom, so kinda have to</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;atinm&gt; TMC_Sherpa: so what is the consensus on your gpios?</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;atinm&gt; go?</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;atinm&gt; guess I should test it myself</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dono I think erics phone is the only one puking</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;atinm&gt; ok, but other vibrants ok?</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; chaembian and wwyvern were both working</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; not sure if anyone with a galaxy tested, but I don't think it changes anything for them</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;atinm&gt; techmik67: have you updated your pull request?</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; *shrug* it compiles, thats god enough for CM right :P</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;atinm&gt; easier for me to pull from that into my local branch</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; good</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the pull request updated itself when he changed the file iirc</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;atinm&gt; wasnt there one more change after?</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I only sent him an updated settings once after he sent the pull</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;Kaik541&gt; so many people posting bugs with third party kernels. argh.</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; made sure it was clean first this time</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; can you set the status to SEP?</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;atinm&gt; ?</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Someone Else's Problem</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;atinm&gt; I wish</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;atinm&gt; they just keep showing up</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;Kaik541&gt; I tell them to recheck on stock kernel, and if they don't answer I mark invalid</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;acdbx&gt; is there actually a 16bit color depth problem?</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;acdbx&gt; on 0501</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;acdbx&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13371380&amp;postcount=5147">http://forum.xda-developers.com/showpost.php?p=13371380&amp;postcount=5147</a></span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;Kaik541&gt; that's what someone says but I can't see the pic</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;Kaik541&gt; it tells me not to hotlink</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;Kaik541&gt; so I have no idea</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;acdbx&gt; <a href="http://www.lagom.nl/lcd-test/gradient.php">http://www.lagom.nl/lcd-test/gradient.php</a> mayeb that</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://www.lagom.nl/lcd-test/">http://www.lagom.nl/lcd-test/</a></span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;Kaik541&gt; ok i can see the pic in firefox, but not chrome, oddly</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;Kaik541&gt; but what is he using the test?</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;atinm&gt; I think just going to the site on phone</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;Kaik541&gt; because there is a flaw in the gallery application that has existed since 2.1</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;atinm&gt; but no idea</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;Kaik541&gt; where it will only display 16 bit</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;atinm&gt; we didnt' change color depth.</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;atinm&gt; and I doubt google did</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;GuiPer&gt; no problems with the new gtalk ? on making calls it force closes</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://gizmodo.com/#!5477320/the-nexus-ones-dirty-display-secret-updated">http://gizmodo.com/#!5477320/the-nexus-ones-dirty-display-secret-updated</a></span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;acdbx&gt; <a href="http://forum.xda-developers.com/showthread.php?p=13305360#post13305360">http://forum.xda-developers.com/showthread.php?p=13305360#post13305360</a></span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;Kaik541&gt; this is something that has existed in gallery since nexus one</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;Kaik541&gt; so depending on how it's being tested, it's hard to say</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;acdbx&gt; ah</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;acdbx&gt; seems odd that he'd be viewing that pic in gallery, but who knows</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;Kaik541&gt; GuiPer, that's related to something in framework</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;atinm&gt; GuiPer: I dunno. gtalk doesn't force close for me. but I don't have video chat either.</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;atinm&gt; so no idea.</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;Kaik541&gt; the gapps themself work, it's something with the phone</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;atinm&gt; will try again.</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;atinm&gt; but I am trying to just get camera to look right.</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;GuiPer&gt; if i try to make a voice call</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;Kaik541&gt; gtalk doesn't just add the functionality, or else it wouldn't have required a version bump of android</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;GuiPer&gt; it will force close</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;atinm&gt; did gtalk come with gapps?</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;Kaik541&gt; yes</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;atinm&gt; the new one?</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;atinm&gt; wtf.</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;atinm&gt; I don't have it.</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Kaik541&gt; do you have it hidden?</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Kaik541&gt; actually</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Kaik541&gt; looking at zip</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Kaik541&gt; don't see gtalk</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Kaik541&gt; oh wait, there it is</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Kaik541&gt; Talk2.apk</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; going to install it again</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; brb</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;Kaik541&gt; you need libtalk_jni.so too I think</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; ok, not in zip?</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;Kaik541&gt; it is</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;Kaik541&gt; but in system/lib I tihnk</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;Kaik541&gt; if you were gonna do manually</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;atinm&gt; just going to install zip</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;atinm&gt; wait what?</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13375984&amp;postcount=3417">http://forum.xda-developers.com/showpost.php?p=13375984&amp;postcount=3417</a></span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm&gt; we have voodoo v8? ;-)</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;Manadar&gt; if you have the voodoo app plus you have :p</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;Kaik541&gt; yeah because he rmmod's it</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm&gt; ah, he installs his own module?</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;atinm&gt; as long as we don't have to change code, I'm quite cool with that :)</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, he's the one who was all "/system/bin needs to load before /sbin</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;Kaik541&gt; "</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;acdbx&gt; i just got 0501 flashed, fwiw on stock browser the gradient thing looks fine</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;Kaik541&gt; because rmmod from sbin won't do it properly for what he wants</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;atinm&gt; Kaik541: right, I remember - I figured that is what he was doing</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;Kaik541&gt; think he manually does /system/bin/rmmod though</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;atinm&gt; but didn't know that he had it working</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;atinm&gt; that's cool. and it should work now I think</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;atinm&gt; I didn't change the order - just put in the correct spot so everyone looks in /system/lib/modules</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, so we don't ever need to support voodoo sound</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;atinm&gt; but what is the module he inserts?</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;atinm&gt; and what does he remove?</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;Kaik541&gt; so the only thing potentially missing from "stock" kernel now is voodoo color (which some people like, some people hate)</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;Kaik541&gt; I'm not sure</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;Kaik541&gt; I'll ask</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm&gt; we build the module in our kernel, not sure it can be removed.</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm&gt; I guess it can be disabled</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm&gt; lsmod</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm&gt; yeah, what is he rmmod'ing?</span><br />
