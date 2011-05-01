@@ -1081,3 +1081,121 @@
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm&gt; I guess it can be disabled</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm&gt; lsmod</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm&gt; yeah, what is he rmmod'ing?</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;Kaik541&gt; asking</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;Kaik541&gt; ok he ignored my question and is now complaining about /sbin being before /system/bin</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;Kaik541&gt; the inserted module is called "voodoo_sound"</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;atinm&gt; its the same way on samsung roms.</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;atinm&gt; or it was.</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;atinm&gt; but doesn't matter. once unhelpful is done, the whole craziness will go away</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;Kaik541&gt; he either doesn't remove anything or just ignored my question about what he removes</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm&gt; I doubt he removes anything</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm&gt; I don't think he can</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm&gt; there is nothing to remove</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;atinm&gt; as its built in the kernel</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;atinm&gt; tho he is sort of correct, we shouldn't have the busybox symlinks in there</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;atinm&gt; in boot image</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;atinm&gt; fine for recovery</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: it's because of combined recovery</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: samsung fail</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;atinm&gt; yes, we should just create the symlinks in recovery.rc</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-green">* wwyvern (~wwyvern@m455536d0.tmodns.net) has joined this channel.</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;atinm&gt; we did that on froyo.</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;atinm&gt; al the symlinks were created in recovery.rc</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm&gt; where are the sbin symlinks created? which file?</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm&gt; o, updater script</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: ramdisk</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-navy">* Wout (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: must be done before packaging</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm&gt; I mean, which file does the symlinks</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm&gt; if I want to change that</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: build/core/Makefile ?</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm&gt; ./releasetools/initial-tools/galaxysb/META-INF/com/google/android/updater-script:</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;atinm&gt; ?</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; the sbin symlinks are in initramfs</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;atinm&gt; ah</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;atinm&gt; hrm.</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; so it cannot be the updater</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; it's done during build process</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-navy">* wwyvern (~wwyvern@m455536d0.tmodns.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful should know</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm&gt; screw it.</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm&gt; once unhelpful is done, it'll be two images anyway</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm&gt; and we won't have to think about it</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm&gt; voodoo can use explicit path for now ;-)</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, just noticed the gapps link in the Q&amp;A is WAY outdated</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;atinm&gt; what link should I put now. the one we've been using?</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;atinm&gt; what is the link.</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://android.d3xt3r01.tk/cyanogen/gapps/gapps-gb-20110307-signed.zip">http://android.d3xt3r01.tk/cyanogen/gapps/gapps-gb-20110307-signed.zip</a></span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;Kaik541&gt; latest official one</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: what exactly is unhelpful doing? using recovery partition?</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;Kaik541&gt; or this <a href="http://goo-inside.me/gapps/gapps-gb-20110307-signed.zip">http://goo-inside.me/gapps/gapps-gb-20110307-signed.zip</a></span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, or just point them to goo-inside.me/gapps so it doesn't need to be updated</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;atinm&gt; yeah..</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm&gt; codeworkx, he is creating a kernel with a small initramfs that then goes and reads a second initramfs that is attached to the kernel image</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm&gt; if reboot.recovery is present in cache, then it will boot the recovery image</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm&gt; or if bootmode=2</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;atinm&gt; and will use boot image otherwise</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;atinm&gt; both images will be attached to the kernel in mkbootimage</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;atinm&gt; and they are separated by a marker that the init.sh script can parse so it can get the appropriate image</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;Kaik541&gt; so obviously still no download mode with that method</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;mikebeecham&gt; evening all</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;Kaik541&gt; that'll require param fixing</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;atinm&gt; the kernel+tinyinitram will be put in device/samsung/blah</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;atinm&gt; and mkbootimage will merge it with the initramfs'es</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;atinm&gt; Kaik541: right.</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;atinm&gt; download mode is all bootloader</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;atinm&gt; so we can't do anything about it</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm&gt; unless we can read/write params.lfs</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;Kaik541&gt; but at least getting into recovery means you don't *need* 3 button to install (though should still have)</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm&gt; and you would be able to use ROMManager to install</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm&gt; after you've installed initial</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm&gt; that is always there.</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm&gt; so updates will be via ROM Manager</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;Kaik541&gt; and "adb reboot recovery" should work as well, correct?</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;Kaik541&gt; since that'll pass bootmode=2 right?</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;atinm&gt; hrm</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;atinm&gt; I think we'll need to write some code for that</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;atinm&gt; we'll need to write some code for all of it</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;atinm&gt; reboot into recovery will need to know to write that file</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;Kaik541&gt; well how does reboot recovery work?</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; if it is in a low enough place so that everything uses it, we're cool</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;Kaik541&gt; doesn't that pass bootmode=2?</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; I dunno :)</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; it writes to params.lfs</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; so that bootloader can read it</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; it must be device specific.</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm&gt; I am leaving it to unhelpful, so haven't looked at all</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;atinm&gt; its nice to know I can leave something and not worry about it and know that it will get done better than if I did it ;-)</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;zerojay&gt; lol</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;zerojay&gt; Far better than doing it all alone, eh?</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-navy">* DJNgoma (~DJNgoma@41-133-154-165.dsl.mweb.co.za) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-green">* DJNgoma (~DJNgoma@41-133-206-31.dsl.mweb.co.za) has joined this channel.</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;mikebeecham&gt; codeworkx, atinm Anything I can do to help this evening?</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; write a new bootloader :D</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;mikebeecham&gt; i'll get right on that for you ;)</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: we also provide a fake orientation device, though...</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;Unhelpful&gt; and the API docs say not to use the orientation device anyway.</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;GuiPer&gt; but in ours we need to put values there, with the fake from the kernel the binaries put the values there somehow</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;GuiPer&gt; I'll try both ways</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;GuiPer&gt; i assume it's what orientationd does somehow</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, but afaict the math we use for fake orientation doesn't have any problems.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;Unhelpful&gt; and yes, orientationd calculates orientation based on geomagnetic and accelerometer readings - i think it uses the same math, roughly, as getRotationMatrix etc</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;codeworkx&gt; i think i'm going to revolutionize android.   if (phone_is_powered_on == true) { do_whatever_the_user_wants_or_has_in_mind(); }</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;codeworkx&gt; i'm going to try this on my sgs</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;GuiPer&gt; Unhelpful: but our hack of joining 2 sensors in a single "file" is not pretty</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;codeworkx&gt; and see what happens</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: when they implement a compiler and library that handle that... :)</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;GuiPer&gt; it was quite hacky</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: i've set gcc to godmode</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;Unhelpful&gt; #define IDDQD</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: hacky is fine :-P</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;GuiPer&gt; not 2, 3 of them :S on Boschmaha we have orientation, compass and accelerometer, and it's hacky... (i implemented most of it)</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;GuiPer&gt; lool</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;GuiPer&gt; well giving a try at compiled libsensors</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: but only if it doesn't confuse users or kills the battery</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: i don't think it's incorrect though...</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;GuiPer&gt; let's see, trying now with fake orientation and binary puts there values</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;GuiPer&gt; let's see</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;Unhelpful&gt; *in theory* if geomagneticd will run by itself and set fine offsets on the device, then we're all set. :)</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-green">* zachy_md|away is now known as zachy_md|busy</span><br />
