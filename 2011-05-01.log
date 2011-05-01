@@ -665,3 +665,177 @@
 <span class="irc-date">[14:59]</span> <span class="irc-green">* ericdet (~androirc@74-136-162-133.dhcp.insightbb.com) has joined this channel.</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;atinm&gt; so I guess install that.</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;GuiPer&gt; codeworkx: atinm what is the exact problem with light sensor? I can almost assure that nothing changed...</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;GuiPer&gt; kernel driver is 99% the same</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm&gt; not driver</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm&gt; library</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm&gt; it doesn't translate adc to lux very well</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm&gt; nexus s library does it better</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;GuiPer&gt; but it never did... we never used nexus s library</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm&gt; sensors</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;GuiPer&gt; we used our own library, and it simply reports values from kernel</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm&gt; the one we were building gives more lux values.</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm&gt; I mean the code we took from nexus s</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm&gt; and maybe modified.</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;GuiPer&gt; atinm: take a look, but almost for sure not</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm&gt; but it does a more clean translation of adc to lux values.</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm&gt; for low lux values</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;GuiPer&gt; let me take a look</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;atinm&gt; we get many more values for between 6-5000</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;atinm&gt; the driver is returning good adc values</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;atinm&gt; but the library translates the adc to lux values</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;atinm&gt; and our code was doing a good job</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;atinm&gt; samsung does a horrid job</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;GuiPer&gt; just took a look, you are right :)</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;GuiPer&gt; nexus s driver returned ADC not lux values...</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;ericdet&gt; flashing. brb</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;GuiPer&gt; now the translation is done in kernel :( and userspace does nothing, just reports values</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;atinm&gt; umm, no.</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://pastebin.com/RGZXNkdA">http://pastebin.com/RGZXNkdA</a></span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;atinm&gt; its that mapping that is the problem. my kernel is returning adc values</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;atinm&gt; but everything below around 900-1000 is 6 lux from it</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;atinm&gt; from the samsung lib</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;atinm&gt; and below 1200 or so is 5000 lux</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;atinm&gt; while we had more lux values in between</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;codeworkx&gt; kang: my brothers ffc is working fine</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;GuiPer&gt; got the problem, things changed since froyo... where convertion was being done in kernel side</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;kang&gt; odd - im using "stock" nightly</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;kang&gt; ill have a closer look soon</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://twitter.com/#!/Haxzamatic/status/64446964883931139">http://twitter.com/#!/Haxzamatic/status/64446964883931139</a></span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;techmik67&gt; new gapps-hdpi</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;GuiPer&gt; I can try to reuse just the binaries</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;GuiPer&gt; with our open source driver</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;GuiPer&gt; should work...</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;GuiPer&gt; do you prefer that way?</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;atinm&gt; we might have trouble because our open source lib doesn't do compass etc</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-navy">* ericdet (~androirc@74-136-162-133.dhcp.insightbb.com) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm&gt; techmik67: how do I install gapps again?</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm&gt; I haven't done it in ages</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;GuiPer&gt; use just the geomagneticd and orientationd with our open source</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;GuiPer&gt; it has to work...</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm&gt; GuiPer: try please!</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;techmik67&gt; just flash it =)</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm&gt; if it works, that would be perfect</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm&gt; ah :)</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm&gt; sec</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm&gt; cyanogenmod.com is down</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;Manadar&gt; xda thread</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;kang&gt; codeworkx: brothers phone = I9000 with 2.3.4 nightly right?</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;codeworkx&gt; kang: ya</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;GuiPer&gt; atinm: ill give a try then later on</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm&gt; anonymous: captivate has the changelog on the sourceforge place you download form as well</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;kang&gt; uhm</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;kang&gt; i see usb is still not working lol</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;atinm&gt; kang, wtf.</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;kang&gt; nvm</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;kang&gt; i just replugged it</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;kang&gt; and now it works</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;atinm&gt; .kick kang</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;kang&gt; smths wrong with ma phone lol</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;kang&gt; codeworkx: ok fcc works on stock camera app but not 3rd party such as vignette or gtalk</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;atinm&gt; hrm, that's weird.</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;atinm&gt; what are they looking at..</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;Wout&gt; ola</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;atinm&gt; dunno whether it matters.</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;atinm&gt; I had to boot</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;atinm&gt; but that was just because I was testing that first :)</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;atinm&gt; it has always worked for me ...</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;atinm&gt; for some people it works, some it doesnt</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;atinm&gt; we have no idea why/why not</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;atinm&gt; for us without ffc - nothing</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;atinm&gt; for those with ffc and working, video chat</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;kang&gt; whenever we get video chat working properly</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;kang&gt; xd</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;atinm&gt; yeah, did say "working"</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;atinm&gt; whenever kang gets it working</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;kang&gt; i can see ppl from computers at least</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;kang&gt; and quality is pretty decent</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;kang&gt; i suppose the ffc has some setup in the framework</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;atinm&gt; I'm sure..</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;atinm&gt; I jsut have no way to know what it is</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;atinm&gt; without having one</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;atinm&gt; I can look at the diffs tho</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;atinm&gt; maybe it'll jump out at me</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;atinm&gt; but wife had me promise to lie down and not work much today</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;atinm&gt; my pain levels are starting to get worse according to her as an outside observer</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;atinm&gt; and she's right - when I'm not working, I feel much wors</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm&gt; when I'm working, I am distracted</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-green">* ericdet (~Wild@74-136-162-133.dhcp.insightbb.com) has joined this channel.</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm&gt; so going to go lie down again</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm&gt; I just recommend rest.</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm&gt; and getting cured . . .</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;ericdet&gt; atinm: That build is fine for me.</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: take a break</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm&gt; two new drugs just good approved.</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm&gt; that will cure a lot of people - 80% of ppl now from the previous &lt; 50%</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm&gt; but they don't work well on liver transplant patients</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm&gt; interact badly</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm&gt; so I'm still fuxked.</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm&gt; and I go back on meds next week</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm&gt; so will be a lot sicker</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;atinm&gt; the next drugs are a year out - those are similar to the ones just getting approved, but work great on liver transplant patients</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;atinm&gt; so I have another year to wait</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;ericdet&gt; Should I just delete everything on my build machine and start fresh?</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;atinm&gt; I will live.</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;atinm&gt; ericdet: you don't need to. just do repo sync</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;ericdet&gt; ok.. Is that updated nightly gpio too?</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;atinm&gt; and build. make sure kernel/samsung/2.6.35 is using android-samsung-2.6.35 branch and vendor/samsung/common is using gingerbread branch</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;atinm&gt; that is the next thing to merge.</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;atinm&gt; but first boot clean</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;atinm&gt; from repo</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;ericdet&gt; so delete tmc branch and git chckout gingerbread</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;atinm&gt; then we'll redo the tmc branch and get that.</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;atinm&gt; ericdet: yes</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;atinm&gt; techmik can help with that.</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;atinm&gt; I have to lie down</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;ericdet&gt; ok</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-green">* DJNgoma (~DJNgoma@41-133-154-165.dsl.mweb.co.za) has joined this channel.</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-navy">* DJNgoma|DCD (~DJNgoma@41.133.154.165) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;codeworkx&gt; was someone able to debug 2g/3g toggle? idk whats going on there</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx: I know wesgarner made a comment on it</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;Kaik541&gt; it apparently affects more than just our phone</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx: <a href="http://code.google.com/p/cyanogenmod/issues/detail?id=2928&amp;colspec=ID%20Type%20Status%20Version%20Model%20Network%20Owner%20Summary%20Stars%20Priority">http://code.google.com/p/cyanogenmod/issues/detail?id=2928&amp;colspec=ID%20Type%20Status%20Version%20Model%20Network%20Owner%20Summary%20Stars%20Priority</a></span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-green">* Manadar is now known as Manadar_away</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;Kaik541&gt; they haven't fixed it either :(</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-green">* zachy_md (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: oh nice</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: or not nice xD</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;Kaik541&gt; since it's affecting us and just nexus s</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-green">* zachy_md is now known as zachy_md|away</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;Kaik541&gt; possibly related to modemctl stuff?</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;zachy_md|away&gt; Hi guys</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;Kaik541&gt; I know the phone ends up thinking it's a CDMA phone in the process</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I don't see why that would be a problem</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;Kaik541&gt; we just draw an extra W in the front and we're fine!</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;atinm|away&gt; Kaik541: should we be able to toggle 2g/3g on captivate?</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;atinm|away&gt; if it wasn't broken that is</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;Kaik541&gt; yes</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dang it atinm, go lay down</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;atinm|away&gt; I haven't looked at it because I cannot debug it - or at least, I thought I couldn't</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;Kaik541&gt; it works on every modem/device (GSM)</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; codeworks you really need to kick him when he changes to away</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;atinm|away&gt; then that's my next thing.</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;atinm|away&gt; gone!</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;atinm|away&gt; rly</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-green">* Manadar_away is now known as Manadar</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-green">* chaembian (~chaembian@122.174.77.112) has joined this channel.</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;chaembian&gt; hi guys!</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;chaembian&gt; one vibrant user reporting to the mother-ship</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;Kaik541&gt; bleep bloop</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;chaembian&gt; bleet-bleet ;)</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;Wout&gt; does anyone speak korean? :P</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;Wout&gt; would be nice if we could get source for this <a href="http://forum.xda-developers.com/showthread.php?t=1052318/">http://forum.xda-developers.com/showthread.php?t=1052318/</a></span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://translate.google.com/translate?js=n&amp;prev=_t&amp;hl=de&amp;ie=UTF-8&amp;layout=2&amp;eotf=1&amp;sl=ko&amp;tl=en&amp;u=http%3A%2F%2Fwww.androidtab.kr%2F%3Fmid%3DForum_NexusS_Board">http://translate.google.com/translate?js=n&amp;prev=_t&amp;hl=de&amp;ie=UTF-8&amp;layout=2&amp;eotf=1&amp;sl=ko&amp;tl=en&amp;u=http%3A%2F%2Fwww.androidtab.kr%2F%3Fmid%3DForum_NexusS_Board</a></span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;mikebeecham&gt; hey guys</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;mikebeecham&gt; nice work on 0501</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;Wout&gt; codeworkx: been browsing  it, but I think source is closed :/</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;mikebeecham&gt; is there a problem with the Samsung section of the cyanogenmod forums? I cant get in</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;sixstringsg&gt; mikebeecham: all of the Cyanogenmod website was down earlier.</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;kang&gt; cm is down i think</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;mikebeecham&gt; sixstringsg, ok...I tend to just go into the SGS section. No worries then :D</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;mikebeecham&gt; where do I get gtalk vid from?</span><br />
