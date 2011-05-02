@@ -106,3 +106,105 @@
 <span class="irc-date">[1:45]</span> <span class="irc-brick">* Unhelpful thinks this may be wrong: output_zip.writestr("boot.img", input_zip.read("BOOT/kernel"))</span><br />
 <span class="irc-date">[1:46]</span> <span class="irc-green">* AndroUser2 (~androirc@74-136-162-133.dhcp.insightbb.com) has joined this channel.</span><br />
 <span class="irc-date">[1:47]</span> <span class="irc-black">&lt;Unhelpful&gt; if i understand right, the name of the file in the zip was changed here, but it's still the "kernel" file, which is just the prebuilt w/o its attached initramfs</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;techmik67&gt; is that why i cant boot?</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;techmik67&gt; with prebuilt, i mean</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: yes.</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;techmik67&gt; thank god! i thought i was doing something wrong......</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;Unhelpful&gt; that's why you need to flash boot.img manually. it looks like the target-files target that's used to construct otapackage doesn't even *have* boot.img in it.</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;techmik67&gt; when i heimdall the boot.img after the rom, instead of bootl;oop it goes to bootlogo and doesnt get past it, but adb does work</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://pastebin.com/TKvh4anu">http://pastebin.com/TKvh4anu</a></span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;techmik67&gt; this jums out at me</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;techmik67&gt; &lt;6&gt;[  562.160702] PVR_K:(Error): BridgedDispatchKM: Initialisation failed.  Driver unusable. [3785, ../../drivers/gpu/pvr/bridged_pvr_bridge.c]</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-navy">* AndroUser2 (~androirc@74-136-162-133.dhcp.insightbb.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-navy">* ericdet (~androirc@74-136-162-133.dhcp.insightbb.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-navy">* chaembian|l1 (~chaembian@122.174.77.112) Quit (Quit: WeeChat 0.3.0)</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;atinm|away&gt; techmik, that's a library mismatch</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;atinm|away&gt; between kernel and vendor/samsung/common libs</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;atinm|away&gt; we have new libs now</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;atinm|away&gt; so kernel has to use the new stuff too</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;atinm|away&gt; head of our tree</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;techmik67&gt; is this something for me to do, or you guys to change? =P</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;atinm|away&gt; umm, you are using unhelpful's branch?</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;atinm|away&gt; he needs to merge android-samsung-2.6.35</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;atinm|away&gt; I am going to bed</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-green">* atinm|away is now known as atinm|night</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;techmik67&gt; night</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;atinm|night&gt; you can do it in your tree too</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;atinm|night&gt; go into his branch</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;atinm|night&gt; and then git merge android-samsung-2.6.35</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;atinm|night&gt; well, you may want to create a new branch from his branch first</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;atinm|night&gt; and do it there</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; its fine, it all works, tecmik knows git go to sleep</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;atinm|night&gt; checkout his, git checkout -b copybranch</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; got it</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;atinm|night&gt; etc</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;techmik_laptop&gt; nite</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;atinm|night&gt; g'nite</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;Kaik541&gt; night</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;chaembian&gt; Good morning all</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-navy">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;techmik67&gt; hi</span><br />
+<span class="irc-date">[2:25]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: I have not been able to test the last GPIO changes. I did a repo sync and there were lots of force-closes.</span><br />
+<span class="irc-date">[2:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; things have been....interesting</span><br />
+<span class="irc-date">[2:25]</span> <span class="irc-black">&lt;techmik67&gt; i went all the way to stock today and started fresh</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm still not in head so anything weird that most people experience is not related to me :P</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;wwyvern&gt; lol</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what it's true :D</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;wwyvern&gt; I believe you, but it still reads funny</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;wwyvern&gt; :)</span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well, I can't say that anyone experiences, tech has been pushing the gpio changes pretty hard so there are a few folks out there where the weird could be from me</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-black">&lt;techmik67&gt; only 3 people expressly got directions from me, if i remember right</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;techmik67&gt; on your changes, i mean</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah but they are all...oh I guess we lost Eric at some point</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;wwyvern&gt; I lost usb mounting for a while this morning, but it was a bad flash..</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;wwyvern&gt; whats gpio?</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Hrm, most of the changes in mach-aries are for A1026....</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, do it</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;Kaik541&gt; doitoditodiotododidti</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;techmik67&gt; i have 3 files in the pull request</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; extra input output pins on a chip that are semi-configurable</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, I would have said something far simpler... "a way to tell things when to turn on or off"</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you can have them do other stuff tho</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;techmik67&gt; make them dance!</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; looks like the hardware rev is in GPJ(2)-(4)</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;Kaik541&gt; well it's all binary on/off</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ot at least if you read all three you can figure it out</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;Kaik541&gt; since that's how binary works</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;Kaik541&gt; QED I win</span><br />
+<span class="irc-date">[2:35]</span> <span class="irc-black">&lt;wwyvern&gt; so what's it do-I'm ignernt....</span><br />
+<span class="irc-date">[2:36]</span> <span class="irc-black">&lt;wwyvern&gt; ...and I hate that</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;techmik67&gt; its code stuff to me things do or not do stuff...... =P</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;Kaik541&gt; basically, the end result is that it will hopefully be able to save some battery life</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; techmik67: a-tin-m (don't want to wake him up) doesn't like the sdio file, or the fact that it makes a change and we don't know why I'm not sure</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;techmik67&gt; i'll revert it for now....</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;wwyvern&gt; yay for battery lif</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;wwyvern&gt; e</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the problem I think is people started to test when CM broke usb, I'm pretty sure it's safe</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but waht do I know</span><br />
+<span class="irc-date">[2:39]</span> <span class="irc-black">&lt;wwyvern&gt; My Vib is fine now..but did have to do a scond flash this morning-external usb wouldn't mount for anything</span><br />
+<span class="irc-date">[2:39]</span> <span class="irc-black">&lt;wwyvern&gt; not even in recovery</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;wwyvern&gt; for a nightly it's pretty good</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;Kaik541&gt; that's what she said.</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;Kaik541&gt; and there's my contribution for the night</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;wwyvern&gt; Mine will be to crash...got no sleep..gotta rest.</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;wwyvern&gt; Will be back tomorrow to help tho</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-black">&lt;wwyvern&gt; catch y'all tomorrow after work</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; night wwyvern</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-black">&lt;wwyvern&gt; night</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[2:43]</span> <span class="irc-black">&lt;chaembian&gt; techmik67: any update on the force closes?</span><br />
+<span class="irc-date">[2:44]</span> <span class="irc-black">&lt;techmik67&gt; i went all the way back to stock and started over..... fine now</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; <a href="http://pastebin.com/m4TYWND4">http://pastebin.com/m4TYWND4</a> oh samsung</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;techmik67&gt; how do you flash stock on a vibrant and start over?</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;Kaik541&gt; anonymous, AMERICA</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-green">* acdbx (~acdbx@cpe-66-75-28-44.san.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-black">&lt;chaembian&gt; anonymous: was he not dead long time back?</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-black">&lt;Kaik541&gt; chaembian, either you listen to propaganda or are misinformed</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;chaembian&gt; anonymous, Kaik541: there is no way to verify these, right?</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;Kaik541&gt; verify... what?</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; he doesn't live here dude</span><br />
+<span class="irc-date">[2:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ??? I mean chaembian</span><br />
+<span class="irc-date">[2:59]</span> <span class="irc-black">&lt;chaembian&gt; anonymous: yeah, birth certificate has been amusing. <a href="http://market-ticker.org/akcs-www?singlepost=2527481">http://market-ticker.org/akcs-www?singlepost=2527481</a></span><br />
