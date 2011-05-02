@@ -614,3 +614,157 @@
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;UberPinguin&gt; We've worked to keep our changes to upstream framework as few and small as possible, so that we *should* just need to merge the device repo in when the time comes</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;nitam|work&gt; so don't know what they are actually building against.</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;chaembian&gt; Kaik541: is registration required to access to Samfirware?</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;Kaik541&gt; chaembian, yes</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;nitam|work&gt; do you guys have a manifest.xml somewhere I am not seeing?</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://bugmenot.com/view/samfirmware.com">http://bugmenot.com/view/samfirmware.com</a></span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;chaembian&gt; Ah, Kaik541! You rock! ;)</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;nitam|work&gt; ugh, you guys have a separate initramfs directory . . . why not just use our Makefile that builds it all?</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;UberPinguin&gt; mnita|work: No. Current setup procedure for us is to sync the CM repo, then git pull --rebase our framework changes, and git clone our device repo. I don't think any work has been done toward a manifest.</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;nitam|work&gt; just copy ours, and modify the repos that are yours.</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;nitam|work&gt; to point to yours</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;nitam|work&gt; commit that. and repo init and sync to that.</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I dont think I ever did a full diff on the cdma phones, but even the quick diff was pretty ugly iirc</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;nitam|work&gt; then try to use our method for initramfs that builds it for you using the files in the device tree etc</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;nitam|work&gt; will make things a lot easier, and make for an easier merge.</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;chaembian&gt; Kaik541: Thank you!</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;UberPinguin&gt; mnita|work: I agree, and am talking to the rest of epiccm about it. Most of them are offline right now.</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;nitam|work&gt; ok, once you can just be part of our tree. and once you're somewhat working, you can merge into our tree</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: is your bootloader using seperate kernel and recovery partition?</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;nitam|work&gt; and we'll enable it so you can write to your device specific stuff</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;nitam|work&gt; so you can commit there.</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;UberPinguin&gt; I'll talk to nullghost when he's back on, he does most of the infrastructure stuff and my own time is extremely sparse right now.</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;nitam|work&gt; but only after it all works :)</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;nitam|work&gt; as in, works within our make world.</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: We're using the Samsung bootloader, we don't actually flash a CM bootloader</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;nitam|work&gt; there is no CM bootloader</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: we're using sammy bootloader too</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;UberPinguin&gt; Then I misunderstand the question</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: but our recovery partitoin is unused</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;nitam|work&gt; you will not define combined recovery</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;codeworkx&gt; because the bootloader is crappy</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;nitam|work&gt; you fall more into the "regular" world.</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;nitam|work&gt; two separate images.</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;Kaik541&gt; epic has two partitions, one for kernel, one for recover</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;Kaik541&gt; GSM phones do not</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;codeworkx&gt; love epic</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;Kaik541&gt; fascinate might?</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;UberPinguin&gt; ahh</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;codeworkx&gt; fascinate has seperate</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;UberPinguin&gt; I find it irksome how different these supposedly identical platforms actually are</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-green">* ericdet (~eric@74-136-162-133.dhcp.insightbb.com) has joined this channel.</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; hate samsung</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;nitam|work&gt; +1</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;UberPinguin&gt; ++</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;nitam|work&gt; hate a lot of things right now.</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;UberPinguin&gt; I'd really like to see an LG dev handset</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;nitam|work&gt; but we'll see tonight.</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-green">* Manadar (~Manadar@AMontsouris-552-1-149-145.w86-212.abo.wanadoo.fr) has joined this channel.</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;Manadar&gt; Hello</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;nitam|work&gt; I've merged the wifi change and TMC_Sherpa's gpios into my world</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; mtd on epic, pure cwm on epic, pew pew</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;nitam|work&gt; will push in a bit.</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;nitam|work&gt; even tho I dont understand the wifi change.</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: i'm using lgo2x</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: How is it?</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;nitam|work&gt; but it seems to make it so that we don't wake during suspend</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;techmik67&gt; i dont have the wifi changed, but just booted a new build with the 4 files for gpio</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: fast but software is a massacre</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;UberPinguin&gt; :(</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;codeworkx&gt; it's like samsung</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;nitam|work&gt; so maybe it is fine. We'll see. running with it now</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;codeworkx&gt; must be a korea specific problem xD</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;nitam|work&gt; I lost about 10-12% over 3 hours</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;nitam|work&gt; while listening to music</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;UberPinguin&gt; hm</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;techmik67&gt; thats an improvement.....</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: gpio stuff = good?</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;nitam|work&gt; it certainly is livable</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: it seems so.</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;nitam|work&gt; I am going to push it soon.</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: i think our biggest battery problem is simply ril</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;nitam|work&gt; just built with wifi and gpios</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;nitam|work&gt; samsung does something to make it not eat battery</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;nitam|work&gt; dunno what tho</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;nitam|work&gt; I haven't looked at RIL code at all</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;nitam|work&gt; I've always considered it out of my league</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;nitam|work&gt; but I think I will now.</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; snuck mach-aries in the mix, adds setup for A1026</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;nitam|work&gt; it seems to be the big crap.</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;nitam|work&gt; as opposed to the little crap.</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;UberPinguin&gt; I did too, but then while reworking Dameon's RIL changes, I found it's not too bad.</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;nitam|work&gt; TMC_Sherpa: I saw. :)</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;nitam|work&gt; I kept those.</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;nitam|work&gt; they dont' affect anything.</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;nitam|work&gt; but will be useful later.</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;UberPinguin&gt; The tricky thing is that Samsung passes some fields as hex instead of dec</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I did it to throw kaik a bone :P</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;codeworkx&gt; lul, lgo2x fully frozen</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;nitam|work&gt; UberPinguin: I'll ping you when I start in on RIL</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;UberPinguin&gt; k</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;nitam|work&gt; since you've obviously been in there</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;nitam|work&gt; I have yet to even look at the Google documentation about what RIL is.</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;nitam|work&gt; let alone look at code</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;nitam|work&gt; ok, later ppl</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;UberPinguin&gt; hasta</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;ericdet&gt; Anybody ever seen this pop out at the end of a sync?</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;ericdet&gt; project kernel/samsung/2.6.35/</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;ericdet&gt; It looks like git-am is in progress. Cannot rebase.</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;nitam|work&gt; that's because you did a git am in the tmc branch</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;nitam|work&gt; got into kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; git checkout android-samsung-2.6.35</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; git branch -D tmc</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; then try again</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;ericdet&gt; i had already done the -D tmc but not the line before that. See if that fixes it.</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;nitam|work&gt; you might have done the git am in the android-samsung-2.6.35 branch</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;nitam|work&gt; you can fix it or you can just rm -rf kernel from the top level, and rm -rf .repo/projects/android_kernel_samsung.git and then repo sync</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;nitam|work&gt; tho that will take a lot longer because it will redownload the kernel</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;techmik67&gt; i think he patched in mainline</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;ericdet&gt; It didn't paste that at the bottom this time.</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;ericdet&gt; atinm: Thanks</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;ericdet&gt; Going to build my own again and make sure its functioning correctly before I bother testing anything.</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;chaembian&gt; ericdet: good luck! :)</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;ericdet&gt; Our company is switching to ATT at the end of May. So I guess I'm in the market for an ATT phone now.</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;UberPinguin&gt; We just switched, I got a Captivate from it</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;Kaik541&gt; ericdet, vibrant works on AT&amp;T 3G</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;nitam|work&gt; get an htc.</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;ericdet&gt; I have a personal vibrant and a work vibrant. My work vibrant is not-tmobile branded though.</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;Kaik541&gt; but if you're gonna get a free phone anyway, htc inspire if you want a more stable CM7</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;nitam|work&gt; I would if I was getting a new phone</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;nitam|work&gt; no more samsung.</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;ericdet&gt; I pay half so $50 for the Inspire doesn't look to bad.</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;nitam|work&gt; unless forced to.</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: no htc</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;nitam|work&gt; good, then you can send me your vibrant :)</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;ericdet&gt; I'd hate to get a phone right before all the next gen stuff is hitting though.</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;Manadar&gt; HTC in 2011? mnita|work ?I wouldn't</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;nitam|work&gt; AT&amp;T doesn't have anything else useful</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;nitam|work&gt; its either htc inspire, or captivate.</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;Kaik541&gt; ericdet, well if they'll let you delay getting the phone... you can wait 6 months and AT&amp;T *might* hav something</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;nitam|work&gt; certainly not an atrix.</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;ericdet&gt; I'm not sure if I hae to give the line up right then or not. We got a memo this morning.</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;ericdet&gt; Since I paid half, I'd assume I get to keep it.</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;nitam|work&gt; so why is zachy writing to codeworkx and me on xda?</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;nitam|work&gt; I didn't /kick him too did I?</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;ericdet&gt; My little brother has an Inspire that I modded for him. My only problem with it is the screen. It looks really washed out.</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;nitam|work&gt; I woudl have thought he'd know we barely register anything on xda...</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;nitam|work&gt; it goes in one side and out the other.</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;nitam|work&gt; and he is normally here and could jsut  have told us. weird.</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;nitam|work&gt; then I could actually ask him what that wifi fix was about...</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;ericdet&gt; Yeah that CM7 thread on xda is for the most part nothing but hand holding people that have no business messing with it.</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;ericdet&gt; For the vibrant anyway.</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;Kaik541&gt; and endless complaining about how useless the devs are</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;ericdet&gt; and atinm making sarcastic comments about being lazy and good for nothing.. lol</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;ericdet&gt; and btw... The first post in there pretty much encourages you to flash a different kernel.. Might want to give someone the heads up to change that.</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Client Quit)</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;chaembian&gt; Kaik541: Should the secondary bootloader that comes with the stock rom be flashed too?</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;Kaik541&gt; it *should* be fine, but I've never flashed a vibrant ROM so can't say</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-navy">* freat (~ron@c-98-216-38-131.hsd1.ma.comcast.net) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;chaembian&gt; :) Alright</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-green">* freat (~ron@c-98-216-38-131.hsd1.ma.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;chaembian&gt; If its optional, I'll just leave it out</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;chaembian&gt; time to sleep</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;chaembian&gt; Later guys!</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-green">* chaembian is now known as chaembian|away</span><br />
