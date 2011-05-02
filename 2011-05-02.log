@@ -455,3 +455,162 @@
 <span class="irc-date">[14:43]</span> <span class="irc-green">* ChanServ sets mode +o blah|work</span><br />
 <span class="irc-date">[14:49]</span> <span class="irc-black">&lt;nitam|work&gt; ha! rm -rf xda-developers.com worked again</span><br />
 <span class="irc-date">[14:50]</span> <span class="irc-black">&lt;nitam|work&gt; they seem somewhat fuxked.</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;nitam|work&gt; so what our are most pressing bugs right now?</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;nitam|work&gt; I am ignoring everything in issues list.</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;nitam|work&gt; and on the threads.</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;nitam|work&gt; like the google maps thing. wtf is that about?</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;nitam|work&gt; how do we break google maps.</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;nitam|work&gt; I cannot fix ffc, I dont' have a phone with one</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;kang&gt; it should be 3d or 2d acceleration related "i guess"</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;kang&gt; for ffc i think rotation will be fixed</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;kang&gt; but there's still capture failing and also..</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;nitam|work&gt; ok, I'm depending on your and codeworkx for i9000 stuff</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;kang&gt; even with wrong orientation i don't know why it doesnt work with gtalk</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;kang&gt; i suppose it works on back camera also when u have no front one but i just don't know</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, we have no way to know whether it is supposed to work with back camera</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; when i call soemone on a pc - not a sgs</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; it "works" as in</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;nitam|work&gt; btw, I'm running TMC_Sherpa's gpio code.</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; i can see their video and get their audio</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; they get my audio</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; i can see my video from ffc</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;nitam|work&gt; and it seems to not be draining as much. I'm playing music now - lets see.</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; but they don't receive it</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; and sgs to sgs gtalk just say theres no camera</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;nitam|work&gt; kang, ok I'll try to video chat with someone I can test with when I get home tonight</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;kang&gt; cool</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;nitam|work&gt; so camera is one issue.</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;nitam|work&gt; the whole gpu thing, I don't see what we could have changed. its the same libs</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;nitam|work&gt; just versioned to a higher rev</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;nitam|work&gt; and I have to believe they are backward compatible.</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;nitam|work&gt; I guess one of the things to do is to see if other cyanogenmod devices have the same bugs</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;nitam|work&gt; related to camera, google maps etc</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;kang&gt; yeah</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;techmik67&gt; mnita|work: i replaced a file in the pull request</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;nitam|work&gt; would at least tell us whether frameworks is fuxked.</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;kang&gt; would be good to have a guy with a N1 or smth</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;techmik67&gt; removed sdhci</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;techmik67&gt; added mach-aries.c</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, I kept it</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;nitam|work&gt; but I'm ok with removing it too</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;techmik67&gt; should i put it back in this request? i thought you wanted it out til we figured it out completely..</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;nitam|work&gt; that one is less critical. the biggest thing is the alive/sleep tables.</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;nitam|work&gt; no one except ericdet had trouble with it right?</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;nitam|work&gt; my usb works</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;nitam|work&gt; with the sdhci change.</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;techmik67&gt; correct, afaik</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;nitam|work&gt; I'll keep the change.</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;techmik67&gt; i'll puti it back</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;nitam|work&gt; and take it out if it breaks sdcards</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;nitam|work&gt; and update the pull request</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;nitam|work&gt; so camera crap. looking in cyanogenmod bug reports for other devices running 2.3.4 to see if the bugs are duplicated on them</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;nitam|work&gt; for things like camera, google maps, gtalk etc</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-green">* mikebeecham (~mikebeech@78.150.13.69) has joined this channel.</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;nitam|work&gt; 2g/3g is something I want to look at.</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;nitam|work&gt; it is just a thorn in the side that should get fixed.</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;nitam|work&gt; but cyanogenmod has the bug too</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;nitam|work&gt; so not specific to us</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;techmik67&gt; done</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: <a href="https://github.com/intersectRaven/ir-kernel/commit/6da69d6d161491be4896a56b6dfe6e9d9233ad1e">https://github.com/intersectRaven/ir-kernel/commit/6da69d6d161491be4896a56b6dfe6e9d9233ad1e</a></span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-green">* Dreamsforgotten (b8bd5e7a@gateway/web/freenode/ip.184.189.94.122) has joined this channel.</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; Dreamsforgotten: here we are</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;Dreamsforgotten&gt; yes!</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;mikebeecham&gt; dang...my graphics card is going up the shoot :(</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; Dreamsforgotten: what are you trying to do?</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;Dreamsforgotten&gt; codeworkx I've made some progress kanging cm7 files from epicCM but not sure how far I'll get with them.</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;Dreamsforgotten&gt; I'm just simply trying to build a pure aosp for the Epic</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;codeworkx&gt; Dreamsforgotten: you're on epic4g?</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;Dreamsforgotten&gt; yes</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;codeworkx&gt; Dreamsforgotten: whats the actual official rom? 2.2.2?</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: where did he get that fix from?</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;Dreamsforgotten&gt; codeworkx I believe so</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: don't know. zacha found it</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;codeworkx&gt; Dreamsforgotten: it's running bml/rfs?</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, but what does it do ..</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; also, in default.xml - "platform/external/blah"</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;Dreamsforgotten&gt; codeworkx no it's 2.2.1 and yes rfs</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; does that point to us or CyanogenMod?</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: cm</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; should we change all those to explicitly point to CyanogenMod?</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; ok . . .</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: somethings are pointing to korg, but most to cm</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;nitam|work&gt; I thought so, but wanted to make sure.</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: <a href="https://github.com/CyanogenMod/android/blob/gingerbread/default.xml#L4">https://github.com/CyanogenMod/android/blob/gingerbread/default.xml#L4</a></span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: if theres no CyanogenMod/ in name, its pointing to android.git.kernel.org</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; ah</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; now  it makes sense :)</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; wasn't looking closely</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; I wish I knew what the suspend thing did</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-navy">* mikebeecham (~mikebeech@78.150.13.69) Quit (Quit: Oops..I think I might have hit something...)</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-navy">* Fire2fly (~yaaic@62.140.137.144) Quit (Quit: Yaaic - Yet another Android IRC client - <a href="http://www.yaaic.org)">http://www.yaaic.org)</a></span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-green">* chaembian (~chaembian@122.174.100.170) has joined this channel.</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;chaembian&gt; Good morning!</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;Kaik541&gt; morning</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;chaembian&gt; Morning Kaik541</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;Kaik541&gt; jesus christ today is drearyy</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;techmik67&gt; nah... great day..... heat beat celtics and we got bin laden, both yesterday! woohoo!!</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;Kaik541&gt; no I mean literally outside looks dreary here</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;techmik67&gt; lol, oh =(</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;techmik67&gt; sorry</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;techmik67&gt; s floridas... even in a hurricane, then sun is always just 5 minutes away</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;chaembian&gt; techmik67: 'going to stock' -- does it make sense to go do the init flash of CM7 instead?</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;techmik67&gt; you could format data, cache and system and falsh initial.zip, etc.... if that doesnt work, go to stock and start from there</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;techmik67&gt; flash*</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-green">* techmik67 was kicked from this channel by nitam|work</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;chaembian&gt; OK!</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;techmik_laptop&gt; lol</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;nitam|work&gt; wow, he is not logged on anymore - that was one hell of a kick</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;nitam|work&gt; :-)</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;nitam|work&gt; oh, there you are.</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;chaembian&gt; There are zillion roms to odin. I don't know which one works or doesn't.</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;nitam|work&gt; just pulled. fixed the whitespace errors too</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;nitam|work&gt; kernel is finicky about whitespace</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;techmik_laptop&gt; coolcool</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;nitam|work&gt; figure might as well fix them</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;nitam|work&gt; is xda hung for you guys?</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;nitam|work&gt; trying to find the post related to this bcm driver suspend thing</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-navy">* Zilch25 (~Zilch25@166.192.17.66) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;techmik67&gt; its on and off this morning for me</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;nitam|work&gt; I really have to stop rm -rf'ing it.</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;nitam|work&gt; need a filter to rm with</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;nitam|work&gt; rm -rf xda-developers.com/*crap*</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;nitam|work&gt; does auto-brightness work for you guys after you enable dim?</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;techmik67&gt; i have the checkbox to allow lower light levels checked</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;techmik67&gt; if i put phone directly under desklamp, it dims</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;techmik67&gt; if i cover sensor, it changes</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;nitam|work&gt; I have to find out where I can make the default allow dim</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;chaembian&gt; anonymous: that's what I was hoping for. Only this time, it is making me search for a stock rom to odin.</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; vibrant</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;chaembian&gt; what TMC_Sherpa says.. I have a Vibrant</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;Kaik541&gt; chaembian, samfirmware.com</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;Kaik541&gt; anything ODIN + repartition + pit</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I dont think any of the US phones are on samfirmware anymore</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, yes they are</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; really? did they hide them somewhere/</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;Kaik541&gt; they aren't listed on the main page anymore, but they're still there</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://www.samfirmware.com/WEBPROTECT-t959.htm">http://www.samfirmware.com/WEBPROTECT-t959.htm</a></span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh lol I see</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm like where is the search?</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: you've ever seen this? <a href="https://github.com/EpicCM">https://github.com/EpicCM</a>  xD</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;chaembian&gt; Kaik541: If anything, I have a JI6.</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: no, but UberPinguin is ehre</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;nitam|work&gt; and for now I'm cool with them being separate.</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;UberPinguin&gt; Hallo</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;nitam|work&gt; hopefully they'll be in a state where they can merge to us</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;nitam|work&gt; or upstream</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;nitam|work&gt; but right now they don't seem to be</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;nitam|work&gt; I don't see their manifest</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;UberPinguin&gt; We've worked to keep our changes to upstream framework as few and small as possible, so that we *should* just need to merge the device repo in when the time comes</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;nitam|work&gt; so don't know what they are actually building against.</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;chaembian&gt; Kaik541: is registration required to access to Samfirware?</span><br />
