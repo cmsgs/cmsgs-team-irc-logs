@@ -1282,3 +1282,225 @@
 <span class="irc-date">[20:59]</span> <span class="irc-green">* ciwrl (~ciwrl@pool-173-79-20-88.washdc.fios.verizon.net) has joined this channel.</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: who has tested till now?</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;UberPinguin&gt; Anyone here had a look at the 2.3.4 wimax support yet? I'm looking at the speedy and supersonic BoardConfig.mk for hints, but not sure what I need to do for it to work on Epic.</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;UberPinguin&gt; It looks like they're still pulling a lot of vendor wimax files</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: no one is using wimax</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;nitam|work&gt; it is /cache/.startrecovery</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;nitam|work&gt; that's the file</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;nitam|work&gt; and it does get removed</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;Kaik541&gt; UberPinguin, based on what I recall cyanogen saying, it calls a proprietary jar file</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;Kaik541&gt; but that's really all I know, he made the comment on the android google groups thing</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;techmik67&gt; Kaik541: it worked</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;Kaik541&gt; woo</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;techmik67&gt; =))</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;Kaik541&gt; great success</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;Kaik541&gt; now we just need to find a way to make "adb reboot recovery" write that file, correct?</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;nitam|work&gt; and whatever that menu calls as well</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://twitter.com/#!/androidcentral/status/65158649852592128">http://twitter.com/#!/androidcentral/status/65158649852592128</a></span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;UberPinguin&gt; Kaik541: Yeah, that's what it looks like. Unfortunately, Samsung implemented their wimax userspace in a totally different way than HTC, so we don't have analagous files :/</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;Kaik541&gt; well... fuck... of course they did it differently</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;gehzumteufel&gt; techmik67:  <a href="http://www.engadget.com/2011/05/02/carriers-crack-down-on-android-tethering-apps-rain-on-our-mobil/">http://www.engadget.com/2011/05/02/carriers-crack-down-on-android-tethering-apps-rain-on-our-mobil/</a></span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;UberPinguin&gt; Also, they have Tw tendrils in all of their wimax java files</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yep</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;gehzumteufel&gt; Although, for the SGS variants, there is a flashable zip. So it doesn't matter.</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;gehzumteufel&gt; To add the mobile hotspot that is</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-green">* blyfoten (~AndChat@c-3dd8e455.04-17-73746f2.cust.bredbandsbolaget.se) has joined this channel.</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;Kaik541&gt; UberPinguin, I think that's how it was for Sense in EVO (supersonic)... sense all up in that</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;Kaik541&gt; they had to remove a lot of the sense-based fuck-uppery to get it working</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;UberPinguin&gt; ok. I'll wait for the NS4G source to drop then.</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;Kaik541&gt; hasn't it already?</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;Kaik541&gt; in AOSP</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;UberPinguin&gt; I didn't look tbh</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;Kaik541&gt; 2.3.4 was all AOSP wimax and CDMA stuff</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;Kaik541&gt; for nexus s anyway</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;UberPinguin&gt; Oh.. hm</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;UberPinguin&gt; I'll do some reading then, it should be doable</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-green">* DocMAX (~docmax@g224154027.adsl.alicedsl.de) has joined this channel.</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: it'll be removed on boot by the stage1 initramfs</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: i tested... it worked =)</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;techmik67&gt; woohoo!</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;nitam|work&gt; Unhelpful: now to figure out all the places we have to write /cache/.startrecovery</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread Daniel Hillenbrand * 67ee833 (1 files in 1 dirs): galaxys.mk: fixed path for kernel modules - <a href="http://bit.ly/j2xu9A">http://bit.ly/j2xu9A</a></span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;gehzumteufel&gt; What is the significance of using boot.img vs a zimage?</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxysb: gingerbread Daniel Hillenbrand * a00676d (1 files in 1 dirs): galaxysb.mk: fixed path for kernel modules - <a href="http://bit.ly/mvkxdU">http://bit.ly/mvkxdU</a></span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;nitam|work&gt; gehzumteufel: let it be..</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;nitam|work&gt; later.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;gehzumteufel&gt; I should have just Googled it.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;gehzumteufel&gt; Since I just found my answer</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-navy">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;gehzumteufel&gt; bahaha and it's a post that codeworkx made on the android groups.</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful, how do we identify that something is using our method for reboot/recovery?</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;nitam|work&gt; TARGET_NO_RECOVERY?</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;nitam|work&gt; that doesn't sound right</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;nitam|work&gt; we need some way to tell when we need to write /cache/.startrecovery</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;codeworkx&gt; gehzumteufel: which?</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;gehzumteufel&gt; codeworkx: <a href="http://groups.google.com/group/android-porting/browse_thread/thread/6485b48de009fb75?pli=1">http://groups.google.com/group/android-porting/browse_thread/thread/6485b48de009fb75?pli=1</a></span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;nitam|work&gt; as opposed to the standard __reboot(LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, LINUX_REBOOT_CMD_RESTART2, "recovery");</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;codeworkx&gt; gehzumteufel: hehe</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: crespo-2.3.4-merge codeworkx * cfa05eb (4 files in 1 dirs): libcamera: stuff from crespo 2.3.4 - <a href="http://bit.ly/maimAV">http://bit.ly/maimAV</a></span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-green">* Flozzo (~android@62.140.137.137) has left this channel.</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-navy">* ericdet (~eric@74-136-162-133.dhcp.insightbb.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it reports the month wrong?</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;blyfoten&gt; I'm sorry to bother you guys once every other week or so :-)... I admire your work shrug* I envy you all, and i like the clever workaround with two stage boot for reboot recovery :-)</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I shouldn't be surprised.  there is a wonderful variable in one of the battery files that sets ZERO_CELCIUS to 7</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;gehzumteufel&gt; TMC_Sherpa: lol this IS Samsung. They seem to do everything wonky.</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you...envy us? on samsung phones? back in a few, checking for locust swarms</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: so, that defines the zero point for an ADC thermometer?</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;Unhelpful&gt; damnit-just-tried-to-pinch-zoom-my-trackpad</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, they're making sure you can't hit absolute zero by increasing by 7</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-green">* EricDET (~Eric@74-136-162-133.dhcp.insightbb.com) has joined this channel.</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful, ignore him. we need to first figure out where to create the /cache/.startrecovery</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: i assume when reboot-to-recovery is requested? ;)</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-green">* J_ez_2cool (~chatzilla@cpe-174-109-017-182.nc.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;nitam|work&gt; yeah yeah. where!</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;blyfoten&gt; TMC_Sherpa. Yea... I wish I had the time to play with my kernel, but two kids and full time work limits my playng to only compile you stuff once in a while</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;nitam|work&gt; I'm on a hunt and destroy mission</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;nitam|work&gt; but have only found the one in bootable/recovery</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;J_ez_2cool&gt;  HELP WITH EPIC</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;blyfoten&gt; Your*</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;nitam|work&gt; J_ez_2cool:</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;nitam|work&gt; ?</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: this is why i ended up wrapping __reboot, there are waaaaay too many places that call both reboot *and the __reboot syscall* directly :(</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;J_ez_2cool&gt; build aosp 2.3.3</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: does recovery clean this file when you hit reboot?</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, your pre-shutdown scripts would have been so useful for this xD</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;J_ez_2cool&gt; im building im mean</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;Unhelpful&gt; J_ez_2cool: if you're going to help w/ CM on epic, that's great! :D</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;J_ez_2cool&gt; not really</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;J_ez_2cool&gt; AOSP</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;nitam|work&gt; if you *want* help, its a different matter. But UberPinguin might help.</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;EricDET&gt; Just found phone frozen in Vibrant screen... Recovery not coming up on 3-buttoin just vibrant screen.</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: stage1 cleans it. :)</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: there's the possibility to add a postrecoveryboot.sh which is executed from recovery xD</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;EricDET&gt; Think it might be time to  find a new one...</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; shit, we lost koush.</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; he must have done this</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;nitam|work&gt; since he implied he had done the same thing for droid</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; s5pc110_battery.h:#define TEMP_IDX_ZERO_CELSIUS 7</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; froyo I9000</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: did he mean that he just had the app make the file? :P</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;nitam|work&gt; possible. we definitely need it in bootable/recovery.</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;nitam|work&gt; I guess ROM Manager can do it - but that's his.</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: example: <a href="https://github.com/CyanogenMod/android_device_lge_star-common/blob/gingerbread/recovery/postrecoveryboot.sh">https://github.com/CyanogenMod/android_device_lge_star-common/blob/gingerbread/recovery/postrecoveryboot.sh</a></span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;nitam|work&gt; we also need it someone else</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: it's called when you exit recovery</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: he already deletes it</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;codeworkx&gt; just 4 info xD</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; tho that woudl work too</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;Unhelpful&gt; i would say the places we need to hit are the toolbox reboot app, and whatever code is behind the reboot menu.</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; who writes it is a bigger deal ;)</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;Unhelpful&gt; and i've a date tonight. byeeeeeeeeeeeee</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; lol :)</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; bye :)</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; I'll find it</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; later.</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; have to get home too</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: did camera change help?</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;codeworkx&gt; wip</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;nitam|work&gt; btw, the gpio change has definitely helped my battery</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;nitam|work&gt; but now we have so many things going, no way we can do an update :)</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;nitam|work&gt; but next update is going to be a doozy :)</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;GuiPer&gt; codeworkx: so got it working</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;GuiPer&gt; compass with open sources</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;nitam|work&gt; yes yes!</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: nice</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;nitam|work&gt; does that mean we can get rid of the samsung sensors.so?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;nitam|work&gt; or whatever their file is called?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;GuiPer&gt; it's quite simple the changes, mainly on libsensors</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;nitam|work&gt; libsensors.so?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;GuiPer&gt; yep we can</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;codeworkx&gt; does that mean we can have the lightsensor back?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, can we get lightsensor back?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;GuiPer&gt; we can, we only need binaries</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;codeworkx&gt; does that mean they'll stop complaining about autobrightness?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;nitam|work&gt; and therefore get rid of the hack?</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;nitam|work&gt; that koush will never merge? :)</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I like how you waited for Unhelpful to leave first, he doesn't need that hanging over his head tonight :)</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-navy">* EricDET (~Eric@74-136-162-133.dhcp.insightbb.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;GuiPer&gt; we only need geomagneticd and orientationd</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;nitam|work&gt; he is fine - he doesn't ever actually leave this channel :)</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;nitam|work&gt; he's not really ehre</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;GuiPer&gt; and also yamaha_things</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;nitam|work&gt; and I got it from here</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;nitam|work&gt; I think :)</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;GuiPer&gt; mnita|work, codeworkx should I push it now or later?</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;nitam|work&gt; guiper - start commiting.</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;nitam|work&gt; now</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;GuiPer&gt; only got 20-30 minutes</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;nitam|work&gt; the more the merrier.</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: push it but change teh values in overlay</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: back to old</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;GuiPer&gt; can you revert it?</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;codeworkx&gt; and remove the max thingy</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;nitam|work&gt; we can revert it</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;GuiPer&gt; not even sure what you did there :)</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: no revert. new commit</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;nitam|work&gt; the revert commits.</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;nitam|work&gt; not rebase - but we can revert.</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;codeworkx&gt; hopefully atinm will do it</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;nitam|work&gt; I will</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;codeworkx&gt; i'm talking with cam</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;GuiPer&gt; I'll care about libsensors layer and vendor samsung</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;nitam|work&gt; but first guiper gets to do his commits.</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;codeworkx&gt; it does stuff</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;nitam|work&gt; dont' tease techmik :)</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; its his favorite part of the kernel</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; tho now it'll be the gpios :)</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; since that's a real commit :)</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; a legit code change with his name on it :)</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; even tho he had to credit TMC_Sherpa ;)</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;techmik67&gt; ok, booting with all the prebuilt and the crespo merge branch</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;nitam|work&gt; I'll revert the maxthing</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: the libcam?</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;techmik67&gt; always give credit =)</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;nitam|work&gt; if I can find it</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;techmik67&gt; someday, i'll learn enough to actually write something =)</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: i've moved it to uhmmmm</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;techmik67&gt; codeworkx: yes</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: galaxys.mk</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;GuiPer&gt; btw codeworkx and mnita|work there are some potential improvements in libsensors regarding read delays etc</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;nitam|work&gt; ah right</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: it's fuct xD</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;GuiPer&gt; I'll work on it tomorrow, since it's something we never cared about there</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, so no revert</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;techmik67&gt; i have a build without it</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;techmik67&gt;  have to clean out my old directory.... have over 100 nightly versions =)</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;Kaik541&gt; wow you guys picked up and ran with it today xD</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;techmik67&gt; from the last 2 months</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-green">* AndChat| (~AndChat@c-3dd8e455.04-17-73746f2.cust.bredbandsbolaget.se) has joined this channel.</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-green">* mbizzle (~mbizzle@vp117009.reshsg.uci.edu) has joined this channel.</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-green">* DocMAX2 (~docmax@f053156056.adsl.alicedsl.de) has joined this channel.</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-navy">* DocMAX (~docmax@g224154027.adsl.alicedsl.de) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Kaik541:  looked at 1026 stuff today, I don't think it's (quite) as bad as I thought.  it'll be a POS but then again it was a POS before.  Not sure which ril you would need to make it work tho</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-navy">* blyfoten (~AndChat@c-3dd8e455.04-17-73746f2.cust.bredbandsbolaget.se) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;Kaik541&gt; it would need to change RIL? shit.</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread atinm * 370d207 (1 files in 1 dirs): revert back to CyanogenMod for CMParts - <a href="http://bit.ly/iB22C3">http://bit.ly/iB22C3</a></span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; maybe modem at least.  I'm not sure where they put all the stuff</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but it wouldn't surprise me</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;Kaik541&gt; well considering you can interchange modems on samsung ROM's without changing RIL, I'm willing to guess that doesn't need to change</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread atinm * 6edc783 (1 files in 1 dirs): Removed hacked maxrange ... - <a href="http://bit.ly/m0L83Z">http://bit.ly/m0L83Z</a></span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;Kaik541&gt; but I feel you would *have* to use a captivate modem to activate a1026</span><br />
