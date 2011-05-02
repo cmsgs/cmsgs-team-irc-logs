@@ -768,3 +768,137 @@
 <span class="irc-date">[16:57]</span> <span class="irc-black">&lt;chaembian&gt; time to sleep</span><br />
 <span class="irc-date">[16:57]</span> <span class="irc-black">&lt;chaembian&gt; Later guys!</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-green">* chaembian is now known as chaembian|away</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: i found the problem w/ otapackage w/ your fix, it was the name of the file in files-target-package that needed to change, not the name it was stored as in the otapackage</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;Unhelpful&gt; problem is, boot.img isn't even *in* target-files-package :/</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_device_samsung_captivate/blob/prebuilt_kernel/releasetools/captivate_ota_from_target_files#L38">https://github.com/teamhacksung/android_device_samsung_captivate/blob/prebuilt_kernel/releasetools/captivate_ota_from_target_files#L38</a></span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;codeworkx&gt; this copies the boot files into your zip</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;Unhelpful&gt; yes... but the target-files zip doesn't even include the file we need.</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;codeworkx&gt; where's your final boot.img?</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;Unhelpful&gt; this isn't right: <a href="https://github.com/teamhacksung/android_device_samsung_captivate/blob/prebuilt_kernel/releasetools/captivate_ota_from_target_files#L39">https://github.com/teamhacksung/android_device_samsung_captivate/blob/prebuilt_kernel/releasetools/captivate_ota_from_target_files#L39</a></span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;Unhelpful&gt; BOOT/kernel is the prebuilt kernel, and is not good for anything but bootloops. :/</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;codeworkx&gt; sure</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;techmik67&gt; aha!!!</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;codeworkx&gt; where's the final boot.img?</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;techmik67&gt; it worked then!</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;Unhelpful&gt; that's the problem, it's in $PRODUCT_OUT, and is a dependency for target-files-package, but is not actually included *in* the target-files-package zip :(</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;codeworkx&gt; if it's somewhere in out/target/procuct/captivate we maybe can grab it there</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;codeworkx&gt; i'll have a look at it</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, but i would like to know how to get our flashable boot image into target-files-package :/</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (*.net *.split)</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-navy">* Frd^ (~frd@idlaa.com) Quit (*.net *.split)</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-navy">* ohaydenx (ohayden@2001:440:eeee:fffb:1::3) Quit (*.net *.split)</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-navy">* KBme (~KBme@2001:470:cabe:666:666:666:666:666) Quit (*.net *.split)</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-green">* Frd^ (~frd@idlaa.com) has joined this channel.</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-green">* KBme (~KBme@2001:470:cabe:666:666:666:666:666) has joined this channel.</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-green">* ohaydenx (ohayden@2001:440:eeee:fffb:1::3) has joined this channel.</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: this is the original: <a href="https://github.com/teamhacksung/android_build/blob/gingerbread/tools/releasetools/ota_from_target_files#L398">https://github.com/teamhacksung/android_build/blob/gingerbread/tools/releasetools/ota_from_target_files#L398</a></span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: i'll build your stuff later and have a look at it</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-brick">* techmik67 got bootloops with the zip</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;Dreamsforgotten&gt; codeworkx back around still syncing</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-green">* zachy_md (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-green">* zachy_md is now known as zachy_md|busy</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: its supposed to work if i flash out/target/product/captivate/boot.img, correct?</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: after flashing the zip? yes, that should work.</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;techmik67&gt; did you see the driver unusable error i was getting?</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-green">* Zilch25 (~Zilch25@166.192.17.66) has joined this channel.</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;techmik67&gt; sec, its back in the logs....</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: i did, that one's not my fault ;)</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;Unhelpful&gt; do i need to merge some kernel changes?</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;techmik67&gt; i thinkk atinm said libs were added</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;techmik67&gt; so yes</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;techmik67&gt; afaik</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;techmik67&gt; merge with mainline</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;techmik67&gt; maybe i did it wrong</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;techmik67&gt; yes, the vendor/common libs i think he said</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, that's a problem w/ prebuilt kernels, when kernel code is updated, somebody has to rebuild them and distribute them to the device trees (build.sh does everything for this except commit/push ;)</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;techmik67&gt; i tried just merging prebuilt and gingerbread into a merged branch on kernel, but it had the same results</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: which repos have prebuilt branches?</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;techmik67&gt; build, device...common, device/samsung/captivate, kernel</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;codeworkx&gt; k</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-green">* mikebeecham (~mikebeech@78.150.13.69) has joined this channel.</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: if you just do do envsetup and then run the kernel build.sh it will produce kernels and modules for all targets. the other targets need their makefiles fixed up to use the prebuilt kernels, though.</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;techmik67&gt; i just built and am booting a normal built with the 4 gpio files from tmc sherpa and the 2 wifi file changes merged in</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;Unhelpful&gt; aaaaargh i hate hate hate repo :(</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;mikebeecham&gt; evening all</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;mikebeecham&gt; techmik67, that sounds important :D</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;techmik67&gt; we'll see</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;mikebeecham&gt; ;)</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-brick">* techmik67 hopes phone doesnt explode</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;techmik67&gt; or implode, for that matter</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I removed the calculate pi to 1m places code so it should work a little better :P</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;techmik67&gt; i set the env variable right this time</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;techmik67&gt; =Y_U_NO_WORK</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: prebuilt_kernel atinm * eea5fb1 (60 files in 26 dirs): Nexus S 2.3.4 Kernel merge with aries. ...</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: prebuilt_kernel Daniel Hillenbrand * 5b3cf08 (1 files in 1 dirs): aries-panel.c: added display reset ...</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: prebuilt_kernel Andrew Mahone * a13aa49 (76 files in 29 dirs): Merge remote-tracking branch 'm/gingerbread' into HEAD</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: prebuilt_kernel commits 8eee28f...a13aa49 - <a href="http://bit.ly/mpbCwV">http://bit.ly/mpbCwV</a></span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;nitam|work&gt; that should fix the driver unusable problem</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: i calculated that on an apple iigs once. took daaaaaaays.</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: well, not yet ;)</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;nitam|work&gt; well, its a move in the right direction ;-)</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-green">* Flozzo (5147a497@gateway/web/freenode/ip.81.71.164.151) has joined this channel.</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;nitam|work&gt; ok, reflashed with tmc gpios (all files) + wifi suspend</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;techmik67&gt; me too =)</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;nitam|work&gt; will let my phone go for 3 hours or so playing music, etc</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;Unhelpful&gt; so, if you have a work branch in your local repository that tracks the default upstream branch as specified in the manifest, repo sync will rebase your local branch on the upstream one.</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;nitam|work&gt; and if the drain looks reasonable, will push it.</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;Unhelpful&gt; you will then not be able to push the work branch upstream w/o --force, and then the same problem will hit people who try to pull the work branch.</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;Unhelpful&gt; hate repo, so much. :(</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;nitam|work&gt; that's why I just create a new branch using the local tracking branch</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;nitam|work&gt; that seems to break the dependency</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;mikebeecham&gt; is anyone else getting geolocation errors today?</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;nitam|work&gt; so have to do an explicit pull</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;mikebeecham&gt; I've rebooted to ensure it's not something hooky going on</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;nitam|work&gt; back later</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;Fire2fly&gt; yeah i had also geo location errors</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;mikebeecham&gt; Fire2fly, ahhh good to know it's not just me then</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;mikebeecham&gt; only started happening today</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;nitam|work&gt; you get location?</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;mikebeecham&gt; I'm assuming it's the service, not the handset</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;nitam|work&gt; I've never got location with just satellite.</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;mikebeecham&gt; I get location in Beautiful Widgets</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;mikebeecham&gt; thought it might be that at first</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: or don't track... seems to be the only way not to get teh butthurt later :(</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;mikebeecham&gt; but not sure it is now</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;Fire2fly&gt; yeah ive had that another time</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;Fire2fly&gt; suppose will be solved tomorrow or so</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-navy">* Flozzo (5147a497@gateway/web/freenode/ip.81.71.164.151) Quit (Quit: Page closed)</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Ping timeout: 263 seconds)</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;nitam|work&gt; who the hell was flozzo</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: prebuilt_kernel Andrew Mahone * 64977bf (4 files in 1 dirs): Update prebuilt kernel components. ... - <a href="https://github.com/teamhacksung/android_device_samsung_captivate/commit/64977bf8663d5e691deccb128acf8fd065828044">https://github.com/teamhacksung/android_device_samsung_captivate/commit/64977bf8663d5e691deccb128acf8fd065828044</a></span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: that would be the fix ;)</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has left this channel.</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;nitam|work&gt; we should just make our kernel build copy the files over</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: prebuilt_kernel Andrew Mahone * 538c848 (1 files in 1 dirs): Fix install location for kernel modules. ... - <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/538c84832a0f07ca59ffe2b2b21730052bf18860">https://github.com/teamhacksung/android_kernel_samsung/commit/538c84832a0f07ca59ffe2b2b21730052bf18860</a></span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;nitam|work&gt; like we used to</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;uberushaximus&gt; woot, how's the new kernel?</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: it does, but i didn't want it to do commit/push itself. :)</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;nitam|work&gt; well yeah.</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;nitam|work&gt; guess we'll just update the kernel stuff when we commit any change to the kernel</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;nitam|work&gt; need some sort of "hook"</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;nitam|work&gt; that makes us</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; but for now just have to remember to do so</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; shouldn't be hard - not many ppl modify kernel :)</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;Unhelpful&gt; so that should be a working kernel, yes?</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;nitam|work&gt; yes :)</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; we shouldn't be committing non-working anyway. not on main branch</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; but since you're in a separate branch right now, things can stay as you like</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; urk</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; back  later</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
