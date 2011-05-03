@@ -154,3 +154,102 @@
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;atinm&gt; or whatever asm that is. gnu I guess</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;atinm&gt; I remember unhelpful has put in a preshutdown script thing that was rejected as being too dirty</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;atinm&gt; now I know why he wanted it :)</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;koush_&gt; yheah</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;koush_&gt; he wanted to sync before reboot</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;koush_&gt; i think</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;atinm&gt; he had wrapped __reboot in a macro</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;koush_&gt; that's too scary</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;atinm&gt; right</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;techmik67&gt; he has a pending code review he forgot to add koush to =)</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;koush_&gt; cause that may make the phone never reboot</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;koush_&gt; cause it may hang on sync</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;atinm&gt; ok, yeah - we agreed that wasn't good.</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;atinm&gt; but it would be nice if we could make all the code somehow got thru one point that was still cpp code that then turned around and called __reboot</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;atinm&gt; rather than __reboot being called in many places.</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;atinm&gt; would be cleaner - but more work than this is worth.</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;atinm&gt; so just going to hack in the 4 places.</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm&gt; techmik67: what pending code review?</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm&gt; what is it about?</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://review.cyanogenmod.com/5015">http://review.cyanogenmod.com/5015</a></span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm&gt; ooh, crap.</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;atinm&gt; koush don't look at it yet :)</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;koush_&gt; k</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;atinm&gt; at least, look at it with unhelpful - we've also had to do some stuff to Makefile</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-navy">* koush_ (~koush@74.202.210.58) Quit (Quit: koush_)</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;codeworkx&gt; a) cam preview fixed b) totally fuxx0red</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;atinm&gt; that review is too scary to look at right now</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;atinm&gt; dont' bring it up yet :)</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;codeworkx&gt; ok, totally fuxx0red xD</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;atinm&gt; hey, what happens when we actually do a reboot recovery?</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;atinm&gt; does it just reboot and come back?</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;techmik67&gt; regular reboot</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, I would imagine it calls the "reboot" binary</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;Kaik541&gt; so shouldn't tweaking that to use our method cause it to defacto work?</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;atinm&gt; I was asking because I'm looking at that code and I wanted to make sure it just reboots</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;atinm&gt; but yes, I am modifying the reboot binary</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;atinm&gt; as well as the power menu</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;atinm&gt; turns out there is already something I can use</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol all that wasted time</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;gehzumteufel&gt; Oh well</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;atinm&gt; no, not wasted - I mean something I can try to make it work cleanly</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;atinm&gt; it isn't all there</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;atinm&gt; but the start of it, so I can do it</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-navy">* zachy_md|busy (~zacharias@chello084114179145.16.15.vie.surfer.at) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;gehzumteufel&gt; Ah sweet. What about reboot download?</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;atinm&gt; nothing we can do about it</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;atinm&gt; that's all bootloader</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;gehzumteufel&gt; Ah</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;atinm&gt; (when I'm quiet - its usually because I'm deep in coding, so shh! :) )</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-brick">* gehzumteufel yells atinm's name a lot</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;techmik67&gt; lol @kaik541..... "we like things far away...."</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, it was an annoying question</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-green">* koush_ (~koush@c-98-232-66-164.hsd1.wa.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-navy">* koush_ (~koush@c-98-232-66-164.hsd1.wa.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;atinm&gt; crap</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 248 seconds)</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;atinm&gt; alright, lets see if this works.</span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;Kaik541&gt; *crosses fingers*</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;chaembian|away&gt; Good morning</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;atinm&gt; modified adb, reboot and menu</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;atinm&gt; and one other place I can't remember</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;Kaik541&gt; ___reboot()?</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;atinm&gt; everywhere that we call __reboot for recovery, I have an #ifdef</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;atinm&gt; that first does a touch of /cache/.startrecovery</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;atinm&gt; AOSP has something called RECOVERY_PRE_CMD</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;atinm&gt; that is not used except in one spot in the power menu</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;atinm&gt; I think it was for that.</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;atinm&gt; so I am using it in other places as well</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;atinm&gt; maybe not AOSP</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;atinm&gt; but it was already there :)</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;atinm&gt; and frameworks/core is using it :)</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;atinm&gt; so I can too</span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-navy">* J_ez_2cool (~chatzilla@cpe-174-109-017-182.nc.res.rr.com) Quit (Quit: ChatZilla 0.9.86.1 [Firefox 4.0.1/20110413222027])</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;atinm&gt; techmik, are you running the unhelpful build?</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;atinm&gt; the prebuilt kernel?</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;techmik67&gt; its merged</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;atinm&gt; can you get into adb shell</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;atinm&gt; and do a which touch</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;atinm&gt; once in boot image and once in recovery</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; regular booted: /system/xbin/touch</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; recovery: /sbin/touch</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;atinm&gt; hrm.</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: this fuct preview is simply a conversion fail</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;atinm&gt; not good.</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;codeworkx&gt; false format</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-navy">* chaembian|away (~chaembian@122.174.100.170) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 248 seconds)</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Client Quit)</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-green">* chaembian (~chaembian@122.174.111.3) has joined this channel.</span><br />
