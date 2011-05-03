@@ -2296,3 +2296,193 @@
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nitam|work&gt; is in the frameworks already, so I copied those 4 lines to other places where we know we are calling __reboot() with "recovery"</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nitam|work&gt; only needed to change system/core for adb and reboot binary</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nitam|work&gt; and bootable/recovery extendedcommands</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: <a href="https://github.com/CyanogenMod/android_frameworks_base/blob/gingerbread/core/res/res/values/arrays.xml#L116">https://github.com/CyanogenMod/android_frameworks_base/blob/gingerbread/core/res/res/values/arrays.xml#L116</a></span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: removing this line will do the trick xD</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: but not for every language</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;nitam|work&gt; you could do it too if ROM Manager does the same thing and knows the board specific params.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: there has to be a better way :)</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: koush_ can help maybe</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;nitam|work&gt; tho if that is the menu, then maybe not</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: if we can override from device dir it's one option to do it</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, let me see how it is used</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;codeworkx&gt; only 10 xml files xD</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;codeworkx&gt; base/core/java/com/android/internal/app/ShutdownThread.java</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, we can just override I think</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;codeworkx&gt; or add a property</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;nitam|work&gt; override - lets not put another get property there</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;codeworkx&gt; ro.shutdown.bootloader=0</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;nitam|work&gt; I have to go</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;koush_&gt; mnita|work: that sounds fine yes</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;nitam|work&gt; if koush_ answers, I'll see the log</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;nitam|work&gt; err..</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;koush_&gt; mnita|work: rom manager</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;koush_&gt; it uses a custom reboot command</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;koush_&gt; if it wants</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;koush_&gt; sec ill show you</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;koush_&gt; <a href="http://gh-pages.clockworkmod.com/ROMManagerManifest/devices.js">http://gh-pages.clockworkmod.com/ROMManagerManifest/devices.js</a></span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;koush_&gt; search for "reboot_recoverY"</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;koush_&gt; you'll see a LOT of devices have... strange ways to get into recovery</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;nitam|work&gt; excellent</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;koush_&gt; for example, nook color</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-brick">* koush_       "reboot_recovery": "dd if=/dev/zero of=/rom/bcb bs=64 count=1 ; echo 'recovery' &gt;&gt; /rom/bcb ; reboot ;",</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;koush_&gt; fun times :)</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;nitam|work&gt; so we have echo 1 &gt; /cache/.startrecovery</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;nitam|work&gt; we could just rename it to .recovery_mode too</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;koush_&gt; btw</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-brick">* koush_       "reboot_recovery": "echo 1 &gt; /data/.recovery_mode ; sync ; reboot ;",</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;nitam|work&gt; but since it is unique anyway, you can do it.</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;koush_&gt; I dont know why i used data :P</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;koush_&gt; but yeah, i do something very similar for droidx.</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;nitam|work&gt; ok, so we'll need a ROM Manager with that to test with tonight :)</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;nitam|work&gt; if you can</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;koush_&gt; cool</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;koush_&gt; sure</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;koush_&gt; well</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;koush_&gt; maybe</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;koush_&gt; i am super busy tonight</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;koush_&gt; i am presenting at google io and a dish conference( which is tomorrow)</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;nitam|work&gt; 's ok - but as long as we know what we're doing is fine.</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;nitam|work&gt; uh :)</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;koush_&gt; i'll have time tomorrow night</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;nitam|work&gt; cool</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;nitam|work&gt; google io :)</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;koush_&gt; yep</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;koush_&gt; google tv stuff :)</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;nitam|work&gt; nice. I am still trying to find out where google does their android work</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;nitam|work&gt; whether it is cambridge or out west</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;nitam|work&gt; if cambridge, maybe I should try to ... hmm . . . I'm at work.</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;gehzumteufel&gt; Out here</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;nitam|work&gt; koush_: did you look at the android_os_Power.cpp line I pointed at?</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;nitam|work&gt; does that look ok?</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;gehzumteufel&gt; A guy I know actually just got a job with Google in Android. Starts next month or something iirc</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh good, next we'll see a bunch of #if SAMSUNG</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="https://github.com/CyanogenMod/android_frameworks_base/blob/gingerbread/core/jni/android_os_Power.cpp#L180">https://github.com/CyanogenMod/android_frameworks_base/blob/gingerbread/core/jni/android_os_Power.cpp#L180</a></span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;nitam|work&gt; gehzumteufel: cool - he got my job ;)</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;gehzumteufel&gt; haha</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;nitam|work&gt; actually I might be too "old".</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;koush_&gt; yea that looks fine</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;gehzumteufel&gt; Wife? Check. Sorry, you have too many responsibilities.</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;nitam|work&gt; koush_: excellent - so we're going to do a few submissions</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;koush_&gt; sounds good</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;nitam|work&gt; after your google io</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;nitam|work&gt; one is a big one - the mkbootimg thing that unhelpful did</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;nitam|work&gt; to support this 2 initramfs thing</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;koush_&gt; mnita|work: thats fine</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;koush_&gt; btw how close are you to being able to flash a cm zip on a stock samsung rom</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;koush_&gt; and have it work</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;koush_&gt; do you still need that bootstrap step</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; bootstrap :-(</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;koush_&gt; or can you do that in your updater</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;koush_&gt; gotcha</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; its the mtd problem</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;koush_&gt; i see</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; we need to convert to mtd, but need a kernel that supports mtd</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; chicken/egg.</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;koush_&gt; well... a recovery kernel</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;koush_&gt; right</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; so they have to flash the initial kernel, after that its straight cwm</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;nitam|work&gt; and so subsequent updates can be handles via rommanager</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;nitam|work&gt; the final piece and most awesome thing would be if hmm... we should think of a way to hack samsung "stock"</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;nitam|work&gt; but doubt we could.</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;nitam|work&gt; crap, have to go pick up kid</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;nitam|work&gt; gone!</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: rebootmenu codeworkx * 90e60ed (0 files in 0 dirs): removed bootloader entry from reboot menu - <a href="http://bit.ly/imEMlH">http://bit.ly/imEMlH</a></span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: :-)</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;techmik67&gt; what i do now?</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: build the rebootmenu branch</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;codeworkx&gt; captivate</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;techmik67&gt; you got it</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;codeworkx&gt; but this way is not very cool. it's really bad</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-navy">* t-ready (~burrell@wormhole.cbl.umces.edu) Quit (Quit: Captivate - Phoenix ROM)</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-green">* t-ready (~burrell@wormhole.cbl.umces.edu) has joined this channel.</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has left this channel.</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;kang&gt; uhm</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;kang&gt; how does this new ramfs is supposed to work? (or does it work)</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-navy">* t-ready (~burrell@wormhole.cbl.umces.edu) Quit (Client Quit)</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;codeworkx&gt; kang: the new ramdisks?</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;kang&gt; seems to use ramdisk.list</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;codeworkx&gt; the first looks what we want normal boot / recovery and then unpacks the next one</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;kang&gt; from the 29</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;kang&gt; mm</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;codeworkx&gt; wtf is this phone doing: I/BootReceiver( 1144): Copying /proc/last_kmsg to DropBox (SYSTEM_LAST_KMSG)</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-green">* Fire2fly (~yaaic@62.140.137.111) has joined this channel.</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;Kaik541&gt; hahahaha</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;kang&gt; spying.</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;kang&gt; i dont like new ramfs stuff :(</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;kang&gt; can't flash with heimdall with that stuff</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;codeworkx&gt; you can</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;codeworkx&gt; out/target/product/galaxys/boot.img</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;codeworkx&gt; out/target/product/galaxys/boot.img</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;kang&gt; ok</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;kang&gt; wont miss anything?</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;codeworkx&gt; but rename it to zImage</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;kang&gt; i suppose if i build from kernel dir</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;kang&gt; and point ramdisk to the cpio</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;kang&gt; its the same as boot.img</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;kang&gt; cuz i dont rly like going through the big build stuff</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;codeworkx&gt; ask Unhelpful</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-navy">* Fire2fly (~yaaic@62.140.137.111) Quit (Quit: Yaaic - Yet another Android IRC client - <a href="http://www.yaaic.org)">http://www.yaaic.org)</a></span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;kang&gt; bleh used wrong ramfs</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;kang&gt; its the recovery one</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;techmik67&gt; codeworkx: its gone =)</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-navy">* Wout (~Wout@s53758cbd.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;gehzumteufel&gt; techmik67: Can you make a build for the vibrant with the latest changes? I want to see if it is my build system or not.</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;techmik67&gt; sure</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;techmik67&gt; atinm: <a href="https://github.com/teamhacksung/android_device_samsung_captivate/commit/90e60ed6070d5116a952f52bf675a6bedb0313d9">https://github.com/teamhacksung/android_device_samsung_captivate/commit/90e60ed6070d5116a952f52bf675a6bedb0313d9</a></span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;techmik67&gt; its gone =)</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;codeworkx&gt; :-)</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;techmik67&gt; but i had to wipe all and flash initial, etc to fix after 2g thing</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;atinm&gt; so where were we</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;atinm&gt; crap</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;atinm&gt; so we dont know yet if =3 works</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: it doesnt</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;atinm&gt; I think there is a quicker fix too that uses the database</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;techmik67&gt; i got com.android.phone fc</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;codeworkx&gt; database fix</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;atinm&gt; ok..</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;codeworkx&gt; somewhere on xda</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;atinm&gt; so, does the 2g/3g still exist upstream?</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;codeworkx&gt; the bug exists on nexus s with cm7</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;atinm&gt; I've never used it on samsung roms</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;atinm&gt; do they have the option?</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;codeworkx&gt; sure</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;techmik67&gt; no idea</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;atinm&gt; so it is possible to do, just a bug in our code</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;atinm&gt; fucking samsung.</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;atinm&gt; no open source</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;atinm&gt; well, bug in all samsung cm7 code</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;atinm&gt; not just ours</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;atinm&gt; but should we do another update now?</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;atinm&gt; we're farther along :)</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: if you've finished reboot recovery</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: you can</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;atinm&gt; yes, I think it is basically working</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: sensors are ok, front cam improved, reboot recovery...</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;atinm&gt; except for the random bootloop now and then that we dont' know what causes</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;codeworkx&gt; time for a update</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;atinm&gt; and gpios :)</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;Manadar_&gt; i'm glad :p</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: but first remove the bootloader</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;codeworkx&gt; i'll push it</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;atinm&gt; need to do it for all...</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;atinm&gt; I will have to go soon</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;codeworkx&gt; would be fine</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;codeworkx&gt; ok, then i'll do i9000 and i9000b</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;atinm&gt; so will resync, build all</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;atinm&gt; it should be done quickly enough, but may not be here when it finished - have to do dinner</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;atinm&gt; so we can wait a few a couple of hours I think :)</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;techmik67&gt; atinm: can you do vibrant 1st?</span><br />
