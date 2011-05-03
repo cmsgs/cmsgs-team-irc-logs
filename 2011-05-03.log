@@ -1467,3 +1467,154 @@
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;GuiPer_work&gt; something is wrong with sensors :S</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;techmik67&gt; when i pushe dwhat you recommended, GuiPer_work, it now works fine</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;GuiPer_work&gt; but that is not solution :(</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;GuiPer_work&gt; it's using closed source, with the light sensor problem</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;techmik67&gt; now?</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;GuiPer_work&gt; yep, check you light values, will be only 6, 5000, etc :(</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-navy">* t-ready (~burrell@wormhole.cbl.umces.edu) Quit (Quit: Captivate - Phoenix ROM)</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;GuiPer_work&gt; we need the open source driver, where we have other ranges, 10, 160, etc</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; UberPinguin: this is ancient stuff from eclair and I never really looked into it but this is a list of files that had differences.... it's impressive considering there are only 68 files total between the vibrant, captivate and galaxys <a href="http://forum.xda-developers.com/showpost.php?p=8078666&amp;postcount=25">http://forum.xda-developers.com/showpost.php?p=8078666&amp;postcount=25</a></span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;techmik67&gt; back to 6 and 5000</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;GuiPer_work&gt; :(</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;GuiPer_work&gt; I'll try to fix later</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: Thanks</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 238 files :(</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;codeworkx&gt; not back to crappy sensor shit</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;codeworkx&gt; lightsensor &gt; compass</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-navy">* chaembian|away (~chaembian@122.174.73.21) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;UberPinguin&gt; The Eclair drop, at least for Epic, was paltry though</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;UberPinguin&gt; The kernel wouldn't even build</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;GuiPer_work&gt; codeworkx: try to make it crash</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;GuiPer_work&gt; and some debug :)</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you think that makes you special :P captivate was the same</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;GuiPer_work&gt; maybe use the dmesg to logfile etc</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;GuiPer_work&gt; going home in 5 minutes</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;techmik67&gt; codeworkx: use reboot recovery, then from theree, choose reboot</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;techmik67&gt; captivate freezes on bootanimation, vibrant on bootlogo</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;codeworkx&gt; lightsensor &gt; reboot</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;techmik67&gt; but fine after pushing old sensors</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;GuiPer_work&gt; i9000 on bootanimation... keeps spinning forever</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;techmik67&gt; cap too</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;techmik67&gt; vibrant doesnt even get to boot ani</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;GuiPer_work&gt; but then i take out battery, plug it</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;GuiPer_work&gt; and it boots ok</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;GuiPer_work&gt; what is strange!!!</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;techmik67&gt; i couldnt reboot til i reflashe</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;techmik67&gt; d</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer_work: add a log service which writes a log to e.g. data partition and see if you get something</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;GuiPer_work&gt; still at work :(</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;GuiPer_work&gt; going soon</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;techmik67&gt; codeworkx: i can play... what do i do?</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-green">* blyfoten (~AndChat@m80-170-155-251.cust.tele2.se) has joined this channel.</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-green">* t-ready (~burrell@wormhole.cbl.umces.edu) has joined this channel.</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-green">* Wout (~Wout@s53758cbd.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: add something like this</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;codeworkx&gt; service log-kernel /system/bin/sh cat /proc/kmsg &gt;&gt; /data/kernel.log&amp;</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;codeworkx&gt; 	oneshot</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;codeworkx&gt; to init</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;techmik67&gt; thx</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; UberPinguin: if I have time tonight I'll build a skeleton for D700 Froyo and at least come up with a list of kernel files you will need to worry about</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: OK, though I'm not sure how much we have to do in-kernel. Their .32.9 dump was pretty good. The .35 has been challenging though.</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or put my stupid scripts up somewhere so you can check it yourself</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: wait</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;codeworkx&gt; service klog /system/bin/dd if=/proc/kmsg of=/kernel.log bs=1</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;codeworkx&gt;    oneshot</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;codeworkx&gt; damn xD</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;Unhelpful&gt; fyi you might be able to build and flash an always-recovery kernel to get around can't-boot-or-start-recovery - use device/samsung/common/aries/mkshbootimg.py and attach two copies of the recovery.cpio.gz to the prebuilt kernel</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: <a href="http://pastebin.com/NsLGk7gk">http://pastebin.com/NsLGk7gk</a></span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: this two</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;GuiPer_work&gt; brb</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;GuiPer_work&gt; going home</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;nitam|work&gt; Unhelpful: easier to just flash something else.</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;nitam|work&gt; sec</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; techmik67: yes, I saw the submission to gerrit. I'm not going to pull it</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; cherry-pick it</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; let cm do it and we'll just get it</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;nitam|work&gt; Unhelpful: <a href="https://github.com/teamhacksung/android_system_core/commit/6667b7f599373c29de7d96eea4ab0ac9cd9ca704#L1R285">https://github.com/teamhacksung/android_system_core/commit/6667b7f599373c29de7d96eea4ab0ac9cd9ca704#L1R285</a></span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;techmik67&gt; i have it on a branch, bt, as a goof, i tested pull request, and it wants to commit 9 commits????</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;nitam|work&gt; vs <a href="https://github.com/teamhacksung/android_system_core/commit/6667b7f599373c29de7d96eea4ab0ac9cd9ca704#L5R163">https://github.com/teamhacksung/android_system_core/commit/6667b7f599373c29de7d96eea4ab0ac9cd9ca704#L5R163</a></span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;nitam|work&gt; I added the sync() call for the hell of it - it doesn't seem to hurt reboot if I don't have it.</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;nitam|work&gt; but my question is, I am using "touch /cache/.startrecovery" in the system() call</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;nitam|work&gt; do I still need a sync() to make sure it is actually there before we call __reboot()?</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;nitam|work&gt; is there a better thing I can pass to system() to create .startrecovery?</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-navy">* GuiPer_work (c2e46026@gateway/web/freenode/ip.194.228.96.38) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; system() because android_os_Power.cpp already had the code</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; in framework for power menu</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; #ifdef RECOVERY_PRE_COMMAND</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt;     if (!strncmp(chars,"recovery",8))</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt;         system( RECOVERY_PRE_COMMAND );</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; #endif</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; so I just added the same code in all the other places we know we are calling "recovery"</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; so maybe I should be using some other arg to system() to make sure /cache/.startrecovery gets created.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;techmik67&gt; building</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;nitam|work&gt; techmik67:  how did you get it into your world?</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;nitam|work&gt; git cherry-pick?</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;techmik67&gt; no</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;techmik67&gt; i branched</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;nitam|work&gt; and then?</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;techmik67&gt; then added the files 1 at a time and then commited</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;techmik67&gt; and pushed</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;nitam|work&gt; not the right way to do it . . .</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;techmik67&gt; same way i did the gpio stuff</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;nitam|work&gt; kill your branch</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;techmik67&gt; i know</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;techmik67&gt; patch gave me errors tho</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;techmik67&gt; not delete the repo and refork?</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;nitam|work&gt; create a new branch that is tracking gingerbread</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;nitam|work&gt; in both the repos that are changed on gerrit</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;techmik67&gt; frameworks/base and packages/apps/CMParts</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;nitam|work&gt; so frameworks/base and packages/apps/CMParts</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;techmik67&gt; ohhhhhhh</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;techmik67&gt; THATS it</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;techmik67&gt; the difference between git branch --track and checkout-b</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;nitam|work&gt; then use the cherry-pick command that shows up when you go to the two reviews</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;nitam|work&gt; to cherry-pick the commits</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;techmik67&gt; i see now... got it</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;techmik67&gt; 2 mins</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;nitam|work&gt; but don't send pull request</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;nitam|work&gt; I am not going to take it</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;nitam|work&gt; we need to get sensors working first</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;nitam|work&gt; well, not first</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;nitam|work&gt; but we should at least let CM merge it first</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;nitam|work&gt; so maybe wait a day</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;nitam|work&gt; unless we're making a release</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;nitam|work&gt; if we are making a release, I'll cherry-pick it off gerrit</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;nitam|work&gt; since if we don't get light sensor working, we should give ppl the ability to just set brightness dynamically themselves</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-green">* Zilch25 (~Zilch25@32.129.93.84) has joined this channel.</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;nitam|work&gt; wow, every day media.xda-developers.com is just hung.</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-navy">* Zilch25 (~Zilch25@32.129.93.84) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-brick">* TMC_Sherpa wonders how you know that.....</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; :)</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;nitam|work&gt; ...</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;nitam|work&gt; look back over what I just wrote.</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;nitam|work&gt; right above that.</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;Unhelpful&gt; system? :(</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-green">* koush_ (~koush@74.202.210.58) has joined this channel.</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, why not just add a function somewhere that does what's needed, and call it - is there a utility library it would be appropriate to place such a thing in?</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;Unhelpful&gt; and do creat;fsync;close;</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;techmik67&gt; ok, buuilding with cherry picks</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: is recovery.rc still used? if yes what about <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/recovery.rc#L24">https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/recovery.rc#L24</a></span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: it's installed in the recovery initramfs as init.rc</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: so we can remove this symlink and put recovery.fstab to etc</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: like it should be</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, in fact it should already be in etc, its placement in /misc happens in the Makefile iirc.</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-navy">* Wout (~Wout@s53758cbd.adsl.wanadoo.nl) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;techmik67&gt; mnita|work: Unhelpful <a href="https://github.com/techmik/android_packages_apps_CMParts/commit/f8fb8fcf34eb2adf1b520f7810ab31eb5f6d3aec">https://github.com/techmik/android_packages_apps_CMParts/commit/f8fb8fcf34eb2adf1b520f7810ab31eb5f6d3aec</a>     and</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_frameworks_base/commit/5065d0fcee43cdd2b29383fa6c9ebc7df0dcf82f">https://github.com/techmik/android_frameworks_base/commit/5065d0fcee43cdd2b29383fa6c9ebc7df0dcf82f</a></span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;techmik67&gt; cherry picks for brightness slider</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has left this channel.</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: i think we would leave those for merge upstream?</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;techmik67&gt; i meant if you wanna play/use yourself for now =)</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;GuiPer&gt; back</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;GuiPer&gt; any progress on the problem?</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;techmik67&gt; building with log</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;GuiPer&gt; thanks a lot!!</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;Unhelpful&gt; #undef SH_T_BLOWS_THE_F_CK_UP ;)</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;GuiPer&gt; will also build a couple of other sensors.aries.so</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;GuiPer&gt; who can help testing?</span><br />
