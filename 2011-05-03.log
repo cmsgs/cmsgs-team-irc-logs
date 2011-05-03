@@ -1618,3 +1618,168 @@
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;Unhelpful&gt; #undef SH_T_BLOWS_THE_F_CK_UP ;)</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;GuiPer&gt; will also build a couple of other sensors.aries.so</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;GuiPer&gt; who can help testing?</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;GuiPer&gt; well first dinner :)</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;Unhelpful&gt; crazy europeans, it's lunchtime ;)</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;codeworkx&gt; lol "hell this rom is now sooooo STABLE &amp; FASTER that any photoshop rom available at the moment"</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful, because framework is already using system</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;nitam|work&gt; with that same piece of code</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;nitam|work&gt; so I figured it was coming from upstream, so just reuse what they have.</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;nitam|work&gt; techmik, if we want to use, we'll cherry-pick from gerrit :)</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: oh ok then. ;)</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;techmik67&gt; oh, right... duh... =)</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;nitam|work&gt; actually an overflow for system command</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;Unhelpful&gt; anonymous: given that it's probably set to something that won't take arguments, or even read data, and is set at compile time... good luck.</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;nitam|work&gt; but since the damn thing is already used, I figured it would be a much easier sell to reuse the same code that goole has.</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;nitam|work&gt; give google shit. they did it</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;nitam|work&gt; my question is more simple. why is the code not working in adb reboot recovery</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;nitam|work&gt; when it works everywhere else</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;nitam|work&gt; is adb running in a way that doesn't have PATH set?</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;nitam|work&gt; because I am not giving a path</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;nitam|work&gt; because RECOVERY_PRE_COMMAND is used in both recovery image and in boot image</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;nitam|work&gt; and paths are different</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;nitam|work&gt; adbd*</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-navy">* iravid (~iravid@87.69.234.127) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;Unhelpful&gt; adbd starts from init, so it would have whatever path is set in init.rc... unless it messes w/ path itself.</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;nitam|work&gt; I don't think so.</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;nitam|work&gt; which is why this is driving me nuts. its only in adb that it doesn't work.</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;nitam|work&gt; so, is there a better system command than touch /cache/.startrecovery?</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;nitam|work&gt; and /cache for adbd is the same as everything else.</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;nitam|work&gt; since its a real place.</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: make a new thread</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;nitam|work&gt; copy the captivate thread.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;nitam|work&gt; I'll do the same for vibrant.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;codeworkx&gt; lik?</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;codeworkx&gt; link</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;codeworkx&gt; pls</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://forum.xda-developers.com/showthread.php?t=978150">http://forum.xda-developers.com/showthread.php?t=978150</a></span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;nitam|work&gt; tho we could just point to cyanogenmod thread and put nothing else.</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-green">* iravid (~iravid@87.69.234.127) has joined this channel.</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://forum.xda-developers.com/showthread.php?p=13436050#post13436050">http://forum.xda-developers.com/showthread.php?p=13436050#post13436050</a></span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;nitam|work&gt; this is better</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-green">* gehzumteufel (~gehzumteu@adsl-76-252-171-187.dsl.lsan03.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if you manually touch the file before doing an adb reboot does it work?</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;nitam|work&gt; I haven't tried yet</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;nitam|work&gt; I should :)</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;nitam|work&gt; and it should work</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: you want me to do it?</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well that should tell you if its the file creation or if adb reboot is doing something stupid</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: i'm already on it</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;nitam|work&gt; ok. you can copy my vibrant ones - so we are looking the same everywhere</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://forum.xda-developers.com/showthread.php?t=1061889">http://forum.xda-developers.com/showthread.php?t=1061889</a> and the Q&amp;A at <a href="http://forum.xda-developers.com/showthread.php?t=1061894">http://forum.xda-developers.com/showthread.php?t=1061894</a></span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;nitam|work&gt; I'll pastie the test.</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: why thousand new threads on xda? FAQs are already on cm forums. who will take care of all this threads and update it?</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;nitam|work&gt; we don't have to - just point to cyanogenmod threads. I just see that ppl start crappy threads on xda</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;nitam|work&gt; so might as well be in control</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://pastebin.com/WN7pSrEv">http://pastebin.com/WN7pSrEv</a> for the vibrant thread.</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;nitam|work&gt; I actually leave Q&amp;A to Kaik and techmik :)</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;nitam|work&gt; ok, I'm back to trying to find out why adb reboot recovery doesn't work</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;nitam|work&gt; but have meeting in a few</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;nitam|work&gt; but need to run TARGET_RECOVERY_PRE_COMMAND by koush</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;nitam|work&gt; since android_os_Power.cpp already uses it, it seems like the thing to use</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;nitam|work&gt; and no other devices has it.</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;nitam|work&gt; so it should not change anything for anyone.</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;nitam|work&gt; let me try touch /cache/.startrecovery and then adb reboot recovery.</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;GuiPer&gt; working on shitty sensors :S</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;nitam|work&gt; rest are good. reboot binary is good, power menu is good</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;nitam|work&gt; and even reboot into recovery from recovery is good</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;nitam|work&gt; well, except for the sensors hang</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;GuiPer&gt; my mistake it :( if you want you can revert my commits, but give me 1 day</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;nitam|work&gt; nah, its fine</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;nitam|work&gt; we want lightsensors</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;GuiPer&gt; techmik67 is trying some sensors.aries.so that I just compiled</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;nitam|work&gt; lightsensors &gt; everything</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;nitam|work&gt; everything sensor :)</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;techmik67&gt; rebooting after push</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;GuiPer&gt; you should have no orientation, but no crash hopefully</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;nitam|work&gt; ok, touch /cache/.startrecovery and then adb reboot recovery worked</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;nitam|work&gt; so I think /cache/.startrecovery is just not being created when I do it in adbd</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;nitam|work&gt; echo 1 &gt; /cache/.startrecovery</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-navy">* iravid (~iravid@87.69.234.127) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;techmik67&gt; booted.... now what?</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;nitam|work&gt; shouldn't change anything</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;GuiPer&gt; booted properly?? :S</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;GuiPer&gt; grrr</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;techmik67&gt; yup, i pushed and rebooted</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;GuiPer&gt; so problem is on orientation sensor</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;techmik67&gt; orient works</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;GuiPer&gt; ??</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;GuiPer&gt; really? :O</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;techmik67&gt; system/lib/hw/ right?</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;GuiPer&gt; and renamed it?</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;techmik67&gt; aries.sensors.so</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;techmik67&gt; sensors aries</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;GuiPer&gt; sensors.aries.so :)</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;GuiPer&gt; what is the name of the sensor?</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;techmik67&gt; light sensor works</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;GuiPer&gt; CM7 hacked sensor?</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;techmik67&gt; remeber where i was? i only had 6 and 5000</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;GuiPer&gt; yep only</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;techmik67&gt; not now</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;techmik67&gt; 10.0</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;techmik67&gt; 160.0</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;GuiPer&gt; looks like samsung binaries are smarter than i expected</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;techmik67&gt; 225</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;GuiPer&gt; and this one....</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;techmik67&gt; 640</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;techmik67&gt; max 3k</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;GuiPer&gt; perfect :)</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;GuiPer&gt; can you give two or 3 reboots?</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;Unhelpful&gt; yay?</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="http://dl.dropbox.com/u/2200008/sensors.aries.so_try1">http://dl.dropbox.com/u/2200008/sensors.aries.so_try1</a> somebody else to try?</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;techmik67&gt; aha</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;techmik67&gt; co,pass frozen</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;techmik67&gt; in incorrect orient</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;techmik67&gt; not spinning at all</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;techmik67&gt; compass*</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;techmik67&gt; so orient is fine, compass borked</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;techmik67&gt; rebooting</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;GuiPer&gt; ahaha, so it's normal. Btw when I say orientation is compass :)</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;GuiPer&gt; sorry for mistake... but it's the way android call it</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;techmik67&gt; thought you meant autpo rotate</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;GuiPer&gt; an orientation sensor gives azimuth, roll and pitch</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;GuiPer&gt; so compass is borked right?</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;GuiPer&gt; but it boots</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;techmik67&gt; rebooting now</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;techmik67&gt; boot animation</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;techmik67&gt; booted</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;GuiPer&gt; so found the problem</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;techmik67&gt; device test showed the same</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;techmik67&gt; rebooting recovery to see what happens</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;techmik67&gt; recovery</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;techmik67&gt; reboot system now.....</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;techmik67&gt; bootlogo</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;techmik67&gt; bootanimation</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;mikebeecham&gt; evening all..hows it going?</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-green">* iravid (~iravid@87.69.234.127) has joined this channel.</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;GuiPer&gt; booted?</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; but this is all with samsung lib?</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-navy">* DocMAX (~docmax@g224158068.adsl.alicedsl.de) Quit ()</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;nitam|work&gt; so we get lightsensor and compass with samsung lib now?</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;GuiPer&gt; no, it's our open source version</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;GuiPer&gt; just lightsensor</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;nitam|work&gt; techmik67: how does the statusbar brightness control work for you?</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;GuiPer&gt; disabled orientation to track the problem</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;GuiPer&gt; "orientation" is compass, so it works</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;techmik67&gt; i dont usde it, but i tested and it did what it's supposed to</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;techmik67&gt; you have to turn it on</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;techmik67&gt; it adds a toggle</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, was just curious</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;techmik67&gt; status bar tweaks</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;techmik67&gt; gets an extra option box</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;techmik67&gt; then it works</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;nitam|work&gt; well, lets see what cyanogen or koush decide on it so I'll wait for upstream</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;nitam|work&gt; but it is a nice control to have.</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;nitam|work&gt; so might include it in next update</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;techmik67&gt; oh yeah, you have to turn off auto-bright too =)</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;nitam|work&gt; kang, we don't have blink in led notifications, right?</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: not possible w/o 1) wake CPU periodically to change state or 2) alternate button firmware w/ a blink command</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-navy">* iravid (~iravid@87.69.234.127) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;mikebeecham&gt; statusbar brightness was a lovely addition to my homescreen</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;mikebeecham&gt; quite helpful</span><br />
