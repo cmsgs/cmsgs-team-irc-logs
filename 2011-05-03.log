@@ -1193,3 +1193,203 @@
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;nitam|work&gt; sargh</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;nitam|work&gt; remove*</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;nitam|work&gt; argh*</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;Unhelpful&gt; no, your build tree. you *must* rebuild init to force it to be build w/o bootmode support.</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;Unhelpful&gt; assuming that changing that didn't just get lost during merge somehow</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;nitam|work&gt; oh yeah - that I did.</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;nitam|work&gt; and it works</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;nitam|work&gt; in other places</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;nitam|work&gt; I can type reboot recovery on adb shell prompt</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;nitam|work&gt; and it will go into recovery</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;nitam|work&gt; I can use power menu, choose reboot/recovery</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;nitam|work&gt; and it will go into recovery</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;Unhelpful&gt; but sometimes it won't boot properly after?</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;nitam|work&gt; I can even reboot into recovery and then choose reboot into recovery</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;nitam|work&gt; and it will restart and go into recovery</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;nitam|work&gt; sometimes yes.</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;nitam|work&gt; so two problems</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;Unhelpful&gt; would it maybe help to move cleaning of .startrecovery into postrecoveryboot?</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;nitam|work&gt; 1. Hangs in bootanim somtimes. might be related to the sensors.</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; or might be related to not cleaning.</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; 2. adb reboot recovery still doesnt' work</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; it supposedly writes /cache/.startrecovery</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; but we don't enter recovery</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; so I dont' think it did</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; can't debug now</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; it is all committed</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;GuiPer_work&gt; i just reproducted it</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;Unhelpful&gt; do we have any diagnosis for what's happening in hang-at-bootanim?</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; so you can try it too</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; GuiPer_work: what is dmesg and logcat?</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;GuiPer_work&gt; Unhelpful: i guess something related to sensors, since I'm on last nightly</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;nitam|work&gt; do we even get a logcat?</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;nitam|work&gt; I think when it hung I couldn't get into adb</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;Unhelpful&gt; if bootanim starts, adb *should* :/</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;nitam|work&gt; I have to go for a bit.</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;GuiPer_work&gt; same here, no adb</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;nitam|work&gt; I think something hung.</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;nitam|work&gt; and so init didn't proceed</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;GuiPer_work&gt; it might be related to GPIOs, since I had to force some GPIO configuration at kernel driver to make it init</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;GuiPer_work&gt; not sure what changes you did now on GPIO side on mach_aries</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;nitam|work&gt; mostly just pulling in stuff from froyo code</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;nitam|work&gt; so that sleep and alive is set correctly</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;nitam|work&gt; didn't actually change the values.</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;nitam|work&gt; I mean, didn't make things points to new gpios</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;Unhelpful&gt; can the bootanim hang be triggered by several reboots?</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;Unhelpful&gt; and, if it makes it to bootanim, that means stage1 was cleared ;)</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;GuiPer_work&gt; i tried 2 reboots without luck</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, it happens about 1 in 5 for me</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;GuiPer_work&gt; just turn off and on and it happened</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;GuiPer_work&gt; on third time</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;Unhelpful&gt; stage1 doesn't even have an init binary in it</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-green">* Manadar_ (~Manadar@AMontsouris-552-1-149-145.w86-212.abo.wanadoo.fr) has joined this channel.</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;Manadar_&gt; Hi</span><br />
+<span class="irc-date">[14:06]</span> <span class="irc-black">&lt;nitam|work&gt; Unhelpful: I don't think it has to do with our stage1 stuff</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;GuiPer_work&gt; Unhelpful: i guess im not using your two stages loader, since I'm using nightly</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;nitam|work&gt; I think it is the sensors either expecting something to be initialized, or something just hanging during init aftet bootanim was started</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;techmik67&gt; here's what i got..... booted fine... went to power off menu and vose "reboot recovery" .... it rebooted recovery.... but.... any attempt to boot after that, it hangs on bootanimation</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;nitam|work&gt; ah.</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;nitam|work&gt; but that is using stage1/2</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;nitam|work&gt; so we might have 2 bugs</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Quit: Ik ga weg)</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;techmik67&gt; vibrant people said the rebbot doesnt get them to bootani, freezes on bootlogo</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;techmik67&gt; i also have the "status-bar-slider-to-adjust-brighness" working</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;GuiPer_work&gt; techmik67: can you try to boot in recovery and push sensors.aries.so to from vendor to /system/lib/hw ?</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;techmik67&gt; sure</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;GuiPer_work&gt; and the recreate the problem?</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;GuiPer_work&gt; you will be using JVB sensors, maybe backup first sensors.aries.so on that folder</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;techmik67&gt; so use the reboot recovery, get the freeze, then push?</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;GuiPer_work&gt; or push now</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;techmik67&gt; adb works in recovery after freeze for me</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;GuiPer_work&gt; just push now file</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;GuiPer_work&gt; reboot and try to make it hang</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;techmik67&gt; this was last night.... should i make a build this morning, or use the one i speak of?</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer_work: we merged it yesterday afternoon ;)</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;GuiPer_work&gt; here it was night :P</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;GuiPer_work&gt; techmik67: no need for build</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;GuiPer_work&gt; just push it from vendor samsung common aries</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;GuiPer_work&gt; will be there somewhere the sensors.aries.so</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;techmik67&gt; pushed</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;techmik67&gt; rebooting recovery</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;techmik67&gt; bootsplash</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;techmik67&gt; recovery</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;Unhelpful&gt; yo: <a href="http://review.cyanogenmod.com/#change,5015">http://review.cyanogenmod.com/#change,5015</a></span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;techmik67&gt; rebbot sysytem now</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;techmik67&gt; bootsplash</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;techmik67&gt; boot animation</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;GuiPer_work&gt; if it works is strange...</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;techmik67&gt; booted</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;techmik67&gt; very odd</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-navy">* Zilch25 (~Zilch25@32.129.93.84) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;nitam|work&gt; Unhelpful: yes, I saw.</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;nitam|work&gt; was too scary to look at</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;nitam|work&gt; how do you think it will fly with Koush?</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;nitam|work&gt; he was here yesterday but I asked him to wait until you were around</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;GuiPer_work&gt; techmik67: can you try 2 or 3 times?</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;GuiPer_work&gt; for me it does not happen all the time</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;techmik67&gt; reboot recovery and reboot? sure</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;nitam|work&gt; yes, whatever you do that makes it happen</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;nitam|work&gt; it wasn't reliably doing that for you either, right?</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: i don't know... *some* of the ideas were *sort of* things he suggested, like making different types of ramdisk different targets</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;GuiPer_work&gt; i guess normal reboots</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;techmik67&gt; 3 or 4 tries and couldnt get past bootani til i finaly reflashed</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;GuiPer_work&gt; or turn off and turn on</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;techmik67&gt; reboot recovery again</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;techmik67&gt; now rebooting from there</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;techmik67&gt; booted</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;techmik67&gt; so thats the fix?</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;techmik67&gt; or was that just a fluke last night?</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;nitam|work&gt; Unhelpful: typo in commit message for INSTALLED_BOOTIMAGE_TARGET</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;nitam|work&gt; I'm thinking maybe add a more verbose comment too</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;nitam|work&gt; (with reference to koush suggesting things)</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;GuiPer_work&gt; mnita|work and Unhelpful looks like bootloops are only related to Sensors</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;GuiPer_work&gt; and techmik67 with old drivers no bootlop on CM7 logo</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;GuiPer_work&gt; shit, sorry for the situation... will try to fix later on, but quite busy</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;techmik67&gt; who's interested inthe brightness slider?</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt; what old drivers?</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt; which works and which doesn't?</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;techmik67&gt; i built after you went to sleep, and after pushing aries.sensors.so to system/lib/hw, i dont have the problem after reboot recovery</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;GuiPer_work&gt; JVB libsensors work good, our compiled ones that I pushed yesterday gives bootloop sometimes</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;GuiPer_work&gt; and looks like "always" after recovery according to techmik67</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;Unhelpful&gt; is it the lib change? didn't you say you also changed drivers?</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-green">* TMC_Sherpa (~Jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;GuiPer_work&gt; mnita|work: try to push sensors.aries.so from vendor into system/lib/hw and see if it get's stuck</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;GuiPer_work&gt; basically our compiled sensors.aries.so it's making some kind of bootloop, while the one from JVB not</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;GuiPer_work&gt; i changed it yesterday, something should be wrong</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; quick fyi, the gpio settings are the same as they were before for galaxys targets, only the vibrant and captivate changed</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; logs are a bit behind, so dono where clandmeter is at</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and I need toget to work, just wanted to get that out there</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-navy">* TMC_Sherpa (~Jeff@c-67-173-42-196.hsd1.il.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;nitam|work&gt; TMC_Sherpa: I told him.</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;nitam|work&gt; for whenever you read the logs</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;nitam|work&gt; GuiPer_work: the question is more what you changed so we can try to figure it out..</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-black">&lt;nitam|work&gt; that;s ok .. git log</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;nitam|work&gt; and compass doesnt' work at all for me</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;nitam|work&gt; not sure this really worked :)</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;techmik67&gt; back</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;techmik67&gt; wait</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;nitam|work&gt; Unhelpful: <a href="https://github.com/teamhacksung/android_device_samsung_common/commit/a1fb99eada10fcd0db30c0655ec6758d19f8b56c">https://github.com/teamhacksung/android_device_samsung_common/commit/a1fb99eada10fcd0db30c0655ec6758d19f8b56c</a></span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;nitam|work&gt; that's the commit.</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;nitam|work&gt; but I don't know what it does</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;techmik67&gt; did you rotate the phone with compass turned on 1st time?</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;techmik67&gt; hmmm</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;techmik67&gt; mine works</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-black">&lt;nitam|work&gt; it always points to the top left of my phone ;)</span><br />
+<span class="irc-date">[14:40]</span> <span class="irc-navy">* Wout (~Wout@office.tweaknet.net) Quit ()</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;nitam|work&gt; this time mine just crashed I think</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;nitam|work&gt; compass is always pointing at 0</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;GuiPer_work&gt; it's working here also ok</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;nitam|work&gt; oh, cool. this time it works</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;techmik67&gt; very odd</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;nitam|work&gt; restarted</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;nitam|work&gt; ok, ignore compass</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;nitam|work&gt; I'm going to say it works</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;techmik67&gt; so whats woth the sensrs file?</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;nitam|work&gt; lets figure out the hang.</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;nitam|work&gt; I have to go</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;nitam|work&gt; back much later most probably.</span><br />
+<span class="irc-date">[14:43]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful gets to debug - sensors hang if he can reproduce it</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;nitam|work&gt; or the last 3 commits to <a href="https://github.com/teamhacksung/android_system_core/commits/gingerbread">https://github.com/teamhacksung/android_system_core/commits/gingerbread</a></span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: wanna play with brightness too? cherry pick from me....</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;nitam|work&gt; related to adb/services.c</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;GuiPer_work&gt; cannot debug it right now... my work laptop has 2 usb ports destroyed :S to debug I have to remove mouse</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-black">&lt;nitam|work&gt; techmik67: what brightness cherry-pick?</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;techmik67&gt; touch-and-slide-on-status-bar to adjust brightness levels</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;GuiPer_work&gt; would be nice :)</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;nitam|work&gt; Unhelpful: the first commit adds the same code to adb/services.c and to toolbox/reboot.c</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;nitam|work&gt; reboot binary works</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;techmik67&gt; its being submitted by the author to gerrit</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;nitam|work&gt; adb doesn't.</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;nitam|work&gt; link?</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_packages_apps_CMParts/commit/113c1456b8b5a0c20b1b30a76715ca4b4c9f414d">https://github.com/techmik/android_packages_apps_CMParts/commit/113c1456b8b5a0c20b1b30a76715ca4b4c9f414d</a></span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;techmik67&gt; and</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;nitam|work&gt; I mean the gerrit one</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_frameworks_base/commit/c77c984cf636a1e99ea90c3c8f144d4525f6d2dd">https://github.com/techmik/android_frameworks_base/commit/c77c984cf636a1e99ea90c3c8f144d4525f6d2dd</a></span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;techmik67&gt; i dont think he actually submitted yet</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;nitam|work&gt; ah</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;techmik67&gt; tonite i think he said</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;techmik67&gt; he got permission from the original author</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;techmik67&gt; and said we could test in in the meantime, after i confirmed it works</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;nitam|work&gt; ok. I'll wait for upstream to merge it</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;nitam|work&gt; I think this code is going to get a revision</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;techmik67&gt; i cant pull request, cause both show like over 10 commits to be included</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;techmik67&gt; i guess we havent update our branches</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;nitam|work&gt; frameworks/base is cyanogenmod</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;nitam|work&gt; so is CMParts</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;nitam|work&gt; back later</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;GuiPer_work&gt; mnita|work: maybe somehow the setInitialState is the problem</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;GuiPer_work&gt; trying to do a read so soon somehow</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;GuiPer_work&gt; I'll give a try later, no time right now... sorry</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-black">&lt;GuiPer_work&gt; maybe Unhelpful can try to give a look</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-black">&lt;techmik67&gt; so you know, the slider for brightness guy is devatwork in our irc, and danesh on github/gerrit</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: android-samsung-2.6.35 codeworkx * 1a35677 (1 files in 1 dirs): mach-aries.c: fixes for front camera - <a href="http://bit.ly/iFTf5l">http://bit.ly/iFTf5l</a></span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
