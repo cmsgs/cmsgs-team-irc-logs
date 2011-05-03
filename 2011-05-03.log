@@ -1859,3 +1859,220 @@
 <span class="irc-date">[18:59]</span> <span class="irc-green">* uberushaximus_ (8febdd47@gateway/web/freenode/ip.143.235.221.71) has joined this channel.</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;UberPinguin&gt; no</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;UberPinguin&gt; We're still on rfs</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;uberushaximus_&gt; alright so there's still a bug when you have debugging off and you plug in your device it will bypass the lockscreen and pull up the usb connection menu</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;uberushaximus_&gt; I'm fairly sure it's not dependent on if you have an external sd in, but I have a hunch it has to do with that code</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-green">* Wout (~Wout@s53758cbd.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;uberushaximus_&gt; I'm seeing the bug on captivate but I'm fairly sure it should be device independent</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;chaembian|l1&gt; OK, I'm done ..</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;uberushaximus_&gt; Kaik541 codeworkx Unhelpful, can you confirm this bug?</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;chaembian|l1&gt; mnita|work: not sure if it matters now, from the logs, I was at the Vibrant logo for about 7 mins at least.</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;chaembian|l1&gt; mnita|work: adb did not see the phone</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;GuiPer&gt; chaembian|l1: when did you sync?</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;GuiPer&gt; should have been fixed 30 minutes ago</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;GuiPer&gt; or so</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;chaembian|l1&gt; GuiPer: I last synched some 13 hours back :)</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;gehzumteufel&gt; My build just finished. Will nandroid and then flash</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;Unhelpful&gt; uberushaximus_: yeah, looks that way.</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-navy">* Dreamsforgotten (b8bd5e7a@gateway/web/freenode/ip.184.189.94.122) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;gehzumteufel&gt; chaembian|l1: if that's the case, the build he wants you to test, would need a resync.</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;GuiPer&gt; maybe not needed</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;nitam|work&gt; ok, status?</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;nitam|work&gt; sorry - was in meetings</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;GuiPer&gt; would be better, can just push this in system/lib/hw</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="http://dl.dropbox.com/u/2200008/sensors.aries.so_try2">http://dl.dropbox.com/u/2200008/sensors.aries.so_try2</a></span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;GuiPer&gt; or sync build and try</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;nitam|work&gt; what is that?</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;nitam|work&gt; our lib?</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;GuiPer&gt; new sensors, should be fixed</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;GuiPer&gt; yep, our one</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;GuiPer&gt; sync and try</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;nitam|work&gt; going to let techmik67 test</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;nitam|work&gt; I want to test adb reboot recovery for a bit</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;techmik67&gt; booted.... compass and light sensor good</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;chaembian|l1&gt; I won't be able to build and test until morning</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;chaembian|l1&gt; :/</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;chaembian|l1&gt; OK, guys! I'll try to wake up early tomorrow. :)</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;techmik67&gt; ok, used power menu reboot recovery.... it worked</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;chaembian|l1&gt; Later</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;techmik67&gt; then used cwm reboot system o</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;techmik67&gt; now*</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-navy">* chaembian|l1 (~chaembian@122.174.156.68) Quit (Quit: WeeChat 0.3.0)</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;techmik67&gt; this is where i got stuck on bootanimation before</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;techmik67&gt; booted!</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;uberushaximus_&gt; Unhelpful: would you mind filing a bug report for me? I've got class to be at ;D</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;uberushaximus_&gt; be back later</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;techmik67&gt; adb reboot recovery seemed to freeze, then worked</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;techmik67&gt; in recovery</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;nitam|work&gt; it always freezes for a bit</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;techmik67&gt; what else?</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;nitam|work&gt; wait what?</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;nitam|work&gt; you ended up in recovery from adb reboot recovery?</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;nitam|work&gt; or did it just reboot?</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;techmik67&gt; power menu works and adb reboot and reboot recovery work</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;nitam|work&gt; yup what</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;techmik67&gt; recovery</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;nitam|work&gt; !</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;techmik67&gt; =))</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;nitam|work&gt; wtf</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;techmik67&gt; i'll do it again from here in recovery</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;techmik67&gt; no freeze that time</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;techmik67&gt; bootlogo</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, are you sure the /cache/.startrecovery is actually being deleted and recreated?</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;techmik67&gt; recovery</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;techmik67&gt; will reboot regular now</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;techmik67&gt; adb reboot</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;techmik67&gt; lets see</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;GuiPer&gt; mnita|work: try latest sensors.aries.so :)</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;GuiPer&gt; maybe it was related</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;techmik67&gt; it looks like it was</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;techmik67&gt; bootlogo</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;techmik67&gt; bootanimation</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;techmik67&gt; this is current repo, btw</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="http://dl.dropbox.com/u/2200008/sensors.aries.so">http://dl.dropbox.com/u/2200008/sensors.aries.so</a></span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;nitam|work&gt; I just care about adb reboot recovery - doesn't matter where you start it from.</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;nitam|work&gt; GuiPer: is that in repo?</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;GuiPer&gt; push it to system lib hw</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;GuiPer&gt; it is</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;techmik67&gt; it did work... the last check is now...</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;GuiPer&gt; or just push if you are lazy to build</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;nitam|work&gt; no, I want to build</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;nitam|work&gt; works better that way</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;techmik67&gt;  before, it wouldnt boot past bootani after reboot recovery</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;nitam|work&gt; so I know what we have</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;GuiPer&gt; so you can build</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;GuiPer&gt; already pushed</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;nitam|work&gt; adb reboot recovery would just go back to reboot</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;nitam|work&gt; wouldn't enter recovery before</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-navy">* uberushaximus_ (8febdd47@gateway/web/freenode/ip.143.235.221.71) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;techmik67&gt; no, i got it to work</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;nitam|work&gt; but you're saying now it will</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;nitam|work&gt; ok.</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;gehzumteufel&gt; ugh build is stuck on boot logo</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;techmik67&gt; but then regular reboot didnt get past animation</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;techmik67&gt; logo, or animation?</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; logo</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; vibrant boot logo</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;techmik67&gt; did you clean?</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; I did</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; I synced right after guiper's commit</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;techmik67&gt; and synced since last push?</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;techmik67&gt; now seems stuck on bootani again... lemme see what adb says</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;techmik67&gt; not looping</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;techmik67&gt; just,, the circle turning</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;gehzumteufel&gt; I knew I should have flashed the sbl this morning before I left home</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;techmik67&gt; adb device works</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;techmik67&gt; adb shell seems stuck...</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;GuiPer&gt; you think its related with sensors?</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;techmik67&gt; curser moved to next line, but no prompt yet</span><br />
+<span class="irc-date">[19:32]</span> <span class="irc-black">&lt;GuiPer&gt; its tainted :S</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;techmik67&gt; this is what happened before, so maybe not, this last error</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_vibrant: gingerbread atinm * 65f41ae (2 files in 1 dirs): use echo 1 &gt; /cache/.startrecovery ... - <a href="http://bit.ly/mLyBox">http://bit.ly/mLyBox</a></span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread atinm * 2c17037 (2 files in 1 dirs): use echo 1 &gt; /cache/.startrecovery ... - <a href="http://bit.ly/myurZD">http://bit.ly/myurZD</a></span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread atinm * 7d3640a (2 files in 1 dirs): use echo 1 &gt; /cache/.startrecovery ... - <a href="http://bit.ly/lLkhTG">http://bit.ly/lLkhTG</a></span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;nitam|work&gt; I am rebuilding</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;GuiPer&gt; techmik67: can you push my try1 sensors and simulate same steps?</span><br />
+<span class="irc-date">[19:34]</span> <span class="irc-black">&lt;GuiPer&gt; the first link I gave you</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;GuiPer&gt; and maybe first try again the same steps that crashed now</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;GuiPer&gt; to make sure it's consistent</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;codeworkx&gt; &lt;`paul&gt; installed CM7 FFc camera is sideways so tried some roms based on JVB ie darky and still FFC is sideways is this true for all SGS gingerbread roms/build?</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;codeworkx&gt; lul?</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;gehzumteufel&gt; haha</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;techmik67&gt; ok, i 3 button rebooted to recovery, then chose reboot system now, and i am booted again</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;codeworkx&gt; confused</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;teamhacksung&gt; android_system_core: gingerbread atinm * 51dce9a (1 files in 1 dirs): Move RECOVER_PRE_COMMAND to before the sync() ... - <a href="http://bit.ly/iPp74P">http://bit.ly/iPp74P</a></span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;nitam|work&gt; me too</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;nitam|work&gt; 1. power menu, reboot to recovery. check?</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;techmik67&gt; so something is just still slightly weird, but so close......</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;techmik67&gt; yes</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;techmik67&gt; then reboot in cwm works fine</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;nitam|work&gt; 2. reboot recovery from adb shell prompt, check?</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;nitam|work&gt; those are the two main cases that have to work.</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;techmik67&gt; works, but then the problem on plain old reboot</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;nitam|work&gt; wait</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;nitam|work&gt; 3. adb reboot recovery?</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-navy">* polyrhythmic (~polyrhyth@71.227.171.213) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;techmik67&gt; adb reboot recovery works, but that is what causes the freeze afterwards</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-green">* polyrhythmic (~polyrhyth@c-71-227-171-213.hsd1.wa.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;nitam|work&gt; it should be no different.</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;techmik67&gt; *after* recovery, it endless bootanimation'ed</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;nitam|work&gt; they all call __reboot()</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;nitam|work&gt; after writing /cache/.startrecovery</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;techmik67&gt; i gave it a good 5 mins, and adb saw the device, but froze on shell</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;nitam|work&gt; hrm.</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;nitam|work&gt; so I did break adb somehow.</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;nitam|work&gt; crap</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;techmik67&gt; do adb reboot recovery</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;GuiPer&gt; can also be somehow sensors!</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;techmik67&gt; then, from there, adb reboot</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;techmik67&gt; see if you boot all the way</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;GuiPer&gt; since symptoms are similar...</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, I don't think it can be adb really . . .</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;nitam|work&gt; since the only thing is does new is touch /cache/.startrecovery</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;GuiPer&gt; but why it just happens from recovery??</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; recovery image isn't initializing something?</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;techmik67&gt; if i use power menu, it goes to clockwork</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;techmik67&gt; then clockwork reboot, works fine</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; does recovery.rc have the correct stuff?</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; it should have nothing related to sensors right?</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;GuiPer&gt; no I don't think so..</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;GuiPer&gt; we put nothing there</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;techmik67&gt; rebuilding with last commits</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;GuiPer&gt; techmik67: if it crashes all the type under the same way, can you try with my sensors try1</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="http://dl.dropbox.com/u/2200008/sensors.aries.so_try1">http://dl.dropbox.com/u/2200008/sensors.aries.so_try1</a></span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;GuiPer&gt; push and try</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;techmik67&gt; i have it</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;GuiPer&gt; if it works, sensors problem</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;techmik67&gt; sensors pushed and booted</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;techmik67&gt; adb reboot</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;techmik67&gt; pause almost 10 secs, then reboot</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;nitam|work&gt; I think it goes and flushes all kinds of things</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;techmik67&gt; booted</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;techmik67&gt; now, you want shell, then reboot recovery?</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;nitam|work&gt; adb reboot not so worried about</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;GuiPer&gt; try the same thing that make bootloop before</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;nitam|work&gt; its when you try to boot from recovery that it bootloops, right?</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;techmik67&gt; adb shell, then reboot recovery</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;techmik67&gt; worked</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: <a href="https://github.com/CyanogenMod/android_device_lge_p990/blob/gingerbread/system.prop#L21">https://github.com/CyanogenMod/android_device_lge_p990/blob/gingerbread/system.prop#L21</a></span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;techmik67&gt; aha</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;techmik67&gt; adb shell in recovery, works</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;techmik67&gt; but</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;techmik67&gt; reboot gives me "reboot returned"</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;GuiPer&gt; reboot now</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;nitam|work&gt; lol, I left that in?!</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;nitam|work&gt; brb</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;nitam|work&gt; that was supposed to be debug only</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;techmik67&gt; reboot now works</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;techmik67&gt; boot logo</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;techmik67&gt; ani</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;GuiPer&gt; stuck?</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;techmik67&gt; booted</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;techmik67&gt; now, last, and where the problem was</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik67&gt; adb reboot recovery</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik67&gt; done... in recovery</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;GuiPer&gt; (hope it will not work=</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik67&gt; now, before, if i type adb reboot, it wont pass animation</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik67&gt; lets see</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik67&gt; logo</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; animation</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: we don't have that though</span><br />
