@@ -1783,3 +1783,79 @@
 <span class="irc-date">[17:59]</span> <span class="irc-navy">* iravid (~iravid@87.69.234.127) Quit (Read error: Operation timed out)</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;mikebeecham&gt; statusbar brightness was a lovely addition to my homescreen</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;mikebeecham&gt; quite helpful</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-green">* iravid (~iravid@87.69.234.127) has joined this channel.</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: <a href="http://forum.xda-developers.com/showthread.php?t=1061946">http://forum.xda-developers.com/showthread.php?t=1061946</a> nothing i have to care about ;-)</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;codeworkx&gt; this thread will care about itself</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;kang&gt; mnita|work: yes/no</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;kang&gt; mnita|work: cm7 can do it theres a setting but theres no UI to set it</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;kang&gt; mnita|work: but we dont support flash</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;kang&gt; mnita|work: i could add it but it means another timer in kernel</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;GuiPer&gt; techmik67: can you try this one <a href="http://dl.dropbox.com/u/2200008/sensors.aries.so_try2">http://dl.dropbox.com/u/2200008/sensors.aries.so_try2</a></span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;techmik67&gt; that was weird</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;techmik67&gt; adb reboot didnt work and froze adb for 10 seconds, then it rebooted</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;techmik67&gt; booted</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;GuiPer&gt; really?</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;GuiPer&gt; compass works?</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;GuiPer&gt; also trying here</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;techmik67&gt; compass works</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;techmik67&gt; light sensor works</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;GuiPer&gt; also booted</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;GuiPer&gt; will give a few reboots and commit</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;GuiPer&gt; what you think?</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;techmik67&gt; rebooting again</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;techmik67&gt; adb reboot recovery rebooted  normal... bootanimation up....</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;techmik67&gt; if this time it works i think we good</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;GuiPer&gt; will commit, hope so :)</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;techmik67&gt; hmmmm</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;techmik67&gt; still on bootanimation</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;techmik67&gt; i used adb reboot recovery command tho</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;techmik67&gt; i tried adb reboot from here.... insufficient permissions</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;techmik67&gt; for device</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;techmik67&gt; got it</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;techmik67&gt; adb kill-server</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;techmik67&gt; then adb reboot</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;GuiPer&gt; my problem?</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;GuiPer&gt; here booted  3 times in row...</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;techmik67&gt; therer we go</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;techmik67&gt; oly had a problem when i used adb reboot recovery</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;techmik67&gt; only^</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;techmik67&gt; otherwise its good</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;GuiPer&gt; i guess it's atinm problem :)</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;GuiPer&gt; hopefully</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;techmik67&gt; yup, its good</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_common: gingerbread Guilherme * 4ad35a1 (3 files in 1 dirs): Removed and early ioctl to avoid bootloop. ... - <a href="http://bit.ly/iRWSg4">http://bit.ly/iRWSg4</a></span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;GuiPer&gt; can somebody else give a try?</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;techmik&gt; building</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-green">* techmik is now known as techmik_laptop</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-green">* chaembian|l1 (~chaembian@122.174.156.68) has joined this channel.</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;chaembian|l1&gt; Good morning!</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;techmik67&gt; nice timing</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;techmik67&gt; sync and build, sir!  =P</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-green">* uberushaximus_ (8febdd47@gateway/web/freenode/ip.143.235.221.71) has joined this channel.</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;GuiPer&gt; well looks ok for me, after 5 reboots all i got was loosing my widgets...</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;chaembian|l1&gt; Won't be able to, until tomorrow :/</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;techmik67&gt; =(</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;chaembian|l1&gt; My desktop has been shutdown. I cannot boot it without waking everybody in the house.</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;chaembian|l1&gt; :/</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;techmik67&gt; ouch</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;chaembian|l1&gt; I thought I'll go through the logs and provide info where required.</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;GuiPer&gt; mnita|work: sensors issue is solved please test, and I guess we can go for some nightly soon</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;UberPinguin&gt; Um so somehow my /dev/block/stl9 has become param.lfs</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-brick">* UberPinguin confused</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;gehzumteufel&gt; I'll build</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-navy">* uberushaximus_ (8febdd47@gateway/web/freenode/ip.143.235.221.71) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dono man you guy have a different bootloader than we do.  seeing as we have an extra partition that does nothing I think ours is a bug but its build into the SOC and e-fused in place so we're stuck with trying to work around it</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: which kernel you're using?</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: EpicCM's 2.6.32.9</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;Unhelpful&gt; merge time? breaking stuffs? :D</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;UberPinguin&gt; Right now I have a soft brick :p</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;UberPinguin&gt; Something went screwy in my test flash and my partitions are all messed up now</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;Unhelpful&gt; :/</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: have you played with mtd?</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-green">* uberushaximus_ (8febdd47@gateway/web/freenode/ip.143.235.221.71) has joined this channel.</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;UberPinguin&gt; no</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;UberPinguin&gt; We're still on rfs</span><br />
