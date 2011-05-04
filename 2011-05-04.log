@@ -1672,3 +1672,49 @@
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;Wout`&gt; confirmed, thats why I was looking for someone to confirm</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;mikebeecham&gt; I've just tried to flash back to 0503 and this is not getting past the Cyanogen boot animation either</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;Wout`&gt; start music player --&gt;pause --&gt; plug in headset--&gt;weirdness</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; mike the bootloop doesn't happen all the time, sometimes it boots fine, sometimes your screwed.  no one is quite sure why it happens yet</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;mikebeecham&gt; TMC_Sherpa, yeah, I got it on 0504, but I flashed back to yesterday but it's still happening?</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;mikebeecham&gt; any thoughts?</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yesterdays has the same libs iirc so it will do the same poop, todays was some battery display fixes I think</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;mikebeecham&gt; so if I flash back to 0501</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;codeworkx&gt; yes, has the same libs</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;mikebeecham&gt; ahhh</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;mikebeecham&gt; sec</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;mikebeecham&gt; I pulled the battery, then started from power on, rather than CWM's reboot now</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;mikebeecham&gt; all is fine</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;mikebeecham&gt; so I wonder if the same thing will happen with 0504</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-green">* zachy_md|busy (~zacharias@chello084114179145.16.15.vie.surfer.at) has left this channel.</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-green">* zachy_md|busy (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; only one way to find out :)</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;mikebeecham&gt; I've got around 10% left on my battery so wont do it just yet...will charge a little first</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;mikebeecham&gt; then I'll test</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-navy">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;nitam|work&gt; TMC_Sherpa: your expertise needed</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;nitam|work&gt; but basically this headset thing is a difference in wm8994 + sec_jack.c between us and JVB.</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;nitam|work&gt; has to be if this problem is not present on JVB.</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;nitam|work&gt; we need diffs :)</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;nitam|work&gt; and some analysis.</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;nitam|work&gt; I can't do it until tonight</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hmmm?</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;techmik67&gt; whats all the changes to release tools? is all the update.zip stuff done???</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;techmik67&gt; i just synced</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; wm8994....you bastards</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;nitam|work&gt; TMC_Sherpa: we give you the hard stuff :)</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;nitam|work&gt; so I guess highest priority is headset then</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;nitam|work&gt; all the other reports just sound like random crap user error type stuff</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;nitam|work&gt; so ignoring</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;nitam|work&gt; the reboot hang is sensors related but I'm not looking at it, Guiper is. And rebooting frequently works, so not critical.</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;Wout`&gt; my phone is vibrating during calls, with about 10 sec intervals</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;techmik67&gt; phone settings</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;Wout`&gt; the vibrate during call setting is off</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;techmik67&gt; oh</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; mach-aries.c ! /* There is a only common mic bias gpio in aries H/W */</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'll need to wait till tonight to get a good look at it, stripped directories make this much easier</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; has this always been a problem or is this new?</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;codeworkx&gt; TMC_Sherpa: always</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;codeworkx&gt; TMC_Sherpa: its not new i think</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-brick">* TMC_Sherpa wonders why samsung didn't just set MICBIAS_EN to point to the correct gpio instead of adding _EN2</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work: 2 pull requests incoming - that's all I can do for now :)</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-navy">* Frd^ (~frd@idlaa.com) Quit (Ping timeout: 260 seconds)</span><br />
