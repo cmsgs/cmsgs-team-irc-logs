@@ -572,3 +572,315 @@
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;Unhelpful&gt; oh. because it seemed to work for me. :)</span><br />
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm&gt; phew.</span><br />
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;atinm&gt; somehow fixing the sensors lib made it start working</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;atinm&gt; so there is still something flaky going on</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;atinm&gt; because gehzumteufel just got the hang</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;atinm&gt; so there is still something weird.</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;gehzumteufel&gt; and adb reboot recovery works here too</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;atinm&gt; and the boot takes a long time.</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;atinm&gt; it is almost as if something is waiting</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-green">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;atinm&gt; wwyvern: you always show up late :)</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-green">* chaembian_ (~chaembian@122.174.106.91) has joined this channel.</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;atinm&gt; but there is a new vibrant build up</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;gehzumteufel&gt; haha it works to her advantage</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;gehzumteufel&gt; She's not flashing a borked build</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;gehzumteufel&gt; Although, more guinea pigs would be good</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;atinm&gt; somehow I was under the impression the damn thing was working and tested on vibrant</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;atinm&gt; otherwise I wouldn't have uploaded it</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;gehzumteufel&gt; This time it didn't hang</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;atinm&gt; maybe I was just confused</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;atinm&gt; I think the hang bug is still there in sensors.</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;atinm&gt; guiper needs to look some more.</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;gehzumteufel&gt; kk</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;atinm&gt; I am going to observe the logcat to see if I notice anything</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;Unhelpful&gt; we're back to OSS libsensors, yeah?</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;wwyvern&gt; Sorry...have 5 birds and humans to take care of..takes time</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;atinm&gt; and it seemed there were some init ioctls</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;wwyvern&gt; But I do get here :)</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;atinm&gt; that were hanging things - so he removed most if not all and ithat seemed to help</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-navy">* chaembian (~chaembian@122.174.107.215) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;atinm&gt; but there is still some issue</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;Unhelpful&gt; i noticed my battery sucks since i flashed this evening :/</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;atinm&gt; naw.. damn it</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;atinm&gt; it is supposed to get better</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;atinm&gt; mine did</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;wwyvern&gt; I take it that the build for the day is tested already?</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;gehzumteufel&gt; Mine has progressively gotten better with the most recent few updates</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;atinm&gt; tonights should actually help battery</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;atinm&gt; before this was all flukes</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;gehzumteufel&gt; wwyvern: haha yes, now it is. After a borked release earlier.</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, but i also think that maybe 1) proprietary sets a longer update interval? 2) proprietary uses fixed-point maths</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: you're the expert - try using reboot recovery and reboot a few times - I think you'll hang</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;wwyvern&gt; well, last night was pretty borked too..</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;atinm&gt; wwyvern: well, download tonights and test it</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;atinm&gt; more ppl testing the better</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;atinm&gt; we think it is good</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-brick">* Unhelpful hates when people use that word. :P</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;atinm&gt; but can't hurt to have more</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;wwyvern&gt; will do :)</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;atinm&gt; what word?</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;gehzumteufel&gt; wwyvern: Last nights was the same from today. We got it figured out though.</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;gehzumteufel&gt; Unhelpful: BORKED BORKED BORKED :p</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-brick">* gehzumteufel is gonna shut up now</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;Unhelpful&gt; "expert" :P</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;atinm&gt; gehzumteufel: you do realize that he can /kick you too :)</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;Unhelpful&gt; gehzumteufel: i didn't know you were swedish?</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;wwyvern&gt; is it already up to be downloaded, or should I build-if its already up, I'll just grab it</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;atinm&gt; it is already up</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: nah, just a fan</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;wwyvern&gt; cool!!!</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: but you are the expert here!</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;atinm&gt; or do you prefer guru? :)</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;gehzumteufel&gt; I'll drink to that</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-brick">* Unhelpful is sorry he wasn't old enough to experience the official muppets cereal, cröonchy stars</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;atinm&gt; I'm not going to claim expertise in sensors and eigen math</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;wwyvern&gt; bork, bork, bork....</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;gehzumteufel&gt; Unhelpful: I'm old enough, but I never had that stuff!</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;wwyvern&gt; muppets forever!</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;codeworkx&gt; yay, teh video gtalkz is working</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: ahhh, the eigen library... it doesn't know fixed-point either. :/</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;atinm&gt; &lt;-- is too sleepy</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;atinm&gt; going to call it a good week's work, and go to bed.</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;wwyvern&gt; Are we ever going to have a working ffc? I got the hardware in a while ago....</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-green">* atinm is now known as atinm|night</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;gehzumteufel&gt; Works here too without ffc</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;Kaik541&gt; wwyvern, if you want FFC, you're going to have make a boardconfig with the second camera</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;Unhelpful&gt; wwyvern: mine has never worked, even w/ samsung fw. :P</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;atinm|night&gt; Unhelpful: ?!</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;atinm|night&gt; we have an FFC?</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;wwyvern&gt; Mine worked fine (no lines) on 2.21...</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|night: i'm just saying i have never gotten one to work on my phone. ;)</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;Kaik541&gt; wwyvern, you had to run i9000 ROM's and kernels with FFC stuff integrated</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;atinm|night&gt; lol</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;codeworkx&gt; wwyvern: ffc is working fine on i9000 for video</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, he has vibrant</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;wwyvern&gt; bionix, anyway</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;codeworkx&gt; wwyvern: taking photos is another thing</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Kaik541&gt; she*</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;atinm|night&gt; wait, so vibrant has ffc? and it has worked?</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;codeworkx&gt; wwyvern: and your vibrant has no!</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Kaik541&gt; vibrant == galaxys without FFC</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Kaik541&gt; but the board is the same</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Kaik541&gt; so you can install one</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;wwyvern&gt; and I did</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;atinm|night&gt; but it worked using galaxys?</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yes</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;gehzumteufel&gt; You just have to use the Vibrant kernel</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;wwyvern&gt; I ran Bionix v and it worked fine</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Kaik541&gt; you could flash an i9000 ROM or appropriate libs</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;atinm|night&gt; installed as in installed hardare?</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Kaik541&gt; and it would work</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;atinm|night&gt; or just installed software</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yes</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;Kaik541&gt; yes, there is a spot on the board for it</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;codeworkx&gt; but he cannot use, because it's disabled on vibrant builds because vibrant has normally no ffc</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;gehzumteufel&gt; Hardware</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;gehzumteufel&gt; It is an available mod</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;wwyvern&gt; how to install correct lisbs?</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;atinm|night&gt; ah!</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;Kaik541&gt; atinm|night, codeworkx: I told coolya|away about this a LONG ass time ago</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;Kaik541&gt; he said his vibrant didn't have one so he wasn't going to support it</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;atinm|night&gt; well, get me a damn phone</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|night: yes, because it apparently has the solder pads for it, and they actually connect to something (i2c i assume?)</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;wwyvern&gt; I have the hardware already in</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, it's just missing the physical camera and cord... the actual spot for it on the board is already tehre</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;Kaik541&gt; nothing to solder</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: it has a shiny little plug</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;atinm|night&gt; if I had a phone I could do it then. I mean, if galaxys software works on it, we can do it.</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: everything on this sgs has a shiny little plug</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, really? that's even better!</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: modular</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;Unhelpful&gt; no such plug on captivate, i imagine :P</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;wwyvern&gt; yup, quite handy</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;Kaik541&gt; you can actually buy an i9000 FFC and just install it</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, nope :(</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;Kaik541&gt; i897 has different motherboard</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;wwyvern&gt; you need a second rev FFC</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;gehzumteufel&gt; The newest camera in the Vibrant 4g is the best to use</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;Kaik541&gt; vibrant has some mobo as i9000</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;atinm|night&gt; yeah, they decided to get a fucking audience chip instead.</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;wwyvern&gt; the first rev causes lines because something doesn't work</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;codeworkx&gt; wwyvern: lines?</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;codeworkx&gt; red and green ones?</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-brick">* Unhelpful just reminds himself that at&amp;t's network *actually works* where he lives and works :)</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;gehzumteufel&gt; codeworkx: There is banding in low light. It's a power issue with the way the FFC is powered in the US vs i9k</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;wwyvern&gt; but the second would work quite nicely if we ported the camera-I'll bugtest all the spare time I have for that</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;atinm|night&gt; we could support it.</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;atinm|night&gt; call it a different device.</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;wwyvern&gt; Pretty please?</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;atinm|night&gt; and add the ffc</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-brick">* Unhelpful just needs one of these: <a href="http://www.geek.com/articles/apple/iseeu-almost-brings-facetime-to-your-iphone-3gs-20101025/">http://www.geek.com/articles/apple/iseeu-almost-brings-facetime-to-your-iphone-3gs-20101025/</a></span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;atinm|night&gt; pia ;)</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;codeworkx&gt; wwyvern: use the libcamera.so from i9k. and the overlay.aries.so</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;gehzumteufel&gt; There may even be a way to make it modular, that detects which one it has.</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;codeworkx&gt; wwyvern: and the kernel xD</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;codeworkx&gt; wwyvern: do it not!</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, wouldn't you just fork i9000 and rename "vibrant-ffc"</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;codeworkx&gt; wwyvern: but you can build it for yourself and add it</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;Kaik541&gt; and just mass-replace galaxys with vibrant for updates</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;wwyvern&gt; I know...I just kinda hoped we could find a whay to support it on vib</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: one more to care about? no</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, then just tell them to install i9000 build xD</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;Kaik541&gt; same orientation</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;atinm|night&gt; mostly because it isn't "standard" - it should be a self install.</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;codeworkx&gt; wwyvern: install i9k build</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;Kaik541&gt; GPS doesn't work anyway</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;atinm|night&gt; and self make</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;atinm|night&gt; we can start it.</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;atinm|night&gt; but I don't want to maintain</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;Kaik541&gt; wwyvern, you could always start building it for vibrant community</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;Kaik541&gt; and provide it as an alternative</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;Kaik541&gt; for those with FFC</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;wwyvern&gt; I'm going to sound amazingly ignorant, but I don't know how...or I would</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;atinm|night&gt; wwyvern: that's ok, most ppl here wouldnt' know how.</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;wwyvern&gt; I'll maintain a thread AND test if someone will build</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;Kaik541&gt; hell I wouldn't</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;atinm|night&gt; I sort of have to know what it is - and without a phone, I don't really want to touch it.</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;Kaik541&gt; it really is identical to galaxys</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;atinm|night&gt; who was it that had the extra phone?</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;gehzumteufel&gt; dm coolya and get him to ship it to you lol</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;atinm|night&gt; well, there's always coolya.</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;gehzumteufel&gt; ericDET</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;atinm|night&gt; if he ever comes in again</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;wwyvern&gt; I think Eugene373 has one..unless he gave it away</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;atinm|night&gt; erm.</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;Kaik541&gt; lol</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;Kaik541&gt; eugene's name is not spoken here</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;wwyvern&gt; He fucked up?</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;wwyvern&gt;  not too surprised..has a temper</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;Kaik541&gt; he says that having to share source is unfair</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;Kaik541&gt; so he deleted it all</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol I remember that shit</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;chaembian_&gt; what?</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;wwyvern&gt; me too</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;atinm|night&gt; he doesn't open source stuff, basically will take but not give back to the community.</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;atinm|night&gt; so he is not mentioned here.</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;wwyvern&gt; got it..and not a problem</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;Kaik541&gt; this was back when wifi was horribly broken</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;Kaik541&gt; he claimed to have fixed it</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;Kaik541&gt; never shared how, when asked to share sources</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;Kaik541&gt; he said "WAH WAH WAH I HAVE SAND IN MY VAGINA"</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;Kaik541&gt; and deleted everything from his harddrive</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;atinm|night&gt; when told that it was gpl, he said he had deleted it</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;atinm|night&gt; was just weird.</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;atinm|night&gt; so we've given up on him.</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;atinm|night&gt; he does his thing, we do ours.</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;atinm|night&gt; dont' need him.</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;gehzumteufel&gt; Amen.</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;atinm|night&gt; anyway, I'll think about supporting this ffc on vibrant tomorrow</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;atinm|night&gt; shouldn't be hard to at least start it</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;atinm|night&gt; and let someone else handle it.</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;atinm|night&gt; maybe chaembian_ can - he wants to write code</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;wwyvern&gt; well, basically it's an I9000 camera in a Vibrant..board hookup is the same and the second rev camera works quite nicely</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;atinm|night&gt; since the code will be identical to galaxys from what I understand</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;chaembian_&gt; atinm|night: sure, yes. but I'm still trying to chew the gpio. :)</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;atinm|night&gt; with some things like keymappings etc from vibrant</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;wwyvern&gt; yup</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|night: enable it in defconfig, in mach-aries and in libcamera</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|night: thats all</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|night: and define the video devices in boardconfig</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;atinm|night&gt; yeah. *but* I don't want to do it. I am not going to do it but some one with a vibrant who can test should.</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;wwyvern&gt; MEMEME</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;atinm|night&gt; it is bad enough supporting the standard vibrant without having a phone</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;wwyvern&gt; I'll test</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;atinm|night&gt; you need to find a dev willing to work on it too.</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;wwyvern&gt; yah</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;atinm|night&gt; we're sort of avoiding it in here ;-)</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;wwyvern&gt; ahh well...</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;atinm|night&gt; mostly because none of the devs has a vibrant.</span><br />
+<span class="irc-date">[2:25]</span> <span class="irc-black">&lt;atinm|night&gt; shouldn't someone be getting out of contract by now and be willing to throw it at us?</span><br />
+<span class="irc-date">[2:25]</span> <span class="irc-black">&lt;wwyvern&gt; I'll keep my eyes open..if I see one, I'll grab it and ship it to you</span><br />
+<span class="irc-date">[2:25]</span> <span class="irc-black">&lt;atinm|night&gt; if I had one, I'd do it . . . then it would be about supporting a device I hav e:)</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;atinm|night&gt; eating your own dog food is the best motivator.</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;wwyvern&gt; always</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;atinm|night&gt; alright, good night for real</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;gehzumteufel&gt; No, no one is out of contract. Phone's only been out a year, and rarely does anyone in the US get 1yr contracts</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;atinm|night&gt; hopefully no phones explode.</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;gehzumteufel&gt; gnite atinm|night</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;atinm|night&gt; true.</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;atinm|night&gt; i</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;wwyvern&gt; night atinm</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;atinm|night&gt; t f</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;atinm|night&gt; it feels like 2</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;codeworkx&gt; good night. i'm off</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;atinm|night&gt; but I am only one year in as well</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;wwyvern&gt; bought mine off ebay-no contract</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;atinm|night&gt; and the captivate and vibrant came out within days of each other.</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; gnite codeworkx</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: so we can really possibly have a zip that does all that like was being discussed before?</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;atinm|night&gt; I never watch ebay..</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; fleabay</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;atinm|night&gt; techmik67: we can get close.</span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-black">&lt;gehzumteufel&gt; with shitpal</span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-black">&lt;techmik67&gt; wow</span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-black">&lt;atinm|night&gt; I have to read back the logs of what unhelpful said earlier</span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-black">&lt;atinm|night&gt; I was stressing about build at the time</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;chaembian_&gt; how much charge do I need before I can flash?</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;atinm|night&gt; Unhelpful: I understood the one about the update from stock saving efs and flashing conversion kernel, conversion kernel converting and cm7 just doing update</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;wwyvern&gt; I wouldn't go below 50 percent, just to be safe</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;atinm|night&gt; did not understand the other choice.</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;atinm|night&gt; initial update making sure update is there part.</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;atinm|night&gt; shouldn't it just contain the update?</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;atinm|night&gt; anyway, too sleepy</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;atinm|night&gt; but yes - I think that's the next big item on our list.</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;atinm|night&gt; on Unhelpful's list . . .</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;atinm|night&gt; that would make us totally ready for mainline I think.</span><br />
+<span class="irc-date">[2:35]</span> <span class="irc-black">&lt;atinm|night&gt; best we could do</span><br />
+<span class="irc-date">[2:35]</span> <span class="irc-black">&lt;chaembian_&gt; Alright, another 30% to go</span><br />
+<span class="irc-date">[2:35]</span> <span class="irc-black">&lt;atinm|night&gt; I still start looking at RIL</span><br />
+<span class="irc-date">[2:35]</span> <span class="irc-black">&lt;atinm|night&gt; oh, gehzumteufel check the sound in calls</span><br />
+<span class="irc-date">[2:35]</span> <span class="irc-black">&lt;atinm|night&gt; if it is still bad</span><br />
+<span class="irc-date">[2:36]</span> <span class="irc-black">&lt;gehzumteufel&gt; will do</span><br />
+<span class="irc-date">[2:36]</span> <span class="irc-black">&lt;atinm|night&gt; vibrant has different gps chip than others, right?</span><br />
+<span class="irc-date">[2:36]</span> <span class="irc-black">&lt;gehzumteufel&gt; Supposedly</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;gehzumteufel&gt; That's what I am lead to believe with coolya's tweets a while back</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;atinm|night&gt; Kaik541: ?</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;chaembian_&gt; There was a Vibrant teardown I came across a while back ..</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;atinm|night&gt; (he's my expert on this sort of stuff)</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;Kaik541&gt; yeah vibrant has different GPS</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;Kaik541&gt; it's why it doesn't work on CM7</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;Kaik541&gt; if you flash an vibrant ROM on a cappy no GPS</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;Kaik541&gt; or i9000 on vibrant</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;Kaik541&gt; et</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;Kaik541&gt; c</span><br />
+<span class="irc-date">[2:39]</span> <span class="irc-black">&lt;gehzumteufel&gt; Do we know what gps chip it has?</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;wwyvern&gt; I think Vib has some sort of Yamaha-Bosch gps chip</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;wwyvern&gt; compas works perfect on the new one..wow</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;gehzumteufel&gt; Compass and light sensor work</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-black">&lt;wwyvern&gt; sure do &lt;big grin&gt;</span><br />
+<span class="irc-date">[2:43]</span> <span class="irc-black">&lt;wwyvern&gt; Last i remember checking, the GPS initializes, then doesn't find something it needs then restarts...</span><br />
+<span class="irc-date">[2:45]</span> <span class="irc-black">&lt;atinm|night&gt; get me a phone..</span><br />
+<span class="irc-date">[2:45]</span> <span class="irc-black">&lt;atinm|night&gt; well, good night!</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;gehzumteufel&gt; I am off. cya all</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-navy">* gehzumteufel (~gehzumteu@adsl-76-252-171-187.dsl.lsan03.sbcglobal.net) Quit (Quit: gehzumteufel)</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;chaembian_&gt; Good night, atinm|night</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;Kaik541&gt; hahaha! kindle charger works fine with my phone</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;chaembian_&gt; Kaik541: What's the gps chip used in captivate?</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;chaembian_&gt; If the output voltage matches, it should</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;Kaik541&gt; the same as in i9000? fuck if I know</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;chaembian_&gt; <a href="http://www.ubmtechinsights.com/reports-and-subscriptions/investigative-analysis/samsung-galaxy-s/teardown/">http://www.ubmtechinsights.com/reports-and-subscriptions/investigative-analysis/samsung-galaxy-s/teardown/</a></span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;chaembian_&gt; The article seems to mix i9000 and T959 liberally, so, its tough to see what they are calling</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;wwyvern&gt; I know the gps threads mention the hardware for the different phones on xda..I waded thru all that crap</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;wwyvern&gt; I had to do the hardware solder fix on my vibrant because the wifi tab AND the gps tabs broke off when i took my case off</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;Kaik541&gt; the funny bit is the motherboards are basically identical</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;Kaik541&gt; yet they changed out... the GPS chip</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;Kaik541&gt; for some reason</span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-black">&lt;wwyvern&gt; just to fuck with people</span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-black">&lt;Kaik541&gt; oh lame, ifixit did a teardown of Nexus S and galaxy s 4g</span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-black">&lt;Kaik541&gt; but not i9000</span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-black">&lt;Kaik541&gt; what a bunch of stupid heads</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-black">&lt;chaembian_&gt; Probably, they did not have enough chips to use in all the models</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;wwyvern&gt; now I'm gonna have to dig up another vib to get this fixed....</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;Kaik541&gt; wwyvern, send to atinm!</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;wwyvern&gt; I will</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;wwyvern&gt; anyone want to go in with me for a phone for him...I'm seeing them for about 250$ us</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;wwyvern&gt; dollars</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;wwyvern&gt; I'll come up with half</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;wwyvern&gt; or more, if I need to, but thought I'd ask...</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;chaembian_&gt; wwyvern: Count me in</span><br />
+<span class="irc-date">[2:59]</span> <span class="irc-black">&lt;wwyvern&gt; Just bid on one working but screen cracked...bid 75 dollars...</span><br />
