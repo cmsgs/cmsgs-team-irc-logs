@@ -1465,3 +1465,100 @@
 <span class="irc-date">[14:56]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: but it really hurts</span><br />
 <span class="irc-date">[14:58]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Read error: Connection reset by peer)</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-green">* Manadar (~Manadar@AMontsouris-552-1-149-145.w86-212.abo.wanadoo.fr) has joined this channel.</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: ok</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; but can't until later</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: works fine :-)</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; I'm going to be away all day.</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: 2 steps and all is good</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;codeworkx&gt; boot recovery -&gt; flash kernel zip (does efs backup + cm7 kernel flash) -&gt; reboot recovery -&gt; flash update -&gt; reboot -&gt; done</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: in your out dir are all 4 builds atm? would be nice if you can bake the new initial files</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nitam|work&gt; boot recovery -&gt; flash kernel zip (does efs backup + cm7 kernel flash) -&gt; auto-reboot recovery1 -&gt; auto-flash update -&gt; auto-reboot reboot -&gt; done</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nitam|work&gt; is the ideal ;)</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nitam|work&gt; boot recovery -&gt; flash kernel zip (does efs backup + cm7 kernel flash) -&gt; auto-reboot into recovery w/ auto-flash -&gt; auto-flash update -&gt; auto-reboot reboot -&gt; done</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: run_program in updater script should do the trick</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; run_program reboot recovery</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; but</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, that's what I was thinking. we could possibly get the whole installation done in a mostly automated fashion</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; we only have to write /cache/.startrecovery xD</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;nitam|work&gt; but it gives me a headache to think about it.</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; the new kernel will do it for us xD</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;Manadar&gt; you want to make CM7 installation like,"Push this button, wait 5 min, Good job CM7 is installed" ? :D</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;codeworkx&gt; i'll add it</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;codeworkx&gt;   /cache/.startrecovery is correct?</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;nitam|work&gt; right</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;codeworkx&gt; fine</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;nitam|work&gt; we should make recovery also do some auto stuff</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;codeworkx&gt; i'll add it to efsbackup.sh</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;nitam|work&gt; rather than make the user touch anything.</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;nitam|work&gt; another init.sh script or something that unzips the included update</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;nitam|work&gt; just echo 1 &gt; /cache/.startrecovery</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;codeworkx&gt; rommanager does the recovery force to auto install the update</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;codeworkx&gt; maybe we can do it too?</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;nitam|work&gt; yeah</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;codeworkx&gt; then there will be only 1 step</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;nitam|work&gt; I don't know how it works tho</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;nitam|work&gt; haven't looked at the code</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;codeworkx&gt; ask koush</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;nitam|work&gt; I'm going to leave you to this.</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;nitam|work&gt; very busy at work</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;nitam|work&gt; have to catch up :)</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;nitam|work&gt; bye</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;codeworkx&gt; bb</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-navy">* GuiPer_Work (c2e46026@gateway/web/freenode/ip.194.228.96.38) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;zachy_md|away&gt; Hi guys</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-green">* zachy_md|away is now known as zachy_md|busy</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;zachy_md|busy&gt; is there are way to build the kernel only with the new initramfs framework ?</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: are you able in 1st stage init to check if system/build.prop exists?</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;zachy_md|busy&gt; during build.sh galaxys it says: Android build environment must be configured</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;codeworkx&gt; zachy_md|busy: the ramdisk is created during android build process</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;codeworkx&gt; zachy_md|busy: so this needs to be finished first</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;codeworkx&gt; but you can take the recovery.cpio which contains the whole ramdisk</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;zachy_md|busy&gt; codeworkx: hm, pretty bad news - for me it fails due to wimax errors (like yesterday)</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;zachy_md|busy&gt; codeworkx: so essentially changing it back to the old path ?</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;zachy_md|busy&gt; codeworkx: afaik recovery.cpio built fine and is available</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;kang&gt; im building up ramdisks regularly personally</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;kang&gt; and pack em up with the python script</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;kang&gt; and thats that lol</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;zachy_md|busy&gt; kang the scripts which are included from upstream ?</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;kang&gt; zachy_md|busy: yes</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;kang&gt; look at multi_build it calls it</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;kang&gt; just call it anywhere u like</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;kang&gt; and it drops a boot.img u can flash</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;zachy_md|busy&gt; kang: I see: mkshbootimg.py :)</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;zachy_md|busy&gt; kang thanks !</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;kang&gt; yeah that :)</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;kang&gt; i upped one kernel that was still taking the zImage by mistake once lol</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;kang&gt; turned off comp</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;kang&gt; went to bed</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;kang&gt; realized</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;kang&gt; turned back on</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;kang&gt; =/</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;zachy_md|busy&gt; I also just recently needed to update the other scripts - saw that it changed from zImage to boot.img</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;zachy_md|busy&gt; is it new that recovery.cpio and ramdisk.cpio are additionall gzipped now ?</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;zachy_md|busy&gt; *additionally</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;kang&gt; yeah</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;kang&gt; kernel is slightly bigger too</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;kang&gt; and boots slower</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;Kaik541&gt; lolwut some dude is claiming that CM7 installs apps to /system instead of /data</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://review.cyanogenmod.com/#change,5069">http://review.cyanogenmod.com/#change,5069</a></span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://review.cyanogenmod.com/#change,5068">http://review.cyanogenmod.com/#change,5068</a></span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;nitam|work&gt; boots slower because it needs to get the initramfs that it needs to boot with</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;nitam|work&gt; depending on whether it is booting with the recovery initramfs or the boot initramfs</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;nitam|work&gt; the two are appended to the zimage to make the bootimg</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;nitam|work&gt; zachy_md|busy: you need to start substantiating the claims you make.</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;nitam|work&gt; just saying "more stable", "better for battery" are bullshit otherwise.</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;nitam|work&gt; and frankly, not cool because it implies we aren't stable and are worse on battery. If you actually have fixes, you should be sending us pull requests.</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;nitam|work&gt; Kaik541: can you respond to the guy?</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;nitam|work&gt; he like posted a page's worth</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;nitam|work&gt; and I got tired reading it</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;Kaik541&gt; yeah I basically said "that's not what package manager does"</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;nitam|work&gt; I barely understood what he was saying,.</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work: serveral users told me that usage-hours are longer in the battery department ;)</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work: security: fugumod, several IP flooding prevention, syncookie, etc. settings are enabled by default (89system_tweak)</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Read error: Connection reset by peer)</span><br />
