@@ -1562,3 +1562,113 @@
 <span class="irc-date">[15:55]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work: serveral users told me that usage-hours are longer in the battery department ;)</span><br />
 <span class="irc-date">[15:56]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work: security: fugumod, several IP flooding prevention, syncookie, etc. settings are enabled by default (89system_tweak)</span><br />
 <span class="irc-date">[15:58]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;zachy_md|busy&gt; more stable: I'm e.g. adding -fno-strict-overflow [once I get that damn thing to build - lol] and upstream fixes, frequency scaling improvement [c36361187702dbcb42a2 in the quorra repo], and others that I currently have time to go through one by one</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;zachy_md|busy&gt; *don't have time to</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-green">* TMC_Sherpa (~user@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;zachy_md|busy&gt; I'm not saying that CM7 is unstable - I'm only saying that my kernel is (potentially) *moar* stable</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;zachy_md|busy&gt; anonymous: no - I didn't - sorry :(</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;zachy_md|busy&gt; no - I'm not - that was not my intention</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;kang&gt; tbh i think many of the changes are potentially less stable because they're not understood</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;kang&gt; i don't rly mind of the claims tho</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;kang&gt; sometimes there's changes that interest me generally in kernels so i look them up and often decide stuff like:</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;kang&gt; a/ its useless</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;kang&gt; b/ its potentially unstable and brings nothing</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;kang&gt; c/ i don't understand it fully yet</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;kang&gt; d/ its good enough and i take it</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;kang&gt; ^^</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;kang&gt; sometimes ponies.</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;nitam|work&gt; kang, thanks - my thoughts precisely.</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;zachy_md|busy&gt; anonymous: <a href="http://forum.xda-developers.com/showpost.php?p=13469275&amp;postcount=259">http://forum.xda-developers.com/showpost.php?p=13469275&amp;postcount=259</a></span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;zachy_md|busy&gt; anonymous: come one man: I'm pointing atinm and the others, e.g. to updated wifi drivers (which got merged) and other improvements</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; anonymous: it's only that I don't have the time to be here all the time :p</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;kang&gt; actually it'd be nice to fully integrate JVB wifi driver</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;kang&gt; if u feel like it</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;kang&gt; that would make ppl happy battery wise i guess (wont solve rild but that's 1 on 2 lol)</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;zachy_md|busy&gt; kang: actually the current issues seems to be more 3G power draw than wifi</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;kang&gt; yes and no its not rly 3G its the pooling of rild as far as i understand it</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;kang&gt; and wifi is a separate issue</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;kang&gt; but an issue non the less</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;kang&gt; the advantage with wifi is that its easier to fix</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;kang&gt; its just not so fun to do</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;kang&gt; i've looked shortly at the sgs2 code also</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;zachy_md|busy&gt; kang: currently my time I can dedicate towards cm7 and/or kernel is very limited</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;zachy_md|busy&gt; (study)</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;kang&gt; there seems to be many more places where the sgs2 board can disable stuff</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;kang&gt; in sgs1 theres just no hardware to do it sometimes</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;zachy_md|busy&gt; anonymous: you mean my country code ?</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;kang&gt; zachy_md|busy: well its just an idea</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;zachy_md|busy&gt; anonymous: yeah, english is unfortuately not my native language / mother tongue (as much as I'd like it to be) - I hope the post I wrote and linked to makes things clearer</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;zachy_md|busy&gt; anonymous: clear :)</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;codeworkx&gt; neeeeeed Unhelpful</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;nitam|work&gt; what is this MMS thing that keeps popping up?</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;Kaik541&gt; mnita|work, SMSC number somehow gets lost</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67 had this problem a long ass time ago</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;Kaik541&gt; it seems to have suddenly hit a bunch of users simultaneously though</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;techmik67&gt; i had to flash tosk and resotre the #</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;techmik67&gt; stock*</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;Kaik541&gt; the weird thing, I don't know how it could be happening</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;Kaik541&gt; since SMSC is received from the carrier and marked on the SIM</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;nitam|work&gt; maybe when we change signatures?</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;nitam|work&gt; we went from nexus s to galaxys back to nexus s</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;nitam|work&gt; the network doesn't like it?</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work: apologies for my (unclear) statement made - I hope you accept it: <a href="http://forum.xda-developers.com/showpost.php?p=13469275&amp;postcount=259">http://forum.xda-developers.com/showpost.php?p=13469275&amp;postcount=259</a></span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;nitam|work&gt; I dunno . . .</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;Kaik541&gt; but the SMSC number is never set in android... it just gets READ by android (as I see it)</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: cannot write to cache while 1st update. BML -&gt; MTD. need a reboot first. but Unhelpful can do it. we can check for /system/build.prop in 1st stage init. if it doesn't exist simply boot into recovery</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;Kaik541&gt; the number is actually on the SIM</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;Kaik541&gt; and sent out by the provider</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; yes, I read it. thanks - but the point remains, if you have things that work better, send pull requests.</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; I mean that the provider didn't like us somehow</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; because we sent something.</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; but don't know what ..</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;Kaik541&gt; probably doesn't like phones that can sideload apps</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;nitam|work&gt; and explain why you think it is better in the pull request if not obvious</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: yes</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work: the problem actually is: if I open up a pull request dozens of commits are included</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work: or am I doing something wrong</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful is actually thinking about this too, so you two need to get together. hopefully he'll be on later.</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work: my git-fu / github-fu clearly is not pretty strong yet - lacking much experience</span><br />
+<span class="irc-date">[16:20]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: call it emergency boot. ;-)</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; zachy_md|busy: and easy way is to just clone our kernel tree (which you must have done already)</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; and then cherry-pick the commits you want from your branch</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;nitam|work&gt; and then send a pull request on that.</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; you can maintain two branches, one that is yours, one that the clean teamhacksung kernel</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; there are many ways to do it..</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; same way that you would send up changes to CM on gerrit.</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; you should also collapse multiple commits</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;nitam|work&gt; before sending a pull request if you made many commits for the same feature</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;nitam|work&gt; have to go</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work: thanks ! &amp; cya</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;Wout`&gt; could someone with a sammy headset test something for me/</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;Wout`&gt; ?</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-green">* Fire2fly (~Fire2fly@83.247.28.56) has joined this channel.</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;mikebeecham&gt; goood evening</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;mikebeecham&gt; have there been any reports of getting stuck in boot on 0405?</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;mikebeecham&gt; just flashed and I get as far as the android on a skateboard</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;Wout`&gt; yes</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;Wout`&gt; guiper was trying to debug it</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;Wout`&gt; can you adb?</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;mikebeecham&gt; ahhh ok</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;mikebeecham&gt; not tried</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;mikebeecham&gt; what do you need?</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;Wout`&gt; logcat and/or dmesg I guess</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;mikebeecham&gt; ahhh no, I cant...no lead at the moemnt</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;Wout`&gt; if adb is working</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;mikebeecham&gt; moment**</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-green">* zachy_md|busy (~zacharias@chello084114179145.16.15.vie.surfer.at) has left this channel.</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-green">* zachy_md|busy (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: btw: Something got broken when the developers played with the headset controls. Basically, Samsung and Nokia's headsets (The ones with the right pins for our Galaxy S) are constantly giving the play/pause music on our phones and starting the calls with Mute auto selected.</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: i9000</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;mikebeecham&gt; hmmm</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;mikebeecham&gt; interesting</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;Wout`&gt; confirmed, thats why I was looking for someone to confirm</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;mikebeecham&gt; I've just tried to flash back to 0503 and this is not getting past the Cyanogen boot animation either</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;Wout`&gt; start music player --&gt;pause --&gt; plug in headset--&gt;weirdness</span><br />
