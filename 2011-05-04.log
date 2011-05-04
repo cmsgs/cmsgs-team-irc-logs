@@ -1088,3 +1088,65 @@
 <span class="irc-date">[6:49]</span> <span class="irc-black">&lt;chaembian_&gt; Usually, when I return back from home it'll be single digits if its not turned off</span><br />
 <span class="irc-date">[6:49]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
 <span class="irc-date">[6:59]</span> <span class="irc-green">* mothatt (~mothatt@CPE-124-189-160-142.rsqv1.lon.bigpond.net.au) has joined this channel.</span><br />
+<span class="irc-date">[7:00]</span> <span class="irc-navy">* Zcz (4b6dd217@gateway/web/freenode/ip.75.109.210.23) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-green">* Wout (~Wout@office.tweaknet.net) has joined this channel.</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Quit: GuiPer)</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;chaembian_&gt; Kaik541, Unhelpful: Should reboot to recovery be tested?</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;Kaik541&gt; yes</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;chaembian_&gt; OK, what else?</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;Kaik541&gt; battery life</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;Kaik541&gt; especially with wifi</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;chaembian_&gt; ok</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;chaembian_&gt; I don't see reboot to recovery from the power menu</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;clandmeter&gt; under reboot</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;chaembian_&gt; ah</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;chaembian_&gt; thank you, clandmeter</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;clandmeter&gt; yw</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;chaembian_&gt; reboot to recovery works like a charm :)</span><br />
+<span class="irc-date">[7:21]</span> <span class="irc-black">&lt;chaembian_&gt; very nice!</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;chaembian_&gt; hmmm, plugged in the usb to capture dmesg. Phone is rebooting (from CWM)</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;chaembian_&gt; That's how it works?</span><br />
+<span class="irc-date">[7:24]</span> <span class="irc-black">&lt;clandmeter&gt; not for me</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;clandmeter&gt; oh your in clockworkmod when you plug it in?</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;chaembian_&gt; I was in the recovery menu. I plugged in the USB to capture dmesg. It's rebooting. It did not reboot for you clandmeter?</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;chaembian_&gt; clandmeter: yes</span><br />
+<span class="irc-date">[7:25]</span> <span class="irc-black">&lt;clandmeter&gt; i didnt try that</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-black">&lt;clandmeter&gt; i did end up in a bootloop after installing the latest gapps, but then adbd wasnt started yet so i had to hard reboot.</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;chaembian_&gt; android on skateboard for sometime now</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-black">&lt;clandmeter&gt; i gave it 5 min after i got tired and rebooted and it worked</span><br />
+<span class="irc-date">[7:28]</span> <span class="irc-black">&lt;chaembian_&gt; OK, I'll wait for some more time</span><br />
+<span class="irc-date">[7:28]</span> <span class="irc-black">&lt;chaembian_&gt; adb devices sees the unit</span><br />
+<span class="irc-date">[7:28]</span> <span class="irc-black">&lt;chaembian_&gt; but adb commands are not responding</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;clandmeter&gt; you have a prompt?</span><br />
+<span class="irc-date">[7:29]</span> <span class="irc-black">&lt;chaembian_&gt; adb shell is not responding also</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;clandmeter&gt; adbd is probably not running</span><br />
+<span class="irc-date">[7:30]</span> <span class="irc-black">&lt;clandmeter&gt; but the com port is alive so it tries to enter (if im not mistaking)</span><br />
+<span class="irc-date">[7:34]</span> <span class="irc-black">&lt;chaembian_&gt; about ten mins now</span><br />
+<span class="irc-date">[7:34]</span> <span class="irc-black">&lt;chaembian_&gt; restarting</span><br />
+<span class="irc-date">[7:36]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;chaembian_&gt; rebooting to recovery with usb plugged</span><br />
+<span class="irc-date">[7:40]</span> <span class="irc-black">&lt;chaembian_&gt; no issues whatsoever</span><br />
+<span class="irc-date">[7:41]</span> <span class="irc-black">&lt;chaembian_&gt; adb reboot</span><br />
+<span class="irc-date">[7:41]</span> <span class="irc-black">&lt;GuiPer&gt; stuck on android looks like an issue with sensors</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;GuiPer&gt; happens from time to time</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;GuiPer&gt; :(</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;GuiPer&gt; but no idea why...</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;GuiPer&gt; *android with skate</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;chaembian_&gt; adb reboot went fine</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;GuiPer&gt; if you are stuck in android with skate for long time</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;GuiPer&gt; just reboot and it will work</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-black">&lt;GuiPer&gt; sorry for it :)</span><br />
+<span class="irc-date">[7:43]</span> <span class="irc-black">&lt;chaembian_&gt; adb reboot recovery -- works fine</span><br />
+<span class="irc-date">[7:44]</span> <span class="irc-black">&lt;chaembian_&gt; GuiPer: Sorry for what? i'm having the time of my life. ;)</span><br />
+<span class="irc-date">[7:44]</span> <span class="irc-black">&lt;chaembian_&gt; Devs rock. i'm trying to learn.</span><br />
+<span class="irc-date">[7:45]</span> <span class="irc-black">&lt;Kaik541&gt; GuiPer, Y U NO MAKE MAGICAL SENSOR FIX ALL THINGS</span><br />
+<span class="irc-date">[7:47]</span> <span class="irc-black">&lt;chaembian_&gt; in cwm recovery -- plugged out and back in the usb. no reboot.</span><br />
+<span class="irc-date">[7:47]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[7:50]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[7:52]</span> <span class="irc-black">&lt;chaembian_&gt; reboot recovery from the power menu with the cable plugged in. Cable plugged out when the screen goes blank. Into cwm recovery. Plugging the usb, no reboot.</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-black">&lt;chaembian_&gt; plugging the usb in cwm doesn;t seem to trigger reboots any more.</span><br />
+<span class="irc-date">[7:56]</span> <span class="irc-black">&lt;chaembian_&gt; that's about it ..</span><br />
+<span class="irc-date">[7:57]</span> <span class="irc-black">&lt;chaembian_&gt; Starting for work</span><br />
+<span class="irc-date">[7:57]</span> <span class="irc-black">&lt;chaembian_&gt; catch you guys later</span><br />
+<span class="irc-date">[7:57]</span> <span class="irc-navy">* chaembian_ (~chaembian@122.174.106.91) Quit (Quit: WeeChat 0.3.2)</span><br />
