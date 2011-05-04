@@ -1174,3 +1174,47 @@
 <span class="irc-date">[9:52]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
 <span class="irc-date">[9:55]</span> <span class="irc-black">&lt;atinm|night&gt; damn it.</span><br />
 <span class="irc-date">[9:55]</span> <span class="irc-black">&lt;atinm|night&gt; missed a bloody 0.</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;Wout`&gt; if you dont mind me asking, what effect does that value have? (and yes, I'm back on cm7 ready to help testing ;) )</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;clandmeter&gt; atinm|night: latest release is impressive, accept for the occacional bootloop.</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;atinm|night&gt; bootloop == guiper is working on it</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;atinm|night&gt; sensors.</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-navy">* polyrhythmic (~polyrhyth@c-71-227-171-213.hsd1.wa.comcast.net) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;atinm|night&gt; Wout`: its how the battery level is compensated for in the kernel - I had a typo. So right now stats are jumping all over the place.</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;Wout`&gt; right, so i shouldnt trust batt stats on the latest nightly?</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;atinm|night&gt; right</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-green">* mothatt (~mothatt@CPE-124-189-160-142.rsqv1.lon.bigpond.net.au) has joined this channel.</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;Wout`&gt; k</span><br />
+<span class="irc-date">[10:12]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@59.97.72.83) has joined this channel.</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread atinm * c98cac3 (4 files in 1 dirs): Fixed battery rcomp value to be correct for Aries ... - <a href="http://bit.ly/iU4Jz4">http://bit.ly/iU4Jz4</a></span><br />
+<span class="irc-date">[10:25]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-green">* polyrhythmic (~polyrhyth@c-71-227-171-213.hsd1.wa.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;knowsnotmuch&gt; atinm|night, Y U No sleep</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;atinm|night&gt; I got 6 hours :)</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;atinm|night&gt; well, more like 5</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;atinm|night&gt; but still :)</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;knowsnotmuch&gt; lol</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;atinm|night&gt; really hope guiper can find this hang bug</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;atinm|night&gt; just hit it again</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;atinm|night&gt; well, off for a bit</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;atinm|night&gt; rebuilding the world</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;atinm|night&gt; for kernel bug fix</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;knowsnotmuch&gt; the battery?</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;atinm|night&gt; all</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-black">&lt;atinm|night&gt; its a problem with how the kernel is reading the amount of power in the battery</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;atinm|night&gt; is fixed, just have to rebuild</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;knowsnotmuch&gt; yeah - was suprised to see it bump UP by 4-5% :)</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;atinm|night&gt; that's ok - you'll also see if drop by the same amount :)</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;atinm|night&gt; and then jump back up</span><br />
+<span class="irc-date">[10:30]</span> <span class="irc-black">&lt;knowsnotmuch&gt; yes :))</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread atinm * fd1a797 (4 files in 1 dirs): Fixed battery rcomp value to be correct for Aries ... - <a href="http://bit.ly/kDGI9B">http://bit.ly/kDGI9B</a></span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;kang&gt; atinm|night: i guess that typo was +- my fault lol. I prolly wrote to you with the missing 0 or smth</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;kang&gt; at least we know exactly what it calibrates now! *cough*</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-navy">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;atinm|night&gt; yup :)</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;atinm|night&gt; back in a bit. its building, so I'll try to get ready for work before kid wakes</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;uoWt|work&gt; kang: do you have a link to the new gtalk?</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;kang&gt; nuh</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
