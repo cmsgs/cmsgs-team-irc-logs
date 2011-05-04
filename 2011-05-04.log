@@ -1893,3 +1893,146 @@
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;nitam|work&gt; koush, still the android guy</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;koush&gt; codeworkx: extendedcommand</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;nitam|work&gt; after delete</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;koush&gt; mnita|work: ok ill do the proper fix later</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;koush&gt; i need to patch up the device entry for RM</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, no one is really stuck on this.</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: i'm here now. not for long really. :)</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; if koush has time, link us to your review and explain :)</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: need to boot into recovery if /system/build.prop is missing (no system installed yet)</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: automatically</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; I can't find your review - am I not on the list?</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: sec man. lets get koush to look over our Makefile changes first</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://review.cyanogenmod.com/5015">http://review.cyanogenmod.com/5015</a></span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;techmik67&gt; thats unhelpfuls</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;nitam|work&gt; koush wasn't on the review list</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;nitam|work&gt; just added him</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: you are too nw :)</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, added myself</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;nitam|work&gt; and that diff is just plain scary and impossible to read :-(</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;nitam|work&gt; I hate diff sometimes.</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;Unhelpful&gt; huh? not really, it's mostly big because of code-movement</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, but I can't see the logic without opening the file itself.</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;nitam|work&gt; so, sec :)</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;Unhelpful&gt; the recovery ramdisk contents are moved up to right after boot ramdisk, the ramdisks get separate targets for .cpio and .cpio.gz, and anything that derives from one of those is changed to use that as a dep.</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;Unhelpful&gt; basically, cpio and cpio.gz archives of ramdisk contents are now always available as dependencies for other things... like our custom boot.img target :)</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;nitam|work&gt; ok, I think.</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;nitam|work&gt; what is the "normal" target - BOARD_USES_MKIMAGE?</span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;nitam|work&gt; I mean, define</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;nitam|work&gt; do we still need the BOARD_USES_COMBINED_RECOVERY?</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;nitam|work&gt; I can grep that..</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;Unhelpful&gt; no, we build a boot.img that depends on ramdisk.cpio.gz and recovery.cpio.gz</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;nitam|work&gt; anyone here with a nook color?</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;nitam|work&gt; that can test a build on that to make sure?</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;nitam|work&gt; we haven't tested on anything but SGS I would guess.</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;nitam|work&gt; I think I understand. but Koush is the one who has to look at it. off for a bit.</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;nitam|work&gt; anyone have the initramfs for jvb online anywhere?</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;nitam|work&gt; and /system?</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;techmik67&gt; i have the original kernel and "platform" that they released posted on my github page</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;nitam|work&gt; no, not that</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;nitam|work&gt; I mean the actual on device that someone dumped off the phone</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;nitam|work&gt; like all the /system binaries etc</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: curio</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;Wout`&gt; didnt curio setup a repo for that?</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: project-voodoo. there are all ramdisks</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;Wout`&gt; <a href="https://github.com/project-voodoo/linux_gt-i9000">https://github.com/project-voodoo/linux_gt-i9000</a></span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;Wout`&gt; ?</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-green">* dasunsrule32 (~dasunsrul@149.169.237.176) has joined this channel.</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/project-voodoo/samsung_initramfs">https://github.com/project-voodoo/samsung_initramfs</a></span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/project-voodoo/samsung_initramfs/tree/master/gingerbread-i9000xwjvb">https://github.com/project-voodoo/samsung_initramfs/tree/master/gingerbread-i9000xwjvb</a></span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;nitam|work&gt; found it. want the playlpm, immvibed and charging_mode binaries</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;nitam|work&gt; to see if they are TW</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;nitam|work&gt; or not</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;codeworkx&gt; immvibed is vibrator. no need</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;nitam|work&gt; playlpm must be the interface or something..</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;nitam|work&gt; some sort of infinite loop that plays something on the screen (I forget what lower power charging mode did on samsung roms :) )</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;nitam|work&gt; charging_mode is the one we most probably care about</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;codeworkx&gt; playlpm should be the offmode charging screen</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Kaik541&gt; which loads some qmg files from /system</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;codeworkx&gt; but our kernel doesn't handle this</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Kaik541&gt;  err /system/media</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;nitam|work&gt; not yet</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;nitam|work&gt; it could after I'm done..</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;techmik67&gt; brb... dog walk... building the sound test......</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;nitam|work&gt; it is basically a kernel boot that doesn't do anything but go into low power mode</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;nitam|work&gt; we could maybe use jvb charging_mode binary if it is straight C without android hooks</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;nitam|work&gt; that just does some processor init to lower power charging mode</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: should work</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;codeworkx&gt; but we have to pass the bootmode</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;codeworkx&gt; hack it into our kernel</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;nitam|work&gt; yes. I'm thinking of a way to do it using a similar hack to .startrecovery</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;nitam|work&gt; .startlpm</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;nitam|work&gt; that when you "reboot into lpm mode"</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;nitam|work&gt; or something</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;nitam|work&gt; it reboots into that mode :)</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;nitam|work&gt; it seems we cannot charge our phones if battery is dead.</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;nitam|work&gt; that is not good.</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;nitam|work&gt; back later.</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: if i have a script or binary that can tell me we're in lpm mode, i can work something into stage1 ;)</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;nitam|work&gt; but find me the jvb binaries</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;nitam|work&gt; and we could do it.</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; there is USGSM code for that, not sure what I9000 does just don't ask me where it is right now</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;nitam|work&gt; later...</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: i need auto boot into recovery if build.prop is missing for 1 step initial</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;Unhelpful&gt; probably best to just do it w/ "mv /lpm.rc /init.rc" :)</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: oh, you're working on that? look in &lt;kernel&gt;/usr/, everything is in there</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;Unhelpful&gt; it's just a shell script, adding another condition to trigger recovery isn't hard</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: yes. thats the only thing i'm missing. if theres no build.prop recovery should start and automatically apply the initial zip ;-)</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;Wout`&gt; [22:27] &lt;@mnita|work&gt; it seems we cannot charge our phones if battery is dead. -- so if it runs out, i'm left with a brick?</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-brick">* Unhelpful has run his phone dead on CM7...</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-brick">* Wout` is currently doing that :P</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;Unhelpful&gt; lots of other phones handle this *fine* w/o a LPM</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;Wout`&gt; just want to be sure it boots up again when I plug it in</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;Kaik541&gt; I'm pretty sure my phone died once or twice on CM7 and I managed to charge it</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;techmik67&gt; back</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;Kaik541&gt; the person who said he couldn't charge it sounds like a bum battery or a port not strong enough to charge it</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-green">* DocMAX (~docmax@g224154084.adsl.alicedsl.de) has joined this channel.</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-green">* mikebeecham (~mikebeech@78.150.13.69) has joined this channel.</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-green">* blyfoten (~AndChat@c-3dd8e455.04-17-73746f2.cust.bredbandsbolaget.se) has joined this channel.</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-navy">* t-ready (~burrell@wormhole.cbl.umces.edu) Quit (Quit: Captivate - Phoenix ROM)</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-green">* Fire2fly (~Fire2fly@83.247.28.56) has left this channel.</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;nitam|work&gt; now he is even more screwed . ..</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;nitam|work&gt; download mode but not recognized.</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;nitam|work&gt; I am ignoring.</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;nitam|work&gt; get tired of the crap</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;nitam|work&gt; its his port that is bad</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;nitam|work&gt; can't charge, randomly recognizes and not recognizes...</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;nitam|work&gt; if he had a vibrant, I'd just tell him to give up and ship it to me and get a new phone</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;techmik67&gt; TMC_Sherpa: listeniing t music now thru stock headset</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k left and right sounds correct?</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; phone calls work?</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;nitam|work&gt; Wout`: you running jvb?</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;nitam|work&gt; or anyone?</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;techmik67&gt; button pauses and then unpauses....</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Wout`&gt; nope, back on cm</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;nitam|work&gt; k..</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;Wout`&gt; techmik67: i9000?</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; need someone to adb pull /system/bin/charging_mode</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; and adb pull /system/bin/playlpm for that matter</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; jvb</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;techmik67&gt; worked for phecall</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-brick">* TMC_Sherpa added the captivate fixes but put them in an ifdef so they wouldn't be used for the first test...is currently more confused than usual</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;techmik67&gt; phone*</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; play music and accept an incoming call?</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_kernel_samsung/commit/51426fc86a6332bbfd7b08779bd88b952625212d">https://github.com/techmik/android_kernel_samsung/commit/51426fc86a6332bbfd7b08779bd88b952625212d</a></span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;techmik67&gt; made outgoing call</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;Wout`&gt; techmik67: try starting music app, pausing, then pluggin in headset</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;Wout`&gt; and resuming</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;techmik67&gt; works</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; there ya go, have someone who knows what the problem is tell you what to look for</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;Wout`&gt; techmik67: great, because thats borked on the nightly</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; tech is on captivate</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;Wout`&gt; ah</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;Wout`&gt; these changes cappy only?</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: loop mount the factoryfs.rfs</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no but I sent them to him first to test</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;Wout`&gt; i'd be willing to test if someone can compile a i9000 build for me</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;techmik67&gt; i received a call too</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;techmik67&gt; all good</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, if you enjoy my flair in the forums, you'll like my last two comments in the cm7 thread</span><br />
