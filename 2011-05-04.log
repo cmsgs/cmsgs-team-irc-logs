@@ -1718,3 +1718,73 @@
 <span class="irc-date">[17:41]</span> <span class="irc-brick">* TMC_Sherpa wonders why samsung didn't just set MICBIAS_EN to point to the correct gpio instead of adding _EN2</span><br />
 <span class="irc-date">[17:43]</span> <span class="irc-black">&lt;zachy_md|busy&gt; mnita|work: 2 pull requests incoming - that's all I can do for now :)</span><br />
 <span class="irc-date">[17:47]</span> <span class="irc-navy">* Frd^ (~frd@idlaa.com) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; does the headphone thing work on any GB? or just not us 'cus I think I found at least part of it</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;Wout`&gt; works fine on jvb</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k, lemme dig over there a sec</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;aarcane&gt; will a corrupted update download fail signature verification ?  (I'd assume it would, but I hate making assumptions)</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-green">* ciwrl|away is now known as ciwrl</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-green">* chaembian|l1 (~chaembian@122.174.167.147) has joined this channel.</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-navy">* chaembian|l1 (~chaembian@122.174.167.147) Quit (Client Quit)</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;UberPinguin&gt; Any hints what might cause an incoming call to not activate InCallScreen? I hear a quiet ringing sound, but no way to answer and it continues after the call has disconnected.</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-green">* chaembian (~chaembian@122.174.167.147) has joined this channel.</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;chaembian&gt; Morning folks</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-green">* koush (~koush@c-98-232-66-164.hsd1.wa.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;UberPinguin&gt; Hi</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;aarcane&gt; mornin'</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;zachy_md|busy&gt; morning chaembian</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;nitam|work&gt; hi koush</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;nitam|work&gt; sorry, just got the notifications</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;nitam|work&gt; sec, looking at the code</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;nitam|work&gt; koush: ok - but the idea would be the same as TARGET_RECOVERY_PRE_COMMAND that is used on android_os_Power.cpp</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;nitam|work&gt; since I actually don't want to change android_os_Power.cpp</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-green">* Frd^ (~frd@idlaa.com) has joined this channel.</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;nitam|work&gt; that's why I kept the TARGET_RECOVERY_PRE_COMMAND in.</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;koush&gt; yeah</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;koush&gt; but i mean you can literally take that define</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;koush&gt; and add it to the loop below</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;koush&gt; and then use TARGET_RECOVERY_PRE_COMAND</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;koush&gt; in the recovery .c files</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;nitam|work&gt; ok, then cool</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;nitam|work&gt; just didn't want to have to add another BOARD_xxx</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;koush&gt; right</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;koush&gt; thats fine</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;nitam|work&gt; alright, will send up the other.</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;nitam|work&gt; in a few.</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;nitam|work&gt; and then you get to do ROMManager for us :)</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;nitam|work&gt; echo 1 &gt; /cache/.startrecovery</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-navy">* mikebeecham (~mikebeech@78.150.13.69) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hrm, we're still using herring sound sources instead of I9000</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;Wout`&gt; using it</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;Wout`&gt; and its in drawer</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;Wout`&gt; no, this one</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;Wout`&gt; <a href="http://www.mediafire.com/?pq6ji8c0pl9kcq9">http://www.mediafire.com/?pq6ji8c0pl9kcq9</a></span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;Wout`&gt; just made a call from honeycomb to my sgs, worked fine with video</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; crazy suggestion here, but I think we should change our wm8994 shit to be I900GB source re fix the two captivate lines and see what breaks....techmik67 what are you up to right now :)</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;techmik67&gt; not a thing, afaik</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;zachy_md|busy&gt; TMC_Sherpa how about the SRP config thing for the sound driver ?</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;Kaik541&gt; anybody in the US got a WD harddrive and want to upgrade it? <a href="http://websupport.wdc.com/store/upgrade/products.asp?custtype=end&amp;lang=en">http://websupport.wdc.com/store/upgrade/products.asp?custtype=end&amp;lang=en</a></span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k, lemme think for a sec, I can't compile (or do anything really) let me see what those two captivate changes are about</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;uberushaximus&gt; TMC_Sherpa: I'm a captivate user too :)</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah but I'll let tech figure out how to break your phone :P</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;zachy_md|busy&gt; Kaik541 interesting offer: why on earth is this alway only limited to the US &amp; Canada</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;zachy_md|busy&gt; :(</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;nitam|work&gt; koush: patchset 2 uploaded</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;zachy_md|busy&gt; Kaik541: I've several WDD harddrives and the only thing I can say: good stuff ^^</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;techmik67&gt; i have a 2 tb hdd</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; all I know is (almost) everything is different between what we've got and GB, most of it looks like typical BS changes (+18dB vs +19.5dB) but there are a ton of them</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;techmik67&gt; could get another, bigger drive and have 2... =)</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;uberushaximus&gt; zachy_md|busy: I'll take your serials ;)</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;nitam|work&gt; TMC_Sherpa: agreed. use I9000  sources</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;techmik67&gt; i'll clean</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;nitam|work&gt; have to go . . . wiresharking</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;nitam|work&gt; so techmik67 gets to test your suggestions</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;techmik67&gt; what shoult i check now to baseline?</span><br />
