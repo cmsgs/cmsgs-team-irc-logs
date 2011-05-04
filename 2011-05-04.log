@@ -939,3 +939,71 @@
 <span class="irc-date">[3:58]</span> <span class="irc-black">&lt;techmik67&gt; it looks like build/tools/buildinfo.sh is where its set</span><br />
 <span class="irc-date">[3:58]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: ...yes, what i'm saying is that if you have more than one "proper update" zip, judging which is newest by the filename, from a shellscript, is a pain because they will not sort correctly :(</span><br />
 <span class="irc-date">[3:58]</span> <span class="irc-black">&lt;techmik67&gt; the name</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, why do you want to search for update zip's in the script?</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: .... because how else is the conversion supposed to automatically complete after you flash the "initial" update?</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;Kaik541&gt; I don't know, I'm asking more to understand than question you</span><br />
+<span class="irc-date">[4:04]</span> <span class="irc-black">&lt;Unhelpful&gt; suppose we make a "generic" prep zip - once it's done getting you prepared, are you ready to install? either it needs to find the update zip first, or some idiot will flash it without even having one available, and then you tell them they need adb, etc.</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-navy">* gdanko (~gdanko@ip68-111-171-185.sd.sd.cox.net) Quit (Quit: Computer has gone to sleep)</span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; OK who wants to go over this with me <a href="http://pastebin.com/1zqrSVvW">http://pastebin.com/1zqrSVvW</a></span><br />
+<span class="irc-date">[4:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 'cus it looks like my gpio changes are good</span><br />
+<span class="irc-date">[4:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; lists the defines, then what is in CM then the t959 source</span><br />
+<span class="irc-date">[4:14]</span> <span class="irc-black">&lt;chaembian_&gt; TMC_Sherpa: just tell me what I should do ;)</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-navy">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; just make sure a line like {S5PV210_GPA0(4), S3C_GPIO_SLP_PREV, S3C_GPIO_PULL_UP}, is the same in both parts</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the only part where things get janky is the GPJ2 section 'cus I grouped the stuff in CM and it's separate in t959 but I included the ifdef from both, in samsung land a t959 is CONFIG_S5PC110_T959_BOARD</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;chaembian_&gt; OK</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;chaembian_&gt; Each chunk starts with a defines?</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yes, those are mostly for me, to see what they are used for</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so if I screwed up GPA0(4) thats GPS_UART_RXD</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but the CONFIG_SAMSUNG_VIBRANT part should look the same as the CONFIG_T959_BOARD part</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; GPG3(6) doesn't have an alternate name per say so I just included the comments</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and the function names where it is used</span><br />
+<span class="irc-date">[4:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the sammy source could be wrong, there is one section where an ifdef in the captivate source is commented out in vibrant so it uses the galaxy stuff instead, I didn't include that part 'cus I assume they know what they are doing...ha....haha....HAHAHAHAHA, oh sometimes I kill myself</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;chaembian_&gt; :)</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;chaembian_&gt; I did not get the part for S5PV210_GPH3</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;chaembian_&gt; S5PV210_GPH3(4)</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; interesting, the commented out section is for  GPIO_FM_SDA_28V  GPIO_FM_SCL_28V</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;chaembian_&gt; OK, I compared it with the sdhci.c file you had provided earlier</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh yeah that part is set up different 'cus its not in settings.h</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the first part is my diff3 output for that file</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 1=captivate 2=vibrant 3=galaxys</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the 3 says that the 3rd file is different than the first 2</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I listed the whole function ('cus its small) from the cm source then the t959</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so its PULL_UP for us but NONE for galaxys</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm not going to say your phone isn't choking on something, I just don't think it's me</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;chaembian_&gt; OK!</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;chaembian_&gt; The defs matches up</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; \o/ victory smoke, back in a bit</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;chaembian_&gt; :)</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-brick">* Unhelpful guesses he ought to ask for his rma number, shipping label, etc, back up his laptop, and wipe anything sensitive...</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;chaembian_&gt; laptop is a goner?</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;Unhelpful&gt; laptop is sandy bridge</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ouch, early controller?</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;Unhelpful&gt; just gonna get a new mobo. but i don't really trust them not to fuck up my data, or just wipe it "because that's procedure", etc.</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;chaembian_&gt; TMC_Sherpa: early controller?</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I didn't think there was a problem with laptops 'cus they would just use the SATA ports that were good?</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;chaembian_&gt; Sandy bridge has issues?</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: dual hdd - so the opticalis on one of the bad ports</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; bad clock or something, it can eat data</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;Unhelpful&gt; chaembian_: the first two sata ports are fine, the rest will gradually die over time. it's the first generation of chipsets for it that are screwed, not the CPU.</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dual hdd? in a laptop? must be nice</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: well, the link error correction will handle it aiui... so it'll just get slower, and slower, and slower, as the error rate creeps up.</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;Unhelpful&gt; well, they have to find *something useful to do w/ all the space you get from fitting it w/ a 17" screen ;)</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; damn dude, hopefully its bigger than 1366</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;chaembian_&gt; What chipset is that?</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; official intel, don't remember the part number</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;chaembian_&gt; 1155</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-black">&lt;Unhelpful&gt; chaembian_: the hm65/hm67 - i believe their codename is "cougar point", do they name their motherboard parts after mountains or something?</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I thought it was rivers</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but maybe thats platforms or cpu or something</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;chaembian_&gt; I was to buy a laptop for my wife today and postponed it to tomorrow</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: the CPUs are rivers, but the motherboard ones all seem to be something peak, point, etc... so mountains, i guess.</span><br />
+<span class="irc-date">[4:45]</span> <span class="irc-black">&lt;Unhelpful&gt; &lt;3 that my "reseller" is one guy afaict</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;chaembian_&gt; aargh, looks like the laptop I shortlisted to buy has this bug as well</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;chaembian_&gt; not exactly</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;chaembian_&gt; the chipset (hm65) has been marked so</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;Kaik541&gt; ugh, who would make a kernel with adb disabled</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; samsu...wait what?</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; chaembian_:  they released a version 2 that fixed the problem, not all hm65 have the bug, depends on build date</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or did they just fix hm67....crap lemme look</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-green">* ciwrl is now known as ciwrl|away</span><br />
