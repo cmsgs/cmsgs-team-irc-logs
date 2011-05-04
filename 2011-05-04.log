@@ -1332,3 +1332,57 @@
 <span class="irc-date">[12:56]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
 <span class="irc-date">[12:56]</span> <span class="irc-black">&lt;kang&gt; need datasheet.</span><br />
 <span class="irc-date">[12:59]</span> <span class="irc-green">* GuiPer_Work (c2e46026@gateway/web/freenode/ip.194.228.96.38) has joined this channel.</span><br />
+<span class="irc-date">[13:00]</span> <span class="irc-black">&lt;GuiPer_Work&gt; Hi</span><br />
+<span class="irc-date">[13:00]</span> <span class="irc-black">&lt;GuiPer_Work&gt; need help to get some dmesg and logcat from bootloop :S</span><br />
+<span class="irc-date">[13:01]</span> <span class="irc-black">&lt;kang&gt; hi</span><br />
+<span class="irc-date">[13:01]</span> <span class="irc-black">&lt;kang&gt; get a micro usb plub and a rsr232 stick?</span><br />
+<span class="irc-date">[13:01]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[13:01]</span> <span class="irc-black">&lt;clandmeter&gt; i can help (i think)</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;GuiPer_Work&gt; can somebody try to spam adb logcat</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;GuiPer_Work&gt; and hope for bootloop?</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;GuiPer_Work&gt; i cannot even reproduce it anymore... so can't fix</span><br />
+<span class="irc-date">[13:10]</span> <span class="irc-black">&lt;kang&gt; depends when the loop happen</span><br />
+<span class="irc-date">[13:10]</span> <span class="irc-black">&lt;kang&gt; if its too early that doesnt work</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;clandmeter&gt; i couldnt connect to adb when in bootloop</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;clandmeter&gt; seems to early in the init</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;GuiPer_Work&gt; kernel got tainted somehow... I assume</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;kang&gt; codeworkx/coolya say its possible to get a serial link</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;kang&gt; and it sounds rather easy</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;GuiPer_Work&gt; but if you connect before it should work</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;kang&gt; i mean the micro usb plug is like 1E</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;kang&gt; and the rsr232 is like 10E</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;kang&gt; then u just gotta solder stuff</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;kang&gt; useful for future kernel dev as well</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;GuiPer_Work&gt; my idea is to try to spam adb shell cat /proc/kmsg or adb logcat</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;kang&gt; yeah but if adb is not running yet</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;kang&gt; u don't get anything</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;GuiPer_Work&gt; it is running</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;GuiPer_Work&gt; try adb devices :)</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;kang&gt; i dont have boot loops ^^</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;kang&gt; when i do usually its a panic</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;kang&gt; =no adb</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;kang&gt; only serial works then ^^</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;GuiPer_Work&gt; if it crashes on cm logo with skate</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;GuiPer_Work&gt; yep, like that only serial</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;clandmeter&gt; i only had it ones, after that all boots are ok</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;GuiPer_Work&gt; on this case it's not really a crash somehow cpu gets hanged up (in some looop or similar)</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;kang&gt; yeah then ofc u can spam adb</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;kang&gt; i just do while true; do adb &lt;blah&gt; 2&gt;/dev/null; done</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;GuiPer_Work&gt; good idea.. the problem here is that my phone does not get hang on cm logo anymore :S</span><br />
+<span class="irc-date">[13:22]</span> <span class="irc-green">* gdanko (~gdanko@66-162-32-185.static.twtelecom.net) has joined this channel.</span><br />
+<span class="irc-date">[13:22]</span> <span class="irc-green">* Fire2fly (~Fire2fly@dsl-083-247-028-056.solcon.nl) has joined this channel.</span><br />
+<span class="irc-date">[13:27]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[13:27]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-black">&lt;knowsnotmuch&gt; codeworkx, atinm asked that you update XDA post - he has released a new update which fixes battery stats</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@59.97.72.83) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[13:36]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[13:42]</span> <span class="irc-green">* zachy_md (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-green">* zachy_md is now known as zachy_md|away</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;uoWt|work&gt; feels good to reboot recovery from power menu</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;codeworkx&gt; hehe</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;clandmeter&gt; codeworkx: antimn asked if you can update xda topic</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;codeworkx&gt; already done</span><br />
