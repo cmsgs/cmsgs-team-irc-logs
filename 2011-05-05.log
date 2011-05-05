@@ -824,3 +824,118 @@
 <span class="irc-date">[16:54]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
 <span class="irc-date">[16:55]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
 <span class="irc-date">[16:58]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, I would imagine CAM_VGA_nSTBY == front facing camera (in standby mode?)</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it gets used by both cameras</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;Kaik541&gt; well with samsung, both cameras are always on</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;Kaik541&gt; at least taht's what I think coolya|away said</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; they are both connected together on the other side of the video processor, its a replaceable unit on a ribbon</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-navy">* Zilch25 (~Zilch25@166.194.120.185) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dono where we got the mach-aries we are using, if its from GB or a copy from nexus.  the only stuff I've done in there was adding the 1026 for future use.  its the only other place those gpio get used in the kernel other than ce147 and s5ka3dfx</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;Kaik541&gt; I'm pretty sure the mach-aries we have is a port from mach-herring from the nexus s</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;kang&gt; i think its a mix :)</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;kang&gt; base is herring</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;Kaik541&gt; ^^</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh goodie</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; *sigh* well, I've got a copy of mach-mongrel, the nexus source and gb so I guess I can diff that crap out when I get home tonight</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;kang&gt; mach-aries from jvb i suppose</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;kang&gt; i looked at it the other day</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;kang&gt; replacing all our code with jvb's for camera</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;kang&gt; then!</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;kang&gt; well it didnt work.</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; are we using the cam files from jvb or froyo? I haven't looked at them, so I'm not even sure they are different</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-green">* AndChat| (~AndChat@m83-190-86-32.cust.tele2.se) has joined this channel.</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;Wout`&gt; dont think we're using jvb, not sure though</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;codeworkx&gt; need someone with samsung firmware on phone</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;techmik67&gt; Kaik541: ?</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;Wout`&gt; i was, but atin wanted to kick me out of the chan</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-navy">* blyfoten (~AndChat@m83-190-77-73.cust.tele2.se) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;Wout`&gt; so I flashed cm7 :P</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;techmik67&gt; isnt he on samsung?</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;Wout`&gt; he's on 2.2</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;codeworkx&gt; mach-aries is based on herring</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;Kaik541&gt; I am on a captivate with 2.2</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;Kaik541&gt; meaning I have no FFC</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;codeworkx&gt; with some additions from jvb</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;codeworkx&gt; need ffc</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;Wout`&gt; what do you need exactly?</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;codeworkx&gt; logcat of taking picture with ffc</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;Wout`&gt; hmm, might want to try #project-voodoo</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;Kaik541&gt; he already has xD</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hrm, we have more lines using gbp7 in our aries, not sure where they are all at.</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;Wout`&gt; fcc works awesome btw with videochat</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-green">* Zilch25 (~Zilch25@166.194.120.185) has joined this channel.</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;Wout`&gt; made a call to a galaxy tab 10.1 today over 3g</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;Wout`&gt; worked like a charm</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-navy">* Frd^ (~frd@idlaa.com) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;Kaik541&gt; anonymous, wrong box?</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;Kaik541&gt; thank god you're |anon xD</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;Kaik541&gt; that's not what the first line says :P</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;Kaik541&gt; sadly, not the worst save I've ever seen</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;techmik67&gt; just for my own safety, all i do is "/nick |anon"?</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;techmik67&gt; just checking =)</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;techmik67&gt; medically.... in a state where its legal.... =P see, you're finwe</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;techmik67&gt; fine*</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;techmik67&gt; must be all the weed....</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;Kaik541&gt; what's really funny is anyone reading the logs can't see what he's saying, so we jsut look like crazy people</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-green">* techmik67 is now known as techmik</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-green">* techmik is now known as techmik_</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;techmik_&gt; i added it as an option, now</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-green">* techmik_ is now known as techmik67</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;techmik67&gt; forgot i had the laptop anon</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;techmik67&gt; brb</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;codeworkx&gt; as far as i can see it, the ffc driver has nothing to handle a capture xD</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;codeworkx&gt; how they're doing this shit?</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;kang&gt; maybe its just snapped from the preview stream</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-navy">* Zilch25 (~Zilch25@166.194.120.185) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;knowsnotmuch&gt; codeworkx, you got the logs? want me to flash sam firmware?</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;codeworkx&gt; no, thanks.</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;codeworkx&gt; i'm sure we're not able to use libcamera from jvb.</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;codeworkx&gt; depends on overlay? depends on video driver? depends on whatever?</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;codeworkx&gt; -.-</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;kang&gt; could try to make an interface and fill with stubs ^^</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;codeworkx&gt; use jvb source and start fresh xD</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;kang&gt; or!</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;kang&gt; use i9100 source</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;kang&gt; cuz im changing phone soon =/</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;codeworkx&gt; whats i9100?</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;kang&gt; sgs2 lol</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;kang&gt; actually there might be some interesting code in there</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;codeworkx&gt; ah, the new crapwiz</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;codeworkx&gt; kang: totally different hardware</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;kang&gt; same touchkey!</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;kang&gt; didnt look at anything else</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;codeworkx&gt; touchkeys are fine xD</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;kang&gt; in the new one they added a regulator in front</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;kang&gt; so they can dim the touchkey</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;kang&gt; my dream! lol</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;codeworkx&gt; diff cpu, gpu, cam, ffc, display</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;kang&gt; i could make them pulse.</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;codeworkx&gt; diff memory</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;kang&gt; pulse!</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;kang&gt; same boot loader tho i think</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;kang&gt; i mean as far as porting CM goes</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;codeworkx&gt; omfg</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;kang&gt; kernel and drivers will be diff</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;nitam|work&gt; *slaps kang*</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;nitam|work&gt; get with it man!</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;kang&gt; damn, *he* wokes up</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-brick">* kang hides somewhere</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;codeworkx&gt; sammy doesn't learn anything</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;nitam|work&gt; buy an HTC!</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;nitam|work&gt; ;)</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;codeworkx&gt; fuct bootloaderz</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;nitam|work&gt; better than fucked rest of code if we can get around bootloader somehow.</span><br />
