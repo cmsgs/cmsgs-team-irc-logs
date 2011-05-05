@@ -123,3 +123,138 @@
 <span class="irc-date">[0:57]</span> <span class="irc-black">&lt;codeworkx&gt; i think</span><br />
 <span class="irc-date">[0:57]</span> <span class="irc-black">&lt;Unhelpful&gt; really, that looks to me like init is reporting the mtd partitions, for some reason.</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: it's reporting all partitions in init at (on-fs)</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;codeworkx&gt; is there some magic?</span><br />
+<span class="irc-date">[1:01]</span> <span class="irc-black">&lt;codeworkx&gt; there: <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/init.rc#L94">https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/init.rc#L94</a></span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-black">&lt;codeworkx&gt; it's doing stuff?</span><br />
+<span class="irc-date">[1:02]</span> <span class="irc-green">* chaembian (~chaembian@122.174.167.147) has joined this channel.</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;chaembian&gt; Good evening!</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;atinm&gt; I think our mtd driver does that</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;atinm&gt; porint out</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;atinm&gt; no, maybe not</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;atinm&gt; I remember seeing this code somewhere</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;codeworkx&gt; dmesg xD</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;atinm&gt; no, the code :)</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;Unhelpful&gt; here's where that message comes from: <a href="https://github.com/CyanogenMod/android_system_core/blob/gingerbread/init/util.c#L223">https://github.com/CyanogenMod/android_system_core/blob/gingerbread/init/util.c#L223</a></span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;codeworkx&gt; the mtd partitions are created at 2.53</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;codeworkx&gt; -.-</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;Unhelpful&gt; nothing is being done *to* the partitions. the are not being initialized. it just enumerates them and builds a list of partition number/name</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;techmik67&gt; i'm home</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;atinm&gt; going to suspend the usb switch</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;atinm&gt; if it isn't connected</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;atinm&gt; and we want to suspend the cpu</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;atinm&gt; so connecting it won't wake it up</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;atinm&gt; because I'm disabling its interrupts</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;atinm&gt; maybe that's a good thing.</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;atinm&gt; of course, I'm just writing a 0x1fff to the mask because the comment says 0x1ffc unmasks attach/detach ;)</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;codeworkx&gt; &lt;6&gt;[    3.319710] mmc0: new high speed MMC card at address 0001</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;codeworkx&gt; &lt;6&gt;[    3.324645] mmcblk0: mmc0:0001 M8G4DD 7.65 GiB</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;codeworkx&gt; &lt;6&gt;[    3.325021]  mmcblk0: p1 p2</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;codeworkx&gt; &lt;7&gt;[    3.366628] Universal : Card status 0</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;codeworkx&gt; &lt;6&gt;[    5.404547] yaffs: dev is 32505859 name is "mtdblock3" rw</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;codeworkx&gt; &lt;6&gt;[    5.404687] yaffs: passed flags ""</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;codeworkx&gt; &lt;7&gt;[    5.404801] yaffs: Attempting MTD mount of 31.3,"mtdblock3"</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;codeworkx&gt; &lt;7&gt;[    5.407523] yaffs: restored from checkpoint</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;codeworkx&gt; &lt;7&gt;[    5.407735] yaffs_read_super: isCheckpointed 1</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;atinm&gt; and I don't have a datasheet for the fsa chip</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;codeworkx&gt; can someone see my mount of system?</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;codeworkx&gt; mtdblock2</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;atinm&gt; not there</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;atinm&gt; should have happened earlier</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;codeworkx&gt; directly before mtdblock3</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/initial/usr/galaxys_initramfs_files/init#L18">https://github.com/teamhacksung/android_kernel_samsung/blob/initial/usr/galaxys_initramfs_files/init#L18</a></span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;codeworkx&gt; W T F</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;atinm&gt; hmm.</span><br />
+<span class="irc-date">[1:12]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: you re-ran the kernel build.sh, right? :)</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;atinm&gt; ..</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;codeworkx&gt; hmm?</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;atinm&gt; you have to build kernel</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;codeworkx&gt; i did</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;atinm&gt; for stage1</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;codeworkx&gt; cleaned</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;codeworkx&gt; and ./build.sh galaxys kernel</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;codeworkx&gt; i'm doing it always</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: exec &gt;&gt; /boot.txt 2&gt;&amp;1    ?</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;atinm&gt; yeah, that's what I was thinking</span><br />
+<span class="irc-date">[1:15]</span> <span class="irc-black">&lt;atinm&gt; need some logging</span><br />
+<span class="irc-date">[1:16]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: well, i didn't do *that* because i was concerned about whether or not init would care where its stdout/stderr pointed</span><br />
+<span class="irc-date">[1:17]</span> <span class="irc-black">&lt;codeworkx&gt; just want to know if it works or breaks anything</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, as a test, that ought to do. and set -x too. ;)</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;codeworkx&gt; whats -x ?</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;Unhelpful&gt; shell echoes every command it runs.</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;codeworkx&gt; does moount create mountpoints?</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;atinm&gt; no</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;Unhelpful&gt; nope.</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;codeworkx&gt; where is your cache point? or sysfs or proc?</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm&gt; I think he creates it</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;codeworkx&gt; another file?</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm&gt; in initramfs</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm&gt; wtf - wlan_wake</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm&gt; woke up my cpu</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: look at the initramfs.list files...</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;Unhelpful&gt; also why are there three of them now?</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: then that is the problem xD</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;Unhelpful&gt; probably. :)</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: need device name in 1st stage</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;atinm&gt; yeah, you do need the mount point :)</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;Unhelpful&gt; ohhhhh.</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;Unhelpful&gt; shame, it was nice to have them all unified. :(</span><br />
+<span class="irc-date">[1:24]</span> <span class="irc-black">&lt;Unhelpful&gt; right, so, add a "dir /system 755 0 0" in your .list :)</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;teamhacksung&gt; android_kernel_samsung: initial codeworkx * adb4ddc (4 files in 1 dirs): added missing mountpoint, blame codeworkx - <a href="http://bit.ly/jTkrfS">http://bit.ly/jTkrfS</a></span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;Unhelpful&gt; lol</span><br />
+<span class="irc-date">[1:25]</span> <span class="irc-black">&lt;codeworkx&gt; :-)</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;codeworkx&gt; ok, last try for now</span><br />
+<span class="irc-date">[1:27]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, fuck the /system</span><br />
+<span class="irc-date">[1:29]</span> <span class="irc-black">&lt;codeworkx&gt; can we make rommanager to flash cm7 initial? xD</span><br />
+<span class="irc-date">[1:31]</span> <span class="irc-black">&lt;codeworkx&gt; install cwm in rommanager flashes speedmod kernel. rommanager downloads 2 zips to sdcard, reboots and starts 1st zip, this one reboots, 1st stage init calls recovery and installs 2nd zip. pew pew</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;techmik67&gt; i am building</span><br />
+<span class="irc-date">[1:41]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: you're trying this beast?</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; lol, yup</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; same instructions you typed b4?</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; did we get any vibrant people to try the sound mods?</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; also</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; i am currently using something i kanged..... does anyone have a minute to look at it and tell me if it's at all useful?</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;codeworkx&gt; show</span><br />
+<span class="irc-date">[1:42]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_hardware_ril/commit/c135dc212bb739ac3a562c5622153ded8da9fd22">https://github.com/techmik/android_hardware_ril/commit/c135dc212bb739ac3a562c5622153ded8da9fd22</a></span><br />
+<span class="irc-date">[1:43]</span> <span class="irc-black">&lt;techmik67&gt; i dont notice anything.... phone works....</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-navy">* KBme (~KBme@2001:470:cabe:666:666:666:666:666) Quit (Quit: KBme kthxbye)</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-navy">* gehzumteufel (~gehzumteu@adsl-76-252-171-187.dsl.lsan03.sbcglobal.net) Quit (Quit: gehzumteufel)</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: it's doing stuff</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;techmik67&gt; lol, k</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;techmik67&gt; anything i sshould look for to test out, or just let it go and see what happens?</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;codeworkx&gt; see what happens</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-green">* KBme (~KBme@2001:470:cabe:666:666:666:666:666) has joined this channel.</span><br />
+<span class="irc-date">[1:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; IPv6 huh and not a moment too soon, we're going to have run out of v4 addresses about 10 years ago</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;codeworkx&gt; it's booting to android</span><br />
+<span class="irc-date">[1:48]</span> <span class="irc-black">&lt;codeworkx&gt; reboot</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-green">* kalpik (~kalpik@unaffiliated/kalpik) has joined this channel.</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;codeworkx&gt; after deleten build.prop</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;codeworkx&gt; it's restoring</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;codeworkx&gt; :-)</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; \o/</span><br />
+<span class="irc-date">[1:49]</span> <span class="irc-black">&lt;codeworkx&gt; awesome</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;techmik67&gt; still building here, but great news</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;codeworkx&gt; but there's something wrong with our initial package</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;codeworkx&gt; - exec '/system/bin/sh' failed: No such file or directory (2) -</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;techmik67&gt; someone should show me how i should have pulled that in so it maintained credit..... it wouldnt let me cherry-pick, gave an error</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; lol :)</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; someone just sent me a pm with this:</span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://pastebin.com/k6gRzM6L">http://pastebin.com/k6gRzM6L</a></span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;techmik67&gt; i kanged it from this: <a href="https://github.com/android/platform_hardware_ril">https://github.com/android/platform_hardware_ril</a></span><br />
+<span class="irc-date">[1:56]</span> <span class="irc-black">&lt;atinm&gt; so consider yourselves thanked</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;techmik67&gt; nice =)</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;Kaik541&gt; well that was a nice message</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; looks shopped</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;codeworkx&gt; Y U FUCT UP MY SYSTEM AGAIN?!?!</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;techmik67&gt; uhoh</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;chaembian&gt; wwyvern: here?</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;codeworkx&gt; hmm. booting again</span><br />
