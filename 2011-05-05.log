@@ -1124,3 +1124,110 @@
 <span class="irc-date">[18:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if it pukes then we'll need to remove the experimental tag around the block</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx, which files do I need to replace in vendor so I can test?</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;nitam|work&gt; test jvb modem_ctl</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;codeworkx&gt; libsec-ril thingy</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;codeworkx&gt; maybe rild</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;nitam|work&gt;  # country code                                                                             42                                                                                                                 -ccode=ALL                                                                                               32                                                                                               +ccode=US</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;codeworkx&gt; have a look at vendor/samsung/common. everything with ril</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;nitam|work&gt; just saw that nvram.txt has that</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;codeworkx&gt; wtf</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;nitam|work&gt; it went from ALL to US</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;nitam|work&gt; bad cut/paste</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;nitam|work&gt; but ccode=ALL went to ccode=US</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;codeworkx&gt; change back</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, I think we should change nvram_net.txt back too</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;nitam|work&gt; libusc.so - what is that?</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;nitam|work&gt; I have to go, will log on from home</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;nitam|work&gt; but I think we need to revisit what exactly we take from Nexus S proprietary</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;nitam|work&gt; sgx stuff seems to be the only thing</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;nitam|work&gt; rest maybe we should stick with aries</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;nitam|work&gt; ppl are complaining that their gps got worse (mine never got better so I don't know what they are talking about)</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;nitam|work&gt; but still. wifi has started acting weird.</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;Kaik541&gt; people will *always* bitch about GPS</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;nitam|work&gt; and this smsc thing</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;Kaik541&gt; "wah it doens't show 11/11 in my room when I have agps off"</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;nitam|work&gt; so right now I am thinking that we should try using aries binaries for most things</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;nitam|work&gt; try and see which ones work and go back to those</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;nitam|work&gt; from jvb</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;nitam|work&gt; I'll try it when I get home</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;nitam|work&gt; see you later</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-green">* nitam|work (work@work.com) has left this channel.</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the GPS was shitty the day the phones came out, if samsung hasn't been able to fix it I'm not sure what they expect us to do about it. I think its noise on the board and there isn't a damn thing we can do about it</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;Kaik541&gt; I also used to laugh my ass off when someone wuold release a ROM based on, say, JPY and then another ROM also based on JPY and someone would claim the GPS was better on one than the other</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; maybe we should take a page from apple and tel people they are holding it wrong</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;Kaik541&gt; they're the same binaries.</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; did you remember to sacrifice a chicken? well there's your problem</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;Kaik541&gt; all that makes me think about is chicken nuggets</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the problem is its too random, if it was just shit all the time I think that would be better or at least easier to diagnose. but no, 1 out of 100 times you use it it's great.  You mark the date on the calendar and add it to your personal religion...if your smart you start asking for that day off from work</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;Kaik541&gt; you know what's sad? imagine how beautiful cm would be on the sgs2</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;Kaik541&gt; I don't want to like the sgs2 :(</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;mikebeecham&gt; I WANT to like the SGS2, and I'm going to have one</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Kaik541&gt; well for those of us who can't afford to buy a new phone every year...</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Kaik541&gt; sgs2 seems to have fixed a number of issues with the sgs though... no bml, no rfs</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;techmik67&gt; TMC_Sherpa: <a href="https://github.com/techmik/android_kernel_samsung/commit/7db8f62461c23b0bc7038e88be2f5786b8efee3b?">https://github.com/techmik/android_kernel_samsung/commit/7db8f62461c23b0bc7038e88be2f5786b8efee3b?</a></span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;Kaik541&gt; I think you ned to remove the if experimental</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;Kaik541&gt; but NOT the captivate stuff</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no pull it all</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;Kaik541&gt; oh ok</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;techmik67&gt; so thats what you want?</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yes please</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;techmik67&gt; building</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-brick">* TMC_Sherpa sucker</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;mikebeecham&gt; See, where you're all lacking in the dev department, is that you need Basement Jaxx on loud to help you concentrate!!</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;mikebeecham&gt; :D</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Kaik541:  those lines are in the hacksung files, but not the nexus or jvb I'm not sure if they got put in there to fix a problem coming from another file or what so I decided they shouldn't be called in the first round of testing, if it pukes then I would have had tech enable it and go from there</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;Kaik541&gt; punish him!</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;Kaik541&gt; make his phone puke</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-brick">* TMC_Sherpa has already done that</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;Kaik541&gt; yeah but it never stops being funny</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.193) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-navy">* Zilch25 (~Zilch25@166.194.120.185) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-navy">* AndChat| (~AndChat@m83-190-86-32.cust.tele2.se) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has joined this channel.</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;chaembian|l1&gt; time to get some sleep</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;chaembian|l1&gt; Catch you later!</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;techmik67&gt; nte =)</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;chaembian|l1&gt; Good day!</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-navy">* chaembian|l1 (~chaembian@122.174.156.82) Quit (Quit: WeeChat 0.3.0)</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.193) has left this channel.</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;Kaik541&gt; ok now that he's gone, let's talk bad about him</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; who? bunch of people just left</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;Kaik541&gt; no just chaembian</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;Kaik541&gt; what kind of a name is chaembian? sounds french to me.</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;Manadar_&gt; haha it's not french :p</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;Kaik541&gt; I'm not serious, I just hope he reads the logs</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;Kaik541&gt; sudo aptitude update</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;Kaik541&gt; woops</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what I want to know is how Zilch25 got techmik67 to do his job...mostly 'cus I want in on his strategy</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;Kaik541&gt; quite simply, techmik67 is an attention hog</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;Kaik541&gt; he wants to be praised</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;Kaik541&gt; I on the other hand just want to yell at people</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;techmik67&gt; i crave attentio.... and pizza</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;Kaik541&gt; I haven't had pizza in months</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;Kaik541&gt; why is everything making me hungry this week?</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;techmik67&gt; i am heating up leftover sicilian from last nite</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;Kaik541&gt; oh right, diet of PB&amp;J and ramen for the last month xD</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; bbq sauce on bologna Mmmm  is it sad that I have to sing the stupid oscar mayer song to spell that?</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;Manadar_&gt; diet of PB&amp;J What is that?</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; be oh el oh gee en ay</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;techmik67&gt; whenever i hear the preamble to the constitution i hear the song from schoolhouse rock =)</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; peanut butter and jelly</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; your old enough to remember schoolhouse rock? wait...they just keep using the same 5 episodes they made for a Greek tragedy back in the classical period don't they</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; - turned 44 2 days ago =)</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; "We the people, in order to form a more perfect union....."</span><br />
