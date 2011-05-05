@@ -381,3 +381,61 @@
 <span class="irc-date">[2:56]</span> <span class="irc-black">&lt;techmik67&gt; he only left 9 mins agoo.... bet he's around.....</span><br />
 <span class="irc-date">[2:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the build will finish in a minute or so, he'll be back</span><br />
 <span class="irc-date">[2:56]</span> <span class="irc-green">* ericDET (~Wild@74-136-162-133.dhcp.insightbb.com) has left this channel.</span><br />
+<span class="irc-date">[3:06]</span> <span class="irc-green">* ciwrl_ (~ciwrl@pool-96-255-81-2.washdc.fios.verizon.net) has joined this channel.</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;chaembian&gt; There is a new build to test today?</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-navy">* ciwrl (~ciwrl@pool-96-255-81-2.washdc.fios.verizon.net) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-green">* ciwrl_ is now known as ciwrl</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; depends, looking for volunteers to baseline the I9000 audio files, you would need to build a kernel unless tech made ones for everyone</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;chaembian&gt; ah, ok!</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;techmik67&gt; i didnt, sorry... but on the upsaide, i havent run into a problem yet =)</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;techmik67&gt; upside*</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I didn';t expect you too :)</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; do you have a branch for people to pull?</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or did you just stuff them in like I always do...</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;techmik67&gt; both =)</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;techmik67&gt; i stuffed em in a branch =)</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; lol</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;techmik67&gt; instructions:</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;techmik67&gt; cd kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;techmik67&gt; git remote add techmik git://github.com/techmik/android_kernel_samsung.git</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;techmik67&gt; then</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;techmik67&gt; git checkout gingerbread</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hrm, then not found</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik67&gt; git checkout -b sound</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik67&gt; ??</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; joke</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; typing everything you said</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;  :P</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik67&gt; and last, from sound:</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;techmik67&gt; git pull techmik sound</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;techmik67&gt; even better: forget checkout -b sound to create it</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;techmik67&gt; from gingerbread</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;techmik67&gt; git branch --track sound github/android-samsung-2.6.35</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;techmik67&gt; that way when you repo sync it goes to that branch too if there are updates to gingerbread mainloine</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;techmik67&gt; mainline</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;techmik67&gt; so:</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;techmik67&gt; cd kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;techmik67&gt; git checkout gingerbread</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik67&gt; git remote add techmik git://github.com/techmik/android_kernel_samsung.git</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik67&gt; git branch --track sound github/android-samsung-2.6.35</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik67&gt; git checkout sound</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik67&gt; git pull techmik sound</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;techmik67&gt; this all assumes you have a gingerbread branch setup, i notice, but all our testers should already</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;chaembian&gt; ok, done</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;uberushaximus&gt; I don't know about you guys, but I have a ice cream sandwich branch</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;techmik67&gt; downloaded!!!!?????</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;techmik67&gt; i tried this morning!</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;uberushaximus&gt; I'm joshing</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;techmik67&gt; i'mm not</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;techmik67&gt; i did try</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;uberushaximus&gt; techmik67: watch their gitweb <a href="http://android.git.kernel.org/?p=platform/manifest.git;a=summary">http://android.git.kernel.org/?p=platform/manifest.git;a=summary</a></span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;techmik67&gt; thx!!</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;chaembian&gt; techmik67: done pulling. build?</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;techmik67&gt; yuup</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-navy">* designfears (~df@cpe-71-64-204-109.cinci.res.rr.com) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-green">* gehzumteufel (~quassel@cpe-76-93-100-229.socal.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-navy">* chaembian (~chaembian@122.174.167.147) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;techmik_laptop&gt; brb... dogwalk</span><br />
