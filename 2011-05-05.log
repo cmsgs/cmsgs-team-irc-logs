@@ -503,3 +503,63 @@
 <span class="irc-date">[9:50]</span> <span class="irc-navy">* DocMAX2 (~docmax@p5B31D221.dip0.t-ipconnect.de) Quit (Ping timeout: 276 seconds)</span><br />
 <span class="irc-date">[9:51]</span> <span class="irc-black">&lt;uoWt|work&gt; galaxy tab is niiiiice</span><br />
 <span class="irc-date">[9:55]</span> <span class="irc-black">&lt;Unhelpful&gt; RFS? ;)</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm|night&gt; morning</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|night: morning</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm|night&gt; unhelpful: yeah, seconds since boot</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;atinm|night&gt; but it isn't really</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;atinm|night&gt; still, I got what I wanted</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-green">* atinm|night is now known as atinm</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: you know recovery</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: format data as ext4 in updater-script</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;atinm&gt; when I'm awake</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;atinm&gt; not awake yet</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;codeworkx&gt; format("ext4", "???", "/dev/block/mmcblk0p2");</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;codeworkx&gt; think we can choose EMMC here?</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;atinm&gt; hmm.</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;atinm&gt; sec</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;atinm&gt; fuck comcast</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;atinm&gt; it broke my connection to my work servers</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;atinm&gt; no code here</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;atinm&gt; crap</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;Unhelpful&gt; it's comcastic!</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-brick">* Unhelpful will probably go nuts while the contents of his laptop are only in the backup on his NAS</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;atinm&gt; Not every ROM has a small legion of dedicated ubergeeks working around the clock in secret labs throughout the world to rebuild Android from the basic architecture on up and ensure that it can be installed across the vast range of Android powered devices without breaking any hardware, laws, hearts or the speed of light.</span><br />
+<span class="irc-date">[10:32]</span> <span class="irc-black">&lt;atinm&gt; CyanogenMod 7 - Saving the Android World from Itself</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;codeworkx&gt; unsupported fs_type "ext4" partition_type "EMMC"script aborted (no error message)</span><br />
+<span class="irc-date">[10:33]</span> <span class="irc-black">&lt;codeworkx&gt; ok, what then?</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: doesn't the recovery/updater "format" command just do mount; rm -r *; anyway?</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/CyanogenMod/android_bootable_recovery/blob/gingerbread/updater/install.c#L177">https://github.com/CyanogenMod/android_bootable_recovery/blob/gingerbread/updater/install.c#L177</a></span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;codeworkx&gt; make_ext4fs(location, NULL, NULL, 0, 0, 0);</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, so 1) i assume we have USE_EXT4 set? 2) it looks like the earlier checks require non-empty partition type, but ext4 doesn't actually use the value</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: no, it's missing xD</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;Unhelpful&gt; since it gets to the "unsupported fs type" error, i'm guessing we don't.</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;codeworkx&gt; anonther thing. recovery.rc mounts system and cache. thats really bad</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;codeworkx&gt; format in updater-script fails</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;codeworkx&gt; system gets not wiped</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-black">&lt;codeworkx&gt; update gets not fully installed because out of space and so on</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;codeworkx&gt; Opening update package...</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;codeworkx&gt; Installing update...</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;codeworkx&gt; Failed to mount /dev/block/mtdblock2 on /system: Device or resource busy</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;codeworkx&gt; mtd mount of system failed: Device or resource busy</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;atinm&gt; you could unmount it first..</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;codeworkx&gt; this updater script comes from buildsystem</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;codeworkx&gt; but yeah, should be done</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;atinm&gt; aww man, kid is up</span><br />
+<span class="irc-date">[10:43]</span> <span class="irc-black">&lt;atinm&gt; its way too early</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;Unhelpful&gt; but, otoh our updater script also checks stuff that's in build.prop, and so will fail if system hasn't been mounted, won't it?</span><br />
+<span class="irc-date">[10:45]</span> <span class="irc-black">&lt;codeworkx&gt; hmm</span><br />
+<span class="irc-date">[10:47]</span> <span class="irc-black">&lt;codeworkx&gt; why is this damn buildsystem totally fuct up?</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-green">* mothatt (~mothatt@CPE-124-189-160-142.rsqv1.lon.bigpond.net.au) has joined this channel.</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;codeworkx&gt; Opening update package...</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;codeworkx&gt; Installing update...</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;codeworkx&gt; about to run program [/tmp/backuptool.sh] with 2 args</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;codeworkx&gt; mount: mounting /dev/block/mtdblock2 on /system failed: Device or resource busy</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;codeworkx&gt; grep: /system/build.prop: No such file or directory</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;codeworkx&gt; Not backing up files from incompatible version.</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;codeworkx&gt; minzip: Extracted file "/system/app/ADWLauncher.apk"</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;codeworkx&gt; minzip: Extracted file "/system/app/AccountAndSyncSettings.apk"</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;codeworkx&gt; it really grabs something?</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;codeworkx&gt; lol</span><br />
+<span class="irc-date">[10:49]</span> <span class="irc-black">&lt;codeworkx&gt; wtf</span><br />
+<span class="irc-date">[10:50]</span> <span class="irc-black">&lt;codeworkx&gt; ok, the assert will probably mount system</span><br />
