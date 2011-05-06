@@ -939,3 +939,106 @@
 <span class="irc-date">[5:55]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok, here i be</span><br />
 <span class="irc-date">[5:59]</span> <span class="irc-black">&lt;Kaik541&gt; techmik_laptop, ok here's my question</span><br />
 <span class="irc-date">[5:59]</span> <span class="irc-black">&lt;Kaik541&gt; I now have an initial zip and update zip</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-black">&lt;techmik_laptop&gt; right</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-black">&lt;Kaik541&gt; problem is, where do I get the initial kernel?</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-black">&lt;techmik_laptop&gt; you dont</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-black">&lt;Kaik541&gt; or do I *just* put initial zip on and run with it?</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-black">&lt;techmik_laptop&gt; i *think*</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-black">&lt;techmik_laptop&gt; what happens is</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13498147&amp;postcount=444">http://forum.xda-developers.com/showpost.php?p=13498147&amp;postcount=444</a></span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-black">&lt;Kaik541&gt; I'm looking at this</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;techmik_laptop&gt; i think you can flash the new initial from anything</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;techmik_laptop&gt; i stress the i think</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;Kaik541&gt; oh you</span><br />
+<span class="irc-date">[6:02]</span> <span class="irc-black">&lt;Kaik541&gt; you're gonna make me look through the zip</span><br />
+<span class="irc-date">[6:02]</span> <span class="irc-black">&lt;Kaik541&gt; well I see efs abckup tools and bml_over_mtd</span><br />
+<span class="irc-date">[6:02]</span> <span class="irc-black">&lt;techmik_laptop&gt; it does all that crap auto i think</span><br />
+<span class="irc-date">[6:03]</span> <span class="irc-black">&lt;techmik_laptop&gt; look at the script</span><br />
+<span class="irc-date">[6:03]</span> <span class="irc-black">&lt;Kaik541&gt; no there's a kernel.sh script too</span><br />
+<span class="irc-date">[6:04]</span> <span class="irc-black">&lt;Kaik541&gt; that I need to do first</span><br />
+<span class="irc-date">[6:04]</span> <span class="irc-black">&lt;techmik_laptop&gt; really?</span><br />
+<span class="irc-date">[6:04]</span> <span class="irc-black">&lt;techmik_laptop&gt; i know k=nothing of this</span><br />
+<span class="irc-date">[6:05]</span> <span class="irc-black">&lt;Kaik541&gt; yeah it generates a zip that does efs backup</span><br />
+<span class="irc-date">[6:05]</span> <span class="irc-black">&lt;Kaik541&gt; as well as flashes new kernel</span><br />
+<span class="irc-date">[6:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; so 3 zips?</span><br />
+<span class="irc-date">[6:06]</span> <span class="irc-black">&lt;Kaik541&gt; I don't think update is needed if you generate latest</span><br />
+<span class="irc-date">[6:07]</span> <span class="irc-black">&lt;Kaik541&gt; and the kernel zip *should* auto-load the initial zip</span><br />
+<span class="irc-date">[6:08]</span> <span class="irc-black">&lt;Kaik541&gt; haha! kernel zip kicked me straight into CWM</span><br />
+<span class="irc-date">[6:09]</span> <span class="irc-black">&lt;Kaik541&gt; 3.0.2.8 (hey look no complaints about no misc partition)</span><br />
+<span class="irc-date">[6:10]</span> <span class="irc-black">&lt;techmik_laptop&gt; yeah, that was removed a while ago</span><br />
+<span class="irc-date">[6:10]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok, so will you update the wiki after i did?</span><br />
+<span class="irc-date">[6:10]</span> <span class="irc-black">&lt;Kaik541&gt; and bam CM7</span><br />
+<span class="irc-date">[6:11]</span> <span class="irc-black">&lt;Kaik541&gt; will do</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-black">&lt;techmik_laptop&gt; techmik@michaels-laptop:~/android/system/kernel/samsung/2.6.35$ git commit --amend --author TMC_Sherpa</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-black">&lt;techmik_laptop&gt; fatal: No existing author found with 'TMC_Sherpa'</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: ...yes, because what git actually stores is "Author's Name &lt;email&gt;", but it will try to find that in the commit history if you give it something else.</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm pretty sure it will do the same thing if you reference somebody w/ a github acct who has not authored a commit in the repository.</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;techmik_laptop&gt; but there seems to not be a way tomake an author someone without something registered at github</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;Unhelpful&gt; git commit --help and look at --author. ;)</span><br />
+<span class="irc-date">[6:23]</span> <span class="irc-green">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) has joined this channel.</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;Kaik541&gt; that was awesome though, odinless install</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;Kaik541&gt; and wiki is updated to match</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://pastebin.com/5ggw5Pp2">http://pastebin.com/5ggw5Pp2</a></span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;Kaik541&gt; also I was able to take a pic built against main techmik_laptop</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;Kaik541&gt; whoa wait</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;Kaik541&gt; it has right orientation</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;Kaik541&gt; in portrait mode</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;techmik_laptop&gt; !!!</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;Kaik541&gt; WHEN WAS THIS FIXED</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;techmik_laptop&gt; tonite!!</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;Kaik541&gt; you're welcome</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;techmik_laptop&gt; by guiper and codeworkx</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;techmik_laptop&gt; this is what was not working for me</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;GuiPer&gt; so everything is working??</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;GuiPer&gt; on camera?</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;GuiPer&gt; good news :)</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;Kaik541&gt; I was able to take a pic just now fine on cappy</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;Kaik541&gt; including proper orientation</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;GuiPer&gt; and fast focus etc_</span><br />
+<span class="irc-date">[6:30]</span> <span class="irc-black">&lt;Kaik541&gt; felt faster, but I haven't been on CM in over a month so can't be sure</span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-black">&lt;GuiPer&gt; great news :)</span><br />
+<span class="irc-date">[6:31]</span> <span class="irc-black">&lt;GuiPer&gt; love kanging :)</span><br />
+<span class="irc-date">[6:32]</span> <span class="irc-black">&lt;Kaik541&gt; if it works, it works</span><br />
+<span class="irc-date">[6:33]</span> <span class="irc-black">&lt;Kaik541&gt; wow I forgot just how much faster this was</span><br />
+<span class="irc-date">[6:36]</span> <span class="irc-black">&lt;Kaik541&gt; ok I also didn't need to calibrate compass</span><br />
+<span class="irc-date">[6:36]</span> <span class="irc-black">&lt;Kaik541&gt; is my phone magic?</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;Unhelpful&gt; geomagnetic stores the offset...</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;techmik_laptop&gt; this is gonna cause an overwhelming wave of noobs =)</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;techmik_laptop&gt; "its so easy...."</span><br />
+<span class="irc-date">[6:38]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, yes, but someone said that recalibration was required every boot</span><br />
+<span class="irc-date">[6:39]</span> <span class="irc-black">&lt;techmik_laptop&gt; guiper did a bunch of stuff with sensors</span><br />
+<span class="irc-date">[6:41]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: yeah, guiper kept saying that but i have never had to manually calibrate to make it work.</span><br />
+<span class="irc-date">[6:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; i did</span><br />
+<span class="irc-date">[6:42]</span> <span class="irc-black">&lt;techmik_laptop&gt; it would be all silly at 1st</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-black">&lt;Unhelpful&gt; turn your phone over a few times, along each axis, without activating any magical "calibrate" menu option. ;)</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-black">&lt;techmik_laptop&gt; oh, yeah</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-black">&lt;techmik_laptop&gt; i did that</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-black">&lt;techmik_laptop&gt; i mean if i *didnt* do that</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-black">&lt;techmik_laptop&gt; it was screwy</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-black">&lt;Kaik541&gt; oh yay, compact carrier label for status bar tweak is in!</span><br />
+<span class="irc-date">[6:44]</span> <span class="irc-black">&lt;Kaik541&gt; goodbye stupid waste of space "AT&amp;T"</span><br />
+<span class="irc-date">[6:44]</span> <span class="irc-black">&lt;techmik_laptop&gt; 99% battery</span><br />
+<span class="irc-date">[6:45]</span> <span class="irc-black">&lt;techmik_laptop&gt; and you can have your precious slide on status bar tfor brightness, too</span><br />
+<span class="irc-date">[6:45]</span> <span class="irc-black">&lt;Kaik541&gt; that's not in yet is it?</span><br />
+<span class="irc-date">[6:45]</span> <span class="irc-black">&lt;techmik_laptop&gt; waiting for merge</span><br />
+<span class="irc-date">[6:45]</span> <span class="irc-black">&lt;techmik_laptop&gt; you can pull it to a branch</span><br />
+<span class="irc-date">[6:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; then build</span><br />
+<span class="irc-date">[6:46]</span> <span class="irc-black">&lt;Kaik541&gt; yeah I'm thinking about it</span><br />
+<span class="irc-date">[6:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; it works</span><br />
+<span class="irc-date">[6:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; i dont use, but i tested</span><br />
+<span class="irc-date">[6:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; its 2 commits</span><br />
+<span class="irc-date">[6:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; i made a branch called slide</span><br />
+<span class="irc-date">[6:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; when i tested it</span><br />
+<span class="irc-date">[6:48]</span> <span class="irc-black">&lt;techmik_laptop&gt; yep, 2 spots to branch</span><br />
+<span class="irc-date">[6:50]</span> <span class="irc-black">&lt;Kaik541&gt; sahsahs fucking KB1 modem</span><br />
+<span class="irc-date">[6:50]</span> <span class="irc-black">&lt;Kaik541&gt; I will murder it with a thousand suns</span><br />
+<span class="irc-date">[6:51]</span> <span class="irc-black">&lt;GuiPer&gt; going to work</span><br />
+<span class="irc-date">[6:51]</span> <span class="irc-black">&lt;GuiPer&gt; calibration not required after boot can be done</span><br />
+<span class="irc-date">[6:52]</span> <span class="irc-black">&lt;GuiPer&gt; I'll work on that</span><br />
+<span class="irc-date">[6:52]</span> <span class="irc-black">&lt;GuiPer&gt; bbl</span><br />
+<span class="irc-date">[6:52]</span> <span class="irc-black">&lt;techmik_laptop&gt; c ya later</span><br />
+<span class="irc-date">[6:52]</span> <span class="irc-navy">* gehzumteufel (~quassel@cpe-76-93-100-229.socal.res.rr.com) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[6:54]</span> <span class="irc-navy">* Charkey (~Laurent@cpe-76-175-105-20.socal.res.rr.com) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[6:55]</span> <span class="irc-green">* Charkey (~Laurent@cpe-76-175-105-20.socal.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[6:57]</span> <span class="irc-navy">* GuiPer (~GuiPer@ip-86-49-25-242.net.upcbroadband.cz) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[6:59]</span> <span class="irc-navy">* UberPinguin (~uber@gentoo/user/uberpinguin) Quit (Ping timeout: 248 seconds)</span><br />
