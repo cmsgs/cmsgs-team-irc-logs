@@ -389,3 +389,84 @@
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;wwyvern&gt; gonna go smoke</span><br />
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;Kaik541&gt; &lt;codeworkx&gt;   ./build.sh clean    and then   ./build.sh device kernel</span><br />
 <span class="irc-date">[1:59]</span> <span class="irc-black">&lt;wwyvern&gt; back in 10</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yeah my shit won't build</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;techmik67&gt; delete ~/android/system/kernel and ~/android/system/.repo/kernel if you still have a problem, then repo sync and try again......</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;Kaik541&gt; gehzumteufel, did you delete your folders?</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;gehzumteufel&gt; Kaik541: yes</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;Kaik541&gt; do it again</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;Kaik541&gt; and the .repo/kernel</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;gehzumteufel&gt; there is no .repo/kernel</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;techmik67&gt; its hidden =)</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;Kaik541&gt; .repo == hidden</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; thats that the . on the front does</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;Kaik541&gt; thats that the</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;gehzumteufel&gt; No I know. There is a .repo but no sub folder for kernel</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;Kaik541&gt; ls -a ~/android/system/.repo/</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;Kaik541&gt; output pl0x</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;gehzumteufel&gt; ben@ubuntu:~/android/system/.repo$ ls -a</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;gehzumteufel&gt; .  ..  manifests  manifests.git  manifest.xml  project.list  projects  repo</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;Kaik541&gt; pastebin</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;techmik67&gt; projects/kernel</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; that, what, you know whatever</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;techmik67&gt; .repo/projects/kernel</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;gehzumteufel&gt; so rm -rf kernel/*</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;techmik67&gt; rm -rf kernel</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;gehzumteufel&gt; now sync and then attempt to build</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;techmik67&gt; rm -rf /.repo/projects/kernel</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yep done</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;techmik67&gt; now resync and build =0</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;gehzumteufel&gt; just waiting for sync</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;techmik67&gt; you are re downloading the kernel</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;techmik67&gt; may take a few minutes</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;gehzumteufel&gt; yeah</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;wwyvern&gt; syncing after removal of .repo stuff</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;techmik67&gt; in my earlier dmesg:</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;techmik67&gt; &lt;3&gt;[  237.124157] failed gpio_request(GPB7) for camera control</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;chaembian&gt; Why should the kernel folders be deleted?</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;techmik67&gt; they had issues... if you dont, then dont delete</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;chaembian&gt; ok, let me check</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-green">* zacharias (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-green">* zacharias is now known as zacharias|bsuy</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-green">* zacharias|bsuy is now known as zacharias|busy</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-green">* Charkey (~Charkey@cpe-76-175-105-20.socal.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;zacharias|busy&gt; hi guys</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;chaembian&gt; hi zacharias|busy</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;zacharias|busy&gt; hey chaembian</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;wwyvern&gt; building-back in a while</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-navy">* zacharias|busy (~zacharias@chello084114179145.16.15.vie.surfer.at) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;gehzumteufel&gt; build failed again</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;techmik67&gt; ./build.sh vibrant kernel</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;techmik67&gt; failed?</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yes</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;techmik67&gt; what errors? pastebin the last 50 or so lines</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;gehzumteufel&gt; <a href="http://pastebin.com/WTNy3yZd">http://pastebin.com/WTNy3yZd</a></span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;gehzumteufel&gt; I don't honestly see an error</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you need to run prepare first</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;gehzumteufel&gt; k</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; can't find rommanager.apk</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;gehzumteufel&gt; And I should probably clean now, correct?</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;wwyvern&gt; mine hasn't failed yet, but I ran make clean first..</span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-black">&lt;wwyvern&gt; or mine might just be slow as hell...</span><br />
+<span class="irc-date">[2:53]</span> <span class="irc-navy">* kalpik (~kalpik@unaffiliated/kalpik) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-black">&lt;techmik_laptop&gt; logcat of my cam fail: <a href="http://pastebin.com/Dgu8iJzN">http://pastebin.com/Dgu8iJzN</a> and dmesg: <a href="http://pastebin.com/TMyY60Sn">http://pastebin.com/TMyY60Sn</a></span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-black">&lt;techmik67&gt; yes, you need to rm -rf out</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-black">&lt;techmik67&gt; ./build.sh clean</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-black">&lt;techmik67&gt; ./build.sh prepare</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;techmik67&gt; ./build.sh vibrant kernel</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;techmik67&gt; sherpa</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;techmik67&gt; TMC_Sherpa: &lt;3&gt;[  237.124157] failed gpio_request(GPB7) for camera control</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;gehzumteufel&gt; If I ran prepare before clean, does that make a difference?</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I know I think its a mach-aries problem</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;techmik67&gt; gehzumteufel: no</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;gehzumteufel&gt; cool and it got passed the part it was failing on. sweet thanks TMC_Sherpa</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;techmik67&gt; and AHA!</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; we call it a few more times in our mach-aries than in the 'real' mach-aries</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;techmik67&gt; D/SEC_Overlay(  189): Rotation/90</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;techmik67&gt; LIES!!!!!</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;techmik67&gt; Y_U_LIE!!!</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;techmik67&gt; E/SecCamera(  104): ERR(int android::fimc_v4l2_s_ctrl(int, unsigned int, unsigned int)):VIDIOC_S_CTRL(id = 0x8000032 (50), value = 0) failed ret = -1</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;techmik67&gt; E/SecCamera(  104): unsigned char* android::SecCamera::getJpeg(int*, unsigned int*)::1769 fail, errno: Invalid argument, m_camera_id = 0</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;techmik67&gt; E/CameraHardwareSec(  104): ERR(int android::CameraHardwareSec::pictureThread()):Fail on SecCamera-&gt;getJpeg()</span><br />
+<span class="irc-date">[2:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; soon as this kernel fails to build I'll look at aries</span><br />
