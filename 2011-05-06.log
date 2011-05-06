@@ -1,0 +1,114 @@
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;atinm&gt; the two pull requests related to cpu freq</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;atinm&gt; once seems like it didn't actually make it into the android samsung kernel</span><br />
+<span class="irc-date">[0:00]</span> <span class="irc-black">&lt;atinm&gt; so not sure it really should be included</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;atinm&gt; the second doesn't even apply to us as far as I can tell</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;atinm&gt; but just in case, please look at this - it is right up your alley</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: hurry up xD</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-brick">* Kaik541 hands codeworkx the bullwhip</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;techmik67&gt; typing fast</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; git add .</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; lol</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; see</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;techmik67&gt; building</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, hey, the dock support. i just got a dock... btw, the clock app already has a thingy for redirecting sound out the dock, what exactly is this redirector app supposed to be for?</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-green">* chaembian|away is now known as chaembian</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; everything but the clock?</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;Kaik541&gt; audio in things like music player?</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;chaembian&gt; good moorning</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; morning</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: the setting in the clock app is to redirect sound while connected - i would assume that works even if you leave the clock app?</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, you could try opening the music app and seeing?</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I was being an ass</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, desktop dock or car dock? because I thought the car dock never came out</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; chaembian:  can you do me a favor? cd into your android/system or whatever and type find . -name s3c-pcmdev.h</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: it's a desktop dock. and i can't try it, because that option is disabled - but i wonder if we could connect this dock-support code properly so that the clock app can use it?</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-brick">* Unhelpful is not even strictly sure the "dock settings" menu from the clock app is actually part of clock. ;)</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;Kaik541&gt; oh, there's a whole dock settings thing for clock? I did not know that (not having a dock)</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;Kaik541&gt; have you tried straight running the music app?</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;Kaik541&gt; that's interesting that the clock can detect it's in a dock though</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: give me a min</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sure np</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: no file found</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: i think it can, iirc the dock settings menu item doesn't even work if not docked</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;Unhelpful&gt; probably it detects that  audio redirection is not supported?</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I remember playing with the dock app for a while, lost it in one of the rom flashes</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: we've still the lock/unlock problem on RIL and camera/video. if you lock/unlock straight after boot it's ok. what about writing a little pre-boot app which does a kind of reset?</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; file not found..... yet the kernel built when you were testing audio?</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, well could you try setting an alarm to go off in a minute from now and see if it comes out of the phone or whatever it's plugged into?</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;Kaik541&gt; or both O.o</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: my bad, it doesn't need to be in a dock for that menu. and it does know it's docked, because it opens the clock app on dock, and exits it on undock. and the dock/undock sounds play if enabled.</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;Unhelpful&gt; ermm... dock is @ home :)</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, well I don't mean right now, I mean when you get a chance</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;Kaik541&gt; it's not like it affects me directly as I have neither a dock nor CM7</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-brick">* TMC_Sherpa is wondering if there was a sync done after the files got copied which nuked them...and we were testing for the wrong audio problem</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: i would really love to know what the issue is there... would it be possible to just trigger the suspend/wake events in the relevant driver?</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: think we should do some research what's going on while lock/unlock</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: I did not do any sync after I pulled sound from techmik67</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;Unhelpful&gt; actually it can't be just suspend/wake, because it works even if the phone is plugged in @ startup. hm.</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, "one zip to rule them all"</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;Kaik541&gt; I like that</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; chaembian:  we don't know why/how the kernel compiled, s3c-pcmdev.h is needed by wm8994_samsung.c which isn't in the tree so the build should have died</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;Unhelpful&gt; and in the CWM bind them</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: finished? xD</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;techmik67&gt; slow =(</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_samsung_common: gingerbread atinm * bd1b2e3 (1 files in 1 dirs): Use older nvram_net.txt (has correct ccode). ... - <a href="http://bit.ly/lxuwXb">http://bit.ly/lxuwXb</a></span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;techmik67&gt; dunno why</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-green">* zerojay (~jay@Maemo/community/contributor/zerojay) has joined this channel.</span><br />
+<span class="irc-date">[0:31]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;techmik67&gt; ugh!</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;techmik67&gt; cat turned off laptop</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;zerojay&gt; lol</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;Kaik541&gt; stupid cat</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;techmik67&gt; i forgot to feed the animals an hour and a half ago =)</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;techmik67&gt; i'll feed while restarting stupid build.... grrr.......</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;techmik67&gt; had to almost be done, too</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="http://paste.pocoo.org/show/383771/">http://paste.pocoo.org/show/383771/</a> Has anyone here seen a crash similar to this? Not sure what's causing it.</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;chaembian&gt; Is there a way to undo last repo sync?</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;chaembian&gt;  TMC_Sherpa: I ran a repo sync yesterday night after I came back home from work</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; thats fine</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: the wm8994_samsung.c I have doesn't have changes pulled from techmik67</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;chaembian&gt; Just to be sure: <a href="https://github.com/techmik/android_kernel_samsung/commit/51426fc86a6332bbfd7b08779bd88b952625212d#diff-2">https://github.com/techmik/android_kernel_samsung/commit/51426fc86a6332bbfd7b08779bd88b952625212d#diff-2</a></span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah it got clobbered by the sync</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; s'cool something weird happened and it shouldn't have worked as is anyway</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-green">* DocMAX2 (~docmax@g224159134.adsl.alicedsl.de) has joined this channel.</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-green">* ciwrl|food is now known as ciwrl</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-navy">* DocMAX (~docmax@g224154243.adsl.alicedsl.de) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;techmik67&gt; seems like a dumb question.... dont i just need the pcmdev file?</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; not according to kangzor I guess there are a few defines or something that need to be set</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;techmik67&gt; i cannot stress enough that it built, several times now.....</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; its all good man</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;techmik67&gt; check it out.... this s what i am building right now:</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_vendor_samsung_common/commits/all-merge">https://github.com/techmik/android_vendor_samsung_common/commits/all-merge</a></span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hell your git has more activity than hacksungs</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_device_samsung_common/commits/all-merge">https://github.com/techmik/android_device_samsung_common/commits/all-merge</a></span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_device_samsung_captivate/commits/camera">https://github.com/techmik/android_device_samsung_captivate/commits/camera</a></span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; besides someone put my name on it so its still my problem :D</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_kernel_samsung/commits/all-merge">https://github.com/techmik/android_kernel_samsung/commits/all-merge</a></span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;techmik67&gt; thats all the 4 changed form main repos</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; techmik67:  it's fine man, don't worry about it</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if I'm going to blame anyone its kang</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; :P</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67 techmik67 techmik67 techmik67 techmik67 techmik67</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;codeworkx&gt; i'm pretty sure it runs on every phone</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;techmik67&gt; should mostly be done building now.....</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;codeworkx&gt; hope so</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, just keep punching him</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; at no point in time did I ever test the thing before I gave it to you (what else is new huh?) I'll get it figured out and we'll try it again</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67 techmik67</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67  techmik67</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;Kaik541&gt; I have the most techmiks</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;Unhelpful&gt; early dismissal tomorrow! my eldest will be on a bus for nearly 90min to go to school for 50min :/</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;Kaik541&gt; how old is eldest?</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;Kaik541&gt; also, my mom always just let me stay home</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;codeworkx&gt; i'm going to smoke one, if i come back, it must be flashed and approved!!!!!</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm&gt; 90 min?!</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;Kaik541&gt; 45 minutes each way</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;Kaik541&gt; that's about how long I could go on some buses depending on where I live</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;chaembian&gt; Kaik541, where are you from?</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Kaik541&gt; AMERICA (fuck yeah)</span><br />
