@@ -692,3 +692,29 @@
 <span class="irc-date">[9:58]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.67.49) Quit (Read error: Connection reset by peer)</span><br />
 <span class="irc-date">[9:58]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.67.49) has joined this channel.</span><br />
 <span class="irc-date">[9:58]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-green">* Wout` is now known as Wout</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-green">* Wout is now known as Wout`</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.67.49) has left this channel.</span><br />
+<span class="irc-date">[10:00]</span> <span class="irc-green">* ChanServ sets mode +v Wout`</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;Wout`&gt; camera libs from jvh dont fix fcc</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;Wout`&gt; so either we hack it, or try to get oss working</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;Unhelpful&gt; jvh is for...?</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;Wout`&gt; newest samsung build</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;Wout`&gt; we're currently using jvb libs, older build</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;Wout`&gt; was hoping they added more preview resolutions for ffc, so gtalk would work</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;Unhelpful&gt; Wout`: yes, but jvh is what, i9k?</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;Wout`&gt; i9000</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;Unhelpful&gt; erm, see, we're talking about hacking to remove knowledge of FFC ;)</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;Wout`&gt; I know, but while the hacking is being done, would be nice of someone hacked it to work with gtalk too :P</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, so i assume extern "C" int HAL_getNumberOfCameras() is defined by *any* camera lib?</span><br />
+<span class="irc-date">[10:15]</span> <span class="irc-black">&lt;Unhelpful&gt; can somebody see if it's a dynamic symbol in the proprietary one?</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;Wout`&gt; how do I do that?</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;Unhelpful&gt; try nm -D &lt;file&gt; | grep HAL maybe :)</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, ffs, i can do *that* much on my server. :)</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;Wout`&gt; oi codeworkx</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;codeworkx&gt; hi</span><br />
+<span class="irc-date">[10:27]</span> <span class="irc-black">&lt;Unhelpful&gt; OK!</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, proprietary libcamera.so implements that. and if it's like the version in our OSS lib, all it does is return a value. don't need IDA to hack that.</span><br />
+<span class="irc-date">[10:56]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: you mean <a href="https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libcamera/SecCameraHWInterface.cpp#L166">https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries/libcamera/SecCameraHWInterface.cpp#L166</a></span><br />
