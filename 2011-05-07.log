@@ -1004,3 +1004,97 @@
 <span class="irc-date">[16:54]</span> <span class="irc-black">&lt;knowsnotmuch&gt; powertop?</span><br />
 <span class="irc-date">[16:55]</span> <span class="irc-black">&lt;knowsnotmuch&gt; GuiPer, yeah powertop</span><br />
 <span class="irc-date">[16:55]</span> <span class="irc-black">&lt;GuiPer&gt; that one :)</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;koush&gt; atinm|away: looked over your changes</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-navy">* zachy_md (~zacharias@chello084114179145.16.15.vie.surfer.at) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;techmik67&gt; TMC_Sherpa: k, had company</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;techmik67&gt; back now</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;techmik67&gt; i still have the last files you sent</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;techmik67&gt; are they changing? and since i'm resubmitting the pull request, should i remove your mach-aries.c?</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k, open up wm8994_samsung.h from that puppy and comment out USE_INFINIEON_EC_FOR_VT and ATTACH_ADDITINAL_PCM_DRIVER</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm going to say yes, I think atinm added that stuff, if not the file is so different now I'll need to do it again anyways</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.67.49) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; A1026 stuff is in there anything else I did to it is moot</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.67.49) has joined this channel.</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; er comment out the #define for those two things</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;techmik67&gt; wait, just put "//" at the beginning of each of those 2 lines you want?</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yup</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;techmik67&gt; k</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;techmik67&gt; <a href="https://github.com/techmik/android_kernel_samsung/commit/a400fe702d78d3ea7dbf0a45161f4612440d0d76">https://github.com/techmik/android_kernel_samsung/commit/a400fe702d78d3ea7dbf0a45161f4612440d0d76</a></span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yup</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;techmik67&gt; ok, whoever want to test:</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;techmik67&gt; cd kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;Kaik541&gt; so I guess TMC_Sherpa's sleep stuff works like it should: <a href="http://dl.dropbox.com/u/10640272/snap20110507_120428.png">http://dl.dropbox.com/u/10640272/snap20110507_120428.png</a></span><br />
+<span class="irc-date">[17:12]</span> <span class="irc-black">&lt;techmik67&gt; git branch --track gingerbread github/android-samsung-2.6.35</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;techmik67&gt; git checkout gingerbread</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; codeworkx:  sleep stuff ;) the files I played with don't get called in our source</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;techmik67&gt; git branch --track tmc github/android-samsung-2.6.35</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;techmik67&gt; git checkout tmc</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;codeworkx&gt; TMC_Sherpa: i know xD</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, well is was your stuff just in the wrong file... codeworkx put it in the right file</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;Kaik541&gt; right?</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;techmik67&gt; git remote add techmik git://github.com/techmik/android_kernel_samsung.git</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;codeworkx&gt; TMC_Sherpa: i've added your gpio stuff to mach-aries</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dooode that's a nice battery graph</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;techmik67&gt; and last</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;techmik67&gt; git pull techmik tmc</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;chaembian&gt; Kaik541: That's pretty awesome!</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;techmik67&gt; didnt you guys see my overnite graph? 20% over 6 hoursd</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;techmik67&gt; nice</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;techmik67&gt; even better</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;techmik67&gt; you had wifi sleep for a bit</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, had it set to screen off</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;chaembian&gt; techmik67: I have already set up tmc that way</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://dl.dropbox.com/u/10818379/snap20110507_110255.png">http://dl.dropbox.com/u/10818379/snap20110507_110255.png</a></span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;chaembian&gt; How to synch with latest changes?</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;techmik67&gt; chaembian: skip those steps</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;codeworkx&gt; TMC_Sherpa: any stuff missing?</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you tell me XD</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;techmik67&gt; chaembian: git pull techmik tmc</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;codeworkx&gt; TMC_Sherpa: i've only merged the gpio tables</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no that should do it, the other files I changed were for future audience stuff</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;techmik67&gt; ok, pull request, or wait til we see result of my 2 line comment?</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh GOD no I have no idea what else needs to be changed yet</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, I know of one thing</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;knowsnotmuch&gt; Kaik541, gimme that graaaaph :) mine is ok too - guess diff is you have wifi set to sleep on screen off</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;Kaik541&gt; it randomly woke up for about an hour and a half there too</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;Kaik541&gt; no idea why</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;knowsnotmuch&gt; hmm beautiful widget?</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;techmik67&gt; knowsnotmuch: <a href="http://dl.dropbox.com/u/10818379/snap20110507_110255.png">http://dl.dropbox.com/u/10818379/snap20110507_110255.png</a></span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;Kaik541&gt; possibly, but never for that long</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;knowsnotmuch&gt; techmik67 - saw yours - mine is a carbon copy of yours</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: can I start building?</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah yeah yeah, if the jvb source works that should get rid of some weirdness.  there are a few hooks in wm8994_samsung.c but most of the heavy lifting is in wm8994_kepler</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; chaembian:  I don't see why not</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;GuiPer&gt; my battery is not bad... but cannot compare with that graphs</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; which replaces _aries on the captivate</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I dont think those graphs include, you know, using the phone</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but its way better than the cliff cafe it used to be</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; cliff face</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-brick">* TMC_Sherpa stupid fast finger</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;GuiPer&gt; that changes are not yet on teamhacksung right?</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, I was merely talking about the sleep stuff</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;chaembian&gt; <a href="http://dl.dropbox.com/u/25745513/CAP2011050421151.png">http://dl.dropbox.com/u/25745513/CAP2011050421151.png</a> -- that's how it was after flashing the 05/04 build</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;chaembian&gt; It lasted well</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;chaembian&gt; I did not track it after that.. will do so from now</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;techmik67&gt; ok, can someone take a look at the last couple of commits and let me know if it all looks good before i build? <a href="http://bit.ly/jqniu2">http://bit.ly/jqniu2</a></span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;techmik67&gt; actually, just check the last commit</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; voodoo isn't going to use the _aries file if you have it defined</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;chaembian&gt; OK, its pretty late now</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and his _samsung file is different as well</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; crap, maybe looking at wrong thing</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;chaembian&gt; Catch you later, folks</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;techmik67&gt; ok, so dont merge yet,check =)</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;chaembian&gt; Bye! Good day!</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;techmik67&gt; bye</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-green">* chaembian is now known as chaembian|away</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah I would test them one at a time</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;techmik67&gt; building the sound branch</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;techmik67&gt; then the tmc branch</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if atinm pulls in chunks of voodoo then I'll need to start over...again.... but thats alright, for right now I just want to see if anything works</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;techmik67&gt; gotcha</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.67.49) Quit (Quit: Zzzz)</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;techmik67&gt; ok, i used rom manager to "install zip from sdcard"... said ok.... reboot to !-android screen///// adb reboot recovery, and it continues like it should have at 1st......</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;techmik67&gt; so we have an issue somewhere in there</span><br />
