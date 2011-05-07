@@ -434,3 +434,182 @@
 <span class="irc-date">[5:59]</span> <span class="irc-black">&lt;koush&gt; and how does a uiser get into recovery</span><br />
 <span class="irc-date">[5:59]</span> <span class="irc-black">&lt;koush&gt; with a broken rom</span><br />
 <span class="irc-date">[5:59]</span> <span class="irc-black">&lt;atinm&gt; we have a tiny kernel that boots, looks for that file, if it finds it, it expands the recovery initramfs</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-black">&lt;atinm&gt; otherwise it expands the boot img, both initramfs are attached to the kernel itself</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-black">&lt;koush&gt; how does a user manually get into recovery?</span><br />
+<span class="irc-date">[6:00]</span> <span class="irc-black">&lt;atinm&gt; so we boot the kernel, and then basically look for a header</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;atinm&gt; reboot recovery in adb shell, 3 button</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;koush&gt; oh 3 button works</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;koush&gt; cute</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;koush&gt; is that the "actual" recovery?</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;koush&gt; bml8 or whatever equivalen</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;koush&gt; or is something magical happening there</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;Kaik541&gt; bml8 doesn't exist for us</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;koush&gt; to detect that bml8 was intended</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;atinm&gt; magical too :)</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;koush&gt; some /proc/cmdline parsing</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;koush&gt; or something</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;atinm&gt; yes, bootmode=2</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;koush&gt; gotcha</span><br />
+<span class="irc-date">[6:01]</span> <span class="irc-black">&lt;koush&gt; cool</span><br />
+<span class="irc-date">[6:02]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, but we don't touch bml8, it just changes which initramfs we load - they're both attached to the kernel on the boot partition.</span><br />
+<span class="irc-date">[6:02]</span> <span class="irc-green">* techmik_laptop sets mode -o techmik67</span><br />
+<span class="irc-date">[6:03]</span> <span class="irc-green">* ChanServ sets mode +v techmik67</span><br />
+<span class="irc-date">[6:03]</span> <span class="irc-green">* ChanServ sets mode +v techmik_laptop</span><br />
+<span class="irc-date">[6:04]</span> <span class="irc-green">* ChanServ sets mode -o techmik_laptop</span><br />
+<span class="irc-date">[6:05]</span> <span class="irc-black">&lt;atinm&gt; ok, updated to use reboot recovery directly</span><br />
+<span class="irc-date">[6:07]</span> <span class="irc-black">&lt;atinm&gt; aww crap</span><br />
+<span class="irc-date">[6:07]</span> <span class="irc-black">&lt;atinm&gt; ! android</span><br />
+<span class="irc-date">[6:08]</span> <span class="irc-black">&lt;atinm&gt; oh</span><br />
+<span class="irc-date">[6:08]</span> <span class="irc-black">&lt;atinm&gt; koush, when I say reboot into recovery</span><br />
+<span class="irc-date">[6:08]</span> <span class="irc-black">&lt;atinm&gt; what should rommananager do?</span><br />
+<span class="irc-date">[6:08]</span> <span class="irc-black">&lt;atinm&gt; manager</span><br />
+<span class="irc-date">[6:08]</span> <span class="irc-black">&lt;atinm&gt; right now that is. maybe my recovery log is old</span><br />
+<span class="irc-date">[6:08]</span> <span class="irc-black">&lt;atinm&gt; because it is saying it tried to install update.zip</span><br />
+<span class="irc-date">[6:11]</span> <span class="irc-black">&lt;koush&gt; erm</span><br />
+<span class="irc-date">[6:12]</span> <span class="irc-black">&lt;koush&gt; it should just reboot recovery and do nothing</span><br />
+<span class="irc-date">[6:12]</span> <span class="irc-black">&lt;atinm&gt; it hanged and the log complained about signature mismatch on update.zip</span><br />
+<span class="irc-date">[6:12]</span> <span class="irc-black">&lt;atinm&gt; but not sure if the log is old</span><br />
+<span class="irc-date">[6:13]</span> <span class="irc-black">&lt;koush&gt; log lives in /tmp</span><br />
+<span class="irc-date">[6:13]</span> <span class="irc-black">&lt;atinm&gt; ah, :)</span><br />
+<span class="irc-date">[6:13]</span> <span class="irc-black">&lt;koush&gt; so its new</span><br />
+<span class="irc-date">[6:13]</span> <span class="irc-black">&lt;atinm&gt; I was looking at /cache/recovery/log</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;atinm&gt; and last_log in there as well</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;atinm&gt; still, got android with the !</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;koush&gt; atinm: did you try to reflash</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;koush&gt; and reselect your phone</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;koush&gt; or did you just start RM</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;atinm&gt; just started RM</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;koush&gt; oh</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;koush&gt; reselect yur phone</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;koush&gt; it doesnt sync changes automagically</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;koush&gt; do manual override in the meun</span><br />
+<span class="irc-date">[6:14]</span> <span class="irc-black">&lt;koush&gt; and select it</span><br />
+<span class="irc-date">[6:15]</span> <span class="irc-black">&lt;atinm&gt; awesome</span><br />
+<span class="irc-date">[6:15]</span> <span class="irc-black">&lt;atinm&gt; that worked :)</span><br />
+<span class="irc-date">[6:15]</span> <span class="irc-black">&lt;atinm&gt; I'm in recovery</span><br />
+<span class="irc-date">[6:15]</span> <span class="irc-black">&lt;koush&gt; sweet</span><br />
+<span class="irc-date">[6:16]</span> <span class="irc-black">&lt;atinm&gt; good good. this was our big hurdle I think. now the installation process from stock samsung w/ bml to cm7 with mtd involves:</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-black">&lt;atinm&gt; put a kernel.zip and update.zip on your sdcard, get into recovery and flash kernel.zip. it will do the conversion, save efs etc and put you back in recovery. flash update.zip and you're done</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-black">&lt;koush&gt; ya know what you could do</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-black">&lt;koush&gt; is make an update.zip package that comes from normal captivates</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-black">&lt;atinm&gt; ye?</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-black">&lt;koush&gt; that you flash via rom manager</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-black">&lt;koush&gt; which does the conversion</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-black">&lt;Kaik541&gt; koush, already does</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-black">&lt;Kaik541&gt; well nvm</span><br />
+<span class="irc-date">[6:17]</span> <span class="irc-black">&lt;koush&gt; oh nice</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;Kaik541&gt; the 2e recovery can flash the kernel.zip</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;koush&gt; whys that</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;Kaik541&gt; which takes us right into cwm3.x</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;Kaik541&gt; and the do the update</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;koush&gt; oh ok</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;koush&gt; yeah, 1 click install for existing SGS users from RM</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;Kaik541&gt; 2e recovery is broken and takes the test-signed zip</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;koush&gt; would be pretty slick</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;koush&gt; you start asking people to do cmdline flashing and stuff</span><br />
+<span class="irc-date">[6:18]</span> <span class="irc-black">&lt;koush&gt; and it goes to hell</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;koush&gt; in terms of stability</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;koush&gt; whats broken in SGS still</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, I'm going to be finishing a new build soon, should I try install zip from rom manager?</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;Kaik541&gt; battery life</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;Kaik541&gt; RIL</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;koush&gt; data or voice</span><br />
+<span class="irc-date">[6:19]</span> <span class="irc-black">&lt;koush&gt; or both</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;atinm&gt; yeah, we are going for 2e recovery (stock): flash kernel.zip. It does the conversion etc and puts you in cwm 3.x</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;atinm&gt; where you flash the update-.zip and done</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;Kaik541&gt; have to put phone to sleep once and then wake it up</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;Unhelpful&gt; koush: both, until you lock/unlock, then it works</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;koush&gt; lock/unlock?</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;atinm&gt; tho for a lot of ppl it just started working</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;atinm&gt; power button</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;koush&gt; lol</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;Kaik541&gt; power button + power button again</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;atinm&gt; screen off, screen on</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;koush&gt; weird.</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;atinm&gt; yeah :)</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;atinm&gt; except I don't have to</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;koush&gt; you could jigger that in your startup.</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;Unhelpful&gt; phone doesn't need to actually sleep. it can be plugged in on usb.</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;atinm&gt; mine just works</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;atinm&gt; </span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;koush&gt; force the phone to sleep</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;koush&gt; schedule a wakeup</span><br />
+<span class="irc-date">[6:20]</span> <span class="irc-black">&lt;Kaik541&gt; koush, codeworkx is adding that</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;koush&gt; nice</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;Kaik541&gt; echo to the framebuffer</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;Kaik541&gt; force a sleep</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;Unhelpful&gt; so presumably we can kick it w/o an actual sleep or even lock, somehow.</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;atinm&gt; lots of ppl saying on xda that they don't have to from today's update</span><br />
+<span class="irc-date">[6:21]</span> <span class="irc-black">&lt;atinm&gt; we made some big updates in the last few days</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;atinm&gt; so lots of changes for the better. biggest things left are battery life, camera and video stuff</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;atinm&gt; RIL if we can do it.</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;Kaik541&gt; need to fix it so captivate doesn't think it has FFC</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;atinm&gt; oh yeah</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;atinm&gt; we are using samsung closed source binary for camera</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;techmik_laptop&gt; rom manager reboot recovery worked</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;Kaik541&gt; and vibrant is gonna be a bitch</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;atinm&gt; and it is for the i9000</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;atinm&gt; so captivate thinks it has an ffc :)</span><br />
+<span class="irc-date">[6:22]</span> <span class="irc-black">&lt;Kaik541&gt; since some people have FFC, some don't</span><br />
+<span class="irc-date">[6:23]</span> <span class="irc-black">&lt;atinm&gt; screw that - these are things we'll figure out as more stuff drops</span><br />
+<span class="irc-date">[6:23]</span> <span class="irc-black">&lt;atinm&gt; once we have captivate specific camera lib,</span><br />
+<span class="irc-date">[6:23]</span> <span class="irc-black">&lt;atinm&gt; we can modify the camera app config somehow too maybe</span><br />
+<span class="irc-date">[6:23]</span> <span class="irc-black">&lt;atinm&gt; unless it reads ffc and bfc from lib</span><br />
+<span class="irc-date">[6:23]</span> <span class="irc-black">&lt;techmik_laptop&gt; rumor of gb for cap in the next 2 weeks i read somewhere....</span><br />
+<span class="irc-date">[6:23]</span> <span class="irc-black">&lt;atinm&gt; which would be the intelligent thing to do</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;Kaik541&gt; techmik_laptop, I also read possibly honeycomb next month</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;Kaik541&gt; I don't take credence on anything until it's in hand</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;atinm&gt; santa claus soon after!</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;techmik_laptop&gt; i want icecream</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;Kaik541&gt; epic has gingerbread leak</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;Kaik541&gt; gives me hope</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;atinm&gt; oh fuck</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;atinm&gt; i</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;atinm&gt; ts 2</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;atinm&gt; am</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;atinm&gt; gnite!</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, told you to go to bed hours ago</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;Kaik541&gt; wife gonna be angry</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;atinm&gt; wife will kill</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;atinm&gt; nite!</span><br />
+<span class="irc-date">[6:24]</span> <span class="irc-black">&lt;techmik_laptop&gt; nite</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-green">* atinm is now known as atinm|night</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;techmik_laptop&gt; good luck</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;Kaik541&gt; night</span><br />
+<span class="irc-date">[6:25]</span> <span class="irc-black">&lt;Kaik541&gt; should be atinm|dead</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;Kaik541&gt; ok so ROM manager reboot recovery works, adb reboot recovery works, reboot recovery menu works</span><br />
+<span class="irc-date">[6:26]</span> <span class="irc-black">&lt;Kaik541&gt; we good</span><br />
+<span class="irc-date">[6:28]</span> <span class="irc-black">&lt;techmik_laptop&gt; we are awesome</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;Unhelpful&gt; ...we can't be that awesome, i still don't have a pony.</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;techmik_laptop&gt; lol</span><br />
+<span class="irc-date">[6:29]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, it comes when your computer does</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;uberushaximus&gt; so are there bugs keeping this from going into the main branch?</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;techmik_laptop&gt; here i go...</span><br />
+<span class="irc-date">[6:34]</span> <span class="irc-black">&lt;techmik_laptop&gt; playing with camera</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;Unhelpful&gt; FFFFFFFUUUUUUUU</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;Unhelpful&gt; wait, my computer came back last night!</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;Kaik541&gt; yeah but the pony's probably suffocated since</span><br />
+<span class="irc-date">[6:35]</span> <span class="irc-black">&lt;techmik_laptop&gt; lol</span><br />
+<span class="irc-date">[6:36]</span> <span class="irc-black">&lt;uberushaximus&gt; I couldn't fit the pony in the box, so I had to chop it up a bit</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-black">&lt;atinm|night&gt; after some thought - I'm going to merge voodoo, modify it to be more of a driver I can live with, leave the sysfs in</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-black">&lt;atinm|night&gt; we wont include the app in cm7 obviously.</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-black">&lt;atinm|night&gt; but it doesn't hurt to have a driver - after I'm done with it.</span><br />
+<span class="irc-date">[6:43]</span> <span class="irc-black">&lt;atinm|night&gt; its a day's worth of work</span><br />
+<span class="irc-date">[6:44]</span> <span class="irc-black">&lt;uberushaximus&gt; april fools was two months ago atinm</span><br />
+<span class="irc-date">[6:44]</span> <span class="irc-black">&lt;atinm|night&gt; he can have both his free app and pay app work as he wants, since we'll still have the sysfs</span><br />
+<span class="irc-date">[6:44]</span> <span class="irc-black">&lt;Unhelpful&gt; can a needs-to-be-activated user-writable clock table be allowed? ;)</span><br />
+<span class="irc-date">[6:44]</span> <span class="irc-black">&lt;atinm|night&gt; and I can go do alsa at my convenience.</span><br />
+<span class="irc-date">[6:45]</span> <span class="irc-black">&lt;atinm|night&gt; driver changes will still go thru us, so I won't let it get dirty.</span><br />
+<span class="irc-date">[6:45]</span> <span class="irc-black">&lt;atinm|night&gt; its fine.</span><br />
+<span class="irc-date">[6:45]</span> <span class="irc-black">&lt;atinm|night&gt; koush made me less of a bastard about it :)</span><br />
+<span class="irc-date">[6:45]</span> <span class="irc-black">&lt;atinm|night&gt; I mean, the sysfs is there but doesn't hurt anything</span><br />
+<span class="irc-date">[6:45]</span> <span class="irc-black">&lt;atinm|night&gt; its is debug for me too</span><br />
+<span class="irc-date">[6:46]</span> <span class="irc-black">&lt;atinm|night&gt; but damned if I leave the voodoo_hook_xyz in there.</span><br />
+<span class="irc-date">[6:46]</span> <span class="irc-black">&lt;atinm|night&gt; but that is just cosmetic</span><br />
+<span class="irc-date">[6:46]</span> <span class="irc-black">&lt;atinm|night&gt; ok, now I'm gone.</span><br />
+<span class="irc-date">[6:47]</span> <span class="irc-black">&lt;Unhelpful&gt; as if. ;)</span><br />
+<span class="irc-date">[6:47]</span> <span class="irc-black">&lt;atinm|night&gt; no really.</span><br />
+<span class="irc-date">[6:47]</span> <span class="irc-black">&lt;atinm|night&gt; bye! :)</span><br />
