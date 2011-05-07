@@ -756,3 +756,44 @@
 <span class="irc-date">[12:53]</span> <span class="irc-black">&lt;Wout`&gt; atinm|away</span><br />
 <span class="irc-date">[12:53]</span> <span class="irc-black">&lt;Wout`&gt; wth?</span><br />
 <span class="irc-date">[12:53]</span> <span class="irc-black">&lt;Wout`&gt; you merged voodoo sound?</span><br />
+<span class="irc-date">[13:02]</span> <span class="irc-black">&lt;Wout`&gt; didnt expect that after the discussion with supercurio yesterday atinm|away</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.67.49) has joined this channel.</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;atinm|away&gt; on a branch</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;atinm|away&gt; I will take a day or so to make it "fit"</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;atinm|away&gt; nothing major, he'll be happy</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm|away&gt; I will even take a look at his app</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;atinm|away&gt; koush made me think a little  bit. if it is welcomed, actually makes for a better experience and I can clean it up some, I'l ok with it.</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;atinm|away&gt; my biggest issue with it right now is just how the driver is written, and that the interfaces arent ALSA</span><br />
+<span class="irc-date">[13:13]</span> <span class="irc-black">&lt;atinm|away&gt; but having a sysfs interface in addition isn't so terrible. Once I have ALSA, it can go away, just be there for debugging etc</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|away&gt; but just having a sysfs interface doesn't do anything.</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;atinm|away&gt; and if we have a separate app to control the sysfs, who cares. he has it on market, ppl install it. all good.</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;atinm|away&gt; we'll most probably end up with a real sound thing as part of or in addition to DSPManager</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;atinm|away&gt; that'll be open source</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;atinm|away&gt; and it will use ALSA.</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;Wout`&gt; ok</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;atinm|away&gt; but anyway, those were my thoughts. The thing I was most pissed about was the insistence that it is bad design etc etc</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;atinm|away&gt; which is bullshit.</span><br />
+<span class="irc-date">[13:16]</span> <span class="irc-black">&lt;atinm|away&gt; and the idea that the app has to be part of this. which he seems to have backtracked from later.</span><br />
+<span class="irc-date">[13:17]</span> <span class="irc-black">&lt;Wout`&gt; I assume the code itself sets new default values which are better than the standard driver?</span><br />
+<span class="irc-date">[13:17]</span> <span class="irc-black">&lt;Wout`&gt; without even using the app?</span><br />
+<span class="irc-date">[13:17]</span> <span class="irc-black">&lt;atinm|away&gt; if the defaults just work, and I can put in the changes into the kernel without everything being called voodoo_xxx, I'll do it</span><br />
+<span class="irc-date">[13:17]</span> <span class="irc-black">&lt;atinm|away&gt; and leave the sysfs so he is also happy. but anyone will be able to write to the sysfs.</span><br />
+<span class="irc-date">[13:17]</span> <span class="irc-black">&lt;atinm|away&gt; and once I am done with ALSA, it can be part of something bigger</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-black">&lt;atinm|away&gt; I mostly committed it to the branch so he is on the author chain.</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-black">&lt;atinm|away&gt; he did do the work.</span><br />
+<span class="irc-date">[13:18]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.67.49) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-black">&lt;atinm|away&gt; so I can now go in and do what I think is best on top :)</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.67.49) has joined this channel.</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-black">&lt;atinm|away&gt; without worrying about it.</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-black">&lt;atinm|away&gt; it being GPL and all</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-black">&lt;atinm|away&gt; I am waiting on one of our merges to bootable/recovery to get reviewed by koush</span><br />
+<span class="irc-date">[13:20]</span> <span class="irc-black">&lt;atinm|away&gt; and then we're done with merging I think.</span><br />
+<span class="irc-date">[13:20]</span> <span class="irc-black">&lt;atinm|away&gt; and get to start sending real SGS stuff up :)</span><br />
+<span class="irc-date">[13:20]</span> <span class="irc-black">&lt;atinm|away&gt; back later</span><br />
+<span class="irc-date">[13:21]</span> <span class="irc-black">&lt;Wout`&gt; sounds good :)</span><br />
+<span class="irc-date">[13:41]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.67.49) Quit (Quit: Zzzz)</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.67.49) has joined this channel.</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.67.49) Quit (Client Quit)</span><br />
