@@ -1,0 +1,129 @@
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;Kaik541&gt; anybody have any ideas about this</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://pastebin.com/RLpjT5u6">http://pastebin.com/RLpjT5u6</a> &lt;--- logcat <a href="http://pastebin.com/DXmmKZzL">http://pastebin.com/DXmmKZzL</a> &lt;--- dmesg</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;Kaik541&gt; it's what happens when my phone randomly loses service with i9000 modem</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;techmik67&gt; E/wpa_supplicant(  290): wpa_driver_priv_driver_cmd failed (-1): COUNTRY US</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;Kaik541&gt; that's wifi I think</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;techmik67&gt; yeah, but it jumped out</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;Kaik541&gt; everything in telephony gets set to null</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;techmik67&gt; I/TelephonyRegistry(  182): notifyDataConnection: state=0 isDataConnectivityPossible=false reason=radioTurnedOff interfaceName=null networkType=0</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;atinm&gt; huh</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;atinm&gt; wtf, I thought I had change that.</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;Kaik541&gt; dmesg shows modem shitting itself</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;techmik67&gt; dont tell me you can fix kaik?</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;Kaik541&gt; &lt;3&gt;[ 4358.546340] modem_acquire_mmio() TIMEOUT</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;Kaik541&gt; it's requesting more and more RAM but can't get  any...</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;Kaik541&gt; you know what... I don't remember having issues with i9000 modems until those new high-mem kernels started coming out</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;Kaik541&gt; because I used to use the very old school perception and i9000 based ROM's/modems without any issue</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;Kaik541&gt; I don't know if that's coincidence or what</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-navy">* aarcane (~aarcane@c-98-238-138-177.hsd1.ca.comcast.net) Quit (Ping timeout: 248 seconds)</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;Unhelpful&gt; "high-mem"?</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;Kaik541&gt; it wasn't until I started using those kernels that had 340 MB free (as opposed to stock 300 MB)</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-green">* ChanServ sets mode +v uberushaximus</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;Unhelpful&gt; erm, what's *different* about them?</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;atinm&gt; did we lose our sensors again?</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;atinm&gt; what are light sensors reading now?</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;techmik67&gt; sec</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;atinm&gt; yeah, looks like we lost it</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;atinm&gt; fuck.</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;atinm&gt; how</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-navy">* zerojay (~jay@blk-138-9-123.eastlink.ca) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;techmik67&gt; only guiper knows</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, I'm not entirely sure the change came about sometime around November of last year I guess</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Kaik541&gt; I know hardcore implements some of them: <a href="http://forum.xda-developers.com/showthread.php?t=822756">http://forum.xda-developers.com/showthread.php?t=822756</a></span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Kaik541&gt; and he has some info about memory config, but I don't know if that's all of it</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;techmik67&gt; 6 and 5000 for light sensor</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;Kaik541&gt; everyone gives hardcore the credit for finding it, so I guess he had a hand in it</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://forum.xda-developers.com/showpost.php?p=8850760&amp;postcount=164">http://forum.xda-developers.com/showpost.php?p=8850760&amp;postcount=164</a> &lt;--- seems to have stemmed from this thread/post</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;Kaik541&gt; and I'm pretty sure we have the same memory allocation</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;Kaik541&gt; or at least similar... as i used to use xcalibur's kernel with an i9000 modem without any issues</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-black">&lt;Kaik541&gt; I have no idea if they're related, that's just about when I remember it</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-navy">* gehzumteufel (~gehzumteu@adsl-76-252-171-187.dsl.lsan03.sbcglobal.net) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-green">* gehzumteufel (~gehzumteu@adsl-76-252-171-187.dsl.lsan03.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[0:22]</span> <span class="irc-green">* ChanServ sets mode +v gehzumteufel</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;atinm&gt; ah, codeworkx forced a change onto it so that we went back to using samsung sensors</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;atinm&gt; don't know if he meant to tho</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;techmik67&gt; i fixed in my repo and am building to see what happens</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;techmik67&gt; <a href="http://goo.gl/hknkN">http://goo.gl/hknkN</a></span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; yeah</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;techmik67&gt; let ya know in 30 mins =)</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; I just built</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; you dont' need to clean I don't think</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;techmik67&gt; this way?</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;techmik67&gt; i already did</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;atinm&gt; yeah, just taking out that line</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;techmik67&gt; 10 mis into clean build with that change</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; lets see</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; maybe that will break camera again</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;techmik67&gt; we'll see.....</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;techmik67&gt; supercurio in cmsgs.... invite?</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; if he wants to come here, sure ...</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;techmik67&gt; oh, he didnt ask, i just assumed he got fwded</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; don't - only if he asks :)</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;techmik67&gt; ypu</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;techmik67&gt; yup</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, he's sat in #cmsgs for like the past 2 months xD</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;techmik67&gt; oh, never noticed.. =)</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-green">* techmik_laptop is now known as techmik</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-green">* techmik is now known as techmik_laptop</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;techmik67&gt; stupid switch</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;techmik67&gt; ahh, i see</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;Unhelpful&gt; ...loggedchannel ;P</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm&gt; that's why I was anon ;)</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;Unhelpful&gt; ...</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;atinm&gt; damn it, maybe I did need to clean.</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;techmik67&gt; ooo</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;techmik67&gt; i got a headstart</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;Kaik541&gt; it only takes him 10 minutes to build clean xD</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;atinm&gt; I'll still take you down ;)</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-green">* Wout (~Wout@62.140.137.142) has joined this channel.</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm&gt; tho are you building kernel too?</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;techmik67&gt; yup, usual process...</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;techmik67&gt; i cleaned and rebuilt</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;techmik67&gt; prob 15 mins left....</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;Unhelpful&gt; the idea was for us not to be rebuilding the kernel every time :/</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-green">* TMC_Sherpa_ (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, unless there's a kernel change</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-green">* techmik67 sets mode +v TMC_Sherpa_</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-green">* ChanServ sets mode +v TMC_Sherpa_</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;Kaik541&gt; you need to do it through chanserv techmik67</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;Kaik541&gt;  /msg ChanServ voice #__topsecret__ &lt;nick&gt;</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;techmik67&gt; got it</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;techmik67&gt; i can rt click in konvo</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;techmik67&gt; instinct</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-green">* Wout is now known as woutvoiceplz</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; I have nothing useful to say at the moment, don't worry about it</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-green">* woutvoiceplz is now known as Wout</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-green">* ChanServ sets mode +v Wout</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa_, what else is new</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; nothing</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; nothing at all</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;Kaik541&gt; I will stop making that joke</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;Kaik541&gt; one day</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; no bet</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-green">* TMC_Sherpa_ is now known as TMC_sherpa</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://stats.cyanogenmod.com/">http://stats.cyanogenmod.com/</a></span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;Wout&gt; Battery drain seems to have been improved on latest test build with gpio fixes</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm&gt; on that page, what are the brand names I'd recognize</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm&gt; what is the bravo?</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm&gt; and supersonic?</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;Wout&gt; Haven't done any scientific tests, but batt seems to last longer</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;Kaik541&gt; bravo = desire, supersonic = evo</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm&gt; sholes?</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;Kaik541&gt; droid</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;TMC_sherpa&gt; prolly Wout , now that the changes are in a file that is read when it compiles :P</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm&gt; ace inc and vision?</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;Kaik541&gt; desire hd, htc incredible, g2/desire z</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;atinm&gt; so we're basically up there</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;atinm&gt; only the very best CM7 supported phones are above us</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;atinm&gt; if we had even the tiniest bit of help from samsung, we would be up there</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;Wout&gt; Tmc, that kind of helps, yeah :P</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;TMC_sherpa&gt; figured  you were looking for your next phone</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-brick">* Unhelpful wonders if techmik67 ever figured out how to author-tag TMC_sherpa properly ;P</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;TMC_sherpa&gt; doesn't matter Unhelpful my poop isn't compiled anyway :)</span><br />
+<span class="irc-date">[0:58]</span> <span class="irc-black">&lt;techmik67&gt; nope, i tried, but it kept telling me errors or no such author......</span><br />
