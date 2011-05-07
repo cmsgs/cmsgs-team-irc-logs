@@ -899,3 +899,108 @@
 <span class="irc-date">[15:58]</span> <span class="irc-black">&lt;atinm|away&gt; then its all your fault ;)</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;techmik67&gt; hey, i cast no blame, just pointed out the irony that i played all nte to get to the pull request page i linked, only *then* to realize that the system isnt even looking at my cahnges =)</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;techmik67&gt; Unhelpful: even said at oe point "i'm surprised this compiled"</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: the compiles ignores it</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; compiler</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;techmik67&gt; i cant get over the amazing battery sipping.....</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;techmik67&gt; thatsd what i mean</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;techmik67&gt; should have figured it out</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: at BoardConfig.mk add Y_U_NO_HAVE_CAMERA := true</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;techmik67&gt; when he said he was surprised</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; then the compiler will have a look at</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;techmik67&gt; ahhhhh</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;atinm|away&gt; but then camera won't really work ;)</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;techmik67&gt; i didnt see L1 until after i did all my stuff =)</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;codeworkx&gt; but it will be a conflict between this and samsungs libcamera</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;techmik67&gt; i get it</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;techmik67&gt; my goal was to remove the option to choose ffc when you open the camera</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;techmik67&gt; so i searched, and somehow didnt see the commit msg "dont use libcamera and libc3jpeg</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;atinm|away&gt; you could go into the camera app code</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;atinm|away&gt; and hack it there.</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;atinm|away&gt; but third party cameras will still break</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;atinm|away&gt; so not worth it</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;techmik67&gt; i can barely play with this code, you want me to try playing with binary?!!?! =)</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;techmik67&gt; and as soon as gb source for cap drops its done anyway, correct?</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: first leaked firmware will do</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: then we can grab the libcamera.so from this leak</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;techmik67&gt; i read a rumor "mid-may"</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;techmik67&gt; my watch says the 7th......</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;techmik67&gt; so, next week?</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;techmik67&gt; =)</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-navy">* ciwrl|away (~ciwrl@pool-96-255-81-2.washdc.fios.verizon.net) Quit (Ping timeout: 252 seconds)</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;atinm|away&gt; mid-may sounds about right.</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;atinm|away&gt; we're in may. so about a year out</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-green">* TMC_Sherpa is now known as TMC_Sherpa_</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-green">* TMC_Sherpa_ is now known as TMC_Sherpa</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-green">* ChanServ sets mode +v TMC_Sherpa</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; interesting, login is for Sherpa_ but I can't get in here with that, need to change it to _Sherpa...or maybe it works once the nick server has done its BS...I'll have to check next time</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-green">* ChanServ sets mode +v chaembian</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;chaembian&gt; test</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;techmik67&gt; i voiced ya =)</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;chaembian&gt; :)</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; heh tech, tonight try and -v atinm around 10 or so...we need him to be alive for at least a little while longer</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;chaembian&gt; hmmm... without voice i cannot talk? ;)</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you can talk but your the only one (other than chanserv) who can see it</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;chaembian&gt; lol! :)</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;techmik67&gt; channel is now moderated... you no got +v, you no can talk =)</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;techmik67&gt; and you need an invite to get in =) or be on "the list" XD</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;chaembian&gt; Alright! I don't know if you guys can relate but this is like a classroom with principal in as substitution ;)</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;techmik67&gt; off-topic...... does anyone else *love* the "most interesting man in the world" dos equis commercials?</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;chaembian&gt; Anything changed with respect to the modem recently</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.67.49) has joined this channel.</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;chaembian&gt; (And does modem cause the mute/unmute issue?)</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;techmik67&gt; back on topic.... the mach-aries.c that codeworkx changed..... is that the same, but better, file that i had in the pull request?</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;zachy_md&gt; techmik67: they're great :)  the Old Spice commercials are also awesome</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;techmik67&gt; "his mother has a tattoo that says 'SON'"</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;zachy_md&gt; could be the "new" old modem-ctl the reason that it now acquires the signal faster than before</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;zachy_md&gt; techmik67: rofl</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;techmik67&gt; oh, right</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;techmik67&gt; i havent needed lock/unlock</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; which old mach-aries file techmik67 the one codeworkx messed with...you know...works</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;techmik67&gt; i know</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;techmik67&gt; that's why i wanna be sure its the same</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;techmik67&gt; file</span><br />
+<span class="irc-date">[16:33]</span> <span class="irc-black">&lt;chaembian&gt; OK, few builds back people stopped complaining about my voice not being audible. But I was also muting/unmuting instinctively for sometime now, so couldn't consciously came around testing it for sure.</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the sound stuff is in flux right now</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;chaembian&gt; ok ..</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;chaembian&gt; I should have tested it to know if it was working. Now, I'm not sure if it was working or if I was imagining. :)</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; as of like a few hours ago :P</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;chaembian&gt; :)</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the code is the same right now but it may be getting....changed.... I'm not really sure what atinm has in mind</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;chaembian&gt; OK!</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;knowsnotmuch&gt; chaembian, dont know abotu this build, but the inaudible voice issue existed until the build prior to the last - but like you say,  toggling speaker on-off has become 2nd nature now</span><br />
+<span class="irc-date">[16:39]</span> <span class="irc-black">&lt;chaembian&gt; I do mute/unmute. I'll check with speakers next time. :)</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;chaembian&gt; But I think folks were not complaining few days back. We were able to converse. I usually check how my voice sounded. But this week was pretty tight at work so I could consciously track it.</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; \o/ techmik67 I may have something for you to test it at least compiles this time</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;chaembian&gt; Yesterday and today, folks were having trouble listening to me. Mute/unmute settled it.</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.67.49) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.67.49) has joined this channel.</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;techmik67&gt; ok</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;mikebeecham&gt;  hey all</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; do you still have the junk I sent you last time?</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;koush&gt; atinm|away: btw you knwo that reboot is never called</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;koush&gt; toolbox reboot is not used</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: If you want me to test/build, I can do it too.</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sure, just need tech to set up the branch :P</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;mikebeecham&gt; codeworkx,</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;mikebeecham&gt; ping</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;codeworkx&gt; pong</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;koush&gt; err nm</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;mikebeecham&gt; hey man...I've not been around for the last couple of days</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;mikebeecham&gt; which is why I didnt respond to your PM</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;mikebeecham&gt; but thanks for a great release...the camera couldn't have been better timed</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;codeworkx&gt; mikebeecham: time for creating something awesome?</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;mikebeecham&gt; not for the next couple of weeks....I'm pretty solid until at least halfway through May</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;mikebeecham&gt; if I have spare time in the evenings (my evenings, not yours!) then I can hit you up</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;codeworkx&gt; k</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;mikebeecham&gt; what did you think of the icon a day later? wanted to change it at all?</span><br />
+<span class="irc-date">[16:52]</span> <span class="irc-black">&lt;GuiPer&gt; codeworkx or atinm|away  what is the command to see the sleep statistics and interrupts? and if it's not on default CM where can i get it?</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;GuiPer&gt; i used it before but forgot now</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;knowsnotmuch&gt; powertop?</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;knowsnotmuch&gt; GuiPer, yeah powertop</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;GuiPer&gt; that one :)</span><br />
