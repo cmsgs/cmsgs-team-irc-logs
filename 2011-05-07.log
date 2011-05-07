@@ -613,3 +613,39 @@
 <span class="irc-date">[6:47]</span> <span class="irc-black">&lt;Unhelpful&gt; as if. ;)</span><br />
 <span class="irc-date">[6:47]</span> <span class="irc-black">&lt;atinm|night&gt; no really.</span><br />
 <span class="irc-date">[6:47]</span> <span class="irc-black">&lt;atinm|night&gt; bye! :)</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok, Unhelpful, what did i do wrong? <a href="https://github.com/techmik/android_device_samsung_common/commit/2d3baf13369d9f6fab0407cd4721e4e29fc5a4ee">https://github.com/techmik/android_device_samsung_common/commit/2d3baf13369d9f6fab0407cd4721e4e29fc5a4ee</a></span><br />
+<span class="irc-date">[7:06]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: um, i don't know?</span><br />
+<span class="irc-date">[7:06]</span> <span class="irc-black">&lt;techmik_laptop&gt; lol, honest answer =)</span><br />
+<span class="irc-date">[7:07]</span> <span class="irc-black">&lt;Unhelpful&gt; why are you *asking* me what you did wrong? what *went* wrong?</span><br />
+<span class="irc-date">[7:08]</span> <span class="irc-black">&lt;techmik_laptop&gt; the option for front camera is stilll there</span><br />
+<span class="irc-date">[7:09]</span> <span class="irc-black">&lt;techmik_laptop&gt; afaict, it did nothing</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-black">&lt;Unhelpful&gt; um, is FFC_PRESENT defined, or not?</span><br />
+<span class="irc-date">[7:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; i searched for "front" not ffc, so i'll check....</span><br />
+<span class="irc-date">[7:11]</span> <span class="irc-black">&lt;Unhelpful&gt; because it looks to me like the part you commented out is duplicated... look @ <a href="https://github.com/techmik/android_device_samsung_common/commit/2d3baf13369d9f6fab0407cd4721e4e29fc5a4ee#L0L2119">https://github.com/techmik/android_device_samsung_common/commit/2d3baf13369d9f6fab0407cd4721e4e29fc5a4ee#L0L2119</a></span><br />
+<span class="irc-date">[7:12]</span> <span class="irc-black">&lt;techmik_laptop&gt; ah, i see</span><br />
+<span class="irc-date">[7:14]</span> <span class="irc-black">&lt;techmik_laptop&gt; i was trying to comment out if captivate,but else, leave it</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;Unhelpful&gt; oh! yeah, i see that. hrm.</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;Unhelpful&gt; why not just #ifndef SAMSUNG_CAPTIVATE ;)</span><br />
+<span class="irc-date">[7:17]</span> <span class="irc-black">&lt;techmik_laptop&gt; cause i knwo only about code what i am pickingup looking thru it =)</span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;Unhelpful&gt; start here: <a href="http://en.wikipedia.org/wiki/C_preprocessor">http://en.wikipedia.org/wiki/C_preprocessor</a></span><br />
+<span class="irc-date">[7:18]</span> <span class="irc-black">&lt;techmik_laptop&gt; ah</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;techmik_laptop&gt; explainations of what i've been typing</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;Unhelpful&gt; or find something more tutorial-ish.</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;Unhelpful&gt; but yeah, you need some formal education to get good at this.</span><br />
+<span class="irc-date">[7:19]</span> <span class="irc-black">&lt;techmik_laptop&gt; for example... i see "if defined" and "ifndef"</span><br />
+<span class="irc-date">[7:20]</span> <span class="irc-black">&lt;techmik_laptop&gt; so ii would use whateever is nearby in the code</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;Unhelpful&gt; #ifdef is shorthand for #if defined() - *but* there is a whole richer language of expression available to #if, where #ifdef and #ifndef may only check if one preprocessor macro is defined (or not)</span><br />
+<span class="irc-date">[7:22]</span> <span class="irc-black">&lt;techmik_laptop&gt; now, does only captivate need it removed?</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;Kaik541&gt; vibrant</span><br />
+<span class="irc-date">[7:23]</span> <span class="irc-black">&lt;Kaik541&gt; sorta</span><br />
+<span class="irc-date">[7:24]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm, also, @ #45 you insert a #if, but don't appear to add a matching #endif?</span><br />
+<span class="irc-date">[7:24]</span> <span class="irc-black">&lt;Unhelpful&gt; also, don't conditionally *comment out* code. just remove it conditionally.</span><br />
+<span class="irc-date">[7:24]</span> <span class="irc-black">&lt;techmik_laptop&gt; oops</span><br />
+<span class="irc-date">[7:26]</span> <span class="irc-brick">* Unhelpful is kind of surprised that this compiled</span><br />
+<span class="irc-date">[7:31]</span> <span class="irc-black">&lt;techmik_laptop&gt; gonna clean</span><br />
+<span class="irc-date">[7:33]</span> <span class="irc-black">&lt;Kaik541&gt; nice, telling ROM manager to backup my current ROM worked</span><br />
+<span class="irc-date">[7:35]</span> <span class="irc-black">&lt;Kaik541&gt; now let's see if it installs the update</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;Kaik541&gt; seems to have worked</span><br />
+<span class="irc-date">[7:45]</span> <span class="irc-brick">* Unhelpful really doesn't use the RM app very often. would if he could queue actions to happen in order, maybe. :)</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, is useful to test for when OTA's would be available</span><br />
+<span class="irc-date">[7:49]</span> <span class="irc-black">&lt;Kaik541&gt; and you can backup, wipe data/cache/dalvik cache, and then install ROM</span><br />
