@@ -1231,3 +1231,207 @@
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;codeworkx&gt; there's some licence shit</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;Unhelpful&gt; crap :(</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;coolya&gt; using the binay crap from jvb is the same license problem ...</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, that's what ./extract-files.sh is for</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;coolya&gt; the hole gps stuff is not apache license or anything that would allow us to use them</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: the licensing problem is about distribution</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;Unhelpful&gt; ...do other CM targets have official binary builds that include vendor binaries w/o explicit permission?</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, yeah, which is why we can't put the binaries anywhere</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;Unhelpful&gt; heh:0000f280 &lt;HAL_getNumberOfCameras&gt;:</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;Unhelpful&gt;     f280:       2002            movs    r0, #2</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;Unhelpful&gt;     f282:       4770            bx      lr</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;Unhelpful&gt; 'k, so... yeah, i can make libcamera.so say it has one camera.</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: i know, but even publishing an update.zip with them is not legal</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, extract-files is for that... the distributed builds all technically are illegal in that sense</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;Kaik541&gt; just like the gapps stuff</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: there is an enum in the hal that should report the cams too</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;Kaik541&gt; but no vendor has gone after CM for including vendor binaries yet</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;Kaik541&gt; at least not that I know of</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: enums aren't queryable by some binary that loads the library, though - that's what HAL_* appear to be for.</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-brick">* Unhelpful wishes he knew thumb instruction encoding... but will take a shot at guessing here ;)</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: if the user gets our sources and gets the binarys from his phone with extract-files, it's ok. but shipping it out is for me teh same</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, yes, but the binaries shouldn't be hosted on github or anything like that (no other device does)</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: lg</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, ?</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/koush/proprietary_vendor_lge">https://github.com/koush/proprietary_vendor_lge</a></span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;codeworkx&gt; arcee had to patch some binarys</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: what about adding a download-blobs.sh</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;codeworkx&gt; for lg</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;codeworkx&gt; users can't get patched stuff from their devices xD</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, I don't see why that would be a problem, you'd have to get it approved by koush or whatever</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;Kaik541&gt; or just through gerrit I mean</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: unless there is some function that returns an enum item (for example if the last enum entry is NUMBER_OF_CAMERAS or such), the enum isn't really a thing that's exported anywhere - in effect enum values may as well be compiler defines (not quite)</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: k it was just what i knew from working with the cam source</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, hmm that seems kind of opposed to what I read things</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;coolya&gt; did anybody try to get the oss driver for cam working or where you all just lazy and copied sammy stuff in? xD</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;Kaik541&gt; I thought proprietary vendor blobs couldn't be hosted</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: not on the official cm git hub</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;Kaik541&gt; well if the goal is to go upstream, we can't include them, right?</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;coolya&gt; they are not inclueded in any source dl from cm</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;coolya&gt; not for any phone</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;Kaik541&gt; exactly</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;Kaik541&gt; so that means the build environment has to be set up so that using ./extract-files.sh or that extract-update (can't recall actual name) file gets all the blobs</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;coolya&gt; unzip-files.sh</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;coolya&gt; extracts them from a update.zip</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;Kaik541&gt; yeah</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;codeworkx&gt; download-files.sh, Kaik541 will host</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;Kaik541&gt; I suppose would create an update.zip that has all the necessary files and post that somewhere</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;Kaik541&gt; and just say "we don't endorse this, but those just happen to be the files you need"</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;Kaik541&gt; kind of like how CM treats gapps</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-brick">* techmik67 dances around the room......</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;techmik67&gt; wow, this may turn out to be a good day..... roommates pc: <a href="http://db.tt/83CG64j">http://db.tt/83CG64j</a>    my pc: <a href="http://db.tt/pC699Wf">http://db.tt/pC699Wf</a> ...... he has an extra duplicate computer i may take off his hands.... throw in my 2 tb hdd and dual video cards and this is a decent upgrade, correct?</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;Unhelpful&gt; PATCHED. :)</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: we need the same on vibrator :D</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;Unhelpful&gt; ...what about vibrator?</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;coolya&gt; no ffc</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: want to push a binhacked libcamera.so? ;)</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;techmik67&gt; sure</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: well, probably the same hack... ;)</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, gimme</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Unhelpful&gt; <a href="http://www.looking-glass.us/~chshrcat/HACKED-libcamera.so">http://www.looking-glass.us/~chshrcat/HACKED-libcamera.so</a> :)</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;Unhelpful&gt; drop that in wherever libcamera.so goes :P</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;Kaik541&gt; system/lib</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;Unhelpful&gt; size-optimized binaries and functions that just return an int are caaaaake. now, if it were a larger int... that might be pain. :)</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;Unhelpful&gt; also if there's any *other* way to get at number-of-cameras</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;Kaik541&gt; mine still thinks it has two cams</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;Kaik541&gt; :(</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;Unhelpful&gt; rebooted?</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;Kaik541&gt; doing so now, but figure camera wouldn't have worked at all if it couldn't read the file</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;Kaik541&gt; oh looks like I was entirely wrong</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, but i don't know if anything caches the stored value.</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;Kaik541&gt; 1 camera</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;Kaik541&gt; ftw</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-brick">* Unhelpful hopes it's the right one? ;)</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;Kaik541&gt; well I cleared camera data first</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;Kaik541&gt; well I can see out of it</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;Kaik541&gt; so I'm gonna say yes</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;Kaik541&gt; yay binhacked binary</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;techmik_laptop&gt; what *exactly* do i type? git commit --author=Unhelpful?</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;Unhelpful&gt; ... probably no, i'm not in that repository? ;)</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;coolya&gt; it commit --author=Unhelpful &lt;mail@host&gt;</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;Unhelpful&gt; gimme a minute! :)</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;techmik_laptop&gt; will that broadcast his email, or just identify him?</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;Unhelpful&gt; --author="Andrew Mahone &lt;andrew.mahone@gmail.com&gt;"</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik67: email is already broadcast, it's in git. ;)</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;atinm|away&gt; that's why I started using atinm.dev@gmail.com</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;techmik67&gt; ah</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;Unhelpful&gt; it's only on github where it shows my username - that's their UI that does that.</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;atinm|away&gt; koush, got it. modifying. I like it better that way too.</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: so you had to, what, clear camera app data?</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, well I did that before I rebooted</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;Kaik541&gt; reboot and it worked, not sure if I had to clear data first time</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: what exactly is wrong w/ JVB PVR binaries? i seem to recall pushing them to my phone after JVB came out and having it work (fixed issues in Quadrant, actually)</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, I'm not sure there really was</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;Kaik541&gt; we were using them for a while =/</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;Kaik541&gt; we just switched to nexus s when the 2.3.4 drivers came out</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;Kaik541&gt; but I don't think we had to</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;Unhelpful&gt; that would leave only ril for binaries that don't come from a vendor firmware, right?</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;Kaik541&gt; yeah</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;Kaik541&gt; so it might be a better idea to revert that</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;atinm|away&gt; koush updated. much cleaner bootable/recovery now.</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;coolya&gt; why?</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;coolya&gt; it still don't get why using sammy ril</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;atinm|away&gt; hey coolya :)</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;coolya&gt; hi</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;atinm&gt; *dumps vibrant in coolya's lap*</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;h8rift&gt; lol</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;atinm&gt; I'M DONE!</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;coolya&gt; atinm: gps is on the way :-P</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, FREEE</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, Unhelpful also binhacked the libcamera.so so captivate only has one camera now</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;atinm&gt; wish you had been here yesterday when this french guy went off on sound</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;techmik67&gt; YES!!!! <a href="https://github.com/techmik/android_vendor_samsung_common/tree/newcamhack">https://github.com/techmik/android_vendor_samsung_common/tree/newcamhack</a></span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;atinm&gt; (yes! no mention of anything incriminating)</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;atinm&gt; you are kidding.</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;coolya&gt; atinm: frensh? wth?</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;atinm&gt; did you just hack the binary?! :)</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; say no</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;techmik67&gt; he did</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; doh</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;techmik67&gt; not me</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;atinm&gt; I *know* not you ;)</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;atinm&gt; but, cool!</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;techmik67&gt; i finally go the author tag right</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;atinm&gt; I still don't know if we can actually pass on CM7 with those</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;atinm&gt; but what the hell</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;Kaik541&gt; this is why we need vendor folders for each device =/</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm&gt; yeah.</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm&gt; we will end up with them</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;techmik67&gt; my roommate is a very strange person....</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: we will need one for vibrant any why because of gps</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;Kaik541&gt; techmik67, isn't your roommate your brother?</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm&gt; as all the binaries come out</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm&gt; and</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;techmik67&gt; "you cant just swap the hard drives in the 2 computers... it'll mess everything up"</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm&gt; we are forced to use samsung binaries.</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, yeah, that's what I'm saying... the devices are similar but not similar enough</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;techmik67&gt; no, friend of like 30 years</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;atinm&gt; so we'll have to split it anyway</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;coolya&gt; If we will have to use sammy bins only this hole project becomes useless</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;atinm&gt; coolya: yeah - he wants us to merge all his code, and I guess add his app too.</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;atinm&gt; luckily he finally decided that his app isn't  needed.</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;atinm&gt; I talked to koush last night, and I'm thinking of putting something in that I am comfortable with.</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;coolya&gt; i would have decided that he isn't needed :-D</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;atinm&gt; no app tho. not until I have ALSA.</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;atinm&gt; so now that I feel good about it, I'm going to ignore it ;)</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;atinm&gt; more important things to do.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;atinm&gt; but I did commit his code into a branch. so I can always say I am working on it. And I did. Honest.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.67.49) has left this channel.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;atinm&gt; now the code has no mention of any words with too many 'o's in them</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;atinm&gt; o</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;atinm&gt; or starting with 'v'.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;coolya&gt; but still this crappy sysfs interface ?</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;atinm&gt; in fact, no files even.</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the alsa docs I've seen are kinda vague.  1) get yer device 2)make an alsa driver 3)...profit</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;atinm&gt; yeah, I figure it doesn't hurt anything to leave it - it can be debugging.</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;atinm&gt; I will still do it with alsa.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm&gt; as soon as I figure out how to do the upper layers :)</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm&gt; which might take me some time.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm&gt; so it is commited to a branch 8)</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;atinm&gt; 'I'm on it'</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;atinm&gt; ok, I am going to lie down for a bit. don't break anything</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, don't tell us what to do :)</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;atinm&gt; I'm a bad influence.</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but but but...those are the best kind</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;atinm&gt; it is everyone else who don't get to tell *me* what to do ;)</span><br />
+<span class="irc-date">[19:52]</span> <span class="irc-black">&lt;atinm&gt; but I am glad to be alive.</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;atinm&gt; I'm not sure wife knows I was up till 2:30am last night</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;atinm&gt; she was asleep ;)</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;Kaik541&gt; sneaky</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;atinm&gt; but I have to look like I am resting. so I'll be back in a couple of hours.</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;atinm&gt; have to lie down.</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh yeah atinm don't forget to scrub the logs</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;atinm&gt; yesterdays logs are redacted.</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;atinm&gt; :)</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I know just reminding you......what?</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;Kaik541&gt; oh look sherpa was actually helpful :)</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;codeworkx&gt; "really great, it last much longer than the stock ROM. Great job!!"</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;atinm&gt; latuh.</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;codeworkx&gt; "Battery as good as with stock froyo."</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; is that damning with faint praise?</span><br />
+<span class="irc-date">[19:56]</span> <span class="irc-black">&lt;codeworkx&gt; pew pew. ordered new root server. double power, half costs</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, layz0rs make things work better</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;codeworkx&gt; should improve money drain</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: Y U NO HAVE LAZ0RGUNZ?</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, I HAS LAYZ0RGUN FROM FALLOUT</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;Kaik541&gt; MAKES BIG PEW PEW GUN NOISES</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;h8rift&gt; rofl</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;techmik67&gt; ok, will be on laptop... gotta do some dektop stuff</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; just registered xda-noobs.com</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;Kaik541&gt; is that a real site?</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it will be</span><br />
