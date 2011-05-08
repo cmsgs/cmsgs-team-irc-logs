@@ -450,3 +450,99 @@
 <span class="irc-date">[11:36]</span> <span class="irc-black">&lt;GuiPer&gt; well it compiled :)</span><br />
 <span class="irc-date">[11:36]</span> <span class="irc-black">&lt;GuiPer&gt; with some deeeep changes on cpufreq etc</span><br />
 <span class="irc-date">[11:36]</span> <span class="irc-black">&lt;GuiPer&gt; im afraid to flash it</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;GuiPer&gt; so good news!</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;GuiPer&gt; just no USB :)</span><br />
+<span class="irc-date">[12:01]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[12:02]</span> <span class="irc-black">&lt;GuiPer&gt; should I push to a branch?</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;atinm|night&gt; GuiPer: once you put usb to sleep, something else will keep it awake</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;atinm|night&gt; I implemented sleep on it</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;atinm|night&gt; and it didn't help</span><br />
+<span class="irc-date">[12:07]</span> <span class="irc-black">&lt;atinm|night&gt; and alarm, rtc kept waking it</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt; guilherme@guilherme-PC:~/android/system/kernel/samsung/2.6.35$ git branch cpuidle</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt; fatal: A branch named 'cpuidle' already exists.</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt; guilherme@guilherme-PC:~/android/system/kernel/samsung/2.6.35$ git commit</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt; [detached HEAD 135614d] CPU Idle changes and USB sleep. USB does not work, but sleep looks good. WIP!!!</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt;  34 files changed, 3915 insertions(+), 1225 deletions(-)</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt;  mode change 100755 =&gt; 100644 drivers/usb/gadget/Makefile</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt;  delete mode 100644 drivers/usb/gadget/f_accessory.c</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt;  create mode 100644 drivers/usb/gadget/f_mtp.h</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt;  create mode 100644 drivers/usb/gadget/f_mtp_samsung.c</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt;  create mode 100644 drivers/usb/gadget/serial_acm.c</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt; guilherme@guilherme-PC:~/android/system/kernel/samsung/2.6.35$ git push hacksung cpuidle</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt; Total 0 (delta 0), reused 0 (delta 0)</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt; To git@github.com:teamhacksung/android_kernel_samsung.git</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt; grrrr</span><br />
+<span class="irc-date">[12:10]</span> <span class="irc-black">&lt;GuiPer&gt; something is wrong...</span><br />
+<span class="irc-date">[12:11]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: what branch are you on?</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;GuiPer&gt; no branch :)</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;Unhelpful&gt; did you mean to commit to branch cpuidle?</span><br />
+<span class="irc-date">[12:12]</span> <span class="irc-black">&lt;GuiPer&gt; yep</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-black">&lt;GuiPer&gt; not really just git commit</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, well,the trouble is that you tried to create a new branch cpuidle (it already exists), rather than checking out the existing branch...</span><br />
+<span class="irc-date">[12:13]</span> <span class="irc-black">&lt;Unhelpful&gt; and you committed branchless, so there is nothing to push.</span><br />
+<span class="irc-date">[12:14]</span> <span class="irc-black">&lt;Unhelpful&gt; unless you do git push &lt;remote&gt; HEAD:branch</span><br />
+<span class="irc-date">[12:14]</span> <span class="irc-black">&lt;GuiPer&gt; grrr... lost the changes :S</span><br />
+<span class="irc-date">[12:14]</span> <span class="irc-black">&lt;Unhelpful&gt; no, try git reflog :)</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;Unhelpful&gt; and if you don't know what the output means, pastebin the first few lines and i'll figure it out. ;)</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;GuiPer&gt; b401116 HEAD@{0}: checkout: moving from 135614d13478d9f0754e63d9d5896f9f3ca1ec2b to cpuidle</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;GuiPer&gt; 135614d HEAD@{1}: commit: CPU Idle changes and USB sleep. USB does not work, but sleep looks good. WIP!!!</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;GuiPer&gt; b401116 HEAD@{2}: checkout: moving from 1a356778b1d5729c5b7b1f166fc0e5209ac89ab0 to b401116d3891c3da80b8e26ec38c4d69c86f264e</span><br />
+<span class="irc-date">[12:15]</span> <span class="irc-black">&lt;GuiPer&gt; 1a35677 HEAD@{3}: checkout: moving from a729839d10bfc0bf8184a0ad4cbfea544262527b to sensors</span><br />
+<span class="irc-date">[12:16]</span> <span class="irc-black">&lt;Unhelpful&gt; right, so, easy, you should be able to do "git checkout 135614d" to get  branchless checkout of that commit, or "git cherry-pick 135614d" to pull the commit into a current branch</span><br />
+<span class="irc-date">[12:17]</span> <span class="irc-black">&lt;Unhelpful&gt; reflog is your friend, learn it and it will save you almost every time you think you've lost something in git.</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;GuiPer&gt; guess it worked :):)</span><br />
+<span class="irc-date">[12:18]</span> <span class="irc-black">&lt;GuiPer&gt; thanks!!</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;GuiPer&gt; if you have time take a look at my changes</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/cb1f31c5e9ec970014eca3c7a54ac6f932f465fc">https://github.com/teamhacksung/android_kernel_samsung/commit/cb1f31c5e9ec970014eca3c7a54ac6f932f465fc</a></span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;GuiPer&gt; btw USB does not work :S</span><br />
+<span class="irc-date">[12:19]</span> <span class="irc-black">&lt;Unhelpful&gt; in this case "what to look for" is your last commit. the first item is a commit hash.</span><br />
+<span class="irc-date">[12:20]</span> <span class="irc-green">* atinm|night sets mode +I charkey!*@*</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;atinm|night&gt; not work how</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;GuiPer&gt; cpuidle changes I would say</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;GuiPer&gt; mostly kang</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;GuiPer&gt; but looks good :)</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;atinm|night&gt; yes, you can't do that.</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;atinm|night&gt; you just broke the usb driver</span><br />
+<span class="irc-date">[12:21]</span> <span class="irc-black">&lt;atinm|night&gt; why did you need to touch usb?</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm|night&gt; gingerbread wants the new driver.</span><br />
+<span class="irc-date">[12:22]</span> <span class="irc-black">&lt;atinm|night&gt; so if there is a bug, we need to fix it - not revert it</span><br />
+<span class="irc-date">[12:23]</span> <span class="irc-black">&lt;atinm|night&gt; look for suspend in there and add it.</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;GuiPer&gt; usb is not sleeping properly</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;GuiPer&gt; diff both things...</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;atinm|night&gt; yes, it needs suspend to get implemented.</span><br />
+<span class="irc-date">[12:25]</span> <span class="irc-black">&lt;GuiPer&gt; you need DVFS etc</span><br />
+<span class="irc-date">[12:26]</span> <span class="irc-black">&lt;atinm|night&gt; but we also need the new driver.</span><br />
+<span class="irc-date">[12:26]</span> <span class="irc-black">&lt;atinm|night&gt; its a bug, revert is not going to fix it.</span><br />
+<span class="irc-date">[12:26]</span> <span class="irc-black">&lt;GuiPer&gt; i didn't revert, i used JVB sources</span><br />
+<span class="irc-date">[12:26]</span> <span class="irc-black">&lt;GuiPer&gt; where it's working</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;GuiPer&gt; why you call it revert?</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;atinm|night&gt; f_accessory is added in 2.3.4</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;atinm|night&gt; you went back to 2.3.3</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;atinm|night&gt; with jvb</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;GuiPer&gt; probably :) it's not used in JVB</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;GuiPer&gt; yep....</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;GuiPer&gt; samsung hacked deeply in usb drivers... its hard to merge them</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;GuiPer&gt; going to lunch</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;atinm|night&gt; this is everywhere</span><br />
+<span class="irc-date">[12:27]</span> <span class="irc-black">&lt;atinm|night&gt; everyone had to add it</span><br />
+<span class="irc-date">[12:28]</span> <span class="irc-black">&lt;GuiPer&gt; battery looks good, 30 minutes on 3g and 1% drop</span><br />
+<span class="irc-date">[12:29]</span> <span class="irc-black">&lt;atinm|night&gt; so now add back the usb code and see why it doesn't sleep.</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;atinm|night&gt; the bug is there. I actually got it to suspend</span><br />
+<span class="irc-date">[12:30]</span> <span class="irc-black">&lt;atinm|night&gt; but then rtc was waking it.</span><br />
+<span class="irc-date">[12:33]</span> <span class="irc-black">&lt;coolya&gt; i am so dump ...</span><br />
+<span class="irc-date">[12:34]</span> <span class="irc-green">* techmik_laptop sets mode +I Wout`!*@*</span><br />
+<span class="irc-date">[12:36]</span> <span class="irc-green">* ChanServ sets mode +v Wout`</span><br />
+<span class="irc-date">[12:42]</span> <span class="irc-black">&lt;Wout`&gt; just want to report that even without the stuff guiper has been talking about, battery drain has improved greatly with the gpio fixes</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;atinm|night&gt; that's what I thought - but if turning off usb helps even more, we should fix usb.</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;atinm|night&gt; because breaking usb isn't an option</span><br />
+<span class="irc-date">[12:44]</span> <span class="irc-black">&lt;Wout`&gt; well, more fixes are always welcome of course</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;atinm|night&gt; I can't work today - and I didn't commit my changes to usb because they didn't help anything</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;atinm|night&gt; and were a hack (I was just doing the opposite of what resume was doing)</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;Wout`&gt; whats the prob with anyway, doest turn off?</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;Wout`&gt; with usb</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;atinm|night&gt; without knowing what the bits actually do</span><br />
+<span class="irc-date">[12:45]</span> <span class="irc-black">&lt;atinm|night&gt; but it go to sleep after</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;atinm|night&gt; it doesn't let the processor sleep - holds a wake lock</span><br />
+<span class="irc-date">[12:46]</span> <span class="irc-black">&lt;Wout`&gt; when plugged in, or constantly?</span><br />
+<span class="irc-date">[12:48]</span> <span class="irc-black">&lt;coolya&gt; i don't think that it is constantly, i messed something up back on cm6 with a gps wakelock and then the battry lasts in about 4 -6h</span><br />
