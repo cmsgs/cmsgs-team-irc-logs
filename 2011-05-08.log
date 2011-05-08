@@ -546,3 +546,32 @@
 <span class="irc-date">[12:46]</span> <span class="irc-black">&lt;atinm|night&gt; it doesn't let the processor sleep - holds a wake lock</span><br />
 <span class="irc-date">[12:46]</span> <span class="irc-black">&lt;Wout`&gt; when plugged in, or constantly?</span><br />
 <span class="irc-date">[12:48]</span> <span class="irc-black">&lt;coolya&gt; i don't think that it is constantly, i messed something up back on cm6 with a gps wakelock and then the battry lasts in about 4 -6h</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;atinm|night&gt; I think the usb can be fixed - just need time, which I don't have today. mother's day in the US</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;coolya&gt; here too but my mum is on holiday ;-)</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-black">&lt;coolya&gt; looks like i will have to use sammy ril to get gps working on the vibrator</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-black">&lt;coolya&gt; :-/</span><br />
+<span class="irc-date">[13:22]</span> <span class="irc-black">&lt;Unhelpful&gt; cpuidle needs usb suspend? cpuidle shouldn't sleep *too* deep, isn't it supposed to be very fast? :P</span><br />
+<span class="irc-date">[13:23]</span> <span class="irc-black">&lt;atinm|night&gt; what I was seeing was that lots of things wouldn't let it fall asleep</span><br />
+<span class="irc-date">[13:23]</span> <span class="irc-black">&lt;atinm|night&gt; usb switch was one of those</span><br />
+<span class="irc-date">[13:23]</span> <span class="irc-black">&lt;atinm|night&gt; and it sort of made sense actually</span><br />
+<span class="irc-date">[13:23]</span> <span class="irc-black">&lt;atinm|night&gt; you don't want it to sleep so that it cannot wake!</span><br />
+<span class="irc-date">[13:24]</span> <span class="irc-black">&lt;atinm|night&gt; so maybe cpuidle isn't what is breaking usb</span><br />
+<span class="irc-date">[13:24]</span> <span class="irc-black">&lt;atinm|night&gt; either way - right now Guiper's change can't get committed as is because it disables the usb switch and accessory work that gingerbread needs</span><br />
+<span class="irc-date">[13:24]</span> <span class="irc-black">&lt;atinm|night&gt; I will commit my switch suspend - it didn't do anything for me, but at least usb won't show anymore :)</span><br />
+<span class="irc-date">[13:29]</span> <span class="irc-black">&lt;atinm|night&gt; ah fuck - brb</span><br />
+<span class="irc-date">[13:30]</span> <span class="irc-black">&lt;atinm|night&gt; broke build..</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-black">&lt;atinm|night&gt; ok, fixed.</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-black">&lt;atinm|night&gt; not sure it helps</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-black">&lt;atinm|night&gt; but worth trying with guiper's cpuidle stuff</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-black">&lt;atinm|night&gt; and without his usb revert</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-black">&lt;atinm|night&gt; have to go</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-green">* atinm|night is now known as atinm|away</span><br />
+<span class="irc-date">[13:35]</span> <span class="irc-black">&lt;coolya&gt; bye</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-green">* zachy_md (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-green">* ChanServ sets mode +v zachy_md</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;zachy_md&gt; thanks ! :)</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;zachy_md&gt; codeworkx: you wanted to have feedback on the battery runtime / idle ?</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;zachy_md&gt; codeworkx: it's currently around 1% per hour in airplane mode</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;zachy_md&gt; codeworkx: currently I'm doing some more tests &amp; can say more later</span><br />
