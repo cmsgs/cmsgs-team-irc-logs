@@ -575,3 +575,79 @@
 <span class="irc-date">[13:48]</span> <span class="irc-black">&lt;zachy_md&gt; codeworkx: you wanted to have feedback on the battery runtime / idle ?</span><br />
 <span class="irc-date">[13:49]</span> <span class="irc-black">&lt;zachy_md&gt; codeworkx: it's currently around 1% per hour in airplane mode</span><br />
 <span class="irc-date">[13:49]</span> <span class="irc-black">&lt;zachy_md&gt; codeworkx: currently I'm doing some more tests &amp; can say more later</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;zachy_md&gt; an issue I noticed:</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;zachy_md&gt; I'm getting these great battery stats with the nightly update that I compiled while compiling my kernel</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;zachy_md&gt; that was before the lightsensor changes (the new nightly) got uploaded</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;zachy_md&gt; 1) with the system-update without the lightsensor: Android OS is around 4% in battery usage, airplane-mode: hourly battery drain: 1% [currently testing more, more data later]</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;zachy_md&gt; 2) with the system-update WITH the nightly (from sourceforge): Android OS 40-65% and battery capacity running down pretty fast (from what I saw 1% in several minutes - and this with the Momax ExPower)</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;zachy_md&gt; guess: the latest lightsensor changes *might* make battery usage worse ?</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;zachy_md&gt; (can't say for sure if that assumed correlation is correct - it however seems to help improve battery runtime for me)</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;GuiPer&gt; I'll try to fix USB</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;zachy_md&gt; ok: to fill in the blanks: JVO modem, processor heavily undervolted ;)</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;zachy_md&gt; GuiPer: with the didle changes ?</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;zachy_md&gt; GuiPer: awesome work so far ! :)</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;GuiPer&gt; yep, got it to work, but no USB</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;GuiPer&gt; maybe will revert USB to Nexus S 2.4.3</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;zachy_md&gt; you're already seeing some significantly better battery runtime or the phone running cooler ?</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;GuiPer&gt; try strace -p (systemui pid)</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;GuiPer&gt; its doing way to much reads</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;GuiPer&gt; well honestly...</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;GuiPer&gt; 2:21 minutes, and it's on 77% :S</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;GuiPer&gt; 3g on</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;GuiPer&gt; display on 20 minutes... so i guess not way much better</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;zachy_md&gt; the battery readings haven't been very accurate for me - so that doesn't say much :p</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;zachy_md&gt; I've raised the polling intervall to 30 seconds</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;zachy_md&gt; our current default is 1s - samsung has it at 10 seconds</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;zachy_md&gt; perhaps in 1-2 hours you could say more</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;GuiPer&gt; will try to fix USB :)</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;zachy_md&gt; or something's eating battery (an app or the system)</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;GuiPer&gt; feel free to help</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;zachy_md&gt; I try &amp; do where I can :)</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;zachy_md&gt; afaik there are 2 patches that could cut cpu load &amp; battery runtime - will try them later</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;zachy_md&gt; one is included in later upstream changes (in 2.6.35.y), the other one pretty new</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-green">* ChanServ sets mode +o techmik_laptop</span><br />
+<span class="irc-date">[14:35]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[14:38]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:39]</span> <span class="irc-green">* ChanServ sets mode +o techmik_laptop</span><br />
+<span class="irc-date">[14:44]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;atinm|away&gt; pull my last commit and put your cpu changes into head</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;atinm|away&gt; zachy_md: your two pull request, I've asked unhelpful to look. one seems to not be related to us at all</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;atinm|away&gt; since it is about smp</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;atinm|away&gt; and the other I don't understand why it isn't in and repo it came from</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;atinm|away&gt; as if it was never merged by google into the kernel tree.</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;zachy_md&gt; atinm|away: from the description it seemed it was about smp AND up (uniprocessor) - but this a little above my head ,)</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;zachy_md&gt; ;)</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;zachy_md&gt; atinm|away: afaik 2 versions of the 2nd patch exist - the one I sent for pull request is the 2nd</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;atinm|away&gt; I looked at it a lilttle bit, and it didn't seem to be. but will look closer.</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;zachy_md&gt; currently don't know where the older one is</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;atinm|away&gt; later tho</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;atinm|away&gt; h</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;atinm|away&gt; ave</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;atinm|away&gt; have to go</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;atinm|away&gt; going out for mother's day</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;zachy_md&gt; enjoy :)</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-green">* TMC_Sherpa is now known as DearSamsung</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-green">* DearSamsung is now known as PleaseStop</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-green">* PleaseStop is now known as RewritingYourFin</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;Wout`&gt; hmm, think i'll update my build env</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit (Quit: reboot into linux)</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-green">* RewritingYourFin is now known as AudioFiles</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-green">* AudioFiles is now known as EveryVersion</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-green">* EveryVersion is now known as ThankYou</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-green">* ThankYou (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-black">&lt;atinm|away&gt; and the patch never made it to m ainline is what I meant on the other</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-black">&lt;atinm|away&gt; ok, gone.</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-black">&lt;GuiPer&gt; /home/guilherme/android/system/kernel/samsung/2.6.35/include/linux/mfd/max8998-private.h</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-black">&lt;GuiPer&gt; interesting file :)</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-green">* wout (~wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-green">* wout is now known as Wout`</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-black">&lt;atinm|away&gt; guiper, my last commit on head should let usb sleep</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-black">&lt;atinm|away&gt; on 2.3.4</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;GuiPer&gt; checked it. Anyway my opinion is that we need didle and so on</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-black">&lt;GuiPer&gt; from samsung</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-navy">* Wout` (~wout@s559776f4.adsl.wanadoo.nl) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-green">* wout (~wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[14:59]</span> <span class="irc-green">* wout is now known as Wout`</span><br />
