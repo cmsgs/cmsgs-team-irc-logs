@@ -984,3 +984,99 @@
 <span class="irc-date">[17:58]</span> <span class="irc-black">&lt;kang&gt; i dunno what's up with YT setting</span><br />
 <span class="irc-date">[17:58]</span> <span class="irc-black">&lt;kang&gt; :P</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;Unhelpful&gt; reason to use a property is so we can change w/o recompile, and so it can reflect the actual hardware capabilities of other devices - everybody w/ a closed libcamera can use it.</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;Wout&gt; sounds like a nice clean way to go about it</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: yes</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: sounds good</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;Unhelpful&gt; which leaves a problem, how do we know which camera we're dealing with? i'm not sure we can. :/</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;Unhelpful&gt; cyanogenmod.com also appears to be down.</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;Unhelpful&gt; was going to see if i could quote them on touch-focus support - i seem to recall CM is supposed to have it, which leaves a question, if stock supports it, and CM supports it, why doesn't CM on my device, using stock camera libs?</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.67.49) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.67.49) has joined this channel.</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.67.49) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.67.49) has joined this channel.</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;GuiPer&gt; kang, i guess fixed camera problem</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;kang&gt; cool :)</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;GuiPer&gt; on "didle" kernel</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;kang&gt; what was it?</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;GuiPer&gt; mfc from JVB</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;GuiPer&gt; need manual merging</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;kang&gt; uhm</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;GuiPer&gt; drivers/media/video/samsung/mfc50</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;kang&gt; going to look at diff</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;GuiPer&gt; reverted to nexus s, giving a try</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;Unhelpful&gt; which camera problem?</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;kang&gt; on didle only</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;kang&gt; recording would stop after a sec</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;kang&gt; kinda funny to read cm7 bounty for sgs2</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;kang&gt; they all would "donate only if browser is GPU accelerated on CM7"</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;GuiPer&gt; fixed :)</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;GuiPer&gt; will push it</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;Wout&gt; by using mfc50 from nexus s?</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;GuiPer&gt; want a kernel ?</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;GuiPer&gt; yep</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;Wout&gt; sure, can you include kangs fixes?</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;GuiPer&gt; kangs fixes are not on kernel, so should be ok</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;GuiPer&gt; for kang fixes you need a full build</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;Wout&gt; ok</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;Wout&gt; have a build going</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;Wout&gt; will flash that, and then your kernel</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;Wout&gt; or can I pull from your git, and then build myself?</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;GuiPer&gt; yep, just switch branch on kernel</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="http://dl.dropbox.com/u/2200008/boot.img.didle2">http://dl.dropbox.com/u/2200008/boot.img.didle2</a></span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="http://dl.dropbox.com/u/2200008/bcm4329.ko">http://dl.dropbox.com/u/2200008/bcm4329.ko</a></span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-black">&lt;kang&gt; GuiPer: confirmation that it works fine</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;GuiPer&gt; problems with booting on usb cable :S</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;GuiPer&gt; and usb sharing</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;kang&gt; yeah i meant for video</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;atinm|away&gt; guiper, you need to go back to using the drivers/usb/gadget we had.</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;atinm|away&gt; you've basically gone back to 2.3.3 usb</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.67.49) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;GuiPer&gt; not happy with that :S</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;GuiPer&gt; but will give a try</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;atinm|away&gt; wish you'd done two commits, one for cpuidle and one for usb</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;atinm|away&gt; since it is very painful now to just take your cpuidle stuff</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: git cherry-pick --no-commit; edit ;)</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;GuiPer&gt; :( i started with usb....</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;GuiPer&gt; but finally ended up in cpuidle</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;atinm|away&gt; that's what I'm going to do. just take your cpuidle changes.</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;atinm|away&gt; and see what is up</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;GuiPer&gt; they are connected</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: the point is that just reverting the USB driver to 2.3.3 is not ok..</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;GuiPer&gt; I know... but alternative is manual merging</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;atinm|away&gt; yes, and that's what we need to do.</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, sometimes we need to actually write code. ;)</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;Wout&gt; kang: are you trading in your SGS?</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;kang&gt; Wout: im giving it away</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;Wout&gt; ah, k</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;kang&gt; familly :)</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;kang&gt; with 1 l</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;kang&gt; in a week or so</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;Wout&gt; i'm getting an SGS on wednesday, just a review sample though, not for keeps :/</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;kang&gt; will prolly try to boot cm on the sgs2 tho</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;Wout&gt; sgs2 I mean</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;GuiPer&gt; Unhelpful and atinm i know it, just tried the fast way</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;GuiPer&gt; sometimes they do work</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;codeworkx&gt; dont touch the usb driver xD</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: so it looks like the typical pattern is "instantiate new CameraParameters, set values in it, pass it to some setParameters function"... cameraparameters will never know which camera it's dealing with, so we probably just need to have specific key and value pairs be substituted?</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: what about check if there's only 640x480 in value then replace it?</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: doesn't affect the back cam this way</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: it's hacky</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: but should work</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: that's what i'm saying, check the key, and the value, replace if both match.</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Unhelpful&gt; if it's gonna be that hacky, don't even bother w/ properties, lol. ;)</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;GuiPer&gt; gone for a while</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;GuiPer&gt; will continue later on the deep idle part</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;Wout&gt; you guys arent called hacksung for nothing :P</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;GuiPer&gt; maybe going back to usb from 2.3.4 :S</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;GuiPer&gt; or manual merge</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;GuiPer&gt; atinm, let me know if you have any success</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;Wout&gt; codeworkx: whats the link to your paypal thingie?</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;codeworkx&gt; xda</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;Wout&gt; progress has been pretty awesome this week, beermoney seems in order</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: use build.prop?</span><br />
