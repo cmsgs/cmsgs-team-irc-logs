@@ -1171,3 +1171,122 @@
 <span class="irc-date">[20:54]</span> <span class="irc-black">&lt;techmik_laptop&gt; =)</span><br />
 <span class="irc-date">[20:55]</span> <span class="irc-black">&lt;Kaik541&gt; I mean, how would your eyes not be bleeding</span><br />
 <span class="irc-date">[20:55]</span> <span class="irc-black">&lt;techmik_laptop&gt; no thatwas a nice nap =</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;atinm&gt; ~8000 opt-ins</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;GuiPer&gt; atinm, usb from 2.3.4 working</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;GuiPer&gt; should i push to the same branch?</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;GuiPer&gt; or new one?</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;GuiPer&gt; I would say the same...</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;techmik_laptop&gt; note to self...... dont take a windows backup folder (made up of 108 zips) that is 100gb and try to zip the whole thing to 1 file..... took 5 hours</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;atinm&gt; first to branch, then we can merge</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;atinm&gt; plus I want to see the changes ;)</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;GuiPer&gt; my idea is a new one :) cpuidlenousb</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;GuiPer&gt; but will put it on cpuidle</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;atinm&gt; no, that's fine</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;atinm&gt; create a new branch if you want</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;GuiPer&gt; usb sharing is working again</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;atinm&gt; I think cpuidle has to die anyway, we cannot go to 2.3.3 usb</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;GuiPer&gt; merged cpuidle with 2.3.4 usb more or less</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;GuiPer&gt; pushing it</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;atinm&gt; so you can just force push it to cpuidle. either way :)</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;atinm&gt; koush needs to review <a href="http://review.cyanogenmod.com/#change,5069">http://review.cyanogenmod.com/#change,5069</a></span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;atinm&gt; and then we'll just have the Makefile left</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;atinm&gt; that unhelpful can do after he has his computer again</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;atinm&gt; does he have his computer?</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;GuiPer&gt; atinm, just pushed it to the branch</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/ffbd92be33b9e680c69db53fc6ce3398b1924a7e">https://github.com/teamhacksung/android_kernel_samsung/commit/ffbd92be33b9e680c69db53fc6ce3398b1924a7e</a></span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;GuiPer&gt; everything is working or looks like in a fast test</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;atinm&gt; is the camera stuff on this branch the same as head?</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;GuiPer&gt; it should bring the called deep idle from samsung, not 100% sure of how it works it's some kind of deep sleep managing some devices into  sleep</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;GuiPer&gt; yep, just need your suspend usb fix, didn't merge it</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;GuiPer&gt; it's mostly related with the DVFS_LIMIT thing</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;atinm&gt; ok, let me try to build.</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;zachy_md&gt; atinm: what exactly was changed in the build with lightsensor changes ?</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;zachy_md&gt; atinm: thanks btw for letting usb sleep :)</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;zachy_md&gt; atinm: I mean from the nightly update with the suffix lightsensor to the nightly update with suffix "lightsensor"</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;Kaik541&gt; back to OSS light sensor</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;GuiPer&gt; zachy_md, by mistake we used the binary from JVB instead of open source one</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;Kaik541&gt; instead of JVB lib</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;GuiPer&gt; nothing on kernel side</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;zachy_md&gt; Kaik541, GuiPer: ok - that one's supposed to work better and has more steps from what I understood :)</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;zachy_md&gt; atinm: could it be that it leads to more battery consumption ?</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;atinm&gt; doubt it</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;GuiPer&gt; zachy_md, if you have some time also take a look at the cpuidle branch. you are the battery expert :)</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;GuiPer&gt; should be fully working</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;zachy_md&gt; GuiPer: yes, will do in the following days :)</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;zachy_md&gt; GuiPer: ok, that was what I wanted to know - if I can use it in everyday life - so there should be no problem in testing it extensively</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;zachy_md&gt; I observed that battery consumption was higher when going from non-ligthsensor update to lightsensor</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;GuiPer&gt; would be good to "rebase it" since some changes are back and forward making it hard to understand</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;zachy_md&gt; I'm not fully sure since it takes several hours to let the phone simply lie there and idle by itself</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;atinm&gt; I rebased</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;zachy_md&gt; but since 7 PM - now it's 11 PM here 4 hours: 1 percent consumed (with 1.8 times the normal capacity)</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;atinm&gt; on my merge</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;GuiPer&gt; well lightsensor should only be on when display is on and auto brightness enabled... maybe different pooling times but shouldn't matter much</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;zachy_md&gt; 0.5-1 % battery consumption</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;zachy_md&gt; per hour</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;zachy_md&gt; hm, then it must be something else</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;zachy_md&gt; atinm: you synced for the lightsensor switch ?</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;atinm&gt; guiper, did you add - void s5pv210_cpufreq_set_platdata(struct s5pv210_cpufreq_data *pdata)?</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;atinm&gt; complaining that s5pv210_cpufreq_data is not defined there.</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;atinm&gt; but doesn't matter I guess</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;atinm&gt; since it is just setting a ptr</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;GuiPer&gt; i guess i removed all that stuff from mach_aries</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;atinm&gt; dev-cpufreq.c</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;atinm&gt; uses it</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;atinm&gt; you took that out too.</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;atinm&gt; hmm</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;GuiPer&gt; btw, phone is charging to 100% and staying there</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;GuiPer&gt; not sure if it's good or bad</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;GuiPer&gt; not dropping to 96%</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;koush&gt; atinm: revieed the recovery change</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;Wout&gt; \O/</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;atinm&gt; awesome, thanks! :)</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;atinm&gt; now unhelpful has to make Makefile merge cleanly</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;atinm&gt; tho he is without a computer last I knew</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;atinm&gt; so will take a little bit</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;zachy_md&gt; atinm: I'll try to rephrase it: was the only change from the lightsensor nightly update the replacement of the sensor or were there also other changes (e.g. a sync with upstream) ?</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;atinm&gt; I don't remember.</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;Kaik541&gt; yeah he accidentally mailed his computer to himself</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;atinm&gt; but very possible a sync</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;Kaik541&gt; he's going to mail it out tomorrow most likely (said it would have been hard to mail it on saturday, don't know if he did)</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;zachy_md&gt; atinm: hm, thanks - so perhaps upstream changes make a difference in battery runtime</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;atinm&gt; GuiPer: can you look at the dev-cpufreq.c and mach-aries change</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;zachy_md&gt; and not the lightsensor</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;atinm&gt; that calls void s5pv210_cpufreq_set_platdata(struct s5pv210_cpufreq_data *pdata)</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;GuiPer&gt; <a href="http://pastebin.com/hyktC1jf">http://pastebin.com/hyktC1jf</a> -&gt; deep sleep looks like working</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;atinm&gt; is it?</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;atinm&gt; I see an instant wake</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;atinm&gt; due to wake lock</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;atinm&gt; &lt;6&gt;[ 1279.510309] PM: late suspend of devices complete after 0.277 msecs</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;atinm&gt; &lt;7&gt;[ 1279.510309] S5P_WAKEUP_STAT 0x2</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;atinm&gt; &lt;7&gt;[ 1279.510309] EINT_PEND 0x4, 0x8, 0x20, 0x40</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;atinm&gt; &lt;6&gt;[ 1279.510612] PM: early resume of devices complete after 0.185 msecs</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;atinm&gt; &lt;6&gt;[ 1279.510897] wakeup wake lock: modem_fmt</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;GuiPer&gt; hummm, good point</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-navy">* gehzumteufel (~gehzumteu@cpe-76-93-100-229.socal.res.rr.com) Quit (Quit: ~ Trillian Astra - www.trillian.im ~)</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;atinm&gt; its the same as before. but maybe other things are still asleep - dunno.</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;atinm&gt; restarting tasks to says everything woke</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;atinm&gt; since fsa, rtc and wm8994 woke</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;atinm&gt; at elast</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;atinm&gt; the battery gains might still be just from the gpios ;)</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;GuiPer&gt; not saying that it's better</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;GuiPer&gt; we need testing on it</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;GuiPer&gt; #ifdef CONFIG_CPU_FREQ</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;GuiPer&gt; 	s5pv210_cpufreq_set_platdata(&amp;smdkc110_cpufreq_plat);</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;GuiPer&gt; #endif</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;GuiPer&gt; regarding that i removed it, it is not required as far as I understand</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;techmik_laptop&gt; will hopefully be able to jump back in soon..... 3 comppters in my workspace stm and only this one is "ready"</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-navy">* Wout (~wout@s559776f4.adsl.wanadoo.nl) Quit (Quit: bedtime)</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;atinm&gt; back to using CyanogenMod bootable/recovery</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;atinm&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13601629&amp;postcount=434">http://forum.xda-developers.com/showpost.php?p=13601629&amp;postcount=434</a></span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;atinm&gt; ba-dump! :)</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, hahaha nice</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;atinm&gt; lol! GuiPer - showing 100%. Unplug usb - reboot/crash</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;GuiPer&gt; really? it happened before but not anymore</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;GuiPer&gt; boot with usb unplugged :)</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;GuiPer&gt; then you can plug unplug</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;atinm&gt; not even a /proc/last_kmsg</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;GuiPer&gt; if you boot with usb plugged it happens... but should be solved</span><br />
