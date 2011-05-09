@@ -469,3 +469,49 @@
 <span class="irc-date">[2:19]</span> <span class="irc-black">&lt;techmik_laptop&gt; the othersa the  same as common</span><br />
 <span class="irc-date">[2:37]</span> <span class="irc-black">&lt;chaembian&gt; wwyvern: are you there?</span><br />
 <span class="irc-date">[2:37]</span> <span class="irc-black">&lt;chaembian&gt; wwyvern: how did the auction go?</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok... i have to walk the dogs, back in 10 mins....... Unhelpful, can you check out what i have done and comment, plz? <a href="https://github.com/techmik">https://github.com/techmik</a></span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik_laptop: the idea was *not* to copy the contents of common</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;Unhelpful&gt; keep common files *only* in common, and have target-specific vendor makefiles that include common.</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;techmik_laptop&gt; ahhhh</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; i think i may be able to accomplish that...</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;Unhelpful&gt; and you don't want the /aries subdirectory in target-specific ones, there isn't a *non*-aries vibrant ;)</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;Unhelpful&gt; but basically vibrant vendor should only contain a .mk file and libcamera.so</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;techmik_laptop&gt; i have been barely following chat today tho.... what, besides the camera fix you sent me that works, is different?</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;techmik_laptop&gt; i c</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;techmik_laptop&gt; i can do that</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;techmik_laptop&gt; did i not need to change the linei did in device/samsung/target?</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="https://github.com/techmik/android_device_samsung_vibrant/commit/af26f2a54a8cfcc88e08e821a2840af19cdb484c">https://github.com/techmik/android_device_samsung_vibrant/commit/af26f2a54a8cfcc88e08e821a2840af19cdb484c</a></span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik_laptop: no, that looks good, just get rid of the /aries, get rid of the stuff that isn't libcamera.so, and have vendor/samsung/vibrant/device-vendor.mk include vendor/samsung/common/aries/device-vendor.mk to get all the other files that are actually common</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; gotcha</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;techmik_laptop&gt; then, do you fork it, or can i submit a whole repo to pull request?</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-green">* TMC_Sherpa is now known as burn_it_with_fir</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-green">* burn_it_with_fir is now known as stupid_limit</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-green">* ChanServ sets mode +v stupid_limit</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-green">* stupid_limit is now known as TMC_Sherpa</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;Kaik541&gt; do you not have your name registered or something?</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; TMC_Sherpa_</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;Unhelpful&gt; fir trees have resinous sap that burns very well</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; fought the stupid nick server for 15 min before giving up and sticking with the _ on the end</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;Kaik541&gt; I have been informed I have 1,337 posts on xda</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;Kaik541&gt; I guess I can't post for a while.</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;Unhelpful&gt; just saying, you wanna burn something, some dry evegreen branches are a big help. the needles are less impressive, they kind of sparkle and pop.</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; used to camp in the boundry waters every other summer. pine works great for starting a fire</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;Kaik541&gt; you know what doesn't work great? poison ivy vines</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;Kaik541&gt; I'm not allergic to poison ivy but my family is</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;Kaik541&gt; that was a funny night</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;Unhelpful&gt; just pointing out that burn it with fir is not a bad idea, if it's dry enough.</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; *shrug* you just keep a little cup of bacon fat, hen it doesn't even have to be all that dry</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok, i see where, but dont know the line of code i need to include</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;techmik_laptop&gt; i see (call inherit-product....) before it</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;techmik_laptop&gt; $(call inherit-product, vendor/samsung/common/aries/device-vendor.mk)</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;techmik_laptop&gt; ?</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-green">* gehzumteufel (~gehzumteu@cpe-76-93-100-229.socal.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-green">* ChanServ sets mode +v gehzumteufel</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-navy">* TCMAN-dmg (~Dominik@99-103-196-195.lightspeed.sntcca.sbcglobal.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't know how exactly inherit-product works. i'd just go w/ include vendor/samsung/common/aries/device-vendor.mk... but i don't *know* what else inherit-product does.</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;wwyvern&gt; chaembian-ati nm said to drop the auction-he had someone give him a vibrant</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;wwyvern&gt; I'm gonna send him my first gen cam though</span><br />
