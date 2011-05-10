@@ -1,0 +1,64 @@
+<span class="irc-date">[0:02]</span> <span class="irc-green">* nullghost (~justin@c-76-18-157-237.hsd1.tn.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-green">* Kaik541 sets mode +I nullghost!*@*</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;Kaik541&gt; so now you can come back in here whenever</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;nullghost&gt; ah ha, I wasn't sure if it was this one or #teamhacksung, but either way.</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;nullghost&gt; thank you.</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;Kaik541&gt; so ask the question you're having issues with and if they don't get back to you immediately it's probably because they're afk</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;Kaik541&gt; but this channel is logged so they'll most likely see it</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;nullghost&gt; I'm having issues with the build script. it wants android build vars set, but running envsetup from the android environment isn't setting them or something.</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;nullghost&gt; UberPinguin: hai2u lawl.</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;Kaik541&gt; . build/envsetup.sh isn't doing it?</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;nullghost&gt; let me repo sync and run it again</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;gehzumteufel&gt; Are you sure you're not missing something?</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;gehzumteufel&gt; Like some dependency?</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;Kaik541&gt; nullghost, can I see your manifest?</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;nullghost&gt; I might be, that's why I'm syncing again :p</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;gehzumteufel&gt; well a dependency wouldn't come from the repo</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;gehzumteufel&gt; Not the git repo anyway</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;nullghost&gt; eh, might as well be up to date</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;Kaik541&gt; (tbh best idea would be to fork teamhacksung and just add your device kernel/vendor/etc)</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;nullghost&gt; we did, actually.</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;Kaik541&gt; oh ok</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;Kaik541&gt; then smart man :)</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;nullghost&gt; i'm working on getting us ported to 2.6.35</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;nullghost&gt; we had done some kernel work in the past, but we didn't have enough uart debuggers to continue</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;gehzumteufel&gt; We're on 32 right now, right?</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;gehzumteufel&gt; .32</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;Kaik541&gt; gehzumteufel, no, GSM is on .35</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;gehzumteufel&gt; Ah</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;nullghost&gt; ^ this, epic and fascinate are on .32</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;gehzumteufel&gt; Were you ever able to build?</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;nullghost&gt; TEMPEST-PC ~/android/system $ . build/envsetup.sh</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;Kaik541&gt; nullghost, gaaaah you forked from cmsgs</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;nullghost&gt; (device spam)</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;nullghost&gt; TEMPEST-PC ~/android/system $ echo $ANDROID_TOOLCHAIN</span><br />
+<span class="irc-date">[0:08]</span> <span class="irc-black">&lt;nullghost&gt; (nothing)</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;Kaik541&gt; hmm... is envsetup.sh somehow not executable? or is it empty? o.O</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;nullghost&gt; no, envsetup ran just fine, it included all the other stuffs</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;nullghost&gt; why are we avoiding the cmsgs/android?</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;Kaik541&gt; perhaps you should consider reforking based on the stuff we're actually using</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="https://github.com/teamhacksung/android/blob/gingerbread/default.xml">https://github.com/teamhacksung/android/blob/gingerbread/default.xml</a></span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;nullghost&gt; haha, well let's get that fixed. :P</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;Kaik541&gt; yeah we switched off of cmsgs a while back because it was horribly broken</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;Kaik541&gt; ideally you should be able to just add your device at the end (and if it works even merge with us)</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;nullghost&gt; that's what I want to do, but we need .35 booting to merge with you</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;nullghost&gt; and then there's the issue, will our modem even work with .35</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;nullghost&gt; jt says he got .35 booting on fascinate, but modem was a bust.</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;Kaik541&gt; well CDMA support just landed</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;Kaik541&gt; because of crespo4g</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;nullghost&gt; yeah i'm hoping that does the trick</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Kaik541&gt; so if it exists upstream it should *hopefully* help</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;nullghost&gt; and doesn't require any cdma modemctl garbage</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Kaik541&gt; ah fuck I just realized, we just switched back to samsung modemctl didn't we? that might have to change for you</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;nullghost&gt; I think the modemctl module is gpl anyway, so there might be source for it</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Kaik541&gt; or at least steal the one from your kernel</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;nullghost&gt; we'll cross that bridge.</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;nullghost&gt; if we can get everything but ril working, that's enough for a merge imo.</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;Kaik541&gt; we were using AOSP, but had a reason for switching to sammy, but I think it would be possible for you to switch back to AOSP CDMA worst case</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;Kaik541&gt; so there *might* have to be a GSM kernel and CDMA kernel, but that's not too much to ask for</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;nullghost&gt; nothing a little trial and error won't solve.</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;Kaik541&gt; but come to that when the time comes</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;nullghost&gt; nah man, that's what #ifdefs are for</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;Kaik541&gt; or that</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;nullghost&gt; :p</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;nullghost&gt; I think I'll just fork it to my personal repo for now</span><br />
