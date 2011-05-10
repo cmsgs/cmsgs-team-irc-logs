@@ -1016,3 +1016,133 @@
 <span class="irc-date">[14:56]</span> <span class="irc-black">&lt;nitam|work&gt; anyone know its model number?</span><br />
 <span class="irc-date">[14:56]</span> <span class="irc-black">&lt;nitam|work&gt; so I can keep track of source</span><br />
 <span class="irc-date">[14:58]</span> <span class="irc-black">&lt;nitam|work&gt; SGH-I997</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;ylooca|work&gt; mnita|work: ril is nearly ready i will test it tonight</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;ylooca|work&gt; <a href="https://github.com/coolya/android_frameworks_base/tree/crap-RIL">https://github.com/coolya/android_frameworks_base/tree/crap-RIL</a></span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;kang&gt; woot.</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-navy">* Wout` (~Wout@office.tweaknet.net) Quit ()</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;nitam|work&gt; awesome :)</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;nitam|work&gt; I am going to take a break for a few days. I need to sort of relax to prepare for this week's restart of treatment</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;nitam|work&gt; I had a 5 week break, so am going to be very sick on restart.</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;nitam|work&gt; so I'll take a break by only working on non-critical things.</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;nitam|work&gt; at the moment we need Unhelpful to get back so he can get Makefile merged (he may need to talk to koush first)</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, having a system i can build on would help there.</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;nitam|work&gt; we need to figure out how we will merge to upstream given our vendor tree crap.</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;nitam|work&gt; because we can't use extract-files.sh</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;ylooca|work&gt; i will have some more time to code except on the weekends</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;nitam|work&gt; and so might need to talk on teamdouche or just talk with koush here also.</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;Unhelpful&gt; i have an underpowered laptop w/ bad video and an underpowered desktop that my wife will get angry if she can't use</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; (koush is the only one familiar with SGS and CM7)</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;ylooca|work&gt; can't we use some get-verndor-file.sh that download crespo bins and then extract-files.sh that copies bins  from the phone?</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: what's wrong w/ extract-files.sh?</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; extract-files.sh tries to download from your phone.</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;Unhelpful&gt; adding code that can consistently replicate our binhacks won't be that hard. ;)</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nitam|work&gt; except we want some mix of our phone, nexus s, and some that are hacked by us! :)</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;nitam|work&gt; I think since we get to write extract-files.sh (it is device specific)</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;nitam|work&gt; we could do anything that will let us merge without actually uploading our vendor tree to CyanogenMod.</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;nitam|work&gt; and still let people build using normal CyanogenMod build method</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; we could use a similar hack as get-googlefiles and get-rommanager</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; download from "somewhere"</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;ylooca|work&gt; we can download crespo bins from google</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nitam|work&gt; yes, I think that will work.</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nitam|work&gt; so, after we have our extract-files.sh working, I think we'll be ready to merge.</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;ylooca|work&gt; if we could use our ril the only thing would be gpu driver?</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nitam|work&gt; Makefile + vendor</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nitam|work&gt; yes, and that we are using Nexus</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nitam|work&gt; so we can do it, just need to make it work.</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx :)</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;ylooca|work&gt; +1^</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;ylooca|work&gt; :-)</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;nitam|work&gt; since he's been hacking .sh stuff lately</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;nitam|work&gt; when do you get your computer back Unhelpful?</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;ylooca|work&gt; we might be able to create a one click install update.zip from stock ...</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;nitam|work&gt; I thought we had to boot kernel</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;nitam|work&gt; tho kernel could then do more work.</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;nitam|work&gt; we could modify kernel init.sh</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;nitam|work&gt; but haven't thought about it too deeply.</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;ylooca|work&gt; what about update.zip that incluedes our kernel, efs backup and a update.zip to cm -&gt; boot into recovery apply that zip, it installs kernel + copy efs backup to sdcard and extracts the real update.zip sd card</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;ylooca|work&gt; but then we got the problem we can't write to cache partition to place a command file for recovery there</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;ylooca|work&gt; hmm</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;nitam|work&gt; right, that is what I thought we could to.</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;nitam|work&gt; well, we know what we're booting - it can be a special kernel that has a different init</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;nitam|work&gt; that just runs a script.</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;ylooca|work&gt; but we could place it as update.zip there so the user only has to plress apply update.zip in recovery</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;ylooca|work&gt; or we could do that ^^</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;nitam|work&gt; so the first update extracts the second update to sdcard, then does efsbackup, writes initial kernel and reboots which then boots the initial kernel that unzips the update.zip off sdcard in addition to the efsbackup restore.</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;nitam|work&gt; and reboots</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;ylooca|work&gt; yep</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;nitam|work&gt; also writes a normal kernel</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;nitam|work&gt; as the last thing</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;nitam|work&gt; can it? :)</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;nitam|work&gt; it doesn't have to</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;ylooca|work&gt; it can do it</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;ylooca|work&gt; so we would only have to create the special kernel once</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;nitam|work&gt; right.</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;nitam|work&gt; a little more hacking needed by codeworkx ;)</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;ylooca|work&gt; ;-)</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;nitam|work&gt; where is he anyway..</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;nitam|work&gt; anyway, off for a bit. work</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;ylooca|work&gt; btw we are using the old modem_ctl from nexus s</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;ylooca|work&gt; i investigated on it today</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;ylooca|work&gt; k</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya|away: the "outer" recovery can have a firstboot kernel that always boots recovery, and that writes the command to /cache first.</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13653733&amp;postcount=264">http://forum.xda-developers.com/showpost.php?p=13653733&amp;postcount=264</a></span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;nitam|work&gt; lol</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;nitam|work&gt; I don't even know what they do to make things like this happen</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;ylooca|work&gt; turn off your brain -&gt; flash anything you can find -&gt; complain that it is not working</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;nitam|work&gt; -&gt; get ignored. I'm doing that last one now.</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;nitam|work&gt; to everything that is not code/driver related.</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;nitam|work&gt; unless it is useful to our development, it is ignored.</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;ylooca|work&gt; <a href="https://mail.google.com/mail/u/0/?shva=1#mbox/12fda86ac282786b">https://mail.google.com/mail/u/0/?shva=1#mbox/12fda86ac282786b</a></span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;ylooca|work&gt; argh</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;ylooca|work&gt; sry</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;ylooca|work&gt; <a href="http://code.google.com/p/cyanogenmod7-for-samsung-galaxys/issues/detail?id=304">http://code.google.com/p/cyanogenmod7-for-samsung-galaxys/issues/detail?id=304</a></span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-green">* Wout` (~Wout@62.140.137.99) has joined this channel.</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-green">* ChanServ sets mode +v Wout`</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;nitam|work&gt; what is he using to format?</span><br />
+<span class="irc-date">[15:34]</span> <span class="irc-black">&lt;nitam|work&gt; recovery?</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;ylooca|work&gt; settings - storage</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;ylooca|work&gt; i guess</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;techmik_laptop&gt; another lesson leARNED.......   from now on, *use webmail!!!*</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;zachy_md&gt; you guys are aware of lower FPS with the new GPU drivers ?</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;zachy_md&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13654296&amp;postcount=293">http://forum.xda-developers.com/showpost.php?p=13654296&amp;postcount=293</a></span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;zachy_md&gt; for me the FPS are fluctuating more aggressively with slightly higher absolute FPS but overall they seem to be lower</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;ylooca|work&gt; FPS is for quake 3 junkies :-P</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;kang&gt; i heard quake.</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;zachy_md&gt; hm, afaik there's a quake3 port for the SGS but it's somewhat - "difficult" to control</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;kang&gt; &lt;= junkie</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;kang&gt; the q3 port on the SGS violates GPL</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;kang&gt; :p</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;kang&gt; its ioquake3 also</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;kang&gt; but it "works"</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;zachy_md&gt; :)</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;kang&gt; can play against pc users even</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;kang&gt; not very useful on a phone</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;kang&gt; but funny :p</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;ylooca|work&gt; i love desktop loop on ADW</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;uberushaximus&gt; the wallpaper wrapping should be smoother</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;kang&gt; i use 1 home screen.</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-brick">* kang wonders what he uses his phone for</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;kang&gt; the screen is 50% full.</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;kang&gt; xD</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;ylooca|work&gt; i need widgets to drain my battery :D</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;uberushaximus&gt; fancywidget, or livewallpapers</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;uberushaximus&gt; aylooc|work: try installing minimaltext too</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;codeworkx&gt; uhmm. <a href="http://forum.xda-developers.com/showpost.php?p=13654729&amp;postcount=1587">http://forum.xda-developers.com/showpost.php?p=13654729&amp;postcount=1587</a></span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;codeworkx&gt; and <a href="http://forum.xda-developers.com/showpost.php?p=13654858&amp;postcount=1588">http://forum.xda-developers.com/showpost.php?p=13654858&amp;postcount=1588</a></span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;codeworkx&gt; am i right?</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;codeworkx&gt; hardest user i've ever seen. he tops everything.</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;codeworkx&gt; quit xda</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.71.68) has joined this channel.</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;codeworkx&gt; WTF</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;codeworkx&gt; the problem:</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;codeworkx&gt; 1.the icon (Button) of video calling is not available in contacts or dialer (Phone).</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;codeworkx&gt; Is there settings for the video call to solve the problem....</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;codeworkx&gt; Regards</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;kang&gt; hehe</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;kang&gt; "samsung hub is missing, how to fix?"</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;codeworkx&gt; plx let it rain brains</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;zachy_md&gt; codeworkx: yeah, massive fubar XD</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-navy">* GuIper (c2e46026@gateway/web/freenode/ip.194.228.96.38) Quit (Ping timeout: 252 seconds)</span><br />
