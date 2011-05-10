@@ -659,3 +659,111 @@
 <span class="irc-date">[4:58]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: that's the difference on mapping</span><br />
 <span class="irc-date">[4:58]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: think you need more</span><br />
 <span class="irc-date">[4:59]</span> <span class="irc-black">&lt;nullghost&gt; hmm, the radio that dameon mapped out is 50 pages, that can't be right</span><br />
+<span class="irc-date">[5:00]</span> <span class="irc-black">&lt;nullghost&gt; that's 12.5 Mb</span><br />
+<span class="irc-date">[5:00]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@115.241.9.46) Quit (Quit: Zzzz)</span><br />
+<span class="irc-date">[5:00]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; night boys good luck</span><br />
+<span class="irc-date">[5:00]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[5:00]</span> <span class="irc-green">* ChanServ sets mode +v Wout`</span><br />
+<span class="irc-date">[5:00]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[5:00]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: yes, must be more than our 54</span><br />
+<span class="irc-date">[5:01]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: 60x256 = 15360 = 15mb</span><br />
+<span class="irc-date">[5:02]</span> <span class="irc-black">&lt;codeworkx&gt; if you say 14.9mb</span><br />
+<span class="irc-date">[5:02]</span> <span class="irc-black">&lt;nullghost&gt; that should work. probably go with two more pages just to be safe</span><br />
+<span class="irc-date">[5:03]</span> <span class="irc-black">&lt;nullghost&gt; well anyway, might as well test this out</span><br />
+<span class="irc-date">[5:03]</span> <span class="irc-black">&lt;codeworkx&gt; then you have to lower datadata</span><br />
+<span class="irc-date">[5:03]</span> <span class="irc-black">&lt;codeworkx&gt; no wait</span><br />
+<span class="irc-date">[5:03]</span> <span class="irc-black">&lt;nullghost&gt; hmm?</span><br />
+<span class="irc-date">[5:03]</span> <span class="irc-black">&lt;codeworkx&gt; radio -&gt; reservoir</span><br />
+<span class="irc-date">[5:03]</span> <span class="irc-black">&lt;codeworkx&gt; be carefull</span><br />
+<span class="irc-date">[5:04]</span> <span class="irc-black">&lt;codeworkx&gt; 54x256k radio ends at 1993. reservoir starts at 2047</span><br />
+<span class="irc-date">[5:04]</span> <span class="irc-black">&lt;codeworkx&gt; should work</span><br />
+<span class="irc-date">[5:07]</span> <span class="irc-green">* chaembian (~chaembian@122.174.127.51) has joined this channel.</span><br />
+<span class="irc-date">[5:07]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: <a href="http://pastebin.com/Yx3ffyUJ">http://pastebin.com/Yx3ffyUJ</a></span><br />
+<span class="irc-date">[5:08]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/mtd/onenand/samsung_fascinate.h">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/mtd/onenand/samsung_fascinate.h</a></span><br />
+<span class="irc-date">[5:09]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: efs is mounted, is that wise?</span><br />
+<span class="irc-date">[5:09]</span> <span class="irc-black">&lt;codeworkx&gt; modem 50 units?</span><br />
+<span class="irc-date">[5:09]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: thats not the real efs</span><br />
+<span class="irc-date">[5:09]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: it's a new one</span><br />
+<span class="irc-date">[5:09]</span> <span class="irc-black">&lt;codeworkx&gt; we dont touch real efs</span><br />
+<span class="irc-date">[5:09]</span> <span class="irc-black">&lt;nullghost&gt; oh, that's where the new one is mounted, I see</span><br />
+<span class="irc-date">[5:10]</span> <span class="irc-black">&lt;nullghost&gt; and yeah, I don't understand why it only gives us 50 pages for the modem</span><br />
+<span class="irc-date">[5:10]</span> <span class="irc-black">&lt;nullghost&gt; when the modem in the tarball right in front of my face is 14.9Mb</span><br />
+<span class="irc-date">[5:10]</span> <span class="irc-black">&lt;codeworkx&gt; thats strange</span><br />
+<span class="irc-date">[5:10]</span> <span class="irc-black">&lt;codeworkx&gt; cant be true</span><br />
+<span class="irc-date">[5:11]</span> <span class="irc-black">&lt;nullghost&gt; I flashed the 14.9Mb modem with heimdall and it works</span><br />
+<span class="irc-date">[5:11]</span> <span class="irc-black">&lt;nullghost&gt; what has me curious is that we've as-of-yet been unable to flash a modem via CWM</span><br />
+<span class="irc-date">[5:11]</span> <span class="irc-black">&lt;nullghost&gt; only deltas that showed up in our otas</span><br />
+<span class="irc-date">[5:13]</span> <span class="irc-black">&lt;codeworkx&gt; datafs = 2056 units = 512 mb?</span><br />
+<span class="irc-date">[5:13]</span> <span class="irc-black">&lt;codeworkx&gt; strange</span><br />
+<span class="irc-date">[5:13]</span> <span class="irc-black">&lt;nullghost&gt; how so?</span><br />
+<span class="irc-date">[5:13]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.241.73.48) has joined this channel.</span><br />
+<span class="irc-date">[5:13]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[5:13]</span> <span class="irc-black">&lt;codeworkx&gt; where's your data? not on internal sd?</span><br />
+<span class="irc-date">[5:13]</span> <span class="irc-black">&lt;nullghost&gt; cdma models don't have emmc</span><br />
+<span class="irc-date">[5:13]</span> <span class="irc-black">&lt;codeworkx&gt; ah</span><br />
+<span class="irc-date">[5:14]</span> <span class="irc-black">&lt;codeworkx&gt; can you gimme a ls -R -la /dev</span><br />
+<span class="irc-date">[5:16]</span> <span class="irc-black">&lt;nullghost&gt; booting .32 now, just a sec</span><br />
+<span class="irc-date">[5:18]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: <a href="http://pastebin.com/H7aEtPPc">http://pastebin.com/H7aEtPPc</a></span><br />
+<span class="irc-date">[5:20]</span> <span class="irc-black">&lt;codeworkx&gt; find out how your modem is accessed</span><br />
+<span class="irc-date">[5:21]</span> <span class="irc-black">&lt;nullghost&gt; modemctl kernel module, rild, libril, libsecril</span><br />
+<span class="irc-date">[5:21]</span> <span class="irc-black">&lt;nullghost&gt; that what you mean?</span><br />
+<span class="irc-date">[5:21]</span> <span class="irc-black">&lt;codeworkx&gt; where does it expect the modem firmware</span><br />
+<span class="irc-date">[5:21]</span> <span class="irc-black">&lt;nullghost&gt; bml12</span><br />
+<span class="irc-date">[5:22]</span> <span class="irc-black">&lt;codeworkx&gt; our too, but somewhere it's hardcoded to mtd5</span><br />
+<span class="irc-date">[5:23]</span> <span class="irc-black">&lt;nullghost&gt; mtd5? how does that work if we don't have mtd blocks on froyo</span><br />
+<span class="irc-date">[5:26]</span> <span class="irc-black">&lt;codeworkx&gt; its hardcoded in userspace ril</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-black">&lt;Kaik541&gt; rild from nexus s</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-black">&lt;codeworkx&gt; check your ril files. libril.so, libsec-ril.so</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-black">&lt;Kaik541&gt; ?</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-black">&lt;codeworkx&gt; yas</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-black">&lt;nullghost&gt; ah, that's where you threw me off</span><br />
+<span class="irc-date">[5:27]</span> <span class="irc-black">&lt;nullghost&gt; you were talking about NS libril, I was sitting here thinking you meant sgs froyo libril</span><br />
+<span class="irc-date">[5:28]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@115.241.73.48) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;nullghost&gt; I don't have emmc, so i'm just going to flash the kernel I built for now.</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;nullghost&gt; well shit, I don't have a debugger, so that does me no good</span><br />
+<span class="irc-date">[5:29]</span> <span class="irc-black">&lt;nullghost&gt; is there anything in the kernel to enable printk's to the screen?</span><br />
+<span class="irc-date">[5:30]</span> <span class="irc-black">&lt;nullghost&gt; if android init fails it should at least lock up there.</span><br />
+<span class="irc-date">[5:31]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[5:33]</span> <span class="irc-black">&lt;nullghost&gt; do you guys not have a recovery kernel partition?</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;codeworkx&gt; we have one, but its unused</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;codeworkx&gt; the bootloader doesn't call it</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;codeworkx&gt; kernel + recovery on same partition</span><br />
+<span class="irc-date">[5:38]</span> <span class="irc-black">&lt;codeworkx&gt; pretty bad, but works</span><br />
+<span class="irc-date">[5:43]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: nexus s 4g ?</span><br />
+<span class="irc-date">[5:43]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: maybe you can use their ril stuff</span><br />
+<span class="irc-date">[5:43]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: with your modem</span><br />
+<span class="irc-date">[5:44]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/mtd/onenand/samsung_fascinate.h">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/mtd/onenand/samsung_fascinate.h</a></span><br />
+<span class="irc-date">[5:44]</span> <span class="irc-black">&lt;codeworkx&gt; radio now 60, added new efs, and cache is now a little bit smaller. but shouldn't hurt</span><br />
+<span class="irc-date">[5:45]</span> <span class="irc-black">&lt;codeworkx&gt; if the nexus s 4g ril expects modem on mtd5 too, i would give it a try</span><br />
+<span class="irc-date">[5:45]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: reservoir?</span><br />
+<span class="irc-date">[5:45]</span> <span class="irc-black">&lt;codeworkx&gt; don't know where it is on your device</span><br />
+<span class="irc-date">[5:45]</span> <span class="irc-black">&lt;nullghost&gt; ahhhh</span><br />
+<span class="irc-date">[5:45]</span> <span class="irc-black">&lt;codeworkx&gt; your nand is bigger</span><br />
+<span class="irc-date">[5:46]</span> <span class="irc-black">&lt;nullghost&gt; woo got a new clockwork recovery kernel, let me make a backup before I do any of this :D</span><br />
+<span class="irc-date">[5:50]</span> <span class="irc-black">&lt;nullghost&gt; huh. my efs isn't mounted while booted, why is that?</span><br />
+<span class="irc-date">[5:50]</span> <span class="irc-black">&lt;codeworkx&gt; in cwm?</span><br />
+<span class="irc-date">[5:50]</span> <span class="irc-black">&lt;nullghost&gt; I haven't checked in cwm, but it's not mounted while I'm booted into android</span><br />
+<span class="irc-date">[5:51]</span> <span class="irc-black">&lt;codeworkx&gt; not good xD</span><br />
+<span class="irc-date">[5:52]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, <a href="http://forum.xda-developers.com/showpost.php?p=13643132&amp;postcount=1458">http://forum.xda-developers.com/showpost.php?p=13643132&amp;postcount=1458</a></span><br />
+<span class="irc-date">[5:53]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: n1</span><br />
+<span class="irc-date">[5:53]</span> <span class="irc-black">&lt;Kaik541&gt; I was going to add more about "we're not gonna make fixes for samsung's fuck ups"</span><br />
+<span class="irc-date">[5:53]</span> <span class="irc-black">&lt;Kaik541&gt; but you guys already do that everyday xD</span><br />
+<span class="irc-date">[5:53]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: /efs/ is unmounted, but my epic is working just fine</span><br />
+<span class="irc-date">[5:54]</span> <span class="irc-black">&lt;codeworkx&gt; lul?</span><br />
+<span class="irc-date">[5:54]</span> <span class="irc-black">&lt;codeworkx&gt; imei is there?</span><br />
+<span class="irc-date">[5:54]</span> <span class="irc-black">&lt;nullghost&gt; well remember, we're cdma so we don't have an imei, we have an meid</span><br />
+<span class="irc-date">[5:55]</span> <span class="irc-black">&lt;nullghost&gt; what filesystem is efs? j4fs?</span><br />
+<span class="irc-date">[5:55]</span> <span class="irc-black">&lt;Kaik541&gt; rfs</span><br />
+<span class="irc-date">[5:56]</span> <span class="irc-black">&lt;nullghost&gt; so it's mounted on an stl?</span><br />
+<span class="irc-date">[5:56]</span> <span class="irc-black">&lt;nullghost&gt; ok, I might be able to mount it and see if anything is there.</span><br />
+<span class="irc-date">[5:56]</span> <span class="irc-black">&lt;codeworkx&gt; epic = strange</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;nullghost&gt; # busybox mount -t rfs /dev/block/stl3 /efs</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;nullghost&gt; mount: mounting /dev/block/stl3 on /efs failed: Invalid argument</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;codeworkx&gt; why they cant work with one base? why cdma?</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;chaembian&gt; What's the latest gapps to flash?</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;nullghost&gt; what am I missing =\</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;gehzumteufel&gt; chaembian 0503</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;codeworkx&gt; mkdir /efs ?</span><br />
+<span class="irc-date">[5:57]</span> <span class="irc-black">&lt;nullghost&gt; /efs/ is there</span><br />
+<span class="irc-date">[5:59]</span> <span class="irc-black">&lt;chaembian&gt; thank you, gehzumteufel</span><br />
