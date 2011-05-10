@@ -917,3 +917,88 @@
 <span class="irc-date">[12:04]</span> <span class="irc-green">* ChanServ sets mode +o coolya|work</span><br />
 <span class="irc-date">[12:36]</span> <span class="irc-navy">* atinm|away (~atin@unaffiliated/atinm) Quit (Quit: atinm|away)</span><br />
 <span class="irc-date">[12:46]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@59.97.73.52) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;nullghost&gt; aylooc|work: I've got a .35 kernel here for the epic. I don't want to build cm7 from the ground up to package it into a flashable boot.img, what's the mkbootimg command I need</span><br />
+<span class="irc-date">[13:06]</span> <span class="irc-black">&lt;Unhelpful&gt; nullghost: ...you also need to build the rescue and boot filesystems for that.</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;nullghost&gt; ah, damn.</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;Unhelpful&gt; mka out/target/product/epic/boot.img i suppose?</span><br />
+<span class="irc-date">[13:07]</span> <span class="irc-black">&lt;Unhelpful&gt; assuming you've gotten enough of a port in place :)</span><br />
+<span class="irc-date">[13:08]</span> <span class="irc-black">&lt;nullghost&gt; the problem is i don't. with dameon mysteriously missing, I'm starting the .35 port by myself</span><br />
+<span class="irc-date">[13:09]</span> <span class="irc-black">&lt;ylooca|work&gt; is the epic similar to the fascinate ?</span><br />
+<span class="irc-date">[13:09]</span> <span class="irc-black">&lt;nullghost&gt; last night they were saying to flash the cappy build as a test, but we don't have emmc, so i'm not going to risk a brick due to different mtd mappings</span><br />
+<span class="irc-date">[13:10]</span> <span class="irc-black">&lt;ylooca|work&gt; if yes, be aware, of mounting any filesystem unless you have checked that the mtd mapping is working and there are no strange messages about mtd in dmesg</span><br />
+<span class="irc-date">[13:10]</span> <span class="irc-black">&lt;nullghost&gt; aylooc|work: yes we're similar, but what are the strange messages?</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;ylooca|work&gt; a total flash size of -1 eg</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;ylooca|work&gt; or similar</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;nullghost&gt; interesting</span><br />
+<span class="irc-date">[13:11]</span> <span class="irc-black">&lt;ylooca|work&gt; a fascinate was bricked by trying to mount the system partition and no one checked the mtd messages before</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;nullghost&gt; alright, so I need to remove the mounts from the initramfs until I know it works, gotcha</span><br />
+<span class="irc-date">[13:12]</span> <span class="irc-black">&lt;ylooca|work&gt; i would suggest you to comment out all mount from the init process</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;Unhelpful&gt; epic has a separate recovery partition also, doesn't it?</span><br />
+<span class="irc-date">[13:14]</span> <span class="irc-black">&lt;ylooca|work&gt; i think it has</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;nullghost&gt; yes we do, we have a second kernel for recovery</span><br />
+<span class="irc-date">[13:15]</span> <span class="irc-black">&lt;Unhelpful&gt; you'll want to write your own make rule for separate boot and recovery images then... also fix up an epic version of the stage1 initramfs that doesn't fuss about switching, i guess.</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-black">&lt;nullghost&gt; Unhelpful: codeworkx did this last night based on information I gave him</span><br />
+<span class="irc-date">[13:19]</span> <span class="irc-black">&lt;nullghost&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/4e571f15c68fef31e230e4591f755e1859da434c/drivers/mtd/onenand/samsung_fascinate.h">https://github.com/teamhacksung/android_kernel_samsung/blob/4e571f15c68fef31e230e4591f755e1859da434c/drivers/mtd/onenand/samsung_fascinate.h</a></span><br />
+<span class="irc-date">[13:20]</span> <span class="irc-black">&lt;nullghost&gt; the comments at the bottom are a dump from our bootloader through a uart adapter</span><br />
+<span class="irc-date">[13:20]</span> <span class="irc-black">&lt;ylooca|work&gt; that is only the mtd mapping ...</span><br />
+<span class="irc-date">[13:20]</span> <span class="irc-black">&lt;ylooca|work&gt; you need some more work to split recovery and boot image again</span><br />
+<span class="irc-date">[13:21]</span> <span class="irc-black">&lt;ylooca|work&gt; they are merged on the other SGS phones because we only have one for both</span><br />
+<span class="irc-date">[13:21]</span> <span class="irc-black">&lt;nullghost&gt; no, I understand. this is more in regards to the mtd mapping and flash size being -1</span><br />
+<span class="irc-date">[13:22]</span> <span class="irc-black">&lt;ylooca|work&gt; for me it looked like the flash size was oberflowing on the fascinate, but that is only from the things i heard about that</span><br />
+<span class="irc-date">[13:22]</span> <span class="irc-black">&lt;nullghost&gt; huh.</span><br />
+<span class="irc-date">[13:23]</span> <span class="irc-black">&lt;ylooca|work&gt; maybe the controller was answering with a bad response or the driver uses a signed and the controller an unsigned int for siza</span><br />
+<span class="irc-date">[13:23]</span> <span class="irc-black">&lt;nullghost&gt; there's some strange things going on with us that I made note of last night</span><br />
+<span class="irc-date">[13:23]</span> <span class="irc-black">&lt;ylooca|work&gt; s/siza/size</span><br />
+<span class="irc-date">[13:23]</span> <span class="irc-black">&lt;nullghost&gt; 1, notice our modem partition (bml12) is only 50 pages, which is 12.5 Mb</span><br />
+<span class="irc-date">[13:23]</span> <span class="irc-black">&lt;nullghost&gt; our modem.bin in odin tarballs is 14.9Mb</span><br />
+<span class="irc-date">[13:24]</span> <span class="irc-black">&lt;nullghost&gt; second, our efs (stl3) doesn't seem to me mountable, and /efs/ is empty, but the phone works just fine.</span><br />
+<span class="irc-date">[13:25]</span> <span class="irc-black">&lt;nullghost&gt; attempts to mount stl3 with -t auto resulted in it being mounted by j4fs, and then it had the exact same files as stl6, the param block.</span><br />
+<span class="irc-date">[13:25]</span> <span class="irc-black">&lt;ylooca|work&gt; i dunno if you need a efs for cdma</span><br />
+<span class="irc-date">[13:26]</span> <span class="irc-black">&lt;ylooca|work&gt; that is a bug in samsung kernels</span><br />
+<span class="irc-date">[13:26]</span> <span class="irc-black">&lt;nullghost&gt; I don't think we do, since we have an meid instead of an imei</span><br />
+<span class="irc-date">[13:26]</span> <span class="irc-black">&lt;ylooca|work&gt; if mount fails it will mount stl6</span><br />
+<span class="irc-date">[13:26]</span> <span class="irc-black">&lt;nullghost&gt; that was my assumption, that it actually mounted stl6, but mount reported it as stl3</span><br />
+<span class="irc-date">[13:27]</span> <span class="irc-black">&lt;ylooca|work&gt; if you remove all mounts you should be safe to play with it</span><br />
+<span class="irc-date">[13:27]</span> <span class="irc-black">&lt;nullghost&gt; just the busybox mounts in the init script?</span><br />
+<span class="irc-date">[13:27]</span> <span class="irc-black">&lt;ylooca|work&gt; the you can dump from the mtd devices to you sd card an see what is on the partitions</span><br />
+<span class="irc-date">[13:27]</span> <span class="irc-black">&lt;ylooca|work&gt; yes</span><br />
+<span class="irc-date">[13:28]</span> <span class="irc-black">&lt;nullghost&gt; well, the issue here is that i've yet to reconfigure my device repo with stuff from hacksung</span><br />
+<span class="irc-date">[13:30]</span> <span class="irc-black">&lt;nullghost&gt; I could just flash the zImage to bml7, but it obviously would fail</span><br />
+<span class="irc-date">[13:31]</span> <span class="irc-green">* zachy_md (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-black">&lt;kang&gt; github spam!</span><br />
+<span class="irc-date">[13:32]</span> <span class="irc-black">&lt;ylooca|work&gt; hm?</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;zachy_md&gt; kang: yeah !</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;zachy_md&gt; :p</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;kang&gt; zachy_md notifications on github are blinking in my inbox</span><br />
+<span class="irc-date">[13:33]</span> <span class="irc-black">&lt;kang&gt; ^^</span><br />
+<span class="irc-date">[13:34]</span> <span class="irc-black">&lt;zachy_md&gt; yes, I just wrote some comments in the pull requests</span><br />
+<span class="irc-date">[13:34]</span> <span class="irc-black">&lt;zachy_md&gt; great news that samsung opensources the kernel for the SGS II</span><br />
+<span class="irc-date">[13:35]</span> <span class="irc-black">&lt;zachy_md&gt; kang: like I wrote - the frequency scaling patches might be useful for that device, too ^^</span><br />
+<span class="irc-date">[13:35]</span> <span class="irc-black">&lt;zachy_md&gt; several users report regressions from 0605 to 0905 for battery runtime</span><br />
+<span class="irc-date">[13:36]</span> <span class="irc-black">&lt;zachy_md&gt; also there's some instability that got introduced (hm - upstream ;) )</span><br />
+<span class="irc-date">[13:36]</span> <span class="irc-black">&lt;zachy_md&gt; so I had to revert to my nandroid backup since A LOT of apps kept FCing :(</span><br />
+<span class="irc-date">[13:36]</span> <span class="irc-black">&lt;kang&gt; hm i dont think there were a lot of changes</span><br />
+<span class="irc-date">[13:36]</span> <span class="irc-black">&lt;kang&gt; might actually need a cache cleanup this time</span><br />
+<span class="irc-date">[13:36]</span> <span class="irc-black">&lt;zachy_md&gt; some stats: battery usage for 8 hours of MP3 playback (during night): 1.8 - 2% battery usage =)</span><br />
+<span class="irc-date">[13:36]</span> <span class="irc-black">&lt;zachy_md&gt; kang: I did</span><br />
+<span class="irc-date">[13:37]</span> <span class="irc-black">&lt;kang&gt; i suppose every we mess with the xml settings it might affect other apps</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;kang&gt; the delay fix sounds good</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;kang&gt; the other one idk</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;kang&gt; probably doesnt hurt but also shouldn't rly make a diff</span><br />
+<span class="irc-date">[13:38]</span> <span class="irc-black">&lt;kang&gt; in a perfect world at least</span><br />
+<span class="irc-date">[13:39]</span> <span class="irc-black">&lt;kang&gt; ive never noticed the phone going to suspend without being at lowest freq and rarely goes higher than that</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;kang&gt; might be interesting to see the infuse's kernel whenever its out</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;kang&gt; i wonder if they just run cpus rated the same as the sgs at 1.2ghz</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;kang&gt; since its stable for everyone</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;mikebeecham&gt; afternoon all</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;zachy_md&gt; Hi mike</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;mikebeecham&gt; hey zachy_md</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;mikebeecham&gt; how're you?</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;zachy_md&gt; so so - haven't slept so much the last days - tracked down some regressions with my kernel ;)</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;zachy_md&gt; besides that: it's a nice sunny day outside ^^</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;zachy_md&gt; in other news: Microsoft bought Skype (if not everyone already knows) *argh*</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;ylooca|work&gt; crap company buys crap software :-P</span><br />
+<span class="irc-date">[13:50]</span> <span class="irc-black">&lt;ylooca|work&gt; except the desktop sharing feature skype is totally obsolete</span><br />
+<span class="irc-date">[13:50]</span> <span class="irc-black">&lt;kang&gt; can't wait for the merge of msn messenger with skype</span><br />
+<span class="irc-date">[13:50]</span> <span class="irc-black">&lt;kang&gt; going to make one ugly mob xD</span><br />
+<span class="irc-date">[13:50]</span> <span class="irc-black">&lt;nullghost&gt; i'd rather microsoft bought skype than facebook</span><br />
