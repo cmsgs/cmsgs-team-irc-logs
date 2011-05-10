@@ -510,3 +510,152 @@
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;Kaik541&gt; add a section for epic</span><br />
 <span class="irc-date">[3:59]</span> <span class="irc-black">&lt;Kaik541&gt; and do a ./build.sh epic (which assumes you have a booting prebuilt kernel)</span><br />
 <span class="irc-date">[4:00]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh I see, if FW_VER_OLD</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;Kaik541&gt; which I know you don't, so you need to build the kernel first</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@115.241.4.215) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;nullghost&gt; hmm? explain, I haven't sat down to read the entire build script</span><br />
+<span class="irc-date">[4:00]</span> <span class="irc-black">&lt;Kaik541&gt; so ./build.sh epic kernel *should* do it</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;Kaik541&gt; well our current build.sh method simply builds the ROM</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;Kaik541&gt; and takes a prebuild kernel and attaches a recovery image to it</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;Kaik541&gt; which we flash as a boot.img</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;Kaik541&gt; to build the kernel specifically you have to go into kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;gehzumteufel&gt; and has initramfs</span><br />
+<span class="irc-date">[4:01]</span> <span class="irc-black">&lt;gehzumteufel&gt; and some othe rthings</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;Kaik541&gt; and build it for your device</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;Kaik541&gt; gehzumteufel, initramfs is already in prebuilt</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;gehzumteufel&gt; ah my bad</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;Kaik541&gt; unless I'm mistaken, someone correct me if I am</span><br />
+<span class="irc-date">[4:03]</span> <span class="irc-black">&lt;Kaik541&gt; nullghost, so you want to be in kernel/samsung/2.6.35 and use the ./build.sh script there</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.241.9.46) has joined this channel.</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;nullghost&gt; gah, build fails.</span><br />
+<span class="irc-date">[4:13]</span> <span class="irc-black">&lt;Kaik541&gt; what's the error?</span><br />
+<span class="irc-date">[4:14]</span> <span class="irc-black">&lt;Kaik541&gt; pastebin plz</span><br />
+<span class="irc-date">[4:16]</span> <span class="irc-black">&lt;nullghost&gt; <a href="http://pastebin.com/2ACf4pgV">http://pastebin.com/2ACf4pgV</a></span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;nullghost&gt; sorry, pastebin widget decided to crash :p</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;Kaik541&gt; it's cool</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: playing with teamhacksung kernel and epic?</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: absolutely</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: you've setup mtd mapping stuff?</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;Kaik541&gt; yay codeworkx can answer you</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;nullghost&gt; if the epic and fascinate want to see official cm, this needs to happen</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;Kaik541&gt; he's far more helpful than I am</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: otherwise you'll delete your bootloader</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;nullghost&gt; yes, mtd is set up.</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; your going to have ifdef failures all over the place in the kernel</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;codeworkx&gt; make sure it's used</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; unless you've played with it already</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 'cus your going to fall into a hell of a lot of 'else' cluses</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-black">&lt;nullghost&gt; that sucks, it didn't do that last time I tried to build it</span><br />
+<span class="irc-date">[4:20]</span> <span class="irc-black">&lt;Kaik541&gt; a metric fuckload has changed in the past week alone</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;Kaik541&gt; we've switched to an entirelyd ifferent build system</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;codeworkx&gt; what's your problem?</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: the first compile failure is that pastebin.</span><br />
+<span class="irc-date">[4:21]</span> <span class="irc-black">&lt;nullghost&gt; sec_jack_set_micbias_state</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-black">&lt;codeworkx&gt; ya sure</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-black">&lt;codeworkx&gt; line 1336 add || defined(CONFIG_SAMSUNG_EPIC)</span><br />
+<span class="irc-date">[4:24]</span> <span class="irc-black">&lt;codeworkx&gt; on 1357 too</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;nullghost&gt; haha, love the // hate ifdefs?</span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;Kaik541&gt; that's probably TMC_Sherpa</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; nope atinm put that one in</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;Kaik541&gt; haha</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; although I'm not doing to deny that I think its true</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;nullghost&gt; let's try a build and see where the next ifdef fails</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-navy">* sixstringsg (~Jason@pool-173-74-150-29.dllstx.fios.verizon.net) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I haven't looked at epic or fascinate source in a million years, I'm not even sure you guys use BIAS_EN</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;nullghost&gt; so tell me if I'm on the right track: i'll basically hunt down every #ifdef and add EPIC to one of the generic sgs definitions, then down the road give it its own #ifdef if I need to?</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;nullghost&gt; I can check real quick, grep to the rescue</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/bc55520b257d7d85c0a636e8650ebfd512bb0da1">https://github.com/teamhacksung/android_kernel_samsung/commit/bc55520b257d7d85c0a636e8650ebfd512bb0da1</a></span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;nullghost&gt; gpio_set_value(GPIO_MICBIAS_EN, 0); // stuff like this is all over sec_jack.c and a few in mach-aries.c</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;nullghost&gt; that's in epic source.</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k like I said, I did a real quick diff back in the day but didn't look into what the differences actually were</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;codeworkx&gt; mach-aries is only for captivate, galaxys, epic, fascinate, vibrant. is a change should apply on all devices, simply add it. if it's specific to epic, add a ifdef</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;nullghost&gt; of course, I'm not *that* dense ;)</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: CONFIG_SAMSUNG_EPIC is already setup <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/mach-s5pv210/Kconfig#L166">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/mach-s5pv210/Kconfig#L166</a></span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;codeworkx&gt; we're good</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;codeworkx&gt; :-P</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;codeworkx&gt; which mtd mapping you've used?</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;nullghost&gt; yes, I did create an aries_epic_defconfig and set CONFIG_SAMSUNG_EPIC</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;nullghost&gt; UberPinguin figured out our partition mapping using a usb debugger, and dameon commited samsung_epic.h to our temporary github repo</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: added epic there? and a new header file? <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/mtd/onenand/samsung.c#L45">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/mtd/onenand/samsung.c#L45</a></span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;UberPinguin&gt; WAT</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: <a href="https://github.com/EpicCM/android_kernel_samsung/commit/3a63acb63f1fad4467dd87cbbd98d987908d835f">https://github.com/EpicCM/android_kernel_samsung/commit/3a63acb63f1fad4467dd87cbbd98d987908d835f</a></span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;nullghost&gt; and I came back and added <a href="https://github.com/EpicCM/android_kernel_samsung/commit/b0af48fcfe2ad37ca0eb60f72dd71e38a791128e">https://github.com/EpicCM/android_kernel_samsung/commit/b0af48fcfe2ad37ca0eb60f72dd71e38a791128e</a></span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;nullghost&gt; I used those commits, but I'm not using that repo right now, I synced fresh from you guys</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: <a href="https://github.com/EpicCM/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/mtd/onenand/samsung.c#L49">https://github.com/EpicCM/android_kernel_samsung/blob/android-samsung-2.6.35/drivers/mtd/onenand/samsung.c#L49</a> fine</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: the problem is, if something goes wrong there, the nexus s mapping will be used. will do bad things on our devices xD</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;Kaik541&gt; o.o</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;codeworkx&gt; and with bad i mean as bad as possible</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;Kaik541&gt; I'm no longer flashing a non-prebuilt kernel</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: lol</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;nullghost&gt; we used a usb debugger to dump partition info from the bootloader</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;nullghost&gt; so we're sure the mappings are good</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: should be same as i9000</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: your mapping is bad</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: dont use efs</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: will be killed by mtd</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;nullghost&gt; oh, trust me, I didn't map efs like dameon did.</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;codeworkx&gt; radio must be mtd5</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;codeworkx&gt; otherwise it will not work</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;codeworkx&gt; use galaxys mapping</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-black">&lt;codeworkx&gt; should be ok</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: well here's the thing, I need to get it booting before I go rearranging partitions.</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;codeworkx&gt; you can simply try flashing for example a captivate build</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-black">&lt;UberPinguin&gt; Won't the GSM modem screw it up?</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;codeworkx&gt; he'll get no ril but it will boot</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;codeworkx&gt; wait</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;codeworkx&gt; someone already tried a captivate modem?</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;nullghost&gt; due to a sprint fail, I don't have TEP.</span><br />
+<span class="irc-date">[4:46]</span> <span class="irc-black">&lt;nullghost&gt; so we need to be cautious here :D</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;gehzumteufel&gt; TEP?</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;gehzumteufel&gt; insurance?</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;nullghost&gt; yeah, that.</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;gehzumteufel&gt; Have you had it a year?</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;uberushaximus&gt; you can always say something else did it, bad update from keis</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;gehzumteufel&gt; exactly</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;nullghost&gt; eh, not until october</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;nullghost&gt; and we don't use kies.</span><br />
+<span class="irc-date">[4:47]</span> <span class="irc-black">&lt;UberPinguin&gt; Epic doesn't have kies</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;gehzumteufel&gt; Ah</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;Kaik541&gt; bad ota</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;nullghost&gt; we have to wait for otas or get odin tarballs</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;gehzumteufel&gt; Just say it stopped working. lol</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: get the captivate stuff, extract the update-INITIAL, replace modem.bin with yours, repack and simply flash this stuff xD</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;nullghost&gt; can't hurt I guess.</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: instructions <a href="http://forum.cyanogenmod.com/topic/17020-all-models-cyanogenmod-7-for-samsung-galaxy-s-phones-experimental/">http://forum.cyanogenmod.com/topic/17020-all-models-cyanogenmod-7-for-samsung-galaxy-s-phones-experimental/</a></span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: think this is the easiest way to see whats going on</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: check sizes of modem.bin</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: why the captivate</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: do u have fmradio or front cam?</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;nullghost&gt; no, and yes.</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: no fm but front?</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;uberushaximus&gt; epic has frontcam and led</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;nullghost&gt; hell we might have FM Radio, they keep sneaking the Si4709 module in our initramfs</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;codeworkx&gt; take cappy. has no fm and no front</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: don't trust samsung xD</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: copy and paste fail</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;nullghost&gt; oh i'm sure</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;nullghost&gt; tinkering with epic kernel source hurts my head</span><br />
+<span class="irc-date">[4:52]</span> <span class="irc-black">&lt;nullghost&gt; does update-initial do the efs backup?</span><br />
+<span class="irc-date">[4:52]</span> <span class="irc-black">&lt;codeworkx&gt; kernel-initial does efsbackup</span><br />
+<span class="irc-date">[4:52]</span> <span class="irc-black">&lt;nullghost&gt; that's what I meant, sorry.</span><br />
+<span class="irc-date">[4:52]</span> <span class="irc-black">&lt;codeworkx&gt; update-initial does efs restore, installs system, flashs modem, flashs kernel</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-black">&lt;uberushaximus&gt; efs backup is just a cp -R, you could do it yourself</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-black">&lt;codeworkx&gt; kernel-initial also flashes the cm7 kernel</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;nullghost&gt; my modem.bin is 2.9Mb larger than captivate modem.bin</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;nullghost&gt; will this cause an issue?</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;Kaik541&gt; @.@</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the cappy modem wont work but I dont think there will be a problem</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-black">&lt;uberushaximus&gt; let us know if our flasher breaks things :)</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; cdma modem is, more or less, the gsm modem with cdma stuff stuck on top</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-black">&lt;nullghost&gt; is the modem partition large enough to hold a 14.9Mb modem?</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-black">&lt;nullghost&gt; or is it just barely enough for the cappy 12Mb modem</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dono till you find out :P</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;nullghost&gt; well let's check the cappy's mtd struct</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm not expecting the radio to work anyway</span><br />
+<span class="irc-date">[4:57]</span> <span class="irc-black">&lt;codeworkx&gt; 13824 kb</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;nullghost&gt; looks right, 54 * 265K pages</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: that's the difference on mapping</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: think you need more</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;nullghost&gt; hmm, the radio that dameon mapped out is 50 pages, that can't be right</span><br />
