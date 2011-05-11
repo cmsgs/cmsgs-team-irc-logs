@@ -791,3 +791,132 @@
 <span class="irc-date">[18:45]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
 <span class="irc-date">[18:51]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="https://github.com/EpicCM/android_device_samsung_epic/tree/teamhacksung-merge">https://github.com/EpicCM/android_device_samsung_epic/tree/teamhacksung-merge</a></span><br />
 <span class="irc-date">[18:58]</span> <span class="irc-black">&lt;UberPinguin&gt; FYI, I'm using this manifest: <a href="https://github.com/EpicCM/android/tree/teamhacksung-merge">https://github.com/EpicCM/android/tree/teamhacksung-merge</a></span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: board bootloader name</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;UberPinguin&gt; ahhhh</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries.mk#L1">https://github.com/teamhacksung/android_device_samsung_common/blob/gingerbread/aries.mk#L1</a></span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; must be aries</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;codeworkx&gt; in BoardConfig.mk</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;nitam|work&gt; do they also need an epic.mk that is like galaxys.mk?</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: simply clone one of the device repos, change every e.g. captivate to epic and you're good to go</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;UberPinguin&gt; TARGET_BOOTLOADER_BOARD_NAME := aries   is set</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/BoardConfig.mk#L108">https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/BoardConfig.mk#L108</a></span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;codeworkx&gt; missing include?</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;nitam|work&gt; guess not.</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: The include should be there <a href="https://github.com/EpicCM/android_device_samsung_epic/blob/teamhacksung-merge/BoardConfig.mk#L113">https://github.com/EpicCM/android_device_samsung_epic/blob/teamhacksung-merge/BoardConfig.mk#L113</a></span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/EpicCM/android/blob/gingerbread/default.xml#L70">https://github.com/EpicCM/android/blob/gingerbread/default.xml#L70</a></span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;codeworkx&gt; fail?</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: You're looking at the gingerbread branch there, not the teamhacksung-merge branch</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;nitam|work&gt; ah</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;codeworkx&gt; if your bootloader name is correct and the include is there, it should work</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;UberPinguin&gt; I agree ;)</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="https://github.com/EpicCM/android_device_samsung_epic/blob/teamhacksung-merge/full_epic.mk">https://github.com/EpicCM/android_device_samsung_epic/blob/teamhacksung-merge/full_epic.mk</a></span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;nitam|work&gt; looks quite different from ours</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;nitam|work&gt; I guess you pulled in stuff</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;nitam|work&gt; directly into it</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;nitam|work&gt; but I'm going to debug that :)</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;UberPinguin&gt; I'll review that, I think Dameon wrote that one</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;UberPinguin&gt; hehe</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;nitam|work&gt; so figured out finally *why* we don't get up to 100% ;)</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;nitam|work&gt; on battery</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;nitam|work&gt; the chip only tells us what the current value is.</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: <a href="https://github.com/EpicCM/android_device_samsung_epic/blob/teamhacksung-merge/full_epic.mk#L71">https://github.com/EpicCM/android_device_samsung_epic/blob/teamhacksung-merge/full_epic.mk#L71</a></span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;nitam|work&gt; as a percentage of full capacity</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;codeworkx&gt; no need. libaudio is not optinal</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;nitam|work&gt; but doesn't tell us what the "full capacity" is</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;nitam|work&gt; since it is supposed to be 100%</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: Yes. I tried rm'ing that line, no dice. Going to copy the Captivate's and see what happens.</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;nitam|work&gt; so our battery doesn't charge to 100% somewhere else.</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;nitam|work&gt; does anyone have the link to the commit where samsung was faking the 100%?</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;nitam|work&gt; so I can see what it actually does?</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;nitam|work&gt; that google then took out?</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;kang&gt; which file and line do u get the % ?</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;kang&gt; the one where u see it takes the % from the chip</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;kang&gt; nvm</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;kang&gt; drivers/power/fuel_gauge.c</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;nitam|work&gt; max17040_battery.c:L127</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;nitam|work&gt; it reads the chip</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;kang&gt; for samsung i mean</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;nitam|work&gt; soc register</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;kang&gt; its where it fakes it</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;nitam|work&gt; which gives a percentage of "full capacity"</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: anything new on your modem?</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: Not yet. Trying to get the rest of this stuff lined up while I let modem simmer in the back of my head.</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;codeworkx&gt; 50 units vs. 14,9mb is really strange</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;nitam|work&gt; wtf. fuel_gauge.c isn't called out in the Makefile</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;UberPinguin&gt; nullghost was working on that part, I think</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;kang&gt; <a href="https://github.com/kangsterizer/linux_gt-i9000/blob/gingerbread-samsung/drivers/power/fuel_gauge.c#L69">https://github.com/kangsterizer/linux_gt-i9000/blob/gingerbread-samsung/drivers/power/fuel_gauge.c#L69</a></span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;nitam|work&gt; we don't  use it it seems.</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;zachy_md&gt; mnita|work: <a href="https://github.com/morfic/linux_samsung/commit/2ff416463040342dbd68aaa96f8a8d604792a557">https://github.com/morfic/linux_samsung/commit/2ff416463040342dbd68aaa96f8a8d604792a557</a></span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;kang&gt; might be a left over from froyo</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;UberPinguin&gt; Looks like we had merged the &lt;device&gt;.mk and full_&lt;device&gt;.mk</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;kang&gt; its also not in jvb</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;nitam|work&gt; zachy_md: yes, that one.</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;kang&gt; <a href="https://github.com/kangsterizer/linux_gt-i9000/blob/gingerbread-samsung/drivers/power/max17040_battery.c#L134">https://github.com/kangsterizer/linux_gt-i9000/blob/gingerbread-samsung/drivers/power/max17040_battery.c#L134</a></span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;kang&gt; thats there</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;kang&gt; we dont have this ofc</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;nitam|work&gt; interesting.</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what the heck scaling are they using for these battery numbers?</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;nitam|work&gt; yeah ..</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;nitam|work&gt; what is that shit.</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 406 max 353 full 66 med</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no wonder the default indicator is so wack</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;nitam|work&gt; The SOC register is a read-only register that displays</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;nitam|work&gt; the state of charge of the cell as calculated by the</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;nitam|work&gt; ModelGauge algorithm. The result is displayed as a</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;nitam|work&gt; percentage of the cell’s full capacity.</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;coolya&gt; mnita|work: <a href="http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=2ff416463040342dbd68aaa96f8a8d604792a557">http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=2ff416463040342dbd68aaa96f8a8d604792a557</a></span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;nitam|work&gt; we basically just read the register and send it up</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;nitam|work&gt; which is correct</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;nitam|work&gt; its the actual value.</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;nitam|work&gt; we can do something more intelligent.</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;nitam|work&gt; but not just plain lie.</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 100 100 100 100 100 0</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;nitam|work&gt; I'm going to try something</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;nitam|work&gt; sec</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; val-&gt;intval = (val-&gt;intval / chg-&gt;bat_info.batt_max_soc) * 100;</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; urk</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;wwyvern&gt; build today fixed the unlock/lock data thing for me</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;nitam|work&gt; so it seems we know when the battery is full</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;nitam|work&gt; so I'm going to see if I can read the soc at that point</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;nitam|work&gt; because that is the "max"</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;nitam|work&gt; and report the value up as a percentage of that max</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; makes sense</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; max it at 75...that should annoy people</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;wwyvern&gt; it'll certainly get bug reports</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;nitam|work&gt; according to my phone, I am fully charged at 95%</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;nitam|work&gt; lets see what happens now after I install this :)</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;wwyvern&gt; mine too</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; lol!</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; 9%</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; 0</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; %</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; guess my arithmetic is off ;)</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;nitam|work&gt; ah.</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;nitam|work&gt; divide by 0</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;nitam|work&gt; crap</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;wwyvern&gt; oops</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;coolya&gt; :D</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and it killed codeworkx</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;nitam|work&gt; but it worked after the crash ;)</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;nitam|work&gt; when it updated that value</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;nitam|work&gt; now it is showing 10)%</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;nitam|work&gt; so just have to make check.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; they're going to love me</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; a 4 line change</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; and it isn't lying anymore.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; it is just showing the value as a percentage of the max capacity allowed</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;coolya&gt; it way liying? :P</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; which si what we want</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; samsung lies.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; they were just setting it to 100% when it was full.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; so it would drop instantly</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;nitam|work&gt; to the real value when taken off charger.</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;coolya&gt; google reverted that</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;nitam|work&gt; and when google reverted, it started showing the actual value. which is a percentage of max capacity.</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;nitam|work&gt; but we don't allow charging to max capacity</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; i know</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; but stupid xda noobs not :D</span><br />
