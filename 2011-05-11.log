@@ -221,3 +221,107 @@
 <span class="irc-date">[6:15]</span> <span class="irc-brown">-barjavel.freenode.net- *** Checking Ident</span><br />
 <span class="irc-date">[6:15]</span> <span class="irc-brown">-barjavel.freenode.net- *** No Ident response</span><br />
 <span class="irc-date">[6:15]</span> <span class="irc-brown">-barjavel.freenode.net- *** Found your hostname</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-brown">-barjavel.freenode.net- *** Looking up your hostname...</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-brown">-barjavel.freenode.net- *** Checking Ident</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-brown">-barjavel.freenode.net- *** No Ident response</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-brown">-barjavel.freenode.net- *** Found your hostname</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-green">* cmsgsteam-logger (~PircBot@cmsgs.com) has joined this channel.</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-green">* Topic is 'SGS CyanogenMod Developer Channel - please join #cmsgs for support and if you really think you need an invite to #cmsgsteam'</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-green">* Set by atinm on Fri May 06 17:11:16 GMT 2011</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-brown">-ChanServ- [#__topsecret__] SGS CyanogenMod developers and testers (and other kernel and android hackers) - <a href="http://www.cmsgs.com/">http://www.cmsgs.com/</a></span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-green">* ChanServ sets mode +o cmsgsteam-logger</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;ylooca|work&gt; it looks like a bug in jvo modem</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;ylooca|work&gt; it tends to crash / endless loop</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;ylooca|work&gt; and then baseband cpu is reseted</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;Wout`&gt; might be because of bootloaders?</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;nitam|work&gt; I'm going to leave samsung_modemctl as is then since the thing that I was trying to fix isn't in there anyway</span><br />
+<span class="irc-date">[13:40]</span> <span class="irc-black">&lt;nitam|work&gt; it is in PduParser</span><br />
+<span class="irc-date">[13:41]</span> <span class="irc-black">&lt;nitam|work&gt; which says the message is corrupt</span><br />
+<span class="irc-date">[13:41]</span> <span class="irc-black">&lt;ylooca|work&gt; and memory is dumped by the modem_ctl driver</span><br />
+<span class="irc-date">[13:41]</span> <span class="irc-black">&lt;ylooca|work&gt; for me jpm works fine without any ril crash</span><br />
+<span class="irc-date">[13:42]</span> <span class="irc-black">&lt;nitam|work&gt; I am using jl3</span><br />
+<span class="irc-date">[13:42]</span> <span class="irc-black">&lt;nitam|work&gt; and it crashes</span><br />
+<span class="irc-date">[13:42]</span> <span class="irc-black">&lt;nitam|work&gt; I have the radio_dump files</span><br />
+<span class="irc-date">[13:42]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; samsung introduces a 'feature' after apple gets it's undies in a bunch? go figure</span><br />
+<span class="irc-date">[13:42]</span> <span class="irc-black">&lt;ylooca|work&gt; damn i just got one</span><br />
+<span class="irc-date">[13:42]</span> <span class="irc-black">&lt;ylooca|work&gt; xD</span><br />
+<span class="irc-date">[13:42]</span> <span class="irc-black">&lt;nitam|work&gt; lol</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;nitam|work&gt; so here's what I'm doing - leaving samsung_modemctl as the one that came with 2.3.4</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;nitam|work&gt; since going back to the older one didn't help anything</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;nitam|work&gt; and possibly broke stuff</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;nitam|work&gt; meaning, I have reverted and pushed</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;nitam|work&gt; so we're on 2.3.4</span><br />
+<span class="irc-date">[13:43]</span> <span class="irc-black">&lt;nitam|work&gt; rebuilding everything</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;nitam|work&gt; and I have to work with someone who has an iPhone to debug the MMS</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;nitam|work&gt; know anyone?</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;nitam|work&gt; I think the message iphone is sending is corrupt - one of the logcats had something like "unterminated quoted string"\</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;ylooca|work&gt; ok i will debug when i'm done with ril</span><br />
+<span class="irc-date">[13:44]</span> <span class="irc-black">&lt;nitam|work&gt; or some such</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;ylooca|work&gt; hmm no that radio dump is old</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;ylooca|work&gt; sry</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;codeworkx&gt; JQ1 has this bug too?</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;ylooca|work&gt; my fault</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;codeworkx&gt; and JVK on some phones too?</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;ylooca|work&gt; its from march</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;nitam|work&gt; and so the length, that is supposed to be at most 31 is like 134</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;nitam|work&gt; each time.</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;nitam|work&gt; (which is weird)</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;nitam|work&gt; the 31 is in the WAP_WSP specification</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;codeworkx&gt; i simply don't trust users</span><br />
+<span class="irc-date">[13:45]</span> <span class="irc-black">&lt;nitam|work&gt; so it definitely cannot be 134.;</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;ylooca|work&gt; me too</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;nitam|work&gt; lol</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;nitam|work&gt; users are just bad news.</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;ylooca|work&gt; can we leav modem_ctl as it is right now?`</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;codeworkx&gt; leave it at 2.3.4</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;nitam|work&gt; lol . . . umm, I already pushed earlier because I was trying to fix samsung_modemctl before when I reverted to 2.3.3</span><br />
+<span class="irc-date">[13:46]</span> <span class="irc-black">&lt;nitam|work&gt; so now it is back to 2.3.4</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; I may have jvb sound working mnita|work tech said there was no difference last night (before the logger went down) and I have a few more changes to mach-aries to test</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;ylooca|work&gt; hmm</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;nitam|work&gt; as 2.3.3 didn't help anything</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;nitam|work&gt; I had originally committed the 2.3.3 because we thought it was working</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;nitam|work&gt; as we could receive MMS just fine</span><br />
+<span class="irc-date">[13:47]</span> <span class="irc-black">&lt;nitam|work&gt; turned out we can receive from Android just fine</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;ylooca|work&gt; ok</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;nitam|work&gt; just iPhone is fuxed.</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;codeworkx&gt; dont care about iPhone</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; I'm hoping between them the vibrant users will be...better</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;ylooca|work&gt; then 2.3.4 was tested and then you reverted ?</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;nitam|work&gt; TMC_Sherpa_: cool, need to get them to test.</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;nitam|work&gt; aylooc|work: yes - it was working before, but then the MMS bugs came up</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;nitam|work&gt; and I thought it was the MMS.</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;ylooca|work&gt; k</span><br />
+<span class="irc-date">[13:48]</span> <span class="irc-black">&lt;nitam|work&gt; only later did I realize it was iphone</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;nitam|work&gt; and that the problem happens in pduparser.java</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;nitam|work&gt; or cpp</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;nitam|work&gt; PduParser somewhere :)</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; need to see what branch tech put that in. and get him to add the new mach-aries.  cleaned up some code, it looks purdy so I hope it works</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;ylooca|work&gt; do other phones have the same problem on cm7 ?</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;nitam|work&gt; I have had one person say that he couldn't get it from a dumb phone</span><br />
+<span class="irc-date">[13:49]</span> <span class="irc-black">&lt;nitam|work&gt; but I am not sure, everyone that I ask always says it was an iPhone</span><br />
+<span class="irc-date">[13:50]</span> <span class="irc-black">&lt;nitam|work&gt; and android phones work - I guess we like our own dog poop just fine</span><br />
+<span class="irc-date">[13:52]</span> <span class="irc-black">&lt;ylooca|work&gt; hmm apple :(</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: iPhones can send MMS?</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: i thought they cannot</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;nitam|work&gt; here they can</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;nitam|work&gt; they do send it in some weird form</span><br />
+<span class="irc-date">[13:55]</span> <span class="irc-black">&lt;nitam|work&gt; jpg looks like a video</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;nitam|work&gt; but you "play" it and it is just a still image</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;nitam|work&gt; and the weird thing is that it was working before.</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;codeworkx&gt; oh, they've introduces MMS in iOS3.0 xD</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;nitam|work&gt; so either we became more stringent</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;codeworkx&gt; i'm sure they fucked up</span><br />
+<span class="irc-date">[13:56]</span> <span class="irc-black">&lt;nitam|work&gt; in how we check the specification in 2.3.4</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;nitam|work&gt; or something changed on their end on or about 4/28</span><br />
+<span class="irc-date">[13:57]</span> <span class="irc-black">&lt;codeworkx&gt; they got a update because of the location service</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;nitam|work&gt; great.</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;nitam|work&gt; so *they* fucking broke it</span><br />
+<span class="irc-date">[13:58]</span> <span class="irc-black">&lt;nitam|work&gt; I am ignoring.</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;nitam|work&gt; I want an S2.</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;nitam|work&gt; does anyone have an s2?</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;nitam|work&gt; is it plasticy?</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;nitam|work&gt; or does it have the solid feel of the captivate?</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;Wout`&gt; somewhat</span><br />
+<span class="irc-date">[13:59]</span> <span class="irc-black">&lt;ylooca|work&gt; kang should get his today</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;Wout`&gt; backsover is flimsy</span><br />
