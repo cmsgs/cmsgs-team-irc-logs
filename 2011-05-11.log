@@ -920,3 +920,116 @@
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;nitam|work&gt; but we don't allow charging to max capacity</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; i know</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; but stupid xda noobs not :D</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;nitam|work&gt; our system sets "batt_full" before we hit max capacity. so we never got to 100%. my change will just make it so that when we hit batt_full, I not the soc value</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;nitam|work&gt; and from then on, will take "current soc" / max_soc * 100</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;nitam|work&gt; and return that.</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;coolya&gt; and i must say it is actually fun to see them comlaining about that ;)</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;nitam|work&gt; so it is the best of all worlds ;)</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;coolya&gt; you should send it to aosp</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;nitam|work&gt; I know, but I'm tired of reading the same thigns again and again. I want to see new things to add to my xda-lols</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;UberPinguin&gt; Is android_device_samsung_galaxys reasonably current for use as a template?</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; it is totally current</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;UberPinguin&gt; osm</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;nitam|work&gt; its what we use.</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;coolya&gt; i need to life in the us ... no google books, no video, no music :(</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;coolya&gt; it sux</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;nitam|work&gt; [MODEM] ramdump - 16775168 bytes available</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;coolya&gt; damn</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;nitam|work&gt; life -&gt; live.</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;nitam|work&gt; but yes :)</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;coolya&gt; i always get those two word wrong ^^ :-)</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;nitam|work&gt; I think that got dumped because the kernel crashed! :)</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;nitam|work&gt; so maybe kernel crash causes automatic modem dump too</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;coolya&gt; maybe the magic doesn't get cleaned then and on the next boot it things there was a crash</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;nitam|work&gt; ppl are going to love me for this 100% ;)</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;nitam|work&gt; I suddenly gave them ~5% more charge ;)</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;coolya&gt; lol :D</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;nitam|work&gt; oo, koush got a galaxy tab</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;nitam|work&gt; how close are we to galaxy tab?</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;nitam|work&gt; oh, is it honeycomb?</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;nitam|work&gt; crap, wtf.</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the 10.1 is honeycomb</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;nitam|work&gt; I guess I should test that last fix before committing ;)</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; meh div/0 is at least something different for them to complain about</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;nitam|work&gt; wtf. no last_kmsg</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;nitam|work&gt; it should be /proc/last_kmsg</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;nitam|work&gt; right?</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;UberPinguin&gt; Alright. Updated full_epic.mk and epic.mk to resemble galaxys, still failing to find a rule to make target libaudio.so</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;UberPinguin&gt; All of my changes are pushed to htub.com/EpicCM/android_device_samsung_epic/tree/teamhacksung-merge</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;UberPinguin&gt; s/htub.com/github.com/</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;nitam|work&gt; link again?</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;nitam|work&gt; (one I can click on)</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;nitam|work&gt; make it easier on us to click and look, otherwise less chance of us trying to help as we're all busy busy busy!</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-green">* codeworkx (~yaaic@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;UberPinguin&gt; Sorry, <a href="https://github.com/EpicCM/android_device_samsung_epic/tree/teamhacksung-merge">https://github.com/EpicCM/android_device_samsung_epic/tree/teamhacksung-merge</a></span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="https://github.com/EpicCM/android_device_samsung_epic/blob/teamhacksung-merge/epic.mk">https://github.com/EpicCM/android_device_samsung_epic/blob/teamhacksung-merge/epic.mk</a>  and <a href="https://github.com/EpicCM/android_device_samsung_epic/blob/teamhacksung-merge/full_epic.mk">https://github.com/EpicCM/android_device_samsung_epic/blob/teamhacksung-merge/full_epic.mk</a></span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, that's cool</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;nitam|work&gt; shit, managed to crash my sdcard</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;nitam|work&gt; its like in hell now</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;UberPinguin&gt; Mine died on Sunday night. Fortunately it was an Asurion replacement card, so they're shipping a new one.</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;nitam|work&gt; &lt;7&gt;[  186.740730] mmcblk1: error -110 transferring data, sector 16433, nr 15, card status 0x200900</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;nitam|work&gt; &lt;3&gt;[  186.742684] end_request: I/O error, dev mmcblk1, sector 16433</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; reboot fixed it</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; ..</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; back later.</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;UberPinguin&gt; k</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; going to see what happens with battery stats</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;nitam|work&gt; sorry, UberPinguin - can't look right now</span><br />
+<span class="irc-date">[20:37]</span> <span class="irc-black">&lt;UberPinguin&gt; No worries</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;wwyvern&gt; techmik..TMC_Sherpa said there's some Vibrant stuff to test that you know about already?</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;wwyvern&gt; and..always assuming you do-how would I go about that?</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;techmik_laptop&gt; ah</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;techmik_laptop&gt; you branched and pulled from me?</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;techmik_laptop&gt; last nite?</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;wwyvern&gt; no-wasn't on last night at all</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;techmik_laptop&gt; cd kenel/samsung/2.6.35</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;techmik_laptop&gt; kernel*</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;wwyvern&gt; k</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;techmik_laptop&gt; git branch</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;techmik_laptop&gt; what does it say?</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;wwyvern&gt; git branch</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;wwyvern&gt; oops</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;techmik_laptop&gt; =)</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;wwyvern&gt; no branch</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; git branch --track gingerbread github/android-samsung-2.6.35</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;wwyvern&gt; now got ..Branch gingerbread set up to track remote branch android-samsung-2.6.35 from github.</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; git checkout gingerbread</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; git checkout -b tmc2</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;wwyvern&gt; now have..Switched to a new branch 'tmc2'</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;techmik_laptop&gt; git remote add techmik git://github.com/techmik/android_kernel_samsung.git</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;techmik_laptop&gt; git pull techmik tmc2</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;wwyvern&gt; done</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;techmik_laptop&gt; go to ~/android/system and build</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;wwyvern&gt; got it</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;wwyvern&gt; got it</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;techmik_laptop&gt; remember to git checkout gingerbread *after*,   so you are on gingerbread when you repo sync</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;wwyvern&gt; will do</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; does that one have the today mach-aries in it?</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; always sync on gb, then cd to directory and checkout to branch you wanna build from</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; yes</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;wwyvern&gt; yes</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="https://github.com/techmik/android_kernel_samsung/commit/d94c71ff23ac1cdfe0e1577f845914919ca8b783">https://github.com/techmik/android_kernel_samsung/commit/d94c71ff23ac1cdfe0e1577f845914919ca8b783</a></span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-navy">* codeworkx (~yaaic@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ah, put the Y_U_NO_WORK=y in the aries_captivate_defconfig file</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;techmik_laptop&gt; all works well except the button so far</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;nitam|work&gt; wtf? :)</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; we have a Y_U_NO_WORK?</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; its just a test</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; dang</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; I was hoping it was real</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;nitam|work&gt; like our "we have crappy bootloader"</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;nitam|work&gt; think we should leave that message in regardless of whether we manage to fix the problem :)</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; :P</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; made multiple changes in mach-aries this morning and I wanted a way to back one of them out</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; last time I used experimental but that gets used all over the place</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; arch/arm/configs/aries_captivate_defconfig gonna cause issues just sitting there in mach-aries</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the typo is all me tho</span><br />
