@@ -535,3 +535,55 @@
 <span class="irc-date">[15:57]</span> <span class="irc-black">&lt;techmik_laptop&gt; building</span><br />
 <span class="irc-date">[15:58]</span> <span class="irc-black">&lt;ylooca|work&gt; back in a bit driving home now</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; on the captivate and I9000 it should be functionally identical and if it doesn't cause reboots when you plug in headphones on the vibrant I'll take that as an improvement over the aries I tried yesterday</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; techmik_laptop: you may need to watch it build, I didn't check to see if it compiled cleanly or not, so check the time stamp on the kernel in /out...or look for one in /build I guess</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; moved where EARPATH is called to the jvb source this morning and didn't have time to check it</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-green">* chaembian (~chaembian@122.174.154.130) has joined this channel.</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;chaembian&gt; Good morning folks</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-green">* ChanServ sets mode +v Wout`</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; ah...vibrant people eeexcellent</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;chaembian&gt; :)</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;chaembian&gt; Anything to test?</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; maybe, lets see if it builds or not first :)</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;chaembian&gt; If you want, I can try building it too :)</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-black">&lt;techmik_laptop&gt; almost done</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;techmik_laptop&gt; TMC_Sherpa_: you want himto test the stuff from last nite, too?</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; yeah the last night stuff is more important tbh the aries change....should.....work......?</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;techmik_laptop&gt; chaembian:</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;techmik_laptop&gt; go to kernel/samsung.2.6.35</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;techmik_laptop&gt; git checkout gingerbread</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-brick">* TMC_Sherpa_ hopes the aries change works...it will make things much easier later</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;techmik_laptop&gt; git branch --track tmc2 github/android-samsung-2.6.35</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;techmik_laptop&gt; git checkout tmc2</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;techmik_laptop&gt; git pull techmik tmc2</span><br />
+<span class="irc-date">[16:26]</span> <span class="irc-black">&lt;techmik_laptop&gt; done building</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;chaembian&gt; techmik_laptop: sure</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;Wout`&gt; coolya|away: saw you closed the issue on rill polling, have you pushed the hack to repo yet?</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; did it make a kernel or use whatever you already had in out?</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;chaembian&gt; Build underway</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa_: What needs to be tested?</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; right now just make sure it makes noise, I swapped the /sound directory for jvb.  fyi it will murder your battery at the moment</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;techmik_laptop&gt; aha</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;techmik_laptop&gt; button on headset no work</span><br />
+<span class="irc-date">[16:35]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; ?</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-green">* TMC_Sherpa_ is now known as TMC_Sherpa</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;techmik_laptop&gt; it doesnt pause</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;techmik_laptop&gt; wait</span><br />
+<span class="irc-date">[16:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; cool, I broke it</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;techmik_laptop&gt; yup, ya did</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; god damn typo..... *sigh* add U_Y_NO_WORK=y in aries_captivate_defconfig....or fix it in mach-aries and add Y_U_NO_WORK=y</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; tho I don't think it will actually fix it, I think I need to add a few files</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; where add the line?</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; anywhere</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;codeworkx&gt; Wout`: i've closed it xD</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;Wout`&gt; but is it fixed? :P</span><br />
+<span class="irc-date">[16:54]</span> <span class="irc-black">&lt;codeworkx&gt; most users said its working now</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;techmik_laptop&gt; pushed to techmik, TMC_Sherpa</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;Wout`&gt; ok, but it has nothing to do with the framework hack coolya|away is working on?</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;codeworkx&gt; yay, doing rm -rf /var/www on a root server is funny</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;codeworkx&gt; wiped xD</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k its a quick hack but if it works I know what went wrong....hell if it doesn't work then I know what went wrong so I guess I win either way</span><br />
