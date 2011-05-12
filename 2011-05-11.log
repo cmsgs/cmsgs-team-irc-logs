@@ -1247,3 +1247,98 @@
 <span class="irc-date">[22:57]</span> <span class="irc-black">&lt;zachy_md&gt; :)</span><br />
 <span class="irc-date">[22:57]</span> <span class="irc-black">&lt;zachy_md&gt; it's astonishing how widespread cpuidle is distributed through the source - isn't it ?</span><br />
 <span class="irc-date">[22:57]</span> <span class="irc-black">&lt;zachy_md&gt; it seemed to be everywhere back when I went through the whole changes from the cm7-kernel</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;zachy_md&gt; atinm: in my current kernel I changed yet again the wifi driver to that of intersectRaven (<a href="https://github.com/intersectRaven/ir-kernel);">https://github.com/intersectRaven/ir-kernel);</a> a 2.6.38-based kernel</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;zachy_md&gt; atinm: and access to channels up to channel 14 seems to work again (I'm currently connected to channel 14)</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; jvb added something called S5P-RP in the sound folder, which is mostly just a blob, but it doesn't seem to like to build the audio library with out it.  It has some kinda power management stuff all over the place</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;zachy_md&gt; atinm: I however don't know a clean way on how to pull in the whole git history and author chain from that kernel into ours :(</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-black">&lt;zachy_md&gt; atinm: I have not enough experience with git yet but from the searching I did there doesn't seem to be a clean way on how to do it (I simply replaced the folder, added my fix to a file to let it compile with O2) and that's it</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gotta run, back in a few</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-green">* TMC_Sherpa (~TMC_Sherp@c-24-15-177-87.hsd1.il.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-black">&lt;zachy_md&gt; TMC_Sherpa is that some kind of mp3 acceleration thing (the sound equivalent to the mfc50 driver) ?</span><br />
+<span class="irc-date">[23:09]</span> <span class="irc-black">&lt;Unhelpful&gt; mp3 is essentially not worth accelerating any more... since, like, years ago ;P</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;zachy_md&gt; Unhelpful: ok :)</span><br />
+<span class="irc-date">[23:10]</span> <span class="irc-black">&lt;zachy_md&gt; Unhelpful: I'm still wondering why decoding &amp; mp3 playback takes 30% cpu compared to 10-15% cpu with FLAC :(</span><br />
+<span class="irc-date">[23:11]</span> <span class="irc-black">&lt;zachy_md&gt; Unhelpful: I mean - the player almost consumes only 1-3% but the mediaserver needs much more - twice in that case</span><br />
+<span class="irc-date">[23:13]</span> <span class="irc-black">&lt;zachy_md&gt; atinm: some missing info I forgot to post: I took the wifi driver from the ir-kernel-2.6.38 branch</span><br />
+<span class="irc-date">[23:14]</span> <span class="irc-black">&lt;zachy_md&gt; and so far it seems to work fine: channel 13 &amp; 14 function properly</span><br />
+<span class="irc-date">[23:22]</span> <span class="irc-black">&lt;zachy_md&gt; ok - the latest nightlies are officially FUBAR approved</span><br />
+<span class="irc-date">[23:22]</span> <span class="irc-black">&lt;Unhelpful&gt; are you forcing a fixed clock before you measure that? ;)</span><br />
+<span class="irc-date">[23:22]</span> <span class="irc-black">&lt;zachy_md&gt; it starts for me after some browsing - using tweetcaster -&gt; opening up bit.ly links and some stuff -&gt; browser keep on FCing</span><br />
+<span class="irc-date">[23:22]</span> <span class="irc-black">&lt;Unhelpful&gt; "30%" might actually be less ;)</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;zachy_md&gt; Unhelpful: what do you mean with "fixed clock" ? ^^</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;zachy_md&gt; I measured it via top / htop command &amp; logging in through adb shell</span><br />
+<span class="irc-date">[23:23]</span> <span class="irc-black">&lt;Unhelpful&gt; i mean that measuring % CPU time used for a task doesn't mean much if the clock rate of the CPU is changing.</span><br />
+<span class="irc-date">[23:27]</span> <span class="irc-black">&lt;zachy_md&gt; Unhelpful, I'm not sure if by "clock rate" you're referring to the cpu frequency but it stays the same at 100 MHz - that's at least what the system says</span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-black">&lt;Unhelpful&gt; ok .then... i wouldn't really worry about 15 vs 30% of 100MHz. ;)</span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-black">&lt;zachy_md&gt; ok :)</span><br />
+<span class="irc-date">[23:29]</span> <span class="irc-black">&lt;clandmeter&gt; isnt it normal for flac to use less cpu?</span><br />
+<span class="irc-date">[23:29]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't know, iirc mp3 is fairly complicated, as lossy codecs go?</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-black">&lt;clandmeter&gt; lossless means less calculations i guess</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-black">&lt;zachy_md&gt; but wasn't the calculations already done during encoding ?</span><br />
+<span class="irc-date">[23:31]</span> <span class="irc-black">&lt;zachy_md&gt; so the target decoding the file has less to do ?</span><br />
+<span class="irc-date">[23:31]</span> <span class="irc-black">&lt;clandmeter&gt; its still compressed isnt it?</span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;zachy_md&gt; clandmeter, ah - i see - yeah and it needs to be processed into audible signals</span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;zachy_md&gt; clandmeter, so: more compression -&gt; more work to do</span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, only w/ raw, uncompressed PCM can you just throw data @ the sound device untouched ;)</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;clandmeter&gt; <a href="http://lists.xiph.org/pipermail/flac/2007-May/000886.html">http://lists.xiph.org/pipermail/flac/2007-May/000886.html</a></span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;zachy_md&gt; I had this kind of correlation in my mind that: smaller file-size ~ less processing power at playback</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;zachy_md&gt; but that obviously was wrong</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;gehzumteufel&gt; But flac uses file compression, not audio compression. So it should be less cpu intensive in general.</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;Unhelpful&gt; gehzumteufel: ...um, not really true.</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;gehzumteufel&gt; Why not?</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;Unhelpful&gt; flac's methods are all adapted to audio data</span><br />
+<span class="irc-date">[23:34]</span> <span class="irc-black">&lt;gehzumteufel&gt; Right, but it's still file compression, not audio compression</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-black">&lt;Unhelpful&gt; ...no, it's audio compression. it makes assumptions about the data that do not hold for general files.</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-black">&lt;gehzumteufel&gt; If you compress audio, you lose audio.</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-black">&lt;Unhelpful&gt; primarily that is composed of a time-series of samples of a specific encoding, and that they are related to prior samples.</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-black">&lt;Unhelpful&gt; if you *apply lossy compression* to audio, you lose audio.</span><br />
+<span class="irc-date">[23:35]</span> <span class="irc-navy">* ytt3r (~evan@adsl-98-88-57-177.asm.bellsouth.net) Quit (Ping timeout: 264 seconds)</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;Unhelpful&gt; if by "file" you mean "general", i assure you that flac is not a "file" compressor. it is a lossless audio compressor.</span><br />
+<span class="irc-date">[23:36]</span> <span class="irc-black">&lt;zachy_md&gt; clandmeter, thanks for the link - that makes it clear ! :)</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;gehzumteufel&gt; I didn't mean general as in like zip or rar type general file compression</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;gehzumteufel&gt; But file compression in that it only compresses the file, not the audio stream.</span><br />
+<span class="irc-date">[23:37]</span> <span class="irc-black">&lt;Unhelpful&gt; ...that is entirely untrue, it acts directly on the audio stream.</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-brick">* gehzumteufel is apparently confused</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;Unhelpful&gt; i believe you are. this may be partly because FLAC contains certain features to ensure that a WAV file it compresses can be precisely reproduced, including its non-audio elements.</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-black">&lt;clandmeter&gt; else you would be able to use rar on wav and get good results</span><br />
+<span class="irc-date">[23:40]</span> <span class="irc-black">&lt;Unhelpful&gt; flac will extract any non-audio chunks from AIFF or WAV inputs and store them unchanged, along with the compressed audio, so that it can put them back in place during decompression. this is optional, but it will allow you to produce, if you wish, *exactly* the same file on decompression, including anything that wasn't audio data.</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;Unhelpful&gt; but its compression acts on the data *as audio*, by reading the header to determine the format and performing manipulations to represent the same waveform with less data than the direct representation given by plain PCM.</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-brick">* gehzumteufel feels like a n00b</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[23:44]</span> <span class="irc-black">&lt;Unhelpful&gt; this is possible because audio data hase the properties i described earlier - it is a time series of sample data, the samples are correlated to previous samples and to the samples in the other channel (the classic method for the latter is called "mid-side" coding and replaces each (x,y) pair of samples with (x-y, x+y) )</span><br />
+<span class="irc-date">[23:46]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yeah who knows. Whatever it is that made me think it, it's wrong. lol</span><br />
+<span class="irc-date">[23:50]</span> <span class="irc-black">&lt;zachy_md&gt; Unhelpful, thanks for reminding how beautiful FLAC is - it's some time back I knew that you could fully restore a wav file from FLAC :)</span><br />
+<span class="irc-date">[23:50]</span> <span class="irc-black">&lt;zachy_md&gt; Unhelpful, that mid-side coding is similar like the (non-forced) stereo of mp3 ?</span><br />
+<span class="irc-date">[23:50]</span> <span class="irc-black">&lt;zachy_md&gt; hm - what was its name again ...</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;gehzumteufel&gt; joint stereo&gt;</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;zachy_md&gt; joint stereo</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;gehzumteufel&gt; iir</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;gehzumteufel&gt; c</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;zachy_md&gt; ah yes</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;Unhelpful&gt; it's a pretty standard technique for handling stereo data, though there are others.</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;zachy_md&gt; gehzumteufel, exactly</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;gehzumteufel&gt; I just wish Pioneer would stop being assholes and support FLAC</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;gehzumteufel&gt; It costs them nothing to support it, since it's free.</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;gehzumteufel&gt; Nothing in licensing costs that is</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-black">&lt;gehzumteufel&gt; And they support WMA, AAC, and MP3. I don't get why they can't support FLAC.</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-black">&lt;Unhelpful&gt; vorbis supports a complicated scheme that can preserve pretty much arbitrary amounts of stereo phase data, but encoders haven't used it since pre-release</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-black">&lt;gehzumteufel&gt; but that's off topic. So that's for another day.</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-black">&lt;gehzumteufel&gt; vorbis is awesome in it's prerelease form, but sucks in it's finalised form imho</span><br />
+<span class="irc-date">[23:53]</span> <span class="irc-black">&lt;zachy_md&gt; Unhelpful, vorbis too ? - awesome ^^</span><br />
+<span class="irc-date">[23:54]</span> <span class="irc-black">&lt;zachy_md&gt; hm, the current state of my CM7 system seems really f**ed</span><br />
+<span class="irc-date">[23:54]</span> <span class="irc-black">&lt;zachy_md&gt; I now have one nandroid back from the 6th and that works &amp; restores all data</span><br />
+<span class="irc-date">[23:55]</span> <span class="irc-black">&lt;Unhelpful&gt; gehzumteufel: it's not exactly *bad* now, but the ability to degrade stereo images in stages, per band, is something i wonder if they really should've abandoned.</span><br />
+<span class="irc-date">[23:55]</span> <span class="irc-black">&lt;zachy_md&gt; I have a backup from today but that doesn't work since restoring that leads to bootloop &amp; the buttloader or whatever script searching for an update on the sdcard - don't know why</span><br />
+<span class="irc-date">[23:55]</span> <span class="irc-black">&lt;zachy_md&gt; also: titanium backup also doesn't work to restore data</span><br />
+<span class="irc-date">[23:55]</span> <span class="irc-black">&lt;zachy_md&gt; this is really frustrating</span><br />
+<span class="irc-date">[23:55]</span> <span class="irc-black">&lt;zachy_md&gt; is the system really *that* broken right now ??</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;gehzumteufel&gt; Unhelpful: Yeah that's why I liked it before it was released. Because when I was using it then, it sounded a lot better at the higher quality levels.</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;Unhelpful&gt; erm, at the *high* quality levels both versions are probably using the lossless stereo encoding...</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;gehzumteufel&gt; This was before they had a lossless</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;gehzumteufel&gt; Long ago</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-black">&lt;gehzumteufel&gt; Unless I am utterly mistaken again</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[23:59]</span> <span class="irc-black">&lt;Unhelpful&gt; lossless stereo has been around for a *long* time in vorbis. :)</span><br />
+<span class="irc-date">[23:59]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol /n00b</span><br />
