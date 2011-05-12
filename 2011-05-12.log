@@ -1394,3 +1394,334 @@
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: please try from speedmod</span><br />
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;codeworkx&gt; i don't trust any samsung stuff</span><br />
 <span class="irc-date">[21:59]</span> <span class="irc-black">&lt;codeworkx&gt; they've fucked up to often</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;atinm|away&gt; we can tell ppl to flash to speedmod</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;atinm|away&gt; that is allowed ;)</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;atinm|away&gt; but we should try to make it work with 2e.</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;atinm|away&gt; bmlwrite may not have worked.</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;atinm|away&gt; most probably didnt</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;techmik&gt; gonna try 2 things..... well 3</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;atinm|away&gt; or the update just didn't do anything</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;atinm|away&gt; because samsung bootloader decided not to flash it</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;atinm|away&gt; try again, let it boot to whatever point</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;atinm|away&gt; then go into adb shell</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;atinm|away&gt; I think ther eis a /cache/recovery/log</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;atinm|away&gt; file</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;techmik&gt; stock, with an old version of cwm on it... boot into green clockwork, flash kernel</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;techmik&gt; then rename kernel.zip to update .zip and try tht</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;atinm|away&gt; first just do the stock, rename and go</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;atinm|away&gt; from 2e</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;techmik&gt; ok</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;codeworkx&gt;  /tmp/recovery.log</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;techmik&gt; here we go</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;techmik&gt; renamed and flashing</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;techmik&gt; installing update</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;techmik&gt; omplete</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;techmik&gt; att screen</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;techmik&gt; stock</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;atinm|away&gt; adb shell</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;atinm|away&gt; cat /tmp/recovery.log</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;techmik_laptop&gt; cat /tmp/recovery.log</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;techmik_laptop&gt; /tmp/recovery.log: No such file or directory</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;atinm|away&gt; ls /tmp</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;atinm|away&gt; I guess it would go away</span><br />
+<span class="irc-date">[22:13]</span> <span class="irc-black">&lt;atinm|away&gt; ls /cache</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;techmik_laptop&gt; s3c-keypad.kl and bootchart and s3c-keypad.kcm.bin</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;atinm|away&gt; crap</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;atinm|away&gt; where is it.</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;techmik_laptop&gt; sec</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; permission denied to cache</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;atinm|away&gt; go into recovery</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;atinm|away&gt; where are you right now?</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;atinm|away&gt; it booted?</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; on stock, yes</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;codeworkx&gt; wait</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;codeworkx&gt; techmik, reboot</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; just regular</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;codeworkx&gt; simply reboot</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="https://github.com/EpicCM/android_device_samsung_epic/tree/teamhacksung-merge">https://github.com/EpicCM/android_device_samsung_epic/tree/teamhacksung-merge</a>  # We're getting a weird race condition on brunch &amp; mka, but simple make works fine. When building with threads, it fails with "No rule to make target `vendor/samsung/epic/proprietary/libcamera.so', needed by `out/target/product/epic/obj/lib/libcamera.so'". Sometimes on libcamera_client.so.</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: im sure you're doing something bad xD</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;UberPinguin&gt; lol</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;Decad3nce&gt; codeworkx: that's a given</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;UberPinguin&gt; But *what* ? ;)</span><br />
+<span class="irc-date">[22:16]</span> <span class="irc-black">&lt;Decad3nce&gt; but just weird &gt;&lt;</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;atinm|away&gt; search for libcamera.so in the device/samsung/captivate files</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;atinm|away&gt; and in the common files</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;atinm|away&gt; I guess mainly in the captivaet</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;atinm|away&gt; see if it is referenced and where to do it on epic. it might be that simple.</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;atinm|away&gt; might now :)</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: github.com/epiccm?</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;atinm|away&gt; not</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: Yes</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;techmik&gt; still stock</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: vendor/samsung/epiccm is only local?</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;UberPinguin&gt; atinm|away: We've copied those alread</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: It's generated by extract-files.sh</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;codeworkx&gt; pastebin the vendor blobs script</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;UberPinguin&gt; k</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm|away&gt; (we don't use extract-files.sh btw)</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: just 4 info. we dont use extract script xD</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;codeworkx&gt; it's not possible</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm|away&gt; we have our vendor tree committed.</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;Decad3nce&gt; codeworkx: <a href="http://pastebin.com/ZdLM79NP">http://pastebin.com/ZdLM79NP</a></span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;codeworkx&gt; this mixture of files is on no device D</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm|away&gt; because we don't use our own binaries :)</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: <a href="http://paste.pocoo.org/show/387808/">http://paste.pocoo.org/show/387808/</a></span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm|away&gt; UberPinguin: does vendor/samsung/epic/proprietary/libcamera.so exist?</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm|away&gt; I doubt it does</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;Decad3nce&gt; atinm|away: it does</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;UberPinguin&gt; ...no</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;UberPinguin&gt; Decad3nce: Not here it doesn't</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;atinm|away&gt; because the error message seems to say it doesn't</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;Decad3nce&gt; derp</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;UberPinguin&gt; vendor/samsung/epic/proprietary/lib/libcamera.so</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;Decad3nce&gt; lib/libcamera.so</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;Decad3nce&gt; f-f-f-fail</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; epic peeps, whats your defconfig for froyo? you kids atlas or victory or ....</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;UberPinguin&gt; Decad3nce: Path typo?</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: the first PRODUCT_COPY_FILES get a :=   not a   +=</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;Decad3nce&gt; 2 am</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;Decad3nce&gt; :(</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-brick">* Decad3nce walks away</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: victory</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; theres like 3......</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;UberPinguin&gt; 03 iirc</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;Decad3nce&gt; UberPinguin: i'll fix</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;atinm|away&gt; ok, ignoring epic. techmik anything?</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;atinm|away&gt; on reboot?</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;codeworkx&gt; hahahahaha xD</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;codeworkx&gt; nice</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: nullghost copied it to a cyanogen_epic-defconfig in our github iirc</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;techmik&gt; still stock</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;atinm|away&gt; hrm.</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: so it doesn't flash the cm kernel</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;atinm|away&gt; it just looks like it never flashed</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;atinm|away&gt; yeah</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;techmik&gt; trying old clockwork and then manual flash kernel.zip</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;codeworkx&gt; but why it worked on my device?</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;codeworkx&gt; 2 times in a row?</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;atinm|away&gt; I have to figure out how to go to stock on a vibrant</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: try speedmod kernel</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;atinm|away&gt; from now on, my vibrant is my test phone</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;atinm|away&gt; wife will be happy - my captivate will always be available :)</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;Decad3nce&gt; still doesn't make sense why it would build single thread</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;atinm|away&gt; btw, I merged the changes from bcm</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;Decad3nce&gt; but whatever</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: hm I don't see it. But victory_03_defconfig is what we use.</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well, I come up with 176 different files from galaxy but it's prolly more, for some damn reason samsung stuffed all the victory cap in its own directories</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;atinm|away&gt; and I'm not getting the wl_ set country failure</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;atinm|away&gt; but have all the locking etc that the new driver had</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;atinm|away&gt; so I can commit and push this bastard file</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;atinm|away&gt; driver</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;codeworkx&gt; nice</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;techmik&gt; rebooting</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;gehzumteufel&gt; atinm|away: Getting stock on Vibrant is easy</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;atinm|away&gt; vibrant users, where do I get what I need to get to get to stock</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;gehzumteufel&gt; Getting you links now</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;gehzumteufel&gt; Hold up</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: ask your local dealer</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: <a href="https://github.com/EpicCM/samsung-kernel-epic/blob/master/arch/arm/configs/cyanogen_epic_defconfig">https://github.com/EpicCM/samsung-kernel-epic/blob/master/arch/arm/configs/cyanogen_epic_defconfig</a></span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;atinm|away&gt; my local dealer is afraid that the at&amp;t store across the street will be the only one left open soon</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; victory_03.....interesting I wonder what _04 is</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;atinm|away&gt; (I have a tmobile and an AT&amp;T store in the next block)</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-navy">* GuiPer (~guilherme@ip-86-49-25-242.net.upcbroadband.cz) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;atinm|away&gt; guess I should figure out how to get to download mode on vibrant too</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and why its building max8998 and max8993</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: Not sure. 03 is what was in the readme with the kernel source dump.</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; s'cool</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;uberushaximus&gt; atinm|away: same as always, hold down vol and insert usb</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;atinm|away&gt; nice, that worked</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;atinm|away&gt; except now I nothing to flash on it.</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;atinm|away&gt; gehzumteufel: gimme.</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;uberushaximus&gt; atinm|away: go to samfirmware?</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;gehzumteufel&gt; atinm|away: <a href="http://sourceforge.net/projects/trigger-rom/files/BT_ODIN.zip/download">http://sourceforge.net/projects/trigger-rom/files/BT_ODIN.zip/download</a></span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;atinm|away&gt; too painful when I have ppl right here ;)</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;gehzumteufel&gt; Enjoy</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;atinm|away&gt; what is that?</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;atinm|away&gt; Don't want Odin :-P</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; JFD</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; What do you want?</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; It's the tarball</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;atinm|away&gt; I guess the files I can use to flash using heimdall</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; You can use Heimdall to do it</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;atinm|away&gt; that's fine then</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;UberPinguin&gt; Just untar the tar to get the individual files</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yep</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;UberPinguin&gt; &lt;3 heimdall</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, that's fine. I thought it was like the one click captivate has.</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm|away&gt; we have a hacked version of odin</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;UberPinguin&gt; I hate the Captivate's one click so bad.</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;gehzumteufel&gt; Nah there is no 1click for it</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm|away&gt; don't have to do anything on it.</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm|away&gt; except get odin to recognize the phone ..</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm|away&gt; which can take a couple of tries :)</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol yeah Vibrant seems pretty stable in that regard</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;gehzumteufel&gt; Never have issues with ODIN detecting</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;atinm|away&gt; anyone here have a router with channels above 12?</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;atinm|away&gt; I can't seem to set my apple router to it.</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;gehzumteufel&gt; In the US channels above 12 are disabled</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;atinm|away&gt; it thinks I'm in the US.</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;atinm|away&gt; which I am</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;atinm|away&gt; but still.</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; You have to have custom firmware on it to enable above 14</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;atinm|away&gt; right, that's why I'm asking if anyone does</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;atinm|away&gt; coolya has done it to his router</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;atinm|away&gt; but he just left</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; I have DD-WRT on my router, so yes, I can enable it</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; But that's at home</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;atinm|away&gt; so he can't test my wifi</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; At work atm</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;atinm|away&gt; ok, later then</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;atinm|away&gt; I won't commit yet</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;atinm|away&gt; I have the new driver but with old code for country stuff</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;atinm|away&gt; hopefully we get the power gains without the country crap breaking</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;codeworkx&gt; my wifi has 14!</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;atinm|away&gt; like happened earlier.</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;codeworkx&gt; my router</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;atinm|away&gt; cool.</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;atinm|away&gt; guess I'll push then so you can test it</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;atinm|away&gt; if it breaks, I can revert.</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;atinm|away&gt; ok?</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol that's illegal in Germany!</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;gehzumteufel&gt; or at least it was</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;gehzumteufel&gt; Things could have changed</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: is in japan.</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;codeworkx&gt; humm. wait. dd-wrt only says 9</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;atinm|away&gt; (logged channel)</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;codeworkx&gt; damn, false router xD</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;gehzumteufel&gt; haha</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;codeworkx&gt; where's my other one</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;codeworkx&gt; too much lan devices at home</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, I used to have one with dd-wrt too</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;atinm|away&gt; wonder what happened to it</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;codeworkx&gt; and i can't remember all IPs</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;atinm|away&gt; I must have thrown it out</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;atinm|away&gt; it was starting to crap out</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;codeworkx&gt; the other router doesnt like me atm</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;atinm|away&gt; you know, it is nice having a test phone</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;atinm|away&gt; not afraid of screwing up my working on (and wife should be happy too)</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;codeworkx&gt; my other router is able to use 13 channels</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;atinm|away&gt; so commit and push?</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;uberushaximus&gt; I've got suppodrt for 14 on mine ;D</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;techmik&gt; codeworkx, same bootloop on speedmod</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;codeworkx&gt; wtf</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: it does everytime reboot into cmw2?</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;codeworkx&gt; green one</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;techmik&gt; no doesnt get that far</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;techmik&gt; bootlogo, white script flies by, reboot</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;codeworkx&gt; and if you boot into recovery you're in speedmod cwm?</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;techmik&gt; no, ours</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;codeworkx&gt; ah</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;codeworkx&gt; so this worked</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;codeworkx&gt; update-cm-7-INITIAL-Captivate-signed.zip is on your internal card?</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;codeworkx&gt; on root of your internal?</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;techmik&gt; if i hold 3 button for over 10 secs it boots to gold cwm</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;techmik&gt; yup</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;codeworkx&gt; are u sure?</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;techmik&gt; looking at it</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;techmik&gt; should i flash it from here?</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/captivate_initramfs_files/init#L30">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/captivate_initramfs_files/init#L30</a></span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;codeworkx&gt; extendedcommand</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;codeworkx&gt; recovery will look for /sdcard/update-cm-7-INITIAL-Captivate-signed.zip</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;codeworkx&gt; if it cannot find, the device simply reboots</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;codeworkx&gt; and this happens over and over again</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;techmik&gt; what if you made it /mnt/sdcard/......</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;techmik&gt; yup</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;codeworkx&gt; but only if your system isnt installed</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;techmik&gt; over and over</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;codeworkx&gt; recovery mounts sdcard to /sdcard</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;atinm|away&gt; gehzumteufel: heimdall flash --repartition --pit s1_odin_20100512.pit --factoryfs factoryfs.rfs --cache cache.rfs -- dbdata dbdata.rfs --param param.lfs --kernel zImage --modem modem.bin</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;atinm|away&gt; ?</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;codeworkx&gt; if you didn't rename the update it should work</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;atinm|away&gt; do I need an --efs file too?</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;gehzumteufel&gt; atin</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;gehzumteufel&gt; nah</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;gehzumteufel&gt; no efs</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;uberushaximus&gt; atinm|away: no</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;gehzumteufel&gt; There isn't one</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;codeworkx&gt; technik: boot into cwm, mount sdcard and do a ls -la /sdcard xD</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm|away&gt; rest look fine?</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;uberushaximus&gt; yes</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;gehzumteufel&gt; atinm|away: yes</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm|away&gt; ok, here we go</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;uberushaximus&gt; although you need boot and boot2</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;uberushaximus&gt; or it won't repartition</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm|away&gt; oh</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;gehzumteufel&gt; Don't bother repartitioning</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-navy">* nullghost (~justin@c-76-18-157-237.hsd1.tn.comcast.net) Quit (*.net *.split)</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-navy">* coolya|away (~coolya@microdoof.net) Quit (*.net *.split)</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-navy">* YeahRight (morgoth@524955F5.cm-4-2b.dynamic.ziggo.nl) Quit (*.net *.split)</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm|away&gt; where do I get those?</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;gehzumteufel&gt; No need</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm|away&gt; well, I'm on CM7 - not needed?</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;gehzumteufel&gt; It wasn't when I flashed back to stock</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;atinm|away&gt; hrm</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;techmik_laptop&gt; codeworkx: <a href="http://pastebin.com/56Ssb15w">http://pastebin.com/56Ssb15w</a></span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;atinm|away&gt; well, here we go</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;techmik&gt; i see!!!</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;techmik&gt; line 111</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;codeworkx&gt; its 0 bytes</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;techmik&gt; i see that</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;codeworkx&gt; -.-</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;techmik&gt; sec,</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;codeworkx&gt; techmik</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;codeworkx&gt; nice</span><br />
+<span class="irc-date">[22:45]</span> <span class="irc-black">&lt;codeworkx&gt; awesome</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;codeworkx&gt; thats really great</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;atinm|away&gt; how?! :)</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: how about 1 file. if its flashed from bml, it does efs backup and flashes cm kernel, if it's flashed from mtd, it does efsrestore, flash modem, do stuff</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-green">* nullghost (~justin@c-76-18-157-237.hsd1.tn.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-green">* coolya|away (~coolya@microdoof.net) has joined this channel.</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-green">* YeahRight (morgoth@524955F5.cm-4-2b.dynamic.ziggo.nl) has joined this channel.</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-green">* ChanServ sets mode -o coolya|away</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;atinm|away&gt; lol</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;codeworkx&gt; i think i should really put everything into 1 file</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;codeworkx&gt; it's more techmik friendly then lol</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;atinm|away&gt; wow, fugly!</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;techmik&gt; lol</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;atinm|away&gt; wtf is samsung doing on my phone.</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: nobody knows</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;gehzumteufel&gt; ?</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;atinm|away&gt; but at least heimdall worked</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: even samsung doesn't know</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;atinm|away&gt; its now mediascanning and shit</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;gehzumteufel&gt; haha yeah</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;gehzumteufel&gt; Dude, that media scanner is a fucking piece of shit</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;atinm|away&gt; rfs hell</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yes</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;atinm|away&gt; ok, how do I get into recovery on a vibrant using buttons?</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;gehzumteufel&gt; hold volume up/down power</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;gehzumteufel&gt; when vibrant logo appears, release power only</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;atinm|away&gt; ah right</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;atinm|away&gt; i asked already</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx, so should I test?</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;atinm|away&gt; or just wait for you?</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;codeworkx&gt; test what?</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-black">&lt;codeworkx&gt; initial?</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;codeworkx&gt; if it's fresh then yes</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, initial. unless you're going to do more work to get it all in one</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;techmik&gt; there it goes....</span><br />
+<span class="irc-date">[22:53]</span> <span class="irc-black">&lt;gehzumteufel&gt; pebkac</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;techmik&gt; ok, it worked... 10 mins to wallk dogs and i'll flash to stock and try from therer again, all at once =)</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;atinm|away&gt; wait, I've forgotten - how to I write on sdcard in 2e?</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;atinm|away&gt; I don't have su</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;atinm|away&gt; since I am totally stock.</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;atinm|away&gt; and it is telling me I can't write there.</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;atinm|away&gt; adb push blah.zip /sdcard/ didn't do it.</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;techmik&gt; i did stuff on pc and then usb transferred</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;techmik&gt; brb..... dogs</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;atinm|away&gt; permission denied. dang thing</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;gehzumteufel&gt; usb dev is off iirc</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;atinm|away&gt; I'm in recovery right now.</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;gehzumteufel&gt; ah</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm|away&gt; I guess I can just boot it :)</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm|away&gt; and copy using usb</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;atinm|away&gt; like normal ppl</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
