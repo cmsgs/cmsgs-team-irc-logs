@@ -1284,3 +1284,113 @@
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nullghost&gt; well, I sent it to UberPinguin, he has insurance and a usb debugger xD</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;nullghost&gt; but yeah, it would unpack and panic, lol</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-green">* zachy_md (5472b391@gateway/web/freenode/ip.84.114.179.145) has left this channel.</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;codeworkx&gt; use our buildsystem</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;codeworkx&gt; clone captivate</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;codeworkx&gt; rename to epic</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;codeworkx&gt; use your mtd mapping</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;nullghost&gt; I've been in the process of that, actually.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;codeworkx&gt; or mine from fascinate at own risk</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;nullghost&gt; :X</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;nullghost&gt; I cloned the device tree and ran s/captivate/epic/ throughout</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;nullghost&gt; I think I need to add epic to vendor/cyanogen, what other repos do I need?</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;codeworkx&gt; vendor/samsung/</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;nullghost&gt; device, vendor/samsung, vendor/cyanogen, kernel/samsung</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;nullghost&gt; any others?</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;codeworkx&gt; nothing else</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-brick">* coolya hates froyo samsung ril</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;mikebeecham&gt; evening all</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ....just ril?</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;codeworkx&gt; techmik_laptop: done?</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;techmik&gt; yup</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;techmik&gt; just got to stock</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;techmik&gt; now</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;techmik&gt; do i need an update.zip or cmw?</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;techmik&gt; i think i stiull have an old kernel.zip named update</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;codeworkx&gt; doesnt matter</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;codeworkx&gt; use new initial stuff</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;techmik&gt; power down......</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;techmik&gt; sec</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;coolya&gt; damn i need to port some more drivers to get the ril working ...</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;techmik&gt; something is not working</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;techmik&gt; i put kernel.zip and initial on sdcard</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;techmik&gt; flashed stock</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;techmik&gt; 1st, i had no update.zip for cwm, so i couldnt do anything but reboot</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;coolya&gt; :-(</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;coolya&gt; samsung: using sysfs interface to control modem</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;coolya&gt; google: using ioctl to control modem</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;coolya&gt; fuuuuuuuuuuu samsung</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hey nullghost what is the er default defconfig for epic?</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;gehzumteufel&gt; Damn whoever changed up stream the notifications</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;atinm|away&gt; sysfs again ..  nice..</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;atinm|away&gt; techmik: just the kernel.zip</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;atinm|away&gt; it should "just do it"</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;atinm|away&gt; you don't need the update.zip I think</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;coolya&gt; and they are not even using single controls for any action ... they use one and send the comand as a string :(</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;techmik&gt; ok</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;techmik&gt; i flashed stock</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;techmik&gt; i *had* to put an old cwm update.zip on my sdcard</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;techmik&gt; bootedold cwm</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;techmik&gt; flashed kernel.zip</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;techmik&gt; on cm7 now</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;atinm|away&gt; so it worked?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;techmik&gt; without old cwm it didnt work</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;atinm|away&gt; hrm</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;techmik&gt; you cant just rename it to update.zip and you cant flash it from stock recovery if its now update .zip</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;techmik&gt; now==not</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;atinm|away&gt; why can't you rename it to update.zip?</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;techmik&gt; didnt work</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;atinm|away&gt; oh, codeworkx - are you using update.zip already?</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;techmik&gt; said "flashed" of soething quick....</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;techmik&gt; then booted stock again</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;techmik&gt; wait</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;techmik&gt; reboot loop</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;techmik&gt; lemme see what it says</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;techmik&gt; it looks like its trying to reinstall over and over</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: i'm doing it always from speedmod</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;techmik&gt; ah</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;codeworkx&gt; 2e simply sucks</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: what are you naming the update.zip?</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;atinm|away&gt; that is extracted from initial kernel</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;coolya&gt; uploaded all my changes i did so far to my github acc, will continue next week, off for the week end now</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;coolya&gt; c ya</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;atinm|away&gt; k, see ya coolya</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;techmik&gt; now i held 3 button til i finally got gold 3.0.2.8 cwm and flashed nightly</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;techmik&gt; booted</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;techmik&gt; later coolya</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: kernel-cm-7-INITIAL-GalaxyS-signed.zip</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;atinm|away&gt; and the update.zip that it extracts?</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;codeworkx&gt; this doesn't extract a update.uip</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;techmik&gt; unknown baseband</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;atinm|away&gt; ah. hmm</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;codeworkx&gt; why should a zip extract a zip?</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;atinm|away&gt; I didn't know how you are doing it :)</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/galaxys_initramfs_files/init#L25">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/galaxys_initramfs_files/init#L25</a></span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;atinm|away&gt; I thought you had a kernel.zip, that when it booted would extract more stuff</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;codeworkx&gt; kernel-cm-7-INITIAL-GalaxyS-signed.zip -&gt; does a efsbackup and flashes the cm7 kernel and reboots</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;codeworkx&gt; our 1st stage init looks for build.prop but can't find it because the device is empty. this writes a extendedcommand and boots into recovery</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;codeworkx&gt; the recovery reads extendedcommand and flashes update-INITIAL</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;techmik&gt; but it didnt work if i renamed it to update.zip, and on stock, i only had koush's update.zip, which wont flash from 2.1</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; kernel-cm-7-INITIAL-GalaxyS-signed.zip can be renamed into update.zip</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;techmik&gt; so i had no way to flash lernel-cm-7-.....</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; shouldn't matter</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; but</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;techmik&gt; it flashed, then booted stock again</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; update-cm-7-INITIAL-Captivate-signed.zip must be update-cm-7-INITIAL-Captivate-signed.zip  and in root of sdcard</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: you've flashed the kernel.zip and it rebootet into old recovery?</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;atinm|away&gt; he renamed kernel.zip to update.zip and flashed it using 2e</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;atinm|away&gt; then what..</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;atinm|away&gt; it rebooted in stock recovery?</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;techmik&gt; it did a very fast, couldnt read what it said, something, said done, then rebooted, but was still stock when it did,....</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;techmik&gt; can do it again if you want</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;atinm|away&gt; I think 2e leaves a log as well</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;codeworkx&gt; stock 2e -&gt; flash kernel.zip -&gt; phone reboots -&gt; you're now in cwm3</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;atinm|away&gt; unless it didn't flash</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;atinm|away&gt; I don't think it did.</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;codeworkx&gt; or it didn't really reboot xD</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: please try from speedmod</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;codeworkx&gt; i don't trust any samsung stuff</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;codeworkx&gt; they've fucked up to often</span><br />
