@@ -726,3 +726,265 @@
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; is that our patch or is it from epiccm?</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;codeworkx&gt; koush: the commit isn't done by someone of us</span><br />
 <span class="irc-date">[17:00]</span> <span class="irc-black">&lt;koush&gt; oh</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;codeworkx&gt; koush: must be a epic guy</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;codeworkx&gt; koush: they're not talking with us xD</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;koush&gt; really?</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;koush&gt; wtf</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;codeworkx&gt; except for UberPinguin and nullghost</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-green">* ChanServ sets mode +v Wout`</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;koush&gt; so. crepso doesnt break ou guys then?</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;koush&gt; whats their repo btw?</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;codeworkx&gt; github.com/epiccm</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;codeworkx&gt; koush: we're trying to get them into our "team"</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;koush&gt; are they mtd</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;codeworkx&gt; koush: not yet</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;codeworkx&gt; epic and fascinate are cdma</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;codeworkx&gt; we're gsm</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;codeworkx&gt; there are some little problems which has to be solved first</span><br />
+<span class="irc-date">[17:03]</span> <span class="irc-black">&lt;nitam|work&gt; they just haven't merged to us yet, let alone up to CM.</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;nitam|work&gt; and yes, it should be at the top level</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;nitam|work&gt; koush is asking the right question. why don't we pull the include all-makefiles-under up into the #ifeq?</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;nitam|work&gt; then it will "just work"</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;codeworkx&gt; koush: i'll talk with keaney</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;koush&gt; k</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;nitam|work&gt; koush: will keaney's change has to be rejected. Another change should be put in that moves the all-makefiles up into the ifeq</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;nitam|work&gt; for crespo</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;koush&gt; mnita|work: yeah</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;nitam|work&gt; we'll do the same for ours</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;koush&gt; cause his change already breaks</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;koush&gt; look in the official android git repo</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;koush&gt; they added crespo4g</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;koush&gt; which "inherits" from crespo</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;koush&gt; and they change the if there :)</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;nitam|work&gt; good :)</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;koush&gt; <a href="http://android.git.kernel.org/?p=device/samsung/crespo.git;a=blob;f=Android.mk;h=dc8cf1ac40eaa59ab40753a0d2b829db30b8b2f0;hb=refs/heads/gingerbread">http://android.git.kernel.org/?p=device/samsung/crespo.git;a=blob;f=Android.mk;h=dc8cf1ac40eaa59ab40753a0d2b829db30b8b2f0;hb=refs/heads/gingerbread</a></span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;koush&gt; to include crespo4g</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;koush&gt; so his patch would need to go and redo it as well in teh same fashion</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;koush&gt; poopy</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;nitam|work&gt; simple enough change for crespo. codeworx, can do you for ours? I'm sort of swamped at work</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;codeworkx&gt; sure</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread Daniel Hillenbrand * c494979 (1 files in 1 dirs): Android.mk: avoid conflict - <a href="http://bit.ly/m9mMjP">http://bit.ly/m9mMjP</a></span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_vibrant: gingerbread Daniel Hillenbrand * 8aac7bb (1 files in 1 dirs): Android.mk: avoid conflict - <a href="http://bit.ly/l9qfzo">http://bit.ly/l9qfzo</a></span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxysb: gingerbread Daniel Hillenbrand * 04a7951 (1 files in 1 dirs): Android.mk: avoid conflict - <a href="http://bit.ly/mzuw8i">http://bit.ly/mzuw8i</a></span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;nitam|work&gt; koush ^^ needed for crespo too and it should all be good.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_captivate: gingerbread Daniel Hillenbrand * bb20375 (1 files in 1 dirs): Android.mk: avoid conflict - <a href="http://bit.ly/leDCqT">http://bit.ly/leDCqT</a></span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;codeworkx&gt; done :-P</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;nitam|work&gt; thanks.</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;nitam|work&gt; back later..</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;koush&gt; oh you guys had the same rpoblem</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;koush&gt; in your makefiles?</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;codeworkx&gt; we've cloned crespo xD</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;koush&gt; ah heh</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;nitam|work&gt; yeah we did and fixed the same way</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;nitam|work&gt; so not will's fault ')</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;nitam|work&gt; our fault :) - he is just copying us</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;codeworkx&gt; KANG0R</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;nitam|work&gt; but we're good now. :)</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: you tried the one click install? ;)</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;codeworkx&gt; tried only emergencyboot since this is what i've changed. works</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;UberPinguin&gt; koush: o/</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: Recovery -&gt; Advanced -&gt; Reboot Recovery shreds our system</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;UberPinguin&gt; I'll check again, but I thought that the root Android.mk was already guarded</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;codeworkx&gt; who is will?</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;UberPinguin&gt; Me</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;codeworkx&gt; lawl</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;codeworkx&gt; nice</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;codeworkx&gt; i've written a email</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-brick">* Wout` can do lots of i9000 testing the coming time</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;nitam|work&gt; UberPinguin: it is including the subdir Makefiles unguarded</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: bring your guys into our chan</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;Wout`&gt; using sgs2 as main phone now</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;UberPinguin&gt; Oh.. huh the root Android.mk is *not* guarded. I could have sworn it was.</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;Wout`&gt; so let me know when I need to flash something</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;UberPinguin&gt; mnita|work: OK</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: nullghost is already here. I'll get wispoffates in too. Devin and Dameon have been afk a lot recently.</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;nitam|work&gt; I dunno if koush is gonna do it or whether we should send a change.</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: nice</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;UberPinguin&gt; I can revise the patch on gerrit easily enough</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;codeworkx&gt; but nullghost is a silentghost</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, do that.</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;nitam|work&gt; best that way.</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;UberPinguin&gt; nullghost is away atm</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;nitam|work&gt; since you're already in that project</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;nitam|work&gt; go for it.</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;codeworkx&gt; Wout`: can u flash official 2.2 to your sgs?</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;Wout`&gt; dont see why not</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;Wout`&gt; any version in particular?</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;koush&gt; UberPinguin: \0</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;codeworkx&gt; official 2.2</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;koush&gt; oh i coneheaded it</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;Wout`&gt; codeworkx: 2.2, or 2.2.1? jpy is good?</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, what do you need on 2.2? I'm on cappy 2.2 right now</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;UberPinguin&gt; koush: hahaha. Getting an amended patch uploaded right now.</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;codeworkx&gt; 2.2.1</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;Kaik541&gt; unless you need something i9000 specific</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;UberPinguin&gt; bah messd up whitespace &gt;.&gt;</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: new initial stuff testing</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;Kaik541&gt; oh then nevermind</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: i've only built for i9k atm</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;Kaik541&gt; are we going for ultra one-click now</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;codeworkx&gt; hope so</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;UberPinguin&gt; koush: Patch Set 5 uploaded, guards in root Android.mk instead of subfiles. My bad, I thought the root file was already guarded.</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;koush&gt; there's already a crespo guard there</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;koush&gt; you can just use that one</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;koush&gt; literally move the last 3 lines up 3 lines</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;nitam|work&gt; UberPinguin: try again..</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;UberPinguin&gt; lol</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;UberPinguin&gt; oh wow</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;nitam|work&gt; oh, koush already caught it :)</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-brick">* UberPinguin headdesks</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;codeworkx&gt; koush: your new sammy tab is pure google? no crappy bootloader?</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;koush&gt; codeworkx: yes</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;koush&gt; surprising</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;koush&gt; it has downlopad mode</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;koush&gt; but it also has fastboot</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-brick">* Wout` is getting that tab tomorrow</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;Wout`&gt; liking it, koush_?</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;codeworkx&gt; -.-</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;nitam|work&gt; Wout`: you get a lot of devices!</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;codeworkx&gt; hate sammy</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;koush&gt; the partitions are emmc instead of bml or whatever</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;koush&gt; its not out for another month Wout`</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;codeworkx&gt; HATE SAMMY</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;koush&gt; afaik</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;nitam|work&gt; koush: nice.</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;Wout`&gt; mnita|work: tech journo :)</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, SGS 1 was beta for SGS 2</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: sure</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;nitam|work&gt; I need to become a tech journalist</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;Kaik541&gt; they used us as test dummies xD</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;nitam|work&gt; tho I just want SGS 2 ;)</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: they have to replace our sgs1 with an sgs2 for free!</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;Kaik541&gt; koush, does the tab have the custom binary counter?</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;Wout`&gt; just reviewed the asus transformer, acer iconia, working on SGS II now, Tab coming in tomorrow, need to fit the playbook in there somewhere too</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: get these guys to test.</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;koush&gt; Kaik541: ?</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;koush&gt; Kaik541: what you mean</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;Wout`&gt; and leaving for computex end of the month too</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;nitam|work&gt; your latest stuff</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;Kaik541&gt; koush, with sgs2 if you flash a custom kernel it tracks how many times you flash it</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;Kaik541&gt; koush, and displays on boot</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-brick">* Wout` is going to find the right 2.2 to flash, brb</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: wtf?</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;Kaik541&gt; koush, sorta like fastboot oem unlock has the lock screen</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;koush&gt; Kaik541: not sure, i have barely played with it</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: my sgs would show 10000000000 times</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, it can be reset</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;Kaik541&gt; because samsung is silly!</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;codeworkx&gt; ah</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, download mode jig</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;Kaik541&gt; plug it in while in download mode</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;Kaik541&gt; gets reset</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;nitam|work&gt; Wout`: what do you write for?</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;Wout`&gt; dutch tech site</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;nitam|work&gt; ah. :)</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;nitam|work&gt; don't speak dutch :-P</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;Kaik541&gt; koush, well it puts a little triangle on your boot screen that goes away when you flasha  "stock" kernel</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;nitam|work&gt; google translate maybe,</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;Wout`&gt; good thing I do :P</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;nitam|work&gt; say nice things about CM ;)</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;Wout`&gt; mnita|work: <a href="http://translate.google.com/translate?js=n&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;layout=2&amp;eotf=1&amp;sl=nl&amp;tl=en&amp;u=http%3A%2F%2Ftweakers.net%2F">http://translate.google.com/translate?js=n&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;layout=2&amp;eotf=1&amp;sl=nl&amp;tl=en&amp;u=http%3A%2F%2Ftweakers.net%2F</a></span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;Wout`&gt; ;)</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;Wout`&gt; g'luck</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;UberPinguin&gt; Excellent, brunch is no longer crashing from crespo. Now it's libcamera :D</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;nitam|work&gt; Wout`: nice :)</span><br />
+<span class="irc-date">[17:33]</span> <span class="irc-black">&lt;nitam|work&gt; UberPinguin: ?</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;Kaik541&gt; UberPinguin, are you building against teamhacksung?</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;Wout`&gt; mnita|work: It's a nice job for a geek :)</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;Kaik541&gt; because we have a binary libcamera.so now</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;UberPinguin&gt; Kaik541: ...partly. I'm in the process of moving us to the 'common' structure you guys are using, so that we're compatible for merging.</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;Wout`&gt; codeworkx: flashing 2.2 now, what do you need me to do afterwards?</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;Kaik541&gt; UberPinguin, ok cool, I know the manifest on EpicCM was wrong last time I checked (it was forked from CMSGS)</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;Kaik541&gt; nullghost has proper one I think</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;UberPinguin&gt; Kaik541: Yes, just need to work out the right way to get it used in Epic's build. Captivate's makefiles don't seem to be different from ours in relevant ways.</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;codeworkx&gt; Wout`: i'll give u new initial stuff</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;UberPinguin&gt; Kaik541: I set up a branch on our android.git for the teamhacksung revisions, until we get a clean build. Then it'll merge back into our mainline.</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;Kaik541&gt; UberPinguin, cool deal just wanted to make sure you were actually merging toward hacksung and not the dead stuff from cmsgs xD</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;UberPinguin&gt; And then, when everyone is happy that we're compliant, we can merge :)</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;UberPinguin&gt; Yeah :)</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;Kaik541&gt; I think nullghost had a laugh at that when I pointed it out</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;UberPinguin&gt; So did I</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;UberPinguin&gt; I hadn't realized that you set up a new github</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;nitam|work&gt; let UberPinguin upload patchset 6 ppl.</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;UberPinguin&gt; mnita|work: I don't think it's needed anymore, the ifeq is already in?</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;UberPinguin&gt; I just switched to the upstream branch w/o my changes, resynced, and it didn't stop the build w/ crespo conflicts</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;nitam|work&gt; no. what you need to do is <a href="https://gist.github.com/968935">https://gist.github.com/968935</a></span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;UberPinguin&gt; ah hm ok</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;nitam|work&gt; and remove the doubled ifeq.</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;nitam|work&gt; basically do what koush said as patchset 6</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;nitam|work&gt; and then it'll be good.</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;nitam|work&gt; we've done the same on all the teamhacksung devices</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;nitam|work&gt; now</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;nitam|work&gt; (gist is cool)</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="http://paste.pocoo.org/show/387655/">http://paste.pocoo.org/show/387655/</a></span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;UberPinguin&gt; Like so?</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;nitam|work&gt; yes</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;UberPinguin&gt; kk</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;nitam|work&gt; (I don't even know whether the ifneq is needed</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;nitam|work&gt; I don't think so.</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;nitam|work&gt; but doesn't hurt.</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;nitam|work&gt; koush would know that one - try running without it.</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;nitam|work&gt; screw it, leave it.</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;UberPinguin&gt; lol ok</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;nitam|work&gt; not sure what happens when you choose TARGET_DEVICE := crespo, TARGET_SIMULATOR := true</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;nitam|work&gt; so leave it.</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;nitam|work&gt; I think that is valid for when you are developing on the simulator for the crespo? I've never actually done coding at that level of android so have never been in the simulator..</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;UberPinguin&gt; Me either</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;nitam|work&gt; so leave it.</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;coolya&gt; there is a difference between simulator and emulator</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;coolya&gt; emulator runs a qemu virtual cpi</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;coolya&gt; cpu</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;nitam|work&gt; ah</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;nitam|work&gt; yes, either way - leave it. :)</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;coolya&gt; the simulator runs android in a single linux process</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;coolya&gt; what wouldn't work for crespo</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;coolya&gt; jbq just removed that lunch options</span><br />
+<span class="irc-date">[17:47]</span> <span class="irc-black">&lt;coolya&gt; it was just for testing at google</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;UberPinguin&gt; biab, then back to stabbing camera.</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;nitam|work&gt; send the patchset 6 tho ;)</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;UberPinguin&gt; lol there's nothing to send</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;UberPinguin&gt; May as well abandon the submission</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;nitam|work&gt; no, there is. that TARGET_SIMULATOR does need to get moved into the ifeq</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;nitam|work&gt; otherwise it'll call all the makefiles under unconditionally</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="https://github.com/teamhacksung/android_device_samsung_captivate/commit/bb20375435deefbc71014d7dcc14b15b48956cdc">https://github.com/teamhacksung/android_device_samsung_captivate/commit/bb20375435deefbc71014d7dcc14b15b48956cdc</a></span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;nitam|work&gt; like that.</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;nitam|work&gt; that's the only change needed. that's your patchset 6</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: if auto reboot works in old recovery, initial is ok now</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; techmik67: do you have your computer yet?</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; why is it that everyone is without computers ...</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;techmik67&gt; i can work on laptop</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nitam|work&gt; we need you to build and test from initial</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;techmik_laptop&gt; while i figure out why keymapping is fuct in konversation</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;nitam|work&gt; see if we have one zip conversion yet.</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; just kernel nbranch?</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: is there anything else needed?</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; oh</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;nitam|work&gt; no, head.</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; man branch</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; got it</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;nitam|work&gt; talk to codeworkx and debug :)</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;nitam|work&gt; have to go for a bit</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-green">* Wout` is now known as Wout|afk</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;techmik_laptop&gt; can someone good with git look at my page...... <a href="https://github.com/techmik/android_kernel_samsung/commits/android-samsung-2.6.35">https://github.com/techmik/android_kernel_samsung/commits/android-samsung-2.6.35</a> and' tell me why i cant push the new changes from hacksung? i have them according to git reflog, but when i push  techmik, it says up to date.....</span><br />
+<span class="irc-date">[17:55]</span> <span class="irc-black">&lt;techmik_laptop&gt; building</span><br />
