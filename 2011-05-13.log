@@ -1531,3 +1531,125 @@
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;knowsnotmuch&gt; nullghost, i9000 - dont know about the others</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm|sick&gt; huh</span><br />
 <span class="irc-date">[18:00]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx: there is no /mnt/sdcard</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;atinm|sick&gt; on vibrant stock</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;atinm|sick&gt; just /sdcard</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;uberushaximus&gt; yeah, 2.1 touchwiz is like that</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: wtf</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: then our script must become more intelligent</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm|sick&gt; going to try changing that in update.sh</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm|sick&gt; see what happens</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;codeworkx&gt; you can change it only for vibrant</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm|sick&gt; updater.sh I mean</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm|sick&gt; yeah, just for vibrant</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;atinm|sick&gt; sec</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;codeworkx&gt; and plx have a look at why make_ext4fs says permission denied</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;codeworkx&gt; the file is 0777</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;atinm|sick&gt; what do we run as?</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;atinm|sick&gt; ls /data</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;atinm|sick&gt; opendir failed, Permission denied</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;atinm|sick&gt; bastard</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;atinm|sick&gt; I am not running su</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;Decad3nce&gt; codeworkx: aries vendor blobs also has gps stuff's that we don't use.. should I just not inherit it at all? (don't want to break anything by setting up excludes)</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;Decad3nce&gt; codeworkx: then when we have .35 up and running, just one change in our vendor.mk to switch back</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;knowsnotmuch&gt; atinm|sick, get an error when i try to mount /data from cwm recovery ... format works ok tho from wipe</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;atinm|sick&gt; we are slowly putting stuff in separate vendor subdirs</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;atinm|sick&gt; so if you have something that is different, move it to the devices it is used in, remove from yours</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;atinm|sick&gt; and change your .mk</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;codeworkx&gt; Decad3nce: we have to split everything</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;Decad3nce&gt; k</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;codeworkx&gt; Decad3nce: but best is to not include</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;Decad3nce&gt; works for me</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;codeworkx&gt; Decad3nce: use vendor/samsung/epic</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;codeworkx&gt; i'll try to talk with eifert. he can tell us more about bml_over_mtd</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;atinm|sick&gt; ooh, booting cyanogen</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;atinm|sick&gt; lol, crash</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;atinm|sick&gt; boot loop</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;atinm|sick&gt; so this time kernel got written but I think it doesn't like the initramfs</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;atinm|sick&gt; infinite loop</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;atinm|sick&gt; something releated to /sdcard</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;atinm|sick&gt; I think it is trying to run updater.sh</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;atinm|sick&gt; but failing somewhere</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;atinm|sick&gt; can't write where it wants to write I think</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;knowsnotmuch&gt; maybe data</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;atinm|sick&gt; I think we need to su</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;atinm|sick&gt; it is in an infinite loop, so can't stop in recovery :-P</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;atinm|sick&gt; damn it, goes too fast.</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;atinm|sick&gt; flash back to stock</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;atinm|sick&gt; sec</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: the first time the cm7 kernel will be written, after this it reboots and calls the update.zip again.</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: if this fails, its going over and over again</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;atinm|sick&gt; right, it wrote the kernel</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;atinm|sick&gt; because I do see CyanogenMod now</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;codeworkx&gt; then it uses the MTD part in updater.sh</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;atinm|sick&gt; flashing back to stock so I can see the log</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;atinm|sick&gt; right</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;codeworkx&gt; but this should identical for all devices</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;atinm|sick&gt; it said something about no such file or directory or something</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;codeworkx&gt; cwm mounts to /sdcard</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: after it crashed, pull battery</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;atinm|sick&gt; but it was going too fast.</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;codeworkx&gt; 3 button combo</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;codeworkx&gt; mount sdcard</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;codeworkx&gt; look at logs</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;atinm|sick&gt; can't get into recovery either</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;codeworkx&gt; 3 button &gt; emergencyboot</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;codeworkx&gt; should work</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;atinm|sick&gt; ah</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;nullghost&gt; full build in 16m 37s, no ccache :X</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;codeworkx&gt; theres a cyanogenmod_bml.log and a mtd</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;nullghost&gt; I love this rig</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx: yes, they should still be here</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;atinm|sick&gt; so let me boot</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;atinm|sick&gt; sec</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;atinm|sick&gt; I'm thinking we shouldn't delete them :)</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;atinm|sick&gt; just append</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;nullghost&gt; anyone else getting localization spam?</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-green">* zachy_md|busy (~zacharias@chello084114179145.16.15.vie.surfer.at) has left this channel.</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: where?</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: every dex in the build process.</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;codeworkx&gt; thats normal</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;codeworkx&gt; i think</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;nullghost&gt; aapt: warning: **** string (whatever) has no default or required localization for '(lang code)' in (package name)</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; yeah thats 'normal'</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nullghost&gt; it spams every language code for every string in every package :X</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;codeworkx&gt; as long as the thing is running like hell, dont care about</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; dono about every language....that might not be normal. only ne way to fing out tho</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; g and d are not that close together......</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;atinm|sick&gt; nullghost: we ignore</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;atinm|sick&gt; it is from upstream anyway</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;atinm|sick&gt; as they get languages, we get them</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;nullghost&gt; atinm|sick: I figured, just wondering if there was a quick fix so I could see the warnings that actually matter.</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;atinm|sick&gt; haven't looked into it</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;atinm|sick&gt; when your build fails, then look for "error" ;)</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-green">* zachy_md (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[18:31]</span> <span class="irc-green">* ChanServ sets mode +v zachy_md</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;atinm|sick&gt; hmm, cyanogenmod_mtd.log isn't even created.</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;atinm|sick&gt; bml looks fine</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;atinm|sick&gt; wait, we haven't mounted /mnt/sdcard when we try to write it</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;atinm|sick&gt; in mtd</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@115.242.249.3) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;atinm|sick&gt; even on bml tho it might already be mounted because that is working</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;atinm|sick&gt; one more try - moved the mount up higher</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: if the updater is called, sdcard is mounted xD</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;codeworkx&gt; i9000: bml = /mnt/sdcard, mtd = /sdcard</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;codeworkx&gt; thats what cwm does</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;codeworkx&gt; default</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;atinm|sick&gt; hmm</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;atinm|sick&gt; so why is cyanogenmod_mtd.log not even getting created..</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;codeworkx&gt; but ok. make sure sdcard is mounted should be on top</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/vibrant/updater.sh#L53">https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/vibrant/updater.sh#L53</a></span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;atinm|sick&gt; did that</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;atinm|sick&gt; maybe created now</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;codeworkx&gt; this script is samsung style xD</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;Wout`&gt; fuck samsung</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;Wout`&gt; they hardcoded it into the allshare dlna app that it wont play mkv, they work fine when renaming to avi</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;Wout`&gt; who does that?</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;atinm|sick&gt; Samsung? ;)</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;Wout`&gt; fuckers, now i need to find how I can make my nas autorename all mkv's to avi</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;zachy_md&gt; windows style ^^</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;zachy_md&gt; only support files that also match the file extension</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;zachy_md&gt; headers silently are being ignored</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;Wout`&gt; tried passing on a different mimetype to the dlna player, but wouldnt be fooled</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;atinm|sick&gt; zachy_md:  did youtry my zip?</span><br />
