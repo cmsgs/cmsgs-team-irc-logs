@@ -120,3 +120,182 @@
 <span class="irc-date">[1:42]</span> <span class="irc-black">&lt;UberPinguin&gt; uberushaximus: Those aren't dev phones afaik?</span><br />
 <span class="irc-date">[1:43]</span> <span class="irc-black">&lt;uberushaximus&gt; UberPinguin: they aren't, but there's telelphony blobs in the crespo GSM model as well</span><br />
 <span class="irc-date">[1:43]</span> <span class="irc-black">&lt;UberPinguin&gt; Telephony / modem stuff, I can understand. But UI and service management components? That should be in platform.</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;Decad3nce&gt; is there supposed to be a libcamera.so in aries/common</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;UberPinguin&gt; I think that one is split out per-device, Decad3nce</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;Decad3nce&gt; UberPinguin: it is split out.. but there's also one in common</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;Decad3nce&gt; seems like it would overwrite whatever you inherit on device specific</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;Decad3nce&gt; especially in the inherit order of each devices vendor.mk</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;Decad3nce&gt; ahh.. looks like its just a relic</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;Decad3nce&gt; (isn't copied from aries-vendor-blobs</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-brick">* Decad3nce walks away again</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;UberPinguin&gt; kk</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; because some phones have a ffc and some dont things got moved around once Unhelpful...came up with a solution</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;UberPinguin&gt; haha</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;Unhelpful&gt; the libcamera in aries/common is stock, the others are hacked.</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-174-111-246-012.triad.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-green">* ChanServ sets mode +o Kaik541</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hell I'm pretty sure he's done more work since his computer has been out for service than I have</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;Kaik541&gt; so how'd the one-click go? had to go take come of some stuff earlier</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, did I bring the whip just in time?</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;Decad3nce&gt; Unhelpful: gotcha</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;Decad3nce&gt; Unhelpful: and only the non-ffc phones are "hacked"</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;Decad3nce&gt; right</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;Decad3nce&gt; ?</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;Kaik541&gt; Decad3nce, no FFC one is hacked for gtalk</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;Kaik541&gt; didn't support proper resolution</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;Unhelpful&gt; ...no, the phones w/ FFC are hacked to provide more preview resolutions so they'll work w/ gtalk</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;Decad3nce&gt; ahh</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;Decad3nce&gt; (sorry, way out of the loop)</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; working on it.... I think I have a version that doesn't need S5P-RP which means I don't have to do anything icky with power management.  and if I leave mach-aries alone I think that will cure the headphone problems and maybe the voice quality on vibrant</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;Kaik541&gt; Decad3nce, lots to catch up on, no worries... talking is good :)</span><br />
+<span class="irc-date">[2:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I think it was leaving a route open when I....simplified the code in there</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Kaik541&gt; o.O netflix app released when I stay offline for a day... looks like you guys are in for a treat this week</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;h8rift&gt; lol</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Kaik541&gt; and flash 10.3</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: it checks for devices...</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;h8rift&gt; what...you going on vacation?</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;h8rift&gt; :P</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Unhelpful&gt; will have to fake being Nexus S or something i guess</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, I know, but it's better than NO app</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; anyway, if this compiles I should have another test build for you tech</span><br />
+<span class="irc-date">[2:11]</span> <span class="irc-black">&lt;h8rift&gt; the app only checks manufacturer and model in build.prop</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;Kaik541&gt; h8rift, this week is visiting friends and family in NC and a wedding so probably won't hear from me much after tonight until Tuesday</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-brick">* Unhelpful assumes manufacturer is still "Samsung" for Nexus S?</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;h8rift&gt; we might get ice cream and source code + hc source while you're gone</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;h8rift&gt; at this rate ;P</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;h8rift&gt; techmik|</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;h8rift&gt; samsung</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;h8rift&gt; and crespo</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;h8rift&gt; i think</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;h8rift&gt; lemme validate</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;Kaik541&gt; we already use nexus s fingerprint don't we?</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;Kaik541&gt; so we can *see* it in the market, yes?</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: it's not the market fingerprint...</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;Kaik541&gt; is it in the market?</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, I know I'm asying just to SEE it</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;Unhelpful&gt; yes, i already have it installed.</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-navy">* nullghost (~justin@c-76-18-157-237.hsd1.tn.comcast.net) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, you have to remember, i'm back on 2.2 for the week (hoping to get AT&amp;T to replace this phone)</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;h8rift&gt; k...just bc you can or cannot see it in the market, does not mean you can or cannot install</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: you are?</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, yes, only mentioned it a few times :)</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;h8rift&gt; all you need to do is change your manu and model in build.prop</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;h8rift&gt; and sideload</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;Kaik541&gt; hoping to get one that doesn't have the "can't use i9000 modems"</span><br />
+<span class="irc-date">[2:14]</span> <span class="irc-black">&lt;h8rift&gt; poof done</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;Unhelpful&gt; h8rift: do we even need to change manufacturer? ;)</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;h8rift&gt; well, not if its a Samsung device</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;h8rift&gt; in this case, no :P</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;h8rift&gt; im talking in respects to ::any:: android device</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;Unhelpful&gt; so we *should* be able to just set model to crespo, and done?</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if test2 works I should have audience soon(tm)</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, well even if I get it replaced, I want audience support if I can get it</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;Kaik541&gt; audience chip sounds clearer than i9000 software</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; aye</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; shit, forgot to twiddle the makefile</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; wait....goddamnit I changed the whole directory</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-brick">* TMC_Sherpa will be starting the build over now.  Nothing to see here.  Move along</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-black">&lt;h8rift&gt; looks like model is actually "Nexus S"</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;h8rift&gt; anonymous: try that while i keep looking</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;Kaik541&gt; crespo is like nexus one's "passion"</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;h8rift&gt; correct</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;h8rift&gt; yep</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;h8rift&gt; ro.product.model = Nexus S</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;Unhelpful&gt; <a href="http://forum.xda-developers.com/showthread.php?p=13739589">http://forum.xda-developers.com/showthread.php?p=13739589</a></span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;h8rift&gt; lowercase s in manufacturer</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;Unhelpful&gt; and you'll have to lower-case the "Samsung" we have for manufacturer</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;h8rift&gt; yep</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-brick">* Unhelpful reboots</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;Unhelpful&gt; BRIIIIIICK?</span><br />
+<span class="irc-date">[2:22]</span> <span class="irc-black">&lt;h8rift&gt; :P</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-green">* nullghost (~justin@c-76-18-157-237.hsd1.tn.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-black">&lt;Unhelpful&gt; i bet it breaks my !@#$ swype beta, though.</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;h8rift&gt; netflix &gt; swype</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;h8rift&gt; any day of the week</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;UberPinguin&gt; So uh.. who wants a statically-lined armv7a-hardfloat-linux-gnueabi strace?</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, you can relicense</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;Decad3nce&gt; I bet you could get away with creating a build.&lt;device&gt;.prop that hosts those ro.product stuffs</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;UberPinguin&gt; s/lined/linked/</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;Kaik541&gt; newest installer has a "relicense" option</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;h8rift&gt; but here's the weirdest thing</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;Kaik541&gt; no need to reinstall/set up your words</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;Decad3nce&gt; We did it for heroc back when CM7 wasn't supported for facebook</span><br />
+<span class="irc-date">[2:25]</span> <span class="irc-black">&lt;h8rift&gt; my AT&amp;T GST works without edits</span><br />
+<span class="irc-date">[2:25]</span> <span class="irc-black">&lt;Unhelpful&gt; UberPinguin: ...um, doesn't strace already build w/ anybody's android build? ;)</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;UberPinguin&gt; idk &gt;.&gt;</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;UberPinguin&gt; Just finding ways to distract myself I guess</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;Kaik541&gt; can someone tell codeworkx to change the instructions to say "use non-GingerBread bootloaders" instead of "use froyo" bootloaders</span><br />
+<span class="irc-date">[2:26]</span> <span class="irc-black">&lt;Kaik541&gt; because people are too stupid to figure out on their own that eclair works fine too</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;h8rift&gt; hold the phone....this is interesting. my ro.product.model = gt-P1000 and my ro.product.manufacturer = samsung</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;h8rift&gt; i wonder if the manufacturer change is all that is needed?</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;h8rift&gt; to make it lowercase s</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-black">&lt;h8rift&gt; Kaik541: just read over in #cmsgs. You sprinkling a little extra newb-hate so it will linger while you are out? ;)</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-black">&lt;Kaik541&gt; h8rift, it's like the thousandth time someone has asked</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;h8rift&gt; not saying its not justified lol</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;h8rift&gt; [21:25] &lt;sailerboy&gt; computer not powerful enough</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;h8rift&gt; [21:25] &lt;@Kaik541&gt; cry</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;h8rift&gt; my favorite part rofl</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;UberPinguin&gt; hahahahahahah</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;Kaik541&gt; also how can your PC not be powerful enough to run virtualbox for windows xp?</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;Kaik541&gt; I have a netbook and I can run xp in a virtualbox</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: easy, no memory.</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;Kaik541&gt; not enjoyably, mind you, but enough for an odin flash</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;Unhelpful&gt; and wtf, use heimdall?</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, let me have my anger</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;h8rift&gt; he has a quad core amd machine with a 2 TB hard drive and 1.5GDDR5 video card PC</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;h8rift&gt; but has 32mb of ram</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;h8rift&gt; :O</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, he's asking where binaries for captivate bootloaders are, he says there aren't any in JF6 tarball on samfirmware</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;Kaik541&gt; I said "I only know of odin one-click"</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;Kaik541&gt; since that's what I use</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;Kaik541&gt; because I'm lazy</span><br />
+<span class="irc-date">[2:32]</span> <span class="irc-black">&lt;Kaik541&gt; and have a windows box</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;Kaik541&gt; and I've never tried to split the exe</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;h8rift&gt; wow it got silent over there after that last comment i made</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;Unhelpful&gt; huh, i'm just surprised there are no tarballs w/ the bootloaders. :P</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;h8rift&gt; hope i didn't offend :P</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; stick it on a thumb drive and head on out to a bigbox store....just make sure no one is looking</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, I'm pretty sure JF6 *does* have it</span><br />
+<span class="irc-date">[2:35]</span> <span class="irc-black">&lt;Kaik541&gt; haha, looks like it doesn't!</span><br />
+<span class="irc-date">[2:35]</span> <span class="irc-black">&lt;Unhelpful&gt; wtf, netflix just goes back to homescreen after trying to log in. :(</span><br />
+<span class="irc-date">[2:36]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; like no one ever posted something he can use on xda?</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;h8rift&gt; [20:44] &lt;@h8rift&gt; i would assume there are a ton on XDA</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;h8rift&gt; [20:45] &lt;sailerboy&gt; well, not odin flashable roms</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;Unhelpful&gt; so, um, does that happen for anybody *else*?</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;h8rift&gt; *shrug* no helping super noob</span><br />
+<span class="irc-date">[2:37]</span> <span class="irc-black">&lt;h8rift&gt; techmik, should only have to do ro.product.manufacturer :)</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;h8rift&gt; hrm</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;h8rift&gt; weird</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;h8rift&gt; lowercase S on samsung on manufacturer?</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;Unhelpful&gt; anonymous: ... no, i'm not getting "unsupported", it spins a while after getting name/password, then back to homescreen.</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;Unhelpful&gt; no message or anything.</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-green">* h8rift is now known as h8|away</span><br />
+<span class="irc-date">[2:39]</span> <span class="irc-black">&lt;Unhelpful&gt; right, so whatever is happening is something else. i've already checked the name/password, they work on the web site. :/</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;Kaik541&gt; ok so I think my netflix is confused... it says I have about 12 active devices...</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-black">&lt;Kaik541&gt; I'm only allowed 6</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;Kaik541&gt; says we have an iPad 2 and 3 xbox 360's... something's up</span><br />
+<span class="irc-date">[2:43]</span> <span class="irc-black">&lt;Kaik541&gt; my dad has an iPad? wtf?</span><br />
+<span class="irc-date">[2:44]</span> <span class="irc-black">&lt;nullghost&gt; since the kernel is a stage2 kernel, is there any way for me to properly test it on a stock ROM without building the rest of CM7 around it?</span><br />
+<span class="irc-date">[2:44]</span> <span class="irc-black">&lt;nullghost&gt; I'm not expecting the rom to boot, I just need to see it *get* to init.</span><br />
+<span class="irc-date">[2:45]</span> <span class="irc-black">&lt;nullghost&gt; I just need to see the kernel itself boot without fuxxing my device and flashing the two-part CM7 stuff.</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;Kaik541&gt; my dad's WORK gave him an iPad 2 and i7 laptop... he didn't even request them... not fair</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, change ro.product.model to HTC Vision and change ro.product.manufacturer to HTC</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;Kaik541&gt; netflix works</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I have no clue nullghost</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-green">* Charkey (~Laurent@cpe-76-175-105-20.socal.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;nullghost&gt; TMC_Sherpa: let me ask a broader question, how precisely does everything load with your system</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;nullghost&gt; I'm still not grasping the order of the boot process in your cm7 builds</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I have no clue nullghost right now whatever we are doing was I think designed by codeworx</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; he keeps rewriting stuff</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;nullghost&gt; okay, I'll just have to wait until codeworkx shows up to pick his brain</span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; use gloves, maybe a couple sets......</span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-black">&lt;nullghost&gt; :D</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-green">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[2:54]</span> <span class="irc-green">* ChanServ sets mode +v wwyvern</span><br />
+<span class="irc-date">[2:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; lemme see if I can fix that</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; tho when I say 'fix' it may refer to the audio portion</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;nullghost&gt; regarding the build system itself, what's the proper way to generate everything I need to flash CM7, initial- and update- zipfiles</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;nullghost&gt; ./build.sh epic kernel then what?</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;Kaik541&gt; nullghost, there's a script called kernel.sh which will generate the kernel and a kernel-initial.zip</span><br />
+<span class="irc-date">[2:59]</span> <span class="irc-black">&lt;Kaik541&gt; and another called update.sh which will make update-initial.zip</span><br />
+<span class="irc-date">[2:59]</span> <span class="irc-black">&lt;Kaik541&gt; kernel-initial.zip can be flashed from 2e recovery if named "update.zip" or from any CWM</span><br />
