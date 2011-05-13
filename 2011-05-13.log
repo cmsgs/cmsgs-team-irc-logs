@@ -1653,3 +1653,140 @@
 <span class="irc-date">[18:58]</span> <span class="irc-black">&lt;zachy_md&gt; headers silently are being ignored</span><br />
 <span class="irc-date">[18:58]</span> <span class="irc-black">&lt;Wout`&gt; tried passing on a different mimetype to the dlna player, but wouldnt be fooled</span><br />
 <span class="irc-date">[18:58]</span> <span class="irc-black">&lt;atinm|sick&gt; zachy_md:  did youtry my zip?</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;atinm|sick&gt; couldn't open something</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm|sick&gt; is there a sleep command in updater script? :)</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;zachy_md&gt; atinm|sick, sorry not yet</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: Decad3nce: <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/cfeb822c81f68ca9afdad89684d181779e2f7d02">https://github.com/teamhacksung/android_kernel_samsung/commit/cfeb822c81f68ca9afdad89684d181779e2f7d02</a></span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: Decad3nce: eifert said he simply assumed its behind modem partition on i9000 and we should do the same</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;zachy_md&gt; atinm|sick, do you mean me with the updater script ?</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;atinm|sick&gt; no</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;zachy_md&gt; k</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx:</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: Decad3nce: he saif bml_over_mtd does some checks and will break if anything goes wrong</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;atinm|sick&gt; so I can make it stop reboot.</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;Decad3nce&gt; codeworkx: that's handy :x</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: no sleep</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: will implement that, thanks.</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;codeworkx&gt; i've made the fascinate mapping based on your bootloader infos</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;codeworkx&gt; should work for you</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;nullghost&gt; quick question, the mappings are purely contained in stl9/10/11, right? (what is system, data, and cache for us)</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/galaxys/updater.sh#L115">https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/galaxys/updater.sh#L115</a></span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx, what is starting the update.sh?</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: /bml_over_mtd.sh boot 72 reservoir 2004 /tmp/boot.img</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; thats for i9k</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; you need: /bml_over_mtd.sh boot 72 reservoir 4022 /tmp/boot.img</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: updater-script</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;atinm|sick&gt; I want to stop there somewhere</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: <a href="https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/galaxys/META-INF/com/google/android/updater-script#L32">https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/galaxys/META-INF/com/google/android/updater-script#L32</a></span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;atinm|sick&gt; k</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: kk. but hey, is the mtd stuff strictly contained in what would be data/system/cache in a stock rom?</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;atinm|sick&gt; maybe I should add a sleep</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;atinm|sick&gt; so update</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;atinm|sick&gt; to</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: no. only kernel and recovery are on their old places</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: on i9k, we've decreased size of system because it was to big, increased cache and so on</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: I know the boundaries are different, but what I'm asking is bml/stl 1-6 are left alone, right?</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: i've made your radio partition bigger than before so that your modem images fit in</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: we may not even need a radio partition because of our modem.</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: we only map kernel and recovery</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: bootloader partitions aren't touchend and arent visible at all</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: we found out that our modem, the QSC6085, contain the efs and modem.bin in their own memory banks</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;nullghost&gt; the QSC6085 handles our gps as well, we don't have the BCM4751</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: so you can remove the mapping</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;nullghost&gt; the question is how the hell do we access our modem =\</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;nullghost&gt; dpram.ko and onedram.ko are proprietary</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;codeworkx&gt; ask coolya|away</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;codeworkx&gt; maybe he knows</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;codeworkx&gt; he's the ril-man</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;nullghost&gt; good to know</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;codeworkx&gt; our ril reads modem from mtdblock5</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;nullghost&gt; coolya|away: when you get a chance, I'd like to pick your brain about the cdma sgs modem (or at least bounce some ideas)</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;codeworkx&gt; so we've simply created a radio partition and flashing our modem into it</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;nullghost&gt; what ril are you guys using</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; nexus s xD</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;nullghost&gt; ok, that's good to know actually</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: have a look at nexus s 4g</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;nullghost&gt; so by that logic, we might be able to use ns4g ril</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; maybe you got some luck</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;nullghost&gt; are you using the stock modems that come with each device? or are you even using the NS modem?</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;codeworkx&gt; stock</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;codeworkx&gt; nexus modems doesn't work at all</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;nullghost&gt; assuming the ns4g uses the qsc6085, we might have some luck there</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;codeworkx&gt; google for it</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;nullghost&gt; I tried all last night, couldn't find anything definitive</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;Decad3nce&gt; nullghost: <a href="http://kan.gd/ixf">http://kan.gd/ixf</a></span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-green">* gehzumteufel (~gehzumteu@adsl-76-252-171-187.dsl.lsan03.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-green">* ChanServ sets mode +v gehzumteufel</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: crespo4g uses a mtd radio partition</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;codeworkx&gt; like we do</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;codeworkx&gt; and they're using a own libsecril-client.so and gpsd</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;codeworkx&gt; kang it from there</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;codeworkx&gt; use my fascinate layout</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;codeworkx&gt; flash your modem to mtdblock5</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;codeworkx&gt; and give it a try</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;codeworkx&gt; but dont know if it works at all</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;nullghost&gt; I'll try that as soon as I can. I have to leave in an hour and this isn't safe to flash yet.</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;atinm|sick&gt; gehzumteufel: were you able to test last night?</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;atinm|sick&gt; to see if you could see channels above 12?</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;gehzumteufel&gt; atinm|sick: I wasn't. I forgot to copy the build to my device and went home with a massive headache. lol</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;gehzumteufel&gt; I'll test tonight for sure.</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;codeworkx&gt; CMC732 WiMax chip driver</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;atinm|sick&gt; you are a weenie. *I* had a massive headache</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;gehzumteufel&gt; haha well you win because you are on meds and whatever else</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;atinm|sick&gt; actually I had an over the top headache, body ache, fever, nausea - the whole shebang last night</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;atinm|sick&gt; today it is just massive headache</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: CMC732 WiMax chip driver?</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yeah that sucks man</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: cmc730s I think for our epic</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;atinm|sick&gt; so basically we still don't really know whether our build works.</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm|sick&gt; ah well, debugging one click</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;gehzumteufel&gt; We'll know tonight.</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm|sick&gt; zachy_md: said it doesn't work, clandmeter said it does</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm|sick&gt; I don't trust zachy_md's build</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;atinm|sick&gt; so we need confirmation :)</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;nullghost&gt; from a few teardown websites: Samsung CMC730S WiMax Baseband Processor</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;gehzumteufel&gt; For the wifi or the initial install?</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;atinm|sick&gt; wifi</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;gehzumteufel&gt; Ah okay yeah I'll test tonight for sure. Just copied the build to my device</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;atinm|sick&gt; you are on galaxys?</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;gehzumteufel&gt; Vibrant</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, I should build one of those for you.</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;gehzumteufel&gt; You comitted last night</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;gehzumteufel&gt; And I synced and built after commit</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: The Samsung Epic 4G uses the CMC730S for WiMAX and a Qualcomm QSC6085 CDMA2000 baseband</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;codeworkx&gt; right</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;atinm|sick&gt; gehzumteufel: ok</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;gehzumteufel&gt; atinm|sick: I can sync and build again if you prefer.</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;gehzumteufel&gt; atinm|sick: It only takes me 30 mins to build here at work</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm|sick&gt; no, its fine - we haven't added anything</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx: there is a sleep :)</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm|sick&gt; I added a sleep(60) to it</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm|sick&gt; lets see if I can see the error this time</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm|sick&gt; hopefully it is seconds, not minutes.</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm|sick&gt; ;)</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm|sick&gt; phew, reboot.</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;atinm|sick&gt; fuck</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;atinm|sick&gt; it doesn't get to that part</span><br />
+<span class="irc-date">[19:30]</span> <span class="irc-black">&lt;atinm|sick&gt; crap</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-green">* sixstringsg_away is now known as sixstringsg</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;zachy_md&gt; atinm|sick, channel 13 works, 14 not</span><br />
+<span class="irc-date">[19:33]</span> <span class="irc-black">&lt;zachy_md&gt; sec - looking for regulatory domain</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;zachy_md&gt; regulatory domain set to 14 - channel 14 works</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;zachy_md&gt; atinm|sick, were there any changes in userspace ?</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-black">&lt;zachy_md&gt; I mean - specifically from you / teamhacksung</span><br />
+<span class="irc-date">[19:37]</span> <span class="irc-navy">* Zilch25 (~Zilch25@32.161.26.31) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;codeworkx&gt; userspace? wifi? no</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;codeworkx&gt; not from us</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;zachy_md&gt; weird - I tried once with commits &amp; revert</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;zachy_md&gt; and the other time 1:1 copying</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;zachy_md&gt; but still didn't work :p</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;zachy_md&gt; your build works</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;zachy_md&gt; switching channels now - otherwise I'll get into trouble ^^</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, great.</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;zachy_md&gt; yeah - hopefully better (less) battery consumption &amp; working driver :)</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-green">* techmik|away is now known as techmik</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;techmik&gt; yay... netflix on my phone!!</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; huh, you didn't change it to anon this time :P</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik&gt; ./build.sh clean : permisson denied =)_</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;codeworkx&gt; chmod +x</span><br />
+<span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik_laptop&gt; i know... i thought you might wanna fix it for everyone =P</span><br />
