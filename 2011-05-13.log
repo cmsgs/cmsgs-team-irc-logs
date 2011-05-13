@@ -1332,3 +1332,43 @@
 <span class="irc-date">[15:58]</span> <span class="irc-black">&lt;atinm|sick&gt; etc</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;UberPinguin&gt; 660k lines in the diff for arch/arm</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; UberPinguin: wait till tonight, or.... I'll tell you how I make my skeletons, gimme a few</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa_: No rush, have to finish an equipment inventory at work</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; 'cus 90% or more of that is for files that don't get used</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;atinm|sick&gt; UberPinguin: I just diff the exact files themselves</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;atinm|sick&gt; the ones I know are used</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;atinm|sick&gt; not the whole tree</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: <a href="http://forum.xda-developers.com/showpost.php?p=13757957&amp;postcount=2128">http://forum.xda-developers.com/showpost.php?p=13757957&amp;postcount=2128</a></span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; hope it's clear now xD</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;UberPinguin&gt; mk</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;atinm|sick&gt; so like your defconfig, the mach-aries and plat-samsung trees</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;atinm|sick&gt; plat-s5p tree</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;atinm|sick&gt; etc</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; samsung hides crap all over the place</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;UberPinguin&gt; k. I'll come back at that after I get this inventory out.</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; .32 to .32 (moving the victory stuff back to where I9000 and everyone has it) is 314 files for the whole tree.  I know at least a handful of them are comments...for some reason samsung likes to pull credits out of the headers</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; I'll skel and strip it tonight if I have time/am awake it's already been a long day</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; that should clear out a bunch of BS</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm|sick, channel 13 + 14 not being recognized</span><br />
+<span class="irc-date">[16:42]</span> <span class="irc-black">&lt;atinm|sick&gt; dmesg?</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;zachy_md|busy&gt; sec</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;zachy_md|busy&gt; channel 12 also not working</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;zachy_md|busy&gt; channel 11 works</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;zachy_md|busy&gt; regulatory domain set to 14</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; <a href="http://www.pastiebin.com/?page=p&amp;id=4dcd0b3ad419c">http://www.pastiebin.com/?page=p&amp;id=4dcd0b3ad419c</a> .32 Epic vs .32 I9000 arch/arm.</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;atinm|sick&gt; this is using the latest kernel?</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;zachy_md|busy&gt; just nixxed some occurences of my mac</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;zachy_md|busy&gt; yes - your latest wifi driver 1:1</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;zachy_md|busy&gt; <a href="http://pastebin.com/tiHvGYGg">http://pastebin.com/tiHvGYGg</a></span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;zachy_md|busy&gt; the driver I previously had from intersectRaven (2.6.38.5 or .6) worked fine with channel 14</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;zachy_md|busy&gt; don't know about power consumption with that one</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;zachy_md|busy&gt; (<a href="https://github.com/intersectRaven/ir-kernel)">https://github.com/intersectRaven/ir-kernel)</a></span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;atinm|sick&gt; the one we merged broke us, that's why we went back to older</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ir-kernel 2.6.38 branch</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;atinm|sick&gt; but then I wanted the power tuff</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;zachy_md|busy&gt; yeah - my bad :(</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;atinm|sick&gt; so took that in but left country code code alone</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;zachy_md|busy&gt; anyway: I'm away again</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;zachy_md|busy&gt; later</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;atinm|sick&gt; hmm, this doesnt look right</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;atinm|sick&gt; this looks like output from the broken modem</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;atinm|sick&gt; sec</span><br />
