@@ -1790,3 +1790,119 @@
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik&gt; ./build.sh clean : permisson denied =)_</span><br />
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;codeworkx&gt; chmod +x</span><br />
 <span class="irc-date">[19:58]</span> <span class="irc-black">&lt;techmik_laptop&gt; i know... i thought you might wanna fix it for everyone =P</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;codeworkx&gt; its teh noobfilta</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;techmik&gt; lol\</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;techmik&gt; gonna flash stock and try te univeral in a minute</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;zachy_md&gt; atinm|sick, got wifi to work with my kernel now, too</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;zachy_md&gt; I believe it was the fixes to let it compile with O2 and higher optimization levels</span><br />
+<span class="irc-date">[20:09]</span> <span class="irc-black">&lt;zachy_md&gt; hardcoding to let it compile with -Os is fine, too :)</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;codeworkx&gt; zachy_md: did you ever try codesourcery toolchains?</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;zachy_md&gt; codeworkx, yeah, using them almost since the beginning :)</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;codeworkx&gt; newest?</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;zachy_md&gt; yes</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;zachy_md&gt; 2011.03</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;zachy_md&gt; why ? is there a regression ?</span><br />
+<span class="irc-date">[20:10]</span> <span class="irc-black">&lt;codeworkx&gt; maybe i should include it</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;zachy_md&gt; codeworkx, there's at least an issue for me if I compile it with optimize_for_size</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;zachy_md&gt; (-Os) - it doesn't boot or simply stays at the samsung logo</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;zachy_md&gt; with # config_optimize_for_size (commented out)</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;zachy_md&gt; it doesn't happen for me</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;zachy_md&gt; just a heads up and FYI - if the kernel doesn't boot for you at first attempt ^^</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-174-111-246-012.triad.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-green">* ChanServ sets mode +o Kaik541</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="http://paste.pocoo.org/show/388310/">http://paste.pocoo.org/show/388310/</a> nullghost's latest kernel</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;UberPinguin&gt; 2.6.35 for Epic</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;UberPinguin&gt; Looks like there's a null pointer dereference</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;UberPinguin&gt; Something in s3cfb</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;atinm|sick&gt; man, need the stupid updater.sh to go to sleep</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;atinm|sick&gt; put in sleeps everywhere</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;atinm|sick&gt; lets see</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;clandmeter&gt; atinm|sick: your latest build is doing something really strange</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;atinm|sick&gt; ?</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;clandmeter&gt; hard to tell</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;clandmeter&gt; screen is kind of dark</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;clandmeter&gt; looks like it shows the boot logo</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-navy">* Kaik541 (~IWasNever@cpe-174-111-246-012.triad.res.rr.com) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;clandmeter&gt; and the phone is hot</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;atinm|sick&gt; I don't know what else I did in the build. only care about wifi</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;atinm|sick&gt; and that seems good</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;atinm|sick&gt; so for now, go back to nightly</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;atinm|sick&gt; I'll put up a real update tonight I think</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;atinm|sick&gt; I might have had some other t hings related to cpu freq etc in there too</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;clandmeter&gt; you want to see logs?</span><br />
+<span class="irc-date">[20:41]</span> <span class="irc-black">&lt;atinm|sick&gt; sure</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx, do I need to put two .zip files on my sdcard?</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;atinm|sick&gt; both the kernel.zip and the update?</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;codeworkx&gt; universal = one</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;codeworkx&gt; and dont rename</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;atinm|sick&gt; ok</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;atinm|sick&gt; it looks like it is looking for an update in sdcard</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;atinm|sick&gt; but doesn't find it</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;codeworkx&gt; the old one (kernel + update)</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: which recovery?</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;atinm|sick&gt; mtd</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/vibrant_initramfs_files/init#L30">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/vibrant_initramfs_files/init#L30</a></span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;atinm|sick&gt; I can't tell, it goes by too fast.</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;codeworkx&gt; install_zip("/sdcard/update-cm-7-INITIAL-Vibrant-signed.zip");</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm|sick&gt; hmm.</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm|sick&gt; so that file should still be there when I stop</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm|sick&gt; but it isnt'</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm|sick&gt; let me see</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;atinm|sick&gt; where do we actually copy the update zip to /sdcard?</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; UberPinguin, your /drivers/video/samsung/s3cfb.c does have some differences although I don't see anything in s3cfb_probe (or anything in that file really) that should cause you to grenade like that.  I know your using a ton of different gpio and interupts than we do</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: you've to copy it there?</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;clandmeter&gt; atinm|sick: <a href="http://dl.dropbox.com/u/18871200/logcat.txt">http://dl.dropbox.com/u/18871200/logcat.txt</a></span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: and then run it from froyo cwm?</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa_: k</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;clandmeter&gt; atinm|sick: <a href="http://dl.dropbox.com/u/18871200/dmesg.txt">http://dl.dropbox.com/u/18871200/dmesg.txt</a></span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm|sick&gt; I'm running straight from stock.</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: 2e?</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm|sick&gt; by just copying kernel.zip to /sdcard/update.zip</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm|sick&gt; and running 2e</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm|sick&gt; yes</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: 2e sucks</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: unsupported xD</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm|sick&gt; lol</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm|sick&gt; ok - screw it then</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; I mean, I made some changed to the headphones the other day and got it to reboot everytime you plugged them in....that was fun just ask Wout` :)</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;codeworkx&gt; we need cwm</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;atinm|sick&gt; should I just copy the update-INITIAL to /sdcard?</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;Wout`&gt; no fun :P</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; it was fun over here :D</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: if you're using the old way, you need kernel + update</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;atinm|sick&gt; no, using universal</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;codeworkx&gt; if you're using the new way (universal) then only update</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;codeworkx&gt; copy it like it is</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;codeworkx&gt; and run it</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;codeworkx&gt; dont rename</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="http://paste.pocoo.org/show/388321/">http://paste.pocoo.org/show/388321/</a> Not sure what CONFIG_FB_S3C_TL2796 does or if it's relevant</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;atinm|sick&gt; but not from 2e</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;atinm|sick&gt; right&gt;?</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;atinm|sick&gt; I was hoping to do it from 2e - but screw it, if we can do one click from cwm froyo, that's fine.</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;UberPinguin&gt; Ah nvm, it's not &gt;.&gt; I can read, I promise</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;zachy_md&gt; looks like datadata is definitely too small</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;zachy_md&gt; I don't have much apps installed but "tap tap revenge4 + gun bros" or something else seems to use lots of space</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;zachy_md&gt; is there a way to change the partition layout ?</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;atinm|sick&gt; clandmeter: wow. wtf ..</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;zachy_md&gt; 10 MBs are free</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;clandmeter&gt; atinm|sick: the device looked really weird</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;zachy_md&gt; angry birds rio won't install and keeps on saying: "sorry there's not enough space to install this item"</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;clandmeter&gt; just pulled it of my pocket and it feld really warm</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;atinm|sick&gt; clandmeter: just install nightly :)</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;atinm|sick&gt; I don't know what else I had screwed with there</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;clandmeter&gt; i want to keep my 100% battery level :p</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;atinm|sick&gt; tho it does look like something related to net</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;atinm|sick&gt; let me look closer</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;zachy_md&gt; or it's the system directory with only 50 MB available</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;zachy_md&gt; clandmeter, I had that yesterday - "suspend" process seemingly looped or hang and caused lots of cpu load keeping it at 800 MHz</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;zachy_md&gt; battery drain in 6-7 hours of 50 %</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;clandmeter&gt; zachy_md: did you see the boot logo all the time?</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;atinm|sick&gt; clandmeter: I had put in cpu related stuff</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;UberPinguin&gt; Anyone here familiar with the CONFIG_ANDROID_PMEM_MEMSIZE_PMEM* settings?</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;atinm|sick&gt; but won't be there in tonight's nightly</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;atinm|sick&gt; so you can ignore it</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;atinm|sick&gt; until nightly</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;zachy_md&gt; clandmeter, no it was running normally but got very warm</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;atinm|sick&gt; if it happens then, then we're screwed :)</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;atinm|sick&gt; that's a technical term</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;zachy_md&gt; the day before I had 2 media-processes looping &amp; hogging the cpu each 40-50%</span><br />
