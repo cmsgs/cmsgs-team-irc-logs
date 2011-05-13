@@ -299,3 +299,147 @@
 <span class="irc-date">[2:58]</span> <span class="irc-black">&lt;Kaik541&gt; nullghost, there's a script called kernel.sh which will generate the kernel and a kernel-initial.zip</span><br />
 <span class="irc-date">[2:59]</span> <span class="irc-black">&lt;Kaik541&gt; and another called update.sh which will make update-initial.zip</span><br />
 <span class="irc-date">[2:59]</span> <span class="irc-black">&lt;Kaik541&gt; kernel-initial.zip can be flashed from 2e recovery if named "update.zip" or from any CWM</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;Kaik541&gt; and that will bump you into CWM 3.x which can install update-initial.zip</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;nullghost&gt; 2e recovery?</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;Kaik541&gt; you only need CWM if you want full automatic intsall</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;UberPinguin&gt; nullghost: Samsung proprietary recovery, version 2e</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;Kaik541&gt; 2e = stock eclair recovery</span><br />
+<span class="irc-date">[3:00]</span> <span class="irc-black">&lt;nullghost&gt; UberPinguin: ah, never heard it called that before.</span><br />
+<span class="irc-date">[3:01]</span> <span class="irc-black">&lt;UberPinguin&gt; nullghost: Later Samsung recoveries fixed the package signing flaw, so you can't flash random zips with them</span><br />
+<span class="irc-date">[3:02]</span> <span class="irc-black">&lt;wwyvern&gt; Hi folks..is it safe to build or are things still being merged tonight?</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;wwyvern&gt; and where do I do git reset --hard to reset back to the regular build?</span><br />
+<span class="irc-date">[3:04]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: ...wtf, why wouldn't Nexus S/samsung work? that is also supposed to be a supported model.</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, no idea, it just seems to work for most people</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;Unhelpful&gt; also still not convinced i have an unsupported device issue, *for other people that seems to involve an explicit message*</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;wwyvern&gt; thanks techmik</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hang on wwyvern I have a new sound build I just finished up</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I don't see how it would be (much) worse than the last one so.... <a href="http://dl.dropbox.com/u/12136464/soundtest2051211a.tar.gz">http://dl.dropbox.com/u/12136464/soundtest2051211a.tar.gz</a></span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;wwyvern&gt; going get it</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;wwyvern&gt; now what do I do with it :)</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;techmik&gt; damn... still no video</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;wwyvern&gt; just load the kernel?</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; they are replacement files</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; wwyvern: wait 1 sec</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if your going to have to hard-reset anyway I don't see the harm in just dumping them in :P</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;wwyvern&gt; how?</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;techmik&gt; no reset needed, i'm putting them in</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;wwyvern&gt; do I just sync again?</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it compiles, no change to the headphones (in mach-aries anyway) no S5P-RP so no changes in power management. its about as clean a merge as I can get</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;techmik&gt; ok</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik&gt; cd kernel samsung/2.6.35</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik&gt; git checkout tmc2</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;techmik&gt; git pull techmik tmc2</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;Unhelpful&gt; Error: Please make sure that your device's Date and Time settings are updated to the current date.</span><br />
+<span class="irc-date">[3:15]</span> <span class="irc-black">&lt;Unhelpful&gt; wtf.</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;wwyvern&gt; fatal: 'tmc2' does not appear to be a git repository</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;wwyvern&gt; fatal: The remote end hung up unexpectedly</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;techmik&gt; git branch</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;techmik&gt; what's it say?</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;wwyvern&gt;  gingerbread</span><br />
+<span class="irc-date">[3:16]</span> <span class="irc-black">&lt;wwyvern&gt; * tmc2</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;techmik&gt; sec</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-black">&lt;wwyvern&gt; my bad-dropped a word-hold on</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;wwyvern&gt; it's going</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;wwyvern&gt; Automatic merge failed; fix conflicts and then commit the result.</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;techmik&gt; hmmm</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;techmik&gt; why would there be a conflict....</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik&gt; git status</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;wwyvern&gt; lots of stuff</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;techmik&gt; at the end</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;wwyvern&gt; # Unmerged paths:</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;wwyvern&gt; #   (use "git add/rm &lt;file&gt;..." as appropriate to mark resolution)</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;wwyvern&gt; #</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;wwyvern&gt; #	both modified:      arch/arm/configs/aries_captivate_defconfig</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;wwyvern&gt; #	both modified:      arch/arm/configs/aries_galaxys_defconfig</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;wwyvern&gt; #	both modified:      arch/arm/configs/aries_galaxysb_defconfig</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;Unhelpful&gt; o look, same results, netflix exits at login. :P</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;wwyvern&gt; #	both modified:      arch/arm/configs/aries_vibrant_defconfig</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;wwyvern&gt; #	both modified:      arch/arm/mach-s5pv210/mach-aries.c</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, <a href="http://forum.xda-developers.com/showpost.php?p=13742428&amp;postcount=6081">http://forum.xda-developers.com/showpost.php?p=13742428&amp;postcount=6081</a> someone says this works</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;wwyvern&gt; #	both modified:      sound/soc/s3c24xx/s5pc1xx-i2s.c</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;wwyvern&gt; #</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, can't really test as my device isn't even rooted haha</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;techmik&gt; Kaik541, all i changed is the big S to little, but no video</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;Unhelpful&gt; that's a *lot* to have to change.</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, how much do you want netflix on your phone?</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;Unhelpful&gt; and others are getting farther w/o all of this screwing around, so it's clearly not actually the problem. :P</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;techmik&gt; would that help with video, you think?</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;Kaik541&gt; I'll just wait until someone makes a netflix that doesn't check validation in same sense</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;Kaik541&gt; or just not use it on my phone because it's a phone and I have a laptop</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;Unhelpful&gt; it silently exits after trying to log in. that is an app bug. :P</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;techmik&gt; ok, i changed all that</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;techmik&gt; rebooting</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;techmik&gt; with the settings there it says unsupported device...... if you change the google to samsung and herring to aries and Samsung to samsung its letting me log in</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;techmik&gt; stil no video</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-navy">* chaembian (~chaembian@122.174.181.209) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; working on a cheater script for ya'll cd's to 2.6.35 then does the checkout and pull</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; at least for the stuff tech is kind enough to git for me :)</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;wwyvern&gt; cool</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I don't...um I need to add you to something right tech?</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;techmik&gt; not really sure////</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; before I can checkout?</span><br />
+<span class="irc-date">[3:40]</span> <span class="irc-black">&lt;techmik&gt; whats it do?</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;techmik&gt; in the script, if they dont have it already, they need to add me as a remote</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what the script? it does what you tell people to do everytime I want them to test some weird idea of mine :P cd's checkout and pull for $1</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;techmik&gt; git remote add techmik git://github.com/techmik/android_kernel_samsung.git</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;techmik&gt; if i am already a remote, t'll error</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;techmik&gt; "remote already exists"</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; don't really care about the error tho I guess I could try and trap it</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; prolly a bad thing 'cus then if anything else goes wrong they wont know</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;techmik&gt; if they dont add or have it, they cant pull from me</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah I'm just thinking of my vibrant peeps for now</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;techmik&gt; ah</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;techmik&gt; then no worry =)</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;techmik&gt; they all have it already</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;techmik&gt; cd kernel/samsung/2.6.35</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;techmik&gt; git checkout tmc2</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;wwyvern&gt; is that for me?</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;techmik&gt; git pull techmik tmc2</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;techmik&gt; no</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; <a href="http://dl.dropbox.com/u/12136464/techtmc">http://dl.dropbox.com/u/12136464/techtmc</a> put that in your ~/bin and see it it stays 755</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;techmik&gt; cd ~/android system</span><br />
+<span class="irc-date">[3:44]</span> <span class="irc-black">&lt;techmik&gt; build</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; if it</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik&gt; l</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it takes one argument (the branch you are trying to get)</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; -rw-r--r--</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so in theory, if you cd /android/system then techtmc tmc2 it *might* pull down the tmc2 branch</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; not a surprise doubt they would be very happy loading active script files</span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;Unhelpful&gt; really i expect it was the browser that made that call.</span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;Unhelpful&gt; http doesn't *have* permissions.</span><br />
+<span class="irc-date">[3:48]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I figured dropbox striped the perms off</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but the browser maybe, dono</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;techmik&gt; cant hurt to learn git =)</span><br />
+<span class="irc-date">[3:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what I do know is I need to get some sleep, need to get some folks to the airport at o'dark thirty</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;wwyvern&gt; I gotta crash too..</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;techmik&gt; what to tewst on your build?</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;techmik&gt; test*</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; make sure it makes noise</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;techmik&gt; lol. k</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; test the headphone controls, that will let me know if its mach-aries or something weird in wm8994</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; seeing as I left mach-aries alone this time</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; anywho night kids</span><br />
+<span class="irc-date">[3:51]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;wwyvern&gt; guess I'll crash too and just try and catch y'all in the morning?</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;techmik&gt; nite</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;wwyvern&gt; cause git won't let me pull unmerged files...</span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;wwyvern&gt;  how do I get back to regular build just checkout gingerbread?</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;techmik&gt; cd kernel samsung 2.6.35</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;wwyvern&gt; k</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;techmik&gt; git reset --hard</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;wwyvern&gt; HEAD is now at b839f8e Merge branch 'tmc2' of git://github.com/techmik/android_kernel_samsung into tmc2</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;techmik&gt; git checkout gingerbrerad</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;techmik&gt; spell it right</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;techmik&gt; =)</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;wwyvern&gt; k on gb</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-black">&lt;techmik&gt; now build, or crach =)</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-black">&lt;techmik&gt; crash</span><br />
+<span class="irc-date">[3:56]</span> <span class="irc-black">&lt;wwyvern&gt; build while crashed :)</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;wwyvern&gt; check in am</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;wwyvern&gt; thanks for help mon</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;techmik&gt; np</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;wwyvern&gt; night</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;techmik&gt; brb</span><br />
