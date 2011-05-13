@@ -1049,3 +1049,286 @@
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;nullghost&gt; at least it lets you keep a somewhat standard init process, you're just kind of chain-loading the init</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;atinm|sick&gt; we check if /cache/.startrecovery is present, or if bootmode=3 is present</span><br />
 <span class="irc-date">[14:59]</span> <span class="irc-black">&lt;atinm|sick&gt; either way, we boot recovery</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm|sick&gt; yes</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm|sick&gt; or bootmode=2 - I forget which means recovery</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm|sick&gt; but you get the idea</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;nullghost&gt; so here's my question, is there any reason why I shouldn't be able to TRY to boot .35 from bml7 on a stock rom?</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;nullghost&gt; the kernel itself, I don't expect init to work</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm|sick&gt; depends on your initramfs</span><br />
+<span class="irc-date">[15:00]</span> <span class="irc-black">&lt;atinm|sick&gt; but yes basically</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm|sick&gt; it should work.</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;nullghost&gt; I ask because I built and flashed a .35, and attached a uart debugger</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;nullghost&gt; it panicked immediately after unpacking</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm|sick&gt; did it say where?</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;nullghost&gt; no. that's what frustrates me.</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm|sick&gt; it seems like a kernel init problem, building samsung kernel works?</span><br />
+<span class="irc-date">[15:01]</span> <span class="irc-black">&lt;atinm|sick&gt; and your .35 is built the same way?</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;nullghost&gt; the uart debugger logs all the printk's without requiring adb</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;nullghost&gt; it panicked right after the "kernel unpacked... booting Linux" printk</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;atinm|sick&gt; right, but do you get any logs?</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;atinm|sick&gt; it seems like a bad start address</span><br />
+<span class="irc-date">[15:02]</span> <span class="irc-black">&lt;atinm|sick&gt; you should look at your mach-* files</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;nullghost&gt; hmm, that's entirely possible. if I clone the start address from a .32 stock kernel, do you think I'll have more luck?</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;atinm|sick&gt; where your github?</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;atinm|sick&gt; nullghost: oh yes.</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;atinm|sick&gt; th</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;atinm|sick&gt; they should be the same</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;atinm|sick&gt; the processor didn't change.</span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;nullghost&gt; <a href="http://github.com/EpicCM/android_kernel_samsung.git">http://github.com/EpicCM/android_kernel_samsung.git</a></span><br />
+<span class="irc-date">[15:03]</span> <span class="irc-black">&lt;atinm|sick&gt; between .32 and .35</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;nullghost&gt; err, remove the .git :p</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;nullghost&gt; we've forked everything we need from you guys</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;atinm|sick&gt; what's your device called?</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;nullghost&gt; once we get this in a mostly working state, we'll pull request</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;nullghost&gt; epic. sph-d700</span><br />
+<span class="irc-date">[15:04]</span> <span class="irc-black">&lt;atinm|sick&gt; ok</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;nullghost&gt; myself, UberPinguin and Decad3nce are all working on the epic.</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;atinm|sick&gt; your defconfig should be very similar to your froyo one</span><br />
+<span class="irc-date">[15:05]</span> <span class="irc-black">&lt;UberPinguin&gt; I'd really like to know why we can't get a standalone zImage out of .35 to flash to bml7. It works in .32.</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;UberPinguin&gt; Unless it's a side effect of switching to the mtd stack</span><br />
+<span class="irc-date">[15:06]</span> <span class="irc-black">&lt;atinm|sick&gt; it most probably is. sec</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;atinm|sick&gt; you know you shouldn't be doing any of the stage1/stage2 stuff righ tnow if you can't boot yet</span><br />
+<span class="irc-date">[15:07]</span> <span class="irc-black">&lt;atinm|sick&gt; put your initramfs in your zImage like everyone else</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;atinm|sick&gt; everyone else non teamhacksung I mean</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;codeworkx&gt; back</span><br />
+<span class="irc-date">[15:08]</span> <span class="irc-black">&lt;UberPinguin&gt; I think the theory right now is that we can't boot because we have a stage2 kernel? idk, nullghost has been working on .35 while I've focused on platform.</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;nullghost&gt; UberPinguin: no, I was misled on that. I think the start address is the problem</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;UberPinguin&gt; Ahh ok</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm|sick&gt; what you are building is stage1 kernel from what I can tell</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;UberPinguin&gt; 0xb  iirc?</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm|sick&gt; which won't boot</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;nullghost&gt; I was under the impression that something loaded before the kernel did, and chainloaded the kernel.</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;atinm|sick&gt; unless you  have everything working well :)</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;UberPinguin&gt; ahh</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: which ramdisk you're using?</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm|sick&gt; first ignore the stage1/2</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm|sick&gt; just build with your full initramfs for now</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm|sick&gt; at least get that out of the way of debugging</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: Not sure what you mean?</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;codeworkx&gt; INITRAMFS_SOURCE</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm|sick&gt; the files, they're all stage1 stuff</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx: same as us</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;atinm|sick&gt; they created a copy</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/configs/aries_captivate_defconfig#L89">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/configs/aries_captivate_defconfig#L89</a></span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: your bootloader is using boot and recovery partition</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx and atinm|sick, if you check <a href="https://github.com/EpicCM/android_kernel_samsung/commits/teamhacksung-merge">https://github.com/EpicCM/android_kernel_samsung/commits/teamhacksung-merge</a> you can see what all I've done, it's not much so far.</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;codeworkx&gt; so its useless for u</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;atinm|sick&gt; they have an epic.list</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;atinm|sick&gt; or whatever</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: <a href="https://github.com/EpicCM/epic-2.6.35-initramfs">https://github.com/EpicCM/epic-2.6.35-initramfs</a> I believe is what nullghost has set up for it</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;UberPinguin&gt; We have a different one entirely for .32</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;atinm|sick&gt; UberPinguin: it isn't using that.</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: set initramfs source to this folder</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;nullghost&gt; UberPinguin: that's old.</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;codeworkx&gt; in defconfig</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;UberPinguin&gt; nullghost: oh ok</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;codeworkx&gt; your bootloader is using both partitions right?</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: check L89 in that link I pasted to our kernel</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;UberPinguin&gt; nullghost: So.. what *are* we using for initramfs now?</span><br />
+<span class="irc-date">[15:12]</span> <span class="irc-black">&lt;nullghost&gt; UberPinguin: usr/epic_initramfs_files/</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;nullghost&gt; it's in the kernel now</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;atinm|sick&gt; nullghost: here's what you do - first you put whatever you need in your initramfs dir, and point to it. first get that working</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;atinm|sick&gt; then figure out stage1/stage2</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;atinm|sick&gt; since your bootloader is actually confused too</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: We have recovery in bml8 that is triggered by 3-button combination, and a recovery mode in bml7 that is triggered by "reboot recovery" if I've understood it correctly.</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;UberPinguin&gt; nullghost: ok</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: sure?</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: so samsung has really fucked up</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;UberPinguin&gt; lol</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx: that is what I thought.</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;atinm|sick&gt; totally fuxed. their reboot recovery just has a bug</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;atinm|sick&gt; it isn't writing the params.lfs ;)</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;codeworkx&gt; ok, so we need 2 stage</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;UberPinguin&gt; I know that 3-button definitely gets you to a different recovery partition than 'reboot recovery'</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;atinm|sick&gt; so bootloader is booting bml8</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;nullghost&gt; atinm|sick: I do have that much working. I've cloned one of the other usr/initramfs in the kernel, and changed the appropriate values.</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;codeworkx&gt; and we need to write the kernel to bml8 too</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;atinm|sick&gt; or 7 whichever is boot image</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;atinm|sick&gt; bml7?</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;nullghost&gt; bml7 is boot image, right</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;UberPinguin&gt; bml7 is the boot kernel</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;atinm|sick&gt; ok.</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;UberPinguin&gt; bml8 is recovery</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-black">&lt;atinm|sick&gt; same as us</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: have a look at bml_over_mtd. theres a reservoir specified. you have to find out where it is on your device</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: before using this beast</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx: you help. I'm going to lie down again</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;codeworkx&gt; sure</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;atinm|sick&gt; first my advice is just to forget stage 1 and 2</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: will that even matter yet? I just want to see the kernel boot up to init</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-black">&lt;atinm|sick&gt; and boot bootimage using a builtin initramfs</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;atinm|sick&gt; nullghost we don't know where it is failing yet.</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;atinm|sick&gt; I don't know where we set the start address</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;atinm|sick&gt; you are mach-aries?</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: no, but later. point initramfs source to a folder which contains a complete ramdisk</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: then you can play with it</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;nullghost&gt; atinm|sick: yes. the old kernel was aries_rev03</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;atinm|sick&gt; ok</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;atinm|sick&gt; wow, same as captivate</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nullghost&gt; hmm. I think cappy is the defconfig I cloned</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;atinm|sick&gt; ok</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nullghost&gt; let me check the start address in our stock kernel</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;atinm|sick&gt; was thinking you should diff that</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nullghost&gt; you go lay down and get feeling better :p</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: just 4 info. our bootloader cannot boot real android boot.img. it can boot zImages with attached ramdisks</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;codeworkx&gt; so point source to a ramdisk</span><br />
+<span class="irc-date">[15:18]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: so how does that work? is the usr/$device_initramfs_files/ not a real ramdisk?</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; it's a very little one</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; which decides if we want to boot or to go into recovery</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;nullghost&gt; ramdisk shouldn't even matter until we can get the kernel itself stable, right?</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; and then it extracts a another ramdisk</span><br />
+<span class="irc-date">[15:19]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/configs/aries_captivate_defconfig#L89">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/arch/arm/configs/aries_captivate_defconfig#L89</a> this line to eg /home/blah/initramfs</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/gingerbread-galaxys-initramfs/tree/2.6.35/data">https://github.com/teamhacksung/gingerbread-galaxys-initramfs/tree/2.6.35/data</a></span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;codeworkx&gt; try this</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;atinm|sick&gt; nullghost: you're correct up to a point. it shouldn't matter</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;atinm|sick&gt; you should see something in log</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;atinm|sick&gt; so first check aries processor stuff</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;atinm|sick&gt; things like start addresses and the like</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: I don't expect init to work yet, so I'm not worried about the ramdisk right now.</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;atinm|sick&gt; I don't know where we set it..</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: without ramdisk you would never get adb or something</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-black">&lt;atinm|sick&gt; nullghost: I forget when the kernel expands the initramfs</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: we have uart debuggers that will capture printk's from the very moment the device boots.</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;atinm|sick&gt; but it is early. so you will need to fix this soon. but yes, you can ignore for now</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: we don't need adb.</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx: they have uart debugger.</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;atinm|sick&gt; bastards.</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: coolya said this doesn't work on our kernel. something is fuct</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;codeworkx&gt; you really need adb xD</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;nullghost&gt; wait, maybe the debugger line is what's fuxing us?</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-black">&lt;atinm|sick&gt; nullghost, does your uart debugger work on .32?</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;nullghost&gt; yes, omg I wonder if that's the problem....</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm|sick&gt; it is possible - look at the kernel boot line</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;nullghost&gt; your kernel source uses FIQ debugger</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm|sick&gt; in the defconfig</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;nullghost&gt; but we use SAC debugger</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm|sick&gt; yup</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm|sick&gt; :)</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;nullghost&gt; maybe if I change that, it won't panic</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;nullghost&gt; how did I fucking miss that.</span><br />
+<span class="irc-date">[15:23]</span> <span class="irc-black">&lt;atinm|sick&gt; don't jump up and down quite yet :)</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm|sick&gt; I forget why we had to do FIQ</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;nullghost&gt; alright, well I don't have my debugger in the mail yet, I'll have to wait until uber is available again</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm|sick&gt; I have a vibrant</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm|sick&gt; a vibrant!</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm|sick&gt; I could do shit to it</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm|sick&gt; solder stuff</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm|sick&gt; riff stuff</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;atinm|sick&gt; wait, I think now I want another ;)</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;nullghost&gt; we had debugging working on .35 in the past, I'm trying to remember what I changed to get debugging working</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;atinm|sick&gt; since I like having my own phone completely untouched now</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;nullghost&gt; it may have just been the cmdline, but maybe I had to disable FIQ too</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;nullghost&gt; I think this is the problem, hmm CONFIG_CMDLINE="console=ttyFIQ0,115200 init=/init"</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;atinm|sick&gt; I think you would have to</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;atinm|sick&gt; try it.</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;atinm|sick&gt; oh, you don;'t have debugger</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: cmdline doesn't matter. it's set by bootloader</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx, there is something about it tho</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: you're right, I forgot bootloader overrides it, so bootloader should set it to ttySAC2 anyway</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;atinm|sick&gt; if we use ttySAC there, it doesn't work</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: talk with coolya. he was never able to use his uart</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;atinm|sick&gt; nullghost: but you guys got it to work on .32?</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-green">* ChanServ sets mode +o techmik</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;nullghost&gt; atinm|sick: yes. there's several things happening on .32 that prevent debugging unless you change some things.</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;atinm|sick&gt; because if so, then we should be able to on .35</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;nullghost&gt; one is debugging core driver is disabled.</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;atinm|sick&gt; by changing the same things :)</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;atinm|sick&gt; I wish coolya|away was here</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;nullghost&gt; two is init.rc needs to write two values to KEEP the debugger attached when the kernel hands off to init</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;atinm|sick&gt; my head hurts too much</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;atinm|sick&gt; well, wtf?</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;atinm|sick&gt; you need init to run to .. you mean after</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;atinm|sick&gt; it will start but die?</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;techmik_laptop&gt; wtf is up with xchat? it says all my nicks already in use.....</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;nullghost&gt; there are two "write..." lines in init.rc that need to be there for the debugger to stay attached when the kernel hands off to init</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Disconnected by services)</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;atinm|sick&gt; ok</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;nullghost&gt; but that's assuming you can attach the debugger in the first place.</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;atinm|sick&gt; but before that it will still log the printk</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;atinm|sick&gt; until hand off</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;atinm|sick&gt; ?</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;nullghost&gt; right, up until init is called</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;atinm|sick&gt; k</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-green">* ChanServ sets mode +o techmik</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;atinm|sick&gt; so you should be able to get it to work on .35 as well</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;nullghost&gt; yeah, with the right kconf</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;atinm|sick&gt; I assume you have got it :)</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;nullghost&gt; I think the trick was enabling debugger core in drivers</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;atinm|sick&gt; you need to diff your froyo defconfig with .35</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;atinm|sick&gt; they should be quite close</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;atinm|sick&gt; and you should be able to explain the differences.</span><br />
+<span class="irc-date">[15:30]</span> <span class="irc-black">&lt;nullghost&gt; I will do that right now.</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;nullghost&gt; fux, I don't have a debugger to make sure it even works before I diff it.</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-black">&lt;nullghost&gt; uber is building mine as soon as the parts get to his house.</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;nullghost&gt; which should be tomorrow or monday</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;atinm|sick&gt; have him build one for me next..</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;atinm|sick&gt; even tho linus hates kernel debuggers ;)</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;atinm|sick&gt; I tend to like them when I can use them</span><br />
+<span class="irc-date">[15:32]</span> <span class="irc-black">&lt;nullghost&gt; you can ask him nicely, we figured out a cheaper version that only costs roughly $35 shipped.</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;atinm|sick&gt; I always have a jtag attached to hardware when I'm working</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;atinm|sick&gt; but since this is not for work,</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;atinm|sick&gt; don't have one</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;atinm|sick&gt; and can't borrow the ones at work :)</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;atinm|sick&gt; nor get my hardware coworkers to solder stuff for me</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-green">* Charkey (~Laurent@cpe-76-175-105-20.socal.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;nullghost&gt; parts list: <a href="http://kan.gd/ivw">http://kan.gd/ivw</a></span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;nullghost&gt; the 'nullghost' sheet is our modified build, it's *strictly* the 619K resistor (FM_BOOT_ON_UART)</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;nullghost&gt; which I guess is factory mode boot + uart debugging</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;nullghost&gt; his prior builds were a little bit more expensive ($40-50) but had a 4-position switch for different resistances</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-green">* techmik67 is now known as techmik</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-black">&lt;atinm|sick&gt; nullghost: all latin to me.</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-black">&lt;atinm|sick&gt; &lt;-- purely software. I have hardware guys do hardware for me ;)</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;nullghost&gt; hahaha</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;nullghost&gt; in a nutshell, the cable triggers a debugging mode in the bootloader by using specific resistance values</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;nullghost&gt; but you can trigger all kinds of things with different resistances</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;nullghost&gt; car dock mode, serial console</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;atinm|sick&gt; cool</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;atinm|sick&gt; someone else will have to build it for me tho</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;atinm|sick&gt; back in a bit</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;techmik&gt; i want my netflix</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-green">* TMC_Sherpa_ (~TMC_Sherp@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx: stop telling ppl to use taskkiller</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;codeworkx&gt; lol</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;atinm|sick&gt; only use it to kill tasks that are going nuts (using cpu)</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;codeworkx&gt; i've said TASKMANAGER not auto taskkiller</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;codeworkx&gt; because someone asked me how to kill a hanging task</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;codeworkx&gt; but users are dumb</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;atinm|sick&gt; yeah, but now ppl are quoting you "but codeworkx said to use task killer" ;)</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;codeworkx&gt; because they're dumb</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;atinm|sick&gt; +1</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;atinm|sick&gt; I don't feel like yelling at them</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;atinm|sick&gt; so they can do whatever they want</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; I've seen people delete the kernel to free up space......</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;atinm|sick&gt; hey, turning it off saves on battery too.</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; I'm not talking about a phone, HPUX system</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; lets say the guy who was supposed to be training me back at CellONE....well he had a sticky note with df -k on his monitor</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;UberPinguin&gt; atinm|sick: I can build one for you.</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;atinm|sick&gt; UberPinguin: I may need your expertise if I get any new hardware :)</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;atinm|sick&gt; right now I'm good since we're past the point of needing a uart debugger</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;atinm|sick&gt; you guys on epic tho seem to need it</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;atinm|sick&gt; but I'd insist that you do some diffs against .32</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;atinm|sick&gt; on the arch/arm tree</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;atinm|sick&gt; for your device</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;atinm|sick&gt; and try to get your initramfs stable as a built in initramfs</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;UberPinguin&gt; Ah, arch/arm should be easy. Other things... there was a lot of reorganization, so you have the same or similar files in different locations and it makes a *lot* of extra output in the diff</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;atinm|sick&gt; attack 2 stage later.</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;atinm|sick&gt; you just care about arch/arm right now</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;UberPinguin&gt; k</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;atinm|sick&gt; you're way to early in your panic/crash right now</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;atinm|sick&gt; or at least, it looks like you are.</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; even arch/arm is bad.  lots of stuff in /victory</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;atinm|sick&gt; ah, TMC_Sherpa_ can help you.</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;atinm|sick&gt; ;)</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;atinm|sick&gt; he is my guru when it comes to where things went</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;atinm|sick&gt; and where they are set</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;atinm|sick&gt; etc</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;UberPinguin&gt; 660k lines in the diff for arch/arm</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; UberPinguin: wait till tonight, or.... I'll tell you how I make my skeletons, gimme a few</span><br />
