@@ -1906,3 +1906,216 @@
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;atinm|sick&gt; if it happens then, then we're screwed :)</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;atinm|sick&gt; that's a technical term</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;zachy_md&gt; the day before I had 2 media-processes looping &amp; hogging the cpu each 40-50%</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;clandmeter&gt; my display was almost black and the bootlogo kept repeating quicly</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;zachy_md&gt; clandmeter, ok, so it was something different</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx, I'm sure it is something simple that is breaking 2e</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;atinm|sick&gt; it flashes our kernel</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;atinm|sick&gt; but then cannot run update.sh</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;zachy_md&gt; clandmeter, but if the bootlogo keeps on looping it can be an issue with system_server and/or graphics initilization</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;atinm|sick&gt; or cannot install_zip</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;atinm|sick&gt; I don't know which</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;zachy_md&gt; clandmeter, does it work for you now ?</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;techmik&gt; it works from froyo</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: maybe 2e isn't allowed to run shell scripts</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;zachy_md&gt; clandmeter, if not - try wipe cache &amp; dalvik cache</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;techmik&gt; but didnt from stock</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;atinm|sick&gt; but we're not in 2e when this fails</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;atinm|sick&gt; we're in our kernel</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: on i9k it works</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;atinm|sick&gt; it flashed our kernel</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;zachy_md&gt; clandmeter, if that doesn't help: factory reset</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;atinm|sick&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/vibrant_initramfs_files/init#L30">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/vibrant_initramfs_files/init#L30</a></span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;clandmeter&gt; its ok now, just hard reset and booted fine</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;atinm|sick&gt; who puts the update-cm7-.. in /sdcard?</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;zachy_md&gt; clandmeter, ok :)</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: in 2.2 recovery: create efs backup, bmlwrite kernel</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: then it reboots into cwm3 with our kernel</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;atinm|sick&gt; ah! I got it..</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;atinm|sick&gt; damn it.</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: then it should automatically recall tje update</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;atinm|sick&gt; it's because I had to rename for 2e</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;atinm|sick&gt; rename to update.zip</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;codeworkx&gt; i've said !!!!!!</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;codeworkx&gt; -.-</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;atinm|sick&gt; I know I know - I'm trying to  make 2e work!</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;zachy_md&gt; atinm|sick, codeworkx: the no space issue is bothering me</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;zachy_md&gt; :p</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: we can rename the file to update.zip and change it in emergencyboot to look for update.zip</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;atinm|sick&gt; zachy_md: fixitfixitfixit</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; can you link it to update.zip? rather than rename?</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;zachy_md&gt; atinm|sick, XD</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/vibrant_initramfs_files/init#L30">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/vibrant_initramfs_files/init#L30</a> change this to /sdcard/update.zip</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;zachy_md&gt; atinm|sick, how ?</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: then it will work</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;atinm|sick&gt; yeah, that's what I was thinking :)</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;atinm|sick&gt; we can test to see which one is there..</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;codeworkx&gt; but this will probably confuse noobs</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;zachy_md&gt; atinm|sick, editing the scripts included in the INITIAL update ?</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; tech did the same thing the other day btw...and got the same response from codeworkx  iirc</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;atinm|sick&gt; zachy_md: not you, codeworkx</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: and if a user has a update.zip on his sdcard which isn't our?</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: bad</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;atinm|sick&gt; zachy_md: you get to fixitfixitfixit /datadata</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;atinm|sick&gt; yeah, lets first check for our -INITIAL-</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;atinm|sick&gt; if not found, it must be because he came via 2e</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;codeworkx&gt; can we read the name of the recovery from somewhere?</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;codeworkx&gt; that would work</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;atinm|sick&gt; I dunno, I doubt it.</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;codeworkx&gt; if 2e then update.zip if not then initial</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;atinm|sick&gt; especially 2e.</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;zachy_md&gt; atinm|sick, maybe later - currently don't have much time to dive deeper into the matter ^^</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;atinm|sick&gt; samsung wouldn't make our life that easy</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;atinm|sick&gt; maybe an env variable?</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;atinm|sick&gt; screw it, just check to see if -INITIAL- is there</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;atinm|sick&gt; if not, then flash update.zip</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;atinm|sick&gt; if hosed, then use Odin to get back to stock</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;atinm|sick&gt; and go to froyo ;)</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;gehzumteufel&gt; It works with 3e but not 2e?!</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;gehzumteufel&gt; lulz</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: ok, thats fine</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;codeworkx&gt; gehzumteufel: 3e doesn't work at all</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;codeworkx&gt; gehzumteufel: 3e checks for signed updates</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;codeworkx&gt; gehzumteufel: special samsung key</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;gehzumteufel&gt; Yeah I know about that part</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;codeworkx&gt; gehzumteufel: crack it xD</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;gehzumteufel&gt; There is a modified 3e on the forums that deletes that part</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;gehzumteufel&gt; lol</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;gehzumteufel&gt; owned</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx: I have to go lie down again</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;atinm|sick&gt; can you do this?</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: np, i'll do it later</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;atinm|sick&gt; thanks.</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;atinm|sick&gt; gone for a bit</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;UberPinguin&gt; meh. Having the kernel modules outside of the initramfs is a bit of a pain</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; too be fair, your phone is kinda weird, maxx8898 and a max8893?</span><br />
+<span class="irc-date">[21:23]</span> <span class="irc-black">&lt;UberPinguin&gt; heh</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; does it come with lead-acid or something :)</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;UberPinguin&gt; hahaha</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; the initial list of /arch/arm came up with like 64 files, but most of the changes were garbage. 25 look like they do need to be looked at, I'm not sure where you kids are at code wise</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;zachy_md&gt; nite</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-green">* zachy_md (~zacharias@chello084114179145.16.15.vie.surfer.at) has left this channel.</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; la...ter</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-174-111-246-012.triad.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-green">* ChanServ sets mode +o Kaik541</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;techmik&gt; it was very cool watching sons of anarchy in the waiting room at my dr office.... i hope it works again after restore......</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; I hope it works again after restore....um I'm not going to ask what kind of doctor it was</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;techmik&gt; lol</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;techmik&gt; went to stock, then froyo to try codeworkx latest</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;techmik&gt; then i wanna figure out how to use codesourcery toolchain....</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;atinm|sick&gt; so stock vibrant 2e has /sdcard</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;atinm|sick&gt; but no /mnt/sdcard</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;atinm|sick&gt; froyo cwm on froyo would have what - /mnt/sdcard?</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;atinm|sick&gt; because if so, we abandon 2e</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;codeworkx&gt; froyo has it</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: we can check in script</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: np</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;atinm|sick&gt; ok</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;atinm|sick&gt; vibrant is weird, so the bml case has to check both /sdcard and /mnt/sdcard</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;atinm|sick&gt; I will let you do it</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;atinm|sick&gt; I cannot - my head hurts too much</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; is it just vibrant? I thought all the other (successful) tests were from speedmod</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;atinm|sick&gt; I was trying just 2e</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;atinm|sick&gt; not thru speedmod. I think speedmod will work</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;atinm|sick&gt; if we can support 2e and speedmod, that would be best. if not, we support only speedmod.</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;techmik&gt; i did it from firebird</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;atinm|sick&gt; 2e and cwm, that would be best, if not, we support only cwm</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; same difference techmik :P</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;techmik&gt; lol</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;atinm|sick&gt; better? :)</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, I'm off. codeworkx, if you leave before I come back - tell the status.</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;atinm|sick&gt; so I know where to start from</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; so is the problem the mount or the fact that the file got renamed? we can always try it with three .zip</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;codeworkx&gt; done</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;atinm|sick&gt; tho I think I will just go to bed :)</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;codeworkx&gt; kernel is ready</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;codeworkx&gt; you have to rebuilt completely then</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;atinm|sick&gt; I am repo syncing</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; kaik is here to keep us in line, you need to take care of yourself</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;atinm|sick&gt; so will be rebuilding everything</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;codeworkx&gt; now i'll modify the updater</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm|sick&gt; I blew away my kernel dir</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm|sick&gt; it had other crap cherry-picked that was too painful to rebase</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm|sick&gt; so I have to rebuild everything anyway</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;atinm|sick&gt; would be good.</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: updater will normally umount sdcard and mount it to /mnt/sdcard</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;UberPinguin&gt; hrm. I tried enabling the VGA Text Console in the Epic's kernel, but get an undeclared symbol error.</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;UberPinguin&gt; vgacon.c:508: error: 'PCIMEM_BASE' undeclared</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; UberPinguin: I'm not sure how your going to get your sec_jack merged into mach-aries.... I've never seen one like it</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;atinm|sick&gt; they become mach-aries-epic.c</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa_: If anything has been done to it by us, it wasn't me. afaik that should be the stock samsung file.</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;atinm|sick&gt; we should have done that ages ago</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;atinm|sick&gt; #ifdef hell</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; oh no, I'm talking about the froyo source UberPinguin</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;UberPinguin&gt; oh</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa_: link to the particular file please? I think I know the one you mean, but not 100% sure</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; GB merges it into mach-aries</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;atinm|sick&gt; what is the #FF hash tag?</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;atinm|sick&gt; follow friday?</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;UberPinguin&gt; atinm|sick: Follow Friday</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;UberPinguin&gt; "Here's a list of peole I think are neat, and you should all follow them too"</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;atinm|sick&gt; ah</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; uh oh</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; oh mn</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; grrr /arch/arm/mach-s5pv210/sec_jack.c</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; no / in front i r dum</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;atinm|sick&gt; how'd I show up with: "#FF @AshlyStar @ASkylitDrive @Aspen_Rae @AssistedSuicide @atinm @attn1 @awesomeness_jen @b_r_i_g_h_t @babyxj @BarHavoc @beckyboylan01"</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: updater.sh should work for 2e too. it umounts and remounts sdcard if its not mounted to /mnt/sdcard</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, so sync and go?</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: yes</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;atinm|sick&gt; cool</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;atinm|sick&gt; building</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;atinm|sick&gt; oh, I also added a build initial to the build.sh in buildscripts</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;clandmeter&gt; which ubuntu version is best for a build env?</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;atinm|sick&gt; haven't committed it</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;atinm|sick&gt; I use lucid. meerkat should be fine too</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;atinm|sick&gt; natty is weird - I'm not going near it</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;codeworkx&gt; i'm using Linux Mint 11</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-brick">* UberPinguin stabs s3cfb_probe</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;codeworkx&gt; the cm developer thread is updated to work with natty/mint 11</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx: I don't have control over what my servers run</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;clandmeter&gt; thats more up2date as the wiki?</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;atinm|sick&gt; so they run lucid.</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;codeworkx&gt; clandmeter: think so</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://forum.cyanogenmod.com/topic/15513-all-models-cyanogenmod-7-developer-thread/">http://forum.cyanogenmod.com/topic/15513-all-models-cyanogenmod-7-developer-thread/</a></span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, off for a bit</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;atinm|sick&gt; will be back in a few hours I think</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;atinm|sick&gt; dying here.</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;atinm|sick&gt; not literally.</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;atinm|sick&gt; I always have to say that ...</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;codeworkx&gt; lies down!</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;codeworkx&gt; lie^</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; both would be fine</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;gehzumteufel&gt; clandmeter: I run Maverick</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; the lies lie, not the death dying</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;clandmeter&gt; x86 i guess?</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;atinm|sick&gt; oh, wwyvern send me the FFC for vibrant - it got here today</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;atinm|sick&gt; sent</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-navy">* Kaik541 (~IWasNever@cpe-174-111-246-012.triad.res.rr.com) Quit (Ping timeout: 248 seconds)</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;atinm|sick&gt; but it seems I have to drill holes and stuff</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;atinm|sick&gt; any thread I can look at to show me what i need to do?</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;atinm|sick&gt; lol, good.</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;atinm|sick&gt; google.</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;atinm|sick&gt; they have videos</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;Wout`&gt; <a href="http://forum.xda-developers.com/showthread.php?t=945791">http://forum.xda-developers.com/showthread.php?t=945791</a></span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: lie down now!</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;atinm|sick&gt; now gone for real.</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;atinm|sick&gt; (package just came up, so had to open it)</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;techmik&gt; ok, back from dogs, reinstalled from universal.zip and restored from tibu.... netflix works with the 1 change</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: new universal xD</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: should work with 2e now</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;techmik&gt; lol, k</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; but</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;techmik&gt; rename or no?</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; you have to rebuild everything</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; and rename it to update.zip for 2e</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;gehzumteufel&gt; atinm|sick: NO DRILLING</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: had to make a kernel change</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;codeworkx&gt; technik: it checks for update INITIAL, if there's no, it's using update.zip in second step</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;codeworkx&gt; technik xD</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;techmik&gt; =)</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; UberPinguin: you guys have your gpio and irq tables all set up? _settings doesn't get read by mach-aries so you have to play around in there as well</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa_: No idea. I haven't worked on that myself.</span><br />
