@@ -503,3 +503,30 @@
 <span class="irc-date">[4:59]</span> <span class="irc-black">&lt;nullghost&gt; sometimes he's full of shit, sometimes he's useful.</span><br />
 <span class="irc-date">[4:59]</span> <span class="irc-black">&lt;nullghost&gt; apparently efs and modem partitions aren't in use on the epic and fascinate. they're an artifact from gsm sgs models</span><br />
 <span class="irc-date">[4:59]</span> <span class="irc-black">&lt;nullghost&gt; our cdma modem actually stores the efs and modem.bin in the modem memory banks</span><br />
+<span class="irc-date">[5:00]</span> <span class="irc-black">&lt;Kaik541&gt; oh noobnl, I remember him...</span><br />
+<span class="irc-date">[5:00]</span> <span class="irc-black">&lt;Kaik541&gt; well fuck, that could be an issue then because we don't have separate memory for either of those do we?</span><br />
+<span class="irc-date">[5:01]</span> <span class="irc-black">&lt;nullghost&gt; he says cdma download mode has a hardware hack that redirects bml12 to the modem memory banks</span><br />
+<span class="irc-date">[5:01]</span> <span class="irc-black">&lt;nullghost&gt; it's an interesting theory, if true.</span><br />
+<span class="irc-date">[5:02]</span> <span class="irc-black">&lt;Kaik541&gt; does he have any... evidence for this?</span><br />
+<span class="irc-date">[5:02]</span> <span class="irc-black">&lt;nullghost&gt; he says the firmware is accessed with dpram.ko and onedram.ko</span><br />
+<span class="irc-date">[5:02]</span> <span class="irc-black">&lt;nullghost&gt; probing him for evidence, but based on what I've found, I wouldn't be surprised if he's right</span><br />
+<span class="irc-date">[5:04]</span> <span class="irc-black">&lt;Kaik541&gt; that would be real annoying... you clearly couldn't use MTD partition map then could you? :|</span><br />
+<span class="irc-date">[5:08]</span> <span class="irc-black">&lt;nullghost&gt; well not necessarily. .32 modemctl might work, and parts of dpram and onedram are present in ns4g kernel source</span><br />
+<span class="irc-date">[5:08]</span> <span class="irc-black">&lt;nullghost&gt; the NS4G has the same modem as the epic and fascinate</span><br />
+<span class="irc-date">[5:08]</span> <span class="irc-black">&lt;nullghost&gt; where there's a will, there's a way, we just need to figure out what that is.</span><br />
+<span class="irc-date">[5:09]</span> <span class="irc-black">&lt;Kaik541&gt; good luck to you then :)</span><br />
+<span class="irc-date">[5:10]</span> <span class="irc-black">&lt;nullghost&gt; I think we'll need an NS4G source merge with your kernel to get cdma ril working</span><br />
+<span class="irc-date">[5:11]</span> <span class="irc-black">&lt;Kaik541&gt; I think we merged everything but the CDMA stuff xD</span><br />
+<span class="irc-date">[5:15]</span> <span class="irc-black">&lt;nullghost&gt; it depends on *what* cdma stuff it is</span><br />
+<span class="irc-date">[5:15]</span> <span class="irc-black">&lt;nullghost&gt; if it's the cdma clock source type stuff, that might not be needed</span><br />
+<span class="irc-date">[5:15]</span> <span class="irc-black">&lt;nullghost&gt; but if the ns4g uses the QSC6085 like the epic and fascinate do, we need that source merged stat</span><br />
+<span class="irc-date">[5:16]</span> <span class="irc-black">&lt;Kaik541&gt; I think it can be merged cleanly, we just didn't merge anything "not necessary"</span><br />
+<span class="irc-date">[5:16]</span> <span class="irc-black">&lt;Kaik541&gt; didn't want to possibly introduce new issues we had no need for</span><br />
+<span class="irc-date">[5:18]</span> <span class="irc-black">&lt;nullghost&gt; I think you'll need the defines to get cdma sgs variants working</span><br />
+<span class="irc-date">[5:18]</span> <span class="irc-black">&lt;nullghost&gt; more ifdef hell :)</span><br />
+<span class="irc-date">[5:18]</span> <span class="irc-black">&lt;Kaik541&gt; you guys get it working and pull request that bitch xD</span><br />
+<span class="irc-date">[5:22]</span> <span class="irc-black">&lt;nullghost&gt; &gt;.&lt;</span><br />
+<span class="irc-date">[5:22]</span> <span class="irc-black">&lt;Kaik541&gt; we can't debug without the phone so we don't know what's needed :(</span><br />
+<span class="irc-date">[5:40]</span> <span class="irc-black">&lt;Unhelpful&gt; srsly you can't rely on devs w/ another model for target-specific stuff</span><br />
+<span class="irc-date">[5:45]</span> <span class="irc-black">&lt;Decad3nce&gt; we'll get it working</span><br />
+<span class="irc-date">[5:47]</span> <span class="irc-black">&lt;techmik&gt; nap time.... nite all</span><br />
