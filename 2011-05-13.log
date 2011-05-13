@@ -443,3 +443,63 @@
 <span class="irc-date">[3:57]</span> <span class="irc-black">&lt;wwyvern&gt; night</span><br />
 <span class="irc-date">[3:57]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Quit: Ex-Chat)</span><br />
 <span class="irc-date">[3:58]</span> <span class="irc-black">&lt;techmik&gt; brb</span><br />
+<span class="irc-date">[4:15]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, *now* i've managed to get unsupported device.</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;techmik&gt; Unhelpful, the only thing i had to change was big S to little s</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;techmik&gt; but no video</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;techmik&gt; no error, just blackscreen and audio</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;Unhelpful&gt; hm. yeah, i don't think the other issues were ever about failing device check. :P</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;Decad3nce&gt; Have you guys had a problem with libEGL?</span><br />
+<span class="irc-date">[4:24]</span> <span class="irc-black">&lt;Unhelpful&gt; Decad3nce: the right question is "i am seeing &lt;specific error/misbehavior&gt; when i use &lt;app&gt;, i think it might be related to &lt;library&gt;, has anybody else seen this?" ;P</span><br />
+<span class="irc-date">[4:24]</span> <span class="irc-black">&lt;techmik&gt; not me</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;Decad3nce&gt; lol</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;Decad3nce&gt; E/SurfaceFlinger( 2518): couldn't find an EGLConfig matching the screen format</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;Decad3nce&gt; E/libEGL  ( 2518): eglQuerySurface:1090 error 300d (EGL_BAD_SURFACE)</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;Decad3nce&gt; E/libEGL  ( 2518): validate_display_config:512 error 3008</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;Decad3nce&gt; .32 kernel, egl.cfg is there</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;Decad3nce&gt; segfaults like crazy</span><br />
+<span class="irc-date">[4:25]</span> <span class="irc-black">&lt;Decad3nce&gt; Full pastebin: <a href="http://pastebin.com/93StQ9UB">http://pastebin.com/93StQ9UB</a></span><br />
+<span class="irc-date">[4:26]</span> <span class="irc-black">&lt;Kaik541&gt; that sounds so familiar from the cm6.1 days</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;Unhelpful&gt; Decad3nce: that's much better! ;)</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-black">&lt;Decad3nce&gt; I've also noticed crespo4g uses proprietary EGL stuffs?</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;Unhelpful&gt; um, ... doesn't nearly *everything* have proprietary EGL?</span><br />
+<span class="irc-date">[4:34]</span> <span class="irc-black">&lt;Decad3nce&gt; but a google device? :x</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;Decad3nce&gt; (off-topic)</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;Kaik541&gt; google uses a lot of proprietary stuff</span><br />
+<span class="irc-date">[4:35]</span> <span class="irc-black">&lt;Kaik541&gt; though apparently the nexus s has the least</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;Kaik541&gt; even the wimax support calls a proprietary jar file? (if I read what cyanogen said)</span><br />
+<span class="irc-date">[4:36]</span> <span class="irc-black">&lt;Decad3nce&gt; yeah</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://code.google.com/android/nexus/drivers.html">http://code.google.com/android/nexus/drivers.html</a></span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;Kaik541&gt; everything proprietary inside nexus s</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;Unhelpful&gt; Decad3nce: welcome to the graphics world. everybody is terrified that open *drivers* will allow competitors to trivially reproduce their proprietary *hardware*.</span><br />
+<span class="irc-date">[4:37]</span> <span class="irc-black">&lt;Kaik541&gt; oddly nexus s 4g has a "GSM" driver xD</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;Kaik541&gt; oh hey, newer GPU</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, we did ever revert back to i9000 binaries for GPU?</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;Unhelpful&gt; Kaik541: aren't there some "world phone" products for Vz or Sprint that are CDMA+GSM?</span><br />
+<span class="irc-date">[4:38]</span> <span class="irc-black">&lt;Decad3nce&gt; Unhelpful: they're all blackberries</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, yes, but the ns4g is not one of them</span><br />
+<span class="irc-date">[4:39]</span> <span class="irc-black">&lt;Kaik541&gt; and only verizon has androidp hones like that right now</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;Kaik541&gt; I don't think there's actually ever been any CDMA support in AOSP until nexus s 4g</span><br />
+<span class="irc-date">[4:40]</span> <span class="irc-black">&lt;Kaik541&gt; it's all been hacked in by manufacturers I think? and android totally always assumes GSM</span><br />
+<span class="irc-date">[4:48]</span> <span class="irc-black">&lt;Unhelpful&gt; how does that work w/ LTE? or does LTE == GSM as far as the API is concerned, and there's just a bit toggled somewhere that says "hey, we're fast"?</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;Kaik541&gt; for a GSM phone? no idea</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;Kaik541&gt; for verizon's phones so far? seems to be like how sprint does wimax</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;Kaik541&gt; separate radio and modem software</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;Unhelpful&gt; ew.</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;Kaik541&gt; I've yet to see a GSM/LTE phone so I can't say</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;Kaik541&gt; I would *imagine* it would be simpler since LTE is basically an extension of UMTS like UMTS was of GSM... but that sounds ilke a dreamworld</span><br />
+<span class="irc-date">[4:51]</span> <span class="irc-black">&lt;Kaik541&gt; there is no natural step between CDMA and LTE, but there is with LTE/UMTS</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-black">&lt;Unhelpful&gt; well, yeah, iirc T-Mo announced a planned time for LTE rollout, and AT&amp;T said something like "we'll get to it", and then they both started advertising their existing HSPA networks as 4G :P</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;Kaik541&gt; yeah... even though HSPA+ doesn't meet what used to be required for 4G label (100 Mbps downlink iirc)</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;Kaik541&gt; then again, neither does WiMax</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;Kaik541&gt; I tihnk technically only LTE and WiMax2 are "true" 4G</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;Unhelpful&gt; indeed. nor first-gen LTE.</span><br />
+<span class="irc-date">[4:55]</span> <span class="irc-black">&lt;Kaik541&gt; orly? I haven't read too much into it... I thought it got close though?</span><br />
+<span class="irc-date">[4:56]</span> <span class="irc-black">&lt;nullghost&gt; where's codeworkx when you need him, I'm finding out interesting stuff =\</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;Kaik541&gt; nullghost, I'm pretty sure he ctrl+f's the logs for his name, so put it in the room and he'll likely find it</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;Kaik541&gt; or someone (myself or techmik) will pass it along</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;Kaik541&gt; me and techmik are the gofers, so use us :P</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;techmik&gt; =)</span><br />
+<span class="irc-date">[4:58]</span> <span class="irc-black">&lt;nullghost&gt; well basically after talking to someone that has worked with cmsgs for the epic before (noobnl)</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;nullghost&gt; sometimes he's full of shit, sometimes he's useful.</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;nullghost&gt; apparently efs and modem partitions aren't in use on the epic and fascinate. they're an artifact from gsm sgs models</span><br />
+<span class="irc-date">[4:59]</span> <span class="irc-black">&lt;nullghost&gt; our cdma modem actually stores the efs and modem.bin in the modem memory banks</span><br />
