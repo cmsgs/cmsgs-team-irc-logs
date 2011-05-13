@@ -1372,3 +1372,162 @@
 <span class="irc-date">[16:50]</span> <span class="irc-black">&lt;atinm|sick&gt; hmm, this doesnt look right</span><br />
 <span class="irc-date">[16:50]</span> <span class="irc-black">&lt;atinm|sick&gt; this looks like output from the broken modem</span><br />
 <span class="irc-date">[16:50]</span> <span class="irc-black">&lt;atinm|sick&gt; sec</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;atinm|sick&gt; don't know where "wl_iw_set_country: set country for JP as JP rev -1 failed" is coming from</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;atinm|sick&gt; I don't have anything "set country for" in the kernel wl_iw.c file</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;atinm|sick&gt; zach, can you try <a href="http://dl.dropbox.com/u/14477030/update-cm-7-05122011-NIGHTLY-GalaxyS-signed.zip">http://dl.dropbox.com/u/14477030/update-cm-7-05122011-NIGHTLY-GalaxyS-signed.zip</a> and let me know whether you can see channels above 11?</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx?</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm|sick&gt; my vibrant is bone stock right now</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm|sick&gt; what do I build now?</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm|sick&gt; to get it to cm7 - kernel.sh vibrant, update.sh vibrant?</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm|sick&gt; or do we have something new now?</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick:</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: ./universal.sh vibrant</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;nullghost&gt; atinm|sick: iirc kernel.sh is the initial zip and update.sh generates the update zip</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;codeworkx&gt; give it a try</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, will do</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: where's the universal script?</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: you shouldnt use this on epic</span><br />
+<span class="irc-date">[17:19]</span> <span class="irc-black">&lt;atinm|sick&gt; not yet</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;nullghost&gt; oh, I won't, just curious where it is or what it does.</span><br />
+<span class="irc-date">[17:20]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: it creates flashable zips to jump from bml to mtd</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;atinm|sick&gt; same place. releasetools</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;nullghost&gt; I should be using ./build.sh epic, cd releasetools/, kernel.sh epic, update.sh epic, right?</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: backing up efs, restoring efs, flashing modem etc</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: no</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;atinm|sick&gt; nullghost: yes</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;atinm|sick&gt; no?</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;atinm|sick&gt; :)</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;nullghost&gt; @_@</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx: knows better</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: our stuff is using bml_over_mtd</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: figure out where your reservoir partition is</span><br />
+<span class="irc-date">[17:21]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: your nand is bigger</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;nullghost&gt; so don't use bml_over_mtd until we find our reservoir, gotcha</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.71.14) has joined this channel.</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;nullghost&gt; how does one go about finding it</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;codeworkx&gt; dont know xD</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;nullghost&gt; -_-</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;codeworkx&gt; must be behind all other partitions</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;codeworkx&gt; ask coolya|away</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;nullghost&gt; out of curiosity, what repo is android/system</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.71.14) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;nullghost&gt; I'm trying to edit build.sh but I can't figure out what repository it belongs to</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-black">&lt;codeworkx&gt; buildscripts</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.71.14) has joined this channel.</span><br />
+<span class="irc-date">[17:23]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;nullghost&gt; how does it end up in ~/android/system/ ?</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/buildscripts">https://github.com/teamhacksung/buildscripts</a></span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;codeworkx&gt; manifest</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;nullghost&gt; ah...</span><br />
+<span class="irc-date">[17:24]</span> <span class="irc-black">&lt;codeworkx&gt; you can specify where you want to have it</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;codeworkx&gt; i've added epic</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;techmik&gt; so the univeral.sh created zip replaces intial and kernel.zip?</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;techmik&gt; cool</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;codeworkx&gt; its a beast</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;techmik&gt; gotta go to doc in 15 moins, will test when i get back</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: give it a try</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;techmik&gt; mins*</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-green">* Zilch25 (~Zilch25@32.161.26.31) has joined this channel.</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;techmik&gt; i have the zip, just need to install</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;techmik&gt; wth, i have 20 mins... lets do it =)</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;nullghost&gt; cool, ./build.sh epic kernel is working</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; cleaned up the diff file, these have actual things you may need to lock at in /arch/arm</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; <a href="http://www.pastiebin.com/?page=p&amp;id=4dcd179a7947a">http://www.pastiebin.com/?page=p&amp;id=4dcd179a7947a</a></span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;techmik&gt; so i can get netflix to think i'm suported simply by changing ro.manufacturer from Samsung to samsung in build.prop, but i get no vido, only sound......</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; did I manage to break sound for you or haven't you had the chance to test</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;atinm|sick&gt; did you try chaning to HTC Vision and HTC?</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;techmik&gt; it worked fine last nite and this morning =)</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; netflix or sound :P</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; and did it do horrible things to your battery</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;nullghost&gt; techmik: there's also a libnetflix* something or other, you may need to change the number at the end</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;techmik&gt; yes, atinm... same... i can ge tto my cct and tell it what i want to see, but all i get is sound, the vid screen is black with the control bars</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;techmik&gt; aha!!!</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;nullghost&gt; the number corresponds to which device you're using.</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;techmik&gt; libnetflix u say.......</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;nullghost&gt; yeah, so I've been told, I didn't have to do that on my nook though :x</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;techmik&gt; will search</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;techmik&gt; thx</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm|sick, sure will try - there were changes in userland so that a newer nightly is needed ?</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;atinm|sick&gt; it just gives me assurance that you are testing what I am building.</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;atinm|sick&gt; easier to debug that way</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ok :)</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;techmik&gt; ok, after backing up i dont have time to play right now.... sound didnt break and battery seemed still good  over night</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; k ty, time to get some vibrant people to play with it</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;techmik&gt; i have a bunch of files: /data/data/com.netflix/mediaclient/lib/libnetflix_device1.so and 2.so up to 5.so,..... and libnetflixmp_jni.so</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;atinm|sick&gt; TMC_Sherpa_: what do I  need to pull?</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: shall i set everything up for you?</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: if you want, you can pull our commits or use the ones as you see fit</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;nullghost&gt; <a href="https://github.com/EpicCM">https://github.com/EpicCM</a></span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: i'll do it clean at teamhacksung</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;nullghost&gt; each repository has a teamhacksung-merge branch</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;nullghost&gt; you can cherry-pick if you'd like, or do it clean</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; lool sorry atinm, forgot your one of 'them now</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: it's up to you, but that's where all our source is. Decad3nce would be the better one to talk to</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;nullghost&gt; he's been working on the actual android build</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;nullghost&gt; I've just pushed kernel stuff so it builds</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; techmik: has the branch its tmc2 the main sound problem was during voice calls so....</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;techmik&gt; yup</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;atinm|sick&gt; oh crap.</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;techmik&gt; pull tmc2 branch</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;atinm|sick&gt; someone said that sim card from AT&amp;T will work on vibrant</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; thats OK it would be nice to know it at least works for everything else with out the S5P-RP stuff</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;atinm|sick&gt; I'll wait for Kaik</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;atinm|sick&gt; ok, sec.</span><br />
+<span class="irc-date">[17:43]</span> <span class="irc-black">&lt;atinm|sick&gt; I have to try codeworkx initial :)</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.71.14) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; yeah yeah back of the bus I know :D</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;Decad3nce&gt; codeworkx: hold off on committing epic stuffs just yet</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;Decad3nce&gt; codeworkx: most of the aries EGL stuff doesn't work for us</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;atinm|sick&gt; TMC_Sherpa_: well, vibrant is on stock right now :)</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;atinm|sick&gt; so it has to first get to CM7 :)</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;Wout`&gt; you got your busted vibrant atinm|sick?</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;atinm|sick&gt; Wout`: yes</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;Wout`&gt; awesome</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;atinm|sick&gt; and it is only slightly busted - small crack on screen</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;atinm|sick&gt; at the bottom left near the menu touchkey but it works</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm|sick&gt; I don't know where the FFC is supposed to go</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;Wout`&gt; you need to make a hole :P</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm|sick&gt; I don't see any place where it could be</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm|sick&gt; ah</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm|sick&gt; crap.</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; oh, speaking of ffc assuming the audio thing pans out, are we going to need two captivate trees? so people can have the speedy modem or audience? if so can I make the #ifdef I_CAN_HAZ_AUDIENCE_PLZ</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.242.249.3) has joined this channel.</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;techmik&gt; ok, back in an hour or so...</span><br />
+<span class="irc-date">[17:48]</span> <span class="irc-black">&lt;atinm|sick&gt; yuck..</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-green">* techmik is now known as techmik|away</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;atinm|sick&gt; f'ing AT&amp;T.</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: product code of epic?</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;atinm|sick&gt; personally I'd just go with audience</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: SPH?? SDH?? dont know xD</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;atinm|sick&gt; SPH-D700 I think</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;knowsnotmuch&gt; codeworkx, still seem to be getting that error with the single click install - <a href="http://pastebin.com/UcwU4PNP">http://pastebin.com/UcwU4PNP</a></span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;knowsnotmuch&gt; everything seems fine if i do a factory wipe - no make_ext4fs error</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;atinm|sick&gt; ok codeworkx, trying universal zip on vibrant from stock :)</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;codeworkx&gt; nullghost: epic got internal and external sdcards?</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: just external, no emmc</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: SPH-D700</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;codeworkx&gt; mmcblk0p1?</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;nullghost&gt; uh, I do believe that's correct</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: read what Decad3nce said though</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;atinm|sick&gt; fuck. didn't work codeworkx</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;atinm|sick&gt; didn't flash kernel</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;atinm|sick&gt; maybe we should stick with redbend</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;codeworkx&gt; Decad3nce: it only works with our kernel</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;codeworkx&gt; Decad3nce: prebuilt stuff and kernel gpu stuff must match</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;Decad3nce&gt; codeworkx: yeah.. got that :p</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;Decad3nce&gt; codeworkx: setting up the prop vendor so it plays nicely</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|sick: works fine on i9k xD</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;atinm|sick&gt; what log should I look at?</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;knowsnotmuch&gt; codeworkx, <a href="http://pastebin.com/UcwU4PNP">http://pastebin.com/UcwU4PNP</a>  &lt;--- with latest version</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;atinm|sick&gt; think we should write a log to /sdcard/</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;nullghost&gt; codeworkx: what's the rough size of a kernel for you guys, zImage and kernel-INITIAL zipfile?</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;knowsnotmuch&gt; atinm|sick, /sdcard/cyanogenmod_bml and /sdcard/cyanogenmod_mtd</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;atinm|sick&gt; k</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;atinm|sick&gt; hmm, have neither.</span><br />
+<span class="irc-date">[17:58]</span> <span class="irc-black">&lt;knowsnotmuch&gt; nullghost, about 4.2MB for the zipfile and 3.9MB for the zimage in it</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;knowsnotmuch&gt; nullghost, i9000 - dont know about the others</span><br />
+<span class="irc-date">[17:59]</span> <span class="irc-black">&lt;atinm|sick&gt; huh</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;atinm|sick&gt; codeworkx: there is no /mnt/sdcard</span><br />
