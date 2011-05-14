@@ -730,3 +730,79 @@
 <span class="irc-date">[18:52]</span> <span class="irc-brick">* knowsnotmuch sees an upload in progress and flashes froyo :P </span><br />
 <span class="irc-date">[18:57]</span> <span class="irc-black">&lt;codeworkx&gt; complete</span><br />
 <span class="irc-date">[18:58]</span> <span class="irc-black">&lt;knowsnotmuch&gt; dling</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-green">* devatwork (~devatwork@bas2-streetsville39-2925474312.dsl.bell.ca) has joined this channel.</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;codeworkx&gt; devatwork: ask here for testers</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;devatwork&gt; Oh ok. Can i get a tester here ? :P</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;UberPinguin&gt; Tester for what?</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;codeworkx&gt; new cm7 features</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;devatwork&gt; - Control brightness using statusbar (cm parts -&gt; interface -&gt; statusbar)</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;devatwork&gt; - Fix'd bug where setting a contact as a long press shortcut force closed</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;devatwork&gt; - Allow lockscreen vibrate to be configurable ( cm -&gt; input -&gt; haptic tweaks -&gt; set down pattern) It reads the first value u set in there</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;devatwork&gt; - Custom application icon to be displayed in lockscreen when configured instead of generic cm icon</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;devatwork&gt; - Temporary fix to themechooser where after applying a theme it will restart the notification bar for you. This i have not submitted as its just a "hack", proper way will be to re-infalte the toggles.</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;devatwork&gt; - A tweak to long press back, where those apps like gallery that use to spring back up after u long pressed back, now will not.</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;devatwork&gt; - Toggle for statusbar widgets indicator. (Cm settings -&gt; interface -&gt; statusbar -&gt; Hide indicator)</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;techmik&gt; is it just me, or did i not have to run universal.sh?</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;UberPinguin&gt; I'd love to test that, if I could get the Epic build to boot ;-)</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: atinm included it i think. but it dont know if its the old or the new</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: delete the file and use universal.</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;UberPinguin&gt; Right now we're stuck with egl crashing on the platform side, and s3cfb crashing on the kernel side</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;techmik&gt; it looks like it just auto runs the script</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;devatwork&gt; Oh damn k UberPinguin. Hope u guys get it to boot :)</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;UberPinguin&gt; :)</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;UberPinguin&gt; I'm working my way through a diff from TMC_Sherpa that hopefully will help with s3cfb</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;UberPinguin&gt; Current working theory is that the egl libs we're using need the new .35 kernel, so maybe it'll kill both issues with one patch</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: which egl ur using?</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: We tried the common one, and we tried the EC05 Epic one. Decad3nce worked on that part and would have more information, but he's afk</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: egl must match kernel</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;UberPinguin&gt; *nod*</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: even running samsung 2.3.3 egl from official gingerbread would not run with our kernel</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;UberPinguin&gt; He said he got the same crash with the EC05 egl, but I don't know if maybe the makefile inheritance interfered there</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;UberPinguin&gt; Ah, interesting</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;codeworkx&gt; our kernel = nexus s. and only nexus s egl works</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;UberPinguin&gt; So, if I take the egl from NS4G, it might work?</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;UberPinguin&gt; oh</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;UberPinguin&gt; That's frustrating ;)</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;codeworkx&gt; i think ns and ns4g are the same</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;UberPinguin&gt; I will be happy if we can get s3cfb and MAX8998 to init properly</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;knowsnotmuch&gt; codeworkx, looks like it got deployed this time</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;devatwork&gt; codeworkx was wondering if u face the issue where apps installed through market, their apk's are never cleared from cache. Is it an upstream bug ?</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;Unhelpful&gt; Oh noes, irc on my phone</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;UberPinguin&gt; haha</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;UberPinguin&gt; devatwork: I've seen that on Epic's stock, too</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;knowsnotmuch&gt; codeworkx, and /sdcard is /sdcard - not /mnt/sdcard</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;techmik&gt; i- still booting =)</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;devatwork&gt; Ah k. I'll ask my desire z friend if he faces this issue. Cuz i do, one way is to put in init a rm /cache/*.apk i guess :S</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;knowsnotmuch&gt; codeworkx, and i have /data mounted - so all clear</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;codeworkx&gt; devatwork: dont know.</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;knowsnotmuch&gt; codeworkx, uneventful logs if you want :P ----&gt; <a href="http://pastebin.com/yzxGb7Ld">http://pastebin.com/yzxGb7Ld</a></span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;codeworkx&gt; knowsnotmuch: so everything went easy?</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;knowsnotmuch&gt; codeworkx, you bore - no issues :P</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;codeworkx&gt; fine</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;codeworkx&gt; then we're ready for a release</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: !!!!</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;knowsnotmuch&gt; cool :)</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;codeworkx&gt; btw. sometimes if a call comes in, there's no sound?</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;codeworkx&gt; same on captivate?</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;codeworkx&gt; and vibrant?</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;techmik&gt; sec</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;techmik&gt; checking now</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;knowsnotmuch&gt; no sound? or other party cant hear?</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;codeworkx&gt; no ring sound</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;knowsnotmuch&gt; hmm will try calling myself</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;codeworkx&gt; but only sometimes</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;knowsnotmuch&gt; ohh ok - works THIS time - but i dont recollect not hearing it ring</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.68.186) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-green">* koush_ (~koush@c-71-227-161-2.hsd1.wa.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-green">* ChanServ sets mode +o koush_</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.68.186) has joined this channel.</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-brick">* knowsnotmuch notes that his battery charge jumped from 97% to 100% </span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;knowsnotmuch&gt; that part of atinm|away 's fix?</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;knowsnotmuch&gt; so 100 is the new 98?</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;knowsnotmuch&gt; off to sleep now</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;knowsnotmuch&gt; codeworkx, all seems ok</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.68.186) has left this channel.</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;UberPinguin&gt; meh. There are entire functions in the .32 that aren't in .35, and are IRQ-relevant</span><br />
