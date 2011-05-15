@@ -1112,3 +1112,189 @@
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm|away&gt; when nothing is actually installed,</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;codeworkx&gt; what about:   busybox find /sdcard -name update-cm-7-INITIAL-Captivate-signed.zip | head -n1</span><br />
 <span class="irc-date">[18:59]</span> <span class="irc-black">&lt;koush_&gt; oh i see</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, if the number is just incrementing, the last one is the one we want</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;koush_&gt; when is this init run</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;codeworkx&gt; head -n1 should only report one</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;atinm|away&gt; at normal init time on boot - it just calls /init at the end.</span><br />
+<span class="irc-date">[19:00]</span> <span class="irc-black">&lt;koush_&gt; can you describe the exact process hapepning here</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;koush_&gt; there's 1 zip right</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;koush_&gt; that gets flashed through RM</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;koush_&gt; it extracts another zip?</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm|away&gt; right, there's one zip. it gets flashed - it installs a kernel, and boots.</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm|away&gt; no.</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm|away&gt; boots.</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;koush_&gt; oh ok</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm|away&gt; the boot starts this init file</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm|away&gt; which realizes we still have bml.</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;koush_&gt; btw, the updater-script</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;koush_&gt; it gets passed args</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;atinm|away&gt; or no</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;koush_&gt; such as... where the zip is it is extracting</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;codeworkx&gt; the zip contains a shell script which decides if bml or mtd. if bml, flash the mtd kernel. if mtd, flash cm</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;koush_&gt; right</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;koush_&gt; so in bml case</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;koush_&gt; what you wanna do is use $3 i think</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;koush_&gt; c</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;codeworkx&gt; the cm kernel looks for build.prop. if there is no build.prop, system must be fucked up -&gt; install update-INITIAL</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;koush_&gt; busybox cp $3 /sdcard/cm.zip</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;koush_&gt; or echo $3 &gt; cmzip.cfg</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;koush_&gt; the third argument passed to updater-script is the zip location</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;koush_&gt; know what i mean?</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm|away&gt; ok. sec</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;koush_&gt; you cant rely on the zip being in a specific place</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;codeworkx&gt; UPDATE=$(busybox find /sdcard -name update-cm-7-INITIAL-Captivate-signed.zip | head -n1)</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;codeworkx&gt; 	if busybox test -e $UPDATE ; then</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;codeworkx&gt; 		busybox echo "install_zip(\"$UPDATE\");" &gt; /cache/recovery/extendedcommand</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;codeworkx&gt; 	else	</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;codeworkx&gt; 		busybox echo 'install_zip("/sdcard/update.zip");' &gt; /cache/recovery/extendedcommand</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;codeworkx&gt;   	fi</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;koush_&gt; dont do that either</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;koush_&gt; have your zip bml process explicitly say where to expect the zip after convert</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, codeworkx - we can pass an arg to updater.sh</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;koush_&gt; you know what i'm talking about right</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;koush_&gt; with updater-script getting args?</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: you dont understand xD</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;atinm|away&gt; ok, I'll keep shut :)</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; the problem isn't the updater. the problem is the 1st stage</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;koush_&gt;     char** args = malloc(sizeof(char*) * 5);</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;koush_&gt;     args[0] = binary;</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;koush_&gt;     args[1] = EXPAND(RECOVERY_API_VERSION);   // defined in Android.mk</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;koush_&gt;     args[2] = malloc(10);</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;koush_&gt;     sprintf(args[2], "%d", pipefd[1]);</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;koush_&gt;     args[3] = (char*)path;</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;koush_&gt;     args[4] = NULL;</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;koush_&gt; those are the args passed to updater-script</span><br />
+<span class="irc-date">[19:04]</span> <span class="irc-black">&lt;codeworkx&gt; the 1st stage expects the zip at /sdcard/update-cm-7-INITIAL-Captivate-signed.zip</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;codeworkx&gt; but if downloaded from rommanager its at /sdcard/clockworkmod/blah</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;codeworkx&gt; so we have to search for it in 1st stage</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;koush_&gt; why codeworkx</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;codeworkx&gt; and write the location to extendedcommand</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;koush_&gt; you know where the location is</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;koush_&gt; its arg 3</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;codeworkx&gt; koush we cannot ship anything between bml and mtd</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;codeworkx&gt; there's nothing we can store the info</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;koush_&gt; yes</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;codeworkx&gt; no cache, nothing</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;koush_&gt; on sdcard</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;koush_&gt; cache shit there</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;atinm|away&gt; we can create our own CM7 dir on sdcard</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;atinm|away&gt; and write there</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;codeworkx&gt; that works</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;atinm|away&gt; so we 1. check /sdcard</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;codeworkx&gt; and if someone installs the initial zip not from rom manager?</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;atinm|away&gt; 2. check CM7 dir</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;codeworkx&gt; if its called from recovery by user</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;techmik&gt; this is better than taking a class, listening to you guys........</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;atinm|away&gt; and nothing else. no update.zip</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;atinm|away&gt; that would work, right?</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;atinm|away&gt; crap</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;codeworkx&gt; if user downloads initial to any folder of the sdcard and installs manually</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;atinm|away&gt; that we know will fail.</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;codeworkx&gt; then there's no argument</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm|away&gt; *UNLESS* lets start putting in the date.</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm|away&gt; then it is always unique :)</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm|away&gt; ah crap.</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm|away&gt; init is always the same</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;atinm|away&gt; fuck.</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;codeworkx&gt; wait</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;codeworkx&gt; headfuc</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;koush_&gt; ok so you have 1 zip right</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;koush_&gt; first time the zip installs on bml</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;koush_&gt; it flashes a kernel</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; the bml part stores the location to /sdcard/cm7.cfg</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; 1st stage init looks at this file</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;koush_&gt; and writes the location of the zip to /sdcard/cm7.ini</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; and calls extendedcommand</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;atinm|away&gt; yes :)</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;koush_&gt; init starts, converts shit over</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;atinm|away&gt; yup</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;koush_&gt; writes extendedcommand using that /sdcard/cm7.cfg</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;koush_&gt; restarts recovery</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;koush_&gt; which installs as normal</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;koush_&gt; sounds easy enough</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, I think codeworkx just came up with that as well</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;atinm|away&gt; :)</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;codeworkx&gt; how to determine the correct path within updater?</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;atinm|away&gt; pass an argument</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;codeworkx&gt; find doesn't work because of maybe multiple returns</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;atinm|away&gt; it is $3</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;koush_&gt; updater-script gets it as arg3</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;koush_&gt; $3</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;koush_&gt; err rather</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;koush_&gt; update-binary does</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;codeworkx&gt; updater-script gets it's own patch as $3?</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;koush_&gt; right</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;koush_&gt; err no</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;koush_&gt; update-binary does</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;codeworkx&gt; path</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;atinm|away&gt; can we read it in updater-script ? :)</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;codeworkx&gt; have to read it in updater</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;koush_&gt; you can extract yourself in updater-script</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;koush_&gt; let me see your zip</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;koush_&gt; link?</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;atinm|away&gt; $3 that is passed to update-binary? lemme loock</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/releasetools/tree/gingerbread/universal-tools/galaxys">https://github.com/teamhacksung/releasetools/tree/gingerbread/universal-tools/galaxys</a></span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;atinm|away&gt; <a href="https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/captivate/updater.sh">https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/captivate/updater.sh</a></span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;koush_&gt; anyways, yeah i am fairly sure</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;koush_&gt; o i c</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;koush_&gt; you dont have acess to the zip path in updater-script</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;atinm|away&gt; right, we need to pass it</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/galaxys/META-INF/com/google/android/updater-script">https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/galaxys/META-INF/com/google/android/updater-script</a></span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;atinm|away&gt; from updater-script if it has it</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;codeworkx&gt; thats the real updater-script</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;codeworkx&gt; updater.sh is the black magic script which is called from updater</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;atinm|away&gt; right, sorry - we run that .sh from updater-script. so updater-script needs to pass it on line: <a href="https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/galaxys/META-INF/com/google/android/updater-script#L32">https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/galaxys/META-INF/com/google/android/updater-script#L32</a></span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;koush_&gt; thats hte one that does converts right</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;atinm|away&gt; that's the one that saves efs</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;atinm|away&gt; and writes the boot.img if bml which then finally leads to a reboot</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;codeworkx&gt; in short. we're handling two devices with one script. bml and mtd</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;koush_&gt; i have an idea</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;koush_&gt; let me try something</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;koush_&gt; i suspwect you can do update-binary as a bash script.</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;koush_&gt; its any executable really</span><br />
+<span class="irc-date">[19:17]</span> <span class="irc-black">&lt;koush_&gt; lemme test</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;atinm|away&gt; crap - I really have to go.</span><br />
+<span class="irc-date">[19:18]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: you here for a  bit?</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;koush_&gt; lol atinm|away codeworkx</span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;koush_&gt; <a href="https://gist.github.com/973447">https://gist.github.com/973447</a></span><br />
+<span class="irc-date">[19:19]</span> <span class="irc-black">&lt;koush_&gt; that works.</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;atinm|away&gt; man..</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;atinm|away&gt; ok codeworkx, this is your baby</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;atinm|away&gt; I have to go look after my live one :)</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;codeworkx&gt; koush_: what does the update-binary?</span><br />
+<span class="irc-date">[19:20]</span> <span class="irc-black">&lt;atinm|away&gt; back later.</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;koush_&gt; codeworkx: see my update-binary?</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;koush_&gt; its just a bash script</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;atinm|away&gt; it is normally the thing that calls updater-script</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;koush_&gt; right</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;codeworkx&gt; oh lol</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;atinm|away&gt; but if it can itself just be a shell screipt</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;koush_&gt; update-binary is just what recovery runs</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;atinm|away&gt; we're cool :)</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;koush_&gt; and normally it just extracts updater-script and interprets it</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;koush_&gt; but you can really have it do anything you want</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;koush_&gt; it could be a ruby script for example :P</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;koush_&gt; #!/tmp/ruby</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;atinm|away&gt; lol - ok, codeworkx you got it.</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;koush_&gt; :)</span><br />
+<span class="irc-date">[19:21]</span> <span class="irc-black">&lt;atinm|away&gt; me have to go.</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;atinm|away&gt; thanks koush!</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;codeworkx&gt; but then i'm not able to use a real updater-script?</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;koush_&gt; codeworkx: you can</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;codeworkx&gt; who will process it?</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;koush_&gt; unzip real-update-binary</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;koush_&gt; then exec real-update-binary $@</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;koush_&gt; from the bash script.</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;koush_&gt; run any "fix this shit for bml" logic</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;koush_&gt; in update-binary</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;koush_&gt; then call what you need to</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;koush_&gt; ie, move your magic up a level</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;koush_&gt; codeworkx: ok here's how i propose this is done</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;koush_&gt; the "bacon" target readjusts the zip anyways</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;koush_&gt; so, adjust bacon to edit the zip</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;koush_&gt; rename update-binary to real-update-binary</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;koush_&gt; put updater.sh in as update-binary</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;koush_&gt; and that will get the zip paths, etc</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-green">* coolya is now known as coolya|away</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has left this channel.</span><br />
