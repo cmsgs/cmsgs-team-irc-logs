@@ -315,3 +315,132 @@
 <span class="irc-date">[10:19]</span> <span class="irc-navy">* GuiPer (~guilherme@107.120.broadband11.iol.cz) Quit (Ping timeout: 246 seconds)</span><br />
 <span class="irc-date">[10:48]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
 <span class="irc-date">[10:48]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[11:05]</span> <span class="irc-black">&lt;atinm|night&gt; codeworkx, I think we need to get rid of dir /sdcard 755 0 0 from the initramfs.list files</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm|night&gt; testing</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm|night&gt; but I think that is what is causing the sdcard -&gt; /mnt/sdcard not to get created</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm|night&gt; recovery mounts /sdcard directly</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm|night&gt; so that is fine</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm|night&gt; but boot image mounts /mnt/sdcard</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[11:06]</span> <span class="irc-black">&lt;atinm|night&gt; and then tries to symlink /mnt/sdcard sdcard</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;atinm|night&gt; but /sdcard already exists</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;codeworkx&gt; remove it in 2st stage</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;codeworkx&gt; or in init.rc</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;codeworkx&gt; would say end of 1st stage</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;codeworkx&gt; where we umount</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-black">&lt;codeworkx&gt; after this</span><br />
+<span class="irc-date">[11:08]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|night: add rm -rf /sdcard after <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/captivate_initramfs_files/init#L47">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/captivate_initramfs_files/init#L47</a></span><br />
+<span class="irc-date">[11:08]</span> <span class="irc-black">&lt;codeworkx&gt; to every device</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-black">&lt;codeworkx&gt; wait, i'll do xD</span><br />
+<span class="irc-date">[11:09]</span> <span class="irc-black">&lt;atinm|night&gt; :)</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm|night&gt; btw, I didn't have to</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm|night&gt; since recovery is fine</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm|night&gt; I removed from initramfs.list</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm|night&gt; and was above to install INITIAL</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm|night&gt; all in one shot</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm|night&gt; and have the symlink</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm|night&gt; but wait.</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm|night&gt; i</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm|night&gt; nit</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm|night&gt; init is running always</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm|night&gt; ok.</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm|night&gt; tho /sdcard may not exist.</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm|night&gt; the /sdcard only exists in recovery from vold</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm|night&gt; so the two cases where we end up in recovery, it will be there.</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm|night&gt; if we don't put in in initramfs.list, then init.aries.rc is just able to create it when needed</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm|night&gt; I guess I should test recovery.</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;Unhelpful&gt; Why not just use /mnt/sdcard?</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm|night&gt; we should, I wasn't sure where the knows for /sdcard exists.</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm|night&gt; maybe in bootable recovery?</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm|night&gt; ok</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm|night&gt; recovery definitely only has /sdcard</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|night: recovery uses /sdcard on every phone. it's not us</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;Unhelpful&gt; I meant in stage 1, to avoid the conflict.</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm|night&gt; not even /mnt</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;codeworkx&gt; I've added a rmdir</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm|night&gt; so we leave that alone I think.</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: but good idea xD</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;Unhelpful&gt; That works, too. ;)</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm|night&gt; we don't need to create it in initramfs.list</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|night: we have to</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm|night&gt; no, I removed it</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|night: doesn't work</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;atinm|night&gt; and it works now. everything works.</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|night: we've testet. the mount will fail</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;atinm|night&gt; since recovery has it anyway.</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;codeworkx&gt; then the test will fail</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;codeworkx&gt; and it's forced to use update.zip</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|night: we need /sdcard for <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/captivate_initramfs_files/init#L33">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/captivate_initramfs_files/init#L33</a></span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;codeworkx&gt; otherwise this <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/captivate_initramfs_files/init#L35">https://github.com/teamhacksung/android_kernel_samsung/blob/android-samsung-2.6.35/usr/captivate_initramfs_files/init#L35</a> fails</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;atinm|night&gt; add the mkdir for that case there</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;atinm|night&gt; and remove it after umount if we created it</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;atinm|night&gt; I guess either works</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;atinm|night&gt; as long as it is gone at the end</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;atinm|night&gt; wait.</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;Unhelpful&gt; No foot reason to use mkdir instead of the list,  though...</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;atinm|night&gt; we can't unconditionally remove it can we?</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;atinm|night&gt; recovery wants it right?</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;Unhelpful&gt; Good. Dean you auto correct</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;Unhelpful&gt; Damn. :P</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;atinm|night&gt; lol</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;Unhelpful&gt; Recovery makes mount points...</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-black">&lt;atinm|night&gt; recovery seems to create it itself.</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-black">&lt;atinm|night&gt; ok</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-black">&lt;atinm|night&gt; either works</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-black">&lt;atinm|night&gt; so I won't do anything.</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-black">&lt;atinm|night&gt; but that is what techmik was running into last night</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-black">&lt;atinm|night&gt; and me this morning</span><br />
+<span class="irc-date">[11:20]</span> <span class="irc-black">&lt;codeworkx&gt; should be solved now</span><br />
+<span class="irc-date">[11:21]</span> <span class="irc-black">&lt;atinm|night&gt; I am still looking for a clean kernel+cwm for froyo :-P</span><br />
+<span class="irc-date">[11:21]</span> <span class="irc-black">&lt;atinm|night&gt; or exclair</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;atinm|night&gt; finally gave up, installed stock+voodoo+cwm started with /sdcard/voodoo/disable-lagfix</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;atinm|night&gt; booted straight into recovery</span><br />
+<span class="irc-date">[11:22]</span> <span class="irc-black">&lt;atinm|night&gt; and quickly removed it with INITIAL :)</span><br />
+<span class="irc-date">[11:23]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|night can u push out new stuff later today? after we've raped techmik?</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm|night&gt; I'm goin gto test vibrant and captivate</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm|night&gt; and push it all otu</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm|night&gt; tho did you find any kernels that we can tell them to install for everything that have cwm?</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm|night&gt; for the initials?</span><br />
+<span class="irc-date">[11:25]</span> <span class="irc-black">&lt;atinm|night&gt; I guess it doesn't matter now</span><br />
+<span class="irc-date">[11:25]</span> <span class="irc-black">&lt;atinm|night&gt; we can tell them to start from 2e</span><br />
+<span class="irc-date">[11:25]</span> <span class="irc-black">&lt;atinm|night&gt; and use update.zip</span><br />
+<span class="irc-date">[11:25]</span> <span class="irc-black">&lt;atinm|night&gt; building now</span><br />
+<span class="irc-date">[11:26]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|night: i'm not really sure if 2e does the efs backup correctly</span><br />
+<span class="irc-date">[11:26]</span> <span class="irc-black">&lt;atinm|night&gt; ok</span><br />
+<span class="irc-date">[11:26]</span> <span class="irc-black">&lt;atinm|night&gt; so we should tell them to start with what.</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;atinm|night&gt; a cwm froyo kernel</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;codeworkx&gt; create packages for them</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;atinm|night&gt; yeah</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;codeworkx&gt; froyo + cwm odin</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;atinm|night&gt; pain -  I haven't built froyo kernels in so long</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;atinm|night&gt; nor green cwm</span><br />
+<span class="irc-date">[11:29]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|night: use teh kernel sauce and built your own cwm kernel xD</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;atinm|night&gt; yeah, but like I said, I haven't done it in so long</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;atinm|night&gt; find me a recovery executable</span><br />
+<span class="irc-date">[11:50]</span> <span class="irc-black">&lt;atinm|night&gt; for 2.x</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;atinm|night&gt; can't we just tell them to come from some a froyo kernel with cwm? :)</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;atinm|night&gt; and they can figure out how</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;atinm|night&gt; tell them *not* to come from 2e</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;atinm|night&gt; that way they'll have to figure out on their own how to get to froyo+cwm</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;atinm|night&gt; and anyone who can't shouldn't be running cwm.</span><br />
+<span class="irc-date">[11:51]</span> <span class="irc-black">&lt;atinm|night&gt; :)</span><br />
+<span class="irc-date">[11:52]</span> <span class="irc-black">&lt;atinm|night&gt; anyway, building.</span><br />
+<span class="irc-date">[11:52]</span> <span class="irc-black">&lt;atinm|night&gt; but have to go for a bit</span><br />
+<span class="irc-date">[11:52]</span> <span class="irc-black">&lt;atinm|night&gt; so you get the job of finding update.zip for stock+cwm</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;atinm|night&gt; or can't they install ROMManager and ClockworkMod</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;atinm|night&gt; and then install?</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;atinm|night&gt; yeah</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;atinm|night&gt; they need to install ClockworkMod</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;atinm|night&gt; from wherever they are</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;atinm|night&gt; they can figure that out</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;atinm|night&gt; we don't teach them that</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;atinm|night&gt; we tell them to install from clockworkmod.</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;atinm|night&gt; that's it.</span><br />
+<span class="irc-date">[11:53]</span> <span class="irc-black">&lt;atinm|night&gt; in fact, we should upload to ROMManager.</span><br />
+<span class="irc-date">[11:54]</span> <span class="irc-green">* atinm|night is now known as atinm|away</span><br />
+<span class="irc-date">[11:54]</span> <span class="irc-black">&lt;atinm|away&gt; have to go :-[</span><br />
+<span class="irc-date">[11:54]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: maybe we can brew a stock cwm kernel for every phone and push to rommanager as "install cwm"</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-black">&lt;atinm|away&gt; ROMManager already allows you to flash clockworkmod</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-black">&lt;atinm|away&gt; they need su</span><br />
+<span class="irc-date">[11:55]</span> <span class="irc-black">&lt;atinm|away&gt; they can figure that out</span><br />
