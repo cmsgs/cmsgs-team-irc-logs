@@ -912,3 +912,203 @@
 <span class="irc-date">[17:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sure you do atinm, download, delete, download....</span><br />
 <span class="irc-date">[17:57]</span> <span class="irc-black">&lt;techmik&gt; brb</span><br />
 <span class="irc-date">[17:57]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; wait, now it says 35...and we have a new icon</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;atinm|away&gt; gone for a bit</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;koush_&gt; i noticed atinm|away and codeworkx both have sectiosn</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;koush_&gt; but codeworkx just deleted his</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;codeworkx&gt; yes, atinm|away will do everything</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;koush_&gt; ok</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: why is target_no_kernel set for you guys</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;koush_&gt; you have a prebuilt kernel dont you</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;atinm|away&gt; we do</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;atinm|away&gt; but it is weird in that we still have to massage it</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;atinm|away&gt; I think that is what the Makefile changes are about - if I understand right</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;atinm|away&gt; we have to initramfs that get attached to the prebuilt kernel</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;atinm|away&gt; two</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;koush_&gt; what it sounds like you need is a custom kernel packer really</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;koush_&gt; a hook for that</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;koush_&gt; it transforms your kernel + recovery ramdisk into a $OUT/kernel</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;atinm|away&gt; the prebuilt kernel is a small stage1 that then does some magic to figure out whether we're trying to get into boot or recovery</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;atinm|away&gt; and hunts for it in the zImage itself to find it</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;atinm|away&gt; yes, if I understand correctly.</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;atinm|away&gt; unhelpful is sort of best involved at night :-P</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;atinm|away&gt; since he works nights a lot of the time and so is awake then</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;atinm|away&gt; we really attach two ramdisks, recovery and boot that are separated by a ascii header that is findable via grep</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;atinm|away&gt; so our init is actually a .sh</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;koush_&gt; right</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;atinm|away&gt; that finds it, and does its thing</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.70.105) has joined this channel.</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;atinm|away&gt; before real init</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;atinm|away&gt; brb . . .</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;atinm|away&gt; koush_: target_no_kernel is false in our BoardConfig.mk</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;koush_&gt; mmk</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;atinm|away&gt; is that what you are talking about?</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;koush_&gt; yeah</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;atinm|away&gt; k, I'm sort of distracted. wife is mad at me for working on this right now . . .</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;atinm|away&gt; so we need unhelpful! :)</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-green">* techmik67 (~Michael@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-green">* techmik67 (~Michael@c-76-109-173-83.hsd1.fl.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; go do your thing atinm|away wife is more dangerous than your liver which is more important than android</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-green">* techmik67 (~Michael@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;atinm|away&gt; yeah . .. off for a bit. sorry koush_ - we'll ping you when Unhelpful is here</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;techmik_laptop&gt; wow, 81 nicks in cmsgs</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; how many of them are you :P</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;koush_&gt; atinm|away: k</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh sgs, nm</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;atinm|away&gt; btw, we need ROMManager Premium for nightlies.</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;atinm|away&gt; so we're nightlies - so premium?</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;atinm|away&gt; or just because we're weekend.</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;koush_&gt; yeah you'll be free</span><br />
+<span class="irc-date">[18:28]</span> <span class="irc-black">&lt;koush_&gt; on weekdays</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;koush_&gt; or i can change it so youre always free</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;koush_&gt; i just dont have the code to do that yet :P</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;koush_&gt; the manifest is autogen'd</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;atinm|away&gt; lol :) ok.</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; * /nick atinm|killed_by_angry_wife</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;atinm|away&gt; 's cool - lets see how many buy today :)</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-green">* techmik67 (~Michael@c-76-109-173-83.hsd1.fl.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;atinm|away&gt; going going.</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;koush_&gt; atinm|away: i pushed a change for Unhelpful</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;koush_&gt; that should help with him refactoring</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;koush_&gt; let him know</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;koush_&gt; and ping me</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;atinm|away&gt; she just went for a nap with the kid.</span><br />
+<span class="irc-date">[18:29]</span> <span class="irc-black">&lt;atinm|away&gt; so I sorta have a minute before I should be lying down too</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-black">&lt;atinm|away&gt; koush_: will do</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[18:30]</span> <span class="irc-green">* ChanServ sets mode +o techmik</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-brick">* Unhelpful is only in-and-out during day - if i'm awake during the day, i'm on childcare duty, and if it's not tuesday, my wife is asleep :)</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-green">* sixstringsg (~Jason@pool-173-74-150-175.dllstx.fios.verizon.net) has left this channel.</span><br />
+<span class="irc-date">[18:32]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: why would TARGET_NO_KERNEL be set?</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: i really don't know, i thought it wasn't. :/</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;koush_&gt; it should not be</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;koush_&gt; thats a bug</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;koush_&gt; i thought you said it was</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;koush_&gt; maybe i am mistaken</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;koush_&gt; either, way i just factored that area</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;koush_&gt; i removed initramfs support</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;koush_&gt; and i added two new targets: recovery_ramdisk and recovery_uncompressed_ramdisk</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;Unhelpful&gt; any idea what i need to do to get our boot.img into the target-files zip?</span><br />
+<span class="irc-date">[18:33]</span> <span class="irc-black">&lt;Unhelpful&gt; and those are the .cpio and .cpio.gz?</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;koush_&gt; cpio.gz and cpio</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;koush_&gt; uncompressed = cpio</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;atinm|away&gt; TARGET_NO_KERNEL := false in our BoardConfigs.</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;koush_&gt; remove any and all lines related to TARGET_NO_KERNEL</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;atinm|away&gt; that I did check.</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;koush_&gt; dont even set them</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;koush_&gt; a lot of shit does ifdef</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.70.105) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-green">* Charkey (~Laurent@cpe-76-175-105-20.socal.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;koush_&gt; and assumes that existence = true</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;atinm|away&gt; ah crap.</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;atinm|away&gt; :)</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;atinm|away&gt; koush_: ok - guess that is fixable.</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;atinm|away&gt; :)</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.70.105) has joined this channel.</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;Unhelpful&gt; right. it should have the .cpio extension too... if somebody *does* need to build a kernel w/ them, they can directly use a .cpio files as the initramfs source.</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;atinm|away&gt; we have a screw up on ROMManager ClockworkMod . . . our code doesn't go looking for the update.zip down in clockworkmod dirs on sdcard</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;atinm|away&gt; I did a bad test, I also had the same update.zip in my root dir, and that is where our code was looking..</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;atinm|away&gt; we write the path extendedcommands before we reboot again into recovery</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;atinm|away&gt; so that the new kernel just flashes the update zip</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;devatwork&gt; ^^ Ah damn</span><br />
+<span class="irc-date">[18:37]</span> <span class="irc-black">&lt;atinm|away&gt; I think I'll pull it for  now.</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-green">* ChanServ sets mode +o coolya</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;techmik&gt; this is not my day....... chat program(s) giving me problems, cannot update my github.......</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;koush_&gt; recovery_uncompressed_ramdisk := $(PRODUCT_OUT)/ramdisk-recovery.cpio</span><br />
+<span class="irc-date">[18:39]</span> <span class="irc-black">&lt;techmik&gt; should i build now, or are things changing?</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-green">* nemith (~bbennett@2604:3400:dc1:41:216:3eff:fe2c:e006) has joined this channel.</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;koush_&gt; atinm|away: huh?</span><br />
+<span class="irc-date">[18:40]</span> <span class="irc-black">&lt;koush_&gt; atinm|away: why would you need to know where the update.zip lives?</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: yes, these are a good place to start. :)</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;atinm|away&gt; we do some fun contortions to get our one zip working</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;atinm|away&gt; we install the update-blah.zip as normal</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;atinm|away&gt; but it contains another zip in it.</span><br />
+<span class="irc-date">[18:41]</span> <span class="irc-black">&lt;atinm|away&gt; so we first flash the kernel</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;atinm|away&gt; backing up the efs, convert stuff to mtd</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;Unhelpful&gt; i'll try to get some done tonight over these, that make similar targets available for boot ramdisk, and that make the custom bootimg support clean on top of that.</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;atinm|away&gt; then write a install_zip command pointing at the zip into extendedcommands and reboot</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;atinm|away&gt; which then does the real install, but this time onto the mtd devices</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;koush_&gt; gotcha</span><br />
+<span class="irc-date">[18:42]</span> <span class="irc-black">&lt;koush_&gt; just make sure you extract the inner zip to a constant location?</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;koush_&gt; ie, sdcard/update.zip?</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;atinm|away&gt; actually, its the same zip :)</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;koush_&gt; pastebin the updaterscript?</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;atinm|away&gt; there is an updater.sh script in it -</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-black">&lt;atinm|away&gt; sec</span><br />
+<span class="irc-date">[18:44]</span> <span class="irc-black">&lt;coolya&gt; hi</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;techmik&gt;  hi coolya</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;atinm|away&gt; wtf, pastebin has a line length limit.</span><br />
+<span class="irc-date">[18:45]</span> <span class="irc-black">&lt;atinm|away&gt; <a href="http://pastebin.com/JARLPGhi">http://pastebin.com/JARLPGhi</a></span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;atinm|away&gt; koush_: but you'll get the idea</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;atinm|away&gt; oh wait</span><br />
+<span class="irc-date">[18:46]</span> <span class="irc-black">&lt;atinm|away&gt; wrong one :)</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;atinm|away&gt; but that one is needed too</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;atinm|away&gt; we run that from updater-script</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;atinm|away&gt; after extracting things like bmlwrite, erase_image etc</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;nemith&gt; yuck</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;atinm|away&gt; its the hell we live in due to bml.</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;atinm|away&gt; koush_: <a href="http://pastebin.com/d0MxT1Z5">http://pastebin.com/d0MxT1Z5</a></span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;atinm|away&gt; thats updater-script</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;atinm|away&gt; line 32 is calling updater.sh</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-black">&lt;atinm|away&gt; which is linked above</span><br />
+<span class="irc-date">[18:49]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.70.105) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: where is the place we are doing the extendedcommand?</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;atinm|away&gt; its missing :)</span><br />
+<span class="irc-date">[18:50]</span> <span class="irc-black">&lt;atinm|away&gt; oh</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;atinm|away&gt; somewhere in init right?</span><br />
+<span class="irc-date">[18:51]</span> <span class="irc-black">&lt;atinm|away&gt; ok, one more place.</span><br />
+<span class="irc-date">[18:52]</span> <span class="irc-black">&lt;atinm|away&gt; koush_: last piece of the puzzle: <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/021c5cf371625dd59b6c92a96e8edec713982754/usr/captivate_initramfs_files/init">https://github.com/teamhacksung/android_kernel_samsung/blob/021c5cf371625dd59b6c92a96e8edec713982754/usr/captivate_initramfs_files/init</a></span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;atinm|away&gt; our init - it decides whether we're running our "install kernel", or normal</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;atinm|away&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/021c5cf371625dd59b6c92a96e8edec713982754/usr/captivate_initramfs_files/init#L36">https://github.com/teamhacksung/android_kernel_samsung/blob/021c5cf371625dd59b6c92a96e8edec713982754/usr/captivate_initramfs_files/init#L36</a></span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;atinm|away&gt; specifically that line</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-black">&lt;atinm|away&gt; we just need to change the path to point to clockworkmod subdir</span><br />
+<span class="irc-date">[18:54]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: i'm working on it</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;codeworkx&gt; 	UPDATE=$(busybox find /sdcard -name update-cm-7-INITIAL-Captivate-signed.zip)</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;codeworkx&gt; 	if busybox test -e $UPDATE ; then</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;codeworkx&gt; 		busybox echo "install_zip(\"$UPDATE\");" &gt; /cache/recovery/extendedcommand</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;codeworkx&gt; 	else	</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;codeworkx&gt; 		busybox echo 'install_zip("/sdcard/update.zip");' &gt; /cache/recovery/extendedcommand</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;codeworkx&gt;   	fi</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;atinm|away&gt; this is all such a hack - but it works</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: but we may have more than one</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;atinm|away&gt; right koush?</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;codeworkx&gt; filename is always the same</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;codeworkx&gt; and you're the only one developer which is uploading</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm|away&gt; yes, but they might be in more than one subdir. - not sure</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm|away&gt; dunno what ./romshare.deployfu.com/downloads/5/63/</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm|away&gt; means</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;atinm|away&gt; is 5/63 me?</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;codeworkx&gt; 5/63 is your userid i think xD</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;codeworkx&gt; something like that</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;atinm|away&gt; koush_: help..</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;koush_&gt; atinm|away: ?</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;atinm|away&gt; the path /romshare.deployfu.com/downloads/5/63/</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;atinm|away&gt; under clockworkmod - is that unique to me?</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;koush_&gt; yes</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;koush_&gt; its dev id, rom id</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;koush_&gt; there are never filename collisions</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;koush_&gt; so you can reupload with teh same filename</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;atinm|away&gt; and it'll always be in 5/63 - great.</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;koush_&gt; err no</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;atinm|away&gt; then we're cool as long as that is the path :)</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;koush_&gt; if you upload again</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;koush_&gt; it would be like 5/64</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;koush_&gt; or something</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;atinm|away&gt; otherwise we have to figure out something else.</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;koush_&gt; no you cant rely on that</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;koush_&gt; what line in particular is problematic</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm|away&gt; right - ok. our problem is that we are basically wanting to install the zip twice.</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm|away&gt; in our init: <a href="https://github.com/teamhacksung/android_kernel_samsung/blob/021c5cf371625dd59b6c92a96e8edec713982754/usr/captivate_initramfs_files/init#L36">https://github.com/teamhacksung/android_kernel_samsung/blob/021c5cf371625dd59b6c92a96e8edec713982754/usr/captivate_initramfs_files/init#L36</a></span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm|away&gt; which is called when our kernel first boots</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;atinm|away&gt; when nothing is actually installed,</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;codeworkx&gt; what about:   busybox find /sdcard -name update-cm-7-INITIAL-Captivate-signed.zip | head -n1</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;koush_&gt; oh i see</span><br />
