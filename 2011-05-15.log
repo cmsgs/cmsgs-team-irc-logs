@@ -722,3 +722,193 @@
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;koush_&gt; ok get your patches in</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm|away&gt; the thing Unhelpful is trying to get in, but you failed to do a merge. I think unhelpful just said something about it above</span><br />
 <span class="irc-date">[16:59]</span> <span class="irc-black">&lt;koush_&gt; and get some RCs out :P</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;koush_&gt; yeah i saw</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;atinm|away&gt; he is without a computer right now</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;atinm|away&gt; and I refuse to touch it :)</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;atinm|away&gt; its too scary.</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;koush_&gt; k i'll fix it</span><br />
+<span class="irc-date">[17:00]</span> <span class="irc-black">&lt;atinm|away&gt; man, one zip - straight from rommanager to cm7. I love it! :)</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;devatwork&gt; Hopefully so will noobs</span><br />
+<span class="irc-date">[17:01]</span> <span class="irc-black">&lt;mikebeecham&gt; atinm|away, for the slow in coming to the conversation - does this mean that we no longer flash through cwm by downloading from SF?</span><br />
+<span class="irc-date">[17:02]</span> <span class="irc-black">&lt;atinm|away&gt; wtf?! there is an @rommanager on twitter?! koush! you didn't take it?!</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: ping (GPIO)</span><br />
+<span class="irc-date">[17:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; UberPinguin:  you don't think I have enough nightmares already?</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;UberPinguin&gt; hahahahahaha</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: why does it need to be moved up</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: Just a logic question. In your diff, there are a couple of lines that define certain GPIO as input, but in current .35 source they're defined as output. Which one should I use?</span><br />
+<span class="irc-date">[17:05]</span> <span class="irc-black">&lt;koush_&gt; is this cause recovery is also in teh boot image</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;koush_&gt; so the packing needs to be in the boot image section?</span><br />
+<span class="irc-date">[17:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; whatever your device wants it to be</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; is correct</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: OK. So those mappings aren't changed anywhere else in software then? It's not like there's another source file somewhere that's remapped them.</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-brick">* UberPinguin doesn't want to blow things up</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: updated the install instructions?</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;atinm|away&gt; just tell them to use ROMManager.</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the gpio stuff in _settings also needs to be changed in mach-aries</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;UberPinguin&gt; S5PV210_GPB(3) will always indicate the same physical pin</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;UberPinguin&gt; hm</span><br />
+<span class="irc-date">[17:07]</span> <span class="irc-black">&lt;mikebeecham&gt; you've got spam on your cyanogenmod forums!</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;atinm|away&gt; that way we know they're rooted, and using clockworkmod</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yes UberPinguin</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;atinm|away&gt; we don't need nothing else.</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;atinm|away&gt; :)</span><br />
+<span class="irc-date">[17:08]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: ok</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;UberPinguin&gt; Just weird that in the .32 source it's defined as INPUT for both Epic and i9000, but in .35 it's an OUTPUT</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; where?</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;GuiPer&gt; atinm|away, thing i managed to fix the "sleep of death" in samsung "merge" kernel</span><br />
+<span class="irc-date">[17:09]</span> <span class="irc-black">&lt;GuiPer&gt; do you think it still worth to try to make it work?</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: arch/arm/mach-s5pv210/include/mach/gpio-settings.h, line 34</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;UberPinguin&gt; Sec, I'll grab some github links w/ hilights</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;koush_&gt; atinm|away: Unhelpful: you shouldnt need to move any of that stuff</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the file that we don't really read :P</span><br />
+<span class="irc-date">[17:10]</span> <span class="irc-black">&lt;koush_&gt; the only real thing happening there is the check for BOARD_USES_CUSTOM_BOOTIMG</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;atinm|away&gt; GuiPer: ok - sec, I'm trying to see the Makefile change koush is talking about because Unhelpful is missing.</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;koush_&gt; you can still have that depend on recovery file system image</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: you here?</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: lol. It was the closest-matching file I could find &gt;.&gt; Should I be using gpio-aries or gpio-herring instead?</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;koush_&gt; I assume you guys are not using the INITRAMFS stuff anymore though</span><br />
+<span class="irc-date">[17:11]</span> <span class="irc-black">&lt;koush_&gt; right?</span><br />
+<span class="irc-date">[17:13]</span> <span class="irc-black">&lt;atinm|away&gt; koush_: right.</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm|away&gt; tho I'm a little confused about what the Makefile is doing - let me bring it up in the editor.</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm|away&gt; I haven't tried to grok it yet</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: do you have uploaded i9k initial too (rommanager)?</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm|away&gt; no, I thought you had!</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm|away&gt; lol - I'll do it.</span><br />
+<span class="irc-date">[17:14]</span> <span class="irc-black">&lt;atinm|away&gt; did you install the nightly for it?</span><br />
+<span class="irc-date">[17:15]</span> <span class="irc-black">&lt;atinm|away&gt; koush_: sec - let me get our zips up for rommanager</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: should I upload nightly as well?</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;codeworkx&gt; everything</span><br />
+<span class="irc-date">[17:16]</span> <span class="irc-black">&lt;codeworkx&gt; for all devices</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;atinm|away&gt; vibrant and captivate are up fully</span><br />
+<span class="irc-date">[17:17]</span> <span class="irc-black">&lt;codeworkx&gt; koush_: we need a Samsung Galaxy S (B) / I9000B (MTD). It's the brazil version with slightly different hardware, in RM</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;koush_&gt; send a pull req to ROM Manager manifest</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;koush_&gt; on the devices.js</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;atinm|away&gt; I'll do it codeworkx</span><br />
+<span class="irc-date">[17:18]</span> <span class="irc-black">&lt;codeworkx&gt; thanks</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm|away&gt; koush, its up</span><br />
+<span class="irc-date">[17:22]</span> <span class="irc-black">&lt;atinm|away&gt; but I don't actually know if it is correct - can you check, its the whole "key" thing that you have going for mtd devices</span><br />
+<span class="irc-date">[17:25]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: not really, no, i split out .cpio and .cpio.gz as separate targets, and we depend on them.</span><br />
+<span class="irc-date">[17:26]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: ok</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: cpio and cpio.gz for what</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;Unhelpful&gt; *right now* i move the recovery.cpio and recovery.cpio.gz targets up, so that boot.img can depend on them and on ramdisk.cpio.gz. i think the *nice* solution would be to use custom bootimage hooks for recovery also - if you want to build a single boot image with recovery and root, then build it as the recovery image. ;)</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;koush_&gt; the recovery ramdisks?</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: for recovery and boot ramdisks.</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: you do not need to move them up you know</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;koush_&gt; the entire makefile system is evaluated</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;koush_&gt; then dependencies are called</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;koush_&gt; per target</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;koush_&gt; ie, all targets are loaded, then called</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;koush_&gt; so, you can have $(FOO): $(BAR)</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;koush_&gt; where FOO depends on BAR</span><br />
+<span class="irc-date">[17:27]</span> <span class="irc-black">&lt;koush_&gt; but bar is way lower in the file</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;Unhelpful&gt; erm, well, it was more about moving them outside of the NO_RECOVERY ;)</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;atinm|away&gt; koush_: (crap - I pushed rather than pull request . . . check ROMManager to make sure I didn't fuck it)</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;atinm|away&gt; think you should take me off the push for now :)</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;koush_&gt; galaxy s b should not be officially supported right?</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;Unhelpful&gt; and i'm aware that targets are evaluated, then called, but no amount of trickery seemed to work if a target or dependency referred to a *variable* defined later. :/</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;koush_&gt; copy/paste fail</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: ah right</span><br />
+<span class="irc-date">[17:28]</span> <span class="irc-black">&lt;atinm|away&gt; it should be the same as galaxys.</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;atinm|away&gt; they're all unsupported right now - or should be, want me to fix?</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: can i remove the initramfs support completely?</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;koush_&gt; cause its hard to see whats happening in your diff due to so many things happening</span><br />
+<span class="irc-date">[17:29]</span> <span class="irc-black">&lt;koush_&gt; then i'll start putting your changes on top of that</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;atinm|away&gt; so supported for normal case, but unsupported for mtd case.</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;koush_&gt; unsupported both</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;atinm|away&gt; (it is a separate device . . . we have to install a different cm7)</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;koush_&gt; i havent built recoveries for either</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;atinm|away&gt; urk, wait. there are two sections.</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;atinm|away&gt; one non mtd</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;atinm|away&gt; and one mtd</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;koush_&gt; right</span><br />
+<span class="irc-date">[17:30]</span> <span class="irc-black">&lt;koush_&gt; i do not support either at the moment</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;koush_&gt; do i?&gt;</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;atinm|away&gt; I think you do ;)</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;koush_&gt; i9000b?</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;koush_&gt; nonmtd</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;atinm|away&gt; well, no you don't as i9000b</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;koush_&gt; i never built a recovery for that</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;atinm|away&gt; as i9000 would work I think</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;koush_&gt; oh</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;koush_&gt; does it need a separate entry</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;atinm|away&gt; for stock stuff.</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;koush_&gt; do i9000 stock roms not work on i9000b</span><br />
+<span class="irc-date">[17:31]</span> <span class="irc-black">&lt;atinm|away&gt; but not for us - it is a different kernel</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;atinm|away&gt; I actually don't know. codeworkx?</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;codeworkx&gt; koush_: no, different kernel</span><br />
+<span class="irc-date">[17:32]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm|away, wow - you knew it: MIUI consists of kangers</span><br />
+<span class="irc-date">[17:34]</span> <span class="irc-black">&lt;zachy_md|busy&gt; :(</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: i could work on splitting that, too... i'd say 1) remove INITRAMFS, and supply the .cpio and .cpio.gz targets, without changing anything else 2) add the CUSTOM_BOOTIMAGE hooks, probably somewhere after all of the boot and recovery ramdisk targets are defined, so that any of those variables can be used. we'll just skip any of the rules for creating images if CUSTOM_BOOTIMAGE is defined. seem like a reasonable division?</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: so maybe we don't support i9000b from ROMManager.</span><br />
+<span class="irc-date">[17:35]</span> <span class="irc-black">&lt;atinm|away&gt; until koush has cwm working for it.</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-brick">* Unhelpful thinks we have a bit of a problem w/ elitism in #cmsgs... telling people who don't happen to know random details about stock ROMs that they're not ready. if you can follow instructions, and make sure everything is in place first, then i'd say you're ready. our stuff works if you do it right. ;P</span><br />
+<span class="irc-date">[17:36]</span> <span class="irc-black">&lt;atinm|away&gt; zachy_md|busy: of course. Its mostly icons and some minor stuff in the framework from what we can tell.</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: yeah, now we're "ready"</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm|away, now they even want my kernel &amp; exchange the cm7 logo ^^</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;atinm|away&gt; just install rommanager and install.</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: yes, koush_ has to built is with i9000b (latin) sources from opensource.samsung.com. but should be the same as i9k</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: buttons, partitions etc. all the same</span><br />
+<span class="irc-date">[17:37]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: ok, then we shouldn't have that in devices.js then.</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;atinm|away&gt; until koush has it built.</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm|away, well, I think you guys deserve it &amp; at least the cm7 logo should be kept so that folks are being remembered what this all is based on</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;atinm|away&gt; what's the comment character in .js files? :)</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;atinm|away&gt; should just comment it out</span><br />
+<span class="irc-date">[17:38]</span> <span class="irc-black">&lt;atinm|away&gt; zachy_md|busy: thanks :)</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;atinm|away&gt; but since it isn't cyanogenmod, its ok - they can do whatever. I'm surprised they didn't just clone our kernel, modify it and go</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;atinm|away&gt; they can.</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;techmik&gt; damn, i missed koush...</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm|away, yeah - I'm sure they will :(</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;atinm|away&gt; zachy_md|busy: no worries. I don't think about miui</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;techmik&gt; hi guys... was sick this morning, but better now.....</span><br />
+<span class="irc-date">[17:39]</span> <span class="irc-black">&lt;atinm|away&gt; its closed source. so it might as well be samsung for all I care.</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm|away, what bothers me only is that they take all &amp; get all the credit</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;koush_&gt; do i have official mtd builds of recoveries yet atinm|away ?</span><br />
+<span class="irc-date">[17:40]</span> <span class="irc-black">&lt;atinm|away&gt; koush_: I wonder if the i9000b just works by them picking i9000</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;koush_&gt; i do not remember</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;atinm|away&gt; it works :)</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;atinm|away&gt; so I guess you do</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;atinm|away&gt; actually now</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;atinm|away&gt; no</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;atinm|away&gt; it uses ours</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;atinm|away&gt; it knows that mtd is - asks whether 2.x or 3.x</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;atinm|away&gt; and then just uses 3.x</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;zachy_md|busy&gt; anyway: away from pc - see ya later</span><br />
+<span class="irc-date">[17:41]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: will have something for you to review in a moment</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: i am pulling the recovery.img out into a separate target</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;techmik&gt; koush_ i have rom manager premium under miksim67, which is my original, alternate account.... is there anyway to transfer the license to techmik67 account with gmail;?</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;koush_&gt; techmik: i cant</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;koush_&gt; techmik: thats all on googles end</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;techmik&gt; no biggie</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;techmik&gt; figured i4 ask</span><br />
+<span class="irc-date">[17:42]</span> <span class="irc-black">&lt;techmik&gt; ican sping for te couple of $$ again =)</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;techmik&gt; i made the same mistake with root explorer =)</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;atinm|away&gt; koush - you should be flattered, ROMManager was my very first program I ever bought. :)</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;techmik&gt; me too</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;atinm|away&gt; well, on the phone I mean</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;techmik&gt; then root explorer</span><br />
+<span class="irc-date">[17:44]</span> <span class="irc-black">&lt;atinm|away&gt; though, koush - are CM7 SGS going to move to free section?</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;techmik&gt; back when you had to change the value from 0 to 1 to install unknown sources</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;atinm|away&gt; tho if CM7 nightlies are in premium, this should be too</span><br />
+<span class="irc-date">[17:45]</span> <span class="irc-black">&lt;atinm|away&gt; we have koush on multiple tracks - let him concentrate on Makefile. most important right now</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm|away&gt; tho, what *is* the comment character for devices.js - that is just javascript?</span><br />
+<span class="irc-date">[17:46]</span> <span class="irc-black">&lt;atinm|away&gt; can't tell by looking at it - it could be anything :)</span><br />
+<span class="irc-date">[17:49]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; its dd I think :_ but I guess that depends on which editor your using</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx: update the instructions to be ROMManager for everything</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;atinm|away&gt; initial and nightly</span><br />
+<span class="irc-date">[17:50]</span> <span class="irc-black">&lt;atinm|away&gt; you don't even need to say "Initial:</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;atinm|away&gt; it just goes ROMManager &gt; Download ROMs &gt; Teamhacksung</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;atinm|away&gt; click that and install :)</span><br />
+<span class="irc-date">[17:51]</span> <span class="irc-black">&lt;atinm|away&gt; done.</span><br />
+<span class="irc-date">[17:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 79 downloads already...unless your jucing the numbers</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: done</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;atinm|away&gt; we have no control over that :)</span><br />
+<span class="irc-date">[17:53]</span> <span class="irc-black">&lt;techmik&gt; why is this happening? <a href="http://spedr.com/NHg5x3A0">http://spedr.com/NHg5x3A0</a> and <a href="http://spedr.com/SE0yRoge">http://spedr.com/SE0yRoge</a></span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;koush_&gt; what is Unhelpful's name on gerrit</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;techmik&gt; i tell it to push techmik and it says everything up to date</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;koush_&gt; i need to add him to a review</span><br />
+<span class="irc-date">[17:54]</span> <span class="irc-black">&lt;atinm|away&gt; andrew mahone</span><br />
+<span class="irc-date">[17:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sure you do atinm, download, delete, download....</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-black">&lt;techmik&gt; brb</span><br />
+<span class="irc-date">[17:57]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Leaving)</span><br />
