@@ -1,0 +1,152 @@
+<span class="irc-date">[0:10]</span> <span class="irc-green">* TMC_Sherpa_ (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-green">* TMC_Sherpa_ is now known as TMC_Sherpa</span><br />
+<span class="irc-date">[0:17]</span> <span class="irc-navy">* koush_ (~koush@c-71-227-161-2.hsd1.wa.comcast.net) Quit (Quit: koush_)</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: moo</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh god noooo</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;UberPinguin&gt; hahahahahaa</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;UberPinguin&gt; No technical questions, I promise!</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;UberPinguin&gt; I have a strong feeling though, that it would be cleaner to make an epic-specific gpio-aries.h, like gpio-epic-aries.h or so, and use an ifdef to include the right one. Rather than trying to ifdef for each device within a single file.</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well, if mach-aries used gpio-aries that would be one way to do it</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;UberPinguin&gt; It does, line 44</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;Unhelpful&gt; 'k, so, if i hack out the build/device changes, can somebody do a test build? :)</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm's build box is faster than my laptop anyway ;)</span><br />
+<span class="irc-date">[0:23]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh, sorry I was thinking of settings</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;UberPinguin&gt; We don't use gpio-settings.h at all, correct?</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; um....how bad is it?</span><br />
+<span class="irc-date">[0:24]</span> <span class="irc-black">&lt;UberPinguin&gt; The git diff on gpio-aries.h is 716 lines long so far.</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;UberPinguin&gt; I'm 31% through your diff.</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; .....really?</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;UberPinguin&gt; Yeah</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;UberPinguin&gt; They moved a *lot* of stuff around on Epic</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;UberPinguin&gt; I could probably eliminate some of those lines by combining the ifdefs into larger blocks, but it's still a lot of pins being changed.</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; aries should just be the defines</span><br />
+<span class="irc-date">[0:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh your saying everything is hooked up differently</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;UberPinguin&gt; It's all hooked up differently</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; awesome</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-black">&lt;UberPinguin&gt; Well, not all, but the vast majority of it</span><br />
+<span class="irc-date">[0:29]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; right now I would do whatever is easiest to get the sucker to boot</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;UberPinguin&gt; aye</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dang I still need to make that skeleton</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-green">* ChanServ sets mode +o techmik_laptop</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;Unhelpful&gt; koush: why does recovery_uncompressed_ramdisk depend on minigzip? ;)</span><br />
+<span class="irc-date">[0:39]</span> <span class="irc-black">&lt;atinm|away&gt; and koush dont think update-binary works the way we're thinking, we still need many of the features that only come from actually running the update-binary, but we can't because we don't know where it is :)</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm|away&gt; since it is in the zip itself.</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm|away&gt; the non-shell one I mean</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm|away&gt; we need to rethink it.</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm|away&gt; but I have to get to bed.</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm|away&gt; can someone tell codeworkx when he gets in that we can't use it the way we are trying - real-update-binary can't be called</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm|away&gt; from within the update-binary shell script</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm|away&gt; since we don't have the path to it.</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm|away&gt; it isn't even extracted yet</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm|away&gt; since that's the update-binary's job</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, hell, and we can't use "extract bluh" :/</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm|away&gt; yeah..</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm|away&gt; have to figure out a way to just get the path to the update.zip written out somehow</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;atinm|away&gt; we could hack the update-binary itself to do it.</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;atinm|away&gt; which is yucky. but maybe we can make it fly with a TARGET is blah thing</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm|away, that got the users thinking: <a href="http://forum.xda-developers.com/showpost.php?p=13828249&amp;postcount=14305">http://forum.xda-developers.com/showpost.php?p=13828249&amp;postcount=14305</a></span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;atinm|away&gt; like make the update-binary call something else before it runs updater-script</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;atinm|away&gt; zachy_md|busy: :)</span><br />
+<span class="irc-date">[0:43]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm|away, was my answer ok or should I add something ?</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;atinm|away&gt; didn't see your answer</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;atinm|away&gt; not a thread I  look in</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;zachy_md|busy&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13828765&amp;postcount=14306">http://forum.xda-developers.com/showpost.php?p=13828765&amp;postcount=14306</a></span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, that's cool - like I said, it is GPL.</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;atinm|away&gt; cool that we're still mentioned</span><br />
+<span class="irc-date">[0:44]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ^^</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm|away&gt; no need to add that atinm (and CM7) looks down on closed source stuff ;)</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm|away&gt; like way down.</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;zachy_md|busy&gt; Î could add a prefix like "cm7" to my kernel but that would make a very long kernel name ;)</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm|away&gt; like down at Samsung levels down.</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm|away&gt; which is pretty way down.</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;atinm|away&gt; only lower.</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm|away&gt; because at least samsung has an excuse . . . they're an idiot manufacturer</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;zachy_md|busy&gt; yeah, samsung really does opensource / code stuff in a strange way</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm|away&gt; but miui is just a user developed thing, based on some combination of CM7 etc</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm|away&gt; and is closed just for the hell of it - its weird.</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm|away&gt; but whatever, ignore.</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm|away&gt; back to update-binary</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;zachy_md|busy&gt; k</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-green">* zachy_md|busy is now known as zachy_md|nite</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;zachy_md|nite&gt; see ya later</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;zachy_md|nite&gt; good nite</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm|away&gt; nite</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-green">* zachy_md|nite (~zacharias@chello084114179145.16.15.vie.surfer.at) has left this channel.</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: so I don't know how to make it fly./</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;Unhelpful&gt; nor do i :(</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm|away&gt; the other thing to try could be to actually have a zip inside.</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm|away&gt; that we extract :)</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm|away&gt; a zip inside a zip</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;Decad3nce&gt; inception..</span><br />
+<span class="irc-date">[0:48]</span> <span class="irc-black">&lt;atinm|away&gt; gets weird.</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-green">* koush_ (~koush@c-71-227-161-2.hsd1.wa.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-green">* ChanServ sets mode +o koush_</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm|away&gt; update-binary is called via an execv</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm|away&gt; and is passed the path</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm|away&gt; but after that it does nothing to the "environment"</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; so nothing to look for</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm|away&gt; run_program also calls execv</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;koush_&gt; anyone here running a stcok att phone</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm|away&gt; :)</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm|away&gt; techmik does when testing this update</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm|away&gt; techmik: you here?</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm|away&gt; koush_: we have to rethink this update-binary thing..</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;koush_&gt; why</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;koush_&gt; my idea will work</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm|away&gt; we still want all the nice extract from zip stuff that updater-script gives us</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;koush_&gt; right</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; sorry, here on laptop</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;koush_&gt; you can still do that</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm|away&gt; the real update-binary gives us</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;koush_&gt; yea you can do that</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;koush_&gt; call it real-update-binary</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm|away&gt; but we don't have a path to the "real-update-binary"</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm|away&gt; its not extracted.</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;koush_&gt; its in the zip man</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;koush_&gt; i outlined this earlier</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;koush_&gt; here's how this will work</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;koush_&gt; make bacon currently does a zip repack</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;koush_&gt; modify bacon to repack the zip as following:</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;koush_&gt; add your /bin/sh script called update-binary</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;koush_&gt; rename your old update-binary to real-update-binary</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;koush_&gt; your new script will see what needs to be done</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm|away&gt; yup, got all that.</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;koush_&gt; if it needs to upgrade, then upgrade</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;koush_&gt; if it needs to install</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;koush_&gt; it will extract real-update-binary</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;koush_&gt; then call "exec real-update-binary $@"</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;koush_&gt; and then real-update-binary will continue as normal</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm|away&gt; ok, its the extract piece from the shell script that was weird.</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;koush_&gt; what extract piece</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm|away&gt; dunno how to do it - guess busybox?</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;koush_&gt; just use zip</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;koush_&gt; yes, zip will be there</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;koush_&gt; in cwr</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm|away&gt; extract the real-update-binary.</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;atinm|away&gt; that's the part we're missing :)</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;koush_&gt; rather, unzip will be there</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;koush_&gt; let me make sure it owrks</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm|away&gt; rest we got. ok - let me hack that in</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm|away&gt; please UPS, drop Unhelpful's machine off tomorrow</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;Unhelpful&gt; ...i have no indication it has shipped back, yet?</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;koush_&gt; oh busybox wont work</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;koush_&gt; localhost foo # busybox unzip ../update-cm-7.0.0-NS-KANG-signed.zip</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;koush_&gt; Archive:  ../update-cm-7.0.0-NS-KANG-signed.zip</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;koush_&gt; unzip: zip flags 1 and 8 are not supported</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;atinm|away&gt; damn it.</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Konversation terminated!)</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;Unhelpful&gt; that too. ;)</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-black">&lt;koush_&gt; thats fine sec</span><br />
+<span class="irc-date">[0:57]</span> <span class="irc-green">* atinm|away is now known as atinm</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Unhelpful&gt; koush: INSTALLED_RECOVERYIMAGE_TARGET is equivalent to INSTALLED_BOOTIMAGE_TARGET, right?.. in other words it's the target i need to hook if there is a custom bootimg hook...</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;koush_&gt; i see the problem</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-green">* ChanServ sets mode +o techmik_laptop</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;atinm&gt; between me and unhelpful, koush needs a dual processor in his head</span><br />
+<span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: for super fun, try to check my RMA status. don't worry, you won't be needing my RMA number. <a href="http://sagernotebook.com/index.php?page=contact">http://sagernotebook.com/index.php?page=contact</a></span><br />
