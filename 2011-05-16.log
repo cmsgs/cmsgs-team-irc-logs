@@ -1116,3 +1116,167 @@
 <span class="irc-date">[20:58]</span> <span class="irc-black">&lt;UberPinguin&gt; Well, in Epic's .32.9, mach-aries.c had a include statement for gpio-aries-setting.h. In current .35, there is no include for that header.</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;UberPinguin&gt; brb</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah stuff got moved around</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;nitam|work&gt; ok, both captivate and vibrant were able to update.</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;nitam|work&gt; going to call it good. :)</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gpio-aries-setting.h became gpio-settings.h (which is read my mach-aries) gpio-aries.h is still gpio-aries and gets used all over the place, just not mach-aries which has its own table instead...and I think most of gpio-settings isn't used in mach-aries for some damn reason</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: i9k worked</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; what about captivate users running an i9k rom..... I don't remember what I had to install ROM manager as :P</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;nitam|work&gt; captivate.</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;nitam|work&gt; or at least try it</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;nitam|work&gt; or go to stock ;)</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: hm. I don't see gpio-settings.h being included anywhere either.</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ~/Desktop/junk/hacksung050411 user$ grep -r gpio-settings *</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; arch/arm/mach-s5pv210/mach-aries.c:#include &lt;mach/gpio-settings.h&gt;</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;UberPinguin&gt; wtf</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; dont worry, all the other trees are also in junk</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;UberPinguin&gt; Maybe I'll rebase onto your tree, I think it's been a while since nullghost forked.</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I dont have git on this POS so that is from 12 days ago</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it does almost everything in mach-aries anyway</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;UberPinguin&gt; hm</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I think codeworkx added it when he realized it wasn't being read</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;UberPinguin&gt; eh.. what branch of the android_kerne_samsung repo is current?</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;codeworkx&gt; TMC_Sherpa: gpio-settings is not used</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;UberPinguin&gt; ah</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; there ya go</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;codeworkx&gt; TMC_Sherpa: nexus s has the gpio tables in mach-herring. and we've cloned herring. so we have it to there</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-brick">* codeworkx has teh bad english</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yup yup</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-brick">* UberPinguin brain hurt</span><br />
+<span class="irc-date">[21:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; UberPinguin:  you have no idea......</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;UberPinguin&gt; Should I even bother with mach-aries.c then? Or just work on mach-herring.c ?</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; aries</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;UberPinguin&gt; k</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; we copied herring to aries then fuct with it</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;UberPinguin&gt; Please please tell me that it's clever enough to get the GPIO pin definitions from gpio-aries.h and I don't have to rewrite the whole file..&gt;?</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and by we I mean someone else</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so how bout the white sox? man they suck this year</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sorry man, I thought I said something about that.... 'course I also thought it was reading at least part of it.</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;UberPinguin&gt; It does #include gpio-aries.h</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah gpio-aries does the same poop in froyo and GB</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;UberPinguin&gt; ok. I'm going to try a build then. Maybe it'll asplode, but maybe I'll save myself some forehead bruises.</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it'll asplode or at least your battery will sux</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;nitam|work&gt; all the threads on XDA are *mine*</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;UberPinguin&gt; lol</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;nitam|work&gt; I own the last post on all the SGS CM7 threads :)</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;nitam|work&gt; but still no solution to htonll()</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;nitam|work&gt; so I still fail.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;nitam|work&gt; back later.</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you ned a bigger team working on your phonz code took what I did an settings and added it to mach</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; in</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; christ I type in english worse than he does</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;UberPinguin&gt; hahahaha</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;UberPinguin&gt; Yeah, compile just shat itself</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;UberPinguin&gt; osm</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;nitam|work&gt; ah crap.</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;nitam|work&gt; I think they fixed the MMS issue upstream just now</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;nitam|work&gt; so we need new builds.</span><br />
+<span class="irc-date">[21:25]</span> <span class="irc-black">&lt;nitam|work&gt; they *just* did it.</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;nitam|work&gt; so catch it for tomorrow.</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;clandmeter&gt; nice, going to try it</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;nitam|work&gt; not doing another upload tonight.</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;koush___&gt; mnita|work: everything working?</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;koush___&gt; ie, the UPDATE_PACKAGE thing worked out for you?</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yes but step 7 involves an wood chipper for some reason</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;koush___&gt; mnita|work: lets focus on getting everything mainline</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;koush___&gt; mnita|work: so your builds are automated</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;koush___&gt; what else is left outstanding?</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;codeworkx&gt; koush___: little ril problem, little video problem</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;codeworkx&gt; koush___: and maybe a headset thingy</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;nitam|work&gt; koush___: yes, the UPDATE_PACKAGE thing worked.</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;nitam|work&gt; now it is mostly bugs.</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;nitam|work&gt; but very usable now</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;nitam|work&gt; the biggest thing right now is merging Makefile</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;nitam|work&gt; and then we start merging everything.</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;techmik67&gt; i finally see team hacksung in download rom =))</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;codeworkx&gt; techmik67: DONT! it will kill your cat</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;techmik67&gt; 263 downloads already</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;techmik67&gt; lol</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="http://stats.cyanogenmod.com/">http://stats.cyanogenmod.com/</a>  ~10,600 users on SGS!</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;codeworkx&gt; 263 dead cats -.-</span><br />
+<span class="irc-date">[21:33]</span> <span class="irc-black">&lt;codeworkx&gt; whats happening if theres no cat to kill?</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;nitam|work&gt; koush__ I think we're basically ready for mainline. Makefile and the merges for device specific stuff. we have to figure out what we're doing with vendor proprietary libs</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;nitam|work&gt; koush___: in fact, we wanted to talk to you about that.</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;codeworkx&gt; download-props.sh</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;koush___&gt; mnita|work: currently our props live in my github repo</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;codeworkx&gt; and host it on a russian server</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;koush___&gt; cause i am protected by an LLC :)</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;nitam|work&gt; lol :)</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;koush___&gt; and we have a local manifest that points to them</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;koush___&gt; sec</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;koush___&gt; <a href="https://gist.github.com/974910">https://gist.github.com/974910</a></span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;koush___&gt; thats local_manifest.xml</span><br />
+<span class="irc-date">[21:34]</span> <span class="irc-black">&lt;koush___&gt; are you familiar with that</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;koush___&gt; its basically a file you put in your .repo directory in your android tree</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;koush___&gt; and its like an</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;koush___&gt; "</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;koush___&gt; an "addon" to manifests.xml</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;nitam|work&gt; ah</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;nitam|work&gt; cool</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;koush___&gt; so, it keeps CM's hands clean</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;koush___&gt; but secretly everyone puts that in their .repo</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;koush___&gt; thats how we keep our props in sync</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;nitam|work&gt; we should dump our prop_vendor_samsung in koush too ;)</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;koush___&gt; right</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; think we can make it work then</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;koush___&gt; ill give you access</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;koush___&gt; sec</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;koush___&gt; give me some github names</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; atinm</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; coolya</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; same nicks are here :)</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;codeworkx&gt; who the hell is atinm?</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;koush___&gt; ok done</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;koush___&gt; instead of trying to merge the makefile...</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;koush___&gt; i think you should just hand reapply the changes on top of mine</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;koush___&gt; i added some support for your stuff</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;koush___&gt; .</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;koush___&gt; so it should be way easier</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;koush___&gt; and cleaner</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;nitam|work&gt; I think Unhelpful has done it already - we need to test. it was 4 lines added and 2 changed</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;nitam|work&gt; so is easy now</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;koush___&gt; ok</span><br />
+<span class="irc-date">[21:37]</span> <span class="irc-black">&lt;koush___&gt; good</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;koush___&gt; yea that code was a mess since it was like 4 devices in that area</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;koush___&gt; uboot, android bootimage, initramfs, and now this hack</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;koush___&gt; cleaned it up</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;nitam|work&gt; yes, unhelpful was happy.</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;nitam|work&gt; I still don't go near it :)</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;koush___&gt; not looking forward to the google merge that will be coming</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;koush___&gt; sigh</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;nitam|work&gt; ah yuck.</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;nitam|work&gt; they should take the crespo changes quickly tho</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;nitam|work&gt; they managed to break a lot of devices with their Android.mk</span><br />
+<span class="irc-date">[21:40]</span> <span class="irc-black">&lt;nitam|work&gt; but I'm glad I only worry about SGS.</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;UberPinguin&gt; ...of course the NS4G uses similar GPIO to NS, and not really at all like the Epic. THat would have been too convenient.</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx, good idea</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;nitam|work&gt; screw updating the date all the time.</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;nitam|work&gt; we can remove the date now because ROMManager will always have latest :)</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;codeworkx&gt; "darky can release darkyrom11 turbo v12 supercharged photoshop, samsung can release bloatrom XWZZZZZZ , i dont care anymore. cm all teh way"</span><br />
+<span class="irc-date">[21:46]</span> <span class="irc-black">&lt;codeworkx&gt; lul</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;codeworkx&gt; i'm off for now. cya tomorrow</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;codeworkx&gt; hope everything goes fine</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; so do we ;)</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:59]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
