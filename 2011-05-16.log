@@ -427,3 +427,116 @@
 <span class="irc-date">[13:54]</span> <span class="irc-black">&lt;codeworkx&gt; so you can use /sdcard/bamoida/blubb.zip</span><br />
 <span class="irc-date">[13:58]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik: did you apply it *to CyanogenMod's branch* like i said?</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;techmik&gt; of build? i tried to pull from cm, but we arent forked form them anymore so it said up to date</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;techmik&gt; tmc sherpa gave me this: <a href="http://bit.ly/mi0QOF">http://bit.ly/mi0QOF</a></span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;techmik&gt; it built, but only built initial, not both, and i got the same status 2 error in froyo and stock</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, we're not? because i assure, that patch does apply to them. :)</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-black">&lt;techmik&gt; ahjhhhh</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;techmik&gt; i see</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;Unhelpful&gt; you pulled, did you check out?</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;techmik&gt; why did it say up to date?</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;techmik&gt; when i pulled?</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;techmik&gt; i added cm remote</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;Unhelpful&gt; do git branch -r and then check out their gingerbread. ;)</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-green">* atinm (~amalaviya@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;techmik&gt; ok, i have checked out cm/gingerbread and am now in detached head state, but HEAD seems to be correct, cm's not ours.....</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: shouldn't it still look at /sdcard/update-cm7-INITIAL blah de blah?</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;nitam|work&gt; it needs to put something in extendedcommands</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;nitam|work&gt; for the reboot</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;techmik&gt; wow</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: we need this functionality only for initial if we're comming from bml</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;techmik&gt; i said git apply ~/Desktop/build and it gave me no reply, just the prompt again</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;nitam|work&gt; yes, I mean in that case. if busybox test -e $UPDATE ; then..</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;codeworkx&gt; the cfg will exist forever. except the user is deleting it</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;nitam|work&gt; else</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;codeworkx&gt; no else</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;nitam|work&gt; ah right, if we fix update-binary to always do it</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;nitam|work&gt; the UPDATE_PACKAGE, which we then write.</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;codeworkx&gt; if /sdcard/update-INITIAL doesn't exist, the device will reboot and reboot and reboot</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;codeworkx&gt; that why i removed the else</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-green">* TMC_Sherpa_ (~Jeff_Rut@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;codeworkx&gt; so if your system is fuct, it boots into recovery and does nothing</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;codeworkx&gt; maybe we can inform the user</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;codeworkx&gt; have to look at extendedcommands what else is possible</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;nitam|work&gt; ok, I'm going to send up our update-binary change to gerrit</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;nitam|work&gt; so we're not forked again</span><br />
+<span class="irc-date">[14:13]</span> <span class="irc-black">&lt;codeworkx&gt; did you push the new binary to releasetools?</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;techmik&gt; ok, buildoing with the latest changes plus unhelpfuls 2 patches</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: not yet - building</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;nitam|work&gt; how is this all supposed to work when we're merged?</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;nitam|work&gt; releasetools is ours, right?</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;nitam|work&gt; techmik point me to unhelpful's patches</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;nitam|work&gt; I can't really do much right now, but can pull them</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;nitam|work&gt; at work.</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;codeworkx&gt; out/target/product/galaxys/obj/EXECUTABLES/updater_intermediates/updater ?</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;nitam|work&gt; hmm</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;nitam|work&gt; sec</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;nitam|work&gt; $(PRODUCT_OUT)/utilities/update-binary</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;techmik&gt; hi had no github to push to, so: <a href="http://pastie.org/1907517">http://pastie.org/1907517</a> and <a href="http://pastie.org/1907522">http://pastie.org/1907522</a></span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;nitam|work&gt; ok, some errors in there</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: theres no</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;nitam|work&gt; minor</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;nitam|work&gt; typo</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: I'll commit it after my build finishes. it should be there - it is in Android.mk under bootable/recovery/updater</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;nitam|work&gt; $(TARGET_OUT)/bin/updater</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;nitam|work&gt; is the same file</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;codeworkx&gt; wait, we'll grab it from there</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;techmik&gt; i got an error</span><br />
+<span class="irc-date">[14:20]</span> <span class="irc-black">&lt;codeworkx&gt; then its always up2date</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;techmik_laptop&gt; build/core/Makefile:398: warning: ignoring old commands for target `out/target/product/captivate/boot.img'</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;techmik_laptop&gt; make: *** No rule to make target `bacon'.  Stop.</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;techmik_laptop&gt; Error: ../out/target/product/captivate/boot.img doesn't exist.</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;techmik_laptop&gt; Build android before trying to create a initial package.</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;techmik_laptop&gt; Elapsed: 2 min(s) 54 sec(s)</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: right :)</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;nitam|work&gt; I was going to suggest that.</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;codeworkx&gt; out/target/product/galaxys/bin/updater then?</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;nitam|work&gt; you can make it depend on $(PRODUCT_OUT)/utilities/update-binary</span><br />
+<span class="irc-date">[14:21]</span> <span class="irc-black">&lt;nitam|work&gt; if it sees that something needs it, it will build</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;nitam|work&gt; the bottom of Android.mk in bootable/recovery/updater</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;nitam|work&gt; does the copy</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;nitam|work&gt; but we need to depend on it somewhere</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;nitam|work&gt; for it to copy</span><br />
+<span class="irc-date">[14:22]</span> <span class="irc-black">&lt;nitam|work&gt; sometimes make is more intelligent that we give it credit for :)</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;nitam|work&gt; techmik let me pull in his commits after I finish build.</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;nitam|work&gt; and codeworkx does the copy thing for update-binary</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: from utilities folder?</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;nitam|work&gt; I guess for that to build, we need to do the copy in device :-P</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;nitam|work&gt; otherwise no dependencies.</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;codeworkx&gt;  /utilities/update-binary  is 100% correct?</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;nitam|work&gt; yes, but it will only get built if we ask for it.</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt; otherwise just updater is build.</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt; we need to create a dependency. but not in PRODUCT_COPY</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt; somewhere else</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;nitam|work&gt; don't know where stuff like that is put</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-black">&lt;codeworkx&gt; captivate.mk</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, but all those use PRODUCT_COPY and PRODUCT_PACKAGES</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-black">&lt;nitam|work&gt; which are supposed to go onto the phone :-P</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-green">* TMC_Sherpa_ (~Jeff_Rut@c-67-173-42-196.hsd1.il.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-black">&lt;nitam|work&gt; other phones must do it</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;nitam|work&gt; just doing a grep for it everyw2here :)</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;nitam|work&gt; ./build/tools/device/mkrecoveryzip.sh:cp $OUT/system/bin/updater $SCRIPT_DIR/update-binary</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;nitam|work&gt; screw it, do the same.</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;codeworkx&gt; k</span><br />
+<span class="irc-date">[14:30]</span> <span class="irc-black">&lt;nitam|work&gt; ok, back later.</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;nitam|work&gt; can you make it always copy it for releasetools</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;nitam|work&gt; I'll try to work on Unhelpful's patch and get the gerrit for bootable/recovery send to koush</span><br />
+<span class="irc-date">[14:31]</span> <span class="irc-black">&lt;nitam|work&gt; sometime today</span><br />
+<span class="irc-date">[14:33]</span> <span class="irc-black">&lt;codeworkx&gt; done</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;codeworkx&gt; I:Trying update-binary.</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;codeworkx&gt; about to run program [/tmp/updater.sh] with 1 args</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;codeworkx&gt; + export PATH=/:/sbin:/system/xbin:/system/bin:/tmp:/sbin:/system/sbin:/system/bin:/system/xbin</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;codeworkx&gt; run_program: child exited with status 2</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;codeworkx&gt; hehe</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-black">&lt;codeworkx&gt; tmp/updater.sh: line 123: syntax error: unexpected end of file (expecting "fi")</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work missed a fi</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;codeworkx&gt; k fixed</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;nitam|work&gt; it could just be an and too :)</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;nitam|work&gt; but it was late.</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-black">&lt;codeworkx&gt; three missing fi and a typo xD</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-black">&lt;codeworkx&gt; linux shell is very basic, needs fi</span><br />
+<span class="irc-date">[14:57]</span> <span class="irc-black">&lt;codeworkx&gt; :-P</span><br />
+<span class="irc-date">[14:58]</span> <span class="irc-brick">* codeworkx feels good now, he fixed four hard errors!!!</span><br />
