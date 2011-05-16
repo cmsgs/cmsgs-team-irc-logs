@@ -150,3 +150,107 @@
 <span class="irc-date">[0:59]</span> <span class="irc-green">* ChanServ sets mode +o techmik_laptop</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;atinm&gt; between me and unhelpful, koush needs a dual processor in his head</span><br />
 <span class="irc-date">[0:59]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: for super fun, try to check my RMA status. don't worry, you won't be needing my RMA number. <a href="http://sagernotebook.com/index.php?page=contact">http://sagernotebook.com/index.php?page=contact</a></span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;atinm&gt; lol!</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;atinm&gt; but order status you can click</span><br />
+<span class="irc-date">[1:00]</span> <span class="irc-black">&lt;atinm&gt; they just don't fix wha they sell ;)</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;techmik&gt; ok, i'm here and on stock</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; brain trust is working on some stuff, may be a bit</span><br />
+<span class="irc-date">[1:03]</span> <span class="irc-black">&lt;koush_&gt; i'll just modify bacon to make compatible zips atinm</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;atinm&gt; that is way beyond me :)</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;atinm&gt; especially given that I have to go soon. hopefully logger stays on</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: you want to modify the bootimage right</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;atinm&gt; and unhelpful is here</span><br />
+<span class="irc-date">[1:04]</span> <span class="irc-black">&lt;koush_&gt; to pack an extra thing onto it right</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;Unhelpful&gt; koush: well, the complicated bit is that the extra thing is the recovery filesystem :)</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;koush_&gt; i already have a .cpio and .cpio.gz outputed</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;koush_&gt; of the recovery filesystem</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;atinm&gt; unhelpful, did you look at the change koush put in?</span><br />
+<span class="irc-date">[1:05]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, ok... i think i know what to do here. :)</span><br />
+<span class="irc-date">[1:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; we just change the boot image to buy a different phone right?</span><br />
+<span class="irc-date">[1:07]</span> <span class="irc-black">&lt;Unhelpful&gt; i think i can get everything we need in one change... but, i do have another question, right now our releasetools has to look in $(PRODUCT_OUT) itself, because boot.img isn't in the target-files zip</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;Unhelpful&gt; how can we *get* it in the target-files zip?</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: we already fixed this</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;koush_&gt; TARGET_NO_KERNEL does not work because it was set to false</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;Unhelpful&gt; oh! how? :)</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;koush_&gt; various parts of the build do an ifdef</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;Unhelpful&gt; ahhhh</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;koush_&gt; rather than an ifeq</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;koush_&gt; i think</span><br />
+<span class="irc-date">[1:08]</span> <span class="irc-black">&lt;koush_&gt; so just removing those lines should fix it</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;atinm&gt; oh right, we didn't actually go do it yet</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;atinm&gt; let me do that. last thing before I have to go.</span><br />
+<span class="irc-date">[1:09]</span> <span class="irc-black">&lt;atinm&gt; no way it defaults to true we hope</span><br />
+<span class="irc-date">[1:10]</span> <span class="irc-black">&lt;Unhelpful&gt; ok, so, here's the plan, if BOARD_USES_CUSTOM_BOOTIMG is defined, the targets for boot.img and recovery.img are skipped, and BOARD_CUSTOM_BOOTIMG_MK is included after all of the variables are defined - this will say how to build them.</span><br />
+<span class="irc-date">[1:11]</span> <span class="irc-black">&lt;Unhelpful&gt; i could just ifdef BOARD_CUSTOM_BOOTIMG_MK, and not have BOARD_USES_CUSTOM_BOOTIMG, if that's reasonable...</span><br />
+<span class="irc-date">[1:13]</span> <span class="irc-black">&lt;techmik&gt; brb... dog walk.... on stock and rdy to test......</span><br />
+<span class="irc-date">[1:14]</span> <span class="irc-black">&lt;atinm&gt; ok, took out TARGET_NO_KERNEL completely</span><br />
+<span class="irc-date">[1:18]</span> <span class="irc-black">&lt;Unhelpful&gt; koush: congrats, your commits get me down to 2 lines changed, four inserted.</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;Unhelpful&gt; and we'll also be ready to build separate images for boot/recovery for the cdma phones that actually use a recovery partition :)</span><br />
+<span class="irc-date">[1:19]</span> <span class="irc-black">&lt;atinm&gt; cool, now if you actually had a computer</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;atinm&gt; or can you just edit on git ;)</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;atinm&gt; using web</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;techmik&gt; back</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;atinm&gt; on your phone</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;atinm&gt; ;)</span><br />
+<span class="irc-date">[1:20]</span> <span class="irc-black">&lt;Unhelpful&gt; i have a desktop, it just lacks the space for a full checkout, and the memory to build w/o falling over.</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-green">* atinm is now known as atinm|night</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm|night&gt; ah, cool.</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm|night&gt; then you can at least do edits and commits to parts and have techmik test</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm|night&gt; you up all night tonight?</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;Unhelpful&gt; so, like i said, i'll push some stuff up to github, somebody else can build</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;techmik&gt; i can build build build =)</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;Unhelpful&gt; nah, i'ma try to hammer this out and then go to bed. if it's broken i can sort it out tomorrow.</span><br />
+<span class="irc-date">[1:21]</span> <span class="irc-black">&lt;atinm|night&gt; cool, thanks :)</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;atinm|night&gt; ok. he can test</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;Unhelpful&gt; or techmik can work on breaking in his makefile skills s'more.</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-brick">* techmik gulps</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;atinm|night&gt; then he can help koush_ with his stock AT&amp;T phone</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;atinm|night&gt; I'm off</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;techmik&gt; i'm on jf6 now.....</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;atinm|night&gt; wake early tomorrow</span><br />
+<span class="irc-date">[1:22]</span> <span class="irc-black">&lt;techmik&gt; night atinm|night</span><br />
+<span class="irc-date">[1:23]</span> <span class="irc-black">&lt;atinm|night&gt; (wife is here, so have to go :) - no loitering)</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;uberushaximus&gt; JF6 being stock eclair</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-black">&lt;techmik&gt; yupyup</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-green">* gehzumteufel (~gehzumteu@cpe-76-93-100-229.socal.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[1:26]</span> <span class="irc-green">* ChanServ sets mode +v gehzumteufel</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;koush_&gt; i just realized i can just add something to update-binary</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;koush_&gt; that returns the zip loc :P</span><br />
+<span class="irc-date">[1:30]</span> <span class="irc-black">&lt;gehzumteufel&gt; how many bags does it return? :p</span><br />
+<span class="irc-date">[1:33]</span> <span class="irc-black">&lt;uberushaximus&gt; 54 quart sized</span><br />
+<span class="irc-date">[1:36]</span> <span class="irc-black">&lt;Unhelpful&gt; FFFFFFFFFFFUUUUUUUUUUU</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;techmik&gt; aha... the twitter teamhacksung bot cant get it... it tweete in cmsgs</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;Unhelpful&gt; my ssh keys are... on the laptop :/</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;Unhelpful&gt; well, in the backup of the laptop.</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;techmik&gt; how many files you changing? we can do what i do with TMC_Sherpa</span><br />
+<span class="irc-date">[1:37]</span> <span class="irc-black">&lt;gehzumteufel&gt; Unhelpful: mount the backup and extract them?</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;uberushaximus&gt; or you know, just generate new keys</span><br />
+<span class="irc-date">[1:38]</span> <span class="irc-black">&lt;gehzumteufel&gt; uberushaximus: that's more of a pain in the ass than just retrieving the old ones.</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;gehzumteufel&gt; If you have multiple servers you deal with that is</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;Unhelpful&gt; something like that.</span><br />
+<span class="irc-date">[1:39]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik: build diff: <a href="http://pastie.org/1907517">http://pastie.org/1907517</a> device/samsung/common diff: <a href="http://pastie.org/1907522">http://pastie.org/1907522</a></span><br />
+<span class="irc-date">[1:40]</span> <span class="irc-black">&lt;Unhelpful&gt; if they're good i can try to drag my keys out of backup tomorrow and push this to review</span><br />
+<span class="irc-date">[1:44]</span> <span class="irc-black">&lt;techmik&gt; do i need any modifier, or just git pply it?</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;techmik&gt; them</span><br />
+<span class="irc-date">[1:45]</span> <span class="irc-black">&lt;Unhelpful&gt; git apply should do. or, you know... patch. :)</span><br />
+<span class="irc-date">[1:50]</span> <span class="irc-black">&lt;techmik&gt; witth git apply, common seemed to work, but did generate an error:</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; home/techmik/Desktop/common:18: trailing whitespace.</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; INSTALLED_RECOVERYIMAGE_TARGET :=</span><br />
+<span class="irc-date">[1:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; warning: 1 line adds whitespace errors.</span><br />
+<span class="irc-date">[1:52]</span> <span class="irc-black">&lt;koush_&gt; atinm|night: <a href="https://github.com/CyanogenMod/android_bootable_recovery/commit/20b516a408adebcad06e03f12516e70b8998c38f">https://github.com/CyanogenMod/android_bootable_recovery/commit/20b516a408adebcad06e03f12516e70b8998c38f</a></span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;koush_&gt; thats what you need</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: sudo gem install gist</span><br />
+<span class="irc-date">[1:53]</span> <span class="irc-black">&lt;koush_&gt; gist file_to_paste</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;koush_&gt; it puts it into github :P</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;koush_&gt; gives you syntax highlighting and shit</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;Unhelpful&gt; ...gem is? ;)</span><br />
+<span class="irc-date">[1:54]</span> <span class="irc-black">&lt;koush_&gt; ruby gem installer</span><br />
+<span class="irc-date">[1:55]</span> <span class="irc-black">&lt;Unhelpful&gt; ah, ok. i have not used ruby... anything really.</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: Think I should bother with irqs.h? Or just move on to gpio-settings?</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; settings will be the pig, irq you can prolly ifdef and include your own</span><br />
+<span class="irc-date">[1:57]</span> <span class="irc-black">&lt;UberPinguin&gt; eh... I think I do't need to mess with this one.</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you'll know when the build explodes</span><br />
+<span class="irc-date">[1:58]</span> <span class="irc-black">&lt;UberPinguin&gt; ^</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;techmik_laptop&gt; Unhelpful: error on build patch:</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;techmik_laptop&gt; error: patch failed: core/Makefile:792</span><br />
+<span class="irc-date">[1:59]</span> <span class="irc-black">&lt;techmik_laptop&gt; error: core/Makefile: patch does not apply</span><br />
