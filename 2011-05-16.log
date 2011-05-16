@@ -649,3 +649,131 @@
 <span class="irc-date">[15:58]</span> <span class="irc-black">&lt;techmik&gt; tor sounds interesting.....</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;techmik&gt; Unhelpful, can i do similar for konversation?</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: what do you mean?</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: I guess I mean edify.. but something that will accomplish the same as "echo 'foo' &gt;&gt; /system/bar"</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;codeworkx&gt; UberPinguin: call a shell script from withing updater-script with run_program and then echo "something" &gt;&gt; file.txt</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;UberPinguin&gt; That can be run from recovery</span><br />
+<span class="irc-date">[16:00]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: k. I must be doing something wrong, because that approach is not having the desired effect.</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; package_extract_file("updater.sh", "/tmp/updater.sh");</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; set_perm(0, 0, 0777, "/tmp/updater.sh");</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; run_program("/tmp/updater.sh");</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;UberPinguin&gt; set_perm(0, 0, 0777, 0777, "/tmp/set_build_prop.sh");</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;UberPinguin&gt; Is what I have, I guess the second octet isn't needed</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/captivate/updater.sh">https://github.com/teamhacksung/releasetools/blob/gingerbread/universal-tools/captivate/updater.sh</a></span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;UberPinguin&gt; er octal</span><br />
+<span class="irc-date">[16:02]</span> <span class="irc-black">&lt;codeworkx&gt; we're doing similar stuff</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;codeworkx&gt; WIN WIN WIN WIN</span><br />
+<span class="irc-date">[16:03]</span> <span class="irc-black">&lt;codeworkx&gt; awesome</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;techmik&gt; signing package</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;codeworkx&gt; works</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;codeworkx&gt; hahaha</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;codeworkx&gt; nice</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;codeworkx&gt; rommanager, we're comming</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;techmik&gt; yay</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: push new initial to rommanager.</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;codeworkx&gt; bam, booting into cm7</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;codeworkx&gt; nice</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;techmik&gt; booting froyo recovery</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;techmik&gt; yay... no status 2</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;techmik&gt; rebooting....</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;techmik&gt; cm!!!</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;techmik&gt; installing</span><br />
+<span class="irc-date">[16:08]</span> <span class="irc-black">&lt;codeworkx&gt; used a subdir?</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;techmik&gt; yup</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;codeworkx&gt; fine</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;techmik&gt;    /sdcard/dropbox</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;codeworkx&gt; i've used /sdcard/Samsung xD</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;techmik&gt; lol</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;Kaik541&gt; we has true one-click?</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;codeworkx&gt; ya</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;techmik&gt; yupyup</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;techmik&gt; booting</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;Kaik541&gt; can has moar noob users! YAY!</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: you can place the initial in any directory now</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;techmik&gt; =))</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, woo so the search actually works?</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;techmik&gt; skateboard!!</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;codeworkx&gt; and /sdcard/fuck/you/dirty/biatch/update-my-phone.zip will work</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;techmik&gt; booted into fresh cm</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;techmik&gt; so</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;Kaik541&gt; great success!</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;techmik&gt; can i re set up now, or do we need to test more initial stuff?</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;techmik&gt; excellent success</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;codeworkx&gt; tested twice. thats enough xD</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;Kaik541&gt; and if it doesn't work for them... fuck 'em xD</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;techmik&gt; =))</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: it will work</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;Kaik541&gt; that's why I'd say fuck 'em because I assume user error</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: they cannot error</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;codeworkx&gt; doesn't matter where the update is and how its named</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, don't try to make something idiot-proof</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;codeworkx&gt; it is xD</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;Kaik541&gt; you'll only challenge god to make a better idiot</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;codeworkx&gt; then show me idiot v10.1</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;Kaik541&gt; just give it time... someone will prove me right</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;Kaik541&gt; unfortunately</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; they will try and flash with odin, happens already</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;codeworkx&gt; extracting, crippling the script, repacking, flashing isn't allowed!</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;techmik&gt; lol</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;techmik&gt; odin</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;Unhelpful&gt; techmik: nfi. quassel is the best irc client, anyway. ;)</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;codeworkx&gt; SMUXI</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm not saying it is allowed, just saying thats where the questions will come from Y I NO CAN UZE ODEN</span><br />
+<span class="irc-date">[16:16]</span> <span class="irc-black">&lt;techmik&gt; i am all used to konvo in linux, all my shortcuts and such... =)</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: ok, have to build first :)</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; did you put in update-binary into releasetools etc?</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;Unhelpful&gt; FFFFUUUU</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; you did.</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; good.</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;Unhelpful&gt; restore fail :(</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; unhelpful, why can't you add a new key?</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-black">&lt;nitam|work&gt; or am I missing something</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; mnita|work: just try it man, don't let the smoke out of the machine</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: simply sync and build fresh</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-black">&lt;codeworkx&gt; brb</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit ()</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-green">* codeworkx (~quassel@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[16:22]</span> <span class="irc-navy">* codeworkx (~quassel@188-195-7-18-dynip.superkabel.de) Quit (Client Quit)</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;codeworkx&gt; hopyfully this will get us another 10k installs xD</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;techmik&gt; Unhelpful, in konvo, shen setting up, there is "auto identify" with 2 boxes... service and password..... right now, i use service==nickserv and then my password.... can i somehow change it so i can get in here on auto there also?</span><br />
+<span class="irc-date">[16:25]</span> <span class="irc-black">&lt;techmik&gt; shen==when</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-green">* ChanServ sets mode +v Wout`</span><br />
+<span class="irc-date">[16:31]</span> <span class="irc-black">&lt;nitam|work&gt; I'm building</span><br />
+<span class="irc-date">[16:32]</span> <span class="irc-black">&lt;codeworkx&gt; :-)</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;nitam|work&gt; will put up test build on ROMManager</span><br />
+<span class="irc-date">[16:34]</span> <span class="irc-black">&lt;nitam|work&gt; so we can test, then I'll rename or something.</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;UberPinguin&gt; about to run program [/tmp/set_build_prop.sh] with 1 args</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;UberPinguin&gt; run_program: execv failed: Exec format error</span><br />
+<span class="irc-date">[16:38]</span> <span class="irc-black">&lt;UberPinguin&gt; hrm</span><br />
+<span class="irc-date">[16:40]</span> <span class="irc-black">&lt;UberPinguin&gt; got it :D</span><br />
+<span class="irc-date">[16:41]</span> <span class="irc-black">&lt;codeworkx&gt; ok mnita|work i'm flashing again back to froyo xD</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;nitam|work&gt; what's the rommanager upload link again?</span><br />
+<span class="irc-date">[16:43]</span> <span class="irc-black">&lt;nitam|work&gt; its on my home machine</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;nitam|work&gt; ah crap.</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;nitam|work&gt; vibrant INITIAL didn't work</span><br />
+<span class="irc-date">[16:44]</span> <span class="irc-black">&lt;nitam|work&gt; infinite loop</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;nitam|work&gt; mount aborted?</span><br />
+<span class="irc-date">[16:45]</span> <span class="irc-black">&lt;nitam|work&gt; we need to put a pause somewhere</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;nitam|work&gt; maybe in init.</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; brb</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;codeworkx&gt; romshare.deployfu.com</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: it can't loop normally</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;nitam|work&gt; its in infinite loop right now :-P</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-green">* ChanServ sets mode +o techmik_laptop</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;nitam|work&gt; and the message goes too fast.</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;techmik&gt; that was easy</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;nitam|work&gt; recovery starts, tries to run extended commands and dies.</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;techmik&gt; in konvo in linux, i just removed the auto identify to nickserv and told the server to auth me when i connect</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;techmik&gt; poof</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;techmik&gt; connected in here immediately on connect</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;nitam|work&gt; I think it didn't find the update.zip - bad path for the .cfg</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-green">* nullghost (~justin@c-76-18-157-237.hsd1.tn.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nitam|work&gt; sdcard isn't mounted!</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-black">&lt;nitam|work&gt; I managed to get into recovery.</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;nitam|work&gt; hmm</span><br />
