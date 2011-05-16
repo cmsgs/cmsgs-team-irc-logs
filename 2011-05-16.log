@@ -339,3 +339,59 @@
 <span class="irc-date">[9:49]</span> <span class="irc-black">&lt;ylooca|work&gt; i added the sysfs interface stuff but i messed something up .. looks like i missed some gpio setup in mach:-(</span><br />
 <span class="irc-date">[10:54]</span> <span class="irc-black">&lt;atinm|night&gt; koush_: I think we want the setenv("UPDATE_PACKAGE", path, 1); in updater.c in update-binary itself</span><br />
 <span class="irc-date">[10:54]</span> <span class="irc-black">&lt;atinm|night&gt; koush_: that way it doesn't matter if they're coming from an older CWM that doesn't have your commit</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-green">* codeworkx (~yaaic@tmo-111-112.customers.d1-online.com) has joined this channel.</span><br />
+<span class="irc-date">[11:07]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[11:10]</span> <span class="irc-black">&lt;atinm|night&gt; codeworkx, new stuff</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm|night&gt; koush_ made a commit, but I think i need to be in update-binary itself</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm|night&gt; <a href="https://github.com/CyanogenMod/android_bootable_recovery/commit/20b516a408adebcad06e03f12516e70b8998c38f#diff-0">https://github.com/CyanogenMod/android_bootable_recovery/commit/20b516a408adebcad06e03f12516e70b8998c38f#diff-0</a></span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;codeworkx&gt; stuff?</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm|night&gt; so I have reverted the stuff from last night</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm|night&gt; moving it to update-binary, setting it there</span><br />
+<span class="irc-date">[11:11]</span> <span class="irc-black">&lt;atinm|night&gt; and then updater.sh can see it and write the .cfg before writing boot.img so that next boot sees it</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm|night&gt; and if not there, then we assume root</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm|night&gt; etc</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm|night&gt; let me commit</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;atinm|night&gt; you'll see.</span><br />
+<span class="irc-date">[11:12]</span> <span class="irc-black">&lt;codeworkx&gt; ok</span><br />
+<span class="irc-date">[11:13]</span> <span class="irc-black">&lt;atinm|night&gt; crap, don't want to fork bootable/recovery</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm|night&gt; I can still commit the updater.sh changes</span><br />
+<span class="irc-date">[11:14]</span> <span class="irc-black">&lt;atinm|night&gt; sec</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;atinm|night&gt; commited to releasetools</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;codeworkx&gt; i dont know if the 1st stage works.</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;atinm|night&gt; I think the efs backup thing is correct - it was pointing to /sdcard</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;atinm|night&gt; I reverted</span><br />
+<span class="irc-date">[11:15]</span> <span class="irc-black">&lt;atinm|night&gt; I think</span><br />
+<span class="irc-date">[11:16]</span> <span class="irc-black">&lt;atinm|night&gt; not yet</span><br />
+<span class="irc-date">[11:16]</span> <span class="irc-black">&lt;atinm|night&gt; don't need to.</span><br />
+<span class="irc-date">[11:16]</span> <span class="irc-black">&lt;atinm|night&gt; if that code works :)</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;atinm|night&gt; I think we should use update-cm-7-INITIAL blah in init tho</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;atinm|night&gt; forget update.zip</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;atinm|night&gt; since we are requiring cwm</span><br />
+<span class="irc-date">[11:17]</span> <span class="irc-black">&lt;atinm|night&gt; I have to go.</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-green">* atinm|night is now known as atinm</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;atinm&gt; have to get kid ready for school</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;atinm&gt; but basically we need to rebuild our update-binary</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;atinm&gt; and put it in META-INF</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;atinm&gt; in releasetools</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;atinm&gt; maybe we should always copy it over when we build it</span><br />
+<span class="irc-date">[11:18]</span> <span class="irc-black">&lt;atinm&gt; but then update-binary will set the environment variable</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;atinm&gt; I'll talk to koush, have him move the setenv to updater.c in update-binary itself</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;atinm&gt; so it works with any version of CWM since it only depends on our update-binary in the package itself</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;atinm&gt; but since we build and commit it to releasetools ourselves, we can do that.</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;atinm&gt; err</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;atinm&gt; after I commit and fork it.</span><br />
+<span class="irc-date">[11:19]</span> <span class="irc-black">&lt;atinm&gt; crap.</span><br />
+<span class="irc-date">[11:23]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/teamhacksung/android_bootable_recovery/commit/847ec9b756edcfe568ea424c45ca073e67198fa4">https://github.com/teamhacksung/android_bootable_recovery/commit/847ec9b756edcfe568ea424c45ca073e67198fa4</a></span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm&gt; that will set UPDATE_PACKAGE in the env for updater-script</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm&gt; which calls updater.sh</span><br />
+<span class="irc-date">[11:24]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/teamhacksung/releasetools/commit/d96746bbeca2eee15c36cfee7c51e69029186d80">https://github.com/teamhacksung/releasetools/commit/d96746bbeca2eee15c36cfee7c51e69029186d80</a></span><br />
+<span class="irc-date">[11:25]</span> <span class="irc-black">&lt;atinm&gt; that reads it in updater.sh and writes out cyanogenmod.cfg</span><br />
+<span class="irc-date">[11:25]</span> <span class="irc-black">&lt;atinm&gt; haven't tested anything of this ;)</span><br />
+<span class="irc-date">[11:26]</span> <span class="irc-black">&lt;atinm&gt; and this reads cyanogenmod.cfg <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/c8a93acb649b10e61064a28c22a649d4297ad9bf">https://github.com/teamhacksung/android_kernel_samsung/commit/c8a93acb649b10e61064a28c22a649d4297ad9bf</a></span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;atinm&gt; think we should change <a href="https://github.com/teamhacksung/android_kernel_samsung/commit/c8a93acb649b10e61064a28c22a649d4297ad9bf#L0R40">https://github.com/teamhacksung/android_kernel_samsung/commit/c8a93acb649b10e61064a28c22a649d4297ad9bf#L0R40</a></span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;atinm&gt; to be update-cm7- blah</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-black">&lt;atinm&gt; ok, I'm off</span><br />
+<span class="irc-date">[11:27]</span> <span class="irc-navy">* atinm (~atin@unaffiliated/atinm) Quit (Quit: atinm)</span><br />
+<span class="irc-date">[11:38]</span> <span class="irc-green">* codeworkx (~yaaic@tmo-111-112.customers.d1-online.com) has left this channel.</span><br />
+<span class="irc-date">[11:42]</span> <span class="irc-navy">* h8|sleep (~h8@ip70-178-29-47.ks.ks.cox.net) Quit (Ping timeout: 246 seconds)</span><br />
