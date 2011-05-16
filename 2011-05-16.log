@@ -274,3 +274,46 @@
 <span class="irc-date">[2:43]</span> <span class="irc-black">&lt;techmik&gt; ok, so double fail for me..... i cant apply the build patch and i cant figure out what atinm needs to do with this commit that kosh said he needs.... <a href="http://bit.ly/mj8lLV">http://bit.ly/mj8lLV</a></span><br />
 <span class="irc-date">[2:43]</span> <span class="irc-black">&lt;techmik&gt; kosh==koush</span><br />
 <span class="irc-date">[2:43]</span> <span class="irc-black">&lt;techmik&gt; i did get the other patch to apply......</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-navy">* devatwork (~devatwork@bas2-streetsville39-2925474312.dsl.bell.ca) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; sorry tech, I had to go find food, you get it sorted?</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;techmik&gt; sec</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;techmik&gt; ok</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;techmik&gt; unhelpful sent  me the 2 diff patches.... 1 applies, with an error, and the 2nd wont apply</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; you say that like its a bad thing</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;techmik&gt; i didnt worry about the whitespace error</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;techmik&gt; on the 1st one</span><br />
+<span class="irc-date">[3:33]</span> <span class="irc-black">&lt;techmik&gt; but</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it looks like the changes are pretty small</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;techmik_laptop&gt; error: patch failed: core/Makefile:792</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;techmik_laptop&gt; [21:56] &lt;techmik_laptop&gt; error: core/Makefile: patch does not apply</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;techmik&gt; i shwat i got on the 2nd patch</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; device/samsung/common/aries/shbootimg.mk and... k</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-navy">* coolya|away (~coolya@microdoof.net) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;techmik&gt; that one applied with "1 line adds whitespace error"</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; looks like the other one is build/core/Makefile</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;techmik&gt; the one for build is the one that wont applly</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;techmik&gt; yes</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;techmik&gt; but it seems to look nothing like mine, unless i'm reading wrong</span><br />
+<span class="irc-date">[3:42]</span> <span class="irc-black">&lt;techmik&gt; and thenlast i 'd like to figure  out what atinm needs to do with this commit <a href="http://bit.ly/mj8lLV">http://bit.ly/mj8lLV</a></span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; <a href="http://dl.dropbox.com/u/12136464/Makefile">http://dl.dropbox.com/u/12136464/Makefile</a> ./build/core/Makefile</span><br />
+<span class="irc-date">[3:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the other one is part of recovery</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt;   bootable/recovery/install.c</span><br />
+<span class="irc-date">[3:45]</span> <span class="irc-black">&lt;techmik_laptop&gt; we have it already</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the setenv thing?</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; i wondr how koush means its what atinm needs relating to makingour zipwork</span><br />
+<span class="irc-date">[3:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; yeswe have it</span><br />
+<span class="irc-date">[3:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; k then I wouldn't worry about that one either he added it upstream or we pulled it down already</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh, we're forked on android_bootable_recovery erm...are you using ours currently or did helpful have you pull down the one from CM?</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;techmik&gt; one sec</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;techmik&gt; ok, here's what you just sent <a href="http://bit.ly/mi0QOF">http://bit.ly/mi0QOF</a></span><br />
+<span class="irc-date">[3:53]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; that looks like what helpful sent you to me</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;techmik&gt; ok</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;techmik&gt; and i dont need to worry about the whitespace error in the other, so i can test build?</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; hell if I know</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-green">* h8rift is now known as h8|sleep</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; should be alright</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;techmik&gt; i will.... here goes...</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; we ignore errors right? :P</span><br />
+<span class="irc-date">[3:57]</span> <span class="irc-black">&lt;techmik&gt; <a href="http://bit.ly/mS4mCm">http://bit.ly/mS4mCm</a></span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; *shrug* looks alright</span><br />
+<span class="irc-date">[3:58]</span> <span class="irc-black">&lt;techmik&gt; building</span><br />
