@@ -492,3 +492,41 @@
 <span class="irc-date">[10:10]</span> <span class="irc-black">&lt;UberPinguin&gt; Probably should have re-read build.sh ;)</span><br />
 <span class="irc-date">[12:23]</span> <span class="irc-black">&lt;ylooca|work&gt; atinm: that isn't a problem for me, my merge will be hard any cause i don't have the separated device thing there yet</span><br />
 <span class="irc-date">[13:16]</span> <span class="irc-black">&lt;UberPinguin&gt; argh. Still crasohing in s3cfb_probe :(</span><br />
+<span class="irc-date">[14:01]</span> <span class="irc-navy">* atinm (~atin@unaffiliated/atinm) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-green">* atinm (~amalaviya@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[14:02]</span> <span class="irc-black">&lt;UberPinguin&gt; <a href="http://paste.pocoo.org/show/390598/">http://paste.pocoo.org/show/390598/</a>  Reexamining diffs, but if anyone has a sudden flash of insight, I won't turn it down ;)</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;UberPinguin&gt; I think it's a missing driver. Looking at the 2.6.32.9 boot output, there's an MDNIE init immediately before s3cfb_probe is called</span><br />
+<span class="irc-date">[14:10]</span> <span class="irc-black">&lt;UberPinguin&gt; s3cfb is our framebuffer driver</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-green">* ChanServ sets mode +o techmik</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;UberPinguin&gt; I don't know, anonymous. I've never tried to use that at all.</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[14:14]</span> <span class="irc-black">&lt;UberPinguin&gt; No; fwiw, this crash happens before any fs is mounted.</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;UberPinguin&gt; ...Hm setting a variable with a declared valid range of 0-3 to 4 might be a bad thing.</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-brick">* UberPinguin smacks nullghost</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-black">&lt;UberPinguin&gt; That's what I'm using to capture this output</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;UberPinguin&gt; ah</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;UberPinguin&gt; I'm not sure how I'd attach gdb through this</span><br />
+<span class="irc-date">[14:23]</span> <span class="irc-black">&lt;UberPinguin&gt; ok</span><br />
+<span class="irc-date">[14:24]</span> <span class="irc-black">&lt;UberPinguin&gt; That's in userspace isn't it?</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;UberPinguin&gt; me too :o</span><br />
+<span class="irc-date">[14:37]</span> <span class="irc-black">&lt;UberPinguin&gt; lol hm the AMOLED LCD driver might be important to enable</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;nitam|work&gt; ok, moved everything from device/samsung/common to device/samsung/aries-common</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-black">&lt;nitam|work&gt; and from vendor/samsung/common to vendor/samsung/aries-common</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;nitam|work&gt; so I can push the vendor tree to koush's repo and fix manifest</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;UberPinguin&gt; Decad3nce: ^</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;nitam|work&gt; and so we can live with other samsung phones</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;nitam|work&gt; repo sync and build</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;nitam|work&gt; it should work.</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;nitam|work&gt; tho upstream build is broken right now</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;nitam|work&gt; or we're broken.</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;nitam|work&gt; sec</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-green">* nullghost (~justin@c-76-18-157-237.hsd1.tn.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;nitam|work&gt; we need to figure out how to get teamhacksung 'bot to get in here.</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;nitam|work&gt; ok, fixed.</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;nitam|work&gt; repo sync again and build.</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;nitam|work&gt; it should work now</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;nitam|work&gt; without build errors due to vision.mk</span><br />
+<span class="irc-date">[14:55]</span> <span class="irc-black">&lt;nitam|work&gt; I hadn't merged the upstream manifest</span><br />
+<span class="irc-date">[14:56]</span> <span class="irc-black">&lt;UberPinguin&gt; ah</span><br />
