@@ -1342,3 +1342,59 @@
 <span class="irc-date">[22:59]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[22:59]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
 <span class="irc-date">[22:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; arch/arm/mach-s5pv210/include/mach/gpio-s1eur.h</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;UberPinguin&gt; oh lol that whole function is commented out in Epic's gpio-aries.c</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: gpio-s1eur.h isn't #included afaict</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well if they nuked the functions then I guess you should do the same :P</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;UberPinguin&gt; yar, I'll #ifdef around them</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; er...is it in my stripped?</span><br />
+<span class="irc-date">[23:00]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; s1eur.h</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or ifndef</span><br />
+<span class="irc-date">[23:01]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; prolly easier</span><br />
+<span class="irc-date">[23:02]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[23:03]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[23:09]</span> <span class="irc-green">* h8rift (~h8@ip70-178-29-47.ks.ks.cox.net) has joined this channel.</span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-green">* koush___ (~koush@74.202.210.58) has joined this channel.</span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-green">* ChanServ sets mode +o koush___</span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-black">&lt;koush___&gt; amdouche</span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-black">&lt;koush___&gt; blah</span><br />
+<span class="irc-date">[23:28]</span> <span class="irc-black">&lt;UberPinguin&gt; Almost there.. just need to figure out this GPIO_OLED_DET vs GPIO_WIMAX_USB_EN thing</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-green">* koush____ (~koush@74.202.210.58) has joined this channel.</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-green">* ChanServ sets mode +o koush____</span><br />
+<span class="irc-date">[23:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; tl2796_cfg_gpio(struct platform_device *pdev)</span><br />
+<span class="irc-date">[23:31]</span> <span class="irc-black">&lt;UberPinguin&gt; GPIO_WIMAX_USB_EN is defined, but it's not used anywhere in arch/arm/mach-s5pv210/</span><br />
+<span class="irc-date">[23:31]</span> <span class="irc-black">&lt;h8rift&gt; three koush is too much :P</span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;uberushaximus&gt; you can never have enough koush</span><br />
+<span class="irc-date">[23:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; looks like you just call the 'raw' gpio there instead S5PV210_MP01(1) S5PV210_MP04(1) etc</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-navy">* koush___ (~koush@74.202.210.58) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[23:33]</span> <span class="irc-black">&lt;UberPinguin&gt; hm</span><br />
+<span class="irc-date">[23:38]</span> <span class="irc-navy">* koush____ (~koush@74.202.210.58) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[23:40]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: <a href="http://paste.pocoo.org/show/390274/">http://paste.pocoo.org/show/390274/</a></span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; footnotes?  really?</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;UberPinguin&gt; Couldn't fit them into the Solution column cleanly</span><br />
+<span class="irc-date">[23:41]</span> <span class="irc-black">&lt;UberPinguin&gt; &gt;.&gt;</span><br />
+<span class="irc-date">[23:42]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; looks good to me</span><br />
+<span class="irc-date">[23:43]</span> <span class="irc-black">&lt;Unhelpful&gt; koush: ... i'm on your proprietary_vendor_samsung?</span><br />
+<span class="irc-date">[23:45]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[23:49]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[23:49]</span> <span class="irc-green">* ChanServ sets mode +o techmik</span><br />
+<span class="irc-date">[23:51]</span> <span class="irc-black">&lt;Unhelpful&gt; GOOD NEWS EVERYONE!... i'm told my laptop is on its way back</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; \o/</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; did.....did they say its fixed?</span><br />
+<span class="irc-date">[23:52]</span> <span class="irc-black">&lt;Unhelpful&gt; also figured out how to get single files out of my backup. turns out that option doesn't work right for files that aren't in the latest incremental backup, *unless you give a date for a backup they were in*</span><br />
+<span class="irc-date">[23:53]</span> <span class="irc-black">&lt;Unhelpful&gt; which is not... really simple, tbh.</span><br />
+<span class="irc-date">[23:55]</span> <span class="irc-black">&lt;Unhelpful&gt; i wonder if "newest" is an option, and if it would work, or if it would select the newest backup that is incremental and doesn't contain the file.</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: *damnit* now i have to check the email again.</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;Unhelpful&gt; you're making me worry :/</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; well you got it back once already.....so I'm just say'n :P</span><br />
+<span class="irc-date">[23:56]</span> <span class="irc-black">&lt;Unhelpful&gt; "Your computer is repaired." :D</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; \o/</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, yeah, but that time, *they never had it*</span><br />
+<span class="irc-date">[23:57]</span> <span class="irc-black">&lt;Unhelpful&gt; because the first shipping label they sent me had my address on it.</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-black">&lt;Unhelpful&gt; they run a tight ship there, no?</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; awesome so that..... nah they would never ship it to themselves first</span><br />
+<span class="irc-date">[23:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; its easy to do man, print out a bunch of crap and hand out the wrong thing</span><br />
+<span class="irc-date">[23:59]</span> <span class="irc-black">&lt;Unhelpful&gt; well, idunno, they emailed a tracking number but UPS doesn't know it yet.</span><br />
