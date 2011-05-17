@@ -842,3 +842,187 @@
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;nitam|work&gt; yes yes - I'll only upload the gingerbread branches.</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;nitam|work&gt; that's all that'll go in.</span><br />
 <span class="irc-date">[17:59]</span> <span class="irc-black">&lt;nitam|work&gt; we need to talk about releasetools - not sure how that fits in</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;nitam|work&gt; but not right now - work calls.</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;nitam|work&gt; back later.</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;nitam|work&gt; koush__: how do we send up new repositories?</span><br />
+<span class="irc-date">[18:00]</span> <span class="irc-black">&lt;nitam|work&gt; they go thru gerrit as well?</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;nitam|work&gt; like our device stuff</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;nitam|work&gt; our kernel tree</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;koush__&gt; mnita|work: i'll fork them</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;koush__&gt;  and add to gerrit</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;nitam|work&gt; ah, ok.</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;koush__&gt; what changed in release tools</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;nitam|work&gt; cool</span><br />
+<span class="irc-date">[18:01]</span> <span class="irc-black">&lt;koush__&gt; is that how you added teh bml convert?</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;nitam|work&gt; koush__: dont' know - codeworkx is the expert there, but the bml convert magic is there</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;koush__&gt; ok yeah i brought this up the other day</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;koush__&gt; i wont accept those changes</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;koush__&gt; cause thats gonna be a merge nightmare in the future</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;koush__&gt; what you need to do</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;koush__&gt; is make the changes in squisher/bacon</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;koush__&gt; which is pure cm repo</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;codeworkx&gt; koush_: our releasetools are only for initial (convert). they've nothing to do with buildsystem</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;koush__&gt; releasetools is in build/tools/releasetools right?</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;nitam|work&gt; oh</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;koush__&gt; you modified the ota script gen how then?</span><br />
+<span class="irc-date">[18:02]</span> <span class="irc-black">&lt;nitam|work&gt; sorry - my mistake then</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;nitam|work&gt; I'll keep shut and listen for a bit :)</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/releasetools">https://github.com/teamhacksung/releasetools</a> is not part of the buildsystem. we're using it to generate initial.zips after building android</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;koush__&gt; codeworkx: ok i see</span><br />
+<span class="irc-date">[18:03]</span> <span class="irc-black">&lt;koush__&gt; codeworkx: i would move that into bacon :)</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;koush__&gt; bacon is the CM post processor</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;codeworkx&gt; is there a example on any device i can kang?</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;koush__&gt; do you guys run make -j4 bacon?</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;koush__&gt; or make otapackage?</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;codeworkx&gt; brunch</span><br />
+<span class="irc-date">[18:04]</span> <span class="irc-black">&lt;koush__&gt; brunch?</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;codeworkx&gt; . build/envsetup.sh</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;codeworkx&gt; brunch galaxys</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;koush__&gt; ok yes that does a bacon build</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-black">&lt;koush__&gt; ok to give you background</span><br />
+<span class="irc-date">[18:05]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;koush__&gt; make otapackage makes an AOSP zip</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;koush__&gt; make bacon makes a CM zip, which builds on top of the AOSP zip</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;koush__&gt; basically, unzips the aosp zip, and repacks it</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;koush__&gt; it does a ton of shit</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;koush__&gt; like png crush</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;koush__&gt; signs shit properly</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;koush__&gt; etc</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;nitam|work&gt; k</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;koush__&gt; you can find it in the vendor/cyanogen/prebuilt/squisher</span><br />
+<span class="irc-date">[18:06]</span> <span class="irc-black">&lt;koush__&gt; what you are doing right now is a post zip build step right?</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;nitam|work&gt; yes, to build our initial conversion zip</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;nitam|work&gt; only that.</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;koush__&gt; what modifes your updater-script?</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;nitam|work&gt; nightly update is just brunch</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;koush__&gt; cause that has some special shit in it too</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;codeworkx&gt; koush_: the initial updater-script is a static file which is used</span><br />
+<span class="irc-date">[18:07]</span> <span class="irc-black">&lt;nitam|work&gt; only for initial, right?</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;koush__&gt; confused now</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;koush__&gt; let me download your zip</span><br />
+<span class="irc-date">[18:08]</span> <span class="irc-black">&lt;codeworkx&gt; koush_: start here: <a href="https://github.com/teamhacksung/releasetools/blob/gingerbread/universal.sh#L30">https://github.com/teamhacksung/releasetools/blob/gingerbread/universal.sh#L30</a></span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;nitam|work&gt; remember, this is only the zip that does conversion from bml to mtd etc. once you're on CM7, it is just using the output of brunch</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;codeworkx&gt; it's just a dirty script which grabs some files from out/target/product/xxxx/ and creates a flashable zip</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;koush__&gt; do you only have 1 initial zip?</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;koush__&gt; and then subserquent updates dont have that bootstrap?</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;nitam|work&gt; yes.</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;koush__&gt; ohh ok</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;nitam|work&gt; right.</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;koush__&gt; i thought every version had it</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;codeworkx&gt; our "normal" updates are as normal as possile</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;nitam|work&gt; we just upload it anyway - so that first conversion is always to the latest.</span><br />
+<span class="irc-date">[18:09]</span> <span class="irc-black">&lt;koush__&gt; thats good</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;codeworkx&gt; koush_: only thing is flash_image. that's replaced by bml_over_mtd</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;koush__&gt; well what we can do is always make sure stable releases have that bootstrap zip</span><br />
+<span class="irc-date">[18:10]</span> <span class="irc-black">&lt;codeworkx&gt; koush_: <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/releasetools/galaxys_ota_from_target_files#L106">https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/releasetools/galaxys_ota_from_target_files#L106</a></span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;codeworkx&gt; kanged from a other cm7 device and modified</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;codeworkx&gt; encore?</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;koush__&gt; gotcha</span><br />
+<span class="irc-date">[18:11]</span> <span class="irc-black">&lt;coolya&gt; yes it was from encore</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;nitam|work&gt; where do these hacked scripts etc go in CyanogenMod?</span><br />
+<span class="irc-date">[18:12]</span> <span class="irc-black">&lt;nitam|work&gt; do they go at all?</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;nitam|work&gt; just another repo that hangs out there?</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;nitam|work&gt; thinks that are not part of the usual build process like our initial conversion stuff.</span><br />
+<span class="irc-date">[18:13]</span> <span class="irc-black">&lt;nitam|work&gt; *things</span><br />
+<span class="irc-date">[18:14]</span> <span class="irc-black">&lt;nitam|work&gt; guess we could rename our repo to sgs_initial_releasetools and have that forked into CM</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;koush__&gt; well theirs is in the device/bn/encore</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;koush__&gt; and they override the script</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;koush__&gt; BoardConfig.mk:TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./device/bn/encore/releasetools/encore_ota_from_target_files</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;koush__&gt; so it gets automatically used by the build system</span><br />
+<span class="irc-date">[18:15]</span> <span class="irc-black">&lt;koush__&gt; let's not worry about that for now though</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;koush__&gt; lets get the bare minimum merged</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;koush__&gt; ie, you can build an ota off buildbot</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;koush__&gt; so, from what i understand, the only outstanding change is just in build</span><br />
+<span class="irc-date">[18:16]</span> <span class="irc-black">&lt;codeworkx&gt; koush_: you mean this one <a href="https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/BoardConfig.mk#L45">https://github.com/teamhacksung/android_device_samsung_galaxys/blob/gingerbread/BoardConfig.mk#L45</a></span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;koush__&gt; oh ok gotcha</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;koush__&gt; good</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;codeworkx&gt; outstanding build changes, device folders, add devices to vendor/cyanogen</span><br />
+<span class="irc-date">[18:17]</span> <span class="irc-black">&lt;nitam|work&gt; yes, I think only outstanding thing is build/core/Makefile</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;codeworkx&gt; that's needed</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;codeworkx&gt; nothing else</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;nitam|work&gt; then it is forking and gerrit</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;nitam|work&gt; for all the devices, merging vendor/cyanogen</span><br />
+<span class="irc-date">[18:18]</span> <span class="irc-black">&lt;nitam|work&gt; what codeworkx said :)</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;nitam|work&gt; I figured vendor/cyanogen happens at the end</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;nitam|work&gt; don't fork yet.</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;nitam|work&gt; we need to clean the branches out</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;nitam|work&gt; the unused branches</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;nitam|work&gt; will do the cleaning tonight when I'm home</span><br />
+<span class="irc-date">[18:19]</span> <span class="irc-black">&lt;nitam|work&gt; hopefully Unhelpful will also be working on Makefile</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;nitam|work&gt; so we can have everything ready</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;nitam|work&gt; I have to go</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;nitam|work&gt; thanks koush__</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;koush__&gt; do you guys use gerrit</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;nitam|work&gt; no</span><br />
+<span class="irc-date">[18:20]</span> <span class="irc-black">&lt;nitam|work&gt; its just 4 of us</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;nitam|work&gt; with pretty set areas we work in :)</span><br />
+<span class="irc-date">[18:21]</span> <span class="irc-black">&lt;nitam|work&gt; we had to learn gerrit for CM :)</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;nitam|work&gt; 4-5 of us. koush__ can you add GuiPer to the proprietary_vendor_samsung repo?</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;koush__&gt; mnita|work: sure</span><br />
+<span class="irc-date">[18:22]</span> <span class="irc-black">&lt;nitam|work&gt; thanks</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;nitam|work&gt; oh wait</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;nitam|work&gt; guiperpt</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;nitam|work&gt; sorry</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;techmik&gt; no matter what anyone says, *never* let me have direct access to anything....... I break stuff =)</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;nitam|work&gt; GuiPerPT is his github nick - guiper is someone else</span><br />
+<span class="irc-date">[18:23]</span> <span class="irc-black">&lt;codeworkx&gt; techmik: lol</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;coolya&gt; koush__: one question from me about RIL, actually we are using crespo closed bits, what gives us some problems on the vibrant and simtoolkit is not working right with it</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; koush__: we don't want to give guiper access ;) -- he gets access to our repos all the time.</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; and we always have to remove him and add guiperpt</span><br />
+<span class="irc-date">[18:24]</span> <span class="irc-black">&lt;nitam|work&gt; I'm gone.</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;techmik&gt; i like pull requests so someone who knows what they are doing can prevent me form killing stuff for everyone =)</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; thats why I send my stuff to you first, two layers of protection</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;techmik&gt; lol</span><br />
+<span class="irc-date">[18:25]</span> <span class="irc-black">&lt;techmik&gt; if i cant break it, its awesome code =)</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;coolya&gt; koush__: the big problem is samsung hacked shit in the close parts of the aries phones, and changed some call backs and function prototypes in libril, what makes the dynamic linker fail to link aginst libsec-ril from aries phones</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; speaking of protection, did you ever get your git working? I need to get some more sound testers :P</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;coolya&gt; i can get it working but it need to fix the samsung fails in the framework :(</span><br />
+<span class="irc-date">[18:26]</span> <span class="irc-black">&lt;coolya&gt; i tries working around breaking other devices by doing some changes to the ril and the phonefactory</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;techmik&gt; brb</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;coolya&gt; is there any chance that something like that would be accepted?</span><br />
+<span class="irc-date">[18:27]</span> <span class="irc-black">&lt;coolya&gt; my current wip is in <a href="https://github.com/coolya/android_frameworks_base/tree/crap-RIL">https://github.com/coolya/android_frameworks_base/tree/crap-RIL</a></span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;nitam|work&gt; think koush__ left too</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;koush__&gt; mnita|work: im here</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;nitam|work&gt; oh ok.</span><br />
+<span class="irc-date">[18:34]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="https://github.com/coolya/android_frameworks_base/commit/a1c55137fee1c4afdb00895f6f574b38b1fb902b">https://github.com/coolya/android_frameworks_base/commit/a1c55137fee1c4afdb00895f6f574b38b1fb902b</a> that's the commit that's the bad boy</span><br />
+<span class="irc-date">[18:35]</span> <span class="irc-black">&lt;nitam|work&gt; the rest sort of follow</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;nitam|work&gt; basically we're hacking it to load our libril.</span><br />
+<span class="irc-date">[18:36]</span> <span class="irc-black">&lt;nitam|work&gt; if the property is set.</span><br />
+<span class="irc-date">[18:38]</span> <span class="irc-black">&lt;coolya&gt; the main problem is we can't do it in libril that is build form source because we are missing the relevant function prototype ril headers. The only way to work with the samsung stuff is the combination of libril and libsec-ril from samsung</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-green">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) has joined this channel.</span><br />
+<span class="irc-date">[18:43]</span> <span class="irc-green">* ChanServ sets mode +v Wout`</span><br />
+<span class="irc-date">[18:47]</span> <span class="irc-black">&lt;codeworkx&gt; galaxys	7,056</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;codeworkx&gt; captivate	2,856</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;codeworkx&gt; vibrant	1,388</span><br />
+<span class="irc-date">[18:48]</span> <span class="irc-black">&lt;codeworkx&gt; nice</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;nitam|work&gt; catching up on inc</span><br />
+<span class="irc-date">[18:53]</span> <span class="irc-black">&lt;nitam|work&gt; tho maybe this isn't fair because the other phones also have families I think</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;nitam|work&gt; so adding galaxys+captivate+vibrant may not be comparable to just vision or hero or whatever</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;nitam|work&gt; (don't know what other phones have the same codebase vs not)</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;Kaik541&gt; the only families I know</span><br />
+<span class="irc-date">[18:55]</span> <span class="irc-black">&lt;Kaik541&gt; are "liberty" and "ace"</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;Kaik541&gt; ace = 2 or 3 desire hd's and inspire 4g</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;Kaik541&gt; liberty = htc aria, htc liberty, and maybe another phone</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;nitam|work&gt; did you notice that there are also GT-I9000 in there?</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;nitam|work&gt; wonder what version that is.</span><br />
+<span class="irc-date">[18:56]</span> <span class="irc-black">&lt;nitam|work&gt; even one SGH-I897</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;nitam|work&gt; 2</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;Kaik541&gt; old builds Im sure</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;h8|sleep&gt; one of those was mine</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;h8|sleep&gt; lol</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-green">* h8|sleep is now known as h8rift</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;codeworkx&gt; MIUI</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;h8rift&gt; before i sold my captivate, it was markedt SGH-I897 :P</span><br />
+<span class="irc-date">[18:57]</span> <span class="irc-black">&lt;nitam|work&gt; what are you doing here?</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;nitam|work&gt; :)</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;h8rift&gt; lol what's that for? :P</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;h8rift&gt; i boughta SGT</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;h8rift&gt; gonna start working on that next :P</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;h8rift&gt; i wanted to congratulate you guys</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;h8rift&gt; :)</span><br />
+<span class="irc-date">[18:58]</span> <span class="irc-black">&lt;h8rift&gt; im seeing stuff merge up :)</span><br />
+<span class="irc-date">[18:59]</span> <span class="irc-black">&lt;Kaik541&gt; sgt?</span><br />
