@@ -530,3 +530,74 @@
 <span class="irc-date">[14:55]</span> <span class="irc-black">&lt;nitam|work&gt; without build errors due to vision.mk</span><br />
 <span class="irc-date">[14:55]</span> <span class="irc-black">&lt;nitam|work&gt; I hadn't merged the upstream manifest</span><br />
 <span class="irc-date">[14:56]</span> <span class="irc-black">&lt;UberPinguin&gt; ah</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;nitam|work&gt; lol, wtf.</span><br />
+<span class="irc-date">[15:09]</span> <span class="irc-black">&lt;nitam|work&gt; device_samsung_aries-common lost all history :)</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;nitam|work&gt; I guess I created a new repo rather than renaming.</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;nitam|work&gt; and modifying.</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;nitam|work&gt; oops. :")</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-green">* techmik is now known as techmik_laptop</span><br />
+<span class="irc-date">[15:10]</span> <span class="irc-black">&lt;nitam|work&gt; don't sync right now</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-black">&lt;nitam|work&gt; screwing with it again.</span><br />
+<span class="irc-date">[15:13]</span> <span class="irc-black">&lt;Unhelpful&gt; mnita|work: i have it from last night, you want me to push --mirror it?</span><br />
+<span class="irc-date">[15:14]</span> <span class="irc-brick">* Unhelpful tries to build boot.img w/ his changes.</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-green">* techmik67 (~Michael@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:15]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;nitam|work&gt; ok, there we go</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;nitam|work&gt; no, I was just moving it to aries-common</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; and created a new repo but lost history because I copied files over rather than working in git :)</span><br />
+<span class="irc-date">[15:17]</span> <span class="irc-black">&lt;nitam|work&gt; ok now</span><br />
+<span class="irc-date">[15:22]</span> <span class="irc-green">* TMC_Sherpa_ (~TMC_Sherp@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;nitam|work&gt; anonymous: not me - I think epic ppl are doign something with debuggers</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;nitam|work&gt; we don't use debuggers :)</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;nitam|work&gt; linus hates kernel debuggers.</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;nitam|work&gt; I figured he knows better than me ;)</span><br />
+<span class="irc-date">[15:24]</span> <span class="irc-black">&lt;ylooca|work&gt; printk is your debuger ... everything else is evil :-P</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;nitam|work&gt; tho I don't care really - when I have it, I use it, when I don't, I use what I have. don't spend any time trying to make a debugger work tho</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;nitam|work&gt; I don't</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;nitam|work&gt; I'll use it if you get it working</span><br />
+<span class="irc-date">[15:25]</span> <span class="irc-black">&lt;nitam|work&gt; ok, new thing we need to start doing.</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;nitam|work&gt; we will soon need local_manifest.xml</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;nitam|work&gt; in our .repo dir</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;nitam|work&gt; to get at our proprietary stuff</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;nitam|work&gt; I'm trying to make us *fit*</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;nitam|work&gt; so pushing our vendor tree to koush's github</span><br />
+<span class="irc-date">[15:26]</span> <span class="irc-black">&lt;nitam|work&gt; and we will use a local_manifest.xml to access it.</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;nitam|work&gt; because we cannot commit our vendor tree to CyanogenMod</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;nitam|work&gt; but for now, first just try building and makign sure it all still works</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;ylooca|work&gt; not a big deal just add the urls there and we can add the link to the channel topic</span><br />
+<span class="irc-date">[15:27]</span> <span class="irc-black">&lt;nitam|work&gt; since I moved all the common stuff into aries-common</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;Unhelpful&gt; orite... 32bit. :(</span><br />
+<span class="irc-date">[15:28]</span> <span class="irc-black">&lt;nitam|work&gt; and moved device/samsung/common/aries/* up one</span><br />
+<span class="irc-date">[15:29]</span> <span class="irc-black">&lt;nitam|work&gt; and modified all the files needed</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;techmik67&gt; every goddam chat program i try in windows has at leat 1 fucking thing i dont like.......</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;techmik67&gt; grrrr</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;ylooca|work&gt; remove windows and all is fine</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;techmik67&gt; now in pidging and it has 47 freaking windows open!!! i cant use tabs??</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;ylooca|work&gt; it can</span><br />
+<span class="irc-date">[15:39]</span> <span class="irc-black">&lt;techmik67&gt; looking thru options......</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; it um...tabbed by default for me</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-green">* TMC_Sherpa_ is now known as TMC_Sherpa</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;nitam|work&gt; not using mirc on windows?</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;nitam|work&gt; it was like *the* program when I used to use windows</span><br />
+<span class="irc-date">[15:40]</span> <span class="irc-black">&lt;nitam|work&gt; a long time ago</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 'course Konvo worked for me as well so there may be something else wrong with your machine</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;techmik67&gt; *deep breath*....... every damn program has at least one issue...... konvo is fine on my linux laptop, but when i install kdewin, i get ridiculous keymap issues..... hold the q key and it says "qrrrrrrrtqqqqqqrrrrrrrrrrr"</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;techmik67&gt; yet in any other caht</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;techmik67&gt; chat</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;techmik67&gt; qqqqqqqqqqqqqqqqqqqqqqqqqq</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;techmik67&gt; and i tried swapping keyboards to be sure</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;techmik67&gt; all i want is to customize like i want, and now use sasl and ssl</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;techmik67&gt; isnt mirc not free?</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;techmik67&gt; 30 day trial, no?</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;ylooca|work&gt; techmik67: what about <a href="http://quassel-irc.org/">http://quassel-irc.org/</a></span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;ylooca|work&gt; it isn't free since about huh 6 or 7 years i guess</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;techmik67&gt; oh, this is stupid.... i dont like pidgin....... brb</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-green">* techmik67 (~Michael@c-76-109-173-83.hsd1.fl.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;techmik_laptop&gt; grrrr</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-green">* zachy_md (~zacharias@chello084114179145.16.15.vie.surfer.at) has joined this channel.</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-green">* ChanServ sets mode +v zachy_md</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-green">* zachy_md is now known as zachy_md|busy</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@115.184.121.20) has joined this channel.</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
