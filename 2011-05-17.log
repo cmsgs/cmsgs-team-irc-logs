@@ -466,3 +466,27 @@
 <span class="irc-date">[9:57]</span> <span class="irc-black">&lt;atinm&gt; tho is uses 5/7 universal</span><br />
 <span class="irc-date">[9:57]</span> <span class="irc-black">&lt;atinm&gt; which I think doesnt work for us</span><br />
 <span class="irc-date">[9:57]</span> <span class="irc-black">&lt;atinm&gt; for whatever reason</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm&gt; koush_: we'll start pushing our vendor stuff up into your repos soon</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm&gt; we need to do some cleaning it looks like</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-black">&lt;atinm&gt; coolya|away: we need to rename our vendor tree</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;atinm&gt; we have to rename our "common" to "aries"</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;UberPinguin&gt; meh build/core/product_config.mk still broken? :/</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;atinm&gt; what is going on?</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;UberPinguin&gt; build/core/product_config.mk:194: *** _nic.PRODUCTS.[[device/htc/vision/vision.mk]]: "device/htc/msm7x30-common/msm7x30.mk" does not exist.  Stop.</span><br />
+<span class="irc-date">[10:03]</span> <span class="irc-black">&lt;UberPinguin&gt; ^looks like a wiki link got pasted in somewhere</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;atinm&gt; someone didn't commit device/htc/msm7x30-common</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;UberPinguin&gt; ah</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-black">&lt;atinm&gt; upstream</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;atinm&gt; comment out line 134 in vision.mk in device/htc/vision</span><br />
+<span class="irc-date">[10:07]</span> <span class="irc-black">&lt;UberPinguin&gt; Thanks</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;mikebeecham&gt; atinm, yeah, but it doesn't include the latest gtalk video gapp tho...right?</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;mikebeecham&gt; or am I wrong?</span><br />
+<span class="irc-date">[10:08]</span> <span class="irc-black">&lt;atinm&gt; I dunno</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm&gt; we know that the gtalk video is buggy</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm&gt; don't think they really made it for other phones</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm&gt; that is why it was pulled</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;mikebeecham&gt; not that I use it anyway, but anyway...</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;UberPinguin&gt; Am I correct thinking that build.sh must be run before universal.sh?</span><br />
+<span class="irc-date">[10:09]</span> <span class="irc-black">&lt;atinm&gt; build.sh runs universal.sh</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;UberPinguin&gt; Ah, ok</span><br />
+<span class="irc-date">[10:10]</span> <span class="irc-black">&lt;UberPinguin&gt; Probably should have re-read build.sh ;)</span><br />
