@@ -322,3 +322,63 @@
 <span class="irc-date">[3:56]</span> <span class="irc-black">&lt;UberPinguin&gt; em .. build/core/product_config.mk:194: *** _nic.PRODUCTS.[[device/htc/vision/vision.mk]]: "device/htc/msm7x30-common/msm7x30.mk" does not exist.  Stop.   ?</span><br />
 <span class="irc-date">[3:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; upstream</span><br />
 <span class="irc-date">[3:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; nullghost: you want FIQ off or on? I don't see any reference to it in the epic source, skeleton or full</span><br />
+<span class="irc-date">[4:02]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: Our experience was that the kernel panicked immediately after unpacking with FIQ on</span><br />
+<span class="irc-date">[4:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; weird, its not on by default in jvb</span><br />
+<span class="irc-date">[4:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; and the captivate defconfig is missing the CMDLINE</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; the onesl that do (ie everyone but us and by us I mean captivate users) have it set to fiq0</span><br />
+<span class="irc-date">[4:06]</span> <span class="irc-black">&lt;UberPinguin&gt; I'm going to sleep, and hope that the makefiles are fixed by morning ;)</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ifneq TARGET_BILD_APPS then its getting all product makefiles for some reason</span><br />
+<span class="irc-date">[4:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; BUILD</span><br />
+<span class="irc-date">[4:10]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; must be coming from somwehere else, product_config.mk hasn't been touched since december</span><br />
+<span class="irc-date">[4:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; looks like we picked up the FIQ settings from herring</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;nullghost&gt; TMC_Sherpa: I want to see if you guys can boot with it off.</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok, fixed it so we can build i think, but you have to do it yourself</span><br />
+<span class="irc-date">[4:17]</span> <span class="irc-black">&lt;nullghost&gt; CONFIG_FIQ, CONFIG_FIQ_GLUE, CONFIG_FIQ_DEBUGGER, or whatever other config options may be related to it.</span><br />
+<span class="irc-date">[4:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah, when I asked I didn't realize it was on we picked it up from herring, it's not on in any of the aries sources</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;techmik_laptop&gt; you wanna build?</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;techmik_laptop&gt; just create a blank file that its looking for</span><br />
+<span class="irc-date">[4:19]</span> <span class="irc-black">&lt;techmik_laptop&gt; device/htc/m7m-blahblah</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-black">&lt;techmik&gt; brb</span><br />
+<span class="irc-date">[4:22]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[4:23]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[4:24]</span> <span class="irc-green">* techmik67 is now known as techmik</span><br />
+<span class="irc-date">[4:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; we have FIQ  jvb has VT_CONSOLE ....good lord our defconfigs are different</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;nullghost&gt; yeah I just need someone to prove they can boot without FIQ enabled.</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; tech is our expert booter</span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;techmik_laptop&gt; test <a href="http://bit.ly/jl2H10">http://bit.ly/jl2H10</a></span><br />
+<span class="irc-date">[4:28]</span> <span class="irc-black">&lt;techmik&gt; damn</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;techmik&gt; its reversed</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;nullghost&gt; techmik: don't forget CONFIG_FIQ and CONFIG_FIQ_GLUE</span><br />
+<span class="irc-date">[4:29]</span> <span class="irc-black">&lt;techmik&gt; i have all set no not set and commented and it bootlooped</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;nullghost&gt; huh.</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;nullghost&gt; and it boots just fine when enabled?</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;techmik&gt; normal build boots fine</span><br />
+<span class="irc-date">[4:30]</span> <span class="irc-black">&lt;nullghost&gt; grr. I wish I could send you a uart debugger to get me a log</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;nullghost&gt; where do you live xD</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;techmik&gt; <a href="http://bit.ly/kaEYpc">http://bit.ly/kaEYpc</a></span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;techmik&gt; florida</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;nullghost&gt; well fffuuuuuuu</span><br />
+<span class="irc-date">[4:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; aries uses a different console than FIQ</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I just dont have two braincells I can rub together to see if any of that stuff is in herring right now</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; nght kids</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;nullghost&gt; TMC_Sherpa: night</span><br />
+<span class="irc-date">[4:32]</span> <span class="irc-black">&lt;techmik&gt; night</span><br />
+<span class="irc-date">[4:33]</span> <span class="irc-green">* TMC_Sherpa (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has left this channel.</span><br />
+<span class="irc-date">[4:41]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-green">* ChanServ sets mode +o techmik</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[4:42]</span> <span class="irc-green">* ChanServ sets mode +o techmik</span><br />
+<span class="irc-date">[4:43]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[4:44]</span> <span class="irc-navy">* wwyvern (~wwyvern@adsl-074-167-175-227.sip.jax.bellsouth.net) Quit (Quit: Ex-Chat)</span><br />
+<span class="irc-date">[4:49]</span> <span class="irc-black">&lt;nullghost&gt; I wasn't paying attention, what was the fix to the htc vision makefiles shit?</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;techmik_laptop&gt; just create a blank file that its looking for</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;techmik_laptop&gt; device/htc/m7m-blahblah</span><br />
+<span class="irc-date">[4:50]</span> <span class="irc-black">&lt;techmik_laptop&gt; device/htc/msm7x30-common/msm7x30.mk</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-green">* chaembian (~chaembian@122.174.180.228) has joined this channel.</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-green">* ChanServ sets mode +v chaembian</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-black">&lt;chaembian&gt; Hourlong power break extended little bit</span><br />
+<span class="irc-date">[4:53]</span> <span class="irc-black">&lt;chaembian&gt; :)</span><br />
+<span class="irc-date">[4:54]</span> <span class="irc-black">&lt;chaembian&gt; Phone thinks its a CMDA. I couldn;t find any references to CDMA from a old logcat I had (from 05/03 build)</span><br />
