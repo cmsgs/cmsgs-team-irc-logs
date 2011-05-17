@@ -204,3 +204,51 @@
 <span class="irc-date">[1:53]</span> <span class="irc-black">&lt;Kaik541&gt; Stuck in an airport without tethering for two hours is surprisingly boring</span><br />
 <span class="irc-date">[1:53]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[1:53]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;uberushaximus&gt; Kaik541: flash cyanogenmod?</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;uberushaximus&gt; <a href="http://www.mediafire.com/?d2wqkcdjc2lhx25">http://www.mediafire.com/?d2wqkcdjc2lhx25</a></span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;techmik_laptop&gt; nullghost: did you see the changes i made?</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-navy">* gehzumteufel (~gehzumteu@adsl-76-252-171-187.dsl.lsan03.sbcglobal.net) Quit (Quit: leaving work.)</span><br />
+<span class="irc-date">[2:19]</span> <span class="irc-navy">* Kaik541 (~yaaic@32.150.13.97) Quit (Ping timeout: 258 seconds)</span><br />
+<span class="irc-date">[2:23]</span> <span class="irc-green">* TMC_Sherpa_ (~jeff@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-green">* TMC_Sherpa_ is now known as TMC_Sherpa</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-green">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[2:31]</span> <span class="irc-green">* ChanServ sets mode +o techmik67</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-navy">* techmik67 (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Client Quit)</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;nullghost&gt; techmik_laptop: I haven't yet, I'm sorry</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;nullghost&gt; I had to leave for a bit</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;techmik_laptop&gt; it bootlooped</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;techmik_laptop&gt; assuming i did what you wanted</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;techmik_laptop&gt; sec</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;nullghost&gt; really, it bootlooped? with FIQ debugging turned off?</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;nullghost&gt; I wish one of you guys had a uart debugger so you could see why</span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://bit.ly/mHg4VZ">http://bit.ly/mHg4VZ</a></span><br />
+<span class="irc-date">[2:34]</span> <span class="irc-black">&lt;techmik_laptop&gt; check out the file</span><br />
+<span class="irc-date">[2:35]</span> <span class="irc-black">&lt;techmik_laptop&gt; make sure i didnt miss some thing</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;nullghost&gt; techmik_laptop: CONFIG_FIQ = y and CONFIG_FIQ_GLUE = y</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;nullghost&gt; lemme check my defconfig</span><br />
+<span class="irc-date">[2:38]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[2:39]</span> <span class="irc-black">&lt;chaembian&gt; wwyvern: Hi! :)</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;techmik_laptop&gt; and CONFIG_CMDLINE="console=ttySAC2,115200 init=/init"</span><br />
+<span class="irc-date">[2:45]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ah man, you pulled Y_U_NO_WORK</span><br />
+<span class="irc-date">[2:45]</span> <span class="irc-black">&lt;nullghost&gt; techmik_laptop: first obvious question, did you check that it booted before changing the FIQ option?</span><br />
+<span class="irc-date">[2:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; my regular build was fine</span><br />
+<span class="irc-date">[2:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; i made these changes: <a href="http://bit.ly/jl2H10">http://bit.ly/jl2H10</a></span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; to endup with the file in the previous link</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;nullghost&gt; ok, let me see where CONFIG_FIQ_GLUE and CONFIG_FIQ come from, because I don't have those in my .config</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;nullghost&gt; something strange is going on.</span><br />
+<span class="irc-date">[2:48]</span> <span class="irc-black">&lt;nullghost&gt; CONFIG_FIQ and CONFIG_FIQ_GLUE aren't even showing up in my aries_epic_defconfig</span><br />
+<span class="irc-date">[2:49]</span> <span class="irc-black">&lt;nullghost&gt; even after a make defconfig and make oldconfig</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;nullghost&gt; ok now they're showing up, strange.</span><br />
+<span class="irc-date">[2:50]</span> <span class="irc-black">&lt;nullghost&gt; techmik_laptop: also unset CONFIG_FIQ and CONFIG_FIQ_GLUE</span><br />
+<span class="irc-date">[2:51]</span> <span class="irc-black">&lt;chaembian&gt; Modem doesn't seem to get a lock and I'm getting lots of FCs</span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;techmik_laptop&gt;  trying to configure tor and sasl to no avail... its looping on "couldnt look up your host name" timed out......... you need to identify via sasl to use this server"</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;chaembian&gt; I went into airplane mode yesterday for conserving battery. I was using the camera more than I was using phone. And phone shutdown eventually, when it ran out of juice.</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no joy on Konvo?</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;chaembian&gt; But I'm not able to get it off airplane mode ever since. When I try, I'm just getting lots of FCs on android.phone.</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;chaembian&gt; If I'm on the power menu, I can see airplane mode getting switched on and off.</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;techmik_laptop&gt; i'm using xcat2 wdk in windows now</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;techmik_laptop&gt; chat</span><br />
+<span class="irc-date">[2:59]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; chaembian: which build are you running?</span><br />
+<span class="irc-date">[2:59]</span> <span class="irc-black">&lt;chaembian&gt; the mainline</span><br />
