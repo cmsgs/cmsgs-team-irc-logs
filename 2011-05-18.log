@@ -481,3 +481,141 @@
 <span class="irc-date">[2:55]</span> <span class="irc-black">&lt;koush_&gt; gotcha</span><br />
 <span class="irc-date">[2:55]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
 <span class="irc-date">[2:55]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@115.242.188.24) Quit (Quit: bfn)</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;nullghost&gt; anyone alive in here? we have a new epic kernel log</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;nullghost&gt; <a href="http://paste.pocoo.org/show/390987/">http://paste.pocoo.org/show/390987/</a></span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;uberushaximus&gt; it's very alive, we're celebrating captivatemtd making it to nightlies</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;uberushaximus&gt; :D</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;nullghost&gt; Line 390: s3cfb s3cfb: Calling regulator_enable(fbdev-&gt;regulator)</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;nullghost&gt; Unable to handle kernel NULL pointer dereference at virtual address 0000004d</span><br />
+<span class="irc-date">[3:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; Uuuuuhhhhh braaaaaiiinnnnzzzzz</span><br />
+<span class="irc-date">[3:06]</span> <span class="irc-black">&lt;atinm&gt; do you have that device at all?</span><br />
+<span class="irc-date">[3:06]</span> <span class="irc-black">&lt;nullghost&gt; atinm: hmm? what do you mean</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;atinm&gt; s3cfb looks like it isnt initialized, or the regulator under it.</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;koush_&gt; atinm: i dont see where it reboots the phone</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;koush_&gt; atinm: in updater.sh it just falls through</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;atinm&gt; koush_: sec</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;koush_&gt; and updater-script continues</span><br />
+<span class="irc-date">[3:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; there are a couple i2c devices that puke earlier on 5 6 7 11 12</span><br />
+<span class="irc-date">[3:08]</span> <span class="irc-black">&lt;atinm&gt; yes, bottom of updater-script.</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;atinm&gt; which doesn't make sense ..</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;atinm&gt; wtf.</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;koush_&gt; that shouldnt be there</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;koush_&gt; should be in updater.sh</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;koush_&gt; and only when doing the bml update</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;atinm&gt; right, you're going wtf at the same thing I am. where is codeworkx ...</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;atinm&gt; sec</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;koush_&gt; otherwise on the first install on top of bml, it tries to install everything onto rfs :P</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;koush_&gt; then it reboots</span><br />
+<span class="irc-date">[3:09]</span> <span class="irc-black">&lt;koush_&gt; and then installs it again lol</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-black">&lt;atinm&gt; yeah, let me see something</span><br />
+<span class="irc-date">[3:10]</span> <span class="irc-green">* zachy_md|away (~zacharias@chello084114179145.16.15.vie.surfer.at) has left this channel.</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; nullghost:  your s3cfb.c file is almost completely different than the one we're using I haven't checked the other stuff in /drivers/video/samsung but it's prolly also pretty far off of us</span><br />
+<span class="irc-date">[3:11]</span> <span class="irc-black">&lt;atinm&gt; koush_: yes - it should be rebooting in updater.sh at the bottom of bml section</span><br />
+<span class="irc-date">[3:12]</span> <span class="irc-black">&lt;atinm&gt; tho it doesn't do a lot. there</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; creates symlinks</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;nullghost&gt; TMC_Sherpa: thanks, we'll diff s3cfb and start there, we need to get this fixed damnit :(</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; and formats /data</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;Kaik541&gt; brb</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'll have that directory for you in a sec</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; koush_: it doesn't do the full install tho</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-navy">* Kaik541 (~Kaik541@cpe-70-112-175-254.austin.res.rr.com) Quit (Quit: Kaik541)</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; or does it.</span><br />
+<span class="irc-date">[3:13]</span> <span class="irc-black">&lt;atinm&gt; I dont think so.</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm&gt; right. it does some wasted symlinks and permissions.</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm&gt; could be cleaned up</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm&gt; the one thing is does do is format /data to ext4</span><br />
+<span class="irc-date">[3:14]</span> <span class="irc-black">&lt;atinm&gt; which can be done after mtd as well</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[3:17]</span> <span class="irc-green">* ChanServ sets mode +o Kaik541</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: you here?</span><br />
+<span class="irc-date">[3:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; nullghost: <a href="http://pastebin.com/RQVTFhNy">http://pastebin.com/RQVTFhNy</a> just the s3cfb_probe</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;atinm&gt;  /bin/bash: line 1: out/target/product/captivatemtd/ramdisk-recovery.img: No such file or directory</span><br />
+<span class="irc-date">[3:19]</span> <span class="irc-black">&lt;atinm&gt; what am I missing . . . I thought I cloned everything cm</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;nullghost&gt; TMC_Sherpa: since you're being super helpful (thanks :p) wanna jump in another irc channel with us?</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;nullghost&gt; #epiccmdev on irc.fossnet.info</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;Kaik541&gt; nullghost, no you can't have him</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;Kaik541&gt; he's our code monkey</span><br />
+<span class="irc-date">[3:20]</span> <span class="irc-black">&lt;nullghost&gt; D:</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; depends is UberPinguin there :P</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;nullghost&gt; of course</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;nullghost&gt; well hold on</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; godamnit</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;nullghost&gt; deca and uber should be here</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;nullghost&gt; goddamnit?</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;Kaik541&gt; tmc already has enough on his plate</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;Kaik541&gt; like getting me some audience chip</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;nullghost&gt; haha</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;Kaik541&gt; specific need of one person &gt; all of epic users</span><br />
+<span class="irc-date">[3:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; need moar vibrant testers on the audio changes I already made</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;UberPinguin&gt; I'm here, just haven't been watching</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;nullghost&gt; TMC_Sherpa: it's not necessary actually, uber and deca are in here.</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;nullghost&gt; they'll learn to pay attention damnit.</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;UberPinguin&gt; lol</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;UberPinguin&gt; But wisp isn't here :(</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;koush_&gt; atinm: ok im gonna clean this up</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;koush_&gt; its kinda a crazy mess</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;Kaik541&gt; UberPinguin, where is he? I'll invite him</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; nah, we should take it out of here so atin and koushmeister can get things square</span><br />
+<span class="irc-date">[3:22]</span> <span class="irc-black">&lt;UberPinguin&gt; Kaik541: He's not on freenode afaik</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;Kaik541&gt; well what a doodoo head</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;UberPinguin&gt; ikr</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-green">* ChanServ sets mode +o techmik</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;UberPinguin&gt; Kaik541: He's on freenode as wispoffates</span><br />
+<span class="irc-date">[3:23]</span> <span class="irc-black">&lt;atinm&gt; koush_: please :) - Its too fragile for me to touch when we were in this mode. now that we're merging, it needs to be worked on</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-green">* Kaik541 sets mode +I ciwrl!*@*</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;atinm&gt; but better you than me . . . since it needs to fit into the cyanogenmod world</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-green">* Kaik541 sets mode +I wispoffates!*@*</span><br />
+<span class="irc-date">[3:24]</span> <span class="irc-black">&lt;Kaik541&gt; well now he should be able to get in</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-green">* wispoffates (~wispoffat@99-110-174-2.lightspeed.clmboh.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;UberPinguin&gt; \o/</span><br />
+<span class="irc-date">[3:25]</span> <span class="irc-black">&lt;wispoffates&gt; o/</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;techmik&gt; so nw its ./build.sh captivatemtd kernel......</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;Kaik541&gt; welcome to the party</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;wispoffates&gt; ty ty</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;chaembian&gt; TMC_Sherpa: Should I build and test tmc2 branch from techmik repo?</span><br />
+<span class="irc-date">[3:26]</span> <span class="irc-black">&lt;techmik&gt; sec,</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;Kaik541&gt; all these questions about gapps..</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I don't know if there is a tmc2 over there right now, things kinda crazy at the mo</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;Kaik541&gt; have I mentioned I hate people?</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;Decad3nce&gt; Kaik541: I second that</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;techmik&gt; TMC_Sherpa: <a href="http://bit.ly/jKCRVL">http://bit.ly/jKCRVL</a></span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; not in the last few hours</span><br />
+<span class="irc-date">[3:27]</span> <span class="irc-black">&lt;Kaik541&gt; how long until the vibrant users notice captivate has official nightlies now and they tsart complaining about how vibrant is *always* left out?</span><br />
+<span class="irc-date">[3:28]</span> <span class="irc-black">&lt;UberPinguin&gt; Kaik541: I'm surprised it hasn't already happened</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;chaembian&gt; There will be a hour long power cut in couple of minutes</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; looks alright techmik dono if that has the last thing I did to mach-aries but I'll worry about that later</span><br />
+<span class="irc-date">[3:29]</span> <span class="irc-black">&lt;chaembian&gt; If there is anything you want me to test, leave a note here and I'll pick it up</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;techmik&gt; TMC_Sherpa: just send me anything else if you want and i'll add it</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;techmik&gt; ah</span><br />
+<span class="irc-date">[3:30]</span> <span class="irc-black">&lt;techmik&gt; build error</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gimme a sec</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gimme a sec?</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;techmik&gt; or do we know that already?</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; crap cakes</span><br />
+<span class="irc-date">[3:31]</span> <span class="irc-black">&lt;techmik&gt; not on yours on main</span><br />
+<span class="irc-date">[3:32]</span> <span class="irc-black">&lt;Kaik541&gt; poop</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;Kaik541&gt; wheee ROM manager install of CM7</span><br />
+<span class="irc-date">[3:34]</span> <span class="irc-black">&lt;Kaik541&gt; initial</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;Kaik541&gt; dang this stuff always racks my nerves</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;Kaik541&gt; those of you who had to figure out the partition layout and were test dummies for this terrify me</span><br />
+<span class="irc-date">[3:35]</span> <span class="irc-black">&lt;Kaik541&gt; just fyi</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: Just finished working through the s3cfb_probe diff. I don't see anything that's functionally different, seems like just some refactoring.</span><br />
+<span class="irc-date">[3:36]</span> <span class="irc-navy">* chaembian (~chaembian@122.174.112.118) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[3:37]</span> <span class="irc-black">&lt;UberPinguin&gt; Going to look at these i2c-gpio things for a bit</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; techmik sorry about that, thought my network went down, the crap cakes had nothing to do with you</span><br />
+<span class="irc-date">[3:38]</span> <span class="irc-black">&lt;techmik&gt; =)</span><br />
+<span class="irc-date">[3:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; where...no wait it was wm8994-samsung, gimme a sec</span><br />
+<span class="irc-date">[3:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; not in there..... let people play with out it for right now I'm pretty sure I need to do more than just that one line</span><br />
+<span class="irc-date">[3:50]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: Missed some of the i2c gpio changes in the other diff, getting those in now.</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;techmik&gt; i found some beta drivers that may allow me to run the onboard hdmi port at teh same time as my PCIe dual head geforce 9500gt video card</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-brick">* techmik has been banging his head against this wall all night</span><br />
+<span class="irc-date">[3:52]</span> <span class="irc-black">&lt;techmik&gt; so far it only worked when i removed the card</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;techmik&gt; laptop still here.... brb</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-green">* Decad3nce is now known as Deca|Away</span><br />
+<span class="irc-date">[3:54]</span> <span class="irc-black">&lt;Kaik541&gt; I should buy a cheap little gadget to send techmik once a week</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;Kaik541&gt; he's obsessive enough he'll spend the whole week figuring out how to use it best</span><br />
+<span class="irc-date">[3:55]</span> <span class="irc-black">&lt;techmik_laptop&gt; =)</span><br />
+<span class="irc-date">[3:59]</span> <span class="irc-black">&lt;Kaik541&gt; oh it's so lovely to have CM7 on my phone again and not worry about voice quality/connection stability</span><br />
