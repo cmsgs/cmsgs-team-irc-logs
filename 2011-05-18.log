@@ -1901,3 +1901,130 @@
 <span class="irc-date">[20:57]</span> <span class="irc-black">&lt;koush&gt; or install from rfs rather</span><br />
 <span class="irc-date">[20:57]</span> <span class="irc-black">&lt;koush&gt; cause i changed all that shit around</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;codeworkx&gt; i'll try</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;koush&gt; lagfix</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;koush&gt; i hate that name</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;codeworkx&gt; you too? xD</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;codeworkx&gt; koush: modem.bin is missing in zip</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;codeworkx&gt; koush: its in vendor_samsung</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;koush&gt; oh</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;koush&gt; its per device huh</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;koush&gt; vibrant has it in root</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;codeworkx&gt; i've pushed all to vendor_samsung_device</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;koush&gt; k</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;koush&gt; yeah vibrant had it at vibrantmtd</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;koush&gt; but cap had it at captivatemtd/proprietary</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;koush&gt; i moved it</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;codeworkx&gt; and updater.sh is running after installing system</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;koush&gt; this may need to live in device/samsung/_blah_ though</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;codeworkx&gt; thats not good</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;codeworkx&gt; create a new def which extracts the needed files and runs updater.sh direct after device assert</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;koush&gt; it already does that</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;koush&gt; the updater.sh is the first thing ran</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;codeworkx&gt; ah ok, but it runs again after backuptool restore</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;koush&gt; oh LOL</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;koush&gt; whoops</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;koush&gt; i herped</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;koush&gt; i'll fix that</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;koush&gt; yea i'll move it into assert device</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;nitam|work&gt; shouldn't modem.bin be in proprietary since it is really samsung's shit?</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;codeworkx&gt; koush is a bad guy xD</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;codeworkx&gt; mnita|work: it's in prop</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;nitam|work&gt; ok</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;koush&gt; yea it is now</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;nitam|work&gt; back to parsing nasdaq feed.</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;nitam|work&gt; pain in the ass.</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;codeworkx&gt; i've only fuct vibrant modem xD</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; that's ok, they've been fuxing us forever.</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; it most probably deserved it.</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;nitam|work&gt; gone</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-green">* gehzumteufel (~gehzumteu@adsl-76-252-171-187.dsl.lsan03.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[21:12]</span> <span class="irc-green">* ChanServ sets mode +v gehzumteufel</span><br />
+<span class="irc-date">[21:18]</span> <span class="irc-black">&lt;codeworkx&gt; i'm off. happy hacking</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-navy">* nullghost (~justin@c-76-18-157-237.hsd1.tn.comcast.net) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;nitam|work&gt; crap - I don't know our status.</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;nitam|work&gt; did galaxysmtd work for codeworkx?</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;coolya&gt; there was a problem with modem.bin i think</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;nitam|work&gt; is koush working on merging it now? working on initial install stuff?</span><br />
+<span class="irc-date">[21:35]</span> <span class="irc-black">&lt;koush&gt; i am trying to fix the modem problems</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; ah, ok.</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; thanks.</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;nitam|work&gt; sorry - I'd help, but nasdaq and I aren't getting along right now.</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;koush&gt; im done and pushed</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;nitam|work&gt; something is way weird - CyanogenMod organization news feed doesn't show most of what you are doing</span><br />
+<span class="irc-date">[21:41]</span> <span class="irc-black">&lt;nitam|work&gt; or maybe it is just late to show it</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;koush&gt; i think somethingis broke</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;koush&gt; gerrit isnt automatically pushing</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;koush&gt; i pushed manually</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;ciwrl&gt; forums done; all of you should have your powers (kaik, atinm, code, coolya)</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;ciwrl&gt; mainpage supported devices is next</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;koush&gt; ciwrl: yo</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;koush&gt; gimme an invite to #teamdouche</span><br />
+<span class="irc-date">[21:47]</span> <span class="irc-black">&lt;ciwrl&gt; invite yourself?</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;koush&gt; i cant</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;koush&gt; wont let me</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;koush&gt; dunno why</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;ciwrl&gt; o0</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-green">* ChanServ sets mode +o koush</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;koush&gt; nm</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;ciwrl&gt; heh</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;koush&gt; nm nickserv didnt indentify me</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;koush&gt; wherps</span><br />
+<span class="irc-date">[21:48]</span> <span class="irc-black">&lt;ciwrl&gt; lol</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;nitam|work&gt; ciwrl: can I be on the invite list for #teamdouche?</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;nitam|work&gt; so I don't always have to beg when I need help with broken builds? :)</span><br />
+<span class="irc-date">[21:49]</span> <span class="irc-black">&lt;ciwrl&gt; arent you already?</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;ciwrl&gt; jeebus, we need some structure</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; I dunno - haven't tried</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; I always ask :)</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;nitam|work&gt; let me see</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;ciwrl&gt; msg chanserv invite #teamdouche</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;coolya&gt; k kernel is ready for ril now</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;Kaik541&gt; ciwrl, /mode +i atinm #teamdouche or whatever</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;ciwrl&gt; im only +v there</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;ciwrl&gt; not +o</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;Kaik541&gt; sets perma-invite</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;Kaik541&gt; oh</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;Kaik541&gt; well then ignore me</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-black">&lt;ciwrl&gt; :p</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;koush&gt; ok the modem.bin is fixedf</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;koush&gt; just verified</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;koush&gt; is it just the RIL.java thing now coolya</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;koush&gt; or is there more</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;techmik&gt; i'm back.... i fell asleep =)</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;coolya&gt; i'm merging my changes into a single file</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;atinm&gt; coolya, where did you commit?</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;atinm&gt; oh, to your repo</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;Kaik541&gt; techmik, do you have an account on cm forums?</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;coolya&gt; currently on personal repo</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;coolya&gt; i think kernel is on gerrit now?</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;atinm&gt; not yet</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;atinm&gt; not that I know of</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;coolya&gt; then i can upload it there too</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;coolya&gt; i see the project in gerrit</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;Kaik541&gt; if so, you should ask ciwrl for modmin powers too so both of us can moderate the forums</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;atinm&gt; link?</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;techmik&gt; lemme check, i think so</span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;coolya&gt; <a href="http://review.cyanogenmod.com/#admin,projects">http://review.cyanogenmod.com/#admin,projects</a></span><br />
+<span class="irc-date">[21:55]</span> <span class="irc-black">&lt;coolya&gt; scroll down</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;ciwrl&gt; <a href="http://forum.cyanogenmod.com/user/154768-techmik67/">http://forum.cyanogenmod.com/user/154768-techmik67/</a></span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;coolya&gt; ah kay its the old one</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;ciwrl&gt; that you?</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;coolya&gt; my by</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;coolya&gt; s/by/bad</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;atinm&gt; dunno what that is.</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;techmik&gt; i'm techmik67 on cm forums</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;atinm&gt; yeah, not us.</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;atinm&gt; should get removed .. :-P</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/teamhacksung/android_kernel_samsung_aries">https://github.com/teamhacksung/android_kernel_samsung_aries</a></span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;atinm&gt; that be us right now</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;coolya&gt; i will merge my commit</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;ciwrl&gt; techmik will do</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;techmik&gt; yes thats me</span><br />
+<span class="irc-date">[21:57]</span> <span class="irc-black">&lt;koush&gt; erm coolya</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;koush&gt; i think i may go with the override method you have</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;koush&gt; i'm messing with the filter copy shit now</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;koush&gt; its pretty hacky, sigh</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;koush&gt; it causes problems ify ou want to debug into it</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;koush&gt; fucks with eclipse paths</span><br />
