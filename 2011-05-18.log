@@ -1,0 +1,139 @@
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;Unhelpful&gt; as long as we get the manufacturer changed from Samsung to samsung, which appears to be all we need for netflix to work. ;)</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;koush&gt; yea thats just in your vendor/cyanogen</span><br />
+<span class="irc-date">[0:01]</span> <span class="irc-black">&lt;koush&gt; \</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;Unhelpful&gt; oh! ok then. :)\</span><br />
+<span class="irc-date">[0:02]</span> <span class="irc-black">&lt;Unhelpful&gt; i looked for that, but really didn't know *where* to look</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;Unhelpful&gt; if calling the device captivatemtd doesn't break my swype beta or netflix, then *i* don't care ;)</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;koush&gt; your repos are enormous</span><br />
+<span class="irc-date">[0:03]</span> <span class="irc-black">&lt;koush&gt; i think i will rebase/squash these</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;Unhelpful&gt; i assume we need to hit gerrit for changes after we're merged?</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;koush&gt; yes</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;koush&gt; i will start with captivate, and we'll run that in the build system for a day or trwo</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;koush&gt; work out bugs</span><br />
+<span class="irc-date">[0:04]</span> <span class="irc-black">&lt;koush&gt; then i'll bring the rest over</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;koush&gt; then we'll go onto gerrit</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;koush&gt; until then continue using your github</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;Kaik541&gt; you should probably start with i9000 tbh</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;koush&gt; whys that</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;Kaik541&gt; but I guess it's up to you (I know you had a captivate at one point)</span><br />
+<span class="irc-date">[0:05]</span> <span class="irc-black">&lt;Kaik541&gt; i9000 is probably the most "complete" in terms of functionality, but they all build and work</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;Kaik541&gt; so if it's just to test the build system, then I don't think it really matters</span><br />
+<span class="irc-date">[0:06]</span> <span class="irc-black">&lt;Kaik541&gt; so, ignore me</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;Kaik541&gt; I type before I think.</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;koush&gt; who maintains captivate</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;koush&gt; atinm?</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;koush&gt; which phone is he on</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;Kaik541&gt; atinm and unhelpful</span><br />
+<span class="irc-date">[0:07]</span> <span class="irc-black">&lt;koush&gt; k</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;Kaik541&gt; speak of the devil</span><br />
+<span class="irc-date">[0:09]</span> <span class="irc-black">&lt;atinm&gt; what'd I do</span><br />
+<span class="irc-date">[0:10]</span> <span class="irc-black">&lt;Kaik541&gt; koush is talking important stuff and I'm making things more confusing than should be</span><br />
+<span class="irc-date">[0:11]</span> <span class="irc-black">&lt;koush&gt; atinm: i am gonna add captivate to official cm now</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;koush&gt; im squashing the history cause the repositoiries are gigantic</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;atinm&gt; I was going to clean up the branches etc at least</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;atinm&gt; but yes, squash of course</span><br />
+<span class="irc-date">[0:12]</span> <span class="irc-black">&lt;atinm&gt; I'm still waiting on Unhelpful to finish the changes. We need some device stuff to get done to get the Makefile working</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;atinm&gt; wanted to build everything clean tonight, then ask you to fork</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;koush&gt; also renaming captivate to captivatemtd</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;Unhelpful&gt; we, um, do?</span><br />
+<span class="irc-date">[0:13]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful, just cloning and putting your fix to common into aries-common didn't work</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;atinm&gt; I still get the bacon error</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;atinm&gt; bacon dont sizzle</span><br />
+<span class="irc-date">[0:14]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't know where that's coming from...</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;atinm&gt; maybe koush can help with that - let me try again.</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;atinm&gt; make: *** No rule to make target `bacon'.  Stop.</span><br />
+<span class="irc-date">[0:15]</span> <span class="irc-black">&lt;atinm&gt; Error: ../out/target/product/vibrant/boot.img doesn't exist.</span><br />
+<span class="irc-date">[0:16]</span> <span class="irc-black">&lt;atinm&gt; what's the command to get more info about what it is actualy doing?</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;atinm&gt; unhelpful, have you synced?</span><br />
+<span class="irc-date">[0:18]</span> <span class="irc-black">&lt;atinm&gt; and pulled in the local_manifest.xml into your .repo dir?</span><br />
+<span class="irc-date">[0:19]</span> <span class="irc-black">&lt;Unhelpful&gt; where do i get this local_manifest.xml, now?</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/teamhacksung/android/blob/gingerbread/local_manifest.xml">https://github.com/teamhacksung/android/blob/gingerbread/local_manifest.xml</a></span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;atinm&gt; copy/paste into .repo/local_manifest.xml</span><br />
+<span class="irc-date">[0:20]</span> <span class="irc-black">&lt;atinm&gt; and repo sync</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;atinm&gt; and you'll be up to what I've done</span><br />
+<span class="irc-date">[0:21]</span> <span class="irc-black">&lt;atinm&gt; basically we no longer have samsung/common anywhere, its samsung/aries-common now, and vendor tree is on koush's LLC protected server</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;Unhelpful&gt; wtf @ a lot of this: fatal: Unable to look up github.com (port 9418) (Name or service not known)</span><br />
+<span class="irc-date">[0:25]</span> <span class="irc-black">&lt;koush&gt; ok captivate to captivatemtd rename done</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;koush&gt; uhh there's no bacon target</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;koush&gt; wtf</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; yeah - something is broken, not sure what</span><br />
+<span class="irc-date">[0:26]</span> <span class="irc-black">&lt;atinm&gt; on using the Makefile change</span><br />
+<span class="irc-date">[0:27]</span> <span class="irc-black">&lt;Unhelpful&gt; bacon: otapackage</span><br />
+<span class="irc-date">[0:30]</span> <span class="irc-black">&lt;atinm&gt; Unhelpful: what do I pass to brunch to force it to show what it is doing? if anything...</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; coolya, you here?</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; wondering what to call android_samsung_kernel</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; android_samsung_kernel_aries-common?</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; and stay forked?</span><br />
+<span class="irc-date">[0:32]</span> <span class="irc-black">&lt;atinm&gt; since we're a bastard of nexus s and us.</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm&gt; well, nexus s and aries.</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm&gt; not us.</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm: you don't you use make :P</span><br />
+<span class="irc-date">[0:33]</span> <span class="irc-black">&lt;atinm&gt; that would be biologically impossible.</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;koush&gt; Unhelpful: there is no else ifndef construct</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;koush&gt; you are missing endifs</span><br />
+<span class="irc-date">[0:34]</span> <span class="irc-black">&lt;Unhelpful&gt; ahhhh crap :/</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;koush&gt; i think</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;Unhelpful&gt; but, um, there *is* an endif?</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;atinm&gt; that's what it looked like - but it seems that is what was wanted.</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;koush&gt; check your entire commit</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;atinm&gt; but I'm not sure either .. :-P</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-black">&lt;Unhelpful&gt; i didn't remove any endif, but i made some unconditional else conditional.</span><br />
+<span class="irc-date">[0:35]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[0:36]</span> <span class="irc-black">&lt;Unhelpful&gt; do i need to put an else right before the endif?</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/CyanogenMod/android_build/blob/3c89421a8133a3f8a34f9127bfb6229b33807b2e/core/Makefile#L395">https://github.com/CyanogenMod/android_build/blob/3c89421a8133a3f8a34f9127bfb6229b33807b2e/core/Makefile#L395</a></span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;atinm&gt; that looked very suspicious</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;koush&gt; i fixed that lkocally</span><br />
+<span class="irc-date">[0:37]</span> <span class="irc-black">&lt;koush&gt; still missing teh bacon target</span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm&gt; <a href="https://github.com/CyanogenMod/android_build/blob/3c89421a8133a3f8a34f9127bfb6229b33807b2e/core/Makefile#L515">https://github.com/CyanogenMod/android_build/blob/3c89421a8133a3f8a34f9127bfb6229b33807b2e/core/Makefile#L515</a></span><br />
+<span class="irc-date">[0:40]</span> <span class="irc-black">&lt;atinm&gt; wassat?</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm&gt; ah</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm&gt; define?</span><br />
+<span class="irc-date">[0:41]</span> <span class="irc-black">&lt;atinm&gt; new one to me :)</span><br />
+<span class="irc-date">[0:42]</span> <span class="irc-black">&lt;Unhelpful&gt; nope, that changes nothing.</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;koush&gt; foiund the bug</span><br />
+<span class="irc-date">[0:45]</span> <span class="irc-black">&lt;koush&gt; TARGET_NO_RECOVEYR</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm&gt; unhelpful, what should that be now?</span><br />
+<span class="irc-date">[0:46]</span> <span class="irc-black">&lt;atinm&gt; should be false now, right?</span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;zachy_md|away&gt; something to get you guys a little out of your head: <a href="http://www.csectioncomics.com/2010/11/iphone-vs-android-vs-blackberry.html">http://www.csectioncomics.com/2010/11/iphone-vs-android-vs-blackberry.html</a></span><br />
+<span class="irc-date">[0:47]</span> <span class="irc-black">&lt;atinm&gt; later zachy_md|away</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;atinm&gt; those two fixes, one to set TARGET_NO_RECOVERY := false and the endif in Makefile lets it start building</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;atinm&gt; but I am not sure about what TARGET_NO_RECOVERY should be - we do have a separate recovery.img now</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;koush&gt; yeah i just removed that</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;koush&gt; i need to make recoveryimage just be bootimage</span><br />
+<span class="irc-date">[0:49]</span> <span class="irc-black">&lt;koush&gt; i'll acp it</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; I'm not sure what it is supposed to be given that we append both images to our kernel</span><br />
+<span class="irc-date">[0:50]</span> <span class="irc-black">&lt;atinm&gt; or whatever we do - I'm foggy. Unhelpful!</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;Kaik541&gt; how do single people make CM? we need a team of like 6 people to get where we are</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm&gt; its only Samsung.</span><br />
+<span class="irc-date">[0:51]</span> <span class="irc-black">&lt;atinm&gt; well, I don't know actually</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; all phones are hard enough to need at least a couple of people to bounce things with</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;Kaik541&gt; maybe, but there are so many things you have to familiarize yourself with to do this</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;Unhelpful&gt; oh crap, yeah, that was part of the old version of CUSTOM_BOOTIMG</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; that's why ppl hang out in teamdouche.</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;koush&gt; ok fixed everything</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;koush&gt; gonna build now</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;atinm&gt; the devs here need invites to teamdouche :)</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;Kaik541&gt; samsung has a whole department of people to muddle the phone you guys unmuddle</span><br />
+<span class="irc-date">[0:52]</span> <span class="irc-black">&lt;koush&gt; i'll push everything too</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm&gt; ok, I at least cleaned the branches. but need to get rid of the TARGET_NO_RECOVERY from each BoardConfig.mk</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;koush&gt; atinm: leave captivate alone</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;koush&gt; if you make changes, let me know</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm&gt; urk, I did get rid of the branches - basically the only branch you should leave is the gingerbread branch</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;koush&gt; right</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;koush&gt; thats what i did</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;koush&gt; sec</span><br />
+<span class="irc-date">[0:53]</span> <span class="irc-black">&lt;atinm&gt; I don't want to kill our local samsung_cm7_merge branch</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;koush&gt; thats fine</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm&gt; but I got rid of the rest</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;koush&gt; <a href="https://github.com/organizations/CyanogenMod">https://github.com/organizations/CyanogenMod</a></span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;atinm&gt; CM shouldn't have anything but gingerbread</span><br />
+<span class="irc-date">[0:54]</span> <span class="irc-black">&lt;koush&gt; check my last two commits</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;koush&gt; ok im gonna go home</span><br />
+<span class="irc-date">[0:55]</span> <span class="irc-black">&lt;koush&gt; i'll upload this build for someone with a captivate to test</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;koush&gt; if all is well, i will merge captivate and aries-common in</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;koush&gt; then you guys need to rename refactor the last two devices</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;koush&gt; squash, and i'll fork</span><br />
+<span class="irc-date">[0:56]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
