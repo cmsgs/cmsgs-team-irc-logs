@@ -802,3 +802,69 @@
 <span class="irc-date">[8:48]</span> <span class="irc-black">&lt;atinm|night&gt; fuck</span><br />
 <span class="irc-date">[8:50]</span> <span class="irc-black">&lt;atinm|night&gt; I'm useless right now</span><br />
 <span class="irc-date">[8:50]</span> <span class="irc-black">&lt;atinm|night&gt; needsleep</span><br />
+<span class="irc-date">[9:04]</span> <span class="irc-black">&lt;ylooca|work&gt; damn using samsung ril and still no gps on vibrant, but sim toolkit is working now</span><br />
+<span class="irc-date">[9:13]</span> <span class="irc-navy">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[9:18]</span> <span class="irc-green">* codeworkx (~yaaic@tmo-107-133.customers.d1-online.com) has joined this channel.</span><br />
+<span class="irc-date">[9:18]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[9:19]</span> <span class="irc-black">&lt;atinm|night&gt; hi codeworkx</span><br />
+<span class="irc-date">[9:20]</span> <span class="irc-black">&lt;atinm|night&gt; &lt;-- very pissed.</span><br />
+<span class="irc-date">[9:20]</span> <span class="irc-green">* Wout (~Wout@office.tweaknet.net) has joined this channel.</span><br />
+<span class="irc-date">[9:20]</span> <span class="irc-black">&lt;atinm|night&gt; and sleepy</span><br />
+<span class="irc-date">[9:20]</span> <span class="irc-black">&lt;atinm|night&gt; codeworkx: I've done converting vibrantmtd</span><br />
+<span class="irc-date">[9:21]</span> <span class="irc-black">&lt;atinm|night&gt; but galaxys and galaxysb still need the same changes</span><br />
+<span class="irc-date">[9:22]</span> <span class="irc-black">&lt;atinm|night&gt; hmm, why don't I see the nightly in ROMManager</span><br />
+<span class="irc-date">[9:22]</span> <span class="irc-black">&lt;ylooca|work&gt; atinm|night: why pissed ?</span><br />
+<span class="irc-date">[9:22]</span> <span class="irc-black">&lt;ylooca|work&gt; cause of the trucks ?</span><br />
+<span class="irc-date">[9:22]</span> <span class="irc-black">&lt;atinm|night&gt; yeah</span><br />
+<span class="irc-date">[9:22]</span> <span class="irc-black">&lt;atinm|night&gt; woke me up</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-black">&lt;atinm|night&gt; and I went to bed at 1</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-black">&lt;ylooca|work&gt; damn</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-black">&lt;atinm|night&gt; and up at 4:45</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-black">&lt;atinm|night&gt; and have to get ready so can get kid ready by 8 - was hoping for at least another hour</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-black">&lt;atinm|night&gt; oh, btw.</span><br />
+<span class="irc-date">[9:23]</span> <span class="irc-black">&lt;atinm|night&gt; we have a bug in our sensors code for lightsensor.</span><br />
+<span class="irc-date">[9:24]</span> <span class="irc-black">&lt;atinm|night&gt; trying a fux</span><br />
+<span class="irc-date">[9:24]</span> <span class="irc-black">&lt;atinm|night&gt; fix</span><br />
+<span class="irc-date">[9:24]</span> <span class="irc-black">&lt;atinm|night&gt; we are reporting max value returned as 3000</span><br />
+<span class="irc-date">[9:24]</span> <span class="irc-black">&lt;atinm|night&gt; but we actually return up to 10240</span><br />
+<span class="irc-date">[9:24]</span> <span class="irc-black">&lt;atinm|night&gt; and so users can't change to above that</span><br />
+<span class="irc-date">[9:24]</span> <span class="irc-black">&lt;atinm|night&gt; fixing.</span><br />
+<span class="irc-date">[9:25]</span> <span class="irc-black">&lt;atinm|night&gt; but now it has to go thru gerrit :-P</span><br />
+<span class="irc-date">[9:25]</span> <span class="irc-black">&lt;ylooca|work&gt; hm?</span><br />
+<span class="irc-date">[9:25]</span> <span class="irc-black">&lt;atinm|night&gt; sec, let me show you</span><br />
+<span class="irc-date">[9:25]</span> <span class="irc-black">&lt;ylooca|work&gt; we can measure 10k lux</span><br />
+<span class="irc-date">[9:25]</span> <span class="irc-black">&lt;ylooca|work&gt; what is an adc value of &gt; 1400 if i remember right</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;atinm|night&gt; <a href="https://github.com/teamhacksung/android_device_samsung_aries-common/blob/gingerbread/libsensors/sensors.cpp#L88">https://github.com/teamhacksung/android_device_samsung_aries-common/blob/gingerbread/libsensors/sensors.cpp#L88</a></span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;atinm|night&gt; that line says that max we can report is 3000</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;atinm|night&gt; even though in LightSensors.cpp we go to 10240</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;atinm|night&gt; that line is wrong</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;ylooca|work&gt; yep</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;atinm|night&gt; that is crespos</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;ylooca|work&gt; did that get in on a crepso mainline merge?</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;atinm|night&gt; so now I need to gerrit it ;)</span><br />
+<span class="irc-date">[9:27]</span> <span class="irc-black">&lt;ylooca|work&gt; i remember i changed it</span><br />
+<span class="irc-date">[9:27]</span> <span class="irc-black">&lt;atinm|night&gt; it was there from when we went to using binaries.</span><br />
+<span class="irc-date">[9:27]</span> <span class="irc-black">&lt;atinm|night&gt; and all the hacking that happened then</span><br />
+<span class="irc-date">[9:27]</span> <span class="irc-black">&lt;atinm|night&gt; I think.</span><br />
+<span class="irc-date">[9:27]</span> <span class="irc-black">&lt;atinm|night&gt; not sure - but fixing now.</span><br />
+<span class="irc-date">[9:27]</span> <span class="irc-black">&lt;ylooca|work&gt; k</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;Wout&gt; congrats on getting cappy to mainlaine atinm|night :)</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;Wout&gt; mainline even</span><br />
+<span class="irc-date">[9:36]</span> <span class="irc-black">&lt;atinm|night&gt; 3 more to go</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;atinm|night&gt; then epic.</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;atinm|night&gt; hopefully quicker now :)</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;codeworkx&gt; atinm ill fix the updater later today to make it really universal</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;atinm|night&gt; vibrant is ready</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;atinm|night&gt; but want to submit the change to lightsensor to gerrit</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;atinm|night&gt; sec</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;atinm|night&gt; and don't know how we are supposed to know about updates.</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;atinm|night&gt; RM not showing any updates available</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@59.97.74.25) has joined this channel.</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[9:53]</span> <span class="irc-brick">* knowsnotmuch is updating/installing off ROM Manager for the first time</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread atinm * 91a4214 (1 files in 1 dirs): Set light levels to match what the driver actually returns ... - <a href="http://bit.ly/iOP6QG">http://bit.ly/iOP6QG</a></span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxysb: gingerbread atinm * 39a7d25 (1 files in 1 dirs): Set light levels to match what the driver actually returns ... - <a href="http://bit.ly/kNvdJc">http://bit.ly/kNvdJc</a></span><br />
+<span class="irc-date">[9:59]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
