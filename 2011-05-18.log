@@ -963,3 +963,76 @@
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;atinm&gt; hmm</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;atinm&gt; there is no such thing</span><br />
 <span class="irc-date">[13:59]</span> <span class="irc-black">&lt;atinm&gt; $(PRODUCT_OUT)/utilities?</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;atinm&gt; where we output bml_over_mtd etc</span><br />
+<span class="irc-date">[14:00]</span> <span class="irc-black">&lt;atinm&gt; that sounds right.</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;atinm&gt; actually I don't know</span><br />
+<span class="irc-date">[14:03]</span> <span class="irc-black">&lt;atinm&gt; flash_image is in a lot of places.</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;codeworkx&gt; if we really want to use the buildsystem to create a universal script, we have to remove our assert which checks if the script is running on the correct device</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;atinm&gt; codeworkx: yes.</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;atinm&gt; I was thinking that.</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;codeworkx&gt; or</span><br />
+<span class="irc-date">[14:04]</span> <span class="irc-black">&lt;codeworkx&gt; add GT-I9000 + galaxys</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;codeworkx&gt; that will work</span><br />
+<span class="irc-date">[14:05]</span> <span class="irc-black">&lt;codeworkx&gt; GT-I9000 + GT-I9000T + GT-I9000M + galaxys xD</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;atinm&gt; yes, I think we need to do it that way</span><br />
+<span class="irc-date">[14:07]</span> <span class="irc-black">&lt;atinm&gt; for all of them</span><br />
+<span class="irc-date">[14:08]</span> <span class="irc-black">&lt;ylooca|work&gt; can't we use the post processor to make a initial zip ?</span><br />
+<span class="irc-date">[14:09]</span> <span class="irc-black">&lt;ylooca|work&gt; or what is the problem with the build system ?</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;atinm&gt; koush is working on the release stuff as well</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;atinm&gt; to make it all work within the system</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;atinm&gt; and is close I think</span><br />
+<span class="irc-date">[14:11]</span> <span class="irc-black">&lt;atinm&gt; and codeworkx is working on what he did I think</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;UberPinguin&gt; If I were to flash the Captivate I got from work, how much would be broken?</span><br />
+<span class="irc-date">[14:12]</span> <span class="irc-black">&lt;codeworkx&gt; aylooc|work: we can. but using the real releasetools would five us a zip which does everything</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;atinm&gt; UberPinguin: video playing</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;UberPinguin&gt; Sweet. I don't do that anyway :D</span><br />
+<span class="irc-date">[14:15]</span> <span class="irc-black">&lt;atinm&gt; UberPinguin: sound might be worse depending on where you are.</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;atinm&gt; and what modem you use.</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;UberPinguin&gt; Only 2GB bw / month, so I am very sparing with it</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;atinm&gt; gps.</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;atinm&gt; which is iffy always</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;atinm&gt; but I use a captivate with CM7 all the time</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;atinm&gt; its my main phone</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;atinm&gt; back later</span><br />
+<span class="irc-date">[14:16]</span> <span class="irc-black">&lt;UberPinguin&gt; k</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx, I pushed to gerrit.</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;UberPinguin&gt; I'll leave mine on stock for now, I need one phone with working GPS.</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;nitam|work&gt; we can fork bootable/recovery for now if you want, I also pushed to teamhacksung</span><br />
+<span class="irc-date">[14:17]</span> <span class="irc-black">&lt;nitam|work&gt; but koush should quickly merge it. the main question I have is whether $(OUT)/utilities is the correct place for it.</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;nitam|work&gt; $(PRODUCT_OUT)/utilities I mean</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;nitam|work&gt; or whether I should be going into $(TARGET_RECOVERY_ROOT)/sbin</span><br />
+<span class="irc-date">[14:18]</span> <span class="irc-black">&lt;nitam|work&gt; ok, back later.</span><br />
+<span class="irc-date">[14:19]</span> <span class="irc-navy">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-green">* techmik_laptop (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:25]</span> <span class="irc-green">* ChanServ sets mode +o techmik_laptop</span><br />
+<span class="irc-date">[14:26]</span> <span class="irc-navy">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-green">* techmik (~techmik@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-green">* ChanServ sets mode +o techmik</span><br />
+<span class="irc-date">[14:27]</span> <span class="irc-brick">* Unhelpful is just glad that shbootimg isn't rejected on the basis of being such a nasty hack :)</span><br />
+<span class="irc-date">[14:28]</span> <span class="irc-black">&lt;Unhelpful&gt; hrm, well, *somebody* fixed the missing bacon target.</span><br />
+<span class="irc-date">[14:29]</span> <span class="irc-black">&lt;UberPinguin&gt; mmm bacon</span><br />
+<span class="irc-date">[14:34]</span> <span class="irc-brick">* Unhelpful needs to look @ fixing our initramfs for recovery-partition targets</span><br />
+<span class="irc-date">[14:41]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@59.97.74.25) has left this channel.</span><br />
+<span class="irc-date">[14:42]</span> <span class="irc-black">&lt;codeworkx&gt; ok, lets test this beast</span><br />
+<span class="irc-date">[14:45]</span> <span class="irc-navy">* h8rift (~h8@ip70-178-29-47.ks.ks.cox.net) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[14:46]</span> <span class="irc-green">* h8rift (~h8@ip70-178-29-47.ks.ks.cox.net) has joined this channel.</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;codeworkx&gt; ummm. no rule to create bacon?</span><br />
+<span class="irc-date">[14:47]</span> <span class="irc-black">&lt;UberPinguin&gt; o.O</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;UberPinguin&gt; mnita|work mentioned that the modem on Captivate can impact audio quality. Anyone know which modems are "good" ?</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;codeworkx&gt; i think because of their audience chip</span><br />
+<span class="irc-date">[14:48]</span> <span class="irc-black">&lt;codeworkx&gt; which is not used xD</span><br />
+<span class="irc-date">[14:49]</span> <span class="irc-black">&lt;UberPinguin&gt; haha</span><br />
+<span class="irc-date">[14:50]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: no rule to create bacon?</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; i get past that</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; i get a different error</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;codeworkx&gt; you're building cyanogenmod</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; oh</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;codeworkx&gt; i'm building teamhacksung</span><br />
+<span class="irc-date">[14:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; yup</span><br />
+<span class="irc-date">[14:52]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://pastebin.com/2186cQZ1">http://pastebin.com/2186cQZ1</a></span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;codeworkx&gt; libcamera.so didn't get copied to obj/lib/libcamera.so</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;codeworkx&gt; vendor/samsung/captivate</span><br />
+<span class="irc-date">[14:53]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;codeworkx&gt; wait</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-black">&lt;techmik&gt; gotta run out for a bit.... back soon</span><br />
+<span class="irc-date">[14:54]</span> <span class="irc-green">* techmik is now known as techmik|away</span><br />
