@@ -1036,3 +1036,112 @@
 <span class="irc-date">[14:54]</span> <span class="irc-black">&lt;codeworkx&gt; wait</span><br />
 <span class="irc-date">[14:54]</span> <span class="irc-black">&lt;techmik&gt; gotta run out for a bit.... back soon</span><br />
 <span class="irc-date">[14:54]</span> <span class="irc-green">* techmik is now known as techmik|away</span><br />
+<span class="irc-date">[15:11]</span> <span class="irc-navy">* Wout (~Wout@office.tweaknet.net) Quit ()</span><br />
+<span class="irc-date">[15:16]</span> <span class="irc-black">&lt;Unhelpful&gt; oh, crap, i guess i *do* need to check out CM, then, huh?</span><br />
+<span class="irc-date">[15:20]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: why it fails at bacon?</span><br />
+<span class="irc-date">[15:21]</span> <span class="irc-green">* nullghost (~justin@c-76-18-157-237.hsd1.tn.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[15:31]</span> <span class="irc-green">* ChanServ sets mode +o Kaik541</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread codeworkx * 85c007f (2 files in 1 dirs): include the bml/mtd conversion script, added radio image - <a href="http://bit.ly/lvFcoQ">http://bit.ly/lvFcoQ</a></span><br />
+<span class="irc-date">[15:33]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;ylooca|work&gt; codeworkx: i don'T think we can have a modem.img there ...</span><br />
+<span class="irc-date">[15:35]</span> <span class="irc-black">&lt;ylooca|work&gt; it has to be in the vondor stuff</span><br />
+<span class="irc-date">[15:36]</span> <span class="irc-black">&lt;techmik|away&gt; what dirs should i have in vendor? i have cyanogen, teamhacksung and tmobile.... no samsung.....</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;koush_&gt; codeworkx: yo</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;koush_&gt; codeworkx: if you look at my commit from last night</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;koush_&gt; you'll see that the radio is only flashed once</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;koush_&gt; the first time through, it finds bml, so it writes cyanogenmod.cfg</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;koush_&gt; the second tiem through, it finds mtd</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;koush_&gt; if it finds a cyanogenmod.cfg, it completes the conversion, writes the radio, efs, etc</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;koush_&gt; and deletes cyanogenmod.cfg</span><br />
+<span class="irc-date">[15:37]</span> <span class="irc-black">&lt;koush_&gt; so the next time cm is installed, it does not run that step again</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;koush_&gt; codeworkx: also, why is that ota stuff and updater.sh duplicated per device?</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;koush_&gt; i did a quick diff, and theyre all identical</span><br />
+<span class="irc-date">[15:38]</span> <span class="irc-black">&lt;koush_&gt; can that be moved into aries-common</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: it was, yesterday...</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxys: gingerbread codeworkx * 1d1bc95 (8 files in 1 dirs): renamed galaxys to galaxysmtd - <a href="http://bit.ly/kktDDV">http://bit.ly/kktDDV</a></span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-green">* techmik|away is now known as techmik</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-green">* TMC_Sherpa_ (~TMC_Sherp@c-24-15-177-87.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-green">* Decad3nce (~adnan@CPE-98-145-169-197.new.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[15:41]</span> <span class="irc-green">* ChanServ sets mode +v Decad3nce</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread Daniel Hillenbrand * d1ea685 (1 files in 1 dirs): teamhacksung/android_device_samsung_galaxysmtd - <a href="http://bit.ly/ke4HWh">http://bit.ly/ke4HWh</a></span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[15:42]</span> <span class="irc-navy">* Decad3nce (~adnan@CPE-98-145-169-197.new.res.rr.com) Quit (Client Quit)</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-green">* Deca|Away is now known as Decad3nce</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;UberPinguin&gt; wb Decad3nce</span><br />
+<span class="irc-date">[15:43]</span> <span class="irc-black">&lt;Decad3nce&gt; o/</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;kang&gt; oh i see official cm7 for i9000 coming ;P</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-black">&lt;teamhacksung&gt; android_vendor_cyanogen: gingerbread codeworkx * 0102697 (2 files in 2 dirs): renamed galaxys to galaxysmtd - <a href="http://bit.ly/jSqmHJ">http://bit.ly/jSqmHJ</a></span><br />
+<span class="irc-date">[15:44]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;codeworkx&gt; koush_: the assert will fail on non mtd devices</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;koush_&gt; what assert</span><br />
+<span class="irc-date">[15:45]</span> <span class="irc-black">&lt;koush_&gt; captivatemtd?</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;koush_&gt; thats fine i will fix that</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;codeworkx&gt; wait</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="https://github.com/teamhacksung/android_device_samsung_galaxysmtd/commit/85c007f0a1eece2f582cc6eaddb237e2f224e96b">https://github.com/teamhacksung/android_device_samsung_galaxysmtd/commit/85c007f0a1eece2f582cc6eaddb237e2f224e96b</a></span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;koush_&gt; can just override the assert generator</span><br />
+<span class="irc-date">[15:46]</span> <span class="irc-black">&lt;codeworkx&gt; how about this?</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;koush_&gt; right like that</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;koush_&gt; see my comment though</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;koush_&gt; your updater.sh flashes twice</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;koush_&gt; like you said mine would :)</span><br />
+<span class="irc-date">[15:47]</span> <span class="irc-black">&lt;koush_&gt; i changed shit though</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;codeworkx&gt; it doesnt</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;codeworkx&gt; removed the bmlovermtd in updater.sh because its already in updater-script</span><br />
+<span class="irc-date">[15:48]</span> <span class="irc-black">&lt;codeworkx&gt; and the formating and flash radio is ifed</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;koush_&gt; oh i see you did the logic different</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;koush_&gt; i just had it exit if it doenst find it</span><br />
+<span class="irc-date">[15:49]</span> <span class="irc-black">&lt;koush_&gt; vs wrapping in if</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;codeworkx&gt; doesn't matter. think both scripts are fine</span><br />
+<span class="irc-date">[15:50]</span> <span class="irc-black">&lt;codeworkx&gt; but if we ever change something on bml_over_mtd, i dont have to care about updater.sh with mine</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;nitam|work&gt; koush_: <a href="http://review.cyanogenmod.com/#change,5382">http://review.cyanogenmod.com/#change,5382</a></span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;nitam|work&gt; we need bmlwrite</span><br />
+<span class="irc-date">[15:51]</span> <span class="irc-black">&lt;nitam|work&gt; (tho' I'm not sure if $(PRODUCT_OUT)/utilities is where it should get put - codeworkx?)</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;codeworkx&gt; yes its ok</span><br />
+<span class="irc-date">[15:52]</span> <span class="irc-black">&lt;codeworkx&gt; like bml_over_mtd</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;koush_&gt; mnita|work: bmlwrite == flash_image</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;koush_&gt; isnt it?</span><br />
+<span class="irc-date">[15:53]</span> <span class="irc-black">&lt;koush_&gt; flash_image supports writing to bml.</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;nitam|work&gt; I didn't think it was - but let me look.</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;koush_&gt; it does</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;koush_&gt; i wrote it to.</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;ylooca|work&gt; it unlocks the bml devices and writes to them</span><br />
+<span class="irc-date">[15:54]</span> <span class="irc-black">&lt;koush_&gt; right</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;nitam|work&gt; hmm, not from the code -- don't see anything about bml.</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;nitam|work&gt; flash_image.c</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;koush_&gt; its there</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;koush_&gt; look at the top</span><br />
+<span class="irc-date">[15:55]</span> <span class="irc-black">&lt;nitam|work&gt; wait</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;koush_&gt; it handles emmc mtd and bml</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;koush_&gt; it used to just handle mtd</span><br />
+<span class="irc-date">[15:56]</span> <span class="irc-black">&lt;nitam|work&gt;  / always restore boot, regardless of whether recovery or boot is flashed.</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;nitam|work&gt; it calls cmd_bml_restore_raw_partition</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;koush_&gt; right</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;nitam|work&gt; which will only write to bml7 or bml8. tho I guess that's all we want right?</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;koush_&gt; yes</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;codeworkx&gt; bml7</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;koush_&gt; it works, i wouldnt worry about that :P</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;koush_&gt; writing to recovery flashes both bml7 and bml8</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;koush_&gt; writing to boot flashes only bml7</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;nitam|work&gt; ok, codeworkx - the flash_image can do it</span><br />
+<span class="irc-date">[15:57]</span> <span class="irc-black">&lt;codeworkx&gt; flash_image boot.img /dev/block/bml7 ?</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;koush_&gt; no</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;koush_&gt; flash_image boot boot.img</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;codeworkx&gt; ah ok</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;koush_&gt; just like on normal mtd devices</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;koush_&gt; the point was to make the same tool and command work everywhere :)</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;nitam|work&gt; ok, I prefer it that way. I'll abandon the change.</span><br />
+<span class="irc-date">[15:58]</span> <span class="irc-black">&lt;koush_&gt; mnita|work: did you have a chance to test my change</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;koush_&gt; updater.sh is now called from every ota</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;koush_&gt; it only does something the first time though</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;nitam|work&gt; no, I'm sort of swamped at work. but one of the other captivate users can. techmik is the guy to test things.</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;koush_&gt; ok</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;techmik&gt; what do tyou need?</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;koush_&gt; shit i guess ih ave to build</span><br />
+<span class="irc-date">[15:59]</span> <span class="irc-black">&lt;koush_&gt; one sec.</span><br />
