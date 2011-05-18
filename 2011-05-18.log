@@ -1532,3 +1532,212 @@
 <span class="irc-date">[18:56]</span> <span class="irc-black">&lt;nitam|work&gt; push it I mean</span><br />
 <span class="irc-date">[18:56]</span> <span class="irc-black">&lt;nitam|work&gt; thanks</span><br />
 <span class="irc-date">[18:56]</span> <span class="irc-black">&lt;nitam|work&gt; we think galaxysmtd is done too - but waiting on codeworkx to test and confirm</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;UberPinguin&gt; codeworkx: Unless busybox sh behaves in a really weird way, "exec &gt;&gt;boot.txt 2&gt;&amp;1" will produce a blank file named boot.txt, and proceed with the rest of the script</span><br />
+<span class="irc-date">[19:01]</span> <span class="irc-black">&lt;UberPinguin&gt; It won't actually log anything to that file</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;codeworkx&gt; r u sure?</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://pastebin.com/TEACJAGy">http://pastebin.com/TEACJAGy</a></span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;UberPinguin&gt; hrm</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;UberPinguin&gt; The bash on my workstation doesn't</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;UberPinguin&gt; Well</span><br />
+<span class="irc-date">[19:02]</span> <span class="irc-black">&lt;UberPinguin&gt; what the hell, it does when I add the shebang</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;koush_&gt; ok can i merge galaxy s</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;codeworkx&gt; building</span><br />
+<span class="irc-date">[19:03]</span> <span class="irc-black">&lt;codeworkx&gt; 10 mins</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;nitam|work&gt; ok, renaming the kernel repo to android_kernel_samsung_aries</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;nitam|work&gt; from android_kernel_samsung</span><br />
+<span class="irc-date">[19:05]</span> <span class="irc-black">&lt;nitam|work&gt; because doubt we'll ever have a common kernel with crespo</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;nitam|work&gt; complain now, or forever hold your peace.</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;UberPinguin&gt; COMPLAIN</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;UberPinguin&gt; *shrug*</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;nitam|work&gt; you don't count.</span><br />
+<span class="irc-date">[19:06]</span> <span class="irc-black">&lt;nitam|work&gt; you have to have a commit to the tree first before you count ;)</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;UberPinguin&gt; hahahaa</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;codeworkx&gt; what about android_kernel_samsung and different branches?</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;UberPinguin&gt; Merge us in so I can bitch ;-)</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;nitam|work&gt; too painful, no - we thought about it.</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;Unhelpful&gt; will need to rework our build script for it to work w/ the kernel not inside the repo</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;codeworkx&gt; but seems crespo kernel isnt cm?</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;nitam|work&gt; that mightbe because they're just using the stock kernel</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;nitam|work&gt; htc ones are up there</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;nitam|work&gt; no reason not to have ours too</span><br />
+<span class="irc-date">[19:07]</span> <span class="irc-black">&lt;nitam|work&gt; but it should be aries.</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;koush_&gt; i already have the crespo kenrel forked</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;koush_&gt; android_kernekl_samsung i think</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;koush_&gt; but we are using stock kernel</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;codeworkx&gt; then name it aries</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;nitam|work&gt; yeah, we should call ours android_kernel_samsung_aries</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;koush_&gt; since im not a kernel dev, and i dont have time to twiddle with that shit anyways</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;nitam|work&gt; I like that name - it means exactly what it is.</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;nitam|work&gt; so I'm doing it.</span><br />
+<span class="irc-date">[19:08]</span> <span class="irc-black">&lt;nitam|work&gt; now.</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;nitam|work&gt; ;)</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;codeworkx&gt; aries sounds like karies which means carious</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;nitam|work&gt; anyone syncing right now?</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;nitam|work&gt; codeworkx: shutup :)</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;codeworkx&gt; xD</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;codeworkx&gt; but this devices has carious anyway</span><br />
+<span class="irc-date">[19:09]</span> <span class="irc-black">&lt;codeworkx&gt; so its ok</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread atinm * 13fd6d5 (1 files in 1 dirs): Rename kernel to android_kernel_samsung_aries - <a href="http://bit.ly/l4hfq0">http://bit.ly/l4hfq0</a></span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;koush_&gt; i need to go to work shortly</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;koush_&gt; how close are we for the sgs</span><br />
+<span class="irc-date">[19:10]</span> <span class="irc-black">&lt;codeworkx&gt; build is almost complete</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;nitam|work&gt; you leave at 1? :)</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;nitam|work&gt; that used to be the time I used to leave work when I was in seattle</span><br />
+<span class="irc-date">[19:11]</span> <span class="irc-black">&lt;nitam|work&gt; since markets closed about 1:30</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;nitam|work&gt; seattle time</span><br />
+<span class="irc-date">[19:12]</span> <span class="irc-black">&lt;koush_&gt; mnita|work: i am wfh at the momemt</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;nitam|work&gt; tonight I sleep.</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;codeworkx&gt; build done</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;nitam|work&gt; for real. :)</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;codeworkx&gt; oh noes, its a KANG</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;codeworkx&gt; :-P</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;nitam|work&gt; of course its a kang</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;nitam|work&gt; it shoudl be kang</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;codeworkx&gt; missed the flag</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;nitam|work&gt; koush removed our NIGHTLY := true ;)</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;nitam|work&gt; like it should</span><br />
+<span class="irc-date">[19:13]</span> <span class="irc-black">&lt;codeworkx&gt; yes</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;nitam|work&gt; testittestittestit</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;kang&gt; NO ITS NOT KANG</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-black">&lt;kang&gt; &gt;&lt;</span><br />
+<span class="irc-date">[19:14]</span> <span class="irc-brick">* kang cries</span><br />
+<span class="irc-date">[19:15]</span> <span class="irc-black">&lt;codeworkx&gt; cant flash, fails on assert because galaxys vs galaxysmtd xD</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;codeworkx&gt; haxxor build.prop</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, or just unzip the install file</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;Kaik541&gt; and modify meta-inf</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;Kaik541&gt; that's what I did</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;koush_&gt; codeworkx: just flash the boot.img</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;koush_&gt; then reboot recovery</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;koush_&gt; ad that will fix it</span><br />
+<span class="irc-date">[19:16]</span> <span class="irc-black">&lt;koush_&gt; i'll fix up the asserts now.</span><br />
+<span class="irc-date">[19:22]</span> <span class="irc-black">&lt;codeworkx&gt; k, its flashing</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;codeworkx&gt; skatedroid</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;codeworkx&gt; thermonuclear war</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;codeworkx&gt; ui</span><br />
+<span class="irc-date">[19:23]</span> <span class="irc-black">&lt;codeworkx&gt; seems to run</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;nitam|work&gt; network etc good?</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;codeworkx&gt; android version: 4.5.0</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;nitam|work&gt; make sure proprietary libs work</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;codeworkx&gt; wifi works</span><br />
+<span class="irc-date">[19:24]</span> <span class="irc-black">&lt;codeworkx&gt; sim card is in lg2x xD</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;nitam|work&gt; koush_: question - on other phones, when they install CM7, then go back to some other ROM, they can jsut restore their data right - it is easy to go back and forth</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;nitam|work&gt; us, not so much.</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;nitam|work&gt; and I really really don't want us writing a reverse updater</span><br />
+<span class="irc-date">[19:25]</span> <span class="irc-black">&lt;nitam|work&gt; that takes mtd and goes back to BML..</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;nitam|work&gt; so we should just tell them Nandroid, flash to stock via Odin, and restore.</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;nitam|work&gt; right?</span><br />
+<span class="irc-date">[19:26]</span> <span class="irc-black">&lt;codeworkx&gt; ril works</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;koush_&gt; hey</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;Unhelpful&gt; ack, new mobo has different ethernet... and it seems not to work. :(</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;koush_&gt; please give me all the names for vibrant</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;koush_&gt; board names, product names, etc.</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;koush_&gt; and captivate,</span><br />
+<span class="irc-date">[19:27]</span> <span class="irc-black">&lt;koush_&gt; what i need to assert</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;codeworkx&gt; vibrant vibrantmtd SGH-T959</span><br />
+<span class="irc-date">[19:28]</span> <span class="irc-black">&lt;codeworkx&gt; captivate captivatemtd SGH-I897</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;codeworkx&gt; galaxys galaxysmtd GT-I9000 GT-I9000M GT-I9000T</span><br />
+<span class="irc-date">[19:29]</span> <span class="irc-black">&lt;codeworkx&gt; board name on all: aries</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;codeworkx&gt; samsung rom: ro.product.board=GT-I9000</span><br />
+<span class="irc-date">[19:31]</span> <span class="irc-black">&lt;codeworkx&gt; they've used the product code</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;koush_&gt; ok</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;koush_&gt; we already had a way to override the ota assert.</span><br />
+<span class="irc-date">[19:35]</span> <span class="irc-black">&lt;koush_&gt; just adding that ot your boardconfigs now</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;UberPinguin&gt; Looks like .35 on Epic is hanging after init'ing i2c-gpio.5. It gets as far as "CAM_ISP_CORE_1.2V: 1200 mV" and stops.</span><br />
+<span class="irc-date">[19:36]</span> <span class="irc-black">&lt;UberPinguin&gt; No panic.</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-green">* Decad3nce is now known as Deca|Away</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;koush_&gt; <a href="https://github.com/CyanogenMod/android_device_samsung_vibrantmtd/commit/4cf765c6f1440430521b3291deeb1e240a378f78">https://github.com/CyanogenMod/android_device_samsung_vibrantmtd/commit/4cf765c6f1440430521b3291deeb1e240a378f78</a></span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;koush_&gt; mnita|work: codeworkx: ^</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;koush_&gt; i did that for vibrant too</span><br />
+<span class="irc-date">[19:38]</span> <span class="irc-black">&lt;codeworkx&gt; kewl</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; gpio6 is your regulator</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;koush_&gt; mnita|work: i am not sure how i will handle nadnroids</span><br />
+<span class="irc-date">[19:39]</span> <span class="irc-black">&lt;koush_&gt; mnita|work: theyre really different devices</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;koush_&gt; make them revert ot stock and nandroid back</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;koush_&gt; hows battery life on cmsgs</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxysmtd: gingerbread codeworkx * fa2aa27 (1 files in 1 dirs): fix up asserts in the updater - <a href="http://bit.ly/ihYtLI">http://bit.ly/ihYtLI</a></span><br />
+<span class="irc-date">[19:40]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;codeworkx&gt; koush: without 3g its fine.</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;codeworkx&gt; koush: but 3g fucks battery atm</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-green">* Decad3nce (~adnan@CPE-98-145-169-197.new.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-green">* ChanServ sets mode +v Decad3nce</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;nitam|work&gt; its not great - we can't put the modem to sleep correctly</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;nitam|work&gt; we're really putting a lot of hope in coolya's hack</span><br />
+<span class="irc-date">[19:41]</span> <span class="irc-black">&lt;UberPinguin&gt; TMC_Sherpa: OK. Not sure what I'm missing, its struct is identical to the one in 32.9</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxysmtd: gingerbread Koushik Dutta * ff9b917 (1 files in 1 dirs): Remove errant space. - <a href="http://bit.ly/iI7Ng5">http://bit.ly/iI7Ng5</a></span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;nitam|work&gt; which he wanted to talk to you about.</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;koush_&gt; what hack</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;nitam|work&gt; coolya: you here?</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;nitam|work&gt; did you squash your commits so we can show koush_?</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;nitam|work&gt; basically we can't use the libril we build</span><br />
+<span class="irc-date">[19:42]</span> <span class="irc-black">&lt;nitam|work&gt; because samsung hacked in the framework</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; so we need to load theirs.</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;koush_&gt; gotta use a custom libril</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;codeworkx&gt; koush: <a href="https://github.com/coolya/android_frameworks_base/tree/crap-RIL">https://github.com/coolya/android_frameworks_base/tree/crap-RIL</a></span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;koush_&gt; yea thats fine</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; but it requires a hack - unless you have a better idea</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; the good commit is:</span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; <a href="https://github.com/coolya/android_frameworks_base/commit/a1c55137fee1c4afdb00895f6f574b38b1fb902b">https://github.com/coolya/android_frameworks_base/commit/a1c55137fee1c4afdb00895f6f574b38b1fb902b</a></span><br />
+<span class="irc-date">[19:43]</span> <span class="irc-black">&lt;nitam|work&gt; that sort of shows what is being done</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;nitam|work&gt; is a bad hack</span><br />
+<span class="irc-date">[19:44]</span> <span class="irc-black">&lt;nitam|work&gt; that's why we are hesitant - and want to ask you in case you have a better suggestion :)</span><br />
+<span class="irc-date">[19:45]</span> <span class="irc-black">&lt;koush_&gt; what is that doing</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;koush_&gt; oh i see.</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;koush_&gt; where does that class come from</span><br />
+<span class="irc-date">[19:46]</span> <span class="irc-black">&lt;koush_&gt; how do you compile it into the framework</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;nitam|work&gt; coolya?</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;koush_&gt; oh you use samsung ril</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;nitam|work&gt; I don't know the details - but yes, samsung ril</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;koush_&gt; reflection is overkil</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;koush_&gt; just do if rilClassname == "samsung", new SamsungRIL()</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;koush_&gt; lol</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;koush_&gt; never make anything generic, until more than two things need it</span><br />
+<span class="irc-date">[19:47]</span> <span class="irc-black">&lt;koush_&gt; right now its just samsung</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;nitam|work&gt; true.</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;nitam|work&gt; coolya!</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;nitam|work&gt; he is at work..</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-green">* ciwrl[away] is now known as wirl</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;nitam|work&gt; so will be slow..</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-green">* wirl is now known as ciwrl</span><br />
+<span class="irc-date">[19:48]</span> <span class="irc-black">&lt;nitam|work&gt; but yes, you're right.</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;nitam|work&gt; I think he didn't want to put "Samsung" in framework code</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;nitam|work&gt; since its in generic framework</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;nitam|work&gt; framework/base</span><br />
+<span class="irc-date">[19:49]</span> <span class="irc-black">&lt;nitam|work&gt; I see his point.</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; but will defer to you :)</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;nitam|work&gt; makes the code look cleaner while making it dirtier ;)</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;koush_&gt; i'd actually prefer to not trouch RIL.java at all</span><br />
+<span class="irc-date">[19:50]</span> <span class="irc-black">&lt;koush_&gt; and just load a whole new file.</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;koush_&gt; can add something to the farmework makefile to filter out RIL.java and inclued SamsungRil.java</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;koush_&gt; that would be best.</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;codeworkx&gt; nice</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;nitam|work&gt; ok, yes.</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;nitam|work&gt; that is cleaner</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;coolya&gt; back</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;nitam|work&gt; coolya :)</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;koush_&gt; that way none of the code changes</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;nitam|work&gt; ^^ read up</span><br />
+<span class="irc-date">[19:51]</span> <span class="irc-black">&lt;koush_&gt; in frameworks</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;nitam|work&gt; coolya, we could just load it in a separate file.</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;nitam|work&gt; and use Makefile mod to handle it. I think.</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;coolya&gt; i read it</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;nitam|work&gt; cool - I gotta go</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;nitam|work&gt; back in a few hours</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;koush_&gt; yea i'll put that hack in</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;koush_&gt; into aries-common and frameworks/base</span><br />
+<span class="irc-date">[19:53]</span> <span class="irc-black">&lt;koush_&gt; gonna eat lunch first</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;coolya&gt; k</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;coolya&gt; then i will prepare a complete RIL class for samsung</span><br />
+<span class="irc-date">[19:54]</span> <span class="irc-black">&lt;coolya&gt; not just one with the specific changes</span><br />
+<span class="irc-date">[19:55]</span> <span class="irc-black">&lt;Unhelpful&gt; stupid preprocessor-less languages.</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;koush_&gt; christ this is a massive file</span><br />
+<span class="irc-date">[19:57]</span> <span class="irc-black">&lt;UberPinguin&gt; I wonder if I can printk in the middle of this gpio init..</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;koush_&gt; coolya: is the hack ready otherwise?</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; it is working with the samsung ril</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;koush_&gt; ok</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; i have to clean the kernel changes a bit</span><br />
+<span class="irc-date">[19:59]</span> <span class="irc-black">&lt;coolya&gt; then i can commit it</span><br />
