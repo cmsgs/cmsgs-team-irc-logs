@@ -2028,3 +2028,266 @@
 <span class="irc-date">[21:58]</span> <span class="irc-black">&lt;koush&gt; its pretty hacky, sigh</span><br />
 <span class="irc-date">[21:58]</span> <span class="irc-black">&lt;koush&gt; it causes problems ify ou want to debug into it</span><br />
 <span class="irc-date">[21:58]</span> <span class="irc-black">&lt;koush&gt; fucks with eclipse paths</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;coolya&gt; then should i just create a new class for samsung ril and don't care about code dup, that would be easier to merge when changes from aosp get into cm</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;koush&gt; yeah</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;koush&gt; lets do that</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;koush&gt; sorry</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;koush&gt; wheres that branch at</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;koush&gt; ill merge it in now</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;coolya&gt; cause the i would ony touch the phone factory</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;koush&gt; yeah</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;koush&gt; we can get rid of the reflection there</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;koush&gt; thats confusing</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;coolya&gt; k</span><br />
+<span class="irc-date">[22:00]</span> <span class="irc-black">&lt;koush&gt; we'll just do a string switch :P</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;atinm&gt; coolya, you're doing it on your own repos right now right?</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;atinm&gt; give koush write access there</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;atinm&gt; or you can push to teamhacksung repos now</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;coolya&gt; yes my local source way outdated because i work on the last week</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;atinm&gt; since that's now become test area as code is moving to CM</span><br />
+<span class="irc-date">[22:01]</span> <span class="irc-black">&lt;coolya&gt; i can do the changes right now</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;coolya&gt; then push it to hacksung</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;koush&gt; kj</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;koush&gt; ok</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;atinm&gt; koush, you merged galaxysmtd as well?</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;koush&gt; no</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;koush&gt; should i</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;atinm&gt; I think it was just the modem thing you were talking about - but rest looks fine to me</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;koush&gt; ok</span><br />
+<span class="irc-date">[22:02]</span> <span class="irc-black">&lt;atinm&gt; but I haven't tested - I only have a captivate and vibrant. codeworkx said his worked</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;atinm&gt; coolya could test</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;atinm&gt; he has galaxys</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;koush&gt; what about galaxysb</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;koush&gt; whats that</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;atinm&gt; its the brazilian i9000</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;koush&gt; doesnt seem done</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;atinm&gt; we were talking about it - like 68 users.</span><br />
+<span class="irc-date">[22:03]</span> <span class="irc-black">&lt;coolya&gt; i can only do one thing at a time :-P</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;atinm&gt; we were debating what to do with it :)</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;koush&gt; oh</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;atinm&gt; we can refactor it.</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;atinm&gt; but I think you need to create recoveries etc for it</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;koush&gt; bleh</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;atinm&gt; it isn't supported by you right now</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;coolya&gt; drop it</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; we don't have one to play with, I have no idea what state it's in at the moment</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;ciwrl&gt; +1</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;atinm&gt; yeah - drop it.</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;coolya&gt; no phone to test with ...</span><br />
+<span class="irc-date">[22:04]</span> <span class="irc-black">&lt;atinm&gt; just a pain in the ass.</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;atinm&gt; I just build it because it builds. no one complains.</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;atinm&gt; so I figure it works</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;atinm&gt; but it could just be that no one uses it :)</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;Kaik541&gt; only 68 users for i9000b</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;Kaik541&gt; not really missing anything =/</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;koush&gt; oh this was not squashed</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;atinm&gt; i9000b looks too much like boob or noob.</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;ciwrl&gt; haha</span><br />
+<span class="irc-date">[22:05]</span> <span class="irc-black">&lt;atinm&gt; just for that I say drop it ;)</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; something to do when we run out of other things to play with, or maybe once we're in someone else will take it and run</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;atinm&gt; yeah, lets get the rest more visibility by merge - maybe other devs will take up the variants.</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; like epic :P</span><br />
+<span class="irc-date">[22:06]</span> <span class="irc-black">&lt;atinm&gt; well, now we got ppl working hard at epic</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;atinm&gt; with you helping :)</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;atinm&gt; so it'll get done</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;atinm&gt; I am still unsure about fascinate.</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I was over there last night I know, just waiting for one of them to slap me</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;Kaik541&gt; as android police quoted ciwrl about</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;Kaik541&gt; "red headed stepchild"</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;koush&gt; what is</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;ciwrl&gt; which i stole from you</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;ciwrl&gt; :p</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;koush&gt; epic is?</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;ciwrl&gt; damn stalkers</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;ciwrl&gt; fascinate</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;koush&gt; oh</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;koush&gt; should be easy</span><br />
+<span class="irc-date">[22:07]</span> <span class="irc-black">&lt;koush&gt; shouldnt it?</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;Kaik541&gt; *should*</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;atinm&gt; no :-(</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;Kaik541&gt; key word</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;koush&gt; why not</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; samsung</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;Kaik541&gt; cdma, different onenand partition mapping</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;atinm&gt; they moved stuff just for the hell of it.</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;Kaik541&gt; different GPIO's</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;Kaik541&gt; aka samsung</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;koush&gt; epic is probably the same then right</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;koush&gt; err epic is sprint or vzw?</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; honestly if they get epic fascinate prolly wont be that bad</span><br />
+<span class="irc-date">[22:08]</span> <span class="irc-black">&lt;Kaik541&gt; sprint</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;atinm&gt; think it is closer. and at least we have folks working on it who are hanging out here.</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;Kaik541&gt; the reason why fascinate is "dead" to us is because no devs have joined up</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;atinm&gt; so we are able to talk to the devs and they to us</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;Kaik541&gt; if someone had one, they should be able to merge along with epic</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;atinm&gt; so we can help when we know what to help</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;atinm&gt; fascinate seems to not have any devs</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;koush&gt; omfg</span><br />
+<span class="irc-date">[22:09]</span> <span class="irc-black">&lt;koush&gt; this galayxs repo is huge</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;Kaik541&gt; well it has jt1134 and punk.kaos but they're using 2.6.32.9</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;koush&gt; atinm: can you squash that for me</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;koush&gt; and push</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;koush&gt; i dont wanna dl 120 mb</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;koush&gt; on this shit ass work connection</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;atinm&gt; lol :)</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;atinm&gt; ok.</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;atinm&gt; which particular repo? device_samsung_galaxymtd?</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;koush&gt; yes</span><br />
+<span class="irc-date">[22:10]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;ciwrl&gt; we sticking with galaxymtd or i9000mtd?</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh good point. never underestimate stupid people</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;Unhelpful&gt; *awesome*... 1) duplicity has files in its archive which it says fail checksum 2) there appears to be no way to restort the rest of my files, skipping the "corrupted" ones and noting them.</span><br />
+<span class="irc-date">[22:11]</span> <span class="irc-black">&lt;ciwrl&gt; exactly tmc</span><br />
+<span class="irc-date">[22:14]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; thats....very professional of them Unhelpful that just sucks</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-green">* Decad3nce is now known as Deca|Away</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-navy">* koush_ (~koush@c-71-227-161-2.hsd1.wa.comcast.net) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-navy">* koush (~koush@c-71-227-161-2.hsd1.wa.comcast.net) Quit (Ping timeout: 260 seconds)</span><br />
+<span class="irc-date">[22:15]</span> <span class="irc-green">* koush_ (~koush@c-71-227-161-2.hsd1.wa.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[22:17]</span> <span class="irc-green">* ChanServ sets mode +o koush_</span><br />
+<span class="irc-date">[22:18]</span> <span class="irc-black">&lt;koush_&gt; atinm: done?</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm&gt; yes</span><br />
+<span class="irc-date">[22:19]</span> <span class="irc-black">&lt;atinm&gt; just now</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;atinm&gt; was slightly scary :)</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-green">* koush (~koush@c-71-227-161-2.hsd1.wa.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-green">* ChanServ sets mode +o koush</span><br />
+<span class="irc-date">[22:20]</span> <span class="irc-black">&lt;atinm&gt; hmm, we don't need the .gitignore anymore</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;koush_&gt; remove teh extra branch too please</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;teamhacksung&gt; android_device_samsung_galaxysmtd: gingerbread atinm * 79fdaea (0 files in 0 dirs): Removed .gitignore ... - <a href="http://bit.ly/lwvkR3">http://bit.ly/lwvkR3</a></span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[22:21]</span> <span class="irc-black">&lt;koush_&gt; atinm: ^</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[22:22]</span> <span class="irc-black">&lt;atinm&gt; done</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;techmik&gt; do i need to blow out my files and resync?</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;techmik&gt; still getting the libcamera.so error</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;atinm&gt; in a few.</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;atinm&gt; let koush do the merge, then I'll update our manifest</span><br />
+<span class="irc-date">[22:23]</span> <span class="irc-black">&lt;techmik&gt; do i need to clear ccache too?</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;atinm&gt; don't think it matters - it'll do what it needs to do</span><br />
+<span class="irc-date">[22:24]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, I was talking to techmik about it</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;Kaik541&gt; I was thinking I could put up all the different modem zips on romshare</span><br />
+<span class="irc-date">[22:25]</span> <span class="irc-black">&lt;Kaik541&gt; so people will have access to them and can just flash them and go?</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;atinm&gt; Kaik541: sure.</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;atinm&gt; not sure about the legality of it :)</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;atinm&gt; since it is samsung's.</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;atinm&gt; that's why its weird . . .</span><br />
+<span class="irc-date">[22:26]</span> <span class="irc-black">&lt;Kaik541&gt; meh, technically anything we put up is "samsung's"</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;ciwrl&gt; yea, i dont think its too much a legal risk beyond anything we already do</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;atinm&gt; k, go for it :)</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;ciwrl&gt; or, we can get it on goo-inside.me</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;ciwrl&gt; where the gapps are hosted</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;Kaik541&gt; worst case scenario, they throw a hissy fit and we pull them</span><br />
+<span class="irc-date">[22:27]</span> <span class="irc-black">&lt;atinm&gt; would look so bad if they actually did somethign like that.</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;Kaik541&gt; yeah, I doubt they care</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm&gt; so I doubt they will</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;Kaik541&gt; people are using their phones</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm&gt; right.</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;Kaik541&gt; that's what matters</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;zachy_md&gt; wow - did someone just clean up in the cyanogenmod experimental forum ?</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;ciwrl&gt; i did</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;techmik&gt; uhoh, that just went too easy........ since i'm gonna blow out and resync i figured i'd test........ the tmc2 branch merges clean with main</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;ciwrl&gt; also split it to 3 forums</span><br />
+<span class="irc-date">[22:28]</span> <span class="irc-black">&lt;atinm&gt; it all comes down to they are just hardware makers. that is why I don't get why manufacturers make it harder for us.</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;zachy_md&gt; ciwrl, nice ^^ - thanks !</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;ciwrl&gt; Kaik541 ping DrMac|AFK in #cm-wiki; he's not opposed to hosting 'questionable' things</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;ciwrl&gt; :)</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;Kaik541&gt; will do</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;koush_&gt; should maybe have 1 forum for sgs?</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;koush_&gt; seems to be mostly the same shit anyways?</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;ciwrl&gt; nah, i discussed it with atinm and co</span><br />
+<span class="irc-date">[22:29]</span> <span class="irc-black">&lt;ciwrl&gt; they prefer seperate</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;koush_&gt; cool</span><br />
+<span class="irc-date">[22:30]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; there are stupid internal changes to the phones so a fix for one could (and has) broken others</span><br />
+<span class="irc-date">[22:31]</span> <span class="irc-black">&lt;techmik&gt; TMC_Sherpa: you see my last statement? your stuff applies clean atm</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; techmik: yeah so far I've got the sound changes doing as little as possible to the tree, wwyvern says voice is OK unless using headphones (2 or 3 pole, not sure samsung works fine) but gehzumteufel said voice sound was crappy all over</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; or at least reciever</span><br />
+<span class="irc-date">[22:32]</span> <span class="irc-black">&lt;techmik&gt; i rarely use headset for call, only music and video</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;atinm&gt; koush_ mostly because we get stuff that breaks one and not the other (like headsets)</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;koush_&gt; ok</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;atinm&gt; so better to keep them separate - easier to wade thru crap.</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;atinm&gt; hopefully CyanogenMod forums are better than XDA tho</span><br />
+<span class="irc-date">[22:33]</span> <span class="irc-black">&lt;atinm&gt; which is a cesspool</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;atinm&gt; koush_ merged?</span><br />
+<span class="irc-date">[22:34]</span> <span class="irc-black">&lt;atinm&gt; it is weird, either github or gerrit is messed</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;atinm&gt; cool, I'll update our manifest to point to CM too.</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;atinm&gt; think we are 100% CM now.</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;atinm&gt; let me check.</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;atinm&gt; except for galaxysb</span><br />
+<span class="irc-date">[22:35]</span> <span class="irc-black">&lt;atinm&gt; :-P</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;atinm&gt; and android_kernel_samsung_aries</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;atinm&gt; lets merge that after coolya is done with it.</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;ciwrl&gt; atinm you are on #teamdouche +i list</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;coolya&gt; building right now to test</span><br />
+<span class="irc-date">[22:36]</span> <span class="irc-black">&lt;atinm&gt; ciwrl: thanks :)</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; then I need you to test sound for me atinm :)</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;atinm&gt; hmm, it says it requires an invitation</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;atinm&gt; ciwrl: did work</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;Kaik541&gt; +I</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;atinm&gt; 'nt</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;gehzumteufel&gt; use chanserv to invite yourself</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;ciwrl&gt; boo</span><br />
+<span class="irc-date">[22:37]</span> <span class="irc-black">&lt;Kaik541&gt; or do a knock</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;ciwrl&gt; there it goes</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;atinm&gt; cool, chanserv did it</span><br />
+<span class="irc-date">[22:38]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yeah knock is a low level spell so that....what?</span><br />
+<span class="irc-date">[22:39]</span> <span class="irc-black">&lt;Kaik541&gt; TMC_Sherpa, not D&amp;D</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;ciwrl&gt; heh</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;koush_&gt; atinm: yeah all merged</span><br />
+<span class="irc-date">[22:40]</span> <span class="irc-black">&lt;koush_&gt; just need the sgs ril shit now</span><br />
+<span class="irc-date">[22:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; look, I've been playing since 1978 and I've hardly murdered anyone....statistically speaking of course</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has joined this channel.</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;teamhacksung&gt; android: gingerbread atinm * 6586c7d (1 files in 1 dirs): Use CM for galaxysmtd - <a href="http://bit.ly/iJ4qgC">http://bit.ly/iJ4qgC</a></span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-green">* teamhacksung (~teamhacks@sh1-ext.rs.github.com) has left this channel.</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm&gt; ok our manifest updated too</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm&gt; so basically everything except galaxysb and kernel are merged :)</span><br />
+<span class="irc-date">[22:42]</span> <span class="irc-black">&lt;atinm&gt; if we drop galaxysb, then kernel only thing left :)</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;atinm&gt; and it is only so it is on CyanogenMod rather than us - the binaries are in the device trees of course.</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;atinm&gt; so RIL. I'm going home - will log on there</span><br />
+<span class="irc-date">[22:43]</span> <span class="irc-black">&lt;koush_&gt; coolya: whats the word</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;atinm&gt; back after dinner. see ya</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-green">* atinm (~amalaviya@unaffiliated/atinm) has left this channel.</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;coolya&gt; fixing something i messed up</span><br />
+<span class="irc-date">[22:44]</span> <span class="irc-black">&lt;coolya&gt; done in 10 min</span><br />
+<span class="irc-date">[22:46]</span> <span class="irc-black">&lt;techmik&gt; guys, 2 off topic q's for a friend..... 1- router works, card works, all other devices connect, 1 computer cant connect wlan0 or eth0...... just reinstall linux? and 2-if he does reinstall, from 32bit, can he save his HOME stuff for 64 bit install?</span><br />
+<span class="irc-date">[22:47]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; was it working before? or does he have a weird couple of NICs</span><br />
+<span class="irc-date">[22:48]</span> <span class="irc-black">&lt;techmik&gt; was working, e3000 router, all other devices (laptop and phone) re connected</span><br />
+<span class="irc-date">[22:49]</span> <span class="irc-black">&lt;techmik&gt; i think the fact that he has no eth0 also says reinstall</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;techmik&gt; he wants to go 64 bit anyway</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;techmik&gt; but i didnt know if he can save home from 32 to 64 bit</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;Kaik541&gt; should be fine</span><br />
+<span class="irc-date">[22:50]</span> <span class="irc-black">&lt;techmik&gt; thx</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;Kaik541&gt; home will just be configurations and stuff</span><br />
+<span class="irc-date">[22:51]</span> <span class="irc-black">&lt;Kaik541&gt; but you should back it up anyway</span><br />
+<span class="irc-date">[22:52]</span> <span class="irc-green">* Deca|Away is now known as Decad3nce</span><br />
+<span class="irc-date">[22:54]</span> <span class="irc-black">&lt;techmik&gt; hmmm.... a command in linux to "make a list" of all installed packages, so you can reinstall easy? is this true?</span><br />
+<span class="irc-date">[22:55]</span> <span class="irc-black">&lt;zachy_md&gt; I know you guys don't like task killers in android: but you know one that does NOT use sigkill ? - one that uses sigterm instead ?</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;zachy_md&gt; I went through dmesg and just found out that most of those stupid task killers use sigkill :P</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;zachy_md&gt; *just went through</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; should be techmik but off the top of my head I only remember the package commands from sunw</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;zachy_md&gt; also I'm currently doing some research &amp; see if I can pinpoint what prevents our phone from suspending properly</span><br />
+<span class="irc-date">[22:56]</span> <span class="irc-black">&lt;zachy_md&gt; alarm is one of those ...</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;coolya&gt; koush_: <a href="https://github.com/coolya/android_frameworks_base/commit/d2d8587a9b9e2a673df3fbda06b148b098766ff2">https://github.com/coolya/android_frameworks_base/commit/d2d8587a9b9e2a673df3fbda06b148b098766ff2</a></span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;coolya&gt; should i put i on gerrit ?</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;koush_&gt; coolya: you need build.prop changes too right</span><br />
+<span class="irc-date">[22:57]</span> <span class="irc-black">&lt;coolya&gt; yes</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;koush_&gt; coolya: oh i thoguht you were gonna inherit from RIL</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-green">* ciwrl is now known as ciwrl[bbl]</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;coolya&gt; but then i have to change the RIL class</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;koush_&gt; yea thats fine</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;koush_&gt; that'll be easier to maintain</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;coolya&gt; because all the stuff is private</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;koush_&gt; if we arent gonna comopletely re[lace</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;techmik&gt; found it</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;koush_&gt; we should override</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;koush_&gt; yeah thats fine</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;koush_&gt; is this branch fine</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;koush_&gt; <a href="https://github.com/coolya/android_frameworks_base/commits/crap-RIL">https://github.com/coolya/android_frameworks_base/commits/crap-RIL</a></span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;coolya&gt; k</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;koush_&gt; with your reflection change?</span><br />
+<span class="irc-date">[22:58]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; techmik: dpkg --list</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;coolya&gt; i will remove the reflection stuff</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;koush_&gt; ok</span><br />
+<span class="irc-date">[22:59]</span> <span class="irc-black">&lt;techmik&gt; dpkg- l | awk '&amp;#123;print $2&amp;#125;' &gt; installed_packages.txt      then install base system with no packages       then          apt-get install `cat installed_packages.txt`</span><br />
