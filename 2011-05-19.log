@@ -841,3 +841,86 @@
 <span class="irc-date">[6:58]</span> <span class="irc-black">&lt;koush&gt; check for /sdcard/cyanogenmod.cfg</span><br />
 <span class="irc-date">[6:58]</span> <span class="irc-black">&lt;koush&gt; that may be there</span><br />
 <span class="irc-date">[6:59]</span> <span class="irc-black">&lt;techmik_laptop&gt; nope</span><br />
+<span class="irc-date">[7:00]</span> <span class="irc-black">&lt;koush&gt;  /mnt/sdcard/cyanogenmod_bml.log</span><br />
+<span class="irc-date">[7:00]</span> <span class="irc-black">&lt;koush&gt; err cyanogenmod_bml.log not there for sure?</span><br />
+<span class="irc-date">[7:00]</span> <span class="irc-black">&lt;koush&gt; i wonder how the fucking thing is rebooting</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;koush&gt; does it say installing system or anything liek that</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;techmik_laptop&gt; yes....</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;techmik_laptop&gt; what happens is</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;koush&gt; oooh</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;techmik_laptop&gt; it reboots and the white text starts</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;techmik_laptop&gt; mounts sdcard</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;techmik_laptop&gt; says installing update</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;techmik_laptop&gt; checkoing bml/mtd state</span><br />
+<span class="irc-date">[7:01]</span> <span class="irc-black">&lt;techmik_laptop&gt; then</span><br />
+<span class="irc-date">[7:02]</span> <span class="irc-black">&lt;koush&gt; run this in recovery</span><br />
+<span class="irc-date">[7:02]</span> <span class="irc-black">&lt;techmik_laptop&gt; the 1 time it worked, when we manually flashed, that step sat therre for 20 or so seconds before sucessful reboot and continue</span><br />
+<span class="irc-date">[7:02]</span> <span class="irc-black">&lt;koush&gt; if busybox test -e /dev/block/bml7 ; then echo foo; fi</span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;techmik_laptop&gt; every other time, 2 secs after it says checking bml/mtd state, it says done and reboots into same rom</span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok</span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;techmik_laptop&gt; in recovery</span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;koush&gt; in cwr</span><br />
+<span class="irc-date">[7:04]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; what was supposed to happen?</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; got no error or anything</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;koush&gt; does aynthing hapepn</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;koush&gt; no output?</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; nope</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;techmik_laptop&gt; just the prompt</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;koush&gt; do</span><br />
+<span class="irc-date">[7:05]</span> <span class="irc-black">&lt;koush&gt; if busybox test -e /tmp ; then echo foo; fi</span><br />
+<span class="irc-date">[7:06]</span> <span class="irc-black">&lt;techmik_laptop&gt; it said foo?</span><br />
+<span class="irc-date">[7:06]</span> <span class="irc-navy">* gehzumteufel (~gehzumteu@cpe-76-93-100-229.socal.res.rr.com) Quit (Quit: sleep)</span><br />
+<span class="irc-date">[7:06]</span> <span class="irc-black">&lt;koush&gt; wow wtf</span><br />
+<span class="irc-date">[7:06]</span> <span class="irc-black">&lt;koush&gt; pastebin this:</span><br />
+<span class="irc-date">[7:06]</span> <span class="irc-black">&lt;koush&gt; ls -l /dev/block</span><br />
+<span class="irc-date">[7:07]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://pastebin.com/9GnJ3s0r">http://pastebin.com/9GnJ3s0r</a></span><br />
+<span class="irc-date">[7:08]</span> <span class="irc-black">&lt;koush&gt; youre not doing that in recovery</span><br />
+<span class="irc-date">[7:08]</span> <span class="irc-black">&lt;koush&gt; youre doing that on your laptop</span><br />
+<span class="irc-date">[7:08]</span> <span class="irc-black">&lt;techmik_laptop&gt; fuck</span><br />
+<span class="irc-date">[7:08]</span> <span class="irc-black">&lt;techmik_laptop&gt; after reboot</span><br />
+<span class="irc-date">[7:09]</span> <span class="irc-black">&lt;techmik_laptop&gt; ok</span><br />
+<span class="irc-date">[7:09]</span> <span class="irc-black">&lt;techmik_laptop&gt; got foo on 1st command</span><br />
+<span class="irc-date">[7:09]</span> <span class="irc-black">&lt;koush&gt; k</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-black">&lt;koush&gt; need to sleep</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-black">&lt;koush&gt; i'll catch up with you tomorrow</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-black">&lt;techmik_laptop&gt; k</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-black">&lt;techmik_laptop&gt; i'll be here =)</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-black">&lt;techmik_laptop&gt; night</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-black">&lt;koush&gt; i suspect its a mount issue</span><br />
+<span class="irc-date">[7:10]</span> <span class="irc-black">&lt;koush&gt; and its quitting before it gets to the flash</span><br />
+<span class="irc-date">[7:11]</span> <span class="irc-black">&lt;techmik_laptop&gt; it's less than 2 seconds after it says checking bml/mtd state that it reboots.... the 1 time it worked it took like 20 secs</span><br />
+<span class="irc-date">[7:12]</span> <span class="irc-black">&lt;techmik_laptop&gt; so it would make sense</span><br />
+<span class="irc-date">[7:14]</span> <span class="irc-black">&lt;techmik_laptop&gt; Unhelpful: now, i am using ssl and sasl here in quassel...... if i could move the channel choices to the bottom of the window it would be perfect</span><br />
+<span class="irc-date">[7:16]</span> <span class="irc-black">&lt;techmik_laptop&gt; and of course, if i could also use it on the desktop without typing errors =)</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@59.97.74.14) has joined this channel.</span><br />
+<span class="irc-date">[7:27]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[7:36]</span> <span class="irc-black">&lt;Unhelpful&gt; that is so not quassel's problem. :)</span><br />
+<span class="irc-date">[7:38]</span> <span class="irc-navy">* Charkey (~Laurent@cpe-76-175-105-20.socal.res.rr.com) Quit (Quit: Leaving.)</span><br />
+<span class="irc-date">[7:39]</span> <span class="irc-black">&lt;techmik_laptop&gt; oh, i know =)</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-black">&lt;Unhelpful&gt; fix. your. shit. ;)</span><br />
+<span class="irc-date">[7:42]</span> <span class="irc-green">* ciwrl is now known as ciwrl[away]</span><br />
+<span class="irc-date">[7:44]</span> <span class="irc-black">&lt;techmik_laptop&gt; it does diffent key errors in different programs =)</span><br />
+<span class="irc-date">[7:44]</span> <span class="irc-black">&lt;Unhelpful&gt; prolly a flakey keylogger malware :P</span><br />
+<span class="irc-date">[7:45]</span> <span class="irc-black">&lt;techmik_laptop&gt; only affecting chat programs?</span><br />
+<span class="irc-date">[7:46]</span> <span class="irc-black">&lt;Unhelpful&gt; [00:51:10] &lt;techmik&gt; i've now had it on this pc with every program except smuxi &lt;- took that to mean, well, every program.</span><br />
+<span class="irc-date">[7:46]</span> <span class="irc-black">&lt;techmik_laptop&gt; sorry, i clarified a little later.... chat programs..... in word,, of browser, etc, no problems other than my poor typing skills =)</span><br />
+<span class="irc-date">[7:47]</span> <span class="irc-black">&lt;Unhelpful&gt; wtf.</span><br />
+<span class="irc-date">[7:47]</span> <span class="irc-black">&lt;Unhelpful&gt; just, wtf.</span><br />
+<span class="irc-date">[7:47]</span> <span class="irc-black">&lt;techmik_laptop&gt; but in each chat "the quick brown fox jumps over the lazy do" comes out differentg</span><br />
+<span class="irc-date">[7:47]</span> <span class="irc-black">&lt;Unhelpful&gt; is the text wrong before you send it, or only after?</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-black">&lt;techmik_laptop&gt; as i type</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-black">&lt;techmik_laptop&gt; i held down q</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-black">&lt;techmik_laptop&gt; qqqqqqqqqqqqqqqqqqqqqqqq</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-black">&lt;knowsnotmuch&gt; does it change if you copy + paste?</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-black">&lt;techmik_laptop&gt; and it gave me</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-black">&lt;techmik_laptop&gt; qqqqrrrrrrrqqqtttqqqqqqq</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-black">&lt;techmik_laptop&gt; no, it stays like what it looks like</span><br />
+<span class="irc-date">[7:48]</span> <span class="irc-black">&lt;knowsnotmuch&gt; copy + paste - see if it changes it</span><br />
+<span class="irc-date">[7:49]</span> <span class="irc-black">&lt;techmik_laptop&gt; i'll ry later..... in my room on laptop with no issues and roommate is asleep near pc</span><br />
+<span class="irc-date">[7:49]</span> <span class="irc-black">&lt;techmik_laptop&gt; he sleeps in living room</span><br />
+<span class="irc-date">[7:49]</span> <span class="irc-black">&lt;techmik_laptop&gt; which is attached to dining room</span><br />
+<span class="irc-date">[7:50]</span> <span class="irc-black">&lt;techmik_laptop&gt; which is the office/computer area</span><br />
+<span class="irc-date">[7:51]</span> <span class="irc-black">&lt;techmik_laptop&gt; what really weird is not only is the text issues different with each chat program, they are also consistent</span><br />
+<span class="irc-date">[7:52]</span> <span class="irc-black">&lt;techmik_laptop&gt; everytime i reinstall konvo, it has the exact same keymapping weirdness...... you saw the weird typing in quassel on pc a llittle earlier</span><br />
+<span class="irc-date">[7:53]</span> <span class="irc-black">&lt;techmik_laptop&gt; which was *almost* fixed by really hammering at the keyboard as i type</span><br />
