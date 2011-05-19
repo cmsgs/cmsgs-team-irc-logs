@@ -295,3 +295,90 @@
 <span class="irc-date">[1:48]</span> <span class="irc-green">* TMC_Sherpa_ (~TMC_Sherp@c-67-173-42-196.hsd1.il.comcast.net) has joined this channel.</span><br />
 <span class="irc-date">[1:48]</span> <span class="irc-green">* TMC_Sherpa_ is now known as TMC_Sherpa</span><br />
 <span class="irc-date">[1:52]</span> <span class="irc-navy">* chaembian (~chaembian@122.174.88.77) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;nullghost&gt; TMC_Sherpa: poke.</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; woof</span><br />
+<span class="irc-date">[2:00]</span> <span class="irc-black">&lt;nullghost&gt; TMC_Sherpa: when you made those regulator diffs, was it intentional that you diffed the two different regulators? 8893 vs 8998?</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no?</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; did I?</span><br />
+<span class="irc-date">[2:01]</span> <span class="irc-black">&lt;nullghost&gt; yeah, you diffed max8893.c vs victory/max8998.c</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;nullghost&gt; which are we supposed to use? 8998?</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I'm pretty sure I just ran diff after moving the stuff out of the victory directories</span><br />
+<span class="irc-date">[2:02]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; diff -wrp on the whole tree</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;nullghost&gt; well here's the diff in question</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;nullghost&gt; <a href="http://paste.pocoo.org/show/391505/">http://paste.pocoo.org/show/391505/</a></span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it looks like you guys use both 8893 is something else</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;nullghost&gt; ok, so that probably means we use both 8893 and 8998</span><br />
+<span class="irc-date">[2:03]</span> <span class="irc-black">&lt;nullghost&gt; grr.</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;UberPinguin&gt; .32 used 8893 and 8998, but I don't think .35 does</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;nullghost&gt; so maybe if we fix 8998 we can get away with leaving 8893 alone</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;UberPinguin&gt; Or maybe we need to rewrite it todo so  &gt;.&lt;</span><br />
+<span class="irc-date">[2:04]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; it should your hardware is still the same</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;nullghost&gt; TMC_Sherpa: which regulator do the other devices use?</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;nullghost&gt; does. that sounded funny in my head.</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I honestly don't remember doing that diff but it woldn't surprise me if I fatfingered something</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;koush&gt; techmik_laptop: ok bug fixed</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;koush&gt; putting a new update out now</span><br />
+<span class="irc-date">[2:05]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 8998</span><br />
+<span class="irc-date">[2:06]</span> <span class="irc-black">&lt;techmik&gt; back</span><br />
+<span class="irc-date">[2:07]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; 8893 is something special for your phone only iirc</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-green">* zachy_md (~zacharias@chello084114179145.16.15.vie.surfer.at) has left this channel.</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;Unhelpful&gt; max8998... the PMIC rite?</span><br />
+<span class="irc-date">[2:08]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; ya</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;Unhelpful&gt; extracting 2k tgz files :D</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; but the epic also has 8893</span><br />
+<span class="irc-date">[2:09]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; figure out a way to get your files back then?</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;koush&gt; techmik_laptop: ok new update is up</span><br />
+<span class="irc-date">[2:12]</span> <span class="irc-black">&lt;koush&gt; it'll be called test2</span><br />
+<span class="irc-date">[2:13]</span> <span class="irc-black">&lt;techmik&gt; downloading</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;Unhelpful&gt; TMC_Sherpa: it en't pretty. :)</span><br />
+<span class="irc-date">[2:15]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; doesn't sound like it</span><br />
+<span class="irc-date">[2:16]</span> <span class="irc-black">&lt;Unhelpful&gt; duplicity breaks your backup into xxMB tarfiles... if files are bigger than that, well, it packs part of them in each file, until they're complete and it can move on</span><br />
+<span class="irc-date">[2:17]</span> <span class="irc-black">&lt;Unhelpful&gt; so, i unpack these 2300 or so tgz files, and what i get is directory "snapshot" w/ all of the small files in my filesystem, and a directory "multivol_snapshot" that has a directory for each big file w/ files 1, 2, 3 etc in it. :/</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;Unhelpful&gt; reassembling these isn't exactly impossible, but, big friggin pain. :P</span><br />
+<span class="irc-date">[2:18]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; yuck</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;Unhelpful&gt; yeah, well, the *program* was meant to reassemble them</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;Unhelpful&gt; but it stops dead on any error and there's no --continue-the-hell-on-anyway</span><br />
+<span class="irc-date">[2:20]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; no I get that part, just seems like a weird way for a program to make a backup</span><br />
+<span class="irc-date">[2:21]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; are they 1.44MB in size so you can fit them on a floppy :P</span><br />
+<span class="irc-date">[2:24]</span> <span class="irc-black">&lt;Unhelpful&gt; hah, no, but the idea is that they're convenient sizes to transfer over a network, via ssh, sftp, scp, or to one of several supported network object stores like allmydata or s3.</span><br />
+<span class="irc-date">[2:25]</span> <span class="irc-black">&lt;Unhelpful&gt; i think default is 25MB or such?</span><br />
+<span class="irc-date">[2:27]</span> <span class="irc-black">&lt;Unhelpful&gt; 1.44MB would be funny though, i should ask if they'd take a "protocol" handler for prompting the user to insert a new floppy.</span><br />
+<span class="irc-date">[2:28]</span> <span class="irc-black">&lt;Unhelpful&gt; they may well already have one, for tape drives...</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; I hate tape backup.  brings back nightmares</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.67.99) has joined this channel.</span><br />
+<span class="irc-date">[2:29]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;knowsnotmuch&gt; woohoo - where is the party :)</span><br />
+<span class="irc-date">[2:30]</span> <span class="irc-black">&lt;knowsnotmuch&gt; awesome work you guys</span><br />
+<span class="irc-date">[2:33]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; UberPinguin: did you guys change all the voltages in mach-aries?</span><br />
+<span class="irc-date">[2:36]</span> <span class="irc-black">&lt;techmik&gt; it is still rebooting right into the rom</span><br />
+<span class="irc-date">[2:36]</span> <span class="irc-black">&lt;techmik&gt; lemme test something</span><br />
+<span class="irc-date">[2:40]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.67.99) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.67.99) has joined this channel.</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[2:41]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; knowsnotmuch: it ain't over yet</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-black">&lt;knowsnotmuch&gt; TMC_Sherpa, yeah - saw just the tweets :)</span><br />
+<span class="irc-date">[2:42]</span> <span class="irc-black">&lt;knowsnotmuch&gt; will read the logs now to answer Y I No see i9000 on rom manager?</span><br />
+<span class="irc-date">[2:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; oh we dropped that one captivate vibrant and epic all the way</span><br />
+<span class="irc-date">[2:43]</span> <span class="irc-black">&lt;TMC_Sherpa&gt; :P</span><br />
+<span class="irc-date">[2:44]</span> <span class="irc-black">&lt;knowsnotmuch&gt; lol</span><br />
+<span class="irc-date">[2:45]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, the CM guys want to know your twitter</span><br />
+<span class="irc-date">[2:45]</span> <span class="irc-black">&lt;Kaik541&gt; I told them you don't use it, they asked again xD</span><br />
+<span class="irc-date">[2:46]</span> <span class="irc-navy">* gehzumteufel (~gehzumteu@adsl-76-252-171-187.dsl.lsan03.sbcglobal.net) Quit (Quit: gehzumteufel)</span><br />
+<span class="irc-date">[2:46]</span> <span class="irc-black">&lt;knowsnotmuch&gt; lol</span><br />
+<span class="irc-date">[2:46]</span> <span class="irc-black">&lt;knowsnotmuch&gt; Unhelpful, DID tweet ONCE</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;Kaik541&gt; knowsnotmuch, what's his twitter?</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;Kaik541&gt; just so they stop asking me</span><br />
+<span class="irc-date">[2:47]</span> <span class="irc-black">&lt;knowsnotmuch&gt; <a href="http://twitter.com/#!/UnhelpfulOne">http://twitter.com/#!/UnhelpfulOne</a></span><br />
+<span class="irc-date">[2:52]</span> <span class="irc-black">&lt;techmik&gt; i tried to flash manually from stock and it also rebooted into the same rom.... no /tmp/recovery.log to pull it says</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;koush&gt; techmik: hosed?</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;koush&gt; new update did not work?</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;techmik&gt; nope, same thing</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;techmik&gt; but no log</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;koush&gt; status 6?</span><br />
+<span class="irc-date">[2:56]</span> <span class="irc-black">&lt;techmik&gt; yes</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;koush&gt; are you sure you pushed the right file</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;koush&gt; they have the same name</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;koush&gt; err installed the right file rather</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;koush&gt; pastebin me your updater-script</span><br />
+<span class="irc-date">[2:57]</span> <span class="irc-black">&lt;koush&gt; in the file you installed</span><br />
+<span class="irc-date">[2:58]</span> <span class="irc-black">&lt;techmik&gt; sec</span><br />
