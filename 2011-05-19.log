@@ -1767,3 +1767,242 @@
 <span class="irc-date">[19:52]</span> <span class="irc-black">&lt;codeworkx&gt; need koush_ to accept teh patches and then we should force buildbot to do something for us</span><br />
 <span class="irc-date">[19:52]</span> <span class="irc-black">&lt;Unhelpful&gt; seems prudent after unpacking a bunch of tiny pieces of files and cat'ing them back together</span><br />
 <span class="irc-date">[19:56]</span> <span class="irc-black">&lt;mikebeecham&gt; evening codeworkx , Unhelpful</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;techmik_laptop&gt; brb</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-green">* atinm (~atin@unaffiliated/atinm) has joined this channel.</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-green">* ChanServ sets mode +o atinm</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;atinm&gt; did koush merge the kernel changes?</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;atinm&gt; what are the links?</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;codeworkx&gt; no</span><br />
+<span class="irc-date">[20:07]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://review.cyanogenmod.com/5446">http://review.cyanogenmod.com/5446</a> <a href="http://review.cyanogenmod.com/5447">http://review.cyanogenmod.com/5447</a> <a href="http://review.cyanogenmod.com/5445">http://review.cyanogenmod.com/5445</a></span><br />
+<span class="irc-date">[20:08]</span> <span class="irc-black">&lt;codeworkx&gt; i9000 is marked as merged but not yet in the repo</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;codeworkx&gt; mikebeecham</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;GuiPer&gt; codeworkx, guess i managed to solve the sleep of death issue with JVB kernel</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;GuiPer&gt; does it make sense to give it a try?</span><br />
+<span class="irc-date">[20:11]</span> <span class="irc-black">&lt;atinm|away&gt; not yet</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;atinm|away&gt; lets just get a working build up on cyanogenmod first.</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;atinm|away&gt; any build.</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;atinm|away&gt; we have yet to successfully put up a build.</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;atinm|away&gt; a working build.</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;atinm|away&gt; that's just bad.</span><br />
+<span class="irc-date">[20:12]</span> <span class="irc-black">&lt;atinm|away&gt; its announced, and no one can use it.</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;GuiPer&gt; agree, but this one is a huge change we would need to work in parallel</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm|away&gt; so no changes until we have a working build.</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm|away&gt; no commits</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm|away&gt; branches fine</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm|away&gt; on teamhacksung</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;GuiPer&gt; but agree, priority is get it working</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm|away&gt; but anything that distracts codeworkx, koush from a working update is out for now.</span><br />
+<span class="irc-date">[20:13]</span> <span class="irc-black">&lt;atinm|away&gt; I'll be back</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;atinm|away&gt; nurse is here to give me shots.</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;GuiPer&gt; discovered the "dead on sleep issue" with samsung kernel... probably we could try again the merge</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;codeworkx&gt; whats wrong?</span><br />
+<span class="irc-date">[20:14]</span> <span class="irc-black">&lt;GuiPer&gt; gpio sleep :S</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;codeworkx&gt; wrong on samsung sources?</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;codeworkx&gt; or did we screw up?</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;GuiPer&gt; would say so... according to zach_md the same thing happens if somebody else compiles the kernel for normal samsung</span><br />
+<span class="irc-date">[20:15]</span> <span class="irc-black">&lt;GuiPer&gt; so samsung screw up i guess</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;Unhelpful&gt; is there something *wrong* w/ the our crespo-based sources that really requires a full merge of JVB?</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;Unhelpful&gt; i'm still for sticking w/ a base that's maintained in a public repository, and only merging samsung-source-release code as-needed.</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt; that the 1000$ question...</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt; if it worth it...</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;Kaik541&gt; I say no</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;GuiPer&gt; codeworkx, <a href="https://github.com/teamhacksung/android_kernel_samsung_aries/blob/samsung_cm7_merge/arch/arm/plat-samsung/pm.c#L350">https://github.com/teamhacksung/android_kernel_samsung_aries/blob/samsung_cm7_merge/arch/arm/plat-samsung/pm.c#L350</a> comment that line and give a try</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;Kaik541&gt; because it requires flashing a specific bootloader</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;codeworkx&gt; if we can fix the lock/unlock problem</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;Kaik541&gt; which isn't for captivate/vibrant</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;Kaik541&gt; and may not work for epic</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;GuiPer&gt; but small issues like battery etc will be hard to solve in our kernel...</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: so the line you wanted to push to our kernel makes the samsung kernel crashing?</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;GuiPer&gt; yep :p:p</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;codeworkx&gt; oh lol</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;GuiPer&gt; enabled it and got the exact same symptom...</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: the only thing left is lock/unlock i think</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;GuiPer&gt; btw codeworkx i'm quite sure your gpio_sleep table is doing nothing :(:(</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;codeworkx&gt; fine xD</span><br />
+<span class="irc-date">[20:20]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;GuiPer&gt; there are problems still in RIL somehow.... got issues with email client</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;atinm|away&gt; codeworkx, so right now - if buildbot was to go build SGS - the update would work?</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;atinm|away&gt; we just need a new build is all?</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;atinm|away&gt; even without your last kernel?</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;GuiPer&gt; not releasing wake locks... what is quite bad</span><br />
+<span class="irc-date">[20:22]</span> <span class="irc-black">&lt;GuiPer&gt; in my case if i have email with push, everytime i disable internet (2g), and i don't lock and unlock email get stuck with a wake lock..</span><br />
+<span class="irc-date">[20:23]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: updater is fixed</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;atinm|away&gt; ok, so we just need a build.</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: coolya is fixing ril atm</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Kaik541&gt; so this will be a universal build now?</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Kaik541&gt; from both stock and cm7?</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;codeworkx&gt; ya</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Kaik541&gt; ok and techmik knows the process?</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Kaik541&gt; or someone here</span><br />
+<span class="irc-date">[20:24]</span> <span class="irc-black">&lt;Kaik541&gt; who can give me the gist or write for the wiki</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;GuiPer&gt; oki, codeworkx maybe I'll then focus on the shitty lag on begin and camera issue</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;GuiPer&gt; they are related</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;GuiPer&gt; should be easy i assume</span><br />
+<span class="irc-date">[20:25]</span> <span class="irc-black">&lt;GuiPer&gt; and then battery life and sleep at last... don't care about radio</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, what happened to your "force screen to sleep and wake up" script idea</span><br />
+<span class="irc-date">[20:26]</span> <span class="irc-black">&lt;zachy_md&gt; you guys already have a dmesg output of a modem reset where it requires you to re-input PIN number ?</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: thats bad</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;zachy_md&gt; it also just made a dump on my sdcard</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;codeworkx&gt; zachy_md: enough</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;zachy_md&gt; k</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: would ne fine if you can fix it</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;zachy_md&gt; codeworkx, FYI: it was a JVE modem this time</span><br />
+<span class="irc-date">[20:27]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, it's bad but it'd work (for now)</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: GuiPer will fix it</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;Kaik541&gt; go GuiPer</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;GuiPer&gt; should have some time during weekend, but no promises...</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;GuiPer&gt; maybe some cat to some FB like we do in recovery may work :)</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: bad idea, tried it</span><br />
+<span class="irc-date">[20:30]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: you can echo to fb3 to get a black screen xD</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;GuiPer&gt; what happens when we lock and unlock? that gets it working?</span><br />
+<span class="irc-date">[20:31]</span> <span class="irc-black">&lt;Kaik541&gt; unicorn tears is my guess</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;codeworkx&gt; GuiPer: sleep/wakeup ?</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;GuiPer&gt; some gpio settings?</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;codeworkx&gt; have a look at cat /proc/kmsg and then lock/unlock</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;atinm|away&gt; some gpio is starting in a disabled state</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;GuiPer&gt; it will not be sleep ....</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;GuiPer&gt; phone does not go to sleep if it's busy</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;atinm|away&gt; or just plain init isn't happening</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;atinm|away&gt; but wake is forcing it somehow</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;GuiPer&gt; framebuffer refresh i guess</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;GuiPer&gt; can it be related to old youtube problem_</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;codeworkx&gt; dont think so</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-green">* coolya|away is now known as coolya</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;codeworkx&gt; oh shit "So you tell me that every night is flash night? Flashing my favourite rom every night that sounds great "</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;codeworkx&gt; they'll start crying for a "changelog"</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, twttier.com/cmsrc</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;Kaik541&gt; tell them that's the changelog</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;codeworkx&gt; i did</span><br />
+<span class="irc-date">[20:39]</span> <span class="irc-black">&lt;codeworkx&gt; but then i have to give them instructions how to use twitter</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;Kaik541&gt; so why can't I write "fuck endusers" in the wiki again?</span><br />
+<span class="irc-date">[20:40]</span> <span class="irc-black">&lt;codeworkx&gt; only shitty endusers is forbidden xD</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;coolya&gt; who cares about users ? who cares about xda?</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;coolya&gt; i'm way to trunk to commit anything this night</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;coolya&gt; s/trunk/drunk</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, drunk commits are the best commits</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;Unhelpful&gt; GuiPer: keep in mind we are losing a *lot* if we switch to JVB - specifically, having any history of our kernel. without history, merges will almost all be by hand.</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;coolya&gt; using jvb???????? WTF</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't think we have anything broken tha's worth that.</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: kernel source.</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;atinm|away&gt; coolya - no worries.</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;atinm|away&gt; not happening.</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;atinm|away&gt; pieces we need, not a whole merge.</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;coolya&gt; :-)</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;atinm|away&gt; not doing it.</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm|away&gt; and guiper is gonna do it.</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm|away&gt; not me ;)</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm|away&gt; so we need to make sure he cannot commit anything</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: <a href="http://pastebin.com/cQKrYvdJ">http://pastebin.com/cQKrYvdJ</a></span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;codeworkx&gt; what about adding this to manifest?</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm|away&gt; how do I take off his commit privs?</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm|away&gt; :)</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;codeworkx&gt; dont know if it works</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm|away&gt; I dunno, doubt it.</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;koush_&gt; ok back</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;koush_&gt; is *everything* working?! :)</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm|away&gt; plus, koush_ said not to do it.</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;koush_&gt; specifically installation</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;atinm|away&gt; just tell ppl.</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: not hdmi out! ;)</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;atinm|away&gt; no, not yet.</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;atinm|away&gt; I've begged ChrisSoyars to put up another nightly</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;koush_&gt; installation broken still?</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;atinm|away&gt; we need at least *one* working install uploaded. but yes, otherwise it works internally</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;codeworkx&gt; koush_:  <a href="http://review.cyanogenmod.com/5446">http://review.cyanogenmod.com/5446</a> <a href="http://review.cyanogenmod.com/5447">http://review.cyanogenmod.com/5447</a> <a href="http://review.cyanogenmod.com/5445">http://review.cyanogenmod.com/5445</a></span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;koush_&gt; already approved</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;atinm|away&gt; we need you to review some kernel merges.</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;Unhelpful&gt; actually, loss troll-ish, koush, are there targets in-tree already that use proprietary vendor media codecs at all? i wanted to try to get ours working, and wasn't really sure where to start.</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;codeworkx&gt; koush_: good guy xD</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;atinm|away&gt; ok, cool</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: doubt it, are they prebuilts</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;koush_&gt; or something you build from source</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;atinm|away&gt; so we should be good. once builds are up - we're awesome</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;atinm|away&gt; right now we're still somewhat goats.</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;atinm|away&gt; for having announced SGS without any working builds up :)</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: prebuilts that interface w/ hardware</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;koush_&gt; Unhelpful: just have them as prebuilts then?</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;koush_&gt; not sure what youre asking</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;Unhelpful&gt; how to get the media framework to load them, mostly.</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;koush_&gt; oh</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;koush_&gt; do you have some hack that already works?</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;koush_&gt; or youre asking me how to get media to load it</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: what you're trying?</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;atinm|away&gt; no - were asking if other phones have them already</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;atinm|away&gt; so we can kang :)</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;Unhelpful&gt; the latter, yes.</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;atinm|away&gt; and if not, how to go about it ..</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;koush_&gt; what specifically are you trying to do</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;koush_&gt; just link against it?</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: i've been wanting to get the vendor media codecs going for a while, so we can use their hooks to hw decode for avc, their wmv etc.</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;koush_&gt; which lib is linking against what</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: this omx stuff?</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm|away&gt; koush_: I dont think we've researched it yet</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;koush_&gt; atinm|away: ah</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm|away&gt; this is still thoughts.</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;koush_&gt; i dont know much about the omx shit</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;koush_&gt; talk to cyanogen or zinxi think</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;Unhelpful&gt; koush_: i'm assuming stock firmwares load them at runtime based on the file being decoded. but i don't really know how it works, and i can't find anything that says.</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;atinm|away&gt; oh unhelpful - someone suggested looking at OMAP</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;atinm|away&gt; for it</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: <a href="https://github.com/CyanogenMod/android_device_samsung_aries-common/blob/gingerbread/sec_mm/sec_omx/sec_omx_core/secomxregistry">https://github.com/CyanogenMod/android_device_samsung_aries-common/blob/gingerbread/sec_mm/sec_omx/sec_omx_core/secomxregistry</a></span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;atinm|away&gt; sorry, no - that was for GPU</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;atinm|away&gt; which we should also do.</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: oh, interesting. :)</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;codeworkx&gt; Unhelpful: add it there</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;koush_&gt; oh sec.</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;koush_&gt; i think i may know</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;Unhelpful&gt; codeworkx: i'll give that a try sometime, my ADHD feature-work list is long. ;)</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;codeworkx&gt; i dont know what i'm doing, but i know where everything is xD</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;atinm|away&gt; so we have those libs - but something has to talk to them. I guess the question is still - "what"</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;coolya&gt; isn't samsung using opencore again? like on froyo?</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;atinm|away&gt; I did see stuff in jvb about opencore</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;atinm|away&gt; didn't know what it was :)</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Kaik541&gt; nullghost, UberPinguin, how would you feel about adding some mesmerize/showcase devs to your team?</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;atinm|away&gt; so I ignored it.</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Unhelpful&gt; this, an OSS geomagneticd replacement, dock audio... at least somebody has already done that, i only need to test.</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: isn't opencore deprecated? :/</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Kaik541&gt; mesmerize/showcase == fascinate</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: 1/</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;atinm|away&gt; leave geomagneticd for a bit</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;atinm|away&gt; dock audio we just need to test</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: yes it is, but ists samsung ... they do shit</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;atinm|away&gt; xcaliburinhand has a pending pull request</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;atinm|away&gt; on our kernel</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;atinm|away&gt; that does it.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-green">* lmartin92 (~quassel@adsl-65-0-143-212.jan.bellsouth.net) has joined this channel.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-green">* dfgas (~dfgas@68-112-178-125.dhcp.fdul.wi.charter.com) has joined this channel.</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;Kaik541&gt; ^^showcase/mesmerize</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;dfgas&gt; hey</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;lmartin92&gt; hello, I was told to come here to figure out what to do to get our phones into cyanogen</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;atinm|away&gt; ok</span><br />
+<span class="irc-date">[20:56]</span> <span class="irc-black">&lt;Kaik541&gt; I told them they'd have to switch to our 2.6.35.7 kernel</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;Kaik541&gt; and pointed them to our github</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;atinm|away&gt; what phones are these?</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;atinm|away&gt; what are mesmerize and showcase? they're equivalent to the fascinate?</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;lmartin92&gt; ok, is there any tricks to this kernel we should know right off........ showcase and mesmerize from CellularSouth and USCC respectively</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-green">* Kaos_ (~Kaos@static-50-43-89-24.bvtn.or.frontiernet.net) has joined this channel.</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;Kaik541&gt; and now we have a fascinate dev on the hook</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;lmartin92&gt; atinm|away: they are equivalent but have different radios</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-green">* Kaik541 sets mode +I lmartin92!*@*</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;atinm|away&gt; that's fine.</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-green">* Kaik541 sets mode +I dfgas!*@*</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-green">* Kaik541 sets mode +I Kaos_!*@*</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;lmartin92&gt; and the radios describe sms differently</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;atinm|away&gt; ok, and what code do you actually have available to you?</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;atinm|away&gt; from samsung?</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;lmartin92&gt; oh great..... just the kernel</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;lmartin92&gt; and it has some proprietary stuff in it too</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;atinm|away&gt; froyo kernel?</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;dfgas&gt; yess sir</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;lmartin92&gt; yep</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;lmartin92&gt; froyo kernel</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;Kaik541&gt; step 1) make our kernel boot on your phones :)</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;lmartin92&gt; we've got a cm7 port unofficial that works for us</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;Kaos_&gt; Kaik541: We've got it booting.</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;Kaik541&gt; 2.6.35.7?</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;lmartin92&gt; Kaik541: how do we do that if there is no rom that will run it on our phones afaik</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;Kaos_&gt; yeah, we just can't yet get the radio to work.</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;coolya&gt; what is the probleme there</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;Kaik541&gt; Kaos_, have you tried with new CDMA stuff from upstream?</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;lmartin92&gt; Kaos_: you do the kaoscinate rom right?</span><br />
