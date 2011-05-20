@@ -1745,3 +1745,195 @@
 <span class="irc-date">[20:59]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Remote host closed the connection)</span><br />
 <span class="irc-date">[20:59]</span> <span class="irc-black">&lt;Kaik541&gt; those custom levels were definitely usable at some point</span><br />
 <span class="irc-date">[21:00]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; because there isn't enough going on in here I think the problem is in drivers/misc/sec_jack.c atinm</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;techmik_laptop&gt; <a href="http://pastebin.com/V2P2GyXi">http://pastebin.com/V2P2GyXi</a></span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;codeworkx&gt; my compiz is slightly laggy</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;codeworkx&gt; need LAGFIX</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: what make them unsuable?</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, I have no idea... it broke sometime in the past 5 days</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;Kaik541&gt; because it worked on 5/15</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;atinm&gt; coolya, I think we're not sendin the value down somehow</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;atinm&gt; it did get darker</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;coolya&gt; it works here</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;atinm&gt; no, I mean below 20.</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;atinm&gt; i think I had mine at 10</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;coolya&gt; that limit was there ALL the time</span><br />
+<span class="irc-date">[21:01]</span> <span class="irc-black">&lt;atinm&gt; where is that limit - I'm trying to find it in the kernel</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;atinm&gt; must be the lcd driver right?</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;coolya&gt; i think it in cmparts</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, 20 is the default "dim" value</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;atinm&gt; no, cmparts allows us to lower it</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;Kaik541&gt; we want to be able to set it lower</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;atinm&gt; I just set it to 1.</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;Kaik541&gt; to like 15 or 16</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;atinm&gt; so that's allowed - we just change the screen dim level</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: 20 is default since atinm set it to 20</span><br />
+<span class="irc-date">[21:02]</span> <span class="irc-black">&lt;coolya&gt; before it was 30</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;atinm&gt; coolya :) - wait.</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, ok great, but I want to be able to set it to 16 if I so please</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;coolya&gt; aifobhsfd</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;coolya&gt; xd&lt;gnhi#sdujt</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-brick">* coolya needs beer</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;Kaik541&gt; that's what that setting is for...</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;atinm&gt; CyanogenMod Settings &gt; Display &gt; Autobacklight &gt; Screen Dim Level</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;atinm&gt; and you can set it lower.</span><br />
+<span class="irc-date">[21:03]</span> <span class="irc-black">&lt;atinm&gt; and then you can set your table lower too</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;atinm&gt; lower than 20</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: that setting hat always 20 as low limit</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;Kaik541&gt; you have to tick "use custom" first</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;atinm&gt; but lower values don't seem to do anything</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;coolya&gt; even back in cm 6</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, no it hasn't &gt;_&gt;</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;coolya&gt; damn</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;Kaik541&gt; I've set it to 16 and 2</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;atinm&gt; coolya, CMParts is letting me change it down.</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: yes because of fucking BUG</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;atinm&gt; that's not the problem :) - I think we're just not using it.</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, and I'm saying that's a BUG we should bring back</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;Kaik541&gt; it's *supposed* to do taht</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;atinm&gt; stop.</span><br />
+<span class="irc-date">[21:04]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: <a href="https://github.com/CyanogenMod/android_device_samsung_galaxysmtd/blob/gingerbread/overlay/frameworks/base/core/res/res/values/config.xml#L62">https://github.com/CyanogenMod/android_device_samsung_galaxysmtd/blob/gingerbread/overlay/frameworks/base/core/res/res/values/config.xml#L62</a></span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;atinm&gt; that's the table - we can change it.</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;atinm&gt; I lowered mine to 5.</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;atinm&gt; doesn't do anything.</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;atinm&gt; to the actual screen</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;atinm&gt; here's what I did.</span><br />
+<span class="irc-date">[21:05]</span> <span class="irc-black">&lt;atinm&gt; CyanogenMod Settings &gt; Display &gt; Auto Backlight &gt; Use custom</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;atinm&gt; then Screen dim level &gt; 1.</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;atinm&gt; Edit other levels. changed lower ones all down to 5</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;atinm&gt; check Allow decrease.</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;atinm&gt; save and apply</span><br />
+<span class="irc-date">[21:06]</span> <span class="irc-black">&lt;atinm&gt; the table</span><br />
+<span class="irc-date">[21:07]</span> <span class="irc-black">&lt;atinm&gt; lcd brightness still seems to have some lower limit</span><br />
+<span class="irc-date">[21:08]</span> <span class="irc-black">&lt;atinm&gt; trying to find out where that is</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://i8.photobucket.com/albums/a27/stardrifter2/IMG_6586.jpg">http://i8.photobucket.com/albums/a27/stardrifter2/IMG_6586.jpg</a> &lt;--- we need to fix updater script</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;Kaik541&gt; to look for SGH-I896 as well</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;codeworkx&gt; #define DIM_BL  20</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;codeworkx&gt; +#define MIN_BL  30</span><br />
+<span class="irc-date">[21:09]</span> <span class="irc-black">&lt;codeworkx&gt; +#define MAX_BL  255</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;codeworkx&gt;  -&gt; drivers/video/samsung/s3cfb_tl2796.c</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;codeworkx&gt; dim backlight 20</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;codeworkx&gt; min backlight 30</span><br />
+<span class="irc-date">[21:10]</span> <span class="irc-black">&lt;codeworkx&gt; max backlight 255</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;atinm&gt; so that might be real :)</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: i'll submit it</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;Kaik541&gt; I completely forgot about SGH I896 :)</span><br />
+<span class="irc-date">[21:11]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; I like how dim is less than min.... I guess min means something different over there</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; thats why we have users, to remind us of....stuff</span><br />
+<span class="irc-date">[21:13]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; and I guess to get into some kind of trouble that cause threads to be locked down and/or purged</span><br />
+<span class="irc-date">[21:15]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://review.cyanogenmod.com/#change,5492">http://review.cyanogenmod.com/#change,5492</a></span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;codeworkx&gt; is dim used before display goes off?</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;Kaik541&gt; dim is the brightness level set if you set it to lowest</span><br />
+<span class="irc-date">[21:16]</span> <span class="irc-black">&lt;codeworkx&gt; and whats min?</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;codeworkx&gt; samsung logic?</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;Kaik541&gt; demong magic?</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;Kaik541&gt; not used?</span><br />
+<span class="irc-date">[21:17]</span> <span class="irc-black">&lt;Kaik541&gt; maybe min == brightness level to "dim" before screen sleep</span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://review.cyanogenmod.com/#change,5489">http://review.cyanogenmod.com/#change,5489</a></span><br />
+<span class="irc-date">[21:19]</span> <span class="irc-black">&lt;Kaik541&gt; this looks like a really bad idea</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;coolya&gt; why?</span><br />
+<span class="irc-date">[21:20]</span> <span class="irc-black">&lt;Kaik541&gt; to be able to flash a bootloader</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;Kaik541&gt; seems risky at best</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;coolya&gt; not on imap</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;coolya&gt; ompa</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;coolya&gt; omap</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;atinm&gt; hey, 3rd try good ;)</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;atinm&gt; beer?</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;coolya&gt; they can boot from any mmc port</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;Kaik541&gt; I suppose, don't know much about their platform</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;codeworkx&gt; coolya: you should take your beer away before writing. writing with 2 free hands is better xD</span><br />
+<span class="irc-date">[21:21]</span> <span class="irc-black">&lt;coolya&gt; if it really fails you just plug in a mmc with a bootloader and it will boot it</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;codeworkx&gt; we can theoretically too</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;codeworkx&gt; but practically no</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, wow that's a nice feature</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;coolya&gt; and the /boot partition is just FAT</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, that adamholden guy (I think that's his name) is trying to get that to work</span><br />
+<span class="irc-date">[21:22]</span> <span class="irc-black">&lt;coolya&gt; and "flashing" bootloader is a simple copy file there</span><br />
+<span class="irc-date">[21:24]</span> <span class="irc-black">&lt;codeworkx&gt; koush is away? who else is willed to merge our shit?</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;coolya&gt; codeworkx: <a href="http://dl.dropbox.com/u/4077110/update-cm-7.1.0-GalaxyS-KANG-signed.zip">http://dl.dropbox.com/u/4077110/update-cm-7.1.0-GalaxyS-KANG-signed.zip</a></span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;coolya&gt; try that without wipe</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-black">&lt;coolya&gt; if it doesn't work, wipe and lets see whats happening</span><br />
+<span class="irc-date">[21:26]</span> <span class="irc-navy">* nullghost (~justin@c-76-18-157-237.hsd1.tn.comcast.net) Quit (Ping timeout: 246 seconds)</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;atinm&gt; arcee</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;atinm&gt; he's been doing it</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;atinm&gt; Kaik541: the driver definitely hasn't changed.</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;Kaik541&gt; I wonder what happened :(</span><br />
+<span class="irc-date">[21:27]</span> <span class="irc-black">&lt;atinm&gt; so maybe just the cooler whites is making it look brighter</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;coolya&gt; someone can test that <a href="http://dl.dropbox.com/u/4077110/update-cm-7.1.0-Captivate-KANG-signed.zip">http://dl.dropbox.com/u/4077110/update-cm-7.1.0-Captivate-KANG-signed.zip</a></span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;atinm&gt; k</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;Kaik541&gt; is this the RIL changes? I'll test too</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;coolya&gt; yep</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;atinm&gt; Kaik541: you do it then</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;atinm&gt; wife and kid are out</span><br />
+<span class="irc-date">[21:28]</span> <span class="irc-black">&lt;atinm&gt; so can't lose phone</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;atinm&gt; and can't move sim card to vibrant</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;Kaik541&gt; I just got the one call I was expecting today</span><br />
+<span class="irc-date">[21:29]</span> <span class="irc-black">&lt;Kaik541&gt; so I should be good</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;coolya&gt; it should work, if not it is a build.prop problem</span><br />
+<span class="irc-date">[21:30]</span> <span class="irc-black">&lt;Kaik541&gt; just gonna do my quick backup and whatnot</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;atinm&gt; wow, ppl are actually porting tw4 to cyanogenmod?!</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, yeah... I tried it</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;Kaik541&gt; it's actually not terrible, but it's meh</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;Kaik541&gt; it's touchwiz launcher</span><br />
+<span class="irc-date">[21:31]</span> <span class="irc-black">&lt;atinm&gt; yeah, what's the point of that if you can't use the frameworks hacks</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;atinm&gt; its not like a pretty launcher or anything</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;Kaik541&gt; the only interesting thing is the new way they have the "add widgets" screen</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;atinm&gt; I mean, its like any other.</span><br />
+<span class="irc-date">[21:32]</span> <span class="irc-black">&lt;Kaik541&gt; it's not as intrusive</span><br />
+<span class="irc-date">[21:36]</span> <span class="irc-black">&lt;Kaik541&gt; skateboard</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;Kaik541&gt; bleh</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;Kaik541&gt; no service</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;Kaik541&gt; baseband unknown</span><br />
+<span class="irc-date">[21:38]</span> <span class="irc-black">&lt;Kaik541&gt; my number unknown</span><br />
+<span class="irc-date">[21:39]</span> <span class="irc-black">&lt;Kaik541&gt; IMEI unkonwn</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;coolya&gt; k same problem as in galaxys then</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;coolya&gt; you can restore the backup</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;atinm&gt; should I just go back to bed?</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;atinm&gt; today is a complete loss.</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;atinm&gt; no headset.</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;atinm&gt; no ril</span><br />
+<span class="irc-date">[21:42]</span> <span class="irc-black">&lt;atinm&gt; no auto brightness.</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;atinm&gt; everything I got near got broke :)</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;coolya&gt; ril is making me angry today :(</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, go to bed now, by the time you actually leave it'll be your bed time at around 10 pm</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;atinm&gt; I'm tried.</span><br />
+<span class="irc-date">[21:43]</span> <span class="irc-black">&lt;atinm&gt; TMC_Sherpa_: headset is yours</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;atinm&gt; TMC_Sherpa_: but I'll test captivate and vibrant from now on</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;atinm&gt; TMC_Sherpa_: as there is nothing looming anymore</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;atinm&gt; from what I can tell, I have nothing on my plate.</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, want a logcat or dmesg?</span><br />
+<span class="irc-date">[21:44]</span> <span class="irc-black">&lt;atinm&gt; which suits me fine :)</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;atinm&gt; gone for a bit</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: thx but i know what the problem is</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;Kaik541&gt; k</span><br />
+<span class="irc-date">[21:45]</span> <span class="irc-black">&lt;Kaik541&gt; let me know when you have something new to test</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;atinm&gt; echo 5 &gt; /sys/devices/platform/s3cfb/spi_gpio.3/spi3.0/backlight/s5p_bl/brightness</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;atinm&gt; that works</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;atinm&gt; wtf</span><br />
+<span class="irc-date">[21:50]</span> <span class="irc-black">&lt;atinm&gt; who writes that..</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-green">* gehzumteufel (~gehzumteu@adsl-76-252-171-187.dsl.lsan03.sbcglobal.net) has joined this channel.</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-green">* ChanServ sets mode +v gehzumteufel</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-green">* jt1134 (~jt1134@c-71-207-226-82.hsd1.al.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-navy">* ciwr[away] (~ciwrl@pool-173-79-21-116.washdc.fios.verizon.net) Quit (Ping timeout: 240 seconds)</span><br />
+<span class="irc-date">[21:51]</span> <span class="irc-green">* ciwrl (~ciwrl@pool-173-79-21-116.washdc.fios.verizon.net) has joined this channel.</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;Kaik541&gt; WOO</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;Kaik541&gt; google music beta invite</span><br />
+<span class="irc-date">[21:52]</span> <span class="irc-black">&lt;Kaik541&gt; suck it world</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;techmik&gt; lol</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;jt1134&gt; I thought I heard the world sucking something...</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;Kaik541&gt; oh hey jt is here</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;jt1134&gt; hey there</span><br />
+<span class="irc-date">[21:53]</span> <span class="irc-black">&lt;Kaik541&gt; time to slowly start uploading all my music</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;Kaik541&gt; we managed to pull in all the fascinate/mesmerize/showcase people here, glad to see you back</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;jt1134&gt; thanks :)</span><br />
+<span class="irc-date">[21:54]</span> <span class="irc-black">&lt;jt1134&gt; working on merging stuffs atm</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; atinm: tried to change the values in display driverz?</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;atinm&gt; just echo 5 dimmed it</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;codeworkx&gt; but thats no fix xD</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;atinm&gt; so the question is who is supposed to write it in software :)</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;atinm&gt; trying to figure it out</span><br />
+<span class="irc-date">[21:56]</span> <span class="irc-black">&lt;atinm&gt; losing</span><br />
+<span class="irc-date">[21:58]</span> <span class="irc-black">&lt;codeworkx&gt; ati fglrx compiz fail</span><br />
