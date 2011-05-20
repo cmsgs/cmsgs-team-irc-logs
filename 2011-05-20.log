@@ -1606,3 +1606,142 @@
 <span class="irc-date">[19:57]</span> <span class="irc-black">&lt;atinm&gt; let me look at it</span><br />
 <span class="irc-date">[19:57]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; after test1 (which used s5p-rp...which had fingers everywhere) I wanted to just get it down to the minimum number of files to play with, if it made noise on all the phones then I was going to work on step 2 and make sure the audio paths were correct for everone and that the headphone shit worked</span><br />
 <span class="irc-date">[19:59]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; vibrant has some deal called HAC which doesn't look like it does anything (like tty on captivate) so there are changes in wm8994_samsung for each phone.  vibrant also has extra voice paths (like captivate) in wm8994_aries (or kepler)</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; but if it no sounds worked then I was going to look into disking with waht we have rather than doing additional work on jvb audio</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; dicking</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; what</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; you get the idea</span><br />
+<span class="irc-date">[20:00]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; I have most of wm8994_samsung done already, its just not in that test</span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-black">&lt;techmik&gt; TMC_Sherpa_: <a href="http://bit.ly/mfxPcg">http://bit.ly/mfxPcg</a></span><br />
+<span class="irc-date">[20:01]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;Kaik541&gt; lol what's up with this swype dude in #cyanogenmod</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; that nukes all the gpio work that just got done techmik</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;Kaik541&gt; "people will start blacklisting CM if it can revoke permissions!"</span><br />
+<span class="irc-date">[20:02]</span> <span class="irc-black">&lt;techmik&gt; lol</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;techmik&gt; TMC_Sherpa_: should i revert, or do you have stuff to apply over this?</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; we just want the stuff up to like 1358</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; revert for now</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;techmik&gt; k</span><br />
+<span class="irc-date">[20:03]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; I can always make the changes on a more current version of aries</span><br />
+<span class="irc-date">[20:04]</span> <span class="irc-black">&lt;techmik&gt; if i revert, i have a completely untouched-by-you branch.... all the old stuff would be removed.... is that what you want?</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; oh shit, Y_U_NO_WORK is in that version</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;techmik&gt; lol</span><br />
+<span class="irc-date">[20:05]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; erm....maybe that needs to get set :D but we'll see if vibrant is any better first</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; er U_Y_NO_WORK</span><br />
+<span class="irc-date">[20:06]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; 'cus I R DUM</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; I can do another one atinm, one thats closer to jvb/froyo for all the phones, the mach-aries stuff was just a quick test.  then things got kinds nutty around here with the merge and everything so I stopped looking at it</span><br />
+<span class="irc-date">[20:16]</span> <span class="irc-black">&lt;techmik&gt; i reverted</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;atinm&gt; TMC_Sherpa_: ok - I am debugging what we have anyway</span><br />
+<span class="irc-date">[20:17]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; k</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;techmik&gt; why do i keep getting those build errors?</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; dono, I haven't tried to build anything the last few days</span><br />
+<span class="irc-date">[20:18]</span> <span class="irc-black">&lt;techmik&gt; <a href="http://pastebin.com/btba28Xi">http://pastebin.com/btba28Xi</a></span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; just diffing epic crap</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; or is that crap epic?</span><br />
+<span class="irc-date">[20:19]</span> <span class="irc-black">&lt;atinm&gt; techmik: dunno - I can build fine</span><br />
+<span class="irc-date">[20:21]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; rm -rf and let it rebuild your trees?</span><br />
+<span class="irc-date">[20:28]</span> <span class="irc-black">&lt;techmik&gt; and i'm really annoyed that quassel for windows doesnt even offer a damn audio highlight option......</span><br />
+<span class="irc-date">[20:29]</span> <span class="irc-black">&lt;techmik&gt; it doesnt do me good to turn things red to alert me if icant see it</span><br />
+<span class="irc-date">[20:32]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; atinm: did shouting at your phone work? just the headphones that it can't detect?</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;atinm&gt; yeah, just headset</span><br />
+<span class="irc-date">[20:33]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; k</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;atinm&gt; damn, what did I miss on XDA?</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;atinm&gt; some guy just PM'ed me to apologize</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;atinm&gt; and it seems the thread got cleaned</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-navy">* Wout` (~Wout@s559776f4.adsl.wanadoo.nl) Quit ()</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; lol</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;atinm&gt; and I have no idea what happened :)</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; Kaik541: ?</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;Kaik541&gt; I was at the bank</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;Kaik541&gt; I missed it too</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;atinm&gt; he's like I'm sorry, I didn't mean it</span><br />
+<span class="irc-date">[20:34]</span> <span class="irc-black">&lt;atinm&gt; or something</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;Kaik541&gt; who was it?</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;atinm&gt; jellette</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;atinm&gt; "don't let it happen again young man"</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;Kaik541&gt; I think that's a vibrant person</span><br />
+<span class="irc-date">[20:35]</span> <span class="irc-black">&lt;Kaik541&gt; haven't made my way to vibrant thread yet</span><br />
+<span class="irc-date">[20:36]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; quick sanity check, the headphone was working on stock right? you don't have a busted phone?</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;Kaik541&gt; yeah it was the vibrant thread that got cleaned</span><br />
+<span class="irc-date">[20:38]</span> <span class="irc-black">&lt;Kaik541&gt; also, seems everyone with a vibrant had a G1 at some point</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;atinm&gt; codeworkx, coolya</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;atinm&gt; what does 20 mean in brightness values?</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;atinm&gt; did we allow lower before?</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;atinm&gt; we can't seem to go below now</span><br />
+<span class="irc-date">[20:42]</span> <span class="irc-black">&lt;Kaik541&gt; no we used 20</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;Kaik541&gt; but he can set a custom backlight setting to 16</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;Kaik541&gt; or lower</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;Kaik541&gt; if he wants</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;Kaik541&gt; I use 16</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;atinm&gt; not anymore</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;atinm&gt; the lowest we allow is 20</span><br />
+<span class="irc-date">[20:43]</span> <span class="irc-black">&lt;atinm&gt; you can't type a lower value that works</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;Kaik541&gt; you're right</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;Kaik541&gt; just noticed</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;Kaik541&gt; oh is the light sensor borked?</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;atinm&gt; no, its fine</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;Kaik541&gt; the light sensor levels thing says -1/-1</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;Kaik541&gt; for me</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;atinm&gt; hmm</span><br />
+<span class="irc-date">[20:44]</span> <span class="irc-black">&lt;Kaik541&gt; filtered/raw says -1/-1</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm&gt; weird. I have 160 right now</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;atinm&gt; both captivate and vibrant</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;Kaik541&gt; I'm on build #9 from the build farm</span><br />
+<span class="irc-date">[20:45]</span> <span class="irc-black">&lt;Kaik541&gt; may have been a temporary break</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;coolya&gt; atinm: no we didn't allow lower</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;coolya&gt; it is not possible to go lower</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, I used to use 16 and it got darker than 20 is now</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;coolya&gt; it was never possible</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;coolya&gt; if it was possible in a build it was a bug</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;Kaik541&gt; well when I selected 16 my csreen got darker</span><br />
+<span class="irc-date">[20:46]</span> <span class="irc-black">&lt;Kaik541&gt; that's all I can say</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;atinm&gt; what actually happens when we set those values?</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;atinm&gt; where does it go in the lcd?</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;atinm&gt; and what is deciding that 20 is minimum?</span><br />
+<span class="irc-date">[20:47]</span> <span class="irc-black">&lt;atinm&gt; driver?</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;Kaik541&gt; I know for a fact we can force it lower (this was done a lot on 2.2 kernels)</span><br />
+<span class="irc-date">[20:48]</span> <span class="irc-black">&lt;coolya&gt; dunno all devices have that as minum .... if users are pissed by that they should buy a iphone</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, I'm not saying we should set the default lower, just that it *should* be possible to set it lower from that setting in CMParts shouldn't it? (it used to work)</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm&gt; I just want to know what it does :)</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm&gt; as in, kernel</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;atinm&gt; I found the framework code</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;coolya&gt; Kaik541: it wasn never possible to go lower</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, did you try? because I know I did</span><br />
+<span class="irc-date">[20:49]</span> <span class="irc-black">&lt;coolya&gt; i think there is a reason for the limit</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;Kaik541&gt; coolya, because I definitely selected "3" at one point and couldn't even SEE the screen</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;coolya&gt; as i said before if that was possible in any build that was a bug</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;Kaik541&gt; well it's a bug we should reintroduce then?</span><br />
+<span class="irc-date">[20:50]</span> <span class="irc-black">&lt;Kaik541&gt; since that's *supposed* to work in CMParts</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;coolya&gt; just because it works on the SGS that doesn't mean it works on any device</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;Kaik541&gt; well I assume that's what that setting is for</span><br />
+<span class="irc-date">[20:51]</span> <span class="irc-black">&lt;coolya&gt; the limit is there to protect users from doing shit</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Kaik541&gt; but that's why it has to be chosen to be overriden</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Kaik541&gt; by default dim == 20</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;coolya&gt; i don't know why, maybe some other devices don't support lowe values</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Kaik541&gt; if you want lower, set it yourself and you live with it</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;atinm&gt; found it</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;atinm&gt; sec</span><br />
+<span class="irc-date">[20:52]</span> <span class="irc-black">&lt;Kaik541&gt; <a href="http://forum.xda-developers.com/showpost.php?p=13992841&amp;postcount=6749">http://forum.xda-developers.com/showpost.php?p=13992841&amp;postcount=6749</a></span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;atinm&gt; I'll find it - wait.</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;atinm&gt; my TAGS file is out of date</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;atinm&gt; it seems like a config thing</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;atinm&gt; want to try it</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[20:53]</span> <span class="irc-black">&lt;atinm&gt; but need to find where it is</span><br />
+<span class="irc-date">[20:54]</span> <span class="irc-black">&lt;atinm&gt; ok, yes - default is 20</span><br />
+<span class="irc-date">[20:55]</span> <span class="irc-black">&lt;Kaik541&gt; samsung default was 20 (I remember because power widgets would reset to 20% when I selected 10%)</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;atinm&gt; lol</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;atinm&gt; we can just do it.</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;atinm&gt; CyanogenMod Settings &gt; Display &gt; Auto Backlight &gt; Screen dim level</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;atinm&gt; set it lower</span><br />
+<span class="irc-date">[20:57]</span> <span class="irc-black">&lt;techmik&gt; so i had those 2 issues from the pastebin.... finish building with the 2 manually copied........ flash....... stuck on bootlogo</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, I tried doing that</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;Kaik541&gt; atinm, set it to 16, nothing happened</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;atinm&gt; yeah..</span><br />
+<span class="irc-date">[20:58]</span> <span class="irc-black">&lt;atinm&gt; hmm</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[20:59]</span> <span class="irc-black">&lt;Kaik541&gt; those custom levels were definitely usable at some point</span><br />
+<span class="irc-date">[21:00]</span> <span class="irc-black">&lt;TMC_Sherpa_&gt; because there isn't enough going on in here I think the problem is in drivers/misc/sec_jack.c atinm</span><br />
