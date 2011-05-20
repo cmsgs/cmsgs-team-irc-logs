@@ -811,3 +811,42 @@
 <span class="irc-date">[8:57]</span> <span class="irc-black">&lt;Unhelpful&gt; which they can't actually do w/o a license violation, unless the sources are gpl. ;)</span><br />
 <span class="irc-date">[8:57]</span> <span class="irc-black">&lt;koush&gt; i'll be back on monday heh</span><br />
 <span class="irc-date">[8:58]</span> <span class="irc-black">&lt;koush&gt; vegas :)</span><br />
+<span class="irc-date">[9:03]</span> <span class="irc-navy">* codeworkx (~yaaic@tmo-106-87.customers.d1-online.com) Quit (Quit: Yaaic - Yet another Android IRC client - <a href="http://www.yaaic.org)">http://www.yaaic.org)</a></span><br />
+<span class="irc-date">[9:09]</span> <span class="irc-brick">* ylooca|work haz param partition driver :D</span><br />
+<span class="irc-date">[9:11]</span> <span class="irc-black">&lt;Kaik541&gt; well that was fast</span><br />
+<span class="irc-date">[9:11]</span> <span class="irc-black">&lt;ylooca|work&gt; only the driver for param magic it self</span><br />
+<span class="irc-date">[9:11]</span> <span class="irc-black">&lt;ylooca|work&gt; not for the fs</span><br />
+<span class="irc-date">[9:12]</span> <span class="irc-black">&lt;ylooca|work&gt; samsung published a source tat with ALL their modules</span><br />
+<span class="irc-date">[9:17]</span> <span class="irc-brick">* Unhelpful has a bad feeling about these media codec libraries...</span><br />
+<span class="irc-date">[9:20]</span> <span class="irc-black">&lt;Wout`&gt; why?</span><br />
+<span class="irc-date">[9:24]</span> <span class="irc-black">&lt;Unhelpful&gt; they simply don't define *any* of the same symbols as the media libraries we're using... and i'm especially concerned that none of them appear to define symbols that look obviously part of some sort of codec registration interface.</span><br />
+<span class="irc-date">[9:24]</span> <span class="irc-black">&lt;Unhelpful&gt; i don't think the "OMX" referenced by the codecs we use now and that referenced by these codecs is the same.</span><br />
+<span class="irc-date">[9:26]</span> <span class="irc-black">&lt;Wout`&gt; but seeing that they're useable by other players too, they seem to be tied into the os/kernel, not just into the sammy video player</span><br />
+<span class="irc-date">[9:27]</span> <span class="irc-black">&lt;Wout`&gt; so they must be exposed to the other video apps in some standardized way</span><br />
+<span class="irc-date">[9:27]</span> <span class="irc-black">&lt;ylooca|work&gt; all those apps use the media framework on the device</span><br />
+<span class="irc-date">[9:27]</span> <span class="irc-black">&lt;ylooca|work&gt; in our care OMX</span><br />
+<span class="irc-date">[9:27]</span> <span class="irc-black">&lt;ylooca|work&gt; s/care/case</span><br />
+<span class="irc-date">[9:28]</span> <span class="irc-black">&lt;Unhelpful&gt; i think that all of these, even the *omx*-named ones, are from some other framework...</span><br />
+<span class="irc-date">[9:28]</span> <span class="irc-black">&lt;Unhelpful&gt; but we'll see. ;)</span><br />
+<span class="irc-date">[9:29]</span> <span class="irc-black">&lt;ylooca|work&gt; :-)</span><br />
+<span class="irc-date">[9:29]</span> <span class="irc-black">&lt;Unhelpful&gt; do we *have* any sources for the framework that loads these?</span><br />
+<span class="irc-date">[9:29]</span> <span class="irc-black">&lt;Unhelpful&gt; could we construct some sort of frankenframework that could load them? ;)</span><br />
+<span class="irc-date">[9:30]</span> <span class="irc-black">&lt;ylooca|work&gt; i think we have</span><br />
+<span class="irc-date">[9:30]</span> <span class="irc-black">&lt;ylooca|work&gt; but i didn't look at the source</span><br />
+<span class="irc-date">[9:31]</span> <span class="irc-black">&lt;ylooca|work&gt; cyanogen should now whats happening he is familiar with the hole mediaframework stuff on android</span><br />
+<span class="irc-date">[9:31]</span> <span class="irc-black">&lt;Unhelpful&gt; i want my 720 avc mkv on my 320p screen ;)</span><br />
+<span class="irc-date">[9:31]</span> <span class="irc-black">&lt;ylooca|work&gt; lol</span><br />
+<span class="irc-date">[9:32]</span> <span class="irc-black">&lt;ylooca|work&gt; why not 1020p?</span><br />
+<span class="irc-date">[9:32]</span> <span class="irc-black">&lt;ylooca|work&gt; :-P</span><br />
+<span class="irc-date">[9:33]</span> <span class="irc-black">&lt;Unhelpful&gt; because i don't think that the decoders ever supported that?</span><br />
+<span class="irc-date">[9:34]</span> <span class="irc-black">&lt;Unhelpful&gt; it *would* be nifty to have a media framework that's just a wrapper around ffmpeg. why can't we do it that way? ;)</span><br />
+<span class="irc-date">[9:35]</span> <span class="irc-black">&lt;Wout`&gt; if you can run ffmpeg on the mfc/gpu, sure :P</span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;ylooca|work&gt; <a href="http://dl.dropbox.com/u/4077110/samsung.zip">http://dl.dropbox.com/u/4077110/samsung.zip</a></span><br />
+<span class="irc-date">[9:37]</span> <span class="irc-black">&lt;ylooca|work&gt; all sammy closed source modules</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-black">&lt;Unhelpful&gt; ...well, right now we can't use samsung's codecs on the GPU/MFC either. :P</span><br />
+<span class="irc-date">[9:38]</span> <span class="irc-navy">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) Quit (Read error: Operation timed out)</span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-black">&lt;ylooca|work&gt; <a href="http://pastebin.com/5MuvebHT">http://pastebin.com/5MuvebHT</a></span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-black">&lt;ylooca|work&gt; lol</span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-black">&lt;ylooca|work&gt; in the smasung source :D</span><br />
+<span class="irc-date">[9:40]</span> <span class="irc-black">&lt;Unhelpful&gt; hah, yeah, that doesn't work, and there seem to be some gfx issues as well</span><br />
+<span class="irc-date">[9:42]</span> <span class="irc-black">&lt;Unhelpful&gt; controls don't redraw when they should, etc</span><br />
