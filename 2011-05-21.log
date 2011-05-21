@@ -608,3 +608,106 @@
 <span class="irc-date">[9:51]</span> <span class="irc-black">&lt;Kaik541&gt; makes sense</span><br />
 <span class="irc-date">[9:58]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
 <span class="irc-date">[9:58]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[10:01]</span> <span class="irc-navy">* Charkey (~Laurent@cpe-76-175-105-20.socal.res.rr.com) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[10:02]</span> <span class="irc-black">&lt;codeworkx&gt; sd.-fakbndsöfjnaskjdfsdjfn fuck grub</span><br />
+<span class="irc-date">[10:04]</span> <span class="irc-black">&lt;Unhelpful&gt; ...wat?</span><br />
+<span class="irc-date">[10:06]</span> <span class="irc-green">* Charkey (~Laurent@cpe-76-175-105-20.socal.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-navy">* Charkey (~Laurent@cpe-76-175-105-20.socal.res.rr.com) Quit (Ping timeout: 276 seconds)</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.49) has joined this channel.</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: Q: How do I get GTalk to work with the Front Facing Camera? -&gt; works if gapps is updated</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;coolya&gt; damn samsung ... they use the bootloader so supply a debug level to kernel, then expose it via sysfs and finally read it from sysfs in userspace m(</span><br />
+<span class="irc-date">[10:16]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: the cam lib supports it</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, I pulled that from atinm's post, will change</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;coolya&gt; lets write a fake sysfs driver</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: but good job</span><br />
+<span class="irc-date">[10:17]</span> <span class="irc-black">&lt;Kaik541&gt; thanks</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;Unhelpful&gt; fake, how?</span><br />
+<span class="irc-date">[10:18]</span> <span class="irc-black">&lt;coolya&gt; just return the magic the expect in userspace</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: did you test the sound stuff on cappy?</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, no one has told me what to do</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;coolya&gt; s/the/they</span><br />
+<span class="irc-date">[10:19]</span> <span class="irc-black">&lt;Unhelpful&gt; coolya: make /sys a unionfs of the real sysfs, and one file w/ the desired contents. ;)</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: goto your kernel dir and    git pull git://github.com/techmik/android_kernel_samsung.git tmc2    after this build with   ./build.sh captivatemtd kernel</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: atinm|night should test it, but i think he only did vibrant</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;Kaik541&gt; codeworkx, I'm so out of sync and am about to head to bed</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;codeworkx&gt; Kaik541: np</span><br />
+<span class="irc-date">[10:20]</span> <span class="irc-black">&lt;Unhelpful&gt; when your only tool is a sledgehammer, all problems look like... um, things you could smash?</span><br />
+<span class="irc-date">[10:21]</span> <span class="irc-black">&lt;coolya&gt; Unhelpful: i have got the original driver, that depends on param.blk i will just change get_debug_level logic to return alway SAMSUNG_DEBUG_LEVEL_HIGH done :D</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-navy">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;Unhelpful&gt; can't come up w/ anything less sensible than that? ;)</span><br />
+<span class="irc-date">[10:22]</span> <span class="irc-black">&lt;Unhelpful&gt; received @ work: "For the safety of all employees, please refrain from feeding the geese at the rear of the building; they are wild birds that may bite."</span><br />
+<span class="irc-date">[10:23]</span> <span class="irc-black">&lt;coolya&gt; lol</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;Unhelpful&gt; they're geese. they don't even have teeth. they don't bite... they... nip? peck? not really sure. :P</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;Kaik541&gt; Unhelpful, they bite</span><br />
+<span class="irc-date">[10:24]</span> <span class="irc-black">&lt;Kaik541&gt; if you've ever been biten by goose, you would see that that's the most apt word to describe it</span><br />
+<span class="irc-date">[10:26]</span> <span class="irc-black">&lt;Kaik541&gt; they will clamp down even</span><br />
+<span class="irc-date">[10:28]</span> <span class="irc-navy">* knowsnotmuch (~ashwinds@122.174.132.49) Quit (Read error: Connection reset by peer)</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-green">* knowsnotmuch (~ashwinds@122.174.132.49) has joined this channel.</span><br />
+<span class="irc-date">[10:29]</span> <span class="irc-green">* ChanServ sets mode +v knowsnotmuch</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;atinm|night&gt; morning</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;Kaik541&gt; morning</span><br />
+<span class="irc-date">[10:34]</span> <span class="irc-black">&lt;coolya&gt; morning</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;atinm|night&gt; hey</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;atinm|night&gt; \</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;atinm|night&gt; how come captivatemtd didn't build a nightly</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-green">* atinm|night is now known as atinm</span><br />
+<span class="irc-date">[10:35]</span> <span class="irc-black">&lt;Kaik541&gt; atinm|night, they broke something</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;coolya&gt; sometimes the build bots fail</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;atinm&gt; hmm.</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;atinm&gt; well, we should see if we can build it.</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;Kaik541&gt; I think wootroot fired up the build machines again though</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;atinm&gt; I'll start a build.</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;atinm&gt; ah.</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;Kaik541&gt; the issue was found by steve</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;atinm&gt; so not specific to captviate?</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;Kaik541&gt; and he already fixed it</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;coolya&gt; the failes once will be rebuild</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;atinm&gt; ok</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;Kaik541&gt; yeah ciwrl[away] thinks about half the builds failed</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-black">&lt;atinm&gt; ok - I don't feel so bad then :)</span><br />
+<span class="irc-date">[10:36]</span> <span class="irc-green">* atinm is now known as atinm|away</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;atinm|away&gt; woke up wrong</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;atinm|away&gt; my back and abdomen hurt</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;Kaik541&gt; galaxy s and vibrant were just in schedule after the error got identified and fixed</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;atinm|away&gt; wasn't quite feeling well and now back to shit</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;atinm|away&gt; going to lie down for a little longer</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;atinm|away&gt; back later</span><br />
+<span class="irc-date">[10:37]</span> <span class="irc-black">&lt;coolya&gt; woooo faking debug level works :-)</span><br />
+<span class="irc-date">[10:38]</span> <span class="irc-black">&lt;coolya&gt; samsung is now talk much more to me</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-green">* codeworkx (~codeworkx@188-195-7-18-dynip.superkabel.de) has joined this channel.</span><br />
+<span class="irc-date">[10:39]</span> <span class="irc-green">* ChanServ sets mode +o codeworkx</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;coolya&gt; samsug you bastards</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;coolya&gt; damn</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-navy">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;coolya&gt; damn</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;coolya&gt; damn</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;coolya&gt; damn</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;coolya&gt; i hate them .... fuck it</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-black">&lt;coolya&gt; next sysfs to fake :(</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[10:40]</span> <span class="irc-green">* ChanServ sets mode +o Kaik541</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;coolya&gt; the tell the battery driver over sysfs that a datacall is running to set up the regulators</span><br />
+<span class="irc-date">[10:41]</span> <span class="irc-black">&lt;coolya&gt; why on earth</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;coolya&gt; and the ril is failing to setup data call it can't find it in sysfs</span><br />
+<span class="irc-date">[10:42]</span> <span class="irc-black">&lt;coolya&gt; m(</span><br />
+<span class="irc-date">[10:46]</span> <span class="irc-brick">* knowsnotmuch lol @ "samsung is now talk much more to me"...and then..."samsug you bastards"</span><br />
+<span class="irc-date">[10:48]</span> <span class="irc-black">&lt;Kaik541&gt; nice eee pad rooted</span><br />
+<span class="irc-date">[10:52]</span> <span class="irc-black">&lt;Kaik541&gt; oh apparently it's been rooted for a while, I'm just behind</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;atinm|away&gt; Y U HAZ NO CAPTIVATE?!</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;atinm|away&gt; you know</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;atinm|away&gt; I think I'm going to relax today</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;atinm|away&gt; screw xda.</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;atinm|away&gt; we have a few bugs to get fixed for release.</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;atinm|away&gt; coolya will fix them.</span><br />
+<span class="irc-date">[10:54]</span> <span class="irc-black">&lt;atinm|away&gt; since most are on vibrant ;)</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-black">&lt;atinm|away&gt; RIL, GPS, mute/unmute on call</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-black">&lt;Kaik541&gt; atinm|away, your job is to take the day off</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-black">&lt;Kaik541&gt; you're back on your shots and you woke up feeling bad</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-black">&lt;Kaik541&gt; go away</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-black">&lt;atinm|away&gt; and any that coolya doesn't fix, unhelpful is going to fix - codecs, pvr</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-black">&lt;atinm|away&gt; and any thing else codeworkx can fix.</span><br />
+<span class="irc-date">[10:55]</span> <span class="irc-black">&lt;atinm|away&gt; bye! :)</span><br />
+<span class="irc-date">[10:56]</span> <span class="irc-black">&lt;atinm|away&gt; (for a little while anyway)</span><br />
+<span class="irc-date">[10:56]</span> <span class="irc-black">&lt;atinm|away&gt; maybe back in a few  hours</span><br />
+<span class="irc-date">[10:57]</span> <span class="irc-black">&lt;atinm|away&gt; oh and TMC_Sherpa does headset/sound.</span><br />
