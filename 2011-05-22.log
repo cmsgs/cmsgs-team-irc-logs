@@ -603,3 +603,122 @@
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;atinm|away&gt; because code was unknown or maybe type wasn't ev_key</span><br />
 <span class="irc-date">[15:59]</span> <span class="irc-black">&lt;atinm|away&gt; one or the other</span><br />
 <span class="irc-date">[16:00]</span> <span class="irc-black">&lt;atinm|away&gt; for release</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://pastebin.com/LVL9fF09">http://pastebin.com/LVL9fF09</a></span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; sec_jack_buttons_filter: type=1, code=240, value=0</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; this makes me crying</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; button code 240</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; wtf</span><br />
+<span class="irc-date">[16:01]</span> <span class="irc-black">&lt;codeworkx&gt; it's 226</span><br />
+<span class="irc-date">[16:04]</span> <span class="irc-black">&lt;atinm|away&gt; lol</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;atinm|away&gt; ok - sec.</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;atinm|away&gt; let me look</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, 240 is unknown</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;atinm|away&gt; it'll send more</span><br />
+<span class="irc-date">[16:05]</span> <span class="irc-black">&lt;atinm|away&gt; or should</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;atinm|away&gt; I think I did something where I just checked type.</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;atinm|away&gt; yeah, take off the code part in the if statement and see.</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;atinm|away&gt; but first, do you get more?</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;atinm|away&gt; or just KEY_UNKNOWN</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;atinm|away&gt; this is committed stuff?</span><br />
+<span class="irc-date">[16:06]</span> <span class="irc-black">&lt;atinm|away&gt; so can I try it?</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; yeah</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;codeworkx&gt; try it</span><br />
+<span class="irc-date">[16:07]</span> <span class="irc-black">&lt;atinm|away&gt; k, sec</span><br />
+<span class="irc-date">[16:09]</span> <span class="irc-black">&lt;atinm|away&gt; any branch?</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;atinm|away&gt; or just android-samsung-2.6.35?</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;codeworkx&gt; stock branch</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-green">* dfgas (~dfgas@68-112-178-125.dhcp.fdul.wi.charter.com) has joined this channel.</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;atinm|away&gt; k</span><br />
+<span class="irc-date">[16:10]</span> <span class="irc-black">&lt;atinm|away&gt; rebuilding ..</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-navy">* techmik_laptop (~konversat@c-76-109-173-83.hsd1.fl.comcast.net) Quit (Remote host closed the connection)</span><br />
+<span class="irc-date">[16:11]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: at dialer the button is working nice</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;atinm|away&gt; but not music app?</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;atinm|away&gt; this is a kernel thing . . . it needs to send up the correct key code</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;codeworkx&gt; right</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;atinm|away&gt; and it doesn't - its that if statement</span><br />
+<span class="irc-date">[16:12]</span> <span class="irc-black">&lt;codeworkx&gt; line?</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;atinm|away&gt; 118</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;codeworkx&gt; mach aries?</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;atinm|away&gt; sec_jack.c</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;atinm|away&gt; wait</span><br />
+<span class="irc-date">[16:13]</span> <span class="irc-black">&lt;atinm|away&gt; wrong branch :)</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;atinm|away&gt; 112</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;atinm|away&gt; || (code != KEY_UNKNOWN &amp;&amp; value != 0)</span><br />
+<span class="irc-date">[16:14]</span> <span class="irc-black">&lt;atinm|away&gt; maybe try taht</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;atinm|away&gt; because we want to get into 312</span><br />
+<span class="irc-date">[16:15]</span> <span class="irc-black">&lt;atinm|away&gt; when value == 0</span><br />
+<span class="irc-date">[16:17]</span> <span class="irc-black">&lt;atinm|away&gt; my build will take a few minutes</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-navy">* dfgas (~dfgas@68-112-178-125.dhcp.fdul.wi.charter.com) Quit (Quit: Leaving)</span><br />
+<span class="irc-date">[16:18]</span> <span class="irc-green">* dfgas (~dfgas@68-112-178-125.dhcp.fdul.wi.charter.com) has joined this channel.</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-green">* techmik_laptop (~konversat@c-76-109-173-83.hsd1.fl.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:19]</span> <span class="irc-green">* ChanServ sets mode +o techmik_laptop</span><br />
+<span class="irc-date">[16:21]</span> <span class="irc-green">* techmik|away is now known as techmik</span><br />
+<span class="irc-date">[16:23]</span> <span class="irc-black">&lt;atinm|away&gt; vibrant isn't even detecting 4 pole</span><br />
+<span class="irc-date">[16:24]</span> <span class="irc-black">&lt;atinm|away&gt; wait, this is with current nightly</span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: <a href="http://pastebin.com/GWYZhtzq">http://pastebin.com/GWYZhtzq</a></span><br />
+<span class="irc-date">[16:27]</span> <span class="irc-black">&lt;codeworkx&gt; music started by pressing key</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;codeworkx&gt; but theres a 240</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;codeworkx&gt; thats not ok</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;codeworkx&gt; even if you plug in the headset, music starts auto</span><br />
+<span class="irc-date">[16:28]</span> <span class="irc-black">&lt;atinm|away&gt; how did you change the code?</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;codeworkx&gt; like u said</span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;codeworkx&gt; plugin: <a href="http://pastebin.com/W3LAnFHz">http://pastebin.com/W3LAnFHz</a></span><br />
+<span class="irc-date">[16:29]</span> <span class="irc-black">&lt;atinm|away&gt; no no</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;atinm|away&gt; if (type != EV_KEY || (code != KEY_UNKNOWN &amp;&amp; value != 0))</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;codeworkx&gt; if (type != EV_KEY || code != KEY_UNKNOWN &amp;&amp; value != 0)</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;codeworkx&gt; oh xD</span><br />
+<span class="irc-date">[16:30]</span> <span class="irc-black">&lt;atinm|away&gt; :)</span><br />
+<span class="irc-date">[16:37]</span> <span class="irc-green">* TMC_Sherpa_ (~TMC_Sherp@c-67-163-31-149.hsd1.il.comcast.net) has joined this channel.</span><br />
+<span class="irc-date">[16:46]</span> <span class="irc-black">&lt;codeworkx&gt; atinm|away: <a href="http://pastebin.com/wb7mn0bL">http://pastebin.com/wb7mn0bL</a></span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;atinm|away&gt; no, queueing type=1,code=240,value=1 shouldn't happen</span><br />
+<span class="irc-date">[16:47]</span> <span class="irc-black">&lt;atinm|away&gt; value=0 I mean</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;atinm|away&gt; no, 1 grr.</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;atinm|away&gt; sec</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;codeworkx&gt; can we simply kill 240?</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;codeworkx&gt; instead of value 1?</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;atinm|away&gt; queueing type=1, code=240, value=0</span><br />
+<span class="irc-date">[16:48]</span> <span class="irc-black">&lt;atinm|away&gt; that is what we're trying to kill</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;atinm|away&gt; I think that is what the original code did</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;codeworkx&gt; maybe 240 is not unknown?</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;atinm|away&gt; but we never seemed to get 226</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;atinm|away&gt; it is..</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;atinm|away&gt; input.h</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;codeworkx&gt; <a href="http://pastebin.com/wb7mn0bL">http://pastebin.com/wb7mn0bL</a></span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;codeworkx&gt; ops</span><br />
+<span class="irc-date">[16:49]</span> <span class="irc-black">&lt;atinm|away&gt; in include/linux.h</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;codeworkx&gt; sec_jack_buttons_filter: queueing type=1, code=226, value=0</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;atinm|away&gt; that should be fine.</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;atinm|away&gt; that is the release</span><br />
+<span class="irc-date">[16:50]</span> <span class="irc-black">&lt;codeworkx&gt; where are the codes definesd?</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;atinm|away&gt; input.h</span><br />
+<span class="irc-date">[16:51]</span> <span class="irc-black">&lt;atinm|away&gt; in include/linux</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;zachy_md|busy&gt; just a quick question:</span><br />
+<span class="irc-date">[16:53]</span> <span class="irc-black">&lt;zachy_md|busy&gt; recovery.cpio.gz &amp; ramdisk.cpio.gz are now named ramdisk.img and recovery.img ?</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;zachy_md|busy&gt; I'm currently in the process of migrating to the MTD &amp; atm trying to figure out what changed for the mkshbootimg.py</span><br />
+<span class="irc-date">[16:55]</span> <span class="irc-black">&lt;zachy_md|busy&gt; to get a resulting finished boot.img</span><br />
+<span class="irc-date">[16:56]</span> <span class="irc-brick">* zachy_md|busy continues looking through files &amp; folders how stuff has changed</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;atinm|away&gt; just look in the code. or just clone your repo into the cyanogenmod tree under kernel/samsung/aries</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;atinm|away&gt; and build.</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;atinm|away&gt; you shouldn't have to care what changed.</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;codeworkx&gt; zachy_md|busy: wait</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;atinm|away&gt; hmm, CMParts needs an LED Notifications on/off checkbox.</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-green">* Kaik541 (~IWasNever@cpe-70-112-175-254.austin.res.rr.com) has joined this channel.</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-green">* ChanServ sets mode +o Kaik541</span><br />
+<span class="irc-date">[16:57]</span> <span class="irc-black">&lt;Unhelpful&gt; zachy_md|busy: what exactly are you trying to do?</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;Unhelpful&gt; atinm|away: i thought you just set all of the apps to "off" ;/</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;atinm|away&gt; he just wants to build a kernel - I guess MIUI is trying to do the same now.</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;zachy_md|busy&gt; Unhelpful, I want to repackage the kernel like previously:</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;atinm|away&gt; use our method of install.</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;zachy_md|busy&gt; some parts are already modified:</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;zachy_md|busy&gt; ../../../device/samsung/aries-common/mkshbootimg.py release/boot.img arch/arm/boot/zImage ../../../out/target/product/vibrantmtd/ramdisk.cpio.gz ../../../out/target/product/vibrantmtd/recovery.cpio.gz</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;zachy_md|busy&gt; but those ramdisk &amp; recovery files have changed</span><br />
+<span class="irc-date">[16:58]</span> <span class="irc-black">&lt;zachy_md|busy&gt; so I try to figure out where they moved to &amp; how they got renamed</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm|away&gt; just look in the code man.</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm|away&gt; Unhelpful: yeah - but all apps to off is a pain</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;zachy_md|busy&gt; atinm|away, already grepping :p</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm|away&gt; need an easier way</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;codeworkx&gt; zachy_md|busy: <a href="http://pastebin.com/4MyETXVm">http://pastebin.com/4MyETXVm</a></span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm|away&gt; if you're just trying to build cm7, then you just need to clone under kernel/samsung/aries</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm|away&gt; and build as usual</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;codeworkx&gt; zachy_md|busy: .repo/local_manifest.xml</span><br />
+<span class="irc-date">[16:59]</span> <span class="irc-black">&lt;atinm|away&gt; if you're trying to build for MIUI, I have no idea.</span><br />
